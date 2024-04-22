@@ -11,13 +11,11 @@ plugins {
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        moduleName = "composeApp"
         browser {
             commonWebpackConfig {
-                outputFileName = "composeApp.js"
+                outputFileName = "app.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
                         add(project.projectDir.path)
                     }
                 }
@@ -25,7 +23,16 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
+    js(IR) {
+        browser {
+            commonWebpackConfig {
+                outputFileName = "app.js"
+            }
+        }
+        binaries.executable()
+    }
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -33,7 +40,7 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
     
     listOf(
@@ -56,23 +63,14 @@ kotlin {
         }
 
         val commonMain by getting
-        val jbMain by creating {
-            dependsOn(commonMain)
-        }
-        val desktopMain by getting {
-            dependsOn(jbMain)
-        }
+        val desktopMain by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependsOn(jbMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
-        }
-        val wasmJsMain by getting {
-            dependsOn(jbMain)
         }
 
         androidMain.dependencies {
@@ -80,15 +78,13 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(libs.kotlinx.datetime)
-
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.navigation.compose)
+            implementation(libs.kotlinx.datetime)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
