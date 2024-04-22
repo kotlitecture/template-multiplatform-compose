@@ -20,13 +20,13 @@ publishing {
             artifactId = rootProject.name
             from components.java
             pom {
-                name = 'Android Compose Template'
-                description = 'Kotli Android Compose Template'
-                url = 'https://github.com/kotlitecture/template-android-compose'
+                name = 'Compose Multiplatform Template'
+                description = 'Kotli Compose Multiplatform'
+                url = 'https://github.com/kotlitecture/template-multiplatform-compose'
                 licenses {
                     license {
                         name = 'MIT License'
-                        url = 'https://github.com/kotlitecture/template-android-compose/blob/main/LICENSE'
+                        url = 'https://github.com/kotlitecture/template-multiplatform-compose/blob/main/LICENSE'
                     }
                 }
                 developers {
@@ -37,9 +37,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/kotlitecture/template-android-compose.git'
-                    developerConnection = 'scm:git:ssh://github.com/kotlitecture/template-android-compose.git'
-                    url = 'https://github.com/kotlitecture/template-android-compose'
+                    connection = 'scm:git:git://github.com/kotlitecture/template-multiplatform-compose.git'
+                    developerConnection = 'scm:git:ssh://github.com/kotlitecture/template-multiplatform-compose.git'
+                    url = 'https://github.com/kotlitecture/template-multiplatform-compose'
                 }
             }
         }
