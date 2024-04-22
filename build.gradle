@@ -1,0 +1,29 @@
+plugins {
+    alias(libs.plugins.version.catalog.versions) apply true
+    alias(libs.plugins.version.catalog.update) apply true
+    alias(libs.plugins.kotlin.jvm) apply false
+}
+
+versionCatalogUpdate {
+    sortByKey = true
+    keep {
+        keepUnusedPlugins = true
+        keepUnusedVersions = true
+        keepUnusedLibraries = true
+    }
+}
+
+tasks.register('cleanAll') {
+    doLast {
+        def dirs = []
+        project.rootDir.eachDirRecurse { dir ->
+            if (dir.getName() == "build" && dir.parentFile.listFiles().any { it.getName().startsWith("build.gradle") }) {
+                if(!dirs.any { it.path.startsWith(dir.path) }) {
+                    println("delete dir >> ${dir}")
+                    dirs.add(dir)
+                }
+            }
+        }
+        delete(dirs)
+    }
+}

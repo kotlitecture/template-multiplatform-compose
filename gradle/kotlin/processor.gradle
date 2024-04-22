@@ -1,0 +1,13 @@
+apply from: "${project.rootDir}/gradle/kotlin/library.gradle"
+
+processResources {
+    from('../template') {
+        into("kotli/templates/${rootProject.name}")
+        exclude "**/.gradle"
+        exclude "**/build"
+    }
+}
+
+dependencies {
+    api libs.kotli.engine
+}

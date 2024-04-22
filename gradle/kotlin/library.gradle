@@ -1,0 +1,76 @@
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'maven-publish'
+
+dependencies {
+    api libs.bundles.logging
+    testImplementation libs.bundles.kotlinTest
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Version': archiveVersion
+        )
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = rootProject.name
+            from components.java
+            pom {
+                name = 'Android Compose Template'
+                description = 'Kotli Android Compose Template'
+                url = 'https://github.com/kotlitecture/template-android-compose'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://github.com/kotlitecture/template-android-compose/blob/main/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'aleksha'
+                        name = 'Aleksha'
+                        email = 'kotlitecture@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/kotlitecture/template-android-compose.git'
+                    developerConnection = 'scm:git:ssh://github.com/kotlitecture/template-android-compose.git'
+                    url = 'https://github.com/kotlitecture/template-android-compose'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "GA"
+            url "https://us-maven.pkg.dev/kotlitecture/kotli-maven"
+            credentials {
+                username = '_json_key_base64'
+                password = findProperty('artifactRegistryMavenSecret')
+            }
+        }
+    }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
