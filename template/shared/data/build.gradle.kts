@@ -9,12 +9,20 @@ plugins {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "11"
+            }
+        }
+    }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
     jvm()
-    js()
+    js(IR) {
+        browser()
+    }
     wasmJs()
     applyDefaultHierarchyTemplate()
 }

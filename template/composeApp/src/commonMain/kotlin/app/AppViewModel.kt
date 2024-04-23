@@ -1,5 +1,5 @@
 package app
 
-import androidx.lifecycle.ViewModel
+import core.ui.BaseViewModel
 
-class AppViewModel : ViewModel()
+class AppViewModel : BaseViewModel()
