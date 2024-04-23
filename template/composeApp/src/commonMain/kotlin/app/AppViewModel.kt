@@ -1,5 +1,8 @@
 package app
 
 import core.ui.BaseViewModel
+import core.ui.theme.ThemeState
 
-class AppViewModel : BaseViewModel()
+class AppViewModel(
+    val themeState: ThemeState
+) : BaseViewModel()

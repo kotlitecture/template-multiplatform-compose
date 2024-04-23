@@ -208,7 +208,7 @@ fun <VM : BaseViewModel> provideViewModel(
 }
 
 @Composable
-fun ViewModelStoreOwnerProvider(content: @Composable () -> Unit) {
+fun ViewModelProvider(content: @Composable () -> Unit) {
     if (LocalViewModelStoreOwner.current != null) {
         content()
     } else {

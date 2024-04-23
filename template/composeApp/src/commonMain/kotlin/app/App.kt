@@ -1,32 +1,12 @@
 package app
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
-import core.ui.ViewModelStoreOwnerProvider
-import core.ui.theme.ThemeConfig
-import core.ui.theme.ThemeProvider
-import core.ui.theme.ThemeState
-import core.ui.theme.material3.Material3Themes
+import app.ui.theme.AppThemeProvider
+import core.ui.ViewModelProvider
 
 @Composable
-fun App() = ViewModelStoreOwnerProvider {
-    val themeState = remember {
-        ThemeState(
-            defaultConfig = ThemeConfig(
-                defaultTheme = Material3Themes.light(),
-                lightTheme = Material3Themes.light(),
-                darkTheme = Material3Themes.dark()
-            )
-        )
+fun App() = ViewModelProvider {
+    AppThemeProvider {
+        AppScreen()
     }
-    LaunchedEffect(themeState) {
-        themeState.configStore.set(themeState.defaultConfig)
-    }
-    ThemeProvider(
-        state = themeState,
-        content = {
-            AppScreen()
-        }
-    )
 }
