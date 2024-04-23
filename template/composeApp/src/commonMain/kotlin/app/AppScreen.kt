@@ -17,9 +17,9 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun AppScreen(
-    viewModel: AppViewModel = appViewModel(AppViewModel::class),
     navController: NavHostController = rememberNavController()
 ) {
+    val viewModel: AppViewModel = appViewModel(AppViewModel::class)
     Scaffold { innerPadding ->
         NavHost(
             navController = navController,
