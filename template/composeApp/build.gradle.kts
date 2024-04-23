@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.androidApplication)
+    alias(libs.plugins.skie)
 }
 
 kotlin {
