@@ -14,6 +14,7 @@ import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import app.di.koinGet
 import core.ui.misc.extensions.findActivity
+import core.ui.navigation.NavigationState
 import core.ui.theme.ThemeState
 
 class AppActivity : ComponentActivity() {
@@ -23,7 +24,7 @@ class AppActivity : ComponentActivity() {
         setContent {
             App()
             EdgeToEdgeHandler(koinGet())
-            SplashBlock(splashScreen)
+            SplashBlock(splashScreen, koinGet())
         }
     }
 }
@@ -48,6 +49,6 @@ private fun EdgeToEdgeHandler(state: ThemeState) {
 }
 
 @Composable
-private fun SplashBlock(splashScreen: SplashScreen) {
-    splashScreen.setKeepOnScreenCondition { false }
+private fun SplashBlock(splashScreen: SplashScreen, navigationState: NavigationState) {
+    splashScreen.setKeepOnScreenCondition { navigationState.currentDestinationStore.isNull() }
 }

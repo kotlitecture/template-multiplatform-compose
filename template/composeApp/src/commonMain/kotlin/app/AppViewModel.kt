@@ -1,8 +1,18 @@
 package app
 
 import core.ui.BaseViewModel
-import core.ui.theme.ThemeState
+import core.ui.navigation.NavigationState
 
 class AppViewModel(
-    val themeState: ThemeState
-) : BaseViewModel()
+    private val navigationRouter: AppNavigationRouter,
+    val navigationState: NavigationState
+) : BaseViewModel() {
+
+    override fun doBind() {
+        launchAsync("doBind") {
+            val startDestination = navigationRouter.getStartDestination()
+            navigationState.setStartDestination(startDestination)
+        }
+    }
+
+}

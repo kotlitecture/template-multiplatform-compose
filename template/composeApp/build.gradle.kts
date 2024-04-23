@@ -63,13 +63,6 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.shared.data)
             implementation(projects.shared.ui)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
-            implementation(libs.androidx.navigation.compose)
-            implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
 
         }

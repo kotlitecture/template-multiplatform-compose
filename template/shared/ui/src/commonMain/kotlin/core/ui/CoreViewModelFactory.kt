@@ -3,10 +3,12 @@ package core.ui
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import core.ui.navigation.NavigationViewModel
 import core.ui.theme.ThemeViewModel
 import kotlin.reflect.KClass
 
 internal val CoreViewModelFactory = viewModelFactory {
+    initializer { NavigationViewModel() }
     initializer { ThemeViewModel() }
 }
 

@@ -30,14 +30,15 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
-            implementation(libs.androidx.navigation.compose)
-            implementation(libs.kotlin.coroutines.core)
-            implementation(libs.kotlinx.datetime)
+            api(compose.foundation)
+            api(compose.material3)
+            api(compose.components.resources)
+            api(compose.components.uiToolingPreview)
+            api(libs.androidx.lifecycle.viewmodel.compose)
+            api(libs.androidx.navigation.compose)
+            api(libs.kotlin.coroutines.core)
+            api(libs.kotlin.serialization.json)
+            api(libs.kotlinx.datetime)
         }
         androidMain.dependencies {
             implementation(libs.androidx.appcompat)
