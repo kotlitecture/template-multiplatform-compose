@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontFamily
 abstract class ThemeData {
 
     abstract val providerId: String?
+    abstract val dark: Boolean
 
     open val fontFamily: FontFamily = FontFamily.Default
 
@@ -51,6 +52,7 @@ abstract class ThemeData {
     /** Represents no theme data. */
     class NoThemeData : ThemeData() {
         override val providerId: String? = null
+        override val dark: Boolean = false
     }
 
     companion object {

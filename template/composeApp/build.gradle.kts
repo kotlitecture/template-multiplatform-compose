@@ -6,8 +6,9 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.androidApplication)
 }
 
 kotlin {
@@ -69,11 +70,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlinx.datetime)
+            implementation(libs.koin.core)
 
-        }
-        androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.activity.compose)
         }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)

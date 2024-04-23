@@ -4,8 +4,9 @@ import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.skie)
 }
 
@@ -39,6 +40,9 @@ kotlin {
             implementation(libs.kotlinx.datetime)
         }
         androidMain.dependencies {
+            implementation(libs.androidx.appcompat)
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.kotlin.coroutines.android)
         }
         jvmMain.dependencies {
