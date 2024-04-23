@@ -1,6 +1,6 @@
 package app
 
-import app.ui.screen.template_no_args.TemplateDestination
+import app.ui.screen.template_no_args.TemplateNoArgsDestination
 import core.ui.navigation.NavigationDestination
 
 /**
@@ -14,7 +14,7 @@ class AppNavigationRouter() {
      * @return The start destination.
      */
     suspend fun getStartDestination(): NavigationDestination<*> {
-        return TemplateDestination
+        return TemplateNoArgsDestination
     }
 
 }
