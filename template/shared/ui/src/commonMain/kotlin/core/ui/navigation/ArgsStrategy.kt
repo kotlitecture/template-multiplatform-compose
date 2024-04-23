@@ -74,6 +74,16 @@ interface ArgsStrategy<D> {
         }
     }
 
+    /**
+     * A [ArgsStrategy] implementation that stores objects in memory.
+     */
+    @Immutable
+    object NoArgs : ArgsStrategy<Any> {
+        @Composable
+        override fun toObject(from: String): Any? = null
+        override fun toString(from: Any): String? = null
+    }
+
     companion object {
         /**
          * Creates a [ArgsStrategy] that uses JSON serialization.
@@ -93,5 +103,13 @@ interface ArgsStrategy<D> {
          */
         @Suppress("UNCHECKED_CAST")
         fun <D> memory(): ArgsStrategy<D> = InMemory as ArgsStrategy<D>
+
+        /**
+         * Creates a [ArgsStrategy] that do nothing.
+         *
+         * @return An instance of [NoArgs].
+         */
+        @Suppress("UNCHECKED_CAST")
+        fun <D> noArgs(): ArgsStrategy<D> = NoArgs as ArgsStrategy<D>
     }
 }

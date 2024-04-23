@@ -136,12 +136,8 @@ abstract class NavigationDestination<D> {
 
     @Composable
     private fun route(routeData: RouteData<D>) {
-        val value = routeData.entry.arguments
-            ?.getString(ATTR_DATA)
-        println("ARGSSS :: ${value}")
-        val data = value
-            ?.takeIf { it != "{${ATTR_DATA}}" }
-            ?.let { argsStrategy.toObject(it) }
+        val value = routeData.entry.arguments?.getString(ATTR_DATA)
+        val data = value?.let { argsStrategy.toObject(it) }
         routeData.content(data)
     }
 

@@ -1,7 +1,6 @@
 package core.ui.navigation
 
 import core.ui.BaseViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
