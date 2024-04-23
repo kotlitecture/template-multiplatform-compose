@@ -10,16 +10,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import app.di.koinGet
 import core.ui.misc.extensions.findActivity
 import core.ui.theme.ThemeState
 
 class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
-            EdgeToEdgeHandler(koinGet())
             App()
+            EdgeToEdgeHandler(koinGet())
+            SplashBlock(splashScreen)
         }
     }
 }
@@ -41,4 +45,9 @@ private fun EdgeToEdgeHandler(state: ThemeState) {
             navigationBarStyle = barStyle
         )
     }
+}
+
+@Composable
+private fun SplashBlock(splashScreen: SplashScreen) {
+    splashScreen.setKeepOnScreenCondition { false }
 }
