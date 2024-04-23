@@ -1,23 +1,22 @@
-package app
+package core.ui
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import core.ui.BaseViewModel
-import core.ui.provideViewModel
+import core.ui.theme.ThemeViewModel
 import kotlin.reflect.KClass
 
-internal val AppViewModelFactory = viewModelFactory {
-    initializer { AppViewModel() }
+internal val CoreViewModelFactory = viewModelFactory {
+    initializer { ThemeViewModel() }
 }
 
 @Composable
-internal fun <VM : BaseViewModel> appViewModel(
+internal fun <VM : BaseViewModel> coreViewModel(
     modelClass: KClass<VM>,
     key: String? = null,
 ): VM =
     provideViewModel(
         key = key,
         modelClass = modelClass,
-        factory = AppViewModelFactory
+        factory = CoreViewModelFactory
     )
