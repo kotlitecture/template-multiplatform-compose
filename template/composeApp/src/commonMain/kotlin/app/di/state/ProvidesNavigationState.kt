@@ -1,5 +1,6 @@
 package app.di.state
 
+import app.showcases.ShowcasesDestination
 import app.ui.screen.template.TemplateDestination
 import app.ui.screen.template_no_args.TemplateNoArgsDestination
 import core.ui.navigation.NavigationState
@@ -9,8 +10,9 @@ val NavigationStateModule = module {
     single {
         NavigationState(
             destinations = listOf(
+                ShowcasesDestination,
+                TemplateDestination,
                 TemplateNoArgsDestination,
-                TemplateDestination
             )
         )
     }
