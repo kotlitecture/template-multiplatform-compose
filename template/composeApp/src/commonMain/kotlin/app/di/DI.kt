@@ -3,6 +3,7 @@ package app.di
 import app.di.datasource.ProvidesAnalyticsSource
 import app.di.datasource.ProvidesConfigSource
 import app.di.datasource.ProvidesKeyValueSource
+import app.di.datasource.ProvidesPagingSource
 import app.di.state.ProvidesNavigationState
 import app.di.state.ProvidesThemeState
 import app.di.viewmodel.ProvidesViewModels
@@ -14,6 +15,7 @@ val koinDI = startKoin {
         ProvidesAnalyticsSource,
         ProvidesConfigSource,
         ProvidesKeyValueSource,
+        ProvidesPagingSource,
         ProvidesNavigationState,
         ProvidesThemeState,
         ProvidesViewModels,
