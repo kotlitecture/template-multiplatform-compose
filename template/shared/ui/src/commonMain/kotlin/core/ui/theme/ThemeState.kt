@@ -15,7 +15,7 @@ import core.ui.state.StoreState
  * @property availableThemes The list of all available theme data providers.
  */
 data class ThemeState(
-    val persistentKey: String? = "theme_config",
+    val persistentKey: String = "theme_config",
     val defaultConfig: ThemeConfig,
     val dynamicConfig: ThemeConfig? = null,
     val availableThemes: List<ThemeDataProvider<*>> = emptyList(),

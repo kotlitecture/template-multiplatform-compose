@@ -7,6 +7,7 @@ import app.di.koinGet
 import app.showcases.ShowcasesViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
+import app.ui.theme.AppThemePersistenceViewModel
 import app.ui.theme.AppThemeViewModel
 import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
@@ -15,8 +16,9 @@ import core.ui.provideViewModel
 import kotlin.reflect.KClass
 
 internal val AppViewModelFactory = viewModelFactory {
-    initializer { koinGet<AppThemeViewModel>() }
     initializer { koinGet<AppViewModel>() }
+    initializer { koinGet<AppThemeViewModel>() }
+    initializer { koinGet<AppThemePersistenceViewModel>() }
     initializer { koinGet<TemplateNoArgsViewModel>() }
     initializer { koinGet<TemplateViewModel>() }
     initializer { koinGet<ShowcasesViewModel>() }

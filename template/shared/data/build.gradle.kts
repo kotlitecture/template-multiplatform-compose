@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.androidLibrary)
 }
 
@@ -24,6 +25,15 @@ kotlin {
     }
     wasmJs()
     applyDefaultHierarchyTemplate()
+
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.kotlin.coroutines.core)
+            api(libs.kotlin.serialization.json)
+            api(libs.kotlinx.datetime)
+            api(libs.multiplatform.settings.no.arg)
+        }
+    }
 }
 
 android {

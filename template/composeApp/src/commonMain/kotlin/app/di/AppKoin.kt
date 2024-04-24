@@ -1,15 +1,17 @@
 package app.di
 
-import app.di.state.NavigationStateModule
-import app.di.state.ThemeStateModule
+import app.di.datasource.ProvidesKeyValueSource
+import app.di.state.ProvidesNavigationState
+import app.di.state.ProvidesThemeState
 import org.koin.core.context.startKoin
 
 val AppKoin = startKoin {
     printLogger()
     modules(
-        NavigationStateModule,
-        ThemeStateModule,
-        AppModule
+        ProvidesKeyValueSource,
+        ProvidesNavigationState,
+        ProvidesThemeState,
+        ProvidesViewModels,
     )
 }
 

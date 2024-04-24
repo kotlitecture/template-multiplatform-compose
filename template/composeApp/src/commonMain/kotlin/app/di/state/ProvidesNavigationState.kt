@@ -8,7 +8,7 @@ import app.userflow.theme.change.ChangeThemeDialogDestination
 import core.ui.navigation.NavigationState
 import org.koin.dsl.module
 
-val NavigationStateModule = module {
+val ProvidesNavigationState = module {
     single {
         NavigationState(
             destinations = listOf(

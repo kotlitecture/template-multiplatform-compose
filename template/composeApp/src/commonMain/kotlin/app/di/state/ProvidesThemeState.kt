@@ -5,7 +5,7 @@ import core.ui.theme.ThemeState
 import core.ui.theme.material3.Material3Themes
 import org.koin.dsl.module
 
-val ThemeStateModule = module {
+val ProvidesThemeState = module {
     single {
         ThemeState(
             defaultConfig = ThemeConfig(

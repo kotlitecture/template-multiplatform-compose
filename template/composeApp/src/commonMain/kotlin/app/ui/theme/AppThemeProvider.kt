@@ -6,6 +6,6 @@ import core.ui.theme.ThemeProvider
 
 @Composable
 fun AppThemeProvider(content: @Composable () -> Unit) {
-    val viewModel = appViewModel(AppThemeViewModel::class)
+    val viewModel = appViewModel(AppThemePersistenceViewModel::class)
     ThemeProvider(viewModel.themeState, content)
 }

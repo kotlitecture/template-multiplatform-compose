@@ -5,14 +5,16 @@ import app.AppViewModel
 import app.showcases.ShowcasesViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
+import app.ui.theme.AppThemePersistenceViewModel
 import app.ui.theme.AppThemeViewModel
 import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
 import org.koin.dsl.module
 
-val AppModule = module {
+val ProvidesViewModels = module {
     // app
     factory { AppThemeViewModel(get()) }
+    factory { AppThemePersistenceViewModel(get(), get()) }
     factory { AppViewModel(get(), get()) }
     factory { AppNavigationRouter() }
 
