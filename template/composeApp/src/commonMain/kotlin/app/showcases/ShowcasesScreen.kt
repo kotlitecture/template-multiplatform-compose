@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.AlertDialog
@@ -24,7 +23,6 @@ import app.appViewModel
 import app.ui.component.basic.ActionButton
 import app.ui.component.basic.AnyIcon
 import app.ui.component.basic.Spacer16
-import app.ui.container.FixedHeaderFooterLazyColumnLayout
 import app.ui.container.FixedTopBarLazyColumnLayout
 import core.ui.state.StoreObject
 import core.ui.theme.material3.Material3ThemeData

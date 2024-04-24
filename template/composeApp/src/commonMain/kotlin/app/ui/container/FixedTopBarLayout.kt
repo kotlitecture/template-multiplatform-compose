@@ -62,7 +62,8 @@ fun FixedTopBarLazyColumnLayout(
         modifier = Modifier.fillMaxSize(),
         appearance = FixedHeaderFooterAppearance.default(),
         header = { HeaderBlock(title, onBack, actions) },
-        content = content
+        content = content,
+        footer = {}
     )
 }
 

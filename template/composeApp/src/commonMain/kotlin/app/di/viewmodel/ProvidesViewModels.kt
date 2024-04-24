@@ -3,6 +3,7 @@ package app.di.viewmodel
 import app.AppNavigationRouter
 import app.AppViewModel
 import app.showcases.ShowcasesViewModel
+import app.showcases.datasource.paging.basic.BasicPagingViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import app.ui.theme.AppThemePersistenceViewModel
@@ -17,15 +18,13 @@ val ProvidesViewModels = module {
     factory { AppThemePersistenceViewModel(get(), get()) }
     factory { AppViewModel(get(), get()) }
     factory { AppNavigationRouter() }
-
     // ui
     factory { TemplateNoArgsViewModel(get()) }
     factory { TemplateViewModel(get()) }
-
     // userflow
     factory { ChangeThemeViewModel(get(), get()) }
     factory { ToggleThemeViewModel(get()) }
-
     // showcases
     factory { ShowcasesViewModel(get()) }
+    factory { BasicPagingViewModel(get(), get()) }
 }

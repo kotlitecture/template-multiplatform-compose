@@ -1,4 +1,4 @@
-package app.showcases.theme.toggle
+package app.showcases.userflow.theme.toggle
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

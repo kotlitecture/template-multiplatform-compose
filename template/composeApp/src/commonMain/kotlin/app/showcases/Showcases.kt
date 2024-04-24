@@ -1,8 +1,9 @@
 package app.showcases
 
-import app.showcases.theme.change.ChangeThemeDialogShowcase
-import app.showcases.theme.change.ChangeThemeScreenShowcase
-import app.showcases.theme.toggle.ToggleThemeShowcase
+import app.showcases.datasource.paging.basic.BasicPagingShowcase
+import app.showcases.userflow.theme.change.ChangeThemeDialogShowcase
+import app.showcases.userflow.theme.change.ChangeThemeScreenShowcase
+import app.showcases.userflow.theme.toggle.ToggleThemeShowcase
 
 /**
  * Object containing all showcase items.
@@ -17,6 +18,8 @@ object Showcases {
         ChangeThemeScreenShowcase,
         ChangeThemeDialogShowcase,
         ToggleThemeShowcase,
+        ShowcaseItemGroup("Datasource :: Paging"),
+        BasicPagingShowcase
     )
 
 }
