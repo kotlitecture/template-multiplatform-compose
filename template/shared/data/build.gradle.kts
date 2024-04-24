@@ -1,7 +1,3 @@
-@file:OptIn(ExperimentalWasmDsl::class)
-
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
@@ -23,7 +19,6 @@ kotlin {
     js(IR) {
         browser()
     }
-    wasmJs()
     applyDefaultHierarchyTemplate()
 
     sourceSets {

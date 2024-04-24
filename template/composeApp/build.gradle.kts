@@ -39,19 +39,6 @@ kotlin {
         }
         binaries.executable()
     }
-    wasmJs {
-        browser {
-            commonWebpackConfig {
-                outputFileName = "app.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        add(project.projectDir.path)
-                    }
-                }
-            }
-        }
-        binaries.executable()
-    }
     applyDefaultHierarchyTemplate()
 
     sourceSets {
@@ -65,8 +52,8 @@ kotlin {
             implementation(projects.shared.data)
             implementation(projects.shared.ui)
             implementation(compose.components.resources)
+            implementation(libs.cashapp.paging.compose.common)
             implementation(libs.koin.core)
-
         }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
