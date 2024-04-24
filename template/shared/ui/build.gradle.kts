@@ -31,7 +31,7 @@ kotlin {
         commonMain.dependencies {
             api(compose.foundation)
             api(compose.material3)
-            api(compose.components.resources)
+            api(compose.materialIconsExtended)
             api(compose.components.uiToolingPreview)
             api(libs.androidx.lifecycle.viewmodel.compose)
             api(libs.androidx.navigation.compose)

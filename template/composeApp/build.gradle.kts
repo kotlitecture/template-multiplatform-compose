@@ -64,6 +64,7 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.shared.data)
             implementation(projects.shared.ui)
+            implementation(compose.components.resources)
             implementation(libs.koin.core)
 
         }

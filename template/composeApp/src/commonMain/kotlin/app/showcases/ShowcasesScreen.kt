@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedCard
@@ -114,7 +115,7 @@ private fun LazyListScope.showcaseItem(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(text = showcase.label)
-                AnyIcon(model = Icons.AutoMirrored.Default.KeyboardArrowRight)
+                AnyIcon(model = Icons.Default.ChevronRight)
             }
         }
     }

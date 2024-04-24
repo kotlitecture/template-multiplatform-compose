@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Template</string>
+    <string name="internet_error">No internet</string>
+    <string name="theme_change_title">Change theme</string>
+    <string name="theme_change_dynamic_color">Use Dynamic Color</string>
+    <string name="theme_change_dynamic_color_on">Yes</string>
+    <string name="theme_change_dynamic_color_off">No</string>
+    <string name="theme_change_dark_mode">Dark mode preference</string>
+    <string name="theme_change_dark_mode_system">System default</string>
+    <string name="theme_change_dark_mode_on">Dark</string>
+    <string name="theme_change_dark_mode_off">Light</string>
+    <string name="passcode_biometric_enable_text">Turn on fingerprint?</string>
+    <string name="passcode_biometric_enable_yes">Enable fingerprint</string>
+    <string name="passcode_biometric_enable_no">Skip for now</string>
+    <string name="passcode_biometric_title">Unlock the app with your fingerprint</string>
+    <string name="passcode_biometric_confirm">Confirm</string>
+    <string name="passcode_biometric_cancel">Cancel</string>
+    <string name="passcode_enable_set">Set new PIN code</string>
+    <string name="passcode_enable_confirm">Confirm new PIN code</string>
+    <string name="passcode_enable_confirm_error">PIN code don\'t match. Try again.</string>
+    <string name="passcode_forgot">Forgot?</string>
+    <string name="passcode_reset_title">Reset your pin code?</string>
+    <string name="passcode_reset_text">All local data will be lost</string>
+    <string name="passcode_reset_yes">Yes</string>
+    <string name="passcode_reset_no">No</string>
+    <string name="passcode_unlock">Enter PIN</string>
+    <string name="passcode_unlock_error">Wrong PIN (%d more attempts)</string>
 </resources>

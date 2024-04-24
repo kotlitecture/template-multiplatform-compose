@@ -8,6 +8,8 @@ import app.showcases.ShowcasesViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import app.ui.theme.AppThemeViewModel
+import app.userflow.theme.change.ChangeThemeViewModel
+import app.userflow.theme.toggle.ToggleThemeViewModel
 import core.ui.BaseViewModel
 import core.ui.provideViewModel
 import kotlin.reflect.KClass
@@ -18,6 +20,8 @@ internal val AppViewModelFactory = viewModelFactory {
     initializer { koinGet<TemplateNoArgsViewModel>() }
     initializer { koinGet<TemplateViewModel>() }
     initializer { koinGet<ShowcasesViewModel>() }
+    initializer { koinGet<ChangeThemeViewModel>() }
+    initializer { koinGet<ToggleThemeViewModel>() }
 }
 
 @Composable

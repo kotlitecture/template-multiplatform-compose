@@ -67,7 +67,7 @@ abstract class NavigationDestination<D> {
      * @return The URI representing the navigation destination.
      */
     fun toUriString(data: D? = null): String {
-        if (data == null) return id
+        if (data == null) return route
         return "$id?$ATTR_DATA=${argsStrategy.toString(data)}"
     }
 
