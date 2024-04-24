@@ -3,9 +3,10 @@ package app.di
 import app.di.datasource.ProvidesKeyValueSource
 import app.di.state.ProvidesNavigationState
 import app.di.state.ProvidesThemeState
+import app.di.viewmodel.ProvidesViewModels
 import org.koin.core.context.startKoin
 
-val AppKoin = startKoin {
+val koinDI = startKoin {
     printLogger()
     modules(
         ProvidesKeyValueSource,
@@ -15,5 +16,4 @@ val AppKoin = startKoin {
     )
 }
 
-inline fun <reified T : Any> koinGet(): T = AppKoin.koin.get<T>()
-inline fun <reified T : Any> koinInject(): Lazy<T> = AppKoin.koin.inject<T>()
+inline fun <reified T : Any> instance(): T = koinDI.koin.get<T>()

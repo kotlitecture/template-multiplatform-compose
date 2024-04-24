@@ -1,4 +1,4 @@
-package app.di
+package app.di.viewmodel
 
 import app.AppNavigationRouter
 import app.AppViewModel

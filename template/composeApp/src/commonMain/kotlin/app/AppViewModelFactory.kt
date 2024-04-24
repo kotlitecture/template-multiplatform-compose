@@ -3,7 +3,7 @@ package app
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import app.di.koinGet
+import app.di.instance
 import app.showcases.ShowcasesViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
@@ -16,14 +16,14 @@ import core.ui.provideViewModel
 import kotlin.reflect.KClass
 
 internal val AppViewModelFactory = viewModelFactory {
-    initializer { koinGet<AppViewModel>() }
-    initializer { koinGet<AppThemeViewModel>() }
-    initializer { koinGet<AppThemePersistenceViewModel>() }
-    initializer { koinGet<TemplateNoArgsViewModel>() }
-    initializer { koinGet<TemplateViewModel>() }
-    initializer { koinGet<ShowcasesViewModel>() }
-    initializer { koinGet<ChangeThemeViewModel>() }
-    initializer { koinGet<ToggleThemeViewModel>() }
+    initializer { instance<AppViewModel>() }
+    initializer { instance<AppThemeViewModel>() }
+    initializer { instance<AppThemePersistenceViewModel>() }
+    initializer { instance<TemplateNoArgsViewModel>() }
+    initializer { instance<TemplateViewModel>() }
+    initializer { instance<ShowcasesViewModel>() }
+    initializer { instance<ChangeThemeViewModel>() }
+    initializer { instance<ToggleThemeViewModel>() }
 }
 
 @Composable
