@@ -5,6 +5,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.di.instance
 import app.showcases.ShowcasesViewModel
+import app.showcases.datasource.http.basic.BasicHttpViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
@@ -26,6 +27,7 @@ internal val AppViewModelFactory = viewModelFactory {
     initializer { instance<ChangeThemeViewModel>() }
     initializer { instance<ToggleThemeViewModel>() }
     initializer { instance<BasicPagingViewModel>() }
+    initializer { instance<BasicHttpViewModel>() }
 }
 
 @Composable

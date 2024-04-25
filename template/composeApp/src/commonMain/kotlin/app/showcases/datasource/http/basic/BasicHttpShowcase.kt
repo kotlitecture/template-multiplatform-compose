@@ -1,19 +1,19 @@
-package app.showcases.datasource.paging.basic
+package app.showcases.datasource.http.basic
 
 import app.showcases.ShowcaseItem
 import app.showcases.ShowcasesViewModel
 import core.ui.navigation.NavigationDestination
 
-object BasicPagingShowcase : ShowcaseItem {
+object BasicHttpShowcase : ShowcaseItem {
 
-    override val label: String = "Basic Paging Usage"
+    override val label: String = "Basic Http Usage"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(BasicPagingDestination)
+        viewModel.navigationState.onNext(BasicHttpDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(
-        BasicPagingDestination
+        BasicHttpDestination
     )
 
 }

@@ -60,6 +60,22 @@ fun ShowcasesScreen() {
 }
 
 @Composable
+fun ShowcaseHintBlock(text: String) {
+    OutlinedCard(
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+        ,
+        content = {
+            Text(
+                modifier = Modifier.padding(16.dp),
+                text = text
+            )
+        }
+    )
+}
+
+@Composable
 private fun HintBlock(hintStore: StoreObject<Boolean>) {
     if (!hintStore.asStateValueNotNull()) return
     AlertDialog(

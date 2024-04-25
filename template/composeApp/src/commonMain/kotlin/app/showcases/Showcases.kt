@@ -1,5 +1,6 @@
 package app.showcases
 
+import app.showcases.datasource.http.basic.BasicHttpShowcase
 import app.showcases.datasource.paging.basic.BasicPagingShowcase
 import app.showcases.userflow.theme.change.ChangeThemeDialogShowcase
 import app.showcases.userflow.theme.change.ChangeThemeScreenShowcase
@@ -18,6 +19,8 @@ object Showcases {
         ChangeThemeScreenShowcase,
         ChangeThemeDialogShowcase,
         ToggleThemeShowcase,
+        ShowcaseItemGroup("Datasource :: Http"),
+        BasicHttpShowcase,
         ShowcaseItemGroup("Datasource :: Paging"),
         BasicPagingShowcase
     )

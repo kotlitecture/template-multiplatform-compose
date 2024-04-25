@@ -24,24 +24,24 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            api(compose.components.uiToolingPreview)
             api(compose.foundation)
             api(compose.material3)
             api(compose.materialIconsExtended)
-            api(compose.components.uiToolingPreview)
             api(libs.androidx.lifecycle.viewmodel.compose)
             api(libs.androidx.navigation.compose)
-            api(libs.kotlin.coroutines.core)
-            api(libs.kotlin.serialization.json)
+            api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.datetime)
+            api(libs.kotlinx.serialization.json)
         }
         androidMain.dependencies {
-            implementation(libs.androidx.appcompat)
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.kotlin.coroutines.android)
+            api(libs.androidx.appcompat)
+            api(libs.androidx.activity.compose)
+            api(libs.compose.ui.tooling.preview)
+            api(libs.kotlinx.coroutines.android)
         }
         jvmMain.dependencies {
-            implementation(libs.kotlin.coroutines.swing)
+            api(libs.kotlinx.coroutines.swing)
         }
     }
 }

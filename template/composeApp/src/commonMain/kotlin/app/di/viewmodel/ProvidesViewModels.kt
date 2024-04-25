@@ -3,6 +3,7 @@ package app.di.viewmodel
 import app.AppNavigationRouter
 import app.AppViewModel
 import app.showcases.ShowcasesViewModel
+import app.showcases.datasource.http.basic.BasicHttpViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
@@ -27,4 +28,5 @@ val ProvidesViewModels = module {
     // showcases
     factory { ShowcasesViewModel(get()) }
     factory { BasicPagingViewModel(get(), get()) }
+    factory { BasicHttpViewModel(get(), get()) }
 }

@@ -23,10 +23,25 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(libs.kotlin.coroutines.core)
-            api(libs.kotlin.serialization.json)
+            api(libs.bundles.ktor.common)
+            api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.datetime)
+            api(libs.kotlinx.serialization.json)
             api(libs.multiplatform.settings.no.arg)
+        }
+        androidMain.dependencies {
+            api(libs.kotlinx.coroutines.android)
+            implementation(libs.ktor.client.okHttp)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
+        jsMain.dependencies {
+            implementation(libs.ktor.client.js)
+        }
+        jvmMain.dependencies {
+            api(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.java)
         }
     }
 }
