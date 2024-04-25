@@ -97,7 +97,7 @@ abstract class NavigationDestination<D> {
      * @param builder The NavGraphBuilder to bind to.
      * @param content The composable content to display.
      */
-    protected fun composable(
+    protected open fun composable(
         builder: NavGraphBuilder,
         content: @Composable (data: D?) -> Unit
     ) {
@@ -116,7 +116,7 @@ abstract class NavigationDestination<D> {
      * @param dismissOnClickOutside Whether the dialog dismisses on click outside.
      * @param content The composable content to display.
      */
-    protected fun dialog(
+    protected open fun dialog(
         builder: NavGraphBuilder,
         dismissOnBackPress: Boolean = true,
         dismissOnClickOutside: Boolean = true,

@@ -1,6 +1,8 @@
 package app
 
 import androidx.compose.runtime.Composable
+import app.ui.navigation.NavigationBarProvider
+import app.ui.navigation.bottom.BottomNavigation
 import core.ui.navigation.NavigationScaffold
 import core.ui.navigation.rememberNavigationContext
 
@@ -8,7 +10,10 @@ import core.ui.navigation.rememberNavigationContext
 fun AppScreen() {
     val viewModel: AppViewModel = appViewModel(AppViewModel::class)
     val navigationContext = rememberNavigationContext(viewModel.navigationState)
-    NavigationScaffold(
-        navigationContext = navigationContext
-    )
+    NavigationBarProvider {
+        NavigationScaffold(
+            navigationContext = navigationContext,
+            bottomBar = { BottomNavigation() }
+        )
+    }
 }

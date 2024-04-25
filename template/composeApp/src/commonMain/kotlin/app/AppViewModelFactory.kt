@@ -7,10 +7,14 @@ import app.di.instance
 import app.showcases.ShowcasesViewModel
 import app.showcases.datasource.http.basic.BasicHttpViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
+import app.ui.navigation.NavigationBarViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import app.ui.theme.AppThemePersistenceViewModel
 import app.ui.theme.AppThemeViewModel
+import app.userflow.navigation.a.NavigationAViewModel
+import app.userflow.navigation.b.NavigationBViewModel
+import app.userflow.navigation.c.NavigationCViewModel
 import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
 import core.ui.BaseViewModel
@@ -28,6 +32,10 @@ internal val AppViewModelFactory = viewModelFactory {
     initializer { instance<ToggleThemeViewModel>() }
     initializer { instance<BasicPagingViewModel>() }
     initializer { instance<BasicHttpViewModel>() }
+    initializer { instance<NavigationAViewModel>() }
+    initializer { instance<NavigationBViewModel>() }
+    initializer { instance<NavigationCViewModel>() }
+    initializer { instance<NavigationBarViewModel>() }
 }
 
 @Composable

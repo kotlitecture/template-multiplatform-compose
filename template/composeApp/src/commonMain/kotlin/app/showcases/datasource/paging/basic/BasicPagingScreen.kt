@@ -47,6 +47,5 @@ private fun ItemBlock(item: String?) {
     HorizontalDivider(
         Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
     )
 }

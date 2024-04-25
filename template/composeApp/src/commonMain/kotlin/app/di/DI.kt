@@ -5,6 +5,7 @@ import app.di.datasource.ProvidesConfigSource
 import app.di.datasource.ProvidesHttpSource
 import app.di.datasource.ProvidesKeyValueSource
 import app.di.datasource.ProvidesPagingSource
+import app.di.state.ProvidesNavigationBarState
 import app.di.state.ProvidesNavigationState
 import app.di.state.ProvidesThemeState
 import app.di.viewmodel.ProvidesViewModels
@@ -18,6 +19,7 @@ val koinDI = startKoin {
         ProvidesHttpSource,
         ProvidesKeyValueSource,
         ProvidesPagingSource,
+        ProvidesNavigationBarState,
         ProvidesNavigationState,
         ProvidesThemeState,
         ProvidesViewModels,
