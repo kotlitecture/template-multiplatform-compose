@@ -13,8 +13,8 @@ import androidx.navigation.NavGraphBuilder
 import app.showcases.ShowcaseItem
 import app.showcases.ShowcasesViewModel
 import app.userflow.theme.toggle.ToggleThemeButton
-import core.ui.navigation.ArgsStrategy
 import core.ui.navigation.NavigationDestination
+import core.ui.navigation.NavigationDestinationNoArgs
 import core.ui.navigation.NavigationStrategy
 import core.ui.theme.ThemeData
 
@@ -36,10 +36,9 @@ object ToggleThemeShowcase : ShowcaseItem {
 
 }
 
-private object ToggleThemeDestination : NavigationDestination<Unit>() {
+private object ToggleThemeDestination : NavigationDestinationNoArgs() {
     override val id: String = "toggle_theme_dialog"
     override val navStrategy: NavigationStrategy = NavigationStrategy.NewInstance
-    override val argsStrategy: ArgsStrategy<Unit> = ArgsStrategy.noArgs()
     override fun doBind(builder: NavGraphBuilder) = dialog(builder) {
         Box(
             modifier = Modifier
@@ -52,5 +51,4 @@ private object ToggleThemeDestination : NavigationDestination<Unit>() {
             ToggleThemeButton()
         }
     }
-
 }
