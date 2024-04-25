@@ -151,8 +151,7 @@ abstract class BaseViewModel : ViewModel() {
      */
     @Composable
     fun bind(owner: LifecycleOwner) {
-        val ownerId = owner.hashCode()
-        LaunchedEffect(ownerId) {
+        LaunchedEffect(owner) {
             val initial = !initialized
             initialized = true
             if (initial) {

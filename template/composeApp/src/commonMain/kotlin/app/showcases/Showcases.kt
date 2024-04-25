@@ -15,14 +15,14 @@ object Showcases {
      * A list containing all showcase items.
      */
     val all = listOf(
-        ShowcaseItemGroup("Userflow :: Theme"),
-        ChangeThemeScreenShowcase,
-        ChangeThemeDialogShowcase,
-        ToggleThemeShowcase,
         ShowcaseItemGroup("Datasource :: Http"),
         BasicHttpShowcase,
         ShowcaseItemGroup("Datasource :: Paging"),
-        BasicPagingShowcase
+        BasicPagingShowcase,
+        ShowcaseItemGroup("Userflow :: Theme"),
+        ChangeThemeScreenShowcase,
+        ChangeThemeDialogShowcase,
+        ToggleThemeShowcase
     )
 
 }
