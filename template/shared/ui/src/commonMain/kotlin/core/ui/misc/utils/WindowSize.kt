@@ -32,6 +32,9 @@ fun WindowSizeProvider(content: @Composable (size: WindowSize) -> Unit) {
     }
 }
 
+/**
+ * https://m3.material.io/foundations/layout/applying-layout/window-size-classes
+ */
 enum class WindowSize {
     Unknown,
     Compact,
