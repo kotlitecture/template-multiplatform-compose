@@ -55,6 +55,10 @@ val ProvidesNavigationBarState = module {
                     getInactiveIcon = { Icons.Outlined.Coffee },
                     getLabel = { "Page 3" }
                 )
+            ),
+            allowedDestinations = setOf(
+            ),
+            restrictedDestinations = setOf(
             )
         )
     }

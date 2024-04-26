@@ -38,8 +38,9 @@ class NavigationBarViewModel(
                     } else {
                         restrictionStore.set(false)
                     }
-                    val page = destination?.id?.let(pair.first::get)
-                    selectedPageStore.set(page)
+                    destination?.id
+                        ?.let(pair.first::get)
+                        ?.let(selectedPageStore::set)
                 }
         }
     }
