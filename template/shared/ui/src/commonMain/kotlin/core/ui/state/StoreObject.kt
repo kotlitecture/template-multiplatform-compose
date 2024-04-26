@@ -7,45 +7,29 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.updateAndGet
 
 /**
  * An immutable store object that holds a value of type [T].
  *
  * @param T the type of the value stored in the object.
  * @property value The initial value of the store object.
- * @property valueReply The number of initial values to be replayed to collectors of the [asFlow] flow.
- * @property valueBufferCapacity The additional buffer capacity for the [asFlow] flow.
- * @property onChanged A lambda function invoked when the value of the store object changes.
  */
 @Immutable
-data class StoreObject<T>(
-    private val value: T? = null,
-    private val valueReply: Int = 1,
-    private val valueBufferCapacity: Int = 1,
-    private val onChanged: ((prevValue: T?, newValue: T?) -> Unit)? = null,
-) {
+data class StoreObject<T>(private val value: T? = null) {
 
-    private var prevValue: T? = null
-    private var currentValue: T? = value
-
-    private val valueChanges = lazy {
-        val processor = MutableSharedFlow<T?>(
-            replay = valueReply,
-            extraBufferCapacity = valueBufferCapacity
-        )
-        processor.tryEmit(currentValue)
-        processor
-    }
+    private val valueChanges = MutableStateFlow(value)
 
     /**
      * Returns the store object as a [MutableState] object.
      */
     @Stable
     @Composable
-    fun asState(): State<T?> = asFlow()
-        .collectAsState(initial = currentValue)
+    fun asState(): State<T?> = valueChanges
+        .collectAsState()
 
     /**
      * Returns the value of the store object as a [MutableState] object.
@@ -58,47 +42,44 @@ data class StoreObject<T>(
      */
     @Stable
     @Composable
-    fun asStateNotNull(): State<T> = asFlow()
+    fun asStateNotNull(): State<T> = valueChanges
         .mapNotNull { it }
-        .collectAsState(initial = currentValue!!)
+        .collectAsState(getNotNull())
 
     /**
      * Returns the value of the store object as a non-nullable type [T].
      */
     @Composable
-    fun asStateValueNotNull(): T = asStateNotNull().value
+    fun asStateValueNotNull(): T = asStateNotNull()
+        .value
 
     /**
      * Returns the store object as a flow of type [T].
      */
     @Stable
-    fun asFlow(): Flow<T?> = valueChanges.value
+    fun asFlow(): Flow<T?> = valueChanges
+
+    /**
+     * Returns the store object as a flow of type [T].
+     */
+    @Stable
+    fun asStateFlow(): StateFlow<T?> = valueChanges
 
     /**
      * Gets the non-nullable value of the store object.
      */
-    fun getNotNull(): T = currentValue!!
-
-    /**
-     * Clears the value of the store object to the initial state.
-     */
-    fun clear() = set(value)
+    fun getNotNull(): T = valueChanges.value!!
 
     /**
      * Gets the value of the store object.
      */
-    fun get(): T? = currentValue
-
-    /**
-     * Gets the previous value of the store object.
-     */
-    fun getPrev(): T? = prevValue
+    fun get(): T? = valueChanges.value
 
     /**
      * Checks if the current value is null.
      * @return true if the current value is null, false otherwise.
      */
-    fun isNull(): Boolean = currentValue == null
+    fun isNull(): Boolean = valueChanges.value == null
 
     /**
      * Checks if the current value is not null.
@@ -107,23 +88,31 @@ data class StoreObject<T>(
     fun isNotNull(): Boolean = !isNull()
 
     /**
-     * Sets the value of the store object and emits it to collectors if it has changed.
-     *
-     * @param value The new value to set.
-     * @return `true` if the value has changed, `false` otherwise.
+     * Clears the value of the store object to the initial state.
      */
-    fun set(value: T?): Boolean {
-        val changed = currentValue != value
-        prevValue = currentValue
-        currentValue = value
-        if (changed) {
-            onChanged?.invoke(prevValue, value)
-            if (valueChanges.isInitialized()) {
-                val changes = valueChanges.value
-                changes.tryEmit(value)
-            }
-        }
-        return changed
+    fun clear() = set(value)
+
+    /**
+     * Sets the value of the store object.
+     */
+    fun set(value: T?) {
+        update { value }
+    }
+
+    /**
+     * Updates the value of the store object and returns true if the value changed.
+     */
+    fun update(value: T?): Boolean {
+        val prevValue = valueChanges.value
+        val newValue = valueChanges.updateAndGet { value }
+        return newValue != prevValue
+    }
+
+    /**
+     * Updates the value of the store object with the given function.
+     */
+    fun update(function: (T?) -> T?) {
+        valueChanges.updateAndGet(function)
     }
 
 }
