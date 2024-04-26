@@ -1,13 +1,16 @@
 package app.ui.navigation.adaptive
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.unit.IntSize
+import app.ui.navigation.bottom.BottomNavigation
+import app.ui.navigation.left.PermanentLeftNavigation
+import app.ui.navigation.left.RailNavigation
+import core.ui.misc.utils.WindowSize
+import core.ui.misc.utils.WindowSizeProvider
 
 /**
  * Composable function to display an adaptive navigation.
@@ -16,14 +19,29 @@ import androidx.compose.ui.unit.IntSize
  */
 @Composable
 fun AdaptiveNavigation(content: @Composable () -> Unit) {
-    val sizeState = remember { mutableStateOf(IntSize.Zero) }
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .onSizeChanged {
-            sizeState.value = it
+    WindowSizeProvider { size ->
+        when {
+            size <= WindowSize.Compact -> Bottom(content)
+            size <= WindowSize.Large -> LeftCompact(content)
+            else -> LeftLarge(content)
         }
-    ) {
-        println(sizeState.value)
-        content()
     }
+}
+
+@Composable
+private fun Bottom(content: @Composable () -> Unit) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Box(Modifier.weight(1f)) { content() }
+        BottomNavigation(Modifier.wrapContentHeight())
+    }
+}
+
+@Composable
+private fun LeftCompact(content: @Composable () -> Unit) {
+    RailNavigation(content)
+}
+
+@Composable
+private fun LeftLarge(content: @Composable () -> Unit) {
+    PermanentLeftNavigation(content)
 }

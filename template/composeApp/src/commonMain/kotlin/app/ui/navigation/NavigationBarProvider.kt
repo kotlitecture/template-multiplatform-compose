@@ -1,6 +1,7 @@
 package app.ui.navigation
 
 import androidx.compose.runtime.Composable
+import app.ui.navigation.adaptive.AdaptiveNavigation
 
 /**
  * Composable function to provide navigation functionality.
@@ -8,5 +9,5 @@ import androidx.compose.runtime.Composable
  */
 @Composable
 fun NavigationBarProvider(content: @Composable () -> Unit) {
-    content()
+    AdaptiveNavigation(content)
 }
