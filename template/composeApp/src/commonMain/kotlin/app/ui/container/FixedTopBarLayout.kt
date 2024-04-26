@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.exclude
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.systemBars
@@ -79,7 +80,7 @@ private fun HeaderBlock(
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     TopAppBar(
-        windowInsets = WindowInsets.systemBars.only(WindowInsetsSides.Horizontal),
+        windowInsets = WindowInsets.systemBars.exclude(WindowInsets.systemBars),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
             titleContentColor = ThemeData.current.onPrimary,
