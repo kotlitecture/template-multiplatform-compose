@@ -1,4 +1,4 @@
-package app.userflow.navigation.b
+package app.userflow.navigation.samples.a
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,12 +9,12 @@ import androidx.compose.ui.Modifier
 import app.appViewModel
 
 @Composable
-fun NavigationBScreen() {
-    val viewModel: NavigationBViewModel = appViewModel(NavigationBViewModel::class)
+fun NavigationAScreen() {
+    val viewModel: NavigationAViewModel = appViewModel(NavigationAViewModel::class)
     Box(Modifier.fillMaxSize()) {
         Text(
             modifier = Modifier.align(Alignment.Center),
-            text = "B"
+            text = "A"
         )
     }
 }

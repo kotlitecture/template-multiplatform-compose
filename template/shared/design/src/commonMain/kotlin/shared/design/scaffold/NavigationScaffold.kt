@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import core.ui.navigation.NavigationContext
 import core.ui.navigation.NavigationHost
+import shared.design.component.error.ErrorDialogProvider
 
 /**
  * Composable function to display the main scaffold of the app.
@@ -51,4 +52,5 @@ fun NavigationScaffold(
             )
         }
     )
+    ErrorDialogProvider(navigationState)
 }

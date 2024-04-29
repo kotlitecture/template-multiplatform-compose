@@ -36,7 +36,7 @@ import core.ui.theme.ThemeContext
  *     object as a parameter, which contains information about the error.
  */
 @Composable
-fun ErrorStateProvider(
+fun ErrorDialogProvider(
     state: StoreState,
     content: @Composable (error: DataState.Error) -> Unit = { error ->
         val radius = 24.dp

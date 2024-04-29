@@ -1,4 +1,4 @@
-package app.ui.navigation
+package app.userflow.navigation
 
 import core.ui.BaseViewModel
 import core.ui.navigation.NavigationState

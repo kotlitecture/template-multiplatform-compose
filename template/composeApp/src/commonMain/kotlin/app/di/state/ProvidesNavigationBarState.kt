@@ -11,11 +11,11 @@ import androidx.compose.material.icons.outlined.School
 import androidx.compose.material.icons.outlined.WineBar
 import androidx.compose.runtime.Composable
 import app.showcases.ShowcasesDestination
-import app.ui.navigation.NavigationBarPage
-import app.ui.navigation.NavigationBarState
-import app.userflow.navigation.a.NavigationADestination
-import app.userflow.navigation.b.NavigationBDestination
-import app.userflow.navigation.c.NavigationCDestination
+import app.userflow.navigation.NavigationBarPage
+import app.userflow.navigation.NavigationBarState
+import app.userflow.navigation.samples.a.NavigationADestination
+import app.userflow.navigation.samples.b.NavigationBDestination
+import app.userflow.navigation.samples.c.NavigationCDestination
 import core.ui.navigation.NavigationDestination
 import core.ui.navigation.NavigationState
 import core.ui.navigation.NavigationStrategy

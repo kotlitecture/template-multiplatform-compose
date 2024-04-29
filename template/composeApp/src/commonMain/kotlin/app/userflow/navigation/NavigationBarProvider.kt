@@ -1,4 +1,4 @@
-package app.ui.navigation
+package app.userflow.navigation
 
 import androidx.compose.runtime.Composable
 

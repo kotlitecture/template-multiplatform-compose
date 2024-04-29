@@ -1,4 +1,4 @@
-package app.ui.navigation
+package app.userflow.navigation
 
 import core.ui.navigation.NavigationDestination
 import core.ui.state.StoreObject

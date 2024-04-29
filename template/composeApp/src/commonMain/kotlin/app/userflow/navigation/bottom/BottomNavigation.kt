@@ -1,4 +1,4 @@
-package app.ui.navigation.bottom
+package app.userflow.navigation.bottom
 
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import app.appViewModel
 import shared.design.component.basic.AnyIcon
-import app.ui.navigation.NavigationBarViewModel
+import app.userflow.navigation.NavigationBarViewModel
 
 /**
  * Composable function responsible for rendering the bottom navigation bar.

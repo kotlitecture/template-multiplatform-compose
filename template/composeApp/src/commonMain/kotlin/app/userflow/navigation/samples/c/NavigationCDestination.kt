@@ -1,4 +1,4 @@
-package app.userflow.navigation.c
+package app.userflow.navigation.samples.c
 
 import androidx.navigation.NavGraphBuilder
 import core.ui.navigation.NavigationStrategy

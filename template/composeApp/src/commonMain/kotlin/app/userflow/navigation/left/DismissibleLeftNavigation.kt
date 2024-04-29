@@ -1,12 +1,12 @@
-package app.ui.navigation.left
+package app.userflow.navigation.left
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.DismissibleDrawerSheet
+import androidx.compose.material3.DismissibleNavigationDrawer
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.ModalDrawerSheet
-import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
@@ -16,16 +16,16 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import app.appViewModel
 import shared.design.component.basic.AnyIcon
-import app.ui.navigation.NavigationBarViewModel
+import app.userflow.navigation.NavigationBarViewModel
 import core.ui.state.StoreObject
 
 /**
- * Composable function to display a modal left navigation.
+ * Composable function to display a dismissible left navigation.
  *
  * @param content The content to display.
  */
 @Composable
-fun ModalLeftNavigation(content: @Composable () -> Unit) {
+fun DismissibleLeftNavigation(content: @Composable () -> Unit) {
     val viewModel: NavigationBarViewModel = appViewModel(NavigationBarViewModel::class)
     val pages = viewModel.pagesStore.asStateValue()
     if (pages.isNullOrEmpty()) {
@@ -42,10 +42,10 @@ fun ModalLeftNavigation(content: @Composable () -> Unit) {
         true
     }
     DrawerVisibilityHandler(visibilityStore, drawerState)
-    ModalNavigationDrawer(
+    DismissibleNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            ModalDrawerSheet(
+            DismissibleDrawerSheet(
                 modifier = Modifier
                     .fillMaxHeight()
                     .verticalScroll(rememberScrollState())
@@ -60,7 +60,7 @@ fun ModalLeftNavigation(content: @Composable () -> Unit) {
                         onClick = {
                             page.onClick()
                             visibilityStore.set(false)
-                        },
+                        }
                     )
                 }
             }

@@ -1,4 +1,4 @@
-package app.ui.navigation.left
+package app.userflow.navigation.left
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import app.appViewModel
 import shared.design.component.basic.AnyIcon
-import app.ui.navigation.NavigationBarViewModel
+import app.userflow.navigation.NavigationBarViewModel
 
 /**
  * Composable function to display rail navigation.

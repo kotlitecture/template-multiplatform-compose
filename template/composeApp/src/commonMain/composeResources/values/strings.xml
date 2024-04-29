@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Template</string>
-    <string name="data_not_found">No data found</string>
     <string name="theme_change_title">Change theme</string>
     <string name="theme_change_dynamic_color">Use Dynamic Color</string>
     <string name="theme_change_dynamic_color_on">Yes</string>

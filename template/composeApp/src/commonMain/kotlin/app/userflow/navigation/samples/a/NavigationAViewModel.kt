@@ -1,4 +1,4 @@
-package app.userflow.navigation.a
+package app.userflow.navigation.samples.a
 
 import core.ui.BaseViewModel
 
