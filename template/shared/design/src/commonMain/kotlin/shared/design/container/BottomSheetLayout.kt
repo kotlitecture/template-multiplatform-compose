@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package app.ui.container
+package shared.design.container
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.WindowInsets
@@ -39,8 +39,8 @@ data class BottomSheetAppearance(
             backgroundColor: Color = ThemeContext.current.primary,
             shouldDismissOnBackPress: Boolean = true,
             fullscreen: Boolean = false
-        ): shared.design.container.BottomSheetAppearance {
-            return shared.design.container.BottomSheetAppearance(
+        ): BottomSheetAppearance {
+            return BottomSheetAppearance(
                 shouldDismissOnBackPress = shouldDismissOnBackPress,
                 backgroundColor = backgroundColor,
                 fullscreen = fullscreen,
@@ -60,7 +60,7 @@ data class BottomSheetAppearance(
 @Composable
 fun BottomSheetLayout(
     modifier: Modifier = Modifier,
-    appearance: shared.design.container.BottomSheetAppearance = BottomSheetAppearance.default(),
+    appearance: BottomSheetAppearance = BottomSheetAppearance.default(),
     onDismissRequest: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {

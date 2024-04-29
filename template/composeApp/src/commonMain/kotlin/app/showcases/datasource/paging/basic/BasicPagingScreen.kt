@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import app.appViewModel
 import app.cash.paging.compose.collectAsLazyPagingItems
 import app.ui.container.FixedTopBarLazyColumnLayout
-import app.ui.paging.SimpleLazyPagingList
+import shared.design.component.paging.BasicPagingList
 
 @Composable
 fun BasicPagingScreen() {
@@ -23,7 +23,7 @@ fun BasicPagingScreen() {
         title = BasicPagingShowcase.label,
         onBack = viewModel::onBack,
         content = {
-            SimpleLazyPagingList(
+            BasicPagingList(
                 items = items,
                 itemContent = {
                     ItemBlock(item = it)

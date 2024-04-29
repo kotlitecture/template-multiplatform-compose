@@ -24,10 +24,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(compose.components.uiToolingPreview)
             api(compose.foundation)
-            api(compose.material3)
-            api(compose.materialIconsExtended)
             api(libs.androidx.lifecycle.viewmodel.compose)
             api(libs.androidx.navigation.compose)
             api(libs.kotlinx.coroutines.core)
@@ -37,7 +34,6 @@ kotlin {
         androidMain.dependencies {
             api(libs.androidx.appcompat)
             api(libs.androidx.activity.compose)
-            api(libs.compose.ui.tooling.preview)
             api(libs.kotlinx.coroutines.android)
         }
         jvmMain.dependencies {

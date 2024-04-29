@@ -1,4 +1,4 @@
-package core.ui.theme.material3
+package shared.design.theme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
@@ -16,7 +16,7 @@ import core.ui.theme.ThemeContext
  * Data class representing Material3 theme context.
  */
 @Immutable
-data class Material3ThemeContext(
+data class M3ThemeContext(
     override val id: String,
     override val dark: Boolean,
     val colorScheme: ColorScheme
@@ -61,10 +61,10 @@ data class Material3ThemeContext(
 
     companion object {
         /** Returns the current Material3 theme data in the composition. */
-        val current: Material3ThemeContext
+        val current: M3ThemeContext
             @Composable
             @ReadOnlyComposable
-            get() = ThemeContext.current as Material3ThemeContext
+            get() = ThemeContext.current as M3ThemeContext
     }
 
 }

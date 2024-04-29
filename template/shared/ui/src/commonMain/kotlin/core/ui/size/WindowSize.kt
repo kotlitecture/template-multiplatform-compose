@@ -1,4 +1,4 @@
-package core.ui.misc.utils
+package core.ui.size
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import core.ui.misc.utils.WindowSize.Unknown
+import core.ui.size.WindowSize.Unknown
 
 /** Local composition used to access the current [WindowSize]. */
 val LocalWindowSize = compositionLocalOf { Unknown }

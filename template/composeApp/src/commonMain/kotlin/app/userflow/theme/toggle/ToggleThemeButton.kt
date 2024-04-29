@@ -3,7 +3,7 @@ package app.userflow.theme.toggle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import app.appViewModel
-import app.ui.component.basic.ActionButton
+import shared.design.component.basic.ActionButton
 
 /**
  * Composable function for rendering a button that toggles the theme.

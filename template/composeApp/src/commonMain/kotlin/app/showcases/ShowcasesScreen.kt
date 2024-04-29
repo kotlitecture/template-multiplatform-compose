@@ -20,12 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.appViewModel
-import app.ui.component.basic.ActionButton
+import shared.design.component.basic.ActionButton
 import app.ui.component.basic.AnyIcon
 import app.ui.component.basic.Spacer16
 import app.ui.container.FixedTopBarLazyColumnLayout
 import core.ui.state.StoreObject
-import core.ui.theme.material3.Material3ThemeContext
+import shared.design.theme.M3ThemeContext
 
 /**
  * Composable function for displaying the showcases screen.
@@ -140,7 +140,7 @@ private fun LazyListScope.showcaseItemGroup(
 ) {
     item {
         Text(
-            color = Material3ThemeContext.current.colorScheme.primary,
+            color = M3ThemeContext.current.colorScheme.primary,
             modifier = Modifier.padding(16.dp),
             fontWeight = FontWeight.W600,
             text = showcase.label,

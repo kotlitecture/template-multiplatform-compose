@@ -1,4 +1,4 @@
-package core.ui.theme.material3
+package shared.design.theme
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -68,13 +68,13 @@ private val DarkColors = darkColorScheme(
     scrim = md_theme_dark_scrim,
 )
 
-val LightThemeContext = Material3ThemeContext(
+val LightThemeContext = M3ThemeContext(
     dark = false,
     id = "material_3_light",
     colorScheme = LightColors
 )
 
-val DarkThemeContext = Material3ThemeContext(
+val DarkThemeContext = M3ThemeContext(
     dark = true,
     id = "material_3_dark",
     colorScheme = DarkColors

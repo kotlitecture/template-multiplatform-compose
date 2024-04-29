@@ -1,4 +1,6 @@
-package core.ui.state
+@file:OptIn(ExperimentalMaterial3Api::class)
+
+package shared.design.component.error
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,6 +14,8 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,8 +23,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import core.ui.state.DataState
+import core.ui.state.StoreState
 import core.ui.theme.ThemeContext
 
 /**
@@ -70,14 +75,13 @@ fun ErrorStateProvider(
     }
 ) {
     val error = state.dataStateStore.asStateValue() as? DataState.Error ?: return
-    Dialog(
+    BasicAlertDialog(
         onDismissRequest = state.dataStateStore::clear,
         properties = DialogProperties(
             dismissOnBackPress = true,
             dismissOnClickOutside = true,
             usePlatformDefaultWidth = false
-        )
-    ) {
-        content(error)
-    }
+        ),
+        content = { content(error) }
+    )
 }

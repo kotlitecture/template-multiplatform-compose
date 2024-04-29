@@ -1,4 +1,4 @@
-package app.ui.container
+package shared.design.container
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
@@ -16,8 +16,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import shared.design.component.basic.ActionButton
 import core.ui.theme.ThemeContext
+import shared.design.component.basic.ActionButton
 
 /**
  * Composable function for rendering a layout with a fixed top bar.

@@ -1,16 +1,18 @@
-package core.ui.navigation
+package shared.design.scaffold
 
-import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.exclude
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import core.ui.navigation.NavigationContext
+import core.ui.navigation.NavigationHost
 
 /**
  * Composable function to display the main scaffold of the app.
@@ -31,13 +33,14 @@ fun NavigationScaffold(
 ) {
     val navigationState = navigationContext.navigationState
     val startDestination = navigationState.startDestinationStore.asStateValue() ?: return
+    val snackbarHostState = remember { SnackbarHostState() }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = topBar,
         bottomBar = bottomBar,
         floatingActionButton = floatingActionButton,
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButtonPosition = floatingActionButtonPosition,
-        snackbarHost = { SnackbarHost(navigationContext.snackbarHostSate) },
         contentWindowInsets = ScaffoldDefaults.contentWindowInsets.exclude(ScaffoldDefaults.contentWindowInsets),
         content = {
             NavigationHost(

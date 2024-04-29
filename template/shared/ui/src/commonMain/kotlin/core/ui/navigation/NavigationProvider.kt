@@ -3,7 +3,6 @@ package core.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import core.ui.coreViewModel
-import core.ui.state.ErrorStateProvider
 
 /**
  * Composable function responsible for providing navigation functionality to the UI.
@@ -18,5 +17,4 @@ fun NavigationProvider(navigationState: NavigationState, navigationContext: Navi
         viewModel.onBind(navigationState, navigationContext)
         onDispose { viewModel.onUnbind(navigationState) }
     }
-    ErrorStateProvider(navigationState)
 }
