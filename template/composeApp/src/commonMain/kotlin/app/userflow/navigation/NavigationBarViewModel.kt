@@ -1,18 +1,18 @@
 package app.userflow.navigation
 
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
+import shared.core.state.StoreObject
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class NavigationBarViewModel(
     private val navigationBarState: NavigationBarState,
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationState
 ) : BaseViewModel() {
 
     val restrictionStore = StoreObject(true)

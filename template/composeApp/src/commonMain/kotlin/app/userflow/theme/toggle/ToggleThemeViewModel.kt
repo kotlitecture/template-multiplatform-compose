@@ -1,12 +1,12 @@
 package app.userflow.theme.toggle
 
-import shared.core.BaseViewModel
-import shared.core.state.StoreObject
-import shared.core.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
+import shared.core.BaseViewModel
+import shared.core.state.StoreObject
+import shared.core.theme.ThemeState
 
 /**
  * ViewModel responsible for toggling between light and dark themes.
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.mapNotNull
  * @param themeState The state of the theme to be toggled.
  */
 class ToggleThemeViewModel(
-    private val themeState: ThemeState,
+    private val themeState: ThemeState
 ) : BaseViewModel() {
 
     val dataStore: StoreObject<ToggleThemeData> = StoreObject()

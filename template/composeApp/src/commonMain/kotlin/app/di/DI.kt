@@ -1,5 +1,6 @@
 package app.di
 
+import app.AppNavigationRouter
 import app.di.datasource.ProvidesAnalyticsSource
 import app.di.datasource.ProvidesConfigSource
 import app.di.datasource.ProvidesHttpSource
@@ -8,8 +9,8 @@ import app.di.datasource.ProvidesPagingSource
 import app.di.state.ProvidesNavigationBarState
 import app.di.state.ProvidesNavigationState
 import app.di.state.ProvidesThemeState
-import app.di.viewmodel.ProvidesViewModels
 import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 val koinDI = startKoin {
     printLogger()
@@ -22,7 +23,9 @@ val koinDI = startKoin {
         ProvidesNavigationBarState,
         ProvidesNavigationState,
         ProvidesThemeState,
-        ProvidesViewModels,
+        module {
+            single { AppNavigationRouter() }
+        }
     )
 }
 

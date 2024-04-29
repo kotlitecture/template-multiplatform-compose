@@ -25,24 +25,24 @@ import shared.core.BaseViewModel
 import shared.core.provideViewModel
 
 val AppViewModelFactory = viewModelFactory {
-    initializer { instance<AppViewModel>() }
-    initializer { instance<AppThemeViewModel>() }
-    initializer { instance<AppThemePersistenceViewModel>() }
-    initializer { instance<TemplateNoArgsViewModel>() }
-    initializer { instance<TemplateViewModel>() }
-    initializer { instance<ShowcasesViewModel>() }
-    initializer { instance<ChangeThemeViewModel>() }
-    initializer { instance<ToggleThemeViewModel>() }
-    initializer { instance<BasicPagingViewModel>() }
-    initializer { instance<BasicHttpViewModel>() }
-    initializer { instance<NavigationAViewModel>() }
-    initializer { instance<NavigationBViewModel>() }
-    initializer { instance<NavigationCViewModel>() }
-    initializer { instance<NavigationBarViewModel>() }
-    initializer { instance<NoArgsNavigationFromViewModel>() }
-    initializer { instance<NoArgsNavigationToViewModel>() }
-    initializer { instance<ArgsNavigationFromViewModel>() }
-    initializer { instance<ArgsNavigationToViewModel>() }
+    initializer { AppViewModel(instance(), instance()) }
+    initializer { AppThemeViewModel(instance()) }
+    initializer { AppThemePersistenceViewModel(instance(), instance()) }
+    initializer { TemplateNoArgsViewModel(instance()) }
+    initializer { TemplateViewModel(instance()) }
+    initializer { ShowcasesViewModel(instance()) }
+    initializer { ChangeThemeViewModel(instance(), instance()) }
+    initializer { ToggleThemeViewModel(instance()) }
+    initializer { BasicPagingViewModel(instance(), instance()) }
+    initializer { BasicHttpViewModel(instance(), instance()) }
+    initializer { NavigationAViewModel() }
+    initializer { NavigationBViewModel() }
+    initializer { NavigationCViewModel() }
+    initializer { NavigationBarViewModel(instance(), instance()) }
+    initializer { NoArgsNavigationFromViewModel(instance()) }
+    initializer { NoArgsNavigationToViewModel(instance()) }
+    initializer { ArgsNavigationFromViewModel(instance()) }
+    initializer { ArgsNavigationToViewModel(instance()) }
 }
 
 @Composable

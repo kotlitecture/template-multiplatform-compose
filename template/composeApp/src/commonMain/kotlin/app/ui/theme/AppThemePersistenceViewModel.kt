@@ -1,14 +1,14 @@
 package app.ui.theme
 
 import app.datasource.keyvalue.AppKeyValueSource
-import shared.data.serialization.JsonStrategy
-import shared.core.BaseViewModel
-import shared.core.theme.ThemeConfig
-import shared.core.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
+import shared.core.BaseViewModel
+import shared.core.theme.ThemeConfig
+import shared.core.theme.ThemeState
+import shared.data.serialization.JsonStrategy
 
 /**
  * ViewModel class responsible for managing the theme state with persistence implemented by default.

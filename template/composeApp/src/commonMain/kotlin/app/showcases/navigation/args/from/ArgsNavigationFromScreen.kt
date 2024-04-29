@@ -34,10 +34,8 @@ fun ArgsNavigationFromScreen() {
                     1. Copy the content of the package `app/ui/screen/template` to the required location for your screen.
                     2. Rename the copied classes (Destination, Screen, and ViewModel) to the desired ones.
                     3. Register the copied [Destination] class in `app/di/state/ProvidesNavigationState`.
-                    4. Register the copied [ViewModel] class in `app/di/viewmodel/ProvidesViewModels`.
-                    5. Register the copied [ViewModel] class in `app/AppViewModelFactory`.
-                    6. Implement the logic of the screen in the copied [Screen] class.
-                    7. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
+                    4. Implement the logic of the screen in the copied [Screen] class.
+                    5. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
                 """.trimIndent()
             )
             UserNameBlock(viewModel.userNameStore)

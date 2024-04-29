@@ -9,7 +9,7 @@ import shared.core.state.StoreObject
  * It manages the state and actions related to showcases.
  */
 class ShowcasesViewModel(
-    val navigationState: NavigationState,
+    val navigationState: NavigationState
 ) : BaseViewModel() {
 
     /**

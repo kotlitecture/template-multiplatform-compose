@@ -4,7 +4,7 @@ import shared.core.BaseViewModel
 import shared.core.navigation.NavigationState
 
 class NoArgsNavigationToViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationState
 ) : BaseViewModel() {
 
     fun onBack() {
