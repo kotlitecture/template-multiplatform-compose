@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import app.appViewModel
-import app.ui.component.basic.AnyIcon
+import shared.design.component.basic.AnyIcon
 import app.ui.navigation.NavigationBarViewModel
 
 /**

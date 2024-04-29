@@ -21,9 +21,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.appViewModel
 import shared.design.component.basic.ActionButton
-import app.ui.component.basic.AnyIcon
-import app.ui.component.basic.Spacer16
-import app.ui.container.FixedTopBarLazyColumnLayout
+import shared.design.component.basic.AnyIcon
+import shared.design.component.basic.Spacer16
+import shared.design.container.FixedTopBarLazyColumnLayout
 import core.ui.state.StoreObject
 import shared.design.theme.M3ThemeContext
 

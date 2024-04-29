@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.appViewModel
 import app.showcases.ShowcaseHintBlock
-import app.ui.container.FixedTopBarColumnLayout
+import shared.design.container.FixedTopBarColumnLayout
 import core.ui.state.StoreObject
 
 @Composable

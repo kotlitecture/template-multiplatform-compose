@@ -16,7 +16,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import app.ui.component.basic.SpacerNavigationBar
+import shared.design.component.basic.SpacerNavigationBar
 import core.ui.theme.ThemeContext
 
 /**

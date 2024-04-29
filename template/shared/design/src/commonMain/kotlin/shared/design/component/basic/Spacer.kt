@@ -1,4 +1,4 @@
-package app.ui.component.basic
+package shared.design.component.basic
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth

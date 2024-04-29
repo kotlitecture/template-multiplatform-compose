@@ -16,8 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.appViewModel
-import app.ui.component.basic.Spacer8
-import app.ui.container.FixedTopBarColumnLayout
+import shared.design.component.basic.Spacer8
+import shared.design.container.FixedTopBarColumnLayout
 import core.ui.theme.ThemeContext
 import org.jetbrains.compose.resources.stringResource
 import template.composeapp.generated.resources.Res

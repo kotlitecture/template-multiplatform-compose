@@ -15,7 +15,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import app.appViewModel
-import app.ui.component.basic.AnyIcon
+import shared.design.component.basic.AnyIcon
 import app.ui.navigation.NavigationBarViewModel
 import core.ui.state.StoreObject
 

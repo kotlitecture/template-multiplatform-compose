@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.appViewModel
 import app.cash.paging.compose.collectAsLazyPagingItems
-import app.ui.container.FixedTopBarLazyColumnLayout
+import shared.design.container.FixedTopBarLazyColumnLayout
 import shared.design.component.paging.BasicPagingList
 
 @Composable

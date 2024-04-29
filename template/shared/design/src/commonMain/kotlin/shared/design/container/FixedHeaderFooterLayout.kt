@@ -24,9 +24,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.onSizeChanged
-import app.ui.component.basic.SpacerDynamic
-import app.ui.component.basic.SpacerNavigationBar
-import app.ui.component.basic.SpacerStatusBar
+import shared.design.component.basic.SpacerDynamic
+import shared.design.component.basic.SpacerNavigationBar
+import shared.design.component.basic.SpacerStatusBar
 import core.ui.theme.ThemeContext
 
 /**
