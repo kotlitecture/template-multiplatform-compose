@@ -1,41 +1,40 @@
 package shared.core.size
 
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import shared.core.size.WindowSize.Unknown
+import shared.core.size.ViewSize.Unknown
 
-/** Local composition used to access the current [WindowSize]. */
-val LocalWindowSize = compositionLocalOf { Unknown }
+/** Local composition used to access the current [ViewSize]. */
+val LocalViewSize = compositionLocalOf { Unknown }
 
 @Composable
-fun WindowSizeProvider(content: @Composable (size: WindowSize) -> Unit) {
-    val sizeState = remember { mutableStateOf(Unknown) }
-    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-        val size = WindowSize.of(minWidth)
-        LaunchedEffect(minWidth) { sizeState.value = size }
-    }
-    val size = sizeState.value
-    if (size == Unknown) return
-    CompositionLocalProvider(LocalWindowSize provides size) {
-        content(size)
+fun ViewSizeProvider(
+    modifier: Modifier = Modifier.fillMaxSize(),
+    content: @Composable BoxScope.(size: ViewSize) -> Unit
+) {
+    BoxWithConstraints(modifier = modifier) {
+        val size = ViewSize.of(minWidth)
+        if (size != Unknown) {
+            CompositionLocalProvider(LocalViewSize provides size) {
+                content(size)
+            }
+        }
     }
 }
 
 /**
  * https://m3.material.io/foundations/layout/applying-layout/window-size-classes
  */
-enum class WindowSize {
+enum class ViewSize {
     Unknown,
     Compact,
     Medium,
@@ -45,14 +44,14 @@ enum class WindowSize {
     ;
 
     companion object {
-        /** Returns the current [WindowSize] in the composition. */
-        val current: WindowSize
+        /** Returns the current [ViewSize] in the composition. */
+        val current: ViewSize
             @Composable
             @ReadOnlyComposable
-            get() = LocalWindowSize.current
+            get() = LocalViewSize.current
 
         @Stable
-        fun of(width: Dp): WindowSize {
+        fun of(width: Dp): ViewSize {
             return when {
                 width < 600.dp -> Compact
                 width < 840.dp -> Medium

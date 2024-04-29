@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import app.userflow.navigation.bottom.BottomNavigation
 import app.userflow.navigation.left.PermanentLeftNavigation
 import app.userflow.navigation.left.RailNavigation
-import shared.core.size.WindowSize
-import shared.core.size.WindowSizeProvider
+import shared.core.size.ViewSize
+import shared.core.size.ViewSizeProvider
 
 /**
  * Composable function to display an adaptive navigation.
@@ -19,10 +19,10 @@ import shared.core.size.WindowSizeProvider
  */
 @Composable
 fun AdaptiveNavigation(content: @Composable () -> Unit) {
-    WindowSizeProvider { size ->
+    ViewSizeProvider { size ->
         when {
-            size <= WindowSize.Compact -> Bottom(content)
-            size <= WindowSize.Large -> LeftCompact(content)
+            size <= ViewSize.Compact -> Bottom(content)
+            size <= ViewSize.Large -> LeftCompact(content)
             else -> LeftLarge(content)
         }
     }
