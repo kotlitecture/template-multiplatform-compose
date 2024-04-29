@@ -11,9 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import app.appViewModel
-import shared.design.component.basic.AnyIcon
 import app.userflow.navigation.NavigationBarViewModel
+import shared.core.provideViewModel
+import shared.design.component.basic.AnyIcon
 
 /**
  * Composable function to display rail navigation.
@@ -22,7 +22,7 @@ import app.userflow.navigation.NavigationBarViewModel
  */
 @Composable
 fun RailNavigation(content: @Composable () -> Unit) {
-    val viewModel: NavigationBarViewModel = appViewModel()
+    val viewModel: NavigationBarViewModel = provideViewModel()
     val pages = viewModel.pagesStore.asStateValue()
     if (pages.isNullOrEmpty()) {
         content()

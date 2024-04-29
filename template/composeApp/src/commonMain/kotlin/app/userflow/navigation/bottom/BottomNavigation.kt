@@ -6,16 +6,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import app.appViewModel
-import shared.design.component.basic.AnyIcon
 import app.userflow.navigation.NavigationBarViewModel
+import shared.core.provideViewModel
+import shared.design.component.basic.AnyIcon
 
 /**
  * Composable function responsible for rendering the bottom navigation bar.
  */
 @Composable
 fun BottomNavigation(modifier: Modifier = Modifier) {
-    val viewModel: NavigationBarViewModel = appViewModel()
+    val viewModel: NavigationBarViewModel = provideViewModel()
     val pages = viewModel.pagesStore.asStateValue()
     if (pages.isNullOrEmpty()) {
         return

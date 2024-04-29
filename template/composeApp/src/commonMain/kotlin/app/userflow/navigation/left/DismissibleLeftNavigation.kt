@@ -14,10 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
-import app.appViewModel
-import shared.design.component.basic.AnyIcon
 import app.userflow.navigation.NavigationBarViewModel
+import shared.core.provideViewModel
 import shared.core.state.StoreObject
+import shared.design.component.basic.AnyIcon
 
 /**
  * Composable function to display a dismissible left navigation.
@@ -26,7 +26,7 @@ import shared.core.state.StoreObject
  */
 @Composable
 fun DismissibleLeftNavigation(content: @Composable () -> Unit) {
-    val viewModel: NavigationBarViewModel = appViewModel()
+    val viewModel: NavigationBarViewModel = provideViewModel()
     val pages = viewModel.pagesStore.asStateValue()
     if (pages.isNullOrEmpty()) {
         content()

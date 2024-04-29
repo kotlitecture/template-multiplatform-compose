@@ -8,15 +8,15 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.appViewModel
 import app.showcases.ShowcaseHintBlock
 import app.showcases.navigation.args.ArgsNavigationShowcase
+import shared.core.provideViewModel
 import shared.core.state.StoreObject
 import shared.design.container.FixedTopBarColumnLayout
 
 @Composable
 fun ArgsNavigationFromScreen() {
-    val viewModel: ArgsNavigationFromViewModel = appViewModel()
+    val viewModel: ArgsNavigationFromViewModel = provideViewModel()
     FixedTopBarColumnLayout(
         title = ArgsNavigationShowcase.label,
         onBack = viewModel::onBack,

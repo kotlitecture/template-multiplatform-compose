@@ -12,7 +12,7 @@ import shared.core.provideViewModel
  */
 @Composable
 fun NavigationProvider(navigationState: NavigationState, navigationContext: NavigationContext) {
-    val viewModel: NavigationViewModel = provideViewModel()
+    val viewModel: NavigationViewModel = provideViewModel(factory = null)
     DisposableEffect(navigationState, navigationContext) {
         viewModel.onBind(navigationState, navigationContext)
         onDispose { viewModel.onUnbind(navigationState) }

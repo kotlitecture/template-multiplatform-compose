@@ -7,14 +7,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.appViewModel
 import app.showcases.ShowcaseHintBlock
+import shared.core.provideViewModel
 import shared.core.state.StoreObject
 import shared.design.container.FixedTopBarColumnLayout
 
 @Composable
 fun BasicHttpScreen() {
-    val viewModel: BasicHttpViewModel = appViewModel()
+    val viewModel: BasicHttpViewModel = provideViewModel()
     FixedTopBarColumnLayout(
         title = BasicHttpShowcase.label,
         onBack = viewModel::onBack,

@@ -11,7 +11,7 @@ fun ThemeProvider(
     state: ThemeState,
     content: @Composable () -> Unit
 ) {
-    val viewModel: ThemeViewModel = provideViewModel()
+    val viewModel: ThemeViewModel = provideViewModel(factory = null)
     LaunchedEffect(state) { viewModel.onBind(state) }
     SystemDarkModeHandler(state)
     ThemeSwitchHandler(state, content)

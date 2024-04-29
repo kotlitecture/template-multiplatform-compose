@@ -2,7 +2,7 @@ package app.userflow.theme.toggle
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import app.appViewModel
+import shared.core.provideViewModel
 import shared.design.component.basic.ActionButton
 
 /**
@@ -12,7 +12,7 @@ import shared.design.component.basic.ActionButton
  */
 @Composable
 fun ToggleThemeButton(modifier: Modifier = Modifier) {
-    val viewModel: ToggleThemeViewModel = appViewModel()
+    val viewModel: ToggleThemeViewModel = provideViewModel()
     val data = viewModel.dataStore.asStateValue() ?: return
     ActionButton(
         modifier = modifier,

@@ -6,7 +6,7 @@ import shared.core.navigation.NavigationDestination
 /**
  * ViewModel-scoped class representing the application navigation router.
  */
-class AppNavigationRouter() {
+class AppNavigationRouter {
 
     /**
      * Returns the start destination based on the current passcode status.

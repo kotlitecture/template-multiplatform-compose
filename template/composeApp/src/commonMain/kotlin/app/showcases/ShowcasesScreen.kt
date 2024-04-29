@@ -19,12 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import app.appViewModel
+import shared.core.provideViewModel
+import shared.core.state.StoreObject
 import shared.design.component.basic.ActionButton
 import shared.design.component.basic.AnyIcon
 import shared.design.component.basic.Spacer16
 import shared.design.container.FixedTopBarLazyColumnLayout
-import shared.core.state.StoreObject
 import shared.design.theme.M3ThemeContext
 
 /**
@@ -33,7 +33,7 @@ import shared.design.theme.M3ThemeContext
  */
 @Composable
 fun ShowcasesScreen() {
-    val viewModel: ShowcasesViewModel = appViewModel()
+    val viewModel: ShowcasesViewModel = provideViewModel()
     val showcasesState = viewModel.showcasesStore.asStateNotNull()
     FixedTopBarLazyColumnLayout(
         title = "Showcases",
