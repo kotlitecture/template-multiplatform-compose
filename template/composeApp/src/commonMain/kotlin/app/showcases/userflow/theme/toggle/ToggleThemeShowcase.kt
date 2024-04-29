@@ -16,7 +16,7 @@ import app.userflow.theme.toggle.ToggleThemeButton
 import core.ui.navigation.NavigationDestination
 import core.ui.navigation.NavigationDestinationNoArgs
 import core.ui.navigation.NavigationStrategy
-import core.ui.theme.ThemeData
+import core.ui.theme.ThemeContext
 
 /**
  * Showcase item representing a toggle theme button.
@@ -44,7 +44,7 @@ private object ToggleThemeDestination : NavigationDestinationNoArgs() {
             modifier = Modifier
                 .sizeIn(minWidth = 100.dp, minHeight = 100.dp)
                 .clip(RoundedCornerShape(24.dp))
-                .background(ThemeData.current.primary)
+                .background(ThemeContext.current.primary)
                 .padding(24.dp),
             contentAlignment = Alignment.Center
         ) {

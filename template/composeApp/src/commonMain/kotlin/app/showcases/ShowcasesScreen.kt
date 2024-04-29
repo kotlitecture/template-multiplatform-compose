@@ -25,7 +25,7 @@ import app.ui.component.basic.AnyIcon
 import app.ui.component.basic.Spacer16
 import app.ui.container.FixedTopBarLazyColumnLayout
 import core.ui.state.StoreObject
-import core.ui.theme.material3.Material3ThemeData
+import core.ui.theme.material3.Material3ThemeContext
 
 /**
  * Composable function for displaying the showcases screen.
@@ -140,7 +140,7 @@ private fun LazyListScope.showcaseItemGroup(
 ) {
     item {
         Text(
-            color = Material3ThemeData.current.colorScheme.primary,
+            color = Material3ThemeContext.current.colorScheme.primary,
             modifier = Modifier.padding(16.dp),
             fontWeight = FontWeight.W600,
             text = showcase.label,

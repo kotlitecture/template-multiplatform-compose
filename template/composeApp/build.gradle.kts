@@ -48,6 +48,7 @@ kotlin {
         }
         commonMain.dependencies {
             implementation(projects.shared.data)
+            implementation(projects.shared.design)
             implementation(projects.shared.ui)
             implementation(compose.components.resources)
             implementation(libs.cashapp.paging.compose.common)

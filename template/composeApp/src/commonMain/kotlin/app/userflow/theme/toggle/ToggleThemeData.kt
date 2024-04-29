@@ -6,27 +6,27 @@ import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.vector.ImageVector
-import core.ui.theme.ThemeDataProvider
+import core.ui.theme.ThemeContext
 
 /**
  * Data class representing theme toggle data.
  *
- * @param provider The theme data provider.
+ * @param context The theme data provider.
  */
 @Immutable
 data class ToggleThemeData(
-    private val provider: ThemeDataProvider<*>
+    private val context: ThemeContext
 ) {
 
     @Stable
     fun isDark(): Boolean {
-        return provider.dark
+        return context.dark
     }
 
     @Stable
     fun getIcon(): ImageVector {
         return when {
-            provider.dark -> Icons.Outlined.LightMode
+            context.dark -> Icons.Outlined.LightMode
             else -> Icons.Outlined.DarkMode
         }
     }

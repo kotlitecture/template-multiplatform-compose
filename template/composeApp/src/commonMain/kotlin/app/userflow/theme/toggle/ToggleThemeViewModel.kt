@@ -21,9 +21,9 @@ class ToggleThemeViewModel(
 
     override fun doBind() {
         launchAsync("doBind") {
-            themeState.dataStore.asFlow()
-                .mapNotNull { it?.providerId }
-                .mapNotNull(themeState::findProviderById)
+            themeState.contextStore.asFlow()
+                .mapNotNull { it?.id }
+                .mapNotNull(themeState::getById)
                 .distinctUntilChanged()
                 .map { ToggleThemeData(it) }
                 .collectLatest(dataStore::set)

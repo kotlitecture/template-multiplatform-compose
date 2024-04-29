@@ -3,7 +3,7 @@ package core.ui.theme.material3
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 
-internal val LightColors = lightColorScheme(
+private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
     primaryContainer = md_theme_light_primaryContainer,
@@ -36,7 +36,7 @@ internal val LightColors = lightColorScheme(
 )
 
 
-internal val DarkColors = darkColorScheme(
+private val DarkColors = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
@@ -66,4 +66,16 @@ internal val DarkColors = darkColorScheme(
     surfaceTint = md_theme_dark_surfaceTint,
     outlineVariant = md_theme_dark_outlineVariant,
     scrim = md_theme_dark_scrim,
+)
+
+val LightThemeContext = Material3ThemeContext(
+    dark = false,
+    id = "material_3_light",
+    colorScheme = LightColors
+)
+
+val DarkThemeContext = Material3ThemeContext(
+    dark = true,
+    id = "material_3_dark",
+    colorScheme = DarkColors
 )

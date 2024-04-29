@@ -32,15 +32,15 @@ class AppActivity : ComponentActivity() {
 @Composable
 private fun EdgeToEdgeHandler(state: ThemeState) {
     val activity = LocalContext.current.findActivity() ?: return
-    val data = state.dataStore.asStateValue() ?: return
-    val barStyle = remember(data.dark) {
-        if (data.dark) {
+    val themeContext = state.contextStore.asStateValue() ?: return
+    val barStyle = remember(themeContext.dark) {
+        if (themeContext.dark) {
             SystemBarStyle.dark(Color.TRANSPARENT)
         } else {
             SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT)
         }
     }
-    LaunchedEffect(data) {
+    LaunchedEffect(themeContext) {
         activity.enableEdgeToEdge(
             statusBarStyle = barStyle,
             navigationBarStyle = barStyle

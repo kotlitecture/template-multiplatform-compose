@@ -30,14 +30,13 @@ class ThemeViewModel : BaseViewModel() {
                 }
                 .map { data ->
                     val autoDark = data.config.autoDark
-                    val provider = when {
+                    when {
                         autoDark && !data.darkMode -> data.config.lightTheme
                         autoDark && data.darkMode -> data.config.darkTheme
                         else -> data.config.defaultTheme
                     }
-                    provider.provide(data.config)
                 }
-                .collect(state.dataStore::set)
+                .collect(state.contextStore::set)
         }
     }
 

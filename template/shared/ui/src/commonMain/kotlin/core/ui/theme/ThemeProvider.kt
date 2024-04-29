@@ -5,8 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import core.ui.coreViewModel
-import core.ui.theme.material3.Material3ThemeData
-import core.ui.theme.material3.Material3ThemeProvider
 
 @Composable
 fun ThemeProvider(
@@ -29,11 +27,8 @@ private fun SystemDarkModeHandler(state: ThemeState) {
 
 @Composable
 private fun ThemeSwitchHandler(state: ThemeState, content: @Composable () -> Unit) {
-    val data = state.dataStore.asStateValue() ?: return
-    CompositionLocalProvider(ThemeData.localThemeData provides data) {
-        when {
-            data is Material3ThemeData -> Material3ThemeProvider(data, content)
-            else -> content()
-        }
+    val context = state.contextStore.asStateValue() ?: return
+    CompositionLocalProvider(ThemeContext.localThemeContext provides context) {
+        context.apply(state.configStore.getNotNull(), content)
     }
 }

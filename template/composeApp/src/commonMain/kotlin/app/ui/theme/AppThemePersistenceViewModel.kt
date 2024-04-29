@@ -45,9 +45,9 @@ class AppThemePersistenceViewModel(
     private fun mapToModel(from: AppThemeConfigData): ThemeConfig {
         val initial = themeState.defaultConfig
         return initial.copy(
-            defaultTheme = themeState.findProviderById(from.defaultThemeId) ?: initial.defaultTheme,
-            lightTheme = themeState.findProviderById(from.lightThemeId) ?: initial.lightTheme,
-            darkTheme = themeState.findProviderById(from.darkThemeId) ?: initial.darkTheme,
+            defaultTheme = themeState.getById(from.defaultThemeId) ?: initial.defaultTheme,
+            lightTheme = themeState.getById(from.lightThemeId) ?: initial.lightTheme,
+            darkTheme = themeState.getById(from.darkThemeId) ?: initial.darkTheme,
             autoDark = from.autoDark ?: initial.autoDark
         )
     }

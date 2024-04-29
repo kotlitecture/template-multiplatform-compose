@@ -1,38 +1,39 @@
 package core.ui.theme.material3
 
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import core.ui.theme.ThemeConfig
-import core.ui.theme.ThemeDataProvider
+import core.ui.theme.ThemeContext
 
 /**
- * Data class representing a Material3 theme data provider.
- *
- * @property dark Indicates whether the theme is dark mode or not.
- * @property colorScheme The color scheme used in the theme.
+ * Data class representing Material3 theme context.
  */
-data class Material3ThemeDataProvider(
+@Immutable
+data class Material3ThemeContext(
     override val id: String,
     override val dark: Boolean,
     val colorScheme: ColorScheme
-) : ThemeDataProvider<Material3ThemeData>() {
+) : ThemeContext() {
 
-    override fun provide(config: ThemeConfig): Material3ThemeData {
-        return Material3ThemeData(
-            typography = createTypography(config.fontFamily),
-            fontFamily = config.fontFamily,
+    override val primary: Color = colorScheme.surface
+    override val onPrimary: Color = colorScheme.onSurface
+
+    @Composable
+    override fun apply(config: ThemeConfig, content: @Composable () -> Unit) {
+        MaterialTheme(
+            typography = remember(config.fontFamily) { createTypography(config.fontFamily) },
             colorScheme = colorScheme,
-            provider = this,
+            content = content
         )
     }
 
-    /**
-     * Creates typography settings for the given font family.
-     *
-     * @param fontFamily The font family to be used in typography.
-     * @return Typography settings with the specified font family.
-     */
     private fun createTypography(fontFamily: FontFamily): Typography {
         val typography = Typography()
         if (typography.bodyLarge.fontFamily != fontFamily) {
@@ -56,6 +57,14 @@ data class Material3ThemeDataProvider(
         } else {
             return typography
         }
+    }
+
+    companion object {
+        /** Returns the current Material3 theme data in the composition. */
+        val current: Material3ThemeContext
+            @Composable
+            @ReadOnlyComposable
+            get() = ThemeContext.current as Material3ThemeContext
     }
 
 }

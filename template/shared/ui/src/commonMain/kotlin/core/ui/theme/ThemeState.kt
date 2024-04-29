@@ -18,10 +18,10 @@ data class ThemeState(
     val persistentKey: String = "theme_config",
     val defaultConfig: ThemeConfig,
     val dynamicConfig: ThemeConfig? = null,
-    val availableThemes: List<ThemeDataProvider<*>> = emptyList(),
+    val availableThemes: List<ThemeContext> = emptyList(),
 ) : StoreState() {
 
-    private val themeById by lazy {
+    private val contextById by lazy {
         val themes = availableThemes.associateBy { it.id }.toMutableMap()
         themes[defaultConfig.defaultTheme.id] = defaultConfig.defaultTheme
         themes[defaultConfig.lightTheme.id] = defaultConfig.lightTheme
@@ -37,8 +37,8 @@ data class ThemeState(
     /** Store object for the theme dark mode state. */
     val systemDarkModeStore = StoreObject<Boolean>()
 
-    /** Store object for the current theme data. */
-    val dataStore = StoreObject<ThemeData>()
+    /** Store object for the current theme context. */
+    val contextStore = StoreObject<ThemeContext>()
 
     /**
      * Finds a theme provider by its ID.
@@ -46,8 +46,8 @@ data class ThemeState(
      * @param id The ID of the theme provider to find.
      * @return The theme provider with the specified ID, or null if not found.
      */
-    fun findProviderById(id: String?): ThemeDataProvider<*>? {
-        return themeById[id]
+    fun getById(id: String?): ThemeContext? {
+        return contextById[id]
     }
 
     /**

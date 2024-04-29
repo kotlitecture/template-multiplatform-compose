@@ -6,26 +6,24 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily
 
 /**
- * Abstract class representing theme data.
- *
- * @property fontFamily The font family used in the theme.
- * @property primary The primary color in the theme.
- * @property onPrimary The color used for texts and icons on the primary background.
+ * Theme context.
  */
 @Immutable
-abstract class ThemeData {
+open class ThemeContext {
 
-    abstract val providerId: String?
-    abstract val dark: Boolean
-
-    open val fontFamily: FontFamily = FontFamily.Default
+    open val id: String? = null
+    open val dark: Boolean = false
 
     open val negative: Color = Color.Red
     open val primary: Color = Color.White
     open val onPrimary: Color = Color.Black
+
+    @Composable
+    open fun apply(config: ThemeConfig, content: @Composable () -> Unit) {
+        content()
+    }
 
     val topBlur by lazy {
         Brush.verticalGradient(
@@ -50,19 +48,16 @@ abstract class ThemeData {
     }
 
     /** Represents no theme data. */
-    class NoThemeData : ThemeData() {
-        override val providerId: String? = null
-        override val dark: Boolean = false
-    }
+    class NoThemeContext : ThemeContext()
 
     companion object {
         /** Local composition used to access the current theme data. */
-        internal val localThemeData = staticCompositionLocalOf<ThemeData> { NoThemeData() }
+        internal val localThemeContext = staticCompositionLocalOf<ThemeContext> { NoThemeContext() }
 
         /** Returns the current theme data in the composition. */
-        val current: ThemeData
+        val current: ThemeContext
             @Composable
             @ReadOnlyComposable
-            get() = localThemeData.current
+            get() = localThemeContext.current
     }
 }

@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import core.ui.theme.ThemeData
+import core.ui.theme.ThemeContext
 
 /**
  * Provides a composable UI component for handling data loading and error states.
@@ -42,7 +42,7 @@ fun ErrorStateProvider(
                 .padding(horizontal = padding)
                 .clip(RoundedCornerShape(radius))
                 .heightIn(max = 320.dp)
-                .background(ThemeData.current.primary)
+                .background(ThemeContext.current.primary)
                 .fillMaxWidth()
         ) {
             Column(
@@ -56,13 +56,13 @@ fun ErrorStateProvider(
                     text = error.id,
                     fontSize = 24.sp,
                     fontWeight = FontWeight.W600,
-                    color = ThemeData.current.onPrimary
+                    color = ThemeContext.current.onPrimary
                 )
                 Spacer(modifier = Modifier.height(contentPadding))
                 Text(
                     text = error.th.stackTraceToString(),
                     fontSize = 16.sp,
-                    color = ThemeData.current.onPrimary
+                    color = ThemeContext.current.onPrimary
                 )
                 Spacer(modifier = Modifier.height(contentPadding))
             }

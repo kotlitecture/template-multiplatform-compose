@@ -3,14 +3,11 @@ package app.ui.container
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.exclude
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -20,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import app.ui.component.basic.ActionButton
-import core.ui.theme.ThemeData
+import core.ui.theme.ThemeContext
 
 /**
  * Composable function for rendering a layout with a fixed top bar.
@@ -83,9 +80,9 @@ private fun HeaderBlock(
         windowInsets = WindowInsets.systemBars.exclude(WindowInsets.systemBars),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
-            titleContentColor = ThemeData.current.onPrimary,
-            actionIconContentColor = ThemeData.current.onPrimary,
-            navigationIconContentColor = ThemeData.current.onPrimary,
+            titleContentColor = ThemeContext.current.onPrimary,
+            actionIconContentColor = ThemeContext.current.onPrimary,
+            navigationIconContentColor = ThemeContext.current.onPrimary,
         ),
         title = {
             if (title != null) {

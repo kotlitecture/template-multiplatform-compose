@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import app.appViewModel
 import app.ui.component.basic.Spacer8
 import app.ui.container.FixedTopBarColumnLayout
-import core.ui.theme.ThemeData
+import core.ui.theme.ThemeContext
 import org.jetbrains.compose.resources.stringResource
 import template.composeapp.generated.resources.Res
 import template.composeapp.generated.resources.theme_change_dark_mode
@@ -51,7 +51,7 @@ fun ChangeThemeDialog() {
     ChangeThemeLayout(
         modifier = Modifier
             .clip(RoundedCornerShape(24.dp))
-            .background(ThemeData.current.primary)
+            .background(ThemeContext.current.primary)
             .padding(24.dp),
         viewModel = viewModel
     )
