@@ -11,11 +11,11 @@ import app.showcases.navigation.args.from.ArgsNavigationFromViewModel
 import app.showcases.navigation.args.to.ArgsNavigationToViewModel
 import app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
 import app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
-import app.userflow.navigation.NavigationBarViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import app.ui.theme.AppThemePersistenceViewModel
 import app.ui.theme.AppThemeViewModel
+import app.userflow.navigation.NavigationBarViewModel
 import app.userflow.navigation.samples.a.NavigationAViewModel
 import app.userflow.navigation.samples.b.NavigationBViewModel
 import app.userflow.navigation.samples.c.NavigationCViewModel
@@ -23,9 +23,8 @@ import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
 import shared.core.BaseViewModel
 import shared.core.provideViewModel
-import kotlin.reflect.KClass
 
-internal val AppViewModelFactory = viewModelFactory {
+val AppViewModelFactory = viewModelFactory {
     initializer { instance<AppViewModel>() }
     initializer { instance<AppThemeViewModel>() }
     initializer { instance<AppThemePersistenceViewModel>() }
@@ -47,12 +46,8 @@ internal val AppViewModelFactory = viewModelFactory {
 }
 
 @Composable
-internal fun <VM : BaseViewModel> appViewModel(
-    modelClass: KClass<VM>,
-    key: String? = null,
-): VM =
+inline fun <reified VM : BaseViewModel> appViewModel(key: String? = null): VM =
     provideViewModel(
         key = key,
-        modelClass = modelClass,
         factory = AppViewModelFactory
     )

@@ -6,6 +6,6 @@ import shared.core.theme.ThemeProvider
 
 @Composable
 fun AppThemeProvider(content: @Composable () -> Unit) {
-    val viewModel = appViewModel(AppThemePersistenceViewModel::class)
+    val viewModel: AppThemePersistenceViewModel = appViewModel()
     ThemeProvider(viewModel.themeState, content)
 }

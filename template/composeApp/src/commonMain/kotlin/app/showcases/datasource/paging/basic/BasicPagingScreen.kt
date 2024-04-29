@@ -12,12 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.appViewModel
 import app.cash.paging.compose.collectAsLazyPagingItems
-import shared.design.container.FixedTopBarLazyColumnLayout
 import shared.design.component.paging.BasicPagingList
+import shared.design.container.FixedTopBarLazyColumnLayout
 
 @Composable
 fun BasicPagingScreen() {
-    val viewModel = appViewModel(BasicPagingViewModel::class)
+    val viewModel: BasicPagingViewModel = appViewModel()
     val items = viewModel.itemsFlow.collectAsLazyPagingItems()
     FixedTopBarLazyColumnLayout(
         title = BasicPagingShowcase.label,

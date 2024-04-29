@@ -33,7 +33,7 @@ import shared.design.theme.M3ThemeContext
  */
 @Composable
 fun ShowcasesScreen() {
-    val viewModel: ShowcasesViewModel = appViewModel(ShowcasesViewModel::class)
+    val viewModel: ShowcasesViewModel = appViewModel()
     val showcasesState = viewModel.showcasesStore.asStateNotNull()
     FixedTopBarLazyColumnLayout(
         title = "Showcases",
@@ -64,8 +64,7 @@ fun ShowcaseHintBlock(text: String) {
     OutlinedCard(
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth()
-        ,
+            .fillMaxWidth(),
         content = {
             Text(
                 modifier = Modifier.padding(16.dp),

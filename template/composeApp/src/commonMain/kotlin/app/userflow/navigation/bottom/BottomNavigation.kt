@@ -15,7 +15,7 @@ import app.userflow.navigation.NavigationBarViewModel
  */
 @Composable
 fun BottomNavigation(modifier: Modifier = Modifier) {
-    val viewModel: NavigationBarViewModel = appViewModel(NavigationBarViewModel::class)
+    val viewModel: NavigationBarViewModel = appViewModel()
     val pages = viewModel.pagesStore.asStateValue()
     if (pages.isNullOrEmpty()) {
         return

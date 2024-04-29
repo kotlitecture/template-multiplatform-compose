@@ -9,9 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -23,7 +21,6 @@ import shared.core.state.DataState
 import shared.core.state.StoreState
 import kotlin.collections.set
 import kotlin.coroutines.CoroutineContext
-import kotlin.reflect.KClass
 
 /**
  * Abstract class representing a ViewModel with lifecycle-aware coroutine launching capabilities.
@@ -185,19 +182,12 @@ abstract class BaseViewModel : ViewModel() {
 
 @Stable
 @Composable
-fun <VM : BaseViewModel> provideViewModel(
+inline fun <reified VM : BaseViewModel> provideViewModel(
     key: String? = null,
-    modelClass: KClass<VM>,
-    factory: ViewModelProvider.Factory
+    factory: ViewModelProvider.Factory? = null
 ): VM {
-    val storeOwner: ViewModelStoreOwner = LocalViewModelStoreOwner.current!!
     val lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current
-    val viewModel = viewModel(
-        modelClass = modelClass,
-        viewModelStoreOwner = storeOwner,
-        key = key,
-        factory = factory,
-    )
+    val viewModel: VM = viewModel(key = key, factory = factory)
     viewModel.bind(lifecycleOwner)
     return viewModel
 }

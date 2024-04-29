@@ -14,7 +14,7 @@ import shared.design.container.FixedTopBarColumnLayout
 
 @Composable
 fun NoArgsNavigationToScreen() {
-    val viewModel = appViewModel(NoArgsNavigationToViewModel::class)
+    val viewModel: NoArgsNavigationToViewModel = appViewModel()
     FixedTopBarColumnLayout(
         title = NoArgsNavigationShowcase.label,
         onBack = viewModel::onBack,

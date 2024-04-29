@@ -2,7 +2,7 @@ package shared.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import shared.core.coreViewModel
+import shared.core.provideViewModel
 
 /**
  * Composable function responsible for providing navigation functionality to the UI.
@@ -12,7 +12,7 @@ import shared.core.coreViewModel
  */
 @Composable
 fun NavigationProvider(navigationState: NavigationState, navigationContext: NavigationContext) {
-    val viewModel = coreViewModel(NavigationViewModel::class)
+    val viewModel: NavigationViewModel = provideViewModel()
     DisposableEffect(navigationState, navigationContext) {
         viewModel.onBind(navigationState, navigationContext)
         onDispose { viewModel.onUnbind(navigationState) }

@@ -16,10 +16,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.appViewModel
+import org.jetbrains.compose.resources.stringResource
+import shared.core.theme.ThemeContext
 import shared.design.component.basic.Spacer8
 import shared.design.container.FixedTopBarColumnLayout
-import shared.core.theme.ThemeContext
-import org.jetbrains.compose.resources.stringResource
 import template.composeapp.generated.resources.Res
 import template.composeapp.generated.resources.theme_change_dark_mode
 import template.composeapp.generated.resources.theme_change_dark_mode_off
@@ -32,7 +32,7 @@ import template.composeapp.generated.resources.theme_change_title
 
 @Composable
 fun ChangeThemeScreen() {
-    val viewModel: ChangeThemeViewModel = appViewModel(ChangeThemeViewModel::class)
+    val viewModel: ChangeThemeViewModel = appViewModel()
     FixedTopBarColumnLayout(
         title = stringResource(Res.string.theme_change_title),
         onBack = viewModel::onBack,
@@ -47,7 +47,7 @@ fun ChangeThemeScreen() {
 
 @Composable
 fun ChangeThemeDialog() {
-    val viewModel: ChangeThemeViewModel = appViewModel(ChangeThemeViewModel::class)
+    val viewModel: ChangeThemeViewModel = appViewModel()
     ChangeThemeLayout(
         modifier = Modifier
             .clip(RoundedCornerShape(24.dp))
@@ -60,7 +60,7 @@ fun ChangeThemeDialog() {
 @Composable
 fun ChangeThemeLayout(
     modifier: Modifier = Modifier,
-    viewModel: ChangeThemeViewModel = appViewModel(ChangeThemeViewModel::class)
+    viewModel: ChangeThemeViewModel = appViewModel()
 ) {
     Column(
         modifier = modifier,
@@ -72,7 +72,7 @@ fun ChangeThemeLayout(
 }
 
 @Composable
-fun DynamicColorBlock(viewModel: ChangeThemeViewModel = appViewModel(ChangeThemeViewModel::class)) {
+fun DynamicColorBlock(viewModel: ChangeThemeViewModel = appViewModel()) {
     val use = viewModel.dynamicColorsStore.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dynamic_color))
@@ -91,7 +91,7 @@ fun DynamicColorBlock(viewModel: ChangeThemeViewModel = appViewModel(ChangeTheme
 }
 
 @Composable
-fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = appViewModel(ChangeThemeViewModel::class)) {
+fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = appViewModel()) {
     val config = viewModel.configStore.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dark_mode))

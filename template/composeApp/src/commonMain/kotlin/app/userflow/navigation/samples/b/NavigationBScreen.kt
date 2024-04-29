@@ -10,7 +10,7 @@ import app.appViewModel
 
 @Composable
 fun NavigationBScreen() {
-    val viewModel: NavigationBViewModel = appViewModel(NavigationBViewModel::class)
+    val viewModel: NavigationBViewModel = appViewModel()
     Box(Modifier.fillMaxSize()) {
         Text(
             modifier = Modifier.align(Alignment.Center),

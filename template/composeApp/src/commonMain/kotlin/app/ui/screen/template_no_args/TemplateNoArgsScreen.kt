@@ -10,7 +10,7 @@ import app.appViewModel
 
 @Composable
 fun TemplateNoArgsScreen() {
-    val viewModel = appViewModel(TemplateNoArgsViewModel::class)
+    val viewModel: TemplateNoArgsViewModel = appViewModel()
     Box(Modifier.fillMaxSize()) {
         Text(
             modifier = Modifier.align(Alignment.Center),

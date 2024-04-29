@@ -22,7 +22,7 @@ import app.userflow.navigation.NavigationBarViewModel
  */
 @Composable
 fun RailNavigation(content: @Composable () -> Unit) {
-    val viewModel: NavigationBarViewModel = appViewModel(NavigationBarViewModel::class)
+    val viewModel: NavigationBarViewModel = appViewModel()
     val pages = viewModel.pagesStore.asStateValue()
     if (pages.isNullOrEmpty()) {
         content()

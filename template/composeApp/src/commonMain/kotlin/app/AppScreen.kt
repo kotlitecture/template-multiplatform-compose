@@ -8,7 +8,7 @@ import shared.design.scaffold.NavigationScaffold
 
 @Composable
 fun AppScreen() {
-    val viewModel: AppViewModel = appViewModel(AppViewModel::class)
+    val viewModel: AppViewModel = appViewModel()
     val navigationState = viewModel.navigationState
     NavigationBarProvider {
         NavigationScaffold(
