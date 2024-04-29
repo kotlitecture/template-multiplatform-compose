@@ -1,10 +1,8 @@
 package app.showcases
 
 import androidx.navigation.NavGraphBuilder
-import core.ui.navigation.ArgsStrategy
-import core.ui.navigation.NavigationDestination
-import core.ui.navigation.NavigationDestinationNoArgs
-import core.ui.navigation.NavigationStrategy
+import shared.core.navigation.NavigationDestinationNoArgs
+import shared.core.navigation.NavigationStrategy
 
 /**
  * Navigation destination representing the flow for showcasing various features.

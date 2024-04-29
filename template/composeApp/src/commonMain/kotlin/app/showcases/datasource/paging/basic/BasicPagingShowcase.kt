@@ -2,7 +2,7 @@ package app.showcases.datasource.paging.basic
 
 import app.showcases.ShowcaseItem
 import app.showcases.ShowcasesViewModel
-import core.ui.navigation.NavigationDestination
+import shared.core.navigation.NavigationDestination
 
 object BasicPagingShowcase : ShowcaseItem {
 

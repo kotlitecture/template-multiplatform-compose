@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import app.appViewModel
 import shared.design.component.basic.Spacer8
 import shared.design.container.FixedTopBarColumnLayout
-import core.ui.theme.ThemeContext
+import shared.core.theme.ThemeContext
 import org.jetbrains.compose.resources.stringResource
 import template.composeapp.generated.resources.Res
 import template.composeapp.generated.resources.theme_change_dark_mode

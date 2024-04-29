@@ -1,7 +1,7 @@
 package app.ui.theme
 
-import core.ui.BaseViewModel
-import core.ui.theme.ThemeState
+import shared.core.BaseViewModel
+import shared.core.theme.ThemeState
 
 class AppThemeViewModel(
     val themeState: ThemeState

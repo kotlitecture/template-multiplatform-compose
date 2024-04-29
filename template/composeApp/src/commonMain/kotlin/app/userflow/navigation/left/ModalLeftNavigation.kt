@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import app.appViewModel
 import shared.design.component.basic.AnyIcon
 import app.userflow.navigation.NavigationBarViewModel
-import core.ui.state.StoreObject
+import shared.core.state.StoreObject
 
 /**
  * Composable function to display a modal left navigation.

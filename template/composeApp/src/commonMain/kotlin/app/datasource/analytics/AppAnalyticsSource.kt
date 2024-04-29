@@ -1,6 +1,6 @@
 package app.datasource.analytics
 
-import core.data.datasource.analytics.CompositeAnalyticsSource
+import shared.data.datasource.analytics.CompositeAnalyticsSource
 
 /**
  * Decorator class for working with analytics events.

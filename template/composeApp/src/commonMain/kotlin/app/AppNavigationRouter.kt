@@ -1,7 +1,7 @@
 package app
 
 import app.showcases.ShowcasesDestination
-import core.ui.navigation.NavigationDestination
+import shared.core.navigation.NavigationDestination
 
 /**
  * ViewModel-scoped class representing the application navigation router.

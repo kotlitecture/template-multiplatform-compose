@@ -6,7 +6,7 @@ import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.vector.ImageVector
-import core.ui.theme.ThemeContext
+import shared.core.theme.ThemeContext
 
 /**
  * Data class representing theme toggle data.

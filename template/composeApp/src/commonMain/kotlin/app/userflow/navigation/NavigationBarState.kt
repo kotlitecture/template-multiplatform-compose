@@ -1,8 +1,8 @@
 package app.userflow.navigation
 
-import core.ui.navigation.NavigationDestination
-import core.ui.state.StoreObject
-import core.ui.state.StoreState
+import shared.core.navigation.NavigationDestination
+import shared.core.state.StoreObject
+import shared.core.state.StoreState
 
 /**
  * Represents the state of the navigation bar.

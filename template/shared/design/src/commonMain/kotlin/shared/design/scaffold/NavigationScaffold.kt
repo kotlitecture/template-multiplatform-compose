@@ -11,8 +11,8 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import core.ui.navigation.NavigationContext
-import core.ui.navigation.NavigationHost
+import shared.core.navigation.NavigationContext
+import shared.core.navigation.NavigationHost
 import shared.design.component.error.ErrorDialogProvider
 
 /**

@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import app.appViewModel
 import app.showcases.ShowcaseHintBlock
 import shared.design.container.FixedTopBarColumnLayout
-import core.ui.state.StoreObject
+import shared.core.state.StoreObject
 
 @Composable
 fun BasicHttpScreen() {

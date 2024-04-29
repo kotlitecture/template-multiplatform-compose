@@ -17,7 +17,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.design.component.basic.SpacerNavigationBar
-import core.ui.theme.ThemeContext
+import shared.core.theme.ThemeContext
 
 /**
  * Data class representing the appearance configuration for a bottom sheet.

@@ -1,10 +1,10 @@
 package app.userflow.theme.change
 
-import core.ui.BaseViewModel
-import core.ui.navigation.NavigationState
-import core.ui.state.StoreObject
-import core.ui.theme.ThemeConfig
-import core.ui.theme.ThemeState
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
+import shared.core.state.StoreObject
+import shared.core.theme.ThemeConfig
+import shared.core.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull

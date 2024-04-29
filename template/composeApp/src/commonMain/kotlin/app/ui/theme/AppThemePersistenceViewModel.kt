@@ -1,10 +1,10 @@
 package app.ui.theme
 
 import app.datasource.keyvalue.AppKeyValueSource
-import core.data.serialization.JsonStrategy
-import core.ui.BaseViewModel
-import core.ui.theme.ThemeConfig
-import core.ui.theme.ThemeState
+import shared.data.serialization.JsonStrategy
+import shared.core.BaseViewModel
+import shared.core.theme.ThemeConfig
+import shared.core.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull

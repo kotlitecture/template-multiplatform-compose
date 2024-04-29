@@ -1,6 +1,6 @@
 package app.datasource.config
 
-import core.data.datasource.config.DelegateConfigSource
+import shared.data.datasource.config.DelegateConfigSource
 
 /**
  * This class represents a configuration source for application settings.

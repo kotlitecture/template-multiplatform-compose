@@ -1,7 +1,7 @@
 package app
 
-import core.ui.BaseViewModel
-import core.ui.navigation.NavigationState
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
 
 class AppViewModel(
     private val navigationRouter: AppNavigationRouter,

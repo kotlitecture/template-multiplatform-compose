@@ -1,8 +1,8 @@
 package app.ui.screen.template_no_args
 
 import androidx.navigation.NavGraphBuilder
-import core.ui.navigation.NavigationDestinationNoArgs
-import core.ui.navigation.NavigationStrategy
+import shared.core.navigation.NavigationDestinationNoArgs
+import shared.core.navigation.NavigationStrategy
 
 object TemplateNoArgsDestination : NavigationDestinationNoArgs() {
 

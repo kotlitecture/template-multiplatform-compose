@@ -1,5 +1,5 @@
 package app.userflow.navigation.samples.a
 
-import core.ui.BaseViewModel
+import shared.core.BaseViewModel
 
 class NavigationAViewModel : BaseViewModel()

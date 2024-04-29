@@ -13,10 +13,10 @@ import androidx.navigation.NavGraphBuilder
 import app.showcases.ShowcaseItem
 import app.showcases.ShowcasesViewModel
 import app.userflow.theme.toggle.ToggleThemeButton
-import core.ui.navigation.NavigationDestination
-import core.ui.navigation.NavigationDestinationNoArgs
-import core.ui.navigation.NavigationStrategy
-import core.ui.theme.ThemeContext
+import shared.core.navigation.NavigationDestination
+import shared.core.navigation.NavigationDestinationNoArgs
+import shared.core.navigation.NavigationStrategy
+import shared.core.theme.ThemeContext
 
 /**
  * Showcase item representing a toggle theme button.

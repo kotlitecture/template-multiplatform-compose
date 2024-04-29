@@ -1,9 +1,9 @@
 package app.ui.screen.template
 
 import androidx.navigation.NavGraphBuilder
-import core.ui.navigation.ArgsStrategy
-import core.ui.navigation.NavigationDestination
-import core.ui.navigation.NavigationStrategy
+import shared.core.navigation.ArgsStrategy
+import shared.core.navigation.NavigationDestination
+import shared.core.navigation.NavigationStrategy
 import kotlinx.serialization.Serializable
 
 object TemplateDestination : NavigationDestination<TemplateDestination.Data>() {

@@ -16,7 +16,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import core.ui.theme.ThemeContext
+import shared.core.theme.ThemeContext
 import shared.design.component.basic.ActionButton
 
 /**

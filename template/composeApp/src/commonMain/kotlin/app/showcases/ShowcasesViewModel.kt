@@ -1,8 +1,8 @@
 package app.showcases
 
-import core.ui.BaseViewModel
-import core.ui.navigation.NavigationState
-import core.ui.state.StoreObject
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
+import shared.core.state.StoreObject
 
 /**
  * ViewModel for the showcases screen.

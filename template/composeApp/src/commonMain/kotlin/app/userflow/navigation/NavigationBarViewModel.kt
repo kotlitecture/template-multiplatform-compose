@@ -1,8 +1,8 @@
 package app.userflow.navigation
 
-import core.ui.BaseViewModel
-import core.ui.navigation.NavigationState
-import core.ui.state.StoreObject
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
+import shared.core.state.StoreObject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filterNotNull

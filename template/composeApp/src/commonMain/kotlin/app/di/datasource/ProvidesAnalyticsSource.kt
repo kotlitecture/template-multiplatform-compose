@@ -1,7 +1,7 @@
 package app.di.datasource
 
 import app.datasource.analytics.AppAnalyticsSource
-import core.data.datasource.analytics.AnalyticsSource
+import shared.data.datasource.analytics.AnalyticsSource
 import org.koin.dsl.bind
 import org.koin.dsl.module
 

@@ -1,8 +1,8 @@
 package app.userflow.theme.change
 
 import androidx.navigation.NavGraphBuilder
-import core.ui.navigation.NavigationDestinationNoArgs
-import core.ui.navigation.NavigationStrategy
+import shared.core.navigation.NavigationDestinationNoArgs
+import shared.core.navigation.NavigationStrategy
 
 /**
  * Navigation destination for changing the theme.

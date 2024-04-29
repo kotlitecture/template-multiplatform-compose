@@ -8,7 +8,7 @@ import app.userflow.navigation.samples.b.NavigationBDestination
 import app.userflow.navigation.samples.c.NavigationCDestination
 import app.userflow.theme.change.ChangeThemeDestination
 import app.userflow.theme.change.ChangeThemeDialogDestination
-import core.ui.navigation.NavigationState
+import shared.core.navigation.NavigationState
 import org.koin.dsl.module
 
 val ProvidesNavigationState = module {

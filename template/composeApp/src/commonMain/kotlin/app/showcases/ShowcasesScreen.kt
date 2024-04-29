@@ -24,7 +24,7 @@ import shared.design.component.basic.ActionButton
 import shared.design.component.basic.AnyIcon
 import shared.design.component.basic.Spacer16
 import shared.design.container.FixedTopBarLazyColumnLayout
-import core.ui.state.StoreObject
+import shared.core.state.StoreObject
 import shared.design.theme.M3ThemeContext
 
 /**

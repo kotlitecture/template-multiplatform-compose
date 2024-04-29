@@ -1,6 +1,6 @@
 package app.showcases
 
-import core.ui.navigation.NavigationDestination
+import shared.core.navigation.NavigationDestination
 
 /**
  * Represents a showcase item.

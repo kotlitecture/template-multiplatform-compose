@@ -24,9 +24,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
-import core.ui.state.DataState
-import core.ui.state.StoreState
-import core.ui.theme.ThemeContext
+import shared.core.state.DataState
+import shared.core.state.StoreState
+import shared.core.theme.ThemeContext
 
 /**
  * Provides a composable UI component for handling data loading and error states.

@@ -1,8 +1,8 @@
 package app.userflow.navigation.samples.a
 
 import androidx.navigation.NavGraphBuilder
-import core.ui.navigation.NavigationStrategy
-import core.ui.navigation.NavigationDestinationNoArgs
+import shared.core.navigation.NavigationStrategy
+import shared.core.navigation.NavigationDestinationNoArgs
 
 object NavigationADestination : NavigationDestinationNoArgs() {
 

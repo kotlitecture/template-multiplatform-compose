@@ -1,7 +1,7 @@
 package app.di.state
 
-import core.ui.theme.ThemeConfig
-import core.ui.theme.ThemeState
+import shared.core.theme.ThemeConfig
+import shared.core.theme.ThemeState
 import shared.design.theme.DarkThemeContext
 import shared.design.theme.LightThemeContext
 import org.koin.dsl.module

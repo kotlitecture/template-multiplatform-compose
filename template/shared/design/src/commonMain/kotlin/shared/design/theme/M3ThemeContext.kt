@@ -9,8 +9,8 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import core.ui.theme.ThemeConfig
-import core.ui.theme.ThemeContext
+import shared.core.theme.ThemeConfig
+import shared.core.theme.ThemeContext
 
 /**
  * Data class representing Material3 theme context.

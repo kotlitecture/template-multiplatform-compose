@@ -27,7 +27,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import shared.design.component.basic.SpacerDynamic
 import shared.design.component.basic.SpacerNavigationBar
 import shared.design.component.basic.SpacerStatusBar
-import core.ui.theme.ThemeContext
+import shared.core.theme.ThemeContext
 
 /**
  * Represents the appearance configuration for a layout.

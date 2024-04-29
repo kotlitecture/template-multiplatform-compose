@@ -5,6 +5,8 @@ import app.AppViewModel
 import app.showcases.ShowcasesViewModel
 import app.showcases.datasource.http.basic.BasicHttpViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
+import app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
+import app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
 import app.userflow.navigation.NavigationBarViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
@@ -37,4 +39,6 @@ val ProvidesViewModels = module {
     factory { ShowcasesViewModel(get()) }
     factory { BasicPagingViewModel(get(), get()) }
     factory { BasicHttpViewModel(get(), get()) }
+    factory { NoArgsNavigationFromViewModel(get()) }
+    factory { NoArgsNavigationToViewModel(get()) }
 }

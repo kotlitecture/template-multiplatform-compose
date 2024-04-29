@@ -1,7 +1,7 @@
 package app.datasource.keyvalue
 
-import core.data.datasource.keyvalue.SettingsKeyValueSource
-import core.data.serialization.NoSerializationStrategy
+import shared.data.datasource.keyvalue.SettingsKeyValueSource
+import shared.data.serialization.NoSerializationStrategy
 
 /**
  * Decorator class for working with key-value storage on the app level.

@@ -7,6 +7,8 @@ import app.di.instance
 import app.showcases.ShowcasesViewModel
 import app.showcases.datasource.http.basic.BasicHttpViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
+import app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
+import app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
 import app.userflow.navigation.NavigationBarViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
@@ -17,8 +19,8 @@ import app.userflow.navigation.samples.b.NavigationBViewModel
 import app.userflow.navigation.samples.c.NavigationCViewModel
 import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
-import core.ui.BaseViewModel
-import core.ui.provideViewModel
+import shared.core.BaseViewModel
+import shared.core.provideViewModel
 import kotlin.reflect.KClass
 
 internal val AppViewModelFactory = viewModelFactory {
@@ -36,6 +38,8 @@ internal val AppViewModelFactory = viewModelFactory {
     initializer { instance<NavigationBViewModel>() }
     initializer { instance<NavigationCViewModel>() }
     initializer { instance<NavigationBarViewModel>() }
+    initializer { instance<NoArgsNavigationFromViewModel>() }
+    initializer { instance<NoArgsNavigationToViewModel>() }
 }
 
 @Composable

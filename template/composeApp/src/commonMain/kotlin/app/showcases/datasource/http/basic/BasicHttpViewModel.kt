@@ -1,10 +1,10 @@
 package app.showcases.datasource.http.basic
 
-import core.data.datasource.http.HttpSource
-import core.data.misc.extensions.isIgnoredException
-import core.ui.BaseViewModel
-import core.ui.navigation.NavigationState
-import core.ui.state.StoreObject
+import shared.data.datasource.http.HttpSource
+import shared.data.misc.extensions.isIgnoredException
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
+import shared.core.state.StoreObject
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.coroutines.delay

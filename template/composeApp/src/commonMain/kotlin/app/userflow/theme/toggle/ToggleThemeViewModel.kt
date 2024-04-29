@@ -1,8 +1,8 @@
 package app.userflow.theme.toggle
 
-import core.ui.BaseViewModel
-import core.ui.state.StoreObject
-import core.ui.theme.ThemeState
+import shared.core.BaseViewModel
+import shared.core.state.StoreObject
+import shared.core.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map

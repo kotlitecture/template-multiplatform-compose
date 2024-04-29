@@ -16,9 +16,9 @@ import app.userflow.navigation.NavigationBarState
 import app.userflow.navigation.samples.a.NavigationADestination
 import app.userflow.navigation.samples.b.NavigationBDestination
 import app.userflow.navigation.samples.c.NavigationCDestination
-import core.ui.navigation.NavigationDestination
-import core.ui.navigation.NavigationState
-import core.ui.navigation.NavigationStrategy
+import shared.core.navigation.NavigationDestination
+import shared.core.navigation.NavigationState
+import shared.core.navigation.NavigationStrategy
 import org.koin.dsl.module
 
 val ProvidesNavigationBarState = module {
