@@ -1,30 +1,26 @@
 package shared.core
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
-import shared.core.state.DataState
-import shared.core.state.StoreState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import shared.core.state.DataState
+import shared.core.state.StoreState
 import kotlin.collections.set
 import kotlin.coroutines.CoroutineContext
 import kotlin.reflect.KClass
@@ -204,31 +200,4 @@ fun <VM : BaseViewModel> provideViewModel(
     )
     viewModel.bind(lifecycleOwner)
     return viewModel
-}
-
-@Composable
-fun ViewModelProvider(content: @Composable () -> Unit) {
-    if (LocalViewModelStoreOwner.current != null) {
-        content()
-    } else {
-        // TODO :: expected to be fixed in Compose Multiplatform 1.7.0
-        CompositionLocalProvider(
-            LocalViewModelStoreOwner provides rememberComposeViewModelStoreOwner(),
-            content = content
-        )
-    }
-}
-
-@Composable
-private fun rememberComposeViewModelStoreOwner(): ViewModelStoreOwner {
-    val viewModelStoreOwner = remember { ComposeViewModelStoreOwner() }
-    DisposableEffect(viewModelStoreOwner) {
-        onDispose { viewModelStoreOwner.dispose() }
-    }
-    return viewModelStoreOwner
-}
-
-private class ComposeViewModelStoreOwner : ViewModelStoreOwner {
-    override val viewModelStore = ViewModelStore()
-    fun dispose() = viewModelStore.clear()
 }

@@ -7,6 +7,8 @@ import app.di.instance
 import app.showcases.ShowcasesViewModel
 import app.showcases.datasource.http.basic.BasicHttpViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
+import app.showcases.navigation.args.from.ArgsNavigationFromViewModel
+import app.showcases.navigation.args.to.ArgsNavigationToViewModel
 import app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
 import app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
 import app.userflow.navigation.NavigationBarViewModel
@@ -40,6 +42,8 @@ internal val AppViewModelFactory = viewModelFactory {
     initializer { instance<NavigationBarViewModel>() }
     initializer { instance<NoArgsNavigationFromViewModel>() }
     initializer { instance<NoArgsNavigationToViewModel>() }
+    initializer { instance<ArgsNavigationFromViewModel>() }
+    initializer { instance<ArgsNavigationToViewModel>() }
 }
 
 @Composable

@@ -2,6 +2,7 @@ package app.showcases
 
 import app.showcases.datasource.http.basic.BasicHttpShowcase
 import app.showcases.datasource.paging.basic.BasicPagingShowcase
+import app.showcases.navigation.args.ArgsNavigationShowcase
 import app.showcases.navigation.no_args.NoArgsNavigationShowcase
 import app.showcases.userflow.theme.change.ChangeThemeDialogShowcase
 import app.showcases.userflow.theme.change.ChangeThemeScreenShowcase
@@ -18,6 +19,7 @@ object Showcases {
     val all = listOf(
         ShowcaseItemGroup("Navigation + MVVM"),
         NoArgsNavigationShowcase,
+        ArgsNavigationShowcase,
         ShowcaseItemGroup("Datasource :: Http"),
         BasicHttpShowcase,
         ShowcaseItemGroup("Datasource :: Paging"),
