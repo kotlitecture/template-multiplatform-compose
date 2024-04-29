@@ -47,7 +47,7 @@ kotlin {
 }
 
 android {
-    namespace = "core.data"
+    namespace = "shared.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

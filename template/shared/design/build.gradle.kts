@@ -23,13 +23,13 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            api(projects.shared.core)
             api(compose.components.resources)
             api(compose.components.uiToolingPreview)
             api(compose.foundation)
             api(compose.material3)
             api(compose.materialIconsExtended)
             api(libs.cashapp.paging.compose.common)
-            api(projects.shared.ui)
         }
         androidMain.dependencies {
             api(libs.androidx.appcompat)

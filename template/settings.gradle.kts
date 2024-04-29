@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":shared:design")
+include(":shared:core")
 include(":shared:data")
-include(":shared:ui")
+include(":shared:design")
