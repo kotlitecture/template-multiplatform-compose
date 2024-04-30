@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.rememberScrollState
@@ -78,7 +79,7 @@ data class AppFixedHeaderFooterAppearance(
  */
 @Composable
 fun AppFixedHeaderFooterColumn(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier.imePadding(),
     appearance: AppFixedHeaderFooterAppearance = AppFixedHeaderFooterAppearance.default(),
     header: @Composable (ColumnScope.() -> Unit)? = null,
     footer: @Composable (ColumnScope.() -> Unit)? = null,

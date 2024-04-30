@@ -21,7 +21,6 @@ fun RailProvider(content: @Composable () -> Unit) {
     }
     AppRailNavigation(
         content = content,
-        modifier = Modifier.fillMaxSize(),
         itemsStore = viewModel.pagesStore,
         visibilityStore = viewModel.visibilityStore,
         selectionStore = viewModel.selectedPageStore,

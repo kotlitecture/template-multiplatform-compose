@@ -64,7 +64,7 @@ fun AppBottomNavigation(
     selectionStore: StoreObject<AppNavigationItem>,
     visibilityStore: StoreObject<Boolean>
 ) {
-    if (visibilityStore.asStateValue() != true) return
+    if (visibilityStore.asStateValue() == false) return
     val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return
     NavigationBar(modifier) {
         val selected = selectionStore.asStateValue()
@@ -168,7 +168,7 @@ fun AppPermanentNavigation(
     visibilityStore: StoreObject<Boolean>,
     content: @Composable () -> Unit
 ) {
-    if (visibilityStore.asStateValue() != true) return run { content() }
+    if (visibilityStore.asStateValue() == false) return run { content() }
     val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
     PermanentNavigationDrawer(
         modifier = modifier,
@@ -205,7 +205,7 @@ fun AppRailNavigation(
     visibilityStore: StoreObject<Boolean>,
     content: @Composable () -> Unit
 ) {
-    if (visibilityStore.asStateValue() != true) return run { content() }
+    if (visibilityStore.asStateValue() == false) return run { content() }
     val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
     Row(modifier = modifier) {
         NavigationRail(

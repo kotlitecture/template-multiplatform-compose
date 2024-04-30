@@ -16,7 +16,7 @@ data class NavigationBarState(
 ) : StoreState() {
 
     /** Store navigation visibility state. */
-    val visibilityStore: StoreObject<Boolean> = StoreObject(false)
+    val visibilityStore: StoreObject<Boolean> = StoreObject()
 
     /** Store object for the available pages. */
     val pagesStore: StoreObject<List<NavigationBarPage>> = StoreObject(pages)

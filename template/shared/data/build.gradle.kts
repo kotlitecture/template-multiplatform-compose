@@ -26,7 +26,7 @@ kotlin {
             api(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
-            api(libs.multiplatform.settings.no.arg)
+            implementation(libs.multiplatform.settings.no.arg)
         }
         androidMain.dependencies {
             api(libs.kotlinx.coroutines.android)

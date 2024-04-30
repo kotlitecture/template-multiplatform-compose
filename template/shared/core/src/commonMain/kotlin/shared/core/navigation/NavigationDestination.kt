@@ -170,7 +170,7 @@ abstract class NavigationDestination<D> {
 
         internal fun register(destination: NavigationDestination<*>) {
             val prev = DESTINATIONS.put(destination.id, destination)
-            check(prev == null) {
+            check(prev == null || prev === destination) {
                 """
                     Destination ${destination.id} is not unique or has been registered multiple times.
                     
