@@ -95,16 +95,16 @@ abstract class NavigationDestination<D> {
      * Defines a composable route for this destination.
      *
      * @param builder The NavGraphBuilder to bind to.
-     * @param content The composable content to display.
+     * @param provider The composable content to display.
      */
     protected open fun composable(
         builder: NavGraphBuilder,
-        content: @Composable (data: D?) -> Unit
+        provider: NavigationContentProvider<D>
     ) {
         builder.composable(
             route = route,
             arguments = createArgs(),
-            content = { entry -> route(RouteData(entry, content)) }
+            content = { entry -> route(RouteData(entry, provider)) }
         )
     }
 
@@ -114,13 +114,13 @@ abstract class NavigationDestination<D> {
      * @param builder The NavGraphBuilder to bind to.
      * @param dismissOnBackPress Whether the dialog dismisses on back press.
      * @param dismissOnClickOutside Whether the dialog dismisses on click outside.
-     * @param content The composable content to display.
+     * @param provider The composable content to display.
      */
     protected open fun dialog(
         builder: NavGraphBuilder,
         dismissOnBackPress: Boolean = true,
         dismissOnClickOutside: Boolean = true,
-        content: @Composable (data: D?) -> Unit
+        provider: NavigationContentProvider<D>
     ) {
         builder.dialog(
             route = route,
@@ -130,7 +130,7 @@ abstract class NavigationDestination<D> {
                 dismissOnBackPress = dismissOnBackPress,
                 dismissOnClickOutside = dismissOnClickOutside
             ),
-            content = { entry -> route(RouteData(entry, content)) }
+            content = { entry -> route(RouteData(entry, provider)) }
         )
     }
 
@@ -138,7 +138,7 @@ abstract class NavigationDestination<D> {
     private fun route(routeData: RouteData<D>) {
         val value = routeData.entry.arguments?.getString(ATTR_DATA)
         val data = value?.let { argsStrategy.toObject(it) }
-        routeData.content(data)
+        routeData.provider.provide(data)
     }
 
     private fun createArgs() = listOf(
@@ -190,7 +190,7 @@ abstract class NavigationDestination<D> {
     @Immutable
     data class RouteData<D>(
         val entry: NavBackStackEntry,
-        val content: @Composable (data: D?) -> Unit
+        val provider: NavigationContentProvider<D>
     )
 
 }

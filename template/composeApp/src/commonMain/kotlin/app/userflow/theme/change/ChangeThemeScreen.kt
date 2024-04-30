@@ -1,19 +1,16 @@
 package app.userflow.theme.change
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
 import shared.core.provideViewModel
-import shared.core.theme.ThemeContext
+import shared.design.component.AppDialogContent
 import shared.design.component.AppRadioButton
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText
@@ -47,13 +44,7 @@ fun ChangeThemeScreen() {
 @Composable
 fun ChangeThemeDialog() {
     val viewModel: ChangeThemeViewModel = provideViewModel()
-    ChangeThemeLayout(
-        modifier = Modifier
-            .clip(RoundedCornerShape(24.dp))
-            .background(ThemeContext.current.primary)
-            .padding(24.dp),
-        viewModel = viewModel
-    )
+    AppDialogContent { ChangeThemeLayout(viewModel = viewModel) }
 }
 
 @Composable

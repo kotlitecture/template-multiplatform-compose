@@ -17,7 +17,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.design.component.AppSpacerNavigationBar
-import shared.core.theme.ThemeContext
+import shared.design.theme.AppThemeContext
 
 /**
  * Data class representing the appearance configuration for a bottom sheet.
@@ -36,7 +36,7 @@ data class AppBottomSheetAppearance(
         @Composable
         @ReadOnlyComposable
         fun default(
-            backgroundColor: Color = ThemeContext.current.primary,
+            backgroundColor: Color = AppThemeContext.current.surface,
             shouldDismissOnBackPress: Boolean = true,
             fullscreen: Boolean = false
         ): AppBottomSheetAppearance {

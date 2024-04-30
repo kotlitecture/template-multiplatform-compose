@@ -7,13 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import shared.core.theme.ThemeConfig
 import shared.core.theme.ThemeContext
 
 /**
- * Data class representing application theme context.
+ * Application theme context.
  */
 @Immutable
 data class AppThemeContext(
@@ -22,8 +23,30 @@ data class AppThemeContext(
     val colorScheme: ColorScheme
 ) : ThemeContext() {
 
-    override val primary: Color = colorScheme.surface
-    override val onPrimary: Color = colorScheme.onSurface
+    val surface: Color = colorScheme.surface
+    val onSurface: Color = colorScheme.onSurface
+
+    val topBlur by lazy {
+        Brush.verticalGradient(
+            listOf(
+                surface,
+                surface.copy(alpha = 0.9f),
+                surface.copy(alpha = 0.7f),
+                surface.copy(alpha = 0.5f),
+            )
+        )
+    }
+
+    val bottomBlur by lazy {
+        Brush.verticalGradient(
+            listOf(
+                surface.copy(alpha = 0.5f),
+                surface.copy(alpha = 0.7f),
+                surface.copy(alpha = 0.9f),
+                surface
+            )
+        )
+    }
 
     @Composable
     override fun apply(config: ThemeConfig, content: @Composable () -> Unit) {

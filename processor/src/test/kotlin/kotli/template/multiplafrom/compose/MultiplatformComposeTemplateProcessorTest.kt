@@ -32,7 +32,7 @@ class MultiplatformComposeTemplateProcessorTest {
     private val registry = DefaultTemplateRegistry(processor)
 
     private val testCommands = arrayOf("signingReport", "assembleDebug")
-//    private val testCommands = arrayOf("run")
+//    private val testCommands = arrayOf("packageDmg")
 
     private fun buildPath(): Path {
         return File("build/template").toPath().toAbsolutePath().also { it.deleteRecursively() }
