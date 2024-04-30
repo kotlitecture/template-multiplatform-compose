@@ -14,6 +14,13 @@ object Rules {
     const val BuildGradleComposeApp = "composeApp/build.gradle.kts"
 
     // kotlin
-    const val KtAny = "*.kt"
+    const val Kt = "*.kt"
+
+    // sources
+    const val IosApp = "iosApp"
+    const val SrcAndroidMain = "*/src/androidMain"
+    const val SrcIosMain = "*/src/iosMain"
+    const val SrcJsMain = "*/src/jsMain"
+    const val SrcJvmMain = "*/src/jvmMain"
 
 }

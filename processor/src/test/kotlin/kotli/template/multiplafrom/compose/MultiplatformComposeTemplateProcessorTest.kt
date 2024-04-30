@@ -9,6 +9,9 @@ import kotli.engine.generator.ZipOutputGenerator
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
 import kotli.template.multiplatform.compose.MultiplatformComposeTemplateProcessor
+import kotli.template.multiplatform.compose.platform.PlatformProcessor
+import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.jvm.JvmPlatformProcessor
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
 import org.slf4j.LoggerFactory
@@ -28,7 +31,8 @@ class MultiplatformComposeTemplateProcessorTest {
     private val processor = MultiplatformComposeTemplateProcessor
     private val registry = DefaultTemplateRegistry(processor)
 
-    private val testCommands = arrayOf("signingReport", "assembleDebug")
+//    private val testCommands = arrayOf("signingReport", "assembleDebug")
+    private val testCommands = arrayOf("run")
 
     private fun buildPath(): Path {
         return File("build/template").toPath().toAbsolutePath().also { it.deleteRecursively() }
@@ -98,7 +102,10 @@ class MultiplatformComposeTemplateProcessorTest {
                 id = UUID.randomUUID().toString(),
                 processorId = processor.getId(),
                 namespace = "my.app",
-                name = "myApp"
+                name = "myApp",
+                features = listOf(
+                    Feature(JvmPlatformProcessor.ID)
+                )
             )
             val generator = PathOutputGenerator(buildPath(), registry)
             val gradleGenerator = GradleProjectGenerator(testCommands, generator)

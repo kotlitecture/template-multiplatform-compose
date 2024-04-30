@@ -1,16 +1,15 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat // {platform.jvm}
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidApplication) // {platform.android}
     alias(libs.plugins.skie)
 }
 
 kotlin {
+    // {platform.android.target}
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -18,6 +17,8 @@ kotlin {
             }
         }
     }
+    // {platform.android.target}
+    // {platform.ios.target}
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,7 +29,8 @@ kotlin {
             isStatic = true
         }
     }
-    jvm()
+    // {platform.ios.target}
+    // {platform.js.target}
     js(IR) {
         browser {
             commonWebpackConfig {
@@ -37,8 +39,11 @@ kotlin {
         }
         binaries.executable()
     }
+    // {platform.js.target}
+    // {platform.jvm.target}
+    jvm()
+    // {platform.jvm.target}
     applyDefaultHierarchyTemplate()
-
     sourceSets {
         all {
             languageSettings {
@@ -53,15 +58,20 @@ kotlin {
             implementation(projects.shared.data)
             implementation(projects.shared.design)
         }
-        jvmMain.dependencies {
-            implementation(compose.desktop.currentOs)
-        }
+        // {platform.android.dependencies}
         androidMain.dependencies {
             implementation(libs.androidx.splashscreen)
         }
+        // {platform.android.dependencies}
+        // {platform.jvm.dependencies}
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
+        }
+        // {platform.jvm.dependencies}
     }
 }
 
+// {platform.android.config}
 android {
     namespace = "app"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -95,7 +105,13 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
-
+// {platform.android.config}
+// {platform.js.config}
+compose.experimental {
+    web.application {}
+}
+// {platform.js.config}
+// {platform.jvm.config}
 compose.desktop {
     application {
         mainClass = "MainKt"
@@ -106,7 +122,4 @@ compose.desktop {
         }
     }
 }
-
-compose.experimental {
-    web.application {}
-}
+// {platform.jvm.config}

@@ -2,10 +2,11 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.androidLibrary) // {platform.android}
 }
 
 kotlin {
+    // {platform.android.target}
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -13,15 +14,21 @@ kotlin {
             }
         }
     }
+    // {platform.android.target}
+    // {platform.ios.target}
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    jvm()
+    // {platform.ios.target}
+    // {platform.js.target}
     js(IR) {
         browser()
     }
+    // {platform.js.target}
+    // {platform.jvm.target}
+    jvm()
+    // {platform.jvm.target}
     applyDefaultHierarchyTemplate()
-
     sourceSets {
         commonMain.dependencies {
             api(compose.foundation)
@@ -31,17 +38,22 @@ kotlin {
             api(libs.kotlinx.datetime)
             api(libs.kotlinx.serialization.json)
         }
+        // {platform.android.dependencies}
         androidMain.dependencies {
             api(libs.androidx.appcompat)
             api(libs.androidx.activity.compose)
             api(libs.kotlinx.coroutines.android)
         }
+        // {platform.android.dependencies}
+        // {platform.jvm.dependencies}
         jvmMain.dependencies {
             api(libs.kotlinx.coroutines.swing)
         }
+        // {platform.jvm.dependencies}
     }
 }
 
+// {platform.android.config}
 android {
     namespace = "shared.core"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -53,3 +65,4 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }
+// {platform.android.config}

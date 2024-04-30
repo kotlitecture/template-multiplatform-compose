@@ -86,7 +86,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.KtAny,
+            Rules.Kt,
             ReplaceMarkedText(
                 text = "import template.",
                 marker = "import template.",
