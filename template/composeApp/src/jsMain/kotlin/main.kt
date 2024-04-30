@@ -4,5 +4,7 @@ import app.App
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    CanvasBasedWindow(canvasElementId = "root") { App() }
+    CanvasBasedWindow(canvasElementId = "root") {
+        App()
+    }
 }

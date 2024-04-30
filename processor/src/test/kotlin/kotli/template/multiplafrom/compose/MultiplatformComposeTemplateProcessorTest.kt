@@ -28,6 +28,8 @@ class MultiplatformComposeTemplateProcessorTest {
     private val processor = MultiplatformComposeTemplateProcessor
     private val registry = DefaultTemplateRegistry(processor)
 
+    private val testCommands = arrayOf("signingReport", "assembleDebug")
+
     private fun buildPath(): Path {
         return File("build/template").toPath().toAbsolutePath().also { it.deleteRecursively() }
     }
@@ -99,7 +101,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 name = "app-multiplatform"
             )
             val generator = PathOutputGenerator(buildPath(), registry)
-            val gradleGenerator = GradleProjectGenerator(arrayOf("assembleDebug"), generator)
+            val gradleGenerator = GradleProjectGenerator(testCommands, generator)
             gradleGenerator.generate(layer)
         }
     }
@@ -114,7 +116,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 name = "app-multiplatform",
             )
             val generator = PathOutputGenerator(buildPath(), registry, fat = true)
-            val gradleGenerator = GradleProjectGenerator(arrayOf("assembleDebug"), generator)
+            val gradleGenerator = GradleProjectGenerator(testCommands, generator)
             gradleGenerator.generate(layer)
         }
     }
@@ -139,7 +141,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 name = "app-multiplatform",
             )
             val generator = PathOutputGenerator(buildPath(), registry)
-            val gradleGenerator = GradleProjectGenerator(arrayOf("assembleDebug"), generator)
+            val gradleGenerator = GradleProjectGenerator(testCommands, generator)
             gradleGenerator.generate(layer)
         }
     }
