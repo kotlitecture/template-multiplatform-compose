@@ -48,6 +48,6 @@ fun AppTextPrimaryHeader(
     AppTextHeader(
         modifier = modifier,
         text = text,
-        color = AppThemeContext.current.primary
+        color = AppThemeContext.current.colorScheme.primary
     )
 }
