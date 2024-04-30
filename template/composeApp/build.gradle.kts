@@ -94,7 +94,7 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
         }
     }
     compileOptions {
@@ -119,6 +119,13 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "app"
             packageVersion = "1.0.0"
+            modules(
+                "java.net.http"
+            )
+        }
+        buildTypes.release.proguard {
+            obfuscate.set(true)
+            configurationFiles.from(project.file("assemble/proguard-rules.pro"))
         }
     }
 }
