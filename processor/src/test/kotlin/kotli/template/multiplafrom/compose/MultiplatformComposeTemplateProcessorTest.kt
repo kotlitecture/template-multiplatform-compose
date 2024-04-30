@@ -31,8 +31,8 @@ class MultiplatformComposeTemplateProcessorTest {
     private val processor = MultiplatformComposeTemplateProcessor
     private val registry = DefaultTemplateRegistry(processor)
 
-//    private val testCommands = arrayOf("signingReport", "assembleDebug")
-    private val testCommands = arrayOf("run")
+    private val testCommands = arrayOf("signingReport", "assembleDebug")
+//    private val testCommands = arrayOf("run")
 
     private fun buildPath(): Path {
         return File("build/template").toPath().toAbsolutePath().also { it.deleteRecursively() }
@@ -104,7 +104,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 namespace = "my.app",
                 name = "myApp",
                 features = listOf(
-                    Feature(JvmPlatformProcessor.ID)
+                    Feature(AndroidPlatformProcessor.ID)
                 )
             )
             val generator = PathOutputGenerator(buildPath(), registry)

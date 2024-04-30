@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.androidApplication) // {platform.android}
-    alias(libs.plugins.skie)
+    alias(libs.plugins.skie) // {platform.ios}
 }
 
 kotlin {

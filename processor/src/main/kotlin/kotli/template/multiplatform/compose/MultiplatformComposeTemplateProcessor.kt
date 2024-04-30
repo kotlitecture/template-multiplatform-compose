@@ -4,6 +4,8 @@ import kotli.engine.BaseTemplateProcessor
 import kotli.engine.FeatureProvider
 import kotli.engine.LayerType
 import kotli.engine.TemplateState
+import kotli.engine.model.Feature
+import kotli.engine.model.Layer
 import kotli.engine.model.LayerTypes
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.essentials.build.BuildToolProvider
@@ -12,6 +14,8 @@ import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionPro
 import kotli.template.multiplatform.compose.essentials.navigation.NavigationProvider
 import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
 import kotli.template.multiplatform.compose.platform.PlatformProvider
+import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -20,6 +24,15 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     override fun getId(): String = ID
     override fun getType(): LayerType = LayerTypes.Multiplatform
     override fun getWebUrl(): String = "https://github.com/kotlitecture/template-multiplatform-compose"
+
+    override fun createPresets(): List<Layer> = listOf(
+        createPreset(
+            features = listOf(
+                Feature(IOSPlatformProcessor.ID),
+                Feature(AndroidPlatformProcessor.ID),
+            )
+        )
+    )
 
     override fun createProviders(): List<FeatureProvider> = listOf(
         // essentials
