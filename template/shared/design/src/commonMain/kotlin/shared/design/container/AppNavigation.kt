@@ -14,6 +14,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.PermanentDrawerSheet
 import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
@@ -25,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import shared.core.state.StoreObject
 import shared.design.component.AppIcon
+import shared.design.component.AppSpacer8
 import shared.design.component.AppText
 
 /**
@@ -104,6 +106,7 @@ fun AppDismissibleNavigation(
                     .fillMaxHeight()
                     .verticalScroll(rememberScrollState())
             ) {
+                AppSpacer8()
                 val selected = selectionStore.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
@@ -117,6 +120,7 @@ fun AppDismissibleNavigation(
                         }
                     )
                 }
+                AppSpacer8()
             }
         },
         content = content
@@ -141,6 +145,7 @@ fun AppModalNavigation(
                     .fillMaxHeight()
                     .verticalScroll(rememberScrollState())
             ) {
+                AppSpacer8()
                 val selected = selectionStore.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
@@ -154,6 +159,7 @@ fun AppModalNavigation(
                         }
                     )
                 }
+                AppSpacer8()
             }
         },
         content = content
@@ -178,6 +184,7 @@ fun AppPermanentNavigation(
                     .fillMaxHeight()
                     .verticalScroll(rememberScrollState())
             ) {
+                AppSpacer8()
                 val selected = selectionStore.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
@@ -191,6 +198,7 @@ fun AppPermanentNavigation(
                         }
                     )
                 }
+                AppSpacer8()
             }
         },
         content = content
@@ -213,16 +221,18 @@ fun AppRailNavigation(
                 .fillMaxHeight()
                 .verticalScroll(rememberScrollState()),
             content = {
+                AppSpacer8()
                 val selected = selectionStore.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
-                    NavigationDrawerItem(
+                    NavigationRailItem(
                         label = { AppText(text = item.getLabel()) },
                         icon = { AppIcon(model = item.getIcon(isSelected)) },
                         onClick = item.onClick,
                         selected = isSelected,
                     )
                 }
+                AppSpacer8()
             }
         )
         content()
