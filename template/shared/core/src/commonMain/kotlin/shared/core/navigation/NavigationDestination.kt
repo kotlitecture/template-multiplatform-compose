@@ -169,7 +169,14 @@ abstract class NavigationDestination<D> {
         fun getByRoute(route: String): NavigationDestination<*>? = getById(extractId(route))
 
         internal fun register(destination: NavigationDestination<*>) {
-            DESTINATIONS[destination.id] = destination
+            val prev = DESTINATIONS.put(destination.id, destination)
+            check(prev == null) {
+                """
+                    Destination ${destination.id} is not unique or has been registered multiple times.
+                    
+                    Please address this issue without removing the check.
+                """.trimIndent()
+            }
         }
 
         private fun extractId(route: String): String {
