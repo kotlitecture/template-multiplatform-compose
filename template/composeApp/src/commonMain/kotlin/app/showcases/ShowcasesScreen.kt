@@ -9,23 +9,20 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import shared.core.provideViewModel
 import shared.core.state.StoreObject
-import shared.design.component.basic.ActionButton
-import shared.design.component.basic.AnyIcon
-import shared.design.component.basic.Spacer16
-import shared.design.container.FixedTopBarLazyColumnLayout
-import shared.design.theme.M3ThemeContext
+import shared.design.component.AppActionButton
+import shared.design.component.AppAlertDialog
+import shared.design.component.AppIcon
+import shared.design.component.AppOutlinedCard
+import shared.design.component.AppSpacer16
+import shared.design.component.AppText
+import shared.design.component.AppTextPrimaryHeader
+import shared.design.container.AppFixedTopBarLazyColumn
 
 /**
  * Composable function for displaying the showcases screen.
@@ -35,10 +32,10 @@ import shared.design.theme.M3ThemeContext
 fun ShowcasesScreen() {
     val viewModel: ShowcasesViewModel = provideViewModel()
     val showcasesState = viewModel.showcasesStore.asStateNotNull()
-    FixedTopBarLazyColumnLayout(
+    AppFixedTopBarLazyColumn(
         title = "Showcases",
         actions = {
-            ActionButton(
+            AppActionButton(
                 modifier = Modifier
                     .padding(horizontal = 8.dp),
                 icon = Icons.Outlined.Info,
@@ -46,14 +43,14 @@ fun ShowcasesScreen() {
             )
         },
         content = {
-            item { Spacer16() }
+            item { AppSpacer16() }
             showcasesState.value.forEach { showcase ->
                 when (showcase) {
                     is ShowcaseItem -> showcaseItem(showcase, viewModel)
                     is ShowcaseItemGroup -> showcaseItemGroup(showcase)
                 }
             }
-            item { Spacer16() }
+            item { AppSpacer16() }
         }
     )
     HintBlock(viewModel.hintStore)
@@ -61,32 +58,21 @@ fun ShowcasesScreen() {
 
 @Composable
 fun ShowcaseHintBlock(text: String) {
-    OutlinedCard(
+    AppOutlinedCard(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        content = {
-            Text(
-                modifier = Modifier.padding(16.dp),
-                text = text
-            )
-        }
+        text = text
     )
 }
 
 @Composable
 private fun HintBlock(hintStore: StoreObject<Boolean>) {
     if (!hintStore.asStateValueNotNull()) return
-    AlertDialog(
+    AppAlertDialog(
         onDismissRequest = hintStore::clear,
-        title = {
-            Text(
-                text = "Showcases"
-            )
-        },
-        text = {
-            Text(
-                text = """
+        title = "Showcases",
+        text = """
                 Showcases are utilized to demonstrate features included in the generated project structure.
                 
                 Once everything is clear and you no longer require this screen, proceed with deletion:
@@ -98,14 +84,9 @@ private fun HintBlock(hintStore: StoreObject<Boolean>) {
                 3. Usage of `ShowcasesDestination` in `app.di.state.ProvidesNavigationState`.
                 
                 4. Usage of `ShowcasesDestination` in `app.di.state.ProvidesNavigationBarState`.
-            """.trimIndent()
-            )
-        },
-        confirmButton = {
-            TextButton(onClick = hintStore::clear) {
-                Text(text = "Got it!")
-            }
-        }
+            """.trimIndent(),
+        actionLabel = "Got it!",
+        action = hintStore::clear
     )
 }
 
@@ -114,7 +95,7 @@ private fun LazyListScope.showcaseItem(
     viewModel: ShowcasesViewModel
 ) {
     item {
-        OutlinedCard(
+        AppOutlinedCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -127,8 +108,8 @@ private fun LazyListScope.showcaseItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(text = showcase.label)
-                AnyIcon(model = Icons.Default.ChevronRight)
+                AppText(text = showcase.label)
+                AppIcon(model = Icons.Default.ChevronRight)
             }
         }
     }
@@ -138,13 +119,9 @@ private fun LazyListScope.showcaseItemGroup(
     showcase: ShowcaseItemGroup
 ) {
     item {
-        Text(
-            color = M3ThemeContext.current.colorScheme.primary,
+        AppTextPrimaryHeader(
             modifier = Modifier.padding(16.dp),
-            fontWeight = FontWeight.W600,
-            text = showcase.label,
-            fontSize = 18.sp,
-            maxLines = 1,
+            text = showcase.label
         )
     }
 }

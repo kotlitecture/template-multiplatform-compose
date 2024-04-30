@@ -1,4 +1,4 @@
-package shared.design.component.basic
+package shared.design.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -22,7 +22,7 @@ import org.jetbrains.compose.resources.painterResource
  * @param model The model representing the icon. It can be an ImageVector, drawable resource ID, Color, or null.
  */
 @Composable
-fun AnyIcon(
+fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,

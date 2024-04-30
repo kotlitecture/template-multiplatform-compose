@@ -16,7 +16,6 @@ open class ThemeContext {
     open val id: String? = null
     open val dark: Boolean = false
 
-    open val negative: Color = Color.Red
     open val primary: Color = Color.White
     open val onPrimary: Color = Color.Black
 

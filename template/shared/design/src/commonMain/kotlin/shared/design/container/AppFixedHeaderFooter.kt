@@ -24,9 +24,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.onSizeChanged
-import shared.design.component.basic.SpacerDynamic
-import shared.design.component.basic.SpacerNavigationBar
-import shared.design.component.basic.SpacerStatusBar
+import shared.design.component.AppSpacerDynamic
+import shared.design.component.AppSpacerNavigationBar
+import shared.design.component.AppSpacerStatusBar
 import shared.core.theme.ThemeContext
 
 /**
@@ -38,7 +38,7 @@ import shared.core.theme.ThemeContext
  * @property statusSpacer Whether to include a spacer for the system status bar.
  * @property navigationSpacer Whether to include a spacer for the system navigation bar.
  */
-data class FixedHeaderFooterAppearance(
+data class AppFixedHeaderFooterAppearance(
     val backgroundColor: Color,
     val headerBrush: Brush,
     val footerBrush: Brush,
@@ -55,8 +55,8 @@ data class FixedHeaderFooterAppearance(
             footerBrush: Brush? = ThemeContext.current.bottomBlur,
             statusSpacer: Boolean = true,
             navigationSpacer: Boolean = true
-        ): FixedHeaderFooterAppearance {
-            return FixedHeaderFooterAppearance(
+        ): AppFixedHeaderFooterAppearance {
+            return AppFixedHeaderFooterAppearance(
                 backgroundColor = backgroundColor,
                 headerBrush = headerBrush ?: SolidColor(Color.Unspecified),
                 footerBrush = footerBrush ?: SolidColor(Color.Unspecified),
@@ -77,9 +77,9 @@ data class FixedHeaderFooterAppearance(
  * @param content The main content of the fixed header layout.
  */
 @Composable
-fun FixedHeaderFooterColumnLayout(
+fun AppFixedHeaderFooterColumn(
     modifier: Modifier = Modifier,
-    appearance: FixedHeaderFooterAppearance = FixedHeaderFooterAppearance.default(),
+    appearance: AppFixedHeaderFooterAppearance = AppFixedHeaderFooterAppearance.default(),
     header: @Composable (ColumnScope.() -> Unit)? = null,
     footer: @Composable (ColumnScope.() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
@@ -103,9 +103,9 @@ fun FixedHeaderFooterColumnLayout(
  * @param content The main content of the fixed header layout.
  */
 @Composable
-fun FixedHeaderFooterLazyColumnLayout(
+fun AppFixedHeaderFooterLazyColumn(
     modifier: Modifier = Modifier,
-    appearance: FixedHeaderFooterAppearance = FixedHeaderFooterAppearance.default(),
+    appearance: AppFixedHeaderFooterAppearance = AppFixedHeaderFooterAppearance.default(),
     header: @Composable (ColumnScope.() -> Unit)? = null,
     footer: @Composable (ColumnScope.() -> Unit)? = null,
     content: LazyListScope.() -> Unit
@@ -121,7 +121,7 @@ fun FixedHeaderFooterLazyColumnLayout(
 
 @Composable
 private fun BoxScope.HeaderBlock(
-    appearance: FixedHeaderFooterAppearance,
+    appearance: AppFixedHeaderFooterAppearance,
     state: MutableState<Int>,
     content: @Composable (ColumnScope.() -> Unit)?
 ) {
@@ -134,7 +134,7 @@ private fun BoxScope.HeaderBlock(
             .onSizeChanged { state.value = it.height }
     ) {
         if (appearance.statusSpacer) {
-            SpacerStatusBar()
+            AppSpacerStatusBar()
         }
         content.invoke(this)
     }
@@ -142,7 +142,7 @@ private fun BoxScope.HeaderBlock(
 
 @Composable
 private fun BoxScope.FooterBlock(
-    appearance: FixedHeaderFooterAppearance,
+    appearance: AppFixedHeaderFooterAppearance,
     state: MutableState<Int>,
     content: @Composable (ColumnScope.() -> Unit)?
 ) {
@@ -156,14 +156,14 @@ private fun BoxScope.FooterBlock(
     ) {
         content.invoke(this)
         if (appearance.navigationSpacer) {
-            SpacerNavigationBar()
+            AppSpacerNavigationBar()
         }
     }
 }
 
 @Composable
 private fun ContentBlock(
-    appearance: FixedHeaderFooterAppearance,
+    appearance: AppFixedHeaderFooterAppearance,
     headerState: State<Int>,
     footerState: State<Int>,
     content: @Composable ColumnScope.() -> Unit
@@ -175,16 +175,16 @@ private fun ContentBlock(
             .verticalScroll(rememberScrollState())
     ) {
         if (headerState.value >= 0 && footerState.value >= 0) {
-            SpacerDynamic(heightState = headerState)
+            AppSpacerDynamic(heightState = headerState)
             content.invoke(this)
-            SpacerDynamic(heightState = footerState)
+            AppSpacerDynamic(heightState = footerState)
         }
     }
 }
 
 @Composable
 private fun ContentBlock(
-    appearance: FixedHeaderFooterAppearance,
+    appearance: AppFixedHeaderFooterAppearance,
     headerState: State<Int>,
     footerState: State<Int>,
     content: LazyListScope.() -> Unit
@@ -195,9 +195,9 @@ private fun ContentBlock(
             .background(appearance.backgroundColor)
     ) {
         if (headerState.value >= 0 && footerState.value >= 0) {
-            item { SpacerDynamic(heightState = headerState) }
+            item { AppSpacerDynamic(heightState = headerState) }
             content.invoke(this)
-            item { SpacerDynamic(heightState = footerState) }
+            item { AppSpacerDynamic(heightState = footerState) }
         }
     }
 }

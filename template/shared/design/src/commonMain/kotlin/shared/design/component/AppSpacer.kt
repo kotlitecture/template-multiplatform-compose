@@ -1,4 +1,4 @@
-package shared.design.component.basic
+package shared.design.component
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,7 +16,7 @@ import shared.core.misc.extensions.pxToDp
  * Spacer with 2dp size.
  */
 @Composable
-fun Spacer2() {
+fun AppSpacer2() {
     Spacer(modifier = Modifier.size(2.dp))
 }
 
@@ -24,7 +24,7 @@ fun Spacer2() {
  * Spacer with 4dp size.
  */
 @Composable
-fun Spacer4() {
+fun AppSpacer4() {
     Spacer(modifier = Modifier.size(4.dp))
 }
 
@@ -32,7 +32,7 @@ fun Spacer4() {
  * Spacer with 4dp size.
  */
 @Composable
-fun Spacer8() {
+fun AppSpacer8() {
     Spacer(modifier = Modifier.size(8.dp))
 }
 
@@ -40,7 +40,7 @@ fun Spacer8() {
  * Spacer with 12dp size.
  */
 @Composable
-fun Spacer12() {
+fun AppSpacer12() {
     Spacer(modifier = Modifier.size(12.dp))
 }
 
@@ -48,7 +48,7 @@ fun Spacer12() {
  * Spacer with 16dp size.
  */
 @Composable
-fun Spacer16() {
+fun AppSpacer16() {
     Spacer(modifier = Modifier.size(16.dp))
 }
 
@@ -58,7 +58,7 @@ fun Spacer16() {
  * @param modifier Modifier to be applied to the spacer.
  */
 @Composable
-fun SpacerStatusBar(modifier: Modifier = Modifier) {
+fun AppSpacerStatusBar(modifier: Modifier = Modifier) {
     Spacer(
         modifier = modifier
             .fillMaxWidth()
@@ -70,7 +70,7 @@ fun SpacerStatusBar(modifier: Modifier = Modifier) {
  * Spacer filling the navigation bar height.
  */
 @Composable
-fun SpacerNavigationBar(modifier: Modifier = Modifier) {
+fun AppSpacerNavigationBar(modifier: Modifier = Modifier) {
     Spacer(
         modifier = modifier
             .fillMaxWidth()
@@ -85,7 +85,7 @@ fun SpacerNavigationBar(modifier: Modifier = Modifier) {
  * @param heightState State representing the height of the spacer.
  */
 @Composable
-fun SpacerDynamic(modifier: Modifier = Modifier, heightState: State<Int>) {
+fun AppSpacerDynamic(modifier: Modifier = Modifier, heightState: State<Int>) {
     Spacer(
         modifier
             .height(heightState.value.pxToDp())

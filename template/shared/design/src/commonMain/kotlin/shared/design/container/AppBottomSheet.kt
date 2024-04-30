@@ -16,7 +16,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import shared.design.component.basic.SpacerNavigationBar
+import shared.design.component.AppSpacerNavigationBar
 import shared.core.theme.ThemeContext
 
 /**
@@ -26,7 +26,7 @@ import shared.core.theme.ThemeContext
  * @param shouldDismissOnBackPress Flag indicating whether the bottom sheet should be dismissed on back press.
  * @param fullscreen Flag indicating whether the bottom sheet should occupy the entire screen.
  */
-data class BottomSheetAppearance(
+data class AppBottomSheetAppearance(
     val backgroundColor: Color,
     val shouldDismissOnBackPress: Boolean,
     val fullscreen: Boolean
@@ -39,8 +39,8 @@ data class BottomSheetAppearance(
             backgroundColor: Color = ThemeContext.current.primary,
             shouldDismissOnBackPress: Boolean = true,
             fullscreen: Boolean = false
-        ): BottomSheetAppearance {
-            return BottomSheetAppearance(
+        ): AppBottomSheetAppearance {
+            return AppBottomSheetAppearance(
                 shouldDismissOnBackPress = shouldDismissOnBackPress,
                 backgroundColor = backgroundColor,
                 fullscreen = fullscreen,
@@ -58,9 +58,9 @@ data class BottomSheetAppearance(
  * @param content The content of the bottom sheet.
  */
 @Composable
-fun BottomSheetLayout(
+fun AppBottomSheet(
     modifier: Modifier = Modifier,
-    appearance: BottomSheetAppearance = BottomSheetAppearance.default(),
+    appearance: AppBottomSheetAppearance = AppBottomSheetAppearance.default(),
     onDismissRequest: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -75,7 +75,7 @@ fun BottomSheetLayout(
         onDismissRequest = onDismissRequest,
         content = {
             content()
-            SpacerNavigationBar()
+            AppSpacerNavigationBar()
         }
     )
 }

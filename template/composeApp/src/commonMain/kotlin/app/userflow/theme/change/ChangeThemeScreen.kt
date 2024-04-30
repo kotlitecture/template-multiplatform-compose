@@ -6,20 +6,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import shared.core.provideViewModel
 import shared.core.theme.ThemeContext
-import shared.design.component.basic.Spacer8
-import shared.design.container.FixedTopBarColumnLayout
+import shared.design.component.AppRadioButton
+import shared.design.component.AppSpacer8
+import shared.design.component.AppText
+import shared.design.component.AppTextHeader
+import shared.design.container.AppFixedTopBarColumn
 import template.composeapp.generated.resources.Res
 import template.composeapp.generated.resources.theme_change_dark_mode
 import template.composeapp.generated.resources.theme_change_dark_mode_off
@@ -33,7 +32,7 @@ import template.composeapp.generated.resources.theme_change_title
 @Composable
 fun ChangeThemeScreen() {
     val viewModel: ChangeThemeViewModel = provideViewModel()
-    FixedTopBarColumnLayout(
+    AppFixedTopBarColumn(
         title = stringResource(Res.string.theme_change_title),
         onBack = viewModel::onBack,
         content = {
@@ -76,7 +75,7 @@ fun DynamicColorBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
     val use = viewModel.dynamicColorsStore.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dynamic_color))
-        Spacer8()
+        AppSpacer8()
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dynamic_color_on),
             selected = use,
@@ -95,7 +94,7 @@ fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = provideViewModel()
     val config = viewModel.configStore.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dark_mode))
-        Spacer8()
+        AppSpacer8()
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dark_mode_system),
             selected = config.autoDark,
@@ -116,11 +115,7 @@ fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = provideViewModel()
 
 @Composable
 fun HeaderBlock(title: String) {
-    Text(
-        text = title,
-        fontSize = 18.sp,
-        fontWeight = FontWeight.W600
-    )
+    AppTextHeader(text = title)
 }
 
 @Composable
@@ -129,10 +124,10 @@ fun ToggleBlock(label: String, selected: Boolean, onClick: () -> Unit) {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        RadioButton(
+        AppRadioButton(
             selected = selected,
             onClick = onClick
         )
-        Text(text = label)
+        AppText(text = label)
     }
 }

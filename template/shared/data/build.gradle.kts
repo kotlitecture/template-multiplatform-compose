@@ -25,7 +25,6 @@ kotlin {
         commonMain.dependencies {
             api(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)
-            api(libs.kotlinx.datetime)
             api(libs.kotlinx.serialization.json)
             api(libs.multiplatform.settings.no.arg)
         }

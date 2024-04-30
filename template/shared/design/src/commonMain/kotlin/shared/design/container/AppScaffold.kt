@@ -1,4 +1,4 @@
-package shared.design.scaffold
+package shared.design.container
 
 import androidx.compose.foundation.layout.exclude
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import shared.core.navigation.NavigationContext
 import shared.core.navigation.NavigationHost
-import shared.design.component.error.ErrorDialogProvider
+import shared.design.component.AppErrorDialog
 
 /**
  * Composable function to display the main scaffold of the app.
@@ -25,12 +25,11 @@ import shared.design.component.error.ErrorDialogProvider
  * @param floatingActionButtonPosition The position of the floating action button.
  */
 @Composable
-fun NavigationScaffold(
+fun AppScaffold(
     navigationContext: NavigationContext,
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
-    floatingActionButton: @Composable () -> Unit = {},
-    floatingActionButtonPosition: FabPosition = FabPosition.End
+    floatingActionButton: @Composable () -> Unit = {}
 ) {
     val navigationState = navigationContext.navigationState
     val startDestination = navigationState.startDestinationStore.asStateValue() ?: return
@@ -40,8 +39,8 @@ fun NavigationScaffold(
         topBar = topBar,
         bottomBar = bottomBar,
         floatingActionButton = floatingActionButton,
+        floatingActionButtonPosition = FabPosition.End,
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        floatingActionButtonPosition = floatingActionButtonPosition,
         contentWindowInsets = ScaffoldDefaults.contentWindowInsets.exclude(ScaffoldDefaults.contentWindowInsets),
         content = {
             NavigationHost(
@@ -52,5 +51,5 @@ fun NavigationScaffold(
             )
         }
     )
-    ErrorDialogProvider(navigationState)
+    AppErrorDialog(navigationState)
 }

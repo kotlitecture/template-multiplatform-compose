@@ -1,4 +1,4 @@
-package shared.design.component.paging
+package shared.design.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,7 +18,7 @@ import app.cash.paging.LoadStateLoading
 import app.cash.paging.LoadStateNotLoading
 import app.cash.paging.compose.LazyPagingItems
 
-fun <I : Any> LazyListScope.BasicPagingList(
+fun <I : Any> LazyListScope.AppPagingList(
     items: LazyPagingItems<I>?,
     itemKey: ((index: Int) -> Any)? = null,
     itemContent: @Composable (item: I?) -> Unit,

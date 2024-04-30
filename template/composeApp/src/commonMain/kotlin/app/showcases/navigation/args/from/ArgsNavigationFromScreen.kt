@@ -2,9 +2,6 @@ package app.showcases.navigation.args.from
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -12,12 +9,14 @@ import app.showcases.ShowcaseHintBlock
 import app.showcases.navigation.args.ArgsNavigationShowcase
 import shared.core.provideViewModel
 import shared.core.state.StoreObject
-import shared.design.container.FixedTopBarColumnLayout
+import shared.design.component.AppElevatedButton
+import shared.design.component.AppTextField
+import shared.design.container.AppFixedTopBarColumn
 
 @Composable
 fun ArgsNavigationFromScreen() {
     val viewModel: ArgsNavigationFromViewModel = provideViewModel()
-    FixedTopBarColumnLayout(
+    AppFixedTopBarColumn(
         title = ArgsNavigationShowcase.label,
         onBack = viewModel::onBack,
         content = {
@@ -39,12 +38,12 @@ fun ArgsNavigationFromScreen() {
                 """.trimIndent()
             )
             UserNameBlock(viewModel.userNameStore)
-            ElevatedButton(
+            AppElevatedButton(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
                 onClick = viewModel::onNavigate,
-                content = { Text(text = "Navigate") }
+                text = "Navigate"
             )
         }
     )
@@ -52,14 +51,11 @@ fun ArgsNavigationFromScreen() {
 
 @Composable
 private fun UserNameBlock(store: StoreObject<String>) {
-    TextField(
+    AppTextField(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        value = store.asStateValue().orEmpty(),
-        onValueChange = store::set,
-        placeholder = {
-            Text(text = "User name")
-        }
+        valueStore = store,
+        placeholder = "User name"
     )
 }

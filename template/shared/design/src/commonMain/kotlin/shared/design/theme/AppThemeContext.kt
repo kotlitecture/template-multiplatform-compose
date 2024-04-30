@@ -13,10 +13,10 @@ import shared.core.theme.ThemeConfig
 import shared.core.theme.ThemeContext
 
 /**
- * Data class representing Material3 theme context.
+ * Data class representing application theme context.
  */
 @Immutable
-data class M3ThemeContext(
+data class AppThemeContext(
     override val id: String,
     override val dark: Boolean,
     val colorScheme: ColorScheme
@@ -27,14 +27,15 @@ data class M3ThemeContext(
 
     @Composable
     override fun apply(config: ThemeConfig, content: @Composable () -> Unit) {
+        val fontFamily = config.fontFamily
         MaterialTheme(
-            typography = remember(config.fontFamily) { createTypography(config.fontFamily) },
+            typography = remember(fontFamily) { map(fontFamily) },
             colorScheme = colorScheme,
             content = content
         )
     }
 
-    private fun createTypography(fontFamily: FontFamily): Typography {
+    private fun map(fontFamily: FontFamily): Typography {
         val typography = Typography()
         if (typography.bodyLarge.fontFamily != fontFamily) {
             return Typography(
@@ -61,10 +62,10 @@ data class M3ThemeContext(
 
     companion object {
         /** Returns the current Material3 theme data in the composition. */
-        val current: M3ThemeContext
+        val current: AppThemeContext
             @Composable
             @ReadOnlyComposable
-            get() = ThemeContext.current as M3ThemeContext
+            get() = ThemeContext.current as AppThemeContext
     }
 
 }

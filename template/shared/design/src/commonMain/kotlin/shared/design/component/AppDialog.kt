@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package shared.design.component.error
+package shared.design.component
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -21,7 +21,7 @@ import shared.core.state.StoreState
  * @param state The [StoreState] object containing the data state.
  */
 @Composable
-fun ErrorDialogProvider(state: StoreState) {
+fun AppErrorDialog(state: StoreState) {
     val error = state.dataStateStore.asStateValue() as? DataState.Error ?: return
     AlertDialog(
         modifier = Modifier.padding(24.dp),
@@ -42,5 +42,28 @@ fun ErrorDialogProvider(state: StoreState) {
             )
         },
         confirmButton = {}
+    )
+}
+
+@Composable
+fun AppAlertDialog(
+    modifier: Modifier = Modifier,
+    onDismissRequest: () -> Unit,
+    title: String,
+    text: String,
+    actionLabel: String,
+    action: () -> Unit
+) {
+    AlertDialog(
+        modifier = modifier,
+        onDismissRequest = onDismissRequest,
+        title = { AppText(text = title) },
+        text = { AppText(text = text) },
+        confirmButton = {
+            AppTextButton(
+                text = actionLabel,
+                onClick = action
+            )
+        }
     )
 }

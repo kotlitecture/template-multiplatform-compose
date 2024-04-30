@@ -2,20 +2,20 @@ package app.showcases.datasource.http.basic
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.showcases.ShowcaseHintBlock
 import shared.core.provideViewModel
 import shared.core.state.StoreObject
-import shared.design.container.FixedTopBarColumnLayout
+import shared.design.component.AppElevatedButton
+import shared.design.component.AppText
+import shared.design.container.AppFixedTopBarColumn
 
 @Composable
 fun BasicHttpScreen() {
     val viewModel: BasicHttpViewModel = provideViewModel()
-    FixedTopBarColumnLayout(
+    AppFixedTopBarColumn(
         title = BasicHttpShowcase.label,
         onBack = viewModel::onBack,
         content = {
@@ -31,12 +31,12 @@ fun BasicHttpScreen() {
                     In case of any issue, also check the system console for additional information.
                 """.trimIndent()
             )
-            ElevatedButton(
+            AppElevatedButton(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
                 onClick = viewModel::onFetchIp,
-                content = { Text(text = "Fetch my ip") }
+                text = "Fetch my ip"
             )
             IpBlock(viewModel.ipStore)
         }
@@ -45,9 +45,8 @@ fun BasicHttpScreen() {
 
 @Composable
 private fun IpBlock(ipStore: StoreObject<String>) {
-    val ip = ipStore.asStateValue() ?: return
-    Text(
+    AppText(
         modifier = Modifier.padding(horizontal = 16.dp),
-        text = ip
+        text = ipStore.asStateValue()
     )
 }

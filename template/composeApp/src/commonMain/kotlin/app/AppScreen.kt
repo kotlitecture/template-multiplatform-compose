@@ -2,19 +2,19 @@ package app
 
 import androidx.compose.runtime.Composable
 import app.userflow.navigation.NavigationBarProvider
-import app.userflow.navigation.bottom.BottomNavigation
+import app.userflow.navigation.provider.BottomProvider
 import shared.core.navigation.rememberNavigationContext
 import shared.core.provideViewModel
-import shared.design.scaffold.NavigationScaffold
+import shared.design.container.AppScaffold
 
 @Composable
 fun AppScreen() {
     val viewModel: AppViewModel = provideViewModel()
     val navigationState = viewModel.navigationState
     NavigationBarProvider {
-        NavigationScaffold(
+        AppScaffold(
             navigationContext = rememberNavigationContext(navigationState),
-            bottomBar = { BottomNavigation() }
+            bottomBar = { BottomProvider() }
         )
     }
 }

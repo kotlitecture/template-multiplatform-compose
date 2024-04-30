@@ -1,7 +1,9 @@
-package shared.design.component.basic
+package shared.design.component
 
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,7 +17,7 @@ import androidx.compose.ui.graphics.Color
  * @param tint The color to tint the icon.
  */
 @Composable
-fun ActionButton(
+fun AppActionButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     icon: Any?,
@@ -25,10 +27,37 @@ fun ActionButton(
         modifier = modifier,
         onClick = onClick,
         content = {
-            AnyIcon(
+            AppIcon(
                 model = icon,
                 tint = tint
             )
         }
+    )
+}
+
+@Composable
+fun AppTextButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    text: String
+) {
+    TextButton(
+        modifier = modifier,
+        onClick = onClick
+    ) {
+        AppText(text = text)
+    }
+}
+
+@Composable
+fun AppElevatedButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    text: String
+) {
+    ElevatedButton(
+        modifier = modifier,
+        onClick = onClick,
+        content = { AppText(text = text) }
     )
 }

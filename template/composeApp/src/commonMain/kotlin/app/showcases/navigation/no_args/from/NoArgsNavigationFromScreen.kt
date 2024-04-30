@@ -2,20 +2,19 @@ package app.showcases.navigation.no_args.from
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.showcases.ShowcaseHintBlock
 import app.showcases.navigation.no_args.NoArgsNavigationShowcase
 import shared.core.provideViewModel
-import shared.design.container.FixedTopBarColumnLayout
+import shared.design.component.AppElevatedButton
+import shared.design.container.AppFixedTopBarColumn
 
 @Composable
 fun NoArgsNavigationFromScreen() {
     val viewModel: NoArgsNavigationFromViewModel = provideViewModel()
-    FixedTopBarColumnLayout(
+    AppFixedTopBarColumn(
         title = NoArgsNavigationShowcase.label,
         onBack = viewModel::onBack,
         content = {
@@ -34,12 +33,12 @@ fun NoArgsNavigationFromScreen() {
                     5. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
                 """.trimIndent()
             )
-            ElevatedButton(
+            AppElevatedButton(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
                 onClick = viewModel::onNavigate,
-                content = { Text(text = "Navigate") }
+                text = "Navigate"
             )
         }
     )

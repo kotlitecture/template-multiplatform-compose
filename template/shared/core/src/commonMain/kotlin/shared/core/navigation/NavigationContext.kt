@@ -12,9 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 /**
  * Immutable data class representing the navigation context, including essential components like
  * navigation controller, coroutine scope, and context.
- *
- * @param navController The navigation controller for navigating between composables.
- * @param scope The coroutine scope for managing coroutines in the application.
  */
 @Immutable
 data class NavigationContext(
@@ -34,7 +31,7 @@ data class NavigationContext(
 fun rememberNavigationContext(navigationState: NavigationState): NavigationContext {
     val navController = rememberNavController()
     val scope = rememberCoroutineScope()
-    return remember(navController) {
+    return remember(navigationState, navController) {
         NavigationContext(
             navigationState = navigationState,
             navController = navController,

@@ -24,9 +24,9 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.shared.core)
-            api(compose.components.resources)
-            api(compose.components.uiToolingPreview)
-            api(compose.material3)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(compose.material3)
             api(compose.materialIconsExtended)
             api(libs.cashapp.paging.compose.common)
         }

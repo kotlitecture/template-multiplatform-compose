@@ -17,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.core.theme.ThemeContext
-import shared.design.component.basic.ActionButton
+import shared.design.component.AppActionButton
 
 /**
  * Composable function for rendering a layout with a fixed top bar.
@@ -27,15 +27,15 @@ import shared.design.component.basic.ActionButton
  * @param content The content to be displayed below the top bar.
  */
 @Composable
-fun FixedTopBarColumnLayout(
+fun AppFixedTopBarColumn(
     title: String? = null,
     onBack: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
     content: @Composable ColumnScope.() -> Unit
 ) {
-    FixedHeaderFooterColumnLayout(
+    AppFixedHeaderFooterColumn(
         modifier = Modifier.fillMaxSize(),
-        appearance = FixedHeaderFooterAppearance.default(
+        appearance = AppFixedHeaderFooterAppearance.default(
             footerBrush = null
         ),
         header = { HeaderBlock(title, onBack, actions) },
@@ -52,15 +52,15 @@ fun FixedTopBarColumnLayout(
  * @param content The content to be displayed below the top bar.
  */
 @Composable
-fun FixedTopBarLazyColumnLayout(
+fun AppFixedTopBarLazyColumn(
     title: String? = null,
     onBack: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
     content: LazyListScope.() -> Unit
 ) {
-    FixedHeaderFooterLazyColumnLayout(
+    AppFixedHeaderFooterLazyColumn(
         modifier = Modifier.fillMaxSize(),
-        appearance = FixedHeaderFooterAppearance.default(
+        appearance = AppFixedHeaderFooterAppearance.default(
             footerBrush = null
         ),
         header = { HeaderBlock(title, onBack, actions) },
@@ -92,7 +92,7 @@ private fun HeaderBlock(
         actions = actions,
         navigationIcon = {
             if (onBack != null) {
-                ActionButton(
+                AppActionButton(
                     onClick = onBack,
                     icon = Icons.Default.ArrowBackIosNew
                 )
