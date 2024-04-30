@@ -1,6 +1,7 @@
 package shared.design.component
 
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material3.OutlinedTextField
@@ -18,6 +19,7 @@ fun AppTextField(
     OutlinedTextField(
         modifier = modifier,
         onValueChange = valueStore::set,
+        shape = RoundedCornerShape(8.dp),
         value = valueStore.asStateValue().orEmpty(),
         placeholder = { AppText(text = placeholder) },
         suffix = {
