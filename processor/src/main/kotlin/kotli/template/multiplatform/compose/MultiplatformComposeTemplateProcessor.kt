@@ -11,6 +11,7 @@ import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvid
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
 import kotli.template.multiplatform.compose.essentials.navigation.NavigationProvider
 import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
+import kotli.template.multiplatform.compose.platform.PlatformProvider
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -27,9 +28,12 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         DesignSystemProvider,
         DependencyInjectionProvider,
         BuildToolProvider,
+
+        // platform
+        PlatformProvider
     )
 
-    override fun processBefore(state: TemplateState) {
+    override fun processAfter(state: TemplateState) {
         state.onApplyRules(
             Rules.IndexHtml,
             ReplaceMarkedText(
@@ -79,6 +83,14 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 marker = "rootProject.name",
                 replacer = state.layer.name,
                 singleLine = true
+            )
+        )
+        state.onApplyRules(
+            Rules.KtAny,
+            ReplaceMarkedText(
+                text = "import template.",
+                marker = "import template.",
+                replacer = "import ${state.layer.name.lowercase()}."
             )
         )
     }

@@ -13,4 +13,7 @@ object Rules {
     const val BuildGradleRoot = "build.gradle.kts"
     const val BuildGradleComposeApp = "composeApp/build.gradle.kts"
 
+    // kotlin
+    const val KtAny = "*.kt"
+
 }

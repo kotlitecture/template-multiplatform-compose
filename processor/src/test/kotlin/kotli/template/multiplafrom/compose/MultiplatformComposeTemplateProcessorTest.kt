@@ -82,7 +82,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 id = UUID.randomUUID().toString(),
                 processorId = processor.getId(),
                 namespace = "my.app",
-                name = "app-multiplatform",
+                name = "myApp",
             )
             val generator = PathOutputGenerator(registry = registry)
             val zipGenerator = ZipOutputGenerator(output, generator)
@@ -98,7 +98,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 id = UUID.randomUUID().toString(),
                 processorId = processor.getId(),
                 namespace = "my.app",
-                name = "app-multiplatform"
+                name = "myApp"
             )
             val generator = PathOutputGenerator(buildPath(), registry)
             val gradleGenerator = GradleProjectGenerator(testCommands, generator)
@@ -113,7 +113,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 id = UUID.randomUUID().toString(),
                 processorId = processor.getId(),
                 namespace = "my.app",
-                name = "app-multiplatform",
+                name = "myApp",
             )
             val generator = PathOutputGenerator(buildPath(), registry, fat = true)
             val gradleGenerator = GradleProjectGenerator(testCommands, generator)
@@ -138,7 +138,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 processorId = processor.getId(),
                 features = features.toList(),
                 namespace = "my.app",
-                name = "app-multiplatform",
+                name = "myApp",
             )
             val generator = PathOutputGenerator(buildPath(), registry)
             val gradleGenerator = GradleProjectGenerator(testCommands, generator)
