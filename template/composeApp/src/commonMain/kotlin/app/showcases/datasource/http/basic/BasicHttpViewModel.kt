@@ -1,15 +1,16 @@
 package app.showcases.datasource.http.basic
 
-import shared.data.datasource.http.HttpSource
-import shared.data.misc.extensions.isIgnoredException
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.coroutines.delay
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import shared.core.BaseViewModel
+import shared.core.navigation.NavigationState
+import shared.core.state.StoreObject
+import shared.data.datasource.http.HttpSource
+import shared.data.datasource.http.isHttpTimeoutException
+import shared.data.misc.extensions.isCancellationException
 
 class BasicHttpViewModel(
     private val navigationState: NavigationState,
@@ -34,7 +35,7 @@ class BasicHttpViewModel(
                 val ipData = httpSource.ktor.get(url).body<IpData>()
                 ipStore.set(ipData.ip)
             } catch (e: Throwable) {
-                if (!e.isIgnoredException()) {
+                if (!e.isCancellationException() && !e.isHttpTimeoutException()) {
                     ipStore.set(
                         """
 Error (see system console):

@@ -2,9 +2,12 @@ package shared.data.datasource.http
 
 import shared.data.datasource.DataSource
 import io.ktor.client.HttpClient
+import io.ktor.client.network.sockets.ConnectTimeoutException
+import io.ktor.client.network.sockets.SocketTimeoutException
 import io.ktor.client.plugins.BrowserUserAgent
 import io.ktor.client.plugins.HttpRedirect
 import io.ktor.client.plugins.HttpRequestRetry
+import io.ktor.client.plugins.HttpRequestTimeoutException
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -61,4 +64,11 @@ class HttpSource(
         }
     }
 
+}
+
+fun Throwable.isHttpTimeoutException(): Boolean {
+    val exception = this
+    return exception is HttpRequestTimeoutException ||
+            exception is ConnectTimeoutException ||
+            exception is SocketTimeoutException
 }
