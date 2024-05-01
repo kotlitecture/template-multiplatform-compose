@@ -2,6 +2,7 @@ package kotli.template.multiplatform.compose.platform.android
 
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
+import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 
@@ -16,6 +17,10 @@ object AndroidPlatformProcessor : PlatformProcessor() {
         state.onApplyRules(
             Rules.SrcAndroidMain,
             RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.BuildGradleRoot,
+            RemoveMarkedLine("android")
         )
     }
 

@@ -15,6 +15,18 @@ object Rules {
 
     // kotlin
     const val Kt = "*.kt"
+    const val CommonAppMainDir = "composeApp/src/commonMain"
+    const val AppKt = "${CommonAppMainDir}/kotlin/app/App.kt"
+    const val ShowcasesDir = "${CommonAppMainDir}/kotlin/app/showcases"
+    const val ShowcasesHttpDir = "${ShowcasesDir}/datasource/http"
+    const val ShowcasesPagingDir = "${ShowcasesDir}/datasource/paging"
+    const val ShowcasesNavigationDir = "${ShowcasesDir}/navigation"
+    const val ShowcasesThemeDir = "${ShowcasesDir}/userflow/theme"
+    const val ShowcasesPasscodeDir = "${ShowcasesDir}/userflow/passcode"
+    const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
+    const val AppNavigationRouterKt = "${CommonAppMainDir}/kotlin/app/AppNavigationRouter.kt"
+    const val ProvidesNavigationBarStateKt = "${CommonAppMainDir}/kotlin/app/di/state/ProvidesNavigationBarState.kt"
+    const val ProvidesNavigationStateKt = "${CommonAppMainDir}/kotlin/app/di/state/ProvidesNavigationState.kt"
 
     // sources
     const val IosApp = "iosApp"

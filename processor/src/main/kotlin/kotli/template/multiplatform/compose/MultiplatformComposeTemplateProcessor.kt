@@ -16,6 +16,7 @@ import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
 import kotli.template.multiplatform.compose.platform.PlatformProvider
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -23,7 +24,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
     override fun getId(): String = ID
     override fun getType(): LayerType = LayerTypes.Multiplatform
-    override fun getWebUrl(): String = "https://github.com/kotlitecture/template-multiplatform-compose"
+    override fun getWebUrl(): String =
+        "https://github.com/kotlitecture/template-multiplatform-compose"
 
     override fun createPresets(): List<Layer> = listOf(
         createPreset(
@@ -43,7 +45,10 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         BuildToolProvider,
 
         // platform
-        PlatformProvider
+        PlatformProvider,
+
+        // showcases
+        ShowcasesProvider,
     )
 
     override fun processAfter(state: TemplateState) {

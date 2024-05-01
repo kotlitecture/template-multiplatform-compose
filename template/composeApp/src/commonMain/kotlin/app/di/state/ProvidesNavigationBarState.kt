@@ -25,7 +25,7 @@ val ProvidesNavigationBarState = module {
     single {
         NavigationBarState(
             pages = listOf(
-                // start {showcases.common}
+                // start {showcases}
                 createPage(
                     navigationState = get(),
                     destination = ShowcasesDestination,
@@ -33,7 +33,7 @@ val ProvidesNavigationBarState = module {
                     getInactiveIcon = { Icons.Outlined.School },
                     getLabel = { "Showcases" }
                 ),
-                // end {showcases.common}
+                // end {showcases}
                 createPage(
                     navigationState = get(),
                     destination = NavigationADestination,
