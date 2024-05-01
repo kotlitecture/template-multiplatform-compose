@@ -192,10 +192,7 @@ fun AppPermanentNavigation(
                         label = { AppText(text = item.getLabel()) },
                         icon = { AppIcon(model = item.getIcon(isSelected)) },
                         selected = isSelected,
-                        onClick = {
-                            item.onClick()
-                            visibilityStore.set(false)
-                        }
+                        onClick = item.onClick
                     )
                 }
                 AppSpacer8()
