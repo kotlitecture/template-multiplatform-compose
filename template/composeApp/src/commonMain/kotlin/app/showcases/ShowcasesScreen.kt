@@ -84,6 +84,8 @@ private fun HintBlock(hintStore: StoreObject<Boolean>) {
                 3. Usage of `ShowcasesDestination` in `app.di.state.ProvidesNavigationState`.
                 
                 4. Usage of `ShowcasesDestination` in `app.di.state.ProvidesNavigationBarState`.
+                
+                5. Usage of all view models associated with Showcases in `app.App`.
             """.trimIndent(),
         actionLabel = "Got it!",
         action = hintStore::clear

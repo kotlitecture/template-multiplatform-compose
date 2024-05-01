@@ -31,10 +31,15 @@ fun ArgsNavigationFromScreen() {
                     To create your own MVVM screen with arguments and make it available for navigation:
                     
                     1. Copy the content of the package `app/ui/screen/template` to the required location for your screen.
+                    
                     2. Rename the copied classes (Destination, Screen, and ViewModel) to the desired ones.
+                    
                     3. Register the copied [Destination] class in `app/di/state/ProvidesNavigationState`.
+                    
                     4. Register the copied [ViewModel] in app/App#AppViewModelFactory.
+                    
                     5. Implement the logic of the screen in the copied [Screen] class.
+                    
                     6. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
                 """.trimIndent()
             )

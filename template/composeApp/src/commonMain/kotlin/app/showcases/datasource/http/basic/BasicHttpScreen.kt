@@ -24,8 +24,11 @@ fun BasicHttpScreen() {
                     By clicking on the button, the app will attempt to retrieve the device's IP address using a public HTTP API, following this flow:
                     
                     1. Delay the request for a brief period and display a loading state.
+                    
                     2. Send the request to obtain the device's IP address.
+                    
                     3. If the request succeeds, display the IP address.
+                    
                     4. If an error occurs, display the error's stack trace.
                     
                     In case of any issue, also check the system console for additional information.
