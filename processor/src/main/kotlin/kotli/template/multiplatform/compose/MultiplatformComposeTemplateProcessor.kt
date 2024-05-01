@@ -13,6 +13,7 @@ import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvid
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
+import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
 import kotli.template.multiplatform.compose.essentials.build.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
@@ -58,6 +59,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         ConfigProvider,
         KeyValueProvider,
         HttpProvider,
+        PagingProvider,
 
         // showcases
         ShowcasesProvider,
