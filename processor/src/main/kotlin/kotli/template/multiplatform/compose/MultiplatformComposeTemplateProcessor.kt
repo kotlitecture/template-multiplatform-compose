@@ -8,6 +8,9 @@ import kotli.engine.model.Feature
 import kotli.engine.model.Layer
 import kotli.engine.model.LayerTypes
 import kotli.engine.template.rule.ReplaceMarkedText
+import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
+import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
+import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
 import kotli.template.multiplatform.compose.essentials.build.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
@@ -46,6 +49,11 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
         // platform
         PlatformProvider,
+
+        // dataflow
+        CommonDataFlowProvider,
+        AnalyticsProvider,
+        ConfigProvider,
 
         // showcases
         ShowcasesProvider,

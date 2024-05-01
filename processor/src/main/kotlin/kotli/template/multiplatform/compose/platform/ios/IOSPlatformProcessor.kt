@@ -14,11 +14,11 @@ object IOSPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcIosMain,
+            Rules.SrcIosMainDir,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.IosApp,
+            Rules.IosAppDir,
             RemoveFile()
         )
     }

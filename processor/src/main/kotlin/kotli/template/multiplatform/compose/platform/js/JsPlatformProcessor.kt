@@ -14,7 +14,7 @@ object JsPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcJsMain,
+            Rules.SrcJsMainDir,
             RemoveFile()
         )
     }

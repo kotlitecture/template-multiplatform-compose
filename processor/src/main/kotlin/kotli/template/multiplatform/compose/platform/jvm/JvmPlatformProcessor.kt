@@ -14,7 +14,7 @@ object JvmPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcJvmMain,
+            Rules.SrcJvmMainDir,
             RemoveFile()
         )
     }

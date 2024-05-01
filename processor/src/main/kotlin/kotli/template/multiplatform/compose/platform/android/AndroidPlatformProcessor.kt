@@ -15,7 +15,7 @@ object AndroidPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcAndroidMain,
+            Rules.SrcAndroidMainDir,
             RemoveFile()
         )
         state.onApplyRules(
