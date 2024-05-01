@@ -11,6 +11,8 @@ import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
+import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
+import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
 import kotli.template.multiplatform.compose.essentials.build.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
@@ -54,6 +56,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         CommonDataFlowProvider,
         AnalyticsProvider,
         ConfigProvider,
+        KeyValueProvider,
+        HttpProvider,
 
         // showcases
         ShowcasesProvider,

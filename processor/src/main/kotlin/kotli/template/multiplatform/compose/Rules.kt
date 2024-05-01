@@ -12,6 +12,7 @@ object Rules {
     const val SettingsGradle = "settings.gradle.kts"
     const val BuildGradleRoot = "build.gradle.kts"
     const val BuildGradleComposeApp = "composeApp/build.gradle.kts"
+    const val BuildGradleSharedData = "shared/data/build.gradle.kts"
 
     // kotlin
     const val Kt = "*.kt"
@@ -29,8 +30,12 @@ object Rules {
     const val ProvidesNavigationBarStateKt = "${CommonAppMainDir}/kotlin/app/di/state/ProvidesNavigationBarState.kt"
     const val ProvidesNavigationStateKt = "${CommonAppMainDir}/kotlin/app/di/state/ProvidesNavigationState.kt"
     // dataflow
+    const val AppConfigSource = "${CommonAppMainDir}/kotlin/app/datasource/config/AppConfigSource.kt"
     const val AnalyticsSource = "*/*AnalyticsSource.kt"
     const val ConfigSource = "*/*ConfigSource.kt"
+    const val HttpSource = "*/*HttpSource.kt"
+    const val KeyValueSource = "*/*KeyValueSource.kt"
+    const val SettingsKeyValueSource = "*/*SettingsKeyValueSource.kt"
 
     // sources
     const val IosAppDir = "iosApp"

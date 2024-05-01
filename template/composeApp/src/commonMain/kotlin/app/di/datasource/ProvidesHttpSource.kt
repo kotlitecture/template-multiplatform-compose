@@ -1,8 +1,15 @@
 package app.di.datasource
 
-import shared.data.datasource.http.HttpSource
+import app.datasource.config.AppConfigSource
 import org.koin.dsl.module
+import shared.data.datasource.http.HttpSource
 
 val ProvidesHttpSource = module {
-    single { HttpSource() }
+    single {
+        val config: AppConfigSource = get()
+        HttpSource(
+            timeout = config.getHttpTimeout(),
+            retries = config.getHttpRetryCount()
+        )
+    }
 }

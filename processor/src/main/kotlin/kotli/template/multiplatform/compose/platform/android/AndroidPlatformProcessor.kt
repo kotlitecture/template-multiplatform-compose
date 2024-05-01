@@ -1,6 +1,7 @@
 package kotli.template.multiplatform.compose.platform.android
 
 import kotli.engine.TemplateState
+import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
@@ -21,6 +22,18 @@ object AndroidPlatformProcessor : PlatformProcessor() {
         state.onApplyRules(
             Rules.BuildGradleRoot,
             RemoveMarkedLine("android")
+        )
+        state.onApplyRules(
+            VersionCatalogRules(
+                RemoveMarkedLine("agp"),
+                RemoveMarkedLine("android-compileSdk"),
+                RemoveMarkedLine("android-minSdk"),
+                RemoveMarkedLine("android-targetSdk"),
+                RemoveMarkedLine("androidx-activity"),
+                RemoveMarkedLine("androidx-appcompat"),
+                RemoveMarkedLine("androidx-splashscreen"),
+                RemoveMarkedLine("compose-android"),
+            )
         )
     }
 

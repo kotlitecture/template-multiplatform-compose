@@ -63,11 +63,5 @@ kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 skie = { id = "co.touchlab.skie", version.ref = "skie" }
 
 [bundles]
-ktor-common = [
-    "ktor-client-core",
-    "ktor-client-logging",
-    "ktor-client-serialization",
-    "ktor-client-contentNegotiation",
-    "ktor-client-websockets"
-]
+ktor-common = ["ktor-client-core", "ktor-client-logging", "ktor-client-serialization", "ktor-client-contentNegotiation", "ktor-client-websockets"]
 
