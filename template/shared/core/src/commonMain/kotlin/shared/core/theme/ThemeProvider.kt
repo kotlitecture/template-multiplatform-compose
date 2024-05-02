@@ -4,6 +4,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import shared.core.ViewModelFactory
 import shared.core.provideViewModel
 
@@ -12,7 +13,7 @@ fun ThemeProvider(
     state: ThemeState,
     content: @Composable () -> Unit
 ) {
-    val viewModel: ThemeViewModel = provideViewModel(factory = ViewModelFactory)
+    val viewModel: ThemeViewModel = provideViewModel(factory = remember { ViewModelFactory })
     LaunchedEffect(state) { viewModel.onBind(state) }
     SystemDarkModeHandler(state)
     ThemeSwitchHandler(state, content)

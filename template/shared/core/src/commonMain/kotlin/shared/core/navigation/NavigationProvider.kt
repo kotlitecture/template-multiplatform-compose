@@ -2,6 +2,7 @@ package shared.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.remember
 import shared.core.ViewModelFactory
 import shared.core.provideViewModel
 
@@ -13,7 +14,7 @@ import shared.core.provideViewModel
  */
 @Composable
 fun NavigationProvider(navigationState: NavigationState, navigationContext: NavigationContext) {
-    val viewModel: NavigationViewModel = provideViewModel(factory = ViewModelFactory)
+    val viewModel: NavigationViewModel = provideViewModel(factory = remember { ViewModelFactory })
     DisposableEffect(navigationState, navigationContext) {
         viewModel.onBind(navigationState, navigationContext)
         onDispose { viewModel.onUnbind(navigationState) }
