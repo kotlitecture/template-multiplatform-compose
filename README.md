@@ -15,6 +15,9 @@ The template follows the general principals:
 # Architecture
 
 ```mermaid
+---
+title: Modules Structure
+---
 flowchart TB
     subgraph core["core"]
         a1["Jetpack ViewModel"]
