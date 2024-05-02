@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 /**
- * Composable function for rendering a button commonly used in the app bars.
+ * Button commonly used in the app bars.
  *
  * @param modifier The modifier to be applied to the button.
  * @param onClick The callback to be invoked when the button is clicked.
@@ -35,6 +35,13 @@ fun AppActionButton(
     )
 }
 
+/**
+ * Button with text.
+ *
+ * @param modifier Modifier to be applied to the button.
+ * @param onClick Callback to be invoked when the button is clicked.
+ * @param text Text to be displayed on the button.
+ */
 @Composable
 fun AppTextButton(
     modifier: Modifier = Modifier,
@@ -49,6 +56,13 @@ fun AppTextButton(
     }
 }
 
+/**
+ * Elevated button with text.
+ *
+ * @param modifier Modifier to be applied to the button.
+ * @param onClick Callback to be invoked when the button is clicked.
+ * @param text Text to be displayed on the button.
+ */
 @Composable
 fun AppElevatedButton(
     modifier: Modifier = Modifier,

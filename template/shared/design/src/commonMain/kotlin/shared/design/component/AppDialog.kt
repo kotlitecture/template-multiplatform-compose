@@ -49,6 +49,16 @@ fun AppErrorDialog(state: StoreState) {
     )
 }
 
+/**
+ * Alert dialog with title, text, and action button.
+ *
+ * @param modifier Modifier to be applied to the dialog.
+ * @param onDismissRequest Callback to be invoked when the dialog is dismissed.
+ * @param title Title of the dialog.
+ * @param text Text content of the dialog.
+ * @param actionLabel Label for the action button.
+ * @param action Callback to be invoked when the action button is clicked.
+ */
 @Composable
 fun AppAlertDialog(
     modifier: Modifier = Modifier,
@@ -72,6 +82,13 @@ fun AppAlertDialog(
     )
 }
 
+/**
+ * Dialog with custom content.
+ *
+ * @param modifier Modifier to be applied to the dialog.
+ * @param onDismissRequest Callback to be invoked when the dialog is dismissed.
+ * @param content Custom content to be displayed inside the dialog.
+ */
 @Composable
 fun AppDialog(
     modifier: Modifier = Modifier,
@@ -85,6 +102,12 @@ fun AppDialog(
     )
 }
 
+/**
+ * Dialog content with custom layout.
+ *
+ * @param modifier Modifier to be applied to the dialog content.
+ * @param content Custom content to be displayed inside the dialog content.
+ */
 @Composable
 fun AppDialogContent(
     modifier: Modifier = Modifier,

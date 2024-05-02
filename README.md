@@ -63,7 +63,11 @@ The default module implementation is based on the [Google Material 3 Design](htt
 
 In addition to the Material 3 library, the module implements several components and containers used in different user flows.
 
-The main idea of this module is to create a **Design System** that can be used by any UI feature of the app without dependency on the underlying UI kit. 
+The main idea of this module is to create a **Design System** that can be used by any UI feature of the app without dependency on the underlying UI kit.
+
+```
+Existing composables in this module are examples and can be changed/removed based on your needs.
+```
 
 ## Module - app
 

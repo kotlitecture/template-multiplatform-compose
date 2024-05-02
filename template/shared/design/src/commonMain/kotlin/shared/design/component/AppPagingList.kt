@@ -18,6 +18,16 @@ import app.cash.paging.LoadStateLoading
 import app.cash.paging.LoadStateNotLoading
 import app.cash.paging.compose.LazyPagingItems
 
+/**
+ * Paged list with lazy loading.
+ *
+ * @param items LazyPagingItems representing the paged items.
+ * @param itemKey Key generator function for each item.
+ * @param itemContent Content composable for each item.
+ * @param emptyContent Content composable to display when the list is empty.
+ * @param refreshContent Content composable to display during refresh.
+ * @param appendContent Content composable to display when appending more items.
+ */
 fun <I : Any> LazyListScope.AppPagingList(
     items: LazyPagingItems<I>?,
     itemKey: ((index: Int) -> Any)? = null,

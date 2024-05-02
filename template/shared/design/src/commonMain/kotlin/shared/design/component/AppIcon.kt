@@ -13,6 +13,14 @@ import androidx.compose.ui.unit.Dp
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
+/**
+ * Icon.
+ *
+ * @param modifier Modifier to be applied to the icon.
+ * @param tint Color to be applied to the icon.
+ * @param size Size of the icon.
+ * @param model Data model representing the icon.
+ */
 @Composable
 fun AppIcon(
     modifier: Modifier = Modifier,
@@ -28,6 +36,14 @@ fun AppIcon(
     }
 }
 
+/**
+ * Icon from an ImageVector.
+ *
+ * @param modifier Modifier to be applied to the icon.
+ * @param tint Color to be applied to the icon.
+ * @param size Size of the icon.
+ * @param model ImageVector representing the icon.
+ */
 @Composable
 fun AppIcon(
     modifier: Modifier = Modifier,
@@ -43,6 +59,14 @@ fun AppIcon(
     )
 }
 
+/**
+ * Icon from a DrawableResource.
+ *
+ * @param modifier Modifier to be applied to the icon.
+ * @param tint Color to be applied to the icon.
+ * @param size Size of the icon.
+ * @param model DrawableResource representing the icon.
+ */
 @Composable
 fun AppIcon(
     modifier: Modifier = Modifier,
@@ -58,6 +82,13 @@ fun AppIcon(
     )
 }
 
+/**
+ * Colored box as an icon.
+ *
+ * @param modifier Modifier to be applied to the icon.
+ * @param size Size of the icon.
+ * @param model Color representing the icon.
+ */
 @Composable
 fun AppIcon(
     modifier: Modifier = Modifier,

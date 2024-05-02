@@ -6,6 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+/**
+ * Circular progress indicator.
+ *
+ * @param modifier Modifier to be applied to the circular progress indicator.
+ */
 @Composable
 fun AppCircularProgressIndicator(
     modifier: Modifier = Modifier

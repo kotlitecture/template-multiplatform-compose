@@ -84,7 +84,7 @@ data class AppTheme(
     }
 
     companion object {
-        /** Returns the current Material3 theme data in the composition. */
+        /** Returns the current App theme data in the composition. */
         val current: AppTheme
             @Composable
             @ReadOnlyComposable

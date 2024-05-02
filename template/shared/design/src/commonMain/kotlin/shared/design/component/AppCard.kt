@@ -8,6 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+/**
+ * Outlined card with text content.
+ *
+ * @param modifier Modifier to be applied to the card.
+ * @param text Text content to be displayed inside the card.
+ */
 @Composable
 fun AppOutlinedCard(
     modifier: Modifier = Modifier,
@@ -24,6 +30,12 @@ fun AppOutlinedCard(
     )
 }
 
+/**
+ * Outlined card with custom content.
+ *
+ * @param modifier Modifier to be applied to the card.
+ * @param content Custom content to be displayed inside the card.
+ */
 @Composable
 fun AppOutlinedCard(
     modifier: Modifier = Modifier,
@@ -35,6 +47,12 @@ fun AppOutlinedCard(
     )
 }
 
+/**
+ * Card with custom content.
+ *
+ * @param modifier Modifier to be applied to the card.
+ * @param content Custom content to be displayed inside the card.
+ */
 @Composable
 fun AppCard(
     modifier: Modifier = Modifier,

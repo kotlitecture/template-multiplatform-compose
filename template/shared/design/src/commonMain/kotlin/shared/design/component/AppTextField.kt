@@ -11,6 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import shared.core.state.StoreObject
 
+/**
+ * Text field.
+ *
+ * @param modifier Modifier to be applied to the text field.
+ * @param valueStore StoreObject containing the value of the text field.
+ * @param placeholder Placeholder text for the text field.
+ * @param supportingText Supporting text to be displayed below the text field.
+ */
 @Composable
 fun AppTextField(
     modifier: Modifier = Modifier,
