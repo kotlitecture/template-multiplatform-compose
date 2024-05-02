@@ -6,6 +6,8 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import app.di.instance
 import app.showcases.ShowcasesViewModel
 import app.showcases.datasource.http.basic.BasicHttpViewModel
+import app.showcases.datasource.keyvalue.`object`.ObjectKeyValueViewModel
+import app.showcases.datasource.keyvalue.primitive.PrimitiveKeyValueViewModel
 import app.showcases.datasource.paging.basic.BasicPagingViewModel
 import app.showcases.navigation.args.from.ArgsNavigationFromViewModel
 import app.showcases.navigation.args.to.ArgsNavigationToViewModel
@@ -54,4 +56,6 @@ private val AppViewModelFactory = viewModelFactory {
     initializer { ArgsNavigationToViewModel(instance()) }
     initializer { DataLoaderViewModel(instance()) }
     initializer { DataLoaderShowcaseViewModel(instance(), instance()) }
+    initializer { PrimitiveKeyValueViewModel(instance(), instance()) }
+    initializer { ObjectKeyValueViewModel(instance(), instance()) }
 }

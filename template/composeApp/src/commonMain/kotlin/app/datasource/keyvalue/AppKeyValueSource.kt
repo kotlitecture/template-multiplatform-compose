@@ -28,7 +28,7 @@ class AppKeyValueSource : SettingsKeyValueSource() {
      * @param value The value to save.
      * @throws IllegalStateException if serialization/deserialization fails or if the requested type is not supported.
      */
-    suspend inline fun <reified T : Any> save(key: String, value: T) {
+    suspend inline fun <reified T : Any> save(key: String, value: T?) {
         save(key, value, NoSerializationStrategy.create())
     }
 

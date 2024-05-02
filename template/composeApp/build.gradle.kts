@@ -47,6 +47,7 @@ kotlin {
     sourceSets {
         all {
             languageSettings {
+                optIn("kotlinx.coroutines.FlowPreview")
                 optIn("androidx.compose.ui.ExperimentalComposeUiApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
                 optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")

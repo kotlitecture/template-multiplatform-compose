@@ -17,7 +17,7 @@ interface KeyValueSource : DataSource {
      */
     suspend fun <T : Any> save(
         key: String,
-        value: T,
+        value: T?,
         serializationStrategy: SerializationStrategy<T>
     )
 

@@ -5,6 +5,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -14,7 +15,8 @@ import shared.core.state.StoreObject
 fun AppTextField(
     modifier: Modifier = Modifier,
     valueStore: StoreObject<String>,
-    placeholder: String
+    placeholder: String,
+    supportingText: String? = null
 ) {
     OutlinedTextField(
         modifier = modifier,
@@ -30,6 +32,7 @@ fun AppTextField(
                     onClick = valueStore::clear
                 )
             }
-        }
+        },
+        supportingText = supportingText?.let { { Text(it) } }
     )
 }

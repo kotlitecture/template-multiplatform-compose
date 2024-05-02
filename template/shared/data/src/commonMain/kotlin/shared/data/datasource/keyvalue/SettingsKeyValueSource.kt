@@ -14,9 +14,13 @@ open class SettingsKeyValueSource : KeyValueSource {
 
     override suspend fun <T : Any> save(
         key: String,
-        value: T,
+        value: T?,
         serializationStrategy: SerializationStrategy<T>
     ) {
+        if (value == null) {
+            remove(key, serializationStrategy)
+            return
+        }
         when (value) {
             is String -> settings.putString(key, value)
             is Boolean -> settings.putBoolean(key, value)

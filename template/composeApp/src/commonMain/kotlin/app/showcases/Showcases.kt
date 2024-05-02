@@ -1,6 +1,8 @@
 package app.showcases
 
 import app.showcases.datasource.http.basic.BasicHttpShowcase
+import app.showcases.datasource.keyvalue.`object`.ObjectKeyValueShowcase
+import app.showcases.datasource.keyvalue.primitive.PrimitiveKeyValueShowcase
 import app.showcases.datasource.paging.basic.BasicPagingShowcase
 import app.showcases.navigation.args.ArgsNavigationShowcase
 import app.showcases.navigation.no_args.NoArgsNavigationShowcase
@@ -23,6 +25,9 @@ object Showcases {
         ArgsNavigationShowcase,
         ShowcaseItemGroup("Datasource :: Http"),
         BasicHttpShowcase,
+        ShowcaseItemGroup("Datasource :: Key-Value"),
+        PrimitiveKeyValueShowcase,
+        ObjectKeyValueShowcase,
         ShowcaseItemGroup("Datasource :: Paging"),
         BasicPagingShowcase,
         ShowcaseItemGroup("Userflow :: Loader"),
