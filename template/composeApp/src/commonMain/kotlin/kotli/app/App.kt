@@ -1,6 +1,7 @@
 package kotli.app
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotli.app.di.instance
@@ -32,7 +33,7 @@ import shared.core.ViewModelProvider
  * Root of the application.
  */
 @Composable
-fun App() = ViewModelProvider(AppViewModelFactory) {
+fun App() = ViewModelProvider(remember { AppViewModelFactory }) {
     AppThemeProvider {
         AppScreen()
     }

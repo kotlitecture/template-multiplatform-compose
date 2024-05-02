@@ -30,7 +30,7 @@ kotlin {
     }
     // {platform.ios.target}
     // {platform.js.target}
-    js(IR) {
+    js {
         browser {
             commonWebpackConfig {
                 outputFileName = "app.js"
