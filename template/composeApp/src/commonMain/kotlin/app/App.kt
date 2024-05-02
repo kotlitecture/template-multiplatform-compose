@@ -28,6 +28,9 @@ import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
 import shared.core.ViewModelProvider
 
+/**
+ * Root of the app.
+ */
 @Composable
 fun App() = ViewModelProvider(AppViewModelFactory) {
     AppThemeProvider {

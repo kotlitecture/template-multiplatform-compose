@@ -8,6 +8,9 @@ import shared.core.navigation.rememberNavigationContext
 import shared.core.provideViewModel
 import shared.design.container.AppScaffold
 
+/**
+ * The main screen of the app.
+ */
 @Composable
 fun AppScreen() {
     val viewModel: AppViewModel = provideViewModel()
