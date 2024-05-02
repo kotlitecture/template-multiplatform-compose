@@ -12,6 +12,18 @@ The template follows the general principals:
 - Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotlitecture.com).
 - All out-of-the-box solutions are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
 
+# Usage
+
+**!IMPORTANT!** The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
+
+To generate the required project structure, use online service [Kotli](https://kotlitecture.com/project) (it's free and only requires an internet connection).
+
+Once you configure the necessary features and generate the archive with source codes, you'll have a ready-to-use and working project structure that can be imported into your IDE to begin adding the required business logic.
+
+The template will also include all necessary showcases to make understanding of the included features easy.
+
+Run your project to check what is included and how it works, and once everything is clear, remove the package with showcases and any references to it.
+
 # Architecture
 
 ```mermaid
@@ -114,7 +126,7 @@ The Application module itself contains:
 
 Once you download and import the initial project structure into your IDE, the project is ready to run on a device, enabling you to understand the included functionality and start adding the required features.
 
-## Project Documentation
+# Documentation
 
 Once you've configured your project through [Kotli](https://kotlitecture.com/project) and downloaded the generated source codes, this project become fully yours and is not bound to the service. Each project includes a README.MD file in its root with the following helpful details:
 
@@ -124,21 +136,9 @@ Once you've configured your project through [Kotli](https://kotlitecture.com/pro
 
 All documentation related to features can also be found and accessed online, up-to-date, once you open the link to your Kotli project.
 
-## Project Showcases
+# Showcases
 
 When a project is configured and downloaded via [Kotli](https://kotlitecture.com/project), it also provides showcases of all included features. Furthermore, the screen with showcases is configured as the initial screen when running the downloaded template.
-
-# Usage
-
-**!IMPORTANT!** The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
-
-To generate the required project structure, use online service [Kotli](https://kotlitecture.com/project) (it's free and only requires an internet connection).
-
-Once you configure the necessary features and generate the archive with source codes, you'll have a ready-to-use and working project structure that can be imported into your IDE to begin adding the required business logic.
-
-By default, the template will also include all necessary showcases to make understanding of the included features easy.
-
-Run your project to check what is included and how it works, and once everything is clear, remove the package with showcases and any references to it.
 
 # Features
 
