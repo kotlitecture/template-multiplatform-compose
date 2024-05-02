@@ -121,6 +121,12 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 marker = "packageName",
                 replacer = state.layer.namespace,
                 singleLine = true
+            ),
+            ReplaceMarkedText(
+                text = "app",
+                marker = "namespace",
+                replacer = state.layer.namespace,
+                singleLine = true
             )
         )
         state.onApplyRules(
