@@ -37,7 +37,7 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             Rules.AppConfigSource,
-            RemoveMarkedLine("data_loader")
+            RemoveMarkedLine("data_loader_")
         )
     }
 
