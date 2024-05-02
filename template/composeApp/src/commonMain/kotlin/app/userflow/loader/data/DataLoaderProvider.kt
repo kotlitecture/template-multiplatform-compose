@@ -1,9 +1,16 @@
 package app.userflow.loader.data
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import shared.core.provideViewModel
 import shared.core.state.StoreState
+import shared.design.component.AppCard
 import shared.design.component.AppCircularProgressIndicator
 import shared.design.component.AppDialog
 
@@ -26,6 +33,15 @@ private fun DataLoaderBlock(viewModel: DataLoaderViewModel) {
     val isLoading = viewModel.isLoadingStore.asStateValueNotNull()
     if (!isLoading) return
     AppDialog(onDismissRequest = {}) {
-        AppCircularProgressIndicator()
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            AppCard {
+                AppCircularProgressIndicator(
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+        }
     }
 }

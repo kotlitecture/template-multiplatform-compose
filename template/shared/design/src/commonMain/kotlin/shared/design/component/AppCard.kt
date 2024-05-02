@@ -2,6 +2,7 @@ package shared.design.component
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -29,6 +30,17 @@ fun AppOutlinedCard(
     content: @Composable ColumnScope.() -> Unit
 ) {
     OutlinedCard(
+        modifier = modifier,
+        content = content
+    )
+}
+
+@Composable
+fun AppCard(
+    modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit
+) {
+    Card(
         modifier = modifier,
         content = content
     )

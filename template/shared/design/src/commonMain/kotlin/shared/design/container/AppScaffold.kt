@@ -22,7 +22,6 @@ import shared.design.component.AppErrorDialog
  * @param topBar The composable function to display the top bar.
  * @param bottomBar The composable function to display the bottom bar.
  * @param floatingActionButton The composable function to display the floating action button.
- * @param floatingActionButtonPosition The position of the floating action button.
  */
 @Composable
 fun AppScaffold(

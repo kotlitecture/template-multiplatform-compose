@@ -5,7 +5,8 @@ import shared.core.navigation.NavigationState
 
 class AppViewModel(
     private val navigationRouter: AppNavigationRouter,
-    val navigationState: NavigationState
+    val navigationState: NavigationState,
+    val appState: AppState
 ) : BaseViewModel() {
 
     override fun doBind() {

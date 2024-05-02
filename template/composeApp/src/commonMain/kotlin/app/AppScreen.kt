@@ -1,6 +1,7 @@
 package app
 
 import androidx.compose.runtime.Composable
+import app.userflow.loader.data.DataLoaderProvider
 import app.userflow.navigation.NavigationBarProvider
 import app.userflow.navigation.provider.BottomProvider
 import shared.core.navigation.rememberNavigationContext
@@ -17,4 +18,5 @@ fun AppScreen() {
             bottomBar = { BottomProvider() }
         )
     }
+    DataLoaderProvider(viewModel.appState)
 }

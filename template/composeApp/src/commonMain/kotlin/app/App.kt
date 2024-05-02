@@ -11,6 +11,7 @@ import app.showcases.navigation.args.from.ArgsNavigationFromViewModel
 import app.showcases.navigation.args.to.ArgsNavigationToViewModel
 import app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
 import app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
+import app.showcases.userflow.loader.data.DataLoaderShowcaseViewModel
 import app.ui.screen.template.TemplateViewModel
 import app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import app.ui.theme.AppThemePersistenceViewModel
@@ -33,7 +34,7 @@ fun App() = ViewModelProvider(AppViewModelFactory) {
 }
 
 private val AppViewModelFactory = viewModelFactory {
-    initializer { AppViewModel(instance(), instance()) }
+    initializer { AppViewModel(instance(), instance(), instance()) }
     initializer { AppThemeViewModel(instance()) }
     initializer { AppThemePersistenceViewModel(instance(), instance()) }
     initializer { TemplateNoArgsViewModel(instance()) }
@@ -52,4 +53,5 @@ private val AppViewModelFactory = viewModelFactory {
     initializer { ArgsNavigationFromViewModel(instance()) }
     initializer { ArgsNavigationToViewModel(instance()) }
     initializer { DataLoaderViewModel(instance()) }
+    initializer { DataLoaderShowcaseViewModel(instance(), instance()) }
 }
