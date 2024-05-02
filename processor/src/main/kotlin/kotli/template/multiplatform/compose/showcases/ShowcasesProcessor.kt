@@ -2,6 +2,7 @@ package kotli.template.multiplatform.compose.showcases
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
+import kotli.engine.template.rule.CleanupMarkedBlock
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
@@ -14,6 +15,13 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
+
+    override fun doApply(state: TemplateState) {
+        state.onApplyRules(
+            Rules.ProvidesNavigationBarStateKt,
+            CleanupMarkedBlock("{showcases}")
+        )
+    }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(

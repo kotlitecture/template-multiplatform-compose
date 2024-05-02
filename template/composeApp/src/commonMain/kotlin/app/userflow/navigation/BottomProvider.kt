@@ -1,26 +1,24 @@
-package app.userflow.navigation.provider
+package app.userflow.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import app.userflow.navigation.NavigationBarViewModel
 import shared.core.provideViewModel
-import shared.design.container.AppPermanentNavigation
+import shared.design.container.AppBottomNavigation
 
 /**
- * Composable function to display permanent left navigation.
- *
- * @param content The content to display.
+ * Composable function responsible for rendering the bottom navigation bar.
  */
 @Composable
-fun PermanentProvider(content: @Composable () -> Unit) {
+fun BottomProvider(modifier: Modifier = Modifier) {
     val viewModel: NavigationBarViewModel = provideViewModel()
     if (viewModel.restrictionStore.asStateValueNotNull()) {
-        content()
         return
     }
-    AppPermanentNavigation(
-        content = content,
+    AppBottomNavigation(
+        modifier = modifier,
         itemsStore = viewModel.pagesStore,
         visibilityStore = viewModel.visibilityStore,
-        selectionStore = viewModel.selectedPageStore,
+        selectionStore = viewModel.selectedPageStore
     )
 }

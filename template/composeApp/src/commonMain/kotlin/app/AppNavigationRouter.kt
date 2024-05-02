@@ -4,12 +4,12 @@ import app.showcases.ShowcasesDestination
 import shared.core.navigation.NavigationDestination
 
 /**
- * ViewModel-scoped class representing the application navigation router.
+ * Application navigation router.
  */
 class AppNavigationRouter {
 
     /**
-     * Returns the start destination based on the current passcode status.
+     * Returns the start destination based on the current application state.
      *
      * @return The start destination.
      */

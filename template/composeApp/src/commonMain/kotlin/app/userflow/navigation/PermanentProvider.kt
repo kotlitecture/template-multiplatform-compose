@@ -1,25 +1,23 @@
-package app.userflow.navigation.provider
+package app.userflow.navigation
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import app.userflow.navigation.NavigationBarViewModel
 import shared.core.provideViewModel
-import shared.design.container.AppRailNavigation
+import shared.design.container.AppPermanentNavigation
 
 /**
- * Composable function to display rail navigation.
+ * Composable function to display permanent left navigation.
  *
  * @param content The content to display.
  */
 @Composable
-fun RailProvider(content: @Composable () -> Unit) {
+fun PermanentProvider(content: @Composable () -> Unit) {
     val viewModel: NavigationBarViewModel = provideViewModel()
     if (viewModel.restrictionStore.asStateValueNotNull()) {
         content()
         return
     }
-    AppRailNavigation(
+    AppPermanentNavigation(
         content = content,
         itemsStore = viewModel.pagesStore,
         visibilityStore = viewModel.visibilityStore,

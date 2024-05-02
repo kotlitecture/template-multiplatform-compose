@@ -1,4 +1,4 @@
-package app.userflow.navigation.provider
+package app.userflow.navigation
 
 import androidx.compose.runtime.Composable
 import app.userflow.navigation.NavigationBarViewModel

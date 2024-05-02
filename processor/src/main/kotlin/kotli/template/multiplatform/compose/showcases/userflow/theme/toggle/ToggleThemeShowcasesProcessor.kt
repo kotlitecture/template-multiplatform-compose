@@ -10,7 +10,7 @@ import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowca
 
 object ToggleThemeShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.useflow.theme.toggle"
+    const val ID = "showcases.userflow.theme.toggle"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
