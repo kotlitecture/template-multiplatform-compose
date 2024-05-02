@@ -16,15 +16,14 @@ import app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import app.ui.theme.AppThemePersistenceViewModel
 import app.ui.theme.AppThemeProvider
 import app.ui.theme.AppThemeViewModel
+import app.userflow.loader.data.DataLoaderViewModel
 import app.userflow.navigation.NavigationBarViewModel
 import app.userflow.navigation.samples.a.NavigationAViewModel
 import app.userflow.navigation.samples.b.NavigationBViewModel
 import app.userflow.navigation.samples.c.NavigationCViewModel
 import app.userflow.theme.change.ChangeThemeViewModel
 import app.userflow.theme.toggle.ToggleThemeViewModel
-import shared.core.BaseViewModel
 import shared.core.ViewModelProvider
-import shared.core.provideViewModel
 
 @Composable
 fun App() = ViewModelProvider(AppViewModelFactory) {
@@ -52,4 +51,5 @@ private val AppViewModelFactory = viewModelFactory {
     initializer { NoArgsNavigationToViewModel(instance()) }
     initializer { ArgsNavigationFromViewModel(instance()) }
     initializer { ArgsNavigationToViewModel(instance()) }
+    initializer { DataLoaderViewModel(instance()) }
 }

@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -71,7 +70,6 @@ fun AppFixedTopBarLazyColumn(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HeaderBlock(
     title: String? = null,

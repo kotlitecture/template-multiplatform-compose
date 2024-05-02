@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package shared.design.container
 
 import androidx.compose.foundation.layout.ColumnScope
@@ -7,7 +5,6 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.systemBars
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.ModalBottomSheetDefaults
 import androidx.compose.material3.rememberModalBottomSheetState

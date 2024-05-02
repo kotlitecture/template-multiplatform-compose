@@ -29,6 +29,12 @@ kotlin {
     // {platform.jvm.target}
     applyDefaultHierarchyTemplate()
     sourceSets {
+        all {
+            languageSettings {
+                optIn("kotlin.io.encoding.ExperimentalEncodingApi")
+                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            }
+        }
         commonMain.dependencies {
             api(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)

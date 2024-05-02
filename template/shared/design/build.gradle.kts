@@ -29,6 +29,13 @@ kotlin {
     // {platform.jvm.target}
     applyDefaultHierarchyTemplate()
     sourceSets {
+        all {
+            languageSettings {
+                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                optIn("androidx.compose.material3.ExperimentalMaterial3Api")
+                optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
+            }
+        }
         commonMain.dependencies {
             implementation(projects.shared.core)
             implementation(compose.components.resources)

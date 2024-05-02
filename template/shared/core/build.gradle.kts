@@ -30,6 +30,11 @@ kotlin {
     // {platform.jvm.target}
     applyDefaultHierarchyTemplate()
     sourceSets {
+        all {
+            languageSettings {
+                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            }
+        }
         commonMain.dependencies {
             api(compose.foundation)
             api(libs.androidx.lifecycle.viewmodel.compose)

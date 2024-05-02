@@ -1,13 +1,10 @@
-@file:OptIn(ExperimentalCoroutinesApi::class)
-
 package shared.core.theme
 
-import shared.core.BaseViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
+import shared.core.BaseViewModel
 
 /**
  * ViewModel responsible for managing the app theme state.
