@@ -109,10 +109,11 @@ class MultiplatformComposeTemplateProcessorTest {
                 id = UUID.randomUUID().toString(),
                 processorId = processor.getId(),
                 namespace = "my.app",
-                name = "myApp"
+                name = "myApp",
+                features = listOf(Feature(AndroidPlatformProcessor.ID))
             )
             val generator = PathOutputGenerator(buildPath(), registry)
-            val gradleGenerator = GradleProjectGenerator(commands(), generator)
+            val gradleGenerator = GradleProjectGenerator(commands(layer.features), generator)
             gradleGenerator.generate(layer)
         }
     }

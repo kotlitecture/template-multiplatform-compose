@@ -31,30 +31,30 @@ Run your project to check what is included and how it works, and once everything
 title: Modules Structure
 ---
 flowchart TB
-    subgraph core["core"]
+    subgraph core["Architectural Components (core)"]
         a1["Jetpack ViewModel"]
         a2["Jetpack Navigation"]
         a3["Jetpack Lifecycle"]
         a4["MVVM"]
     end
-    subgraph data
+    subgraph data["Data Sources (data)"]
         b1["HTTP API"]
         b2["KeyValue API"]
         b3["SQL / NoSQL API"]
         b4["..."]
     end
-    subgraph design
+    subgraph design["Design System (design)"]
         c1["Themes"]
         c2["Fonts"]
         c3["UI Components"]
         c4["UI Containers"]
     end
-    subgraph app
+    subgraph app["Business Logic (app)"]
         direction TB
+        d1["Dependency Injection"]
         d2["Feature 1"]
         d3["Feature 2"]
         d4["Feature N"]
-        d1["Dependency Injection"]
         d1 -.- d2
         d1 -.- d3
         d1 -.- d4
