@@ -74,7 +74,7 @@ kotlin {
 
 // {platform.android.config}
 android {
-    namespace = "app"
+    namespace = "kotli.app"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -119,7 +119,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "app"
+            packageName = "kotli.app"
             packageVersion = "1.0.0"
             modules(
                 "java.net.http"

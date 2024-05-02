@@ -112,21 +112,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             Rules.BuildGradleComposeApp,
             ReplaceMarkedText(
                 text = "kotli.app",
-                marker = "applicationId",
-                replacer = state.layer.namespace,
-                singleLine = true
-            ),
-            ReplaceMarkedText(
-                text = "app",
-                marker = "packageName",
-                replacer = state.layer.namespace,
-                singleLine = true
-            ),
-            ReplaceMarkedText(
-                text = "app",
-                marker = "namespace",
-                replacer = state.layer.namespace,
-                singleLine = true
+                marker = "kotli.app",
+                replacer = state.layer.namespace
             )
         )
         state.onApplyRules(
@@ -141,28 +128,28 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     }
 
     override fun processAfter(state: TemplateState) {
-        renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
         state.onApplyRules(
             Rules.Kt,
             ReplaceMarkedText(
-                text = "import template.app.",
-                marker = "import template.app.",
-                replacer = "import ${normalizeRootName(state.layer.name)}.${state.layer.namespace}."
+                text = "import template.composeapp.",
+                marker = "import template.composeapp.",
+                replacer = "import ${normalizeRootName(state.layer.name)}.composeapp."
             ),
             ReplaceMarkedText(
-                text = "import app.",
-                marker = "import app.",
+                text = "import kotli.app.",
+                marker = "import kotli.app.",
                 replacer = "import ${state.layer.namespace}."
             )
         )
+        renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
     }
 
     private fun renamePackage(state: TemplateState, root: String) {
         state.onApplyRules(
             root,
             RenamePackage(
-                "app",
+                "kotli.app",
                 state.layer.namespace
             )
         )
