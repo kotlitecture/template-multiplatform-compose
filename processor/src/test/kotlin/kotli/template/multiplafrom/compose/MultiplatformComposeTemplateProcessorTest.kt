@@ -139,6 +139,7 @@ class MultiplatformComposeTemplateProcessorTest {
             repeat(Random().nextInt(1, processors.size + 1)) {
                 features.add(Feature(processors.random().getId()))
             }
+            features.add(Feature(AndroidPlatformProcessor.ID))
             logger.debug("features :: {} -> {}", features.size, features.map { it.id })
             val layer = Layer(
                 id = UUID.randomUUID().toString(),
