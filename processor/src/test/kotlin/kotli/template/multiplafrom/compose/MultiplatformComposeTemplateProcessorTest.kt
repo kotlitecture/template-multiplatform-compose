@@ -109,7 +109,7 @@ class MultiplatformComposeTemplateProcessorTest {
             )
             val generator = PathOutputGenerator(buildPath(), registry)
             val gradleGenerator = GradleProjectGenerator(testCommands, generator)
-            generator.generate(layer)
+            gradleGenerator.generate(layer)
         }
     }
 

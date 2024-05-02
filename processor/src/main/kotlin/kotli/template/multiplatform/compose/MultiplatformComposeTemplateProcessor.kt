@@ -136,21 +136,19 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     }
 
     override fun processAfter(state: TemplateState) {
-        renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
         state.onApplyRules(
-            "${Rules.CommonAppSrcDir}/*kt",
+            "${Rules.CommonAppSrcDir}/*.kt",
             ReplaceMarkedText(
                 text = "import template.composeapp.",
                 marker = "import template.composeapp.",
                 replacer = "import ${normalizeRootName(state.layer.name)}.composeapp."
-            ),
-            ReplaceMarkedText(
-                text = "import kotli.app.",
-                marker = "import kotli.app.",
-                replacer = "import ${state.layer.namespace}."
             )
         )
+        renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/iosMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/jsMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/jvmMain/kotlin")
     }
 
     private fun renamePackage(state: TemplateState, root: String) {

@@ -14,7 +14,40 @@ The template follows the general principals:
 
 # Architecture
 
-// TODO DIAGRAM
+```mermaid
+flowchart TB
+    subgraph core["core"]
+        a1["Jetpack ViewModel"]
+        a2["Jetpack Navigation"]
+        a3["Jetpack Lifecycle"]
+        a4["MVVM"]
+    end
+    subgraph data
+        b1["HTTP API"]
+        b2["KeyValue API"]
+        b3["SQL / NoSQL API"]
+        b4["..."]
+    end
+    subgraph design
+        c1["Themes"]
+        c2["Fonts"]
+        c3["UI Components"]
+        c4["UI Containers"]
+    end
+    subgraph app
+        direction TB
+        d2["Feature 1"]
+        d3["Feature 2"]
+        d4["Feature N"]
+        d1["Dependency Injection"]
+        d1 -.- d2
+        d1 -.- d3
+        d1 -.- d4
+    end
+    core --> app
+    data --> app
+    design --> app
+```
 
 The overall architecture is built on:
 - [JetBrains Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
