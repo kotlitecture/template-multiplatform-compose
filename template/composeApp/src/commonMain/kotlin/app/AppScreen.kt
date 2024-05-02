@@ -9,7 +9,7 @@ import shared.core.provideViewModel
 import shared.design.container.AppScaffold
 
 /**
- * The main screen of the app.
+ * The main screen of the application.
  */
 @Composable
 fun AppScreen() {

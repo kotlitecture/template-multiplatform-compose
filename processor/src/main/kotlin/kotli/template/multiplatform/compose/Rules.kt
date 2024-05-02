@@ -26,7 +26,8 @@ object Rules {
 
     // kotlin
     const val Kt = "*.kt"
-    const val CommonAppMainDir = "composeApp/src/commonMain"
+    const val CommonAppSrcDir = "composeApp/src"
+    const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
     const val AppKt = "${CommonAppMainDir}/kotlin/app/App.kt"
     const val AppDIKt = "${CommonAppMainDir}/kotlin/app/di/DI.kt"
     const val AppScreenKt = "${CommonAppMainDir}/kotlin/app/AppScreen.kt"

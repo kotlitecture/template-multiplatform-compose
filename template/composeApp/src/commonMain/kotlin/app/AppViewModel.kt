@@ -4,7 +4,7 @@ import shared.core.BaseViewModel
 import shared.core.navigation.NavigationState
 
 /**
- * ViewModel for the main screen of the app.
+ * ViewModel for the main screen of the application.
  */
 class AppViewModel(
     private val navigationRouter: AppNavigationRouter,

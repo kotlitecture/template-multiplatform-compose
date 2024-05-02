@@ -29,7 +29,7 @@ import app.userflow.theme.toggle.ToggleThemeViewModel
 import shared.core.ViewModelProvider
 
 /**
- * Root of the app.
+ * Root of the application.
  */
 @Composable
 fun App() = ViewModelProvider(AppViewModelFactory) {
