@@ -25,9 +25,9 @@ class DataLoaderViewModel(
                 .distinctUntilChanged()
                 .collectLatest { loading ->
                     if (loading) {
-                        delay(configSource.getUiLoadingDelay())
+                        delay(configSource.getDataLoaderDelay())
                         isLoadingStore.set(true)
-                        delay(configSource.getUiLoadingTimeout())
+                        delay(configSource.getDataLoaderTimeout())
                         isLoadingStore.set(false)
                     } else {
                         isLoadingStore.set(false)

@@ -25,7 +25,7 @@ object Showcases {
         ArgsNavigationShowcase,
         ShowcaseItemGroup("Datasource :: Http"),
         BasicHttpShowcase,
-        ShowcaseItemGroup("Datasource :: Key-Value"),
+        ShowcaseItemGroup("Datasource :: KeyValue"),
         PrimitiveKeyValueShowcase,
         ObjectKeyValueShowcase,
         ShowcaseItemGroup("Datasource :: Paging"),

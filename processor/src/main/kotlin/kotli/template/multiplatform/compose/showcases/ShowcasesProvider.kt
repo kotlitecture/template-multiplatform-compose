@@ -5,8 +5,10 @@ import kotli.engine.FeatureProcessor
 import kotli.engine.FeatureType
 import kotli.engine.model.FeatureTypes
 import kotli.template.multiplatform.compose.showcases.datasource.http.HttpShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.datasource.keyvalue.KeyValueShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.datasource.paging.PagingShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.navigation.NavigationShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.loader.data.DataLoaderShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.passcode.PasscodeShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.change.ChangeThemeShowcasesProcessor
@@ -30,6 +32,8 @@ object ShowcasesProvider : BaseFeatureProvider() {
         PasscodeShowcasesProcessor,
         PagingShowcasesProcessor,
         HttpShowcasesProcessor,
+        KeyValueShowcasesProcessor,
+        DataLoaderShowcasesProcessor
     )
 
 }

@@ -23,6 +23,7 @@ import kotli.template.multiplatform.compose.platform.PlatformProvider
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
+import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -60,6 +61,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         KeyValueProvider,
         HttpProvider,
         PagingProvider,
+
+        // userflow
+        LoaderProvider,
 
         // showcases
         ShowcasesProvider,
