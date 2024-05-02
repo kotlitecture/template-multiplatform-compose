@@ -8,11 +8,11 @@
 -dontwarn kotlinx.**
 -dontwarn org.slf4j.**
 
--keep,includedescriptorclasses class app.**$$serializer { *; }
--keepclassmembers class app.** {
+-keep,includedescriptorclasses class kotli.app.**$$serializer { *; }
+-keepclassmembers class kotli.app.** {
     *** Companion;
 }
--keepclasseswithmembers class app.** {
+-keepclasseswithmembers class kotli.app.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
 -if @kotlinx.serialization.Serializable class **

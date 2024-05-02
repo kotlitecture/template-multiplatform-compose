@@ -9,9 +9,8 @@ import kotli.engine.generator.ZipOutputGenerator
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
 import kotli.template.multiplatform.compose.MultiplatformComposeTemplateProcessor
-import kotli.template.multiplatform.compose.platform.PlatformProcessor
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
-import kotli.template.multiplatform.compose.platform.jvm.JvmPlatformProcessor
+import kotli.template.multiplatform.compose.userflow.theme.change.ChangeThemeProcessor
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
 import org.slf4j.LoggerFactory
@@ -104,12 +103,13 @@ class MultiplatformComposeTemplateProcessorTest {
                 namespace = "my.app",
                 name = "myApp",
                 features = listOf(
-                    Feature(AndroidPlatformProcessor.ID)
+                    Feature(AndroidPlatformProcessor.ID),
+                    Feature(ChangeThemeProcessor.ID),
                 )
             )
             val generator = PathOutputGenerator(buildPath(), registry)
             val gradleGenerator = GradleProjectGenerator(testCommands, generator)
-            gradleGenerator.generate(layer)
+            generator.generate(layer)
         }
     }
 
@@ -130,27 +130,29 @@ class MultiplatformComposeTemplateProcessorTest {
 
     @Test
     fun `compose template with random features`() {
-        runBlocking {
-            val processors = processor.getFeatureProviders()
-                .map { it.getProcessors() }
-                .flatten()
-                .filter { !it.isInternal() }
-            val features = mutableSetOf<Feature>()
-            repeat(Random().nextInt(1, processors.size + 1)) {
-                features.add(Feature(processors.random().getId()))
+        repeat(20) {
+            runBlocking {
+                val processors = processor.getFeatureProviders()
+                    .map { it.getProcessors() }
+                    .flatten()
+                    .filter { !it.isInternal() }
+                val features = mutableSetOf<Feature>()
+                repeat(Random().nextInt(1, processors.size + 1)) {
+                    features.add(Feature(processors.random().getId()))
+                }
+                features.add(Feature(AndroidPlatformProcessor.ID))
+                logger.debug("features :: {} -> {}", features.size, features.map { it.id })
+                val layer = Layer(
+                    id = UUID.randomUUID().toString(),
+                    processorId = processor.getId(),
+                    features = features.toList(),
+                    namespace = "my.app",
+                    name = "myApp",
+                )
+                val generator = PathOutputGenerator(buildPath(), registry)
+                val gradleGenerator = GradleProjectGenerator(testCommands, generator)
+                gradleGenerator.generate(layer)
             }
-            features.add(Feature(AndroidPlatformProcessor.ID))
-            logger.debug("features :: {} -> {}", features.size, features.map { it.id })
-            val layer = Layer(
-                id = UUID.randomUUID().toString(),
-                processorId = processor.getId(),
-                features = features.toList(),
-                namespace = "my.app",
-                name = "myApp",
-            )
-            val generator = PathOutputGenerator(buildPath(), registry)
-            val gradleGenerator = GradleProjectGenerator(testCommands, generator)
-            gradleGenerator.generate(layer)
         }
     }
 

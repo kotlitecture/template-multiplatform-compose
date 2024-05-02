@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
-            android:name="app.AppActivity"
+            android:name=".AppActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:theme="@style/Theme.App.Splash"

@@ -179,7 +179,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     companion object {
-        var factory: ViewModelProvider.Factory? = null
+        var factory: ViewModelProvider.Factory = ViewModelFactory
     }
 
 }
@@ -188,10 +188,9 @@ abstract class BaseViewModel : ViewModel() {
 @Composable
 inline fun <reified VM : BaseViewModel> provideViewModel(
     key: String? = null,
-    factory: ViewModelProvider.Factory? = BaseViewModel.factory
+    factory: ViewModelProvider.Factory = BaseViewModel.factory
 ): VM {
-    val lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current
     val viewModel: VM = viewModel(key = key, factory = factory)
-    viewModel.bind(lifecycleOwner)
+    viewModel.bind(LocalLifecycleOwner.current)
     return viewModel
 }

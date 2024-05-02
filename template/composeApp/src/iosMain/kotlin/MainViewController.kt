@@ -1,4 +1,4 @@
 import androidx.compose.ui.window.ComposeUIViewController
-import app.App
+import kotli.app.App
 
 fun MainViewController() = ComposeUIViewController { App() }

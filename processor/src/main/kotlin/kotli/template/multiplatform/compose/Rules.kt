@@ -13,6 +13,8 @@ object Rules {
     const val BuildGradleComposeApp = "composeApp/build.gradle.kts"
     const val BuildGradleSharedData = "shared/data/build.gradle.kts"
     const val BuildGradleSharedDesign = "shared/design/build.gradle.kts"
+    // proguard
+    const val ProguardRulesPro = "composeApp/assemble/proguard-rules.pro"
 
     // sources
     const val IosAppDir = "iosApp"

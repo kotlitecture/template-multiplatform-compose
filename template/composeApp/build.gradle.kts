@@ -64,6 +64,11 @@ kotlin {
             implementation(libs.androidx.splashscreen)
         }
         // {platform.android.dependencies}
+        // {platform.js.dependencies}
+        jsMain.dependencies {
+            implementation(compose.html.core)
+        }
+        // {platform.js.dependencies}
         // {platform.jvm.dependencies}
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -108,11 +113,6 @@ android {
     }
 }
 // {platform.android.config}
-// {platform.js.config}
-compose.experimental {
-    web.application {}
-}
-// {platform.js.config}
 // {platform.jvm.config}
 compose.desktop {
     application {
