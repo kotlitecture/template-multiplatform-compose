@@ -125,7 +125,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             ReplaceMarkedText(
                 text = "template",
                 marker = "rootProject.name",
-                replacer = state.layer.name,
+                replacer = normalizeRootName(state.layer.name),
                 singleLine = true
             )
         )
@@ -134,9 +134,16 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             ReplaceMarkedText(
                 text = "import template.",
                 marker = "import template.",
-                replacer = "import ${state.layer.name.lowercase()}."
+                replacer = "import ${normalizeRootName(state.layer.name)}."
             )
         )
+    }
+
+    private fun normalizeRootName(name: String): String {
+        return name.lowercase()
+            .replace("_", "")
+            .replace("-", "")
+            .replace(".", "")
     }
 
 }
