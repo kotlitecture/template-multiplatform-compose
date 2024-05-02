@@ -7,6 +7,7 @@ import kotli.engine.TemplateState
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
 import kotli.engine.model.LayerTypes
+import kotli.engine.template.rule.RenamePackage
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
@@ -73,7 +74,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         ShowcasesProvider,
     )
 
-    override fun processAfter(state: TemplateState) {
+    override fun processBefore(state: TemplateState) {
         state.onApplyRules(
             Rules.IndexHtml,
             ReplaceMarkedText(
@@ -131,12 +132,32 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 singleLine = true
             )
         )
+    }
+
+    override fun processAfter(state: TemplateState) {
+        renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
         state.onApplyRules(
             Rules.Kt,
             ReplaceMarkedText(
-                text = "import template.",
-                marker = "import template.",
-                replacer = "import ${normalizeRootName(state.layer.name)}."
+                text = "import template.app.",
+                marker = "import template.app.",
+                replacer = "import ${normalizeRootName(state.layer.name)}.${state.layer.namespace}."
+            ),
+            ReplaceMarkedText(
+                text = "import app.",
+                marker = "import app.",
+                replacer = "import ${state.layer.namespace}."
+            )
+        )
+    }
+
+    private fun renamePackage(state: TemplateState, root: String) {
+        state.onApplyRules(
+            root,
+            RenamePackage(
+                "app",
+                state.layer.namespace
             )
         )
     }
