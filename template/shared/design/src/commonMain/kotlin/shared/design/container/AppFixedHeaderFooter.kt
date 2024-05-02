@@ -28,7 +28,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import shared.design.component.AppSpacerDynamic
 import shared.design.component.AppSpacerNavigationBar
 import shared.design.component.AppSpacerStatusBar
-import shared.design.theme.AppThemeContext
+import shared.design.theme.AppTheme
 
 /**
  * Represents the appearance configuration for a layout.
@@ -51,9 +51,9 @@ data class AppFixedHeaderFooterAppearance(
         @Composable
         @ReadOnlyComposable
         fun default(
-            backgroundColor: Color = AppThemeContext.current.surface,
-            headerBrush: Brush? = AppThemeContext.current.topBlur,
-            footerBrush: Brush? = AppThemeContext.current.bottomBlur,
+            backgroundColor: Color = AppTheme.current.surface,
+            headerBrush: Brush? = AppTheme.current.topBlur,
+            footerBrush: Brush? = AppTheme.current.bottomBlur,
             statusSpacer: Boolean = true,
             navigationSpacer: Boolean = true
         ): AppFixedHeaderFooterAppearance {

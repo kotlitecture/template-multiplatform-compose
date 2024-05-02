@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import shared.core.state.DataState
 import shared.core.state.StoreState
-import shared.design.theme.AppThemeContext
+import shared.design.theme.AppTheme
 
 /**
  * Provides a composable UI component for handling data loading and error states.
@@ -93,7 +93,7 @@ fun AppDialogContent(
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(24.dp))
-            .background(AppThemeContext.current.surface)
+            .background(AppTheme.current.surface)
             .padding(24.dp)
     ) {
         content()

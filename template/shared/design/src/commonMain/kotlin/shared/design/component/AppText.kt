@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import shared.design.theme.AppThemeContext
+import shared.design.theme.AppTheme
 
 @Composable
 fun AppText(
@@ -48,6 +48,6 @@ fun AppTextPrimaryHeader(
     AppTextHeader(
         modifier = modifier,
         text = text,
-        color = AppThemeContext.current.colorScheme.primary
+        color = AppTheme.current.colorScheme.primary
     )
 }

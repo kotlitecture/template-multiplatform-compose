@@ -68,13 +68,13 @@ private val DarkColors = darkColorScheme(
     scrim = md_theme_dark_scrim,
 )
 
-val LightThemeContext = AppThemeContext(
+val LightThemeContext = AppTheme(
     dark = false,
     id = "material_3_light",
     colorScheme = LightColors
 )
 
-val DarkThemeContext = AppThemeContext(
+val DarkThemeContext = AppTheme(
     dark = true,
     id = "material_3_dark",
     colorScheme = DarkColors

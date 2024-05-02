@@ -17,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.design.component.AppActionButton
-import shared.design.theme.AppThemeContext
+import shared.design.theme.AppTheme
 
 /**
  * Composable function for rendering a layout with a fixed top bar.
@@ -80,9 +80,9 @@ private fun HeaderBlock(
         windowInsets = WindowInsets.systemBars.exclude(WindowInsets.systemBars),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
-            titleContentColor = AppThemeContext.current.onSurface,
-            actionIconContentColor = AppThemeContext.current.onSurface,
-            navigationIconContentColor = AppThemeContext.current.onSurface,
+            titleContentColor = AppTheme.current.onSurface,
+            actionIconContentColor = AppTheme.current.onSurface,
+            navigationIconContentColor = AppTheme.current.onSurface,
         ),
         title = {
             if (title != null) {

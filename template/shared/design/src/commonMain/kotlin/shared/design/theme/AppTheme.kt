@@ -17,7 +17,7 @@ import shared.core.theme.ThemeContext
  * Application theme context.
  */
 @Immutable
-data class AppThemeContext(
+data class AppTheme(
     override val id: String,
     override val dark: Boolean,
     val colorScheme: ColorScheme
@@ -85,10 +85,10 @@ data class AppThemeContext(
 
     companion object {
         /** Returns the current Material3 theme data in the composition. */
-        val current: AppThemeContext
+        val current: AppTheme
             @Composable
             @ReadOnlyComposable
-            get() = ThemeContext.current as AppThemeContext
+            get() = ThemeContext.current as AppTheme
     }
 
 }
