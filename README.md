@@ -1,4 +1,4 @@
-# Compose Multiplatform Configurable Template
+# Compose Multiplatform Configurable Project Template
 
 Supported platforms:
 - Android
@@ -80,7 +80,7 @@ Once you've configured your project through [Kotli](https://kotlitecture.com/pro
 
 - A link to the initial template used to prepare the project structure (GitHub page of the template, similar to this one).
 - A link to the architecture ([Kotli](https://kotlitecture.com/project) project) used to prepare and download these sources.
-- A list of all features included in the project during its [setup](https://kotlitecture.com/project). Each feature includes additional documentation within the project's docs directory, making it easy to check what is included, find official links, and understand how to use and configure each functionality if needed.
+- A list of all features included in the project during its [setup](https://kotlitecture.com/project). Each feature includes additional documentation within the project's `docs` directory, making it easy to check what is included, find official links, and understand how to use and configure each functionality if needed.
 
 All documentation related to features can also be found and accessed online, up-to-date, once you open the link to your Kotli project.
 
@@ -90,7 +90,7 @@ When a project is configured and downloaded via [Kotli](https://kotlitecture.com
 
 # Usage
 
-!IMPORTANT! The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
+**!IMPORTANT!** The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
 
 To generate the required project structure, use online service [Kotli](https://kotlitecture.com/project) (it's free and only requires an internet connection).
 
