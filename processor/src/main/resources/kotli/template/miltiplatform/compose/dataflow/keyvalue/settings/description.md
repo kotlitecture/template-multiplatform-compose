@@ -1,0 +1,1 @@
+Key-value storage API utilizing platform-specific storage to store data of any type using the common code.
