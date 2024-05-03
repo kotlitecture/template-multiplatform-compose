@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalPathApi::class)
 
-package kotli.template.multiplafrom.compose
+package kotli.template.multiplatform.compose
 
 import kotli.engine.DefaultTemplateRegistry
 import kotli.engine.generator.GradleProjectGenerator
@@ -8,7 +8,6 @@ import kotli.engine.generator.PathOutputGenerator
 import kotli.engine.generator.ZipOutputGenerator
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
-import kotli.template.multiplatform.compose.MultiplatformComposeTemplateProcessor
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.jvm.JvmPlatformProcessor
 import kotlinx.coroutines.runBlocking
@@ -57,7 +56,6 @@ class MultiplatformComposeTemplateProcessorTest {
         processor.getFeatureProviders()
             .filter { provider -> provider.getProcessors().any { !it.isInternal() } }
             .forEach { provider ->
-                Assertions.assertNotNull(processor.getTitle())
                 provider.getProcessors()
                     .filter { !it.isInternal() }
                     .forEach { processor ->
