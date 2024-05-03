@@ -142,11 +142,7 @@ All documentation related to features can also be found and accessed online, up-
 
 When a project is configured and downloaded via [Kotli](https://kotlitecture.com/project), it also provides showcases of all included features. Furthermore, the screen with showcases is configured as the initial screen when running the downloaded template.
 
-To include images in a row from a folder named "aaa" using Markdown, you can use the following code:
-
-```markdown
 ![Showcases Overview](screenshots/showcases_overview.jpg) ![Theme Dialog](screenshots/showcases_theme_dialog.jpg) ![Key-Value Storage](screenshots/showcases_key_value_objects.jpg)
-```
 
 # Features
 
