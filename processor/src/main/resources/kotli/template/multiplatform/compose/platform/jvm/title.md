@@ -1,1 +1,1 @@
-Desktop (Windows, MacOS, Linux)
+Desktop

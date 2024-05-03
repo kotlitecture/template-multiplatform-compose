@@ -59,8 +59,8 @@ class MultiplatformComposeTemplateProcessorTest {
                 provider.getProcessors()
                     .filter { !it.isInternal() }
                     .forEach { processor ->
-                        Assertions.assertNotNull(processor.getTitle())
-                        Assertions.assertNotNull(processor.getDescription())
+                        Assertions.assertNotNull(processor.getTitle(), processor.getId())
+                        Assertions.assertNotNull(processor.getDescription(), processor.getId())
                     }
             }
     }
