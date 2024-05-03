@@ -12,7 +12,7 @@ object PlatformProvider : BaseFeatureProvider() {
 
     override fun getId(): String = "platform"
     override fun isRequired(): Boolean = true
-    override fun isMultiple(): Boolean = false
+    override fun isMultiple(): Boolean = true
     override fun getType(): FeatureType = PlatformType
 
     override fun createProcessors(): List<FeatureProcessor> = listOf(

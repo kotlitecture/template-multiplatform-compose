@@ -1,1 +1,1 @@
-The selected platforms influence the structure of the source code prepared. Regardless of the number of platforms you intend to distribute your app on, the prepared structure ensures that everything is correctly configured and functional.
+The selected platforms shape the source code structure. Regardless of the app's distribution across multiple platforms, this structure ensures proper configuration and functionality.

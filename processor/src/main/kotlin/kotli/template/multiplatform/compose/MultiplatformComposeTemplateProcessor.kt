@@ -13,8 +13,11 @@ import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
+import kotli.template.multiplatform.compose.dataflow.http.ktor.KtorHttpProcessor
 import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
+import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsKeyValueProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
+import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotli.template.multiplatform.compose.essentials.buildtool.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
@@ -24,9 +27,13 @@ import kotli.template.multiplatform.compose.platform.PlatformProvider
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
+import kotli.template.multiplatform.compose.showcases.userflow.theme.toggle.ToggleThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
+import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProvider
 import kotli.template.multiplatform.compose.userflow.theme.ThemeProvider
+import kotli.template.multiplatform.compose.userflow.theme.change.ChangeThemeProcessor
+import kotli.template.multiplatform.compose.userflow.theme.save.SaveThemeProcessor
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -41,6 +48,11 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             features = listOf(
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
+                Feature(SettingsKeyValueProcessor.ID),
+                Feature(DataLoaderProcessor.ID),
+                Feature(SaveThemeProcessor.ID),
+                Feature(ChangeThemeProcessor.ID),
+                Feature(ToggleThemeShowcasesProcessor.ID),
             )
         )
     )
