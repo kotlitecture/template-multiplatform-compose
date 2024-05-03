@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import shared.core.theme.ThemeConfig
 import shared.core.theme.ThemeContext
 
 /**
@@ -49,8 +48,7 @@ data class AppTheme(
     }
 
     @Composable
-    override fun apply(config: ThemeConfig, content: @Composable () -> Unit) {
-        val fontFamily = config.fontFamily
+    override fun apply(fontFamily: FontFamily, content: @Composable () -> Unit) {
         MaterialTheme(
             typography = remember(fontFamily) { map(fontFamily) },
             colorScheme = colorScheme,

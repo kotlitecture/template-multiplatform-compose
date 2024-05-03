@@ -26,14 +26,19 @@ class ThemeViewModel : BaseViewModel() {
                         .mapNotNull { Data(it, darkMode) }
                 }
                 .map { data ->
-                    val autoDark = data.config.autoDark
-                    when {
-                        autoDark && !data.darkMode -> data.config.lightTheme
-                        autoDark && data.darkMode -> data.config.darkTheme
-                        else -> data.config.defaultTheme
+                    val config = data.config
+                    val autoDark = config.autoDark
+                    val context = when {
+                        autoDark && !data.darkMode -> config.lightTheme
+                        autoDark && data.darkMode -> config.darkTheme
+                        else -> config.defaultTheme
                     }
+                    ThemeData(
+                        context = context,
+                        fontFamily = config.fontFamily
+                    )
                 }
-                .collect(state.contextStore::set)
+                .collect(state.dataStore::set)
         }
     }
 

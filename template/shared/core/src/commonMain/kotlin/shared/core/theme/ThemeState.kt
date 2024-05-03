@@ -38,7 +38,7 @@ data class ThemeState(
     val systemDarkModeStore = StoreObject<Boolean>()
 
     /** Store object for the current theme context. */
-    val contextStore = StoreObject<ThemeContext>()
+    val dataStore = StoreObject<ThemeData>()
 
     /**
      * Finds a theme provider by its ID.

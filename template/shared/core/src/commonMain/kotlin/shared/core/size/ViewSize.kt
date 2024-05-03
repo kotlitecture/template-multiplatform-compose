@@ -16,6 +16,12 @@ import shared.core.size.ViewSize.Unknown
 /** Local composition used to access the current [ViewSize]. */
 val LocalViewSize = compositionLocalOf { Unknown }
 
+/**
+ * Provides the size of its containing view to its children.
+ *
+ * @param modifier Modifier to be applied to the view size provider.
+ * @param content Composable lambda to be executed with the view size as a parameter.
+ */
 @Composable
 fun ViewSizeProvider(
     modifier: Modifier = Modifier.fillMaxSize(),

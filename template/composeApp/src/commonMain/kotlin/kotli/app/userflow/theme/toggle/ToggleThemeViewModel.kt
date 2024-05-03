@@ -2,8 +2,8 @@ package kotli.app.userflow.theme.toggle
 
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
 import shared.core.BaseViewModel
 import shared.core.state.StoreObject
 import shared.core.theme.ThemeState
@@ -21,9 +21,8 @@ class ToggleThemeViewModel(
 
     override fun doBind() {
         launchAsync("doBind") {
-            themeState.contextStore.asFlow()
-                .mapNotNull { it?.id }
-                .mapNotNull(themeState::getById)
+            themeState.dataStore.asFlow()
+                .filterNotNull()
                 .distinctUntilChanged()
                 .map { ToggleThemeData(it) }
                 .collectLatest(dataStore::set)

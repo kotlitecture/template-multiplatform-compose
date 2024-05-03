@@ -65,7 +65,8 @@ flowchart TB
 ```
 
 The overall architecture is built on:
-- [JetBrains Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
+- [Compose Multiplatform UI Framework](https://www.jetbrains.com/lp/compose-multiplatform/)
+- [Compose Multiplatform Images and resources](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-images-resources.html)
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose)
 - [Jetpack Navigation](https://developer.android.com/guide/navigation)
 - [Jetpack Lifecycle + ViewModel](https://developer.android.com/topic/libraries/architecture/lifecycle)
@@ -141,6 +142,8 @@ All documentation related to features can also be found and accessed online, up-
 When a project is configured and downloaded via [Kotli](https://kotlitecture.com/project), it also provides showcases of all included features. Furthermore, the screen with showcases is configured as the initial screen when running the downloaded template.
 
 # Features
+
+The template is highly configurable, allowing you to include only the necessary features in the app.
 
 All these features are optional, will be updated over time, and can be included in the generated structure during [project setup](https://kotlitecture.com).
 

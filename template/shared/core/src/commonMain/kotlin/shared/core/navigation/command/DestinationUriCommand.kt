@@ -3,7 +3,6 @@ package shared.core.navigation.command
 import shared.core.navigation.NavigationCommand
 import shared.core.navigation.NavigationContext
 import shared.core.navigation.NavigationStrategy
-import shared.core.state.DataState
 
 /**
  * Represents a navigation command to navigate to a destination URI.
@@ -23,9 +22,8 @@ data class DestinationUriCommand(
             val controller = navigationContext.navController
             strategy.proceed(null, uriString, controller)
         } catch (e: Exception) {
-            val dataState = DataState.Error(id, e)
             val navigationState = navigationContext.navigationState
-            navigationState.dataStateStore.set(dataState)
+            navigationState.error(id, e)
         }
     }
 

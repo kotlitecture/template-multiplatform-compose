@@ -29,8 +29,9 @@ private fun SystemDarkModeHandler(state: ThemeState) {
 
 @Composable
 private fun ThemeSwitchHandler(state: ThemeState, content: @Composable () -> Unit) {
-    val context = state.contextStore.asStateValue() ?: return
-    CompositionLocalProvider(ThemeContext.localThemeContext provides context) {
-        context.apply(state.configStore.getNotNull(), content)
+    val data = state.dataStore.asStateValue() ?: return
+    val theme = data.context
+    CompositionLocalProvider(ThemeContext.localThemeContext provides theme) {
+        theme.apply(data.fontFamily, content)
     }
 }

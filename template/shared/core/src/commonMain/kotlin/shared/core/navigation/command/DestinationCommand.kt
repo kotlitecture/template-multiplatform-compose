@@ -4,7 +4,6 @@ import shared.core.navigation.NavigationCommand
 import shared.core.navigation.NavigationContext
 import shared.core.navigation.NavigationDestination
 import shared.core.navigation.NavigationStrategy
-import shared.core.state.DataState
 
 /**
  * Represents a command to navigate to a specific destination with optional data and strategy.
@@ -30,9 +29,8 @@ data class DestinationCommand<D>(
                 strategy.proceed(null, "", controller)
             }
         } catch (e: Exception) {
-            val dataState = DataState.Error(id, e)
             val navigationState = navigationContext.navigationState
-            navigationState.dataStateStore.set(dataState)
+            navigationState.error(id, e)
         }
     }
 
