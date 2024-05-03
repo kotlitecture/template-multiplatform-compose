@@ -1,0 +1,1 @@
+Declarative framework for sharing UIs across multiple platforms. Based on Kotlin and Jetpack Compose.

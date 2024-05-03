@@ -8,15 +8,15 @@ import kotli.app.userflow.navigation.samples.b.NavigationBDestination
 import kotli.app.userflow.navigation.samples.c.NavigationCDestination
 import kotli.app.userflow.theme.change.ChangeThemeDestination
 import kotli.app.userflow.theme.change.ChangeThemeDialogDestination
-import shared.core.navigation.NavigationState
 import org.koin.dsl.module
+import shared.core.navigation.NavigationState
 
 val ProvidesNavigationState = module {
     single {
         NavigationState(
             destinations = listOf(
                 ShowcasesDestination,
-                kotli.app.ui.screen.template.TemplateDestination,
+                TemplateDestination,
                 TemplateNoArgsDestination,
                 ChangeThemeDestination,
                 ChangeThemeDialogDestination,

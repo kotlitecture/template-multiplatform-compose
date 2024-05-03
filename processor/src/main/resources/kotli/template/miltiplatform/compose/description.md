@@ -1,1 +1,1 @@
-Based on KMP and Compose Multiplatform UI Framework.
+Based on KMP, Compose Multiplatform UI Framework and the latest recommended guidelines.

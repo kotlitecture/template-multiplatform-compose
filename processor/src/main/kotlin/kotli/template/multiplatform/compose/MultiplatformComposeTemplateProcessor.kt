@@ -34,8 +34,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
     override fun getId(): String = ID
     override fun getType(): LayerType = LayerTypes.Multiplatform
-    override fun getWebUrl(): String =
-        "https://github.com/kotlitecture/template-multiplatform-compose"
+    override fun getWebUrl(): String = "https://github.com/kotlitecture/template-multiplatform-compose"
 
     override fun createPresets(): List<Layer> = listOf(
         createPreset(

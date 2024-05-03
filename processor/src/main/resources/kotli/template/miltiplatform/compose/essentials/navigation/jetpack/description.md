@@ -1,0 +1,1 @@
+Navigation is a key part of UI applications that allows users to move between different application screens. Compose Multiplatform adopts the Jetpack Compose approach to navigation
