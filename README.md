@@ -150,4 +150,30 @@ All these features are optional, will be updated over time, and can be included 
 
 The generated project will include a similar table in its README.MD file, but with only the configured features (direct and transitive).
 
-// TODO
+
+| Group | Feature | Overview | Configuration | Usage |
+|-------|---------|----------|---------------|-------|
+| Essentials | Compose Multiplatform | [Link](docs/Essentials/Compose%20Multiplatform/overview.md) | - | - |
+| Essentials | Jetpack Navigation | [Link](docs/Essentials/Jetpack%20Navigation/overview.md) | - | [Link](docs/Essentials/Jetpack%20Navigation/usage.md) |
+| Essentials | Material 3 | [Link](docs/Essentials/Material%203/overview.md) | - | [Link](docs/Essentials/Material%203/usage.md) |
+| Essentials | Koin | [Link](docs/Essentials/Koin/overview.md) | - | - |
+| Essentials | Gradle (Kotlin DSL) | [Link](docs/Essentials/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
+| Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | - |
+| Platform | Android | [Link](docs/Platform/Android/overview.md) | - | - |
+| Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | - |
+| Platform | Web | [Link](docs/Platform/Web/overview.md) | - | - |
+| Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
+| Dataflow | Facade Config API | [Link](docs/Dataflow/Facade%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Config%20API/usage.md) |
+| Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
+| Dataflow | Ktor | [Link](docs/Dataflow/Ktor/overview.md) | - | [Link](docs/Dataflow/Ktor/usage.md) |
+| Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
+| Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
+| Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |
+| Userflow | Modal Navigation | [Link](docs/Userflow/Modal%20Navigation/overview.md) | - | [Link](docs/Userflow/Modal%20Navigation/usage.md) |
+| Userflow | Dismissible Navigation | [Link](docs/Userflow/Dismissible%20Navigation/overview.md) | - | [Link](docs/Userflow/Dismissible%20Navigation/usage.md) |
+| Userflow | Bottom Navigation | [Link](docs/Userflow/Bottom%20Navigation/overview.md) | - | [Link](docs/Userflow/Bottom%20Navigation/usage.md) |
+| Userflow | Adaptive Navigation | [Link](docs/Userflow/Adaptive%20Navigation/overview.md) | - | [Link](docs/Userflow/Adaptive%20Navigation/usage.md) |
+| Userflow | Save Theme API | [Link](docs/Userflow/Save%20Theme%20API/overview.md) | - | [Link](docs/Userflow/Save%20Theme%20API/usage.md) |
+| Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
+| Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
+| Userflow | Data Loader | [Link](docs/Userflow/Data%20Loader/overview.md) | - | [Link](docs/Userflow/Data%20Loader/usage.md) |
