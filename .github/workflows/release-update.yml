@@ -1,0 +1,25 @@
+name: Release update
+on:
+  push:
+    branches:
+      - main
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container:
+      image: alvrme/alpine-android:android-34-jdk17
+    steps:
+      - run: yes | sdkmanager --licenses --sdk_root=$ANDROID_HOME
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: adopt
+      - run: chmod +x gradlew
+      - id: unit-tests
+        run: ./gradlew test
+      - id: publish-google-artifact-registry
+        run: ./gradlew publishMavenPublicationToGARepository -PartifactRegistryMavenSecret="${{ secrets.ARTIFACT_REGISTRY_MAVEN_SECRET }}"
