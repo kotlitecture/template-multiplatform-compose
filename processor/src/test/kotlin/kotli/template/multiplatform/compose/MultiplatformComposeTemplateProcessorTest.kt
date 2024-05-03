@@ -41,7 +41,7 @@ class MultiplatformComposeTemplateProcessorTest {
         features.find { it.id == JvmPlatformProcessor.ID }?.let {
             commands.add(arrayOf("packageDistributionForCurrentOS"))
         }
-        return commands.random()
+        return commands.first()
     }
 
     @Test
