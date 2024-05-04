@@ -154,7 +154,6 @@ All these features are optional, will be updated over time, and can be included 
 
 The generated project will include a similar table in its README.MD file, but with only the configured features (direct and transitive).
 
-
 | Group | Feature | Overview | Configuration | Usage |
 |-------|---------|----------|---------------|-------|
 | Essentials | Compose Multiplatform | [Link](docs/Essentials/Compose%20Multiplatform/overview.md) | - | - |
@@ -181,3 +180,5 @@ The generated project will include a similar table in its README.MD file, but wi
 | Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
 | Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
 | Userflow | Data Loader | [Link](docs/Userflow/Data%20Loader/overview.md) | - | [Link](docs/Userflow/Data%20Loader/usage.md) |
+| Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
+| Testing | Napier | [Link](docs/Testing/Napier/overview.md) | - | [Link](docs/Testing/Napier/usage.md) |
