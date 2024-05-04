@@ -20,7 +20,9 @@ kotlinx-datetime = "0.6.0-RC.2"
 kotlinx-serialization-json = "1.6.3"
 ktor = "2.3.10"
 multiplatform-settings = "1.1.1"
+napier = "2.7.1"
 skie = "0.6.2"
+touchlab-kermit = "2.0.3"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
@@ -53,6 +55,8 @@ ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "touchlab-kermit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

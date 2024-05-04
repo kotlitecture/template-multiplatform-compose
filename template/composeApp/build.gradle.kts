@@ -55,6 +55,8 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.components.resources)
             implementation(libs.koin.core)
+            implementation(libs.napier)
+            implementation(libs.touchlab.kermit)
             implementation(projects.shared.core)
             implementation(projects.shared.data)
             implementation(projects.shared.design)

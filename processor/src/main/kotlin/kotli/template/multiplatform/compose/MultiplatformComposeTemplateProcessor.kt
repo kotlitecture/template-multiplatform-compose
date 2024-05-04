@@ -25,6 +25,8 @@ import kotli.template.multiplatform.compose.platform.PlatformProvider
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
+import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
+import kotli.template.multiplatform.compose.testing.logging.kermit.KermitProcessor
 import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProvider
@@ -51,6 +53,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 Feature(SaveThemeProcessor.ID),
                 Feature(ChangeThemeProcessor.ID),
                 Feature(ToggleThemeProcessor.ID),
+                Feature(KermitProcessor.ID),
             )
         )
     )
@@ -78,6 +81,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         NavigationBarProvider,
         ThemeProvider,
         LoaderProvider,
+
+        LoggingProvider,
 
         // showcases
         ShowcasesProvider,
