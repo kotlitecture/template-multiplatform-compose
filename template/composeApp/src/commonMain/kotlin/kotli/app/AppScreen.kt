@@ -15,9 +15,10 @@ import shared.design.container.AppScaffold
 fun AppScreen() {
     val viewModel: AppViewModel = provideViewModel()
     val navigationState = viewModel.navigationState
+    val navigationContext = rememberNavigationContext(navigationState)
     NavigationBarProvider { // {userflow.navigation}
         AppScaffold(
-            navigationContext = rememberNavigationContext(navigationState),
+            navigationContext = navigationContext,
             bottomBar = { BottomProvider() }
         )
     } // {userflow.navigation}
