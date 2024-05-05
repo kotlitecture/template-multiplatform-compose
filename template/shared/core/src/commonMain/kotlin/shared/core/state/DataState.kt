@@ -10,15 +10,15 @@ sealed class DataState {
     val uid = Clock.System.now().nanosecondsOfSecond
 
     data class Loading(
-        val id: String
+        val id: String?
     ) : DataState()
 
     data class Loaded(
-        val id: String
+        val id: String?
     ) : DataState()
 
     data class Error(
-        val id: String,
+        val id: String?,
         val th: Throwable
     ) : DataState()
 }

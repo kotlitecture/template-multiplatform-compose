@@ -43,7 +43,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param block The block of code to execute as a coroutine.
      */
     protected fun launchMain(
-        id: String,
+        id: String? = null,
         state: StoreState? = null,
         block: suspend CoroutineScope.() -> Unit
     ) {
@@ -63,7 +63,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param block The block of code to execute as a coroutine.
      */
     protected fun launchAsync(
-        id: String,
+        id: String? = null,
         state: StoreState? = null,
         block: suspend CoroutineScope.() -> Unit
     ) {
@@ -80,12 +80,12 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected fun launch(
-        id: String,
+        id: String?,
         state: StoreState?,
         context: CoroutineContext,
         block: suspend CoroutineScope.() -> Unit
     ) {
-        jobs.remove(id)?.cancel()
+        id?.let(jobs::remove)?.cancel()
         val loadingState = state?.let { DataState.Loading(id) }
         state?.dataStateStore?.set(loadingState)
         val job = viewModelScope.launch(context = context, block = block)
@@ -101,7 +101,7 @@ abstract class BaseViewModel : ViewModel() {
                 }
             }
         }
-        jobs[id] = job
+        id?.let { jobs[it] = job }
     }
 
     /**

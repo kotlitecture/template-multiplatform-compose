@@ -43,7 +43,7 @@ kotlin {
         }
         // {platform.android.dependencies}
         androidMain.dependencies {
-            api(libs.kotlinx.coroutines.android)
+            implementation(libs.kotlinx.coroutines.android)
             implementation(libs.ktor.client.okHttp)
         }
         // {platform.android.dependencies}
@@ -59,7 +59,7 @@ kotlin {
         // {platform.js.dependencies}
         // {platform.jvm.dependencies}
         jvmMain.dependencies {
-            api(libs.kotlinx.coroutines.swing)
+            implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.ktor.client.java)
         }
         // {platform.jvm.dependencies}
