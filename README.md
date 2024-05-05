@@ -10,8 +10,7 @@ The template follows the general principals:
 
 - The underlying architecture is minimalistic, pre-configured, and complies with [the latest recommended guidelines](https://developer.android.com/modern-android-development).
 - Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotlitecture.com).
-- All included features are pre-configured and work seamlessly across all supported platforms.
-- All out-of-the-box solutions are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
+- All out-of-the-box solutions work seamlessly across all supported platforms and are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
 
 # Usage
 
