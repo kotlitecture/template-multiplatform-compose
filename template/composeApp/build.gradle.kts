@@ -35,7 +35,7 @@ kotlin {
     js {
         browser {
             commonWebpackConfig {
-                outputFileName = "composeApp.js"
+                outputFileName = "app.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply {
                         add(project.projectDir.path)
