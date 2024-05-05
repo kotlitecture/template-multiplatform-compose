@@ -36,7 +36,7 @@ fun AppErrorDialog(state: StoreState) {
             usePlatformDefaultWidth = false
         ),
         title = {
-            Text(text = error.id)
+            Text(text = error.id.orEmpty())
         },
         text = {
             Text(

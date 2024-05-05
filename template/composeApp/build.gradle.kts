@@ -1,4 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat // {platform.jvm}
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig // {platform.js}
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinxSerialization)
@@ -33,7 +35,12 @@ kotlin {
     js {
         browser {
             commonWebpackConfig {
-                outputFileName = "app.js"
+                outputFileName = "composeApp.js"
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                    static = (static ?: mutableListOf()).apply {
+                        add(project.projectDir.path)
+                    }
+                }
             }
         }
         binaries.executable()
@@ -66,11 +73,6 @@ kotlin {
             implementation(libs.androidx.splashscreen)
         }
         // {platform.android.dependencies}
-        // {platform.js.dependencies}
-        jsMain.dependencies {
-            implementation(compose.html.core)
-        }
-        // {platform.js.dependencies}
         // {platform.jvm.dependencies}
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -134,3 +136,8 @@ compose.desktop {
     }
 }
 // {platform.jvm.config}
+// {platform.js.config}
+compose.experimental {
+    web.application {}
+}
+// {platform.js.config}
