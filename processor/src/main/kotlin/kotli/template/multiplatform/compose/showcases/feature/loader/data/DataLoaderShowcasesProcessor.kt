@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.userflow.loader.data
+package kotli.template.multiplatform.compose.showcases.feature.loader.data
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState

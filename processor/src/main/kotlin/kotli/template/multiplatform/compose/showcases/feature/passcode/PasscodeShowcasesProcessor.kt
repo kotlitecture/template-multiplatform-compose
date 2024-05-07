@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.userflow.passcode
+package kotli.template.multiplatform.compose.showcases.feature.passcode
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState

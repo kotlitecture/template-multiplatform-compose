@@ -14,7 +14,7 @@ import kotli.app.showcases.navigation.args.from.ArgsNavigationFromViewModel
 import kotli.app.showcases.navigation.args.to.ArgsNavigationToViewModel
 import kotli.app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
-import kotli.app.showcases.userflow.loader.data.DataLoaderShowcaseViewModel
+import kotli.app.showcases.feature.loader.data.DataLoaderShowcaseViewModel
 import kotli.app.ui.screen.template.TemplateViewModel
 import kotli.app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import kotli.app.ui.theme.AppThemePersistenceViewModel

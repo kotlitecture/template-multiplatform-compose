@@ -1,4 +1,4 @@
-package kotli.app.showcases.userflow.loader.data
+package kotli.app.showcases.feature.loader.data
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

@@ -1,4 +1,4 @@
-package kotli.app.showcases.userflow.theme.toggle
+package kotli.app.showcases.feature.theme.toggle
 
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.ui.Modifier

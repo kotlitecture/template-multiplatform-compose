@@ -1,4 +1,4 @@
-package kotli.app.showcases.userflow.theme.change
+package kotli.app.showcases.feature.theme.change
 
 import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel

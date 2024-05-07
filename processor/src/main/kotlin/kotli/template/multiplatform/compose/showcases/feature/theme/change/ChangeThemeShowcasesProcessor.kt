@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.userflow.theme.change
+package kotli.template.multiplatform.compose.showcases.feature.theme.change
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.FeatureProcessor
@@ -6,7 +6,7 @@ import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
-import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.theme.ThemeShowcasesProcessor
 
 object ChangeThemeShowcasesProcessor : BaseFeatureProcessor() {
 

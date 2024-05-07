@@ -1,4 +1,4 @@
-package kotli.app.showcases.userflow.loader.data
+package kotli.app.showcases.feature.loader.data
 
 import kotli.app.AppState
 import kotlinx.coroutines.delay
