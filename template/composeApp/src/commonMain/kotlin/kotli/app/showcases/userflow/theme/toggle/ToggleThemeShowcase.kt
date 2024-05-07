@@ -6,7 +6,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel
-import kotli.app.userflow.theme.toggle.ToggleThemeButton
+import kotli.app.feature.theme.toggle.ToggleThemeButton
 import shared.core.navigation.NavigationDestination
 import shared.core.navigation.NavigationDestinationNoArgs
 import shared.core.navigation.NavigationStrategy

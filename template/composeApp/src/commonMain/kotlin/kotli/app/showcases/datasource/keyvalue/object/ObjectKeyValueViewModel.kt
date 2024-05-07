@@ -4,14 +4,13 @@ import kotli.app.datasource.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.skip
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import shared.core.BaseViewModel
 import shared.core.navigation.NavigationState
 import shared.core.state.StoreObject
-import shared.data.serialization.JsonStrategy
+import shared.data.serialization.SerializationStrategy
 
 class ObjectKeyValueViewModel(
     private val navigationState: NavigationState,
@@ -24,7 +23,7 @@ class ObjectKeyValueViewModel(
     override fun doBind() {
         launchAsync("textStore") {
             val key = "my_object"
-            val serializer = JsonStrategy.create(Data.serializer())
+            val serializer = SerializationStrategy.json(Data.serializer())
             val data: Data? = keyValueSource.read(key, serializer)
             data?.time?.let { updateSupportText(it) }
             textStore.set(data?.text)

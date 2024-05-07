@@ -31,9 +31,4 @@ data class NoSerializationStrategy<T : Any>(private val type: KClass<T>) :
         return type
     }
 
-    companion object {
-        inline fun <reified D : Any> create(): SerializationStrategy<D> =
-            NoSerializationStrategy(D::class)
-    }
-
 }

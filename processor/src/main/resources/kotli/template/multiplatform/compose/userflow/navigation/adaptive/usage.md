@@ -1,9 +1,9 @@
 ## Overview
 
-- Component package: `app.userflow.navigation`
+- Component package: `app.feature.navigation`
 - DI integration: `app.di.state.ProvidesNavigationBarState`
-- State management: `app.userflow.navigation.NavigationBarState`
-- Pre-configured destinations package: `app.userflow.navigation.samples`
+- State management: `app.feature.navigation.NavigationBarState`
+- Pre-configured destinations package: `app.feature.navigation.samples`
 
 
 ## Configuration

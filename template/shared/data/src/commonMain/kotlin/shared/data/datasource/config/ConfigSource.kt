@@ -1,7 +1,6 @@
 package shared.data.datasource.config
 
 import shared.data.datasource.DataSource
-import shared.data.serialization.NoSerializationStrategy
 import shared.data.serialization.SerializationStrategy
 
 /**
@@ -35,7 +34,7 @@ interface ConfigSource : DataSource {
      * @return The string value associated with the key, or the default value if the key is not found.
      */
     fun getString(key: String, defaultValue: () -> String): String {
-        return get(key, NoSerializationStrategy.create(), defaultValue)
+        return get(key, SerializationStrategy.no(), defaultValue)
     }
 
     /**
@@ -47,7 +46,7 @@ interface ConfigSource : DataSource {
      * @return The boolean value associated with the key, or the default value if the key is not found.
      */
     fun getBoolean(key: String, defaultValue: () -> Boolean): Boolean {
-        return get(key, NoSerializationStrategy.create(), defaultValue)
+        return get(key, SerializationStrategy.no(), defaultValue)
     }
 
     /**
@@ -59,7 +58,7 @@ interface ConfigSource : DataSource {
      * @return The long value associated with the key, or the default value if the key is not found.
      */
     fun getLong(key: String, defaultValue: () -> Long): Long {
-        return get(key, NoSerializationStrategy.create(), defaultValue)
+        return get(key, SerializationStrategy.no(), defaultValue)
     }
 
     /**
@@ -71,7 +70,7 @@ interface ConfigSource : DataSource {
      * @return The integer value associated with the key, or the default value if the key is not found.
      */
     fun getInt(key: String, defaultValue: () -> Int): Int {
-        return get(key, NoSerializationStrategy.create(), defaultValue)
+        return get(key, SerializationStrategy.no(), defaultValue)
     }
 
     /**
@@ -83,7 +82,7 @@ interface ConfigSource : DataSource {
      * @return The double value associated with the key, or the default value if the key is not found.
      */
     fun getDouble(key: String, defaultValue: () -> Double): Double {
-        return get(key, NoSerializationStrategy.create(), defaultValue)
+        return get(key, SerializationStrategy.no(), defaultValue)
     }
 
     /**
@@ -95,7 +94,7 @@ interface ConfigSource : DataSource {
      * @return The float value associated with the key, or the default value if the key is not found.
      */
     fun getFloat(key: String, defaultValue: () -> Float): Float {
-        return get(key, NoSerializationStrategy.create(), defaultValue)
+        return get(key, SerializationStrategy.no(), defaultValue)
     }
 
 }

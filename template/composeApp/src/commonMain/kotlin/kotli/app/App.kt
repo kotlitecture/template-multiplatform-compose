@@ -20,13 +20,13 @@ import kotli.app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import kotli.app.ui.theme.AppThemePersistenceViewModel
 import kotli.app.ui.theme.AppThemeProvider
 import kotli.app.ui.theme.AppThemeViewModel
-import kotli.app.userflow.loader.data.DataLoaderViewModel
-import kotli.app.userflow.navigation.NavigationBarViewModel
-import kotli.app.userflow.navigation.samples.a.NavigationAViewModel
-import kotli.app.userflow.navigation.samples.b.NavigationBViewModel
-import kotli.app.userflow.navigation.samples.c.NavigationCViewModel
-import kotli.app.userflow.theme.change.ChangeThemeViewModel
-import kotli.app.userflow.theme.toggle.ToggleThemeViewModel
+import kotli.app.feature.loader.data.DataLoaderViewModel
+import kotli.app.feature.navigation.NavigationBarViewModel
+import kotli.app.feature.navigation.samples.a.NavigationAViewModel
+import kotli.app.feature.navigation.samples.b.NavigationBViewModel
+import kotli.app.feature.navigation.samples.c.NavigationCViewModel
+import kotli.app.feature.theme.change.ChangeThemeViewModel
+import kotli.app.feature.theme.toggle.ToggleThemeViewModel
 import shared.core.ViewModelProvider
 
 /**

@@ -1,9 +1,9 @@
 package kotli.app
 
 import androidx.compose.runtime.Composable
-import kotli.app.userflow.loader.data.DataLoaderProvider
-import kotli.app.userflow.navigation.NavigationBarProvider
-import kotli.app.userflow.navigation.BottomProvider
+import kotli.app.feature.loader.data.DataLoaderProvider
+import kotli.app.feature.navigation.NavigationBarProvider
+import kotli.app.feature.navigation.BottomProvider
 import shared.core.navigation.rememberNavigationContext
 import shared.core.provideViewModel
 import shared.design.container.AppScaffold
