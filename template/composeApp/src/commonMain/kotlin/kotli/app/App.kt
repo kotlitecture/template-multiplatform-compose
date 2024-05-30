@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import kotli.app.di.instance
+import kotli.app.di.get
 import kotli.app.showcases.ShowcasesViewModel
 import kotli.app.showcases.datasource.http.basic.BasicHttpViewModel
 import kotli.app.showcases.datasource.keyvalue.`object`.ObjectKeyValueViewModel
@@ -40,26 +40,26 @@ fun App() = ViewModelProvider(remember { AppViewModelFactory }) {
 }
 
 private val AppViewModelFactory = viewModelFactory {
-    initializer { AppViewModel(instance(), instance(), instance()) }
-    initializer { AppThemeViewModel(instance()) }
-    initializer { AppThemePersistenceViewModel(instance(), instance()) }
-    initializer { TemplateNoArgsViewModel(instance()) }
-    initializer { TemplateViewModel(instance()) }
-    initializer { ShowcasesViewModel(instance()) }
-    initializer { ChangeThemeViewModel(instance(), instance()) }
-    initializer { ToggleThemeViewModel(instance()) }
-    initializer { BasicPagingViewModel(instance(), instance()) }
-    initializer { BasicHttpViewModel(instance(), instance()) }
+    initializer { AppViewModel(get(), get(), get()) }
+    initializer { AppThemeViewModel(get()) }
+    initializer { AppThemePersistenceViewModel(get(), get()) }
+    initializer { TemplateNoArgsViewModel(get()) }
+    initializer { TemplateViewModel(get()) }
+    initializer { ShowcasesViewModel(get()) }
+    initializer { ChangeThemeViewModel(get(), get()) }
+    initializer { ToggleThemeViewModel(get()) }
+    initializer { BasicPagingViewModel(get(), get()) }
+    initializer { BasicHttpViewModel(get(), get()) }
     initializer { NavigationAViewModel() }
     initializer { NavigationBViewModel() }
     initializer { NavigationCViewModel() }
-    initializer { NavigationBarViewModel(instance(), instance()) }
-    initializer { NoArgsNavigationFromViewModel(instance()) }
-    initializer { NoArgsNavigationToViewModel(instance()) }
-    initializer { ArgsNavigationFromViewModel(instance()) }
-    initializer { ArgsNavigationToViewModel(instance()) }
-    initializer { DataLoaderViewModel(instance()) }
-    initializer { DataLoaderShowcaseViewModel(instance(), instance()) }
-    initializer { PrimitiveKeyValueViewModel(instance(), instance()) }
-    initializer { ObjectKeyValueViewModel(instance(), instance()) }
+    initializer { NavigationBarViewModel(get(), get()) }
+    initializer { NoArgsNavigationFromViewModel(get()) }
+    initializer { NoArgsNavigationToViewModel(get()) }
+    initializer { ArgsNavigationFromViewModel(get()) }
+    initializer { ArgsNavigationToViewModel(get()) }
+    initializer { DataLoaderViewModel(get()) }
+    initializer { DataLoaderShowcaseViewModel(get(), get()) }
+    initializer { PrimitiveKeyValueViewModel(get(), get()) }
+    initializer { ObjectKeyValueViewModel(get(), get()) }
 }
