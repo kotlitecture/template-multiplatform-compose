@@ -4,24 +4,24 @@ android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activity = "1.9.0"
-androidx-appcompat = "1.7.0-beta01"
-androidx-lifecycle = "2.8.0-rc01"
-androidx-navigation = "2.7.0-alpha04"
-androidx-paging = "3.3.0-rc01"
+androidx-appcompat = "1.7.0"
+androidx-lifecycle = "2.8.0"
+androidx-navigation = "2.7.0-alpha07"
+androidx-paging = "3.3.0"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
 compose-android = "1.6.7"
-compose-multiplatform = "1.6.10-rc01"
+compose-multiplatform = "1.6.10"
 junit = "4.13.2"
-koin = "3.6.0-wasm-alpha2"
-kotlin = "1.9.23"
+koin = "3.6.0-Beta4"
+kotlin = "2.0.0"
 kotlinx-coroutines = "1.8.0"
-kotlinx-datetime = "0.6.0-RC.2"
+kotlinx-datetime = "0.6.0"
 kotlinx-serialization-json = "1.6.3"
 ktor = "2.3.10"
 multiplatform-settings = "1.1.1"
 napier = "2.7.1"
-skie = "0.6.2"
+skie = "0.8.0"
 touchlab-kermit = "2.0.3"
 
 [libraries]
@@ -61,6 +61,7 @@ touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "touchlab-kermi
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
