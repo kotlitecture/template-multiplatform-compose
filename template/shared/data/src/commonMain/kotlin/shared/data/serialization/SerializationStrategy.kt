@@ -1,5 +1,6 @@
 package shared.data.serialization
 
+import kotlinx.serialization.KSerializer
 import kotlin.reflect.KClass
 
 /**
@@ -31,5 +32,13 @@ interface SerializationStrategy<T : Any> {
      * @return The class representing the type [T].
      */
     fun getType(): KClass<T>
+
+    companion object {
+        inline fun <reified D : Any> json(serializer: KSerializer<D>): SerializationStrategy<D> =
+            JsonStrategy(serializer, D::class)
+
+        inline fun <reified D : Any> no(): SerializationStrategy<D> =
+            NoSerializationStrategy(D::class)
+    }
 
 }

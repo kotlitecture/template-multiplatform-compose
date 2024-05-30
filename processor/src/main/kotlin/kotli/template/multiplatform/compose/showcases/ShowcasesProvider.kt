@@ -8,11 +8,11 @@ import kotli.template.multiplatform.compose.showcases.datasource.http.HttpShowca
 import kotli.template.multiplatform.compose.showcases.datasource.keyvalue.KeyValueShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.datasource.paging.PagingShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.navigation.NavigationShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.loader.data.DataLoaderShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.passcode.PasscodeShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.theme.change.ChangeThemeShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.theme.toggle.ToggleThemeShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.loader.data.DataLoaderShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.passcode.PasscodeShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.theme.ThemeShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.theme.change.ChangeThemeShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.theme.toggle.ToggleThemeShowcasesProcessor
 
 object ShowcasesProvider : BaseFeatureProvider() {
 

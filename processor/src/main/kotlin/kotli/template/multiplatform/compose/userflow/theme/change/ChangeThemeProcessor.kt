@@ -6,7 +6,7 @@ import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
-import kotli.template.multiplatform.compose.showcases.userflow.theme.change.ChangeThemeShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.feature.theme.change.ChangeThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.theme.save.SaveThemeProcessor
 import kotlin.time.Duration.Companion.hours
 

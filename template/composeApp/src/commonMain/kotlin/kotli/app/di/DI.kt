@@ -26,4 +26,4 @@ val koinDI = startKoin {
     )
 }
 
-inline fun <reified T : Any> instance(): T = koinDI.koin.get<T>()
+inline fun <reified T : Any> get(): T = koinDI.koin.get<T>()

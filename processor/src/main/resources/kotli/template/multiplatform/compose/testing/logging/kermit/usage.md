@@ -1,6 +1,6 @@
 ## Overview
 
-Library is pre-configured in the `composeApp` module.
+Library is pre-configured in the `app` module.
 
 ## Example
 

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.map
 import shared.core.BaseViewModel
 import shared.core.theme.ThemeConfig
 import shared.core.theme.ThemeState
-import shared.data.serialization.JsonStrategy
+import shared.data.serialization.SerializationStrategy
 
 /**
  * ViewModel class responsible for managing the theme state with persistence implemented by default.
@@ -24,7 +24,7 @@ class AppThemePersistenceViewModel(
     override fun doBind() {
         launchAsync("config") {
             val key = themeState.persistentKey
-            val strategy = JsonStrategy.create(AppThemeConfigData.serializer())
+            val strategy = SerializationStrategy.json(AppThemeConfigData.serializer())
             val config = keyValueSource.read(key, strategy)?.let { mapToModel(it) }
                 ?: themeState.defaultConfig
             themeState.configStore.set(config)

@@ -26,9 +26,4 @@ data class JsonStrategy<T : Any>(
         return type
     }
 
-    companion object {
-        inline fun <reified D : Any> create(serializer: KSerializer<D>): SerializationStrategy<D> =
-            JsonStrategy(serializer, D::class)
-    }
-
 }

@@ -6,10 +6,10 @@ import kotli.app.showcases.datasource.keyvalue.primitive.PrimitiveKeyValueShowca
 import kotli.app.showcases.datasource.paging.basic.BasicPagingShowcase
 import kotli.app.showcases.navigation.args.ArgsNavigationShowcase
 import kotli.app.showcases.navigation.no_args.NoArgsNavigationShowcase
-import kotli.app.showcases.userflow.loader.data.DataLoaderShowcase
-import kotli.app.showcases.userflow.theme.change.ChangeThemeDialogShowcase
-import kotli.app.showcases.userflow.theme.change.ChangeThemeScreenShowcase
-import kotli.app.showcases.userflow.theme.toggle.ToggleThemeShowcase
+import kotli.app.showcases.feature.loader.data.DataLoaderShowcase
+import kotli.app.showcases.feature.theme.change.ChangeThemeDialogShowcase
+import kotli.app.showcases.feature.theme.change.ChangeThemeScreenShowcase
+import kotli.app.showcases.feature.theme.toggle.ToggleThemeShowcase
 
 /**
  * Object containing all showcase items.

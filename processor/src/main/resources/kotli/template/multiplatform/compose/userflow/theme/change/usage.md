@@ -1,6 +1,6 @@
 ## Overview
 
-Component package: `app.userflow.theme.change`
+Component package: `app.feature.theme.change`
 
 ## Example
 
