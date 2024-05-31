@@ -49,7 +49,10 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             Rules.ProvidesNavigationStateKt,
             RemoveMarkedLine("NavigationADestination"),
             RemoveMarkedLine("NavigationBDestination"),
-            RemoveMarkedLine("NavigationCDestination")
+            RemoveMarkedLine("NavigationCDestination"),
+            RemoveMarkedLine("ic_nav_a"),
+            RemoveMarkedLine("ic_nav_b"),
+            RemoveMarkedLine("ic_nav_c"),
         )
         state.onApplyRules(
             Rules.AppKt,
@@ -57,6 +60,18 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("NavigationBViewModel"),
             RemoveMarkedLine("NavigationCViewModel"),
             RemoveMarkedLine("NavigationBarViewModel")
+        )
+        state.onApplyRules(
+            "${Rules.CommonAppMainDrawableDir}/ic_nav_a.svg",
+            RemoveFile()
+        )
+        state.onApplyRules(
+            "${Rules.CommonAppMainDrawableDir}/ic_nav_b.svg",
+            RemoveFile()
+        )
+        state.onApplyRules(
+            "${Rules.CommonAppMainDrawableDir}/ic_nav_c.svg",
+            RemoveFile()
         )
     }
 

@@ -22,7 +22,7 @@ To start using, just inject any of them to your DI managed class. Recommended to
 
 ```kotlin
 class TemplateViewModel (
-    private val analyticsSource: AnalyticsSource = instance() // AppAnalyticsSource
+    private val analyticsSource: AnalyticsSource = get() // AppAnalyticsSource
 ) : BaseViewModel() {
 
     fun onSomeAction() {

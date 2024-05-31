@@ -2,14 +2,13 @@ package shared.design.component
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import shared.core.state.StoreObject
+import shared.design.AppIcons
 
 /**
  * Text field.
@@ -36,7 +35,7 @@ fun AppTextField(
             if (!valueStore.asStateValue().isNullOrEmpty()) {
                 AppActionButton(
                     modifier = Modifier.size(24.dp),
-                    icon = Icons.Default.Cancel,
+                    icon = AppIcons.Cancel,
                     onClick = valueStore::clear
                 )
             }

@@ -1,25 +1,21 @@
 package kotli.app.di.state
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Coffee
-import androidx.compose.material.icons.filled.LocalDrink
-import androidx.compose.material.icons.filled.School
-import androidx.compose.material.icons.filled.WineBar
-import androidx.compose.material.icons.outlined.Coffee
-import androidx.compose.material.icons.outlined.LocalDrink
-import androidx.compose.material.icons.outlined.School
-import androidx.compose.material.icons.outlined.WineBar
 import androidx.compose.runtime.Composable
-import kotli.app.showcases.ShowcasesDestination
 import kotli.app.feature.navigation.NavigationBarPage
 import kotli.app.feature.navigation.NavigationBarState
 import kotli.app.feature.navigation.samples.a.NavigationADestination
 import kotli.app.feature.navigation.samples.b.NavigationBDestination
 import kotli.app.feature.navigation.samples.c.NavigationCDestination
+import kotli.app.showcases.ShowcasesDestination
+import org.koin.dsl.module
 import shared.core.navigation.NavigationDestination
 import shared.core.navigation.NavigationState
 import shared.core.navigation.NavigationStrategy
-import org.koin.dsl.module
+import template.composeapp.generated.resources.Res
+import template.composeapp.generated.resources.ic_nav_a
+import template.composeapp.generated.resources.ic_nav_b
+import template.composeapp.generated.resources.ic_nav_c
+import template.composeapp.generated.resources.ic_nav_showcases
 
 val ProvidesNavigationBarState = module {
     single {
@@ -29,30 +25,30 @@ val ProvidesNavigationBarState = module {
                 createPage(
                     navigationState = get(),
                     destination = ShowcasesDestination,
-                    getActiveIcon = { Icons.Filled.School },
-                    getInactiveIcon = { Icons.Outlined.School },
+                    getActiveIcon = { Res.drawable.ic_nav_showcases },
+                    getInactiveIcon = { Res.drawable.ic_nav_showcases },
                     getLabel = { "Showcases" }
                 ),
                 // end {showcases}
                 createPage(
                     navigationState = get(),
                     destination = NavigationADestination,
-                    getActiveIcon = { Icons.Filled.WineBar },
-                    getInactiveIcon = { Icons.Outlined.WineBar },
+                    getActiveIcon = { Res.drawable.ic_nav_a },
+                    getInactiveIcon = { Res.drawable.ic_nav_a },
                     getLabel = { "Page 1" }
                 ),
                 createPage(
                     navigationState = get(),
                     destination = NavigationBDestination,
-                    getActiveIcon = { Icons.Filled.LocalDrink },
-                    getInactiveIcon = { Icons.Outlined.LocalDrink },
+                    getActiveIcon = { Res.drawable.ic_nav_b },
+                    getInactiveIcon = { Res.drawable.ic_nav_b },
                     getLabel = { "Page 2" }
                 ),
                 createPage(
                     navigationState = get(),
                     destination = NavigationCDestination,
-                    getActiveIcon = { Icons.Filled.Coffee },
-                    getInactiveIcon = { Icons.Outlined.Coffee },
+                    getActiveIcon = { Res.drawable.ic_nav_c },
+                    getInactiveIcon = { Res.drawable.ic_nav_c },
                     getLabel = { "Page 3" }
                 )
             ),

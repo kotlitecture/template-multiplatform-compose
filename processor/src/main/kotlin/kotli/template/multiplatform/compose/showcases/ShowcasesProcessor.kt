@@ -39,7 +39,12 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.ProvidesNavigationBarStateKt,
             RemoveMarkedBlock("{showcases}"),
-            RemoveMarkedLine("ShowcasesDestination")
+            RemoveMarkedLine("ic_nav_showcases"),
+            RemoveMarkedLine("ShowcasesDestination"),
+        )
+        state.onApplyRules(
+            "${Rules.CommonAppMainDrawableDir}/ic_nav_showcases.svg",
+            RemoveFile()
         )
         state.onApplyRules(
             Rules.AppNavigationRouterKt,

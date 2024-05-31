@@ -17,7 +17,7 @@ Simply inject the `app.AppState` instance into your **ViewModel** and call the `
 
 ```kotlin
 class TemplateViewModel(
-    private val appState: AppState = instance()
+    private val appState: AppState = get()
 ) : BaseViewModel() {
 
     fun onActionWithLoader() {
@@ -36,7 +36,7 @@ However, it is recommended to use it only at the **ViewModel** level.
 
 ```kotlin
 class DataRepository(
-    private val appState: AppState = instance()
+    private val appState: AppState = get()
 ) {
 
     fun performSomeAction() {

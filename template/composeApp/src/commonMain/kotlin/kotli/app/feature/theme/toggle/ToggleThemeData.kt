@@ -1,17 +1,13 @@
 package kotli.app.feature.theme.toggle
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.DarkMode
-import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
-import androidx.compose.ui.graphics.vector.ImageVector
+import org.jetbrains.compose.resources.DrawableResource
 import shared.core.theme.ThemeData
+import shared.design.AppIcons
 
 /**
  * Data class representing theme toggle data.
- *
- * @param context The theme data provider.
  */
 @Immutable
 data class ToggleThemeData(
@@ -24,10 +20,10 @@ data class ToggleThemeData(
     }
 
     @Stable
-    fun getIcon(): ImageVector {
+    fun getIcon(): DrawableResource {
         return when {
-            data.context.dark -> Icons.Outlined.LightMode
-            else -> Icons.Outlined.DarkMode
+            data.context.dark -> AppIcons.LightMode
+            else -> AppIcons.DarkMode
         }
     }
 }

@@ -32,7 +32,7 @@ kotlin {
     }
     // {platform.ios.target}
     // {platform.js.target}
-    js {
+    js(IR) {
         browser {
             commonWebpackConfig {
                 outputFileName = "app.js"
@@ -42,6 +42,7 @@ kotlin {
                     }
                 }
             }
+            useCommonJs()
         }
         binaries.executable()
     }

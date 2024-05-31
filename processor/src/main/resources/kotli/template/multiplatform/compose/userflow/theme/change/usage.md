@@ -10,7 +10,7 @@ Invoke the `ChangeThemeDestination` destination from your **ViewModel** or **Vie
 
 ```kotlin
 class TemplateViewModel(
-    private val navigationState: NavigationState = instance()
+    private val navigationState: NavigationState = get()
 ) : BaseViewModel() {
 
     fun onChangeTheme() {
@@ -26,7 +26,7 @@ Invoke the `ChangeThemeDialogDestination` destination from your **ViewModel** or
 
 ```kotlin
 class TemplateViewModel(
-    private val navigationState: NavigationState = instance()
+    private val navigationState: NavigationState = get()
 ) : BaseViewModel() {
 
     fun onChangeTheme() {
