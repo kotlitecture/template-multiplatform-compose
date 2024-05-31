@@ -178,17 +178,13 @@ abstract class BaseViewModel : ViewModel() {
         doDispose()
     }
 
-    companion object {
-        var factory: ViewModelProvider.Factory = ViewModelFactory
-    }
-
 }
 
 @Stable
 @Composable
 inline fun <reified VM : BaseViewModel> provideViewModel(
     key: String? = null,
-    factory: ViewModelProvider.Factory = BaseViewModel.factory
+    factory: ViewModelProvider.Factory = LocalViewModelFactory.current
 ): VM {
     val viewModel: VM = viewModel(key = key, factory = factory)
     viewModel.bind(LocalLifecycleOwner.current)
