@@ -12,10 +12,10 @@ import shared.core.navigation.NavigationDestination
 import shared.core.navigation.NavigationState
 import shared.core.navigation.NavigationStrategy
 import template.composeapp.generated.resources.Res
-import template.composeapp.generated.resources.ic_nav_coffee
-import template.composeapp.generated.resources.ic_nav_local_bar
-import template.composeapp.generated.resources.ic_nav_school
-import template.composeapp.generated.resources.ic_nav_wine_bar
+import template.composeapp.generated.resources.ic_nav_a
+import template.composeapp.generated.resources.ic_nav_b
+import template.composeapp.generated.resources.ic_nav_c
+import template.composeapp.generated.resources.ic_nav_showcases
 
 val ProvidesNavigationBarState = module {
     single {
@@ -25,30 +25,30 @@ val ProvidesNavigationBarState = module {
                 createPage(
                     navigationState = get(),
                     destination = ShowcasesDestination,
-                    getActiveIcon = { Res.drawable.ic_nav_school },
-                    getInactiveIcon = { Res.drawable.ic_nav_school },
+                    getActiveIcon = { Res.drawable.ic_nav_showcases },
+                    getInactiveIcon = { Res.drawable.ic_nav_showcases },
                     getLabel = { "Showcases" }
                 ),
                 // end {showcases}
                 createPage(
                     navigationState = get(),
                     destination = NavigationADestination,
-                    getActiveIcon = { Res.drawable.ic_nav_wine_bar },
-                    getInactiveIcon = { Res.drawable.ic_nav_wine_bar },
+                    getActiveIcon = { Res.drawable.ic_nav_a },
+                    getInactiveIcon = { Res.drawable.ic_nav_a },
                     getLabel = { "Page 1" }
                 ),
                 createPage(
                     navigationState = get(),
                     destination = NavigationBDestination,
-                    getActiveIcon = { Res.drawable.ic_nav_local_bar },
-                    getInactiveIcon = { Res.drawable.ic_nav_local_bar },
+                    getActiveIcon = { Res.drawable.ic_nav_b },
+                    getInactiveIcon = { Res.drawable.ic_nav_b },
                     getLabel = { "Page 2" }
                 ),
                 createPage(
                     navigationState = get(),
                     destination = NavigationCDestination,
-                    getActiveIcon = { Res.drawable.ic_nav_coffee },
-                    getInactiveIcon = { Res.drawable.ic_nav_coffee },
+                    getActiveIcon = { Res.drawable.ic_nav_c },
+                    getInactiveIcon = { Res.drawable.ic_nav_c },
                     getLabel = { "Page 3" }
                 )
             ),
