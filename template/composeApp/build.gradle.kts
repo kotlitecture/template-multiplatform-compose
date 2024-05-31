@@ -42,6 +42,7 @@ kotlin {
                     }
                 }
             }
+            useCommonJs()
         }
         binaries.executable()
     }

@@ -42,7 +42,6 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(compose.material3)
-            api(compose.materialIconsExtended)
             api(libs.cashapp.paging.compose.common)
         }
     }
