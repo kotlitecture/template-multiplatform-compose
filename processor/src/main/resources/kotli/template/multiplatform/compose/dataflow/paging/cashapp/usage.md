@@ -13,7 +13,7 @@ The example is part of showcases provided when the feature is included into the 
 
 ```kotlin
 class BasicPagingViewModel(
-    private val pagingSource: AppPagingSource = instance()
+    private val pagingSource: AppPagingSource = get()
 ) : BaseViewModel() {
 
     val itemsFlow by lazy {

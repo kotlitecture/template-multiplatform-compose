@@ -14,7 +14,7 @@ Thus, whenever you update the current active application theme, it is automatica
 
 ```kotlin
 class ToggleThemeViewModel(
-    private val themeState: ThemeState = instance()
+    private val themeState: ThemeState = get()
 ) : BaseViewModel() {
 
     fun onSetLightTheme() {

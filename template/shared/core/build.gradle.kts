@@ -22,7 +22,7 @@ kotlin {
     iosSimulatorArm64()
     // {platform.ios.target}
     // {platform.js.target}
-    js {
+    js(IR) {
         browser()
     }
     // {platform.js.target}
