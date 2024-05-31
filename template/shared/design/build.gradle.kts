@@ -21,7 +21,7 @@ kotlin {
     iosSimulatorArm64()
     // {platform.ios.target}
     // {platform.js.target}
-    js {
+    js(IR) {
         browser()
     }
     // {platform.js.target}
@@ -42,7 +42,6 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(compose.material3)
-            api(compose.materialIconsExtended)
             api(libs.cashapp.paging.compose.common)
         }
     }

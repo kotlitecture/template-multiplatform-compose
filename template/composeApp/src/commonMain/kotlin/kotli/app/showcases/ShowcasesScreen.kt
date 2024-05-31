@@ -6,15 +6,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ChevronRight
-import androidx.compose.material.icons.outlined.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import shared.core.provideViewModel
 import shared.core.state.StoreObject
+import shared.design.AppIcons
 import shared.design.component.AppActionButton
 import shared.design.component.AppAlertDialog
 import shared.design.component.AppIcon
@@ -38,7 +36,7 @@ fun ShowcasesScreen() {
             AppActionButton(
                 modifier = Modifier
                     .padding(horizontal = 8.dp),
-                icon = Icons.Outlined.Info,
+                icon = AppIcons.Info,
                 onClick = viewModel::onShowHint,
             )
         },
@@ -111,7 +109,7 @@ private fun LazyListScope.showcaseItem(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 AppText(text = showcase.label)
-                AppIcon(model = Icons.Default.ChevronRight)
+                AppIcon(model = AppIcons.ChevronRight)
             }
         }
     }

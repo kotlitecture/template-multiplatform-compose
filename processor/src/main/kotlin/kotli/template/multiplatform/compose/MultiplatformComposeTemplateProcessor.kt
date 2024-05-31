@@ -41,7 +41,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
     override fun getId(): String = ID
     override fun getType(): LayerType = LayerTypes.Multiplatform
-    override fun getWebUrl(): String = "https://github.com/kotlitecture/template-multiplatform-compose"
+    override fun getWebUrl(): String =
+        "https://github.com/kotlitecture/template-multiplatform-compose"
 
     override fun createPresets(): List<Layer> = listOf(
         createPreset(
@@ -150,12 +151,21 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     }
 
     override fun processAfter(state: TemplateState) {
+        val name = normalizeRootName(state.layer.name)
         state.onApplyRules(
             "${Rules.CommonAppSrcDir}/*.kt",
             ReplaceMarkedText(
                 text = "import template.composeapp.",
                 marker = "import template.composeapp.",
-                replacer = "import ${normalizeRootName(state.layer.name)}.composeapp."
+                replacer = "import ${name}.composeapp."
+            )
+        )
+        state.onApplyRules(
+            Rules.AppIconsKt,
+            ReplaceMarkedText(
+                text = "import template.",
+                marker = "import template.",
+                replacer = "import ${name}."
             )
         )
         renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")

@@ -29,7 +29,10 @@ object Rules {
     // kotlin
     const val Kt = "*.kt"
     const val CommonAppSrcDir = "composeApp/src"
+    const val SharedDesignSrcDir = "shared/design/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
+    const val CommonAppMainDrawableDir = "${CommonAppMainDir}/composeResources/drawable"
+    const val AppIconsKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/AppIcons.kt"
     const val AppKt = "${CommonAppMainDir}/kotlin/kotli/app/App.kt"
     const val AppDIKt = "${CommonAppMainDir}/kotlin/kotli/app/di/DI.kt"
     const val AppScreenKt = "${CommonAppMainDir}/kotlin/kotli/app/AppScreen.kt"
