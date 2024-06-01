@@ -161,7 +161,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.AppIconsKt,
+            Rules.AppIconsProviderKt,
             ReplaceMarkedText(
                 text = "import template.",
                 marker = "import template.",

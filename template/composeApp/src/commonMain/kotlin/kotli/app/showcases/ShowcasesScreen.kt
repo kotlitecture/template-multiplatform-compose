@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import shared.core.provideViewModel
 import shared.core.state.StoreObject
-import shared.design.AppIcons
 import shared.design.component.AppActionButton
 import shared.design.component.AppAlertDialog
 import shared.design.component.AppIcon
@@ -21,6 +20,7 @@ import shared.design.component.AppSpacer16
 import shared.design.component.AppText
 import shared.design.component.AppTextPrimaryHeader
 import shared.design.container.AppFixedTopBarLazyColumn
+import shared.design.icon.AppIcons
 
 /**
  * Composable function for displaying the showcases screen.
@@ -36,7 +36,7 @@ fun ShowcasesScreen() {
             AppActionButton(
                 modifier = Modifier
                     .padding(horizontal = 8.dp),
-                icon = AppIcons.Info,
+                icon = AppIcons.info,
                 onClick = viewModel::onShowHint,
             )
         },
@@ -109,7 +109,7 @@ private fun LazyListScope.showcaseItem(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 AppText(text = showcase.label)
-                AppIcon(model = AppIcons.ChevronRight)
+                AppIcon(model = AppIcons.chevronRight)
             }
         }
     }

@@ -61,18 +61,6 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("NavigationCViewModel"),
             RemoveMarkedLine("NavigationBarViewModel")
         )
-        state.onApplyRules(
-            "${Rules.CommonAppMainDrawableDir}/ic_nav_a.svg",
-            RemoveFile()
-        )
-        state.onApplyRules(
-            "${Rules.CommonAppMainDrawableDir}/ic_nav_b.svg",
-            RemoveFile()
-        )
-        state.onApplyRules(
-            "${Rules.CommonAppMainDrawableDir}/ic_nav_c.svg",
-            RemoveFile()
-        )
     }
 
 }

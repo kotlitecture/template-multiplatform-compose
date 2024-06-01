@@ -43,10 +43,6 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ShowcasesDestination"),
         )
         state.onApplyRules(
-            "${Rules.CommonAppMainDrawableDir}/ic_nav_showcases.svg",
-            RemoveFile()
-        )
-        state.onApplyRules(
             Rules.AppNavigationRouterKt,
             ReplaceMarkedText(
                 text = "app.showcases.ShowcasesDestination",

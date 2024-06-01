@@ -14,7 +14,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import shared.design.AppIcons
+import shared.design.icon.AppIcons
 import shared.design.component.AppActionButton
 import shared.design.theme.AppTheme
 
@@ -93,7 +93,7 @@ private fun HeaderBlock(
             if (onBack != null) {
                 AppActionButton(
                     onClick = onBack,
-                    icon = AppIcons.ArrowBack
+                    icon = AppIcons.arrowBack
                 )
             }
         }
