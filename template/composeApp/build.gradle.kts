@@ -1,11 +1,11 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat // {platform.jvm}
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig // {platform.js}
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinxSerialization)
-    alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.androidApplication) // {platform.android}
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.android.application) // {platform.android}
     alias(libs.plugins.skie) // {platform.ios}
 }
 
@@ -14,7 +14,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = libs.versions.android.jvmTarget.get()
             }
         }
     }
@@ -104,13 +104,16 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
+        named("release") {
+            isDebuggable = false
             isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "assemble/proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility(libs.versions.android.jvmTarget.get())
+        targetCompatibility(libs.versions.android.jvmTarget.get())
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)

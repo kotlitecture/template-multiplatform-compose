@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinxSerialization)
-    alias(libs.plugins.androidLibrary) // {platform.android}
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.android.library) // {platform.android}
 }
 
 kotlin {
@@ -9,7 +9,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = libs.versions.android.jvmTarget.get()
             }
         }
     }
@@ -71,8 +71,8 @@ android {
     namespace = "shared.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility(libs.versions.android.jvmTarget.get())
+        targetCompatibility(libs.versions.android.jvmTarget.get())
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
