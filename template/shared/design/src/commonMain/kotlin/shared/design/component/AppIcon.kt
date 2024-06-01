@@ -8,10 +8,13 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import shared.design.icon.AppIconModel
+import shared.design.icon.ColorIcon
+import shared.design.icon.DrawableResourceIcon
+import shared.design.icon.ImageVectorIcon
+import shared.design.icon.PainterIcon
 
 /**
  * Icon.
@@ -26,14 +29,38 @@ fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,
-    model: Any?
+    model: AppIconModel?
 ) {
     when (model) {
-        is ImageVector -> AppIcon(modifier, tint, size, model)
-        is DrawableResource -> AppIcon(modifier, tint, size, model)
-        is Color -> AppIcon(modifier, size, model)
+        is ColorIcon -> AppIcon(modifier, size, model)
+        is PainterIcon -> AppIcon(modifier, tint, size, model)
+        is ImageVectorIcon -> AppIcon(modifier, tint, size, model)
+        is DrawableResourceIcon -> AppIcon(modifier, tint, size, model)
         else -> Box(modifier = modifier.size(size).background(tint))
     }
+}
+
+/**
+ * Icon from an Painter.
+ *
+ * @param modifier Modifier to be applied to the icon.
+ * @param tint Color to be applied to the icon.
+ * @param size Size of the icon.
+ * @param model ImageVector representing the icon.
+ */
+@Composable
+private fun AppIcon(
+    modifier: Modifier = Modifier,
+    tint: Color = LocalContentColor.current,
+    size: Dp = Dp.Unspecified,
+    model: PainterIcon
+) {
+    Icon(
+        modifier = modifier.size(size),
+        contentDescription = null,
+        painter = model.value(),
+        tint = tint
+    )
 }
 
 /**
@@ -45,16 +72,16 @@ fun AppIcon(
  * @param model ImageVector representing the icon.
  */
 @Composable
-fun AppIcon(
+private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,
-    model: ImageVector
+    model: ImageVectorIcon
 ) {
     Icon(
         modifier = modifier.size(size),
         contentDescription = null,
-        imageVector = model,
+        imageVector = model.value,
         tint = tint
     )
 }
@@ -68,15 +95,15 @@ fun AppIcon(
  * @param model DrawableResource representing the icon.
  */
 @Composable
-fun AppIcon(
+private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,
-    model: DrawableResource
+    model: DrawableResourceIcon
 ) {
     Icon(
         modifier = modifier.size(size),
-        painter = painterResource(model),
+        painter = painterResource(model.value),
         contentDescription = null,
         tint = tint
     )
@@ -90,14 +117,14 @@ fun AppIcon(
  * @param model Color representing the icon.
  */
 @Composable
-fun AppIcon(
+private fun AppIcon(
     modifier: Modifier = Modifier,
     size: Dp = Dp.Unspecified,
-    model: Color
+    model: ColorIcon
 ) {
     Box(
         modifier = modifier
             .size(size)
-            .background(model)
+            .background(model.value)
     )
 }

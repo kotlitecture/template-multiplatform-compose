@@ -28,6 +28,7 @@ import shared.core.state.StoreObject
 import shared.design.component.AppIcon
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText
+import shared.design.icon.AppIconModel
 
 /**
  * Represents a navigation item.
@@ -45,12 +46,12 @@ data class AppNavigationItem(
     val enabled: Boolean = true,
     val alwaysShowLabel: Boolean = true,
     val getLabel: @Composable () -> String?,
-    val getActiveIcon: () -> Any,
-    val getInactiveIcon: () -> Any,
+    val getActiveIcon: () -> AppIconModel,
+    val getInactiveIcon: () -> AppIconModel,
     val onClick: () -> Unit
 ) {
     @Stable
-    fun getIcon(selected: Boolean): Any {
+    fun getIcon(selected: Boolean): AppIconModel {
         return if (selected) {
             getActiveIcon()
         } else {

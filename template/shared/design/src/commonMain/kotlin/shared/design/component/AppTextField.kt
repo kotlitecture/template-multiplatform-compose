@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import shared.core.state.StoreObject
-import shared.design.AppIcons
+import shared.design.icon.AppIcons
 
 /**
  * Text field.
@@ -35,7 +35,7 @@ fun AppTextField(
             if (!valueStore.asStateValue().isNullOrEmpty()) {
                 AppActionButton(
                     modifier = Modifier.size(24.dp),
-                    icon = AppIcons.Cancel,
+                    icon = AppIcons.cancel,
                     onClick = valueStore::clear
                 )
             }

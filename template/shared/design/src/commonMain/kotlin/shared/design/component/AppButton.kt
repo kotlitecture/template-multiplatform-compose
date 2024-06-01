@@ -7,6 +7,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import shared.design.icon.AppIconModel
 
 /**
  * Button commonly used in the app bars.
@@ -20,7 +21,7 @@ import androidx.compose.ui.graphics.Color
 fun AppActionButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    icon: Any?,
+    icon: AppIconModel?,
     tint: Color = LocalContentColor.current
 ) {
     IconButton(

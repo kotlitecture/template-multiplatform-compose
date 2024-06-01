@@ -2,9 +2,9 @@ package kotli.app.feature.theme.toggle
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
-import org.jetbrains.compose.resources.DrawableResource
 import shared.core.theme.ThemeData
-import shared.design.AppIcons
+import shared.design.icon.AppIconModel
+import shared.design.icon.AppIcons
 
 /**
  * Data class representing theme toggle data.
@@ -20,10 +20,10 @@ data class ToggleThemeData(
     }
 
     @Stable
-    fun getIcon(): DrawableResource {
+    fun getIcon(): AppIconModel {
         return when {
-            data.context.dark -> AppIcons.LightMode
-            else -> AppIcons.DarkMode
+            data.context.dark -> AppIcons.lightMode
+            else -> AppIcons.darkMode
         }
     }
 }
