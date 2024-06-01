@@ -26,6 +26,7 @@ object AndroidPlatformProcessor : PlatformProcessor() {
         state.onApplyRules(
             VersionCatalogRules(
                 RemoveMarkedLine("agp"),
+                RemoveMarkedLine("android-jvmTarget"),
                 RemoveMarkedLine("android-compileSdk"),
                 RemoveMarkedLine("android-minSdk"),
                 RemoveMarkedLine("android-targetSdk"),

@@ -7,6 +7,9 @@
 
 -dontwarn kotlinx.**
 -dontwarn org.slf4j.**
+-dontwarn org.slf4j.impl.StaticLoggerBinder
+-dontwarn java.lang.management.ManagementFactory
+-dontwarn java.lang.management.RuntimeMXBean
 
 -keep,includedescriptorclasses class kotli.app.**$$serializer { *; }
 -keepclassmembers class kotli.app.** {
