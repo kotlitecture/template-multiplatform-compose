@@ -65,9 +65,9 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.napier)
             implementation(libs.touchlab.kermit)
-            implementation(projects.shared.core)
             implementation(projects.shared.data)
             implementation(projects.shared.design)
+            implementation(projects.shared.presentation)
         }
         // {platform.android.dependencies}
         androidMain.dependencies {

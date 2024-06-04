@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.drop
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
+import shared.presentation.state.StoreObject
 import shared.data.serialization.SerializationStrategy
 
 class ObjectKeyValueViewModel(

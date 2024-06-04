@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import kotli.app.feature.loader.data.DataLoaderProvider
 import kotli.app.feature.navigation.NavigationBarProvider
 import kotli.app.feature.navigation.BottomProvider
-import shared.core.navigation.rememberNavigationContext
-import shared.core.provideViewModel
+import shared.presentation.navigation.rememberNavigationContext
+import shared.presentation.provideViewModel
 import shared.design.container.AppScaffold
 
 /**

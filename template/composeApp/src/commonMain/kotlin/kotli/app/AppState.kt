@@ -1,6 +1,6 @@
 package kotli.app
 
-import shared.core.state.StoreState
+import shared.presentation.state.StoreState
 
 /**
  * Represents the state of the application. This class extends [StoreState], providing functionality

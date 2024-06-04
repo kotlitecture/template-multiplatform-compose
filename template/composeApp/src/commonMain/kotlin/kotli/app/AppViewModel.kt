@@ -1,7 +1,7 @@
 package kotli.app
 
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
 
 /**
  * ViewModel for the main screen of the application.

@@ -24,7 +24,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import shared.core.state.StoreObject
+import shared.presentation.state.StoreObject
 import shared.design.component.AppIcon
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText

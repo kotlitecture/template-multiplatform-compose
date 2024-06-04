@@ -1,8 +1,8 @@
 package kotli.app.feature.navigation.samples.a
 
 import androidx.navigation.NavGraphBuilder
-import shared.core.navigation.NavigationStrategy
-import shared.core.navigation.NavigationDestinationNoArgs
+import shared.presentation.navigation.NavigationStrategy
+import shared.presentation.navigation.NavigationDestinationNoArgs
 
 object NavigationADestination : NavigationDestinationNoArgs() {
 

@@ -1,9 +1,9 @@
 package kotli.app.showcases.navigation.args.from
 
 import kotli.app.showcases.navigation.args.to.ArgsNavigationToDestination
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
+import shared.presentation.state.StoreObject
 
 class ArgsNavigationFromViewModel(
     private val navigationState: NavigationState,

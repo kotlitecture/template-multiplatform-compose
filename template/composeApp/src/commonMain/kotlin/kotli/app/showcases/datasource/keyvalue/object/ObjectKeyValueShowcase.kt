@@ -2,7 +2,7 @@ package kotli.app.showcases.datasource.keyvalue.`object`
 
 import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel
-import shared.core.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationDestination
 
 object ObjectKeyValueShowcase : ShowcaseItem {
 

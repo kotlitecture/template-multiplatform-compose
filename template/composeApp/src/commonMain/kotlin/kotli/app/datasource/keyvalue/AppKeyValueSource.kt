@@ -11,7 +11,7 @@ import shared.data.serialization.SerializationStrategy
 class AppKeyValueSource : SettingsKeyValueSource() {
 
     /**
-     * Reads the value associated with the specified key from encrypted storage.
+     * Reads the value associated with the specified key from a storage.
      *
      * @param key The key to read.
      * @return The value associated with the key, or `null` if the key does not exist or cannot be decrypted.
@@ -22,7 +22,7 @@ class AppKeyValueSource : SettingsKeyValueSource() {
     }
 
     /**
-     * Saves the specified key-value pair into encrypted storage.
+     * Saves the specified key-value pair into a storage.
      *
      * @param key The key to save.
      * @param value The value to save.

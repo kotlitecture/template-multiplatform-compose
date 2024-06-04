@@ -1,6 +1,6 @@
 package kotli.app.showcases
 
-import shared.core.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationDestination
 
 /**
  * Represents a showcase item.

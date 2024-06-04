@@ -1,10 +1,10 @@
 package kotli.app.feature.theme.change
 
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
-import shared.core.theme.ThemeConfig
-import shared.core.theme.ThemeState
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
+import shared.presentation.state.StoreObject
+import shared.presentation.theme.ThemeConfig
+import shared.presentation.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull

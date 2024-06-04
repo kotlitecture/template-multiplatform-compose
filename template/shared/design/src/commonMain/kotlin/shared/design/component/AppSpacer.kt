@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.core.misc.extensions.pxToDp
+import shared.presentation.misc.extensions.pxToDp
 
 /**
  * Spacer with 2dp size.

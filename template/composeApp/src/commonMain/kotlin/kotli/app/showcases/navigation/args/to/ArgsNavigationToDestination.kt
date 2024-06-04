@@ -2,9 +2,9 @@ package kotli.app.showcases.navigation.args.to
 
 import androidx.navigation.NavGraphBuilder
 import kotlinx.serialization.Serializable
-import shared.core.navigation.ArgsStrategy
-import shared.core.navigation.NavigationDestination
-import shared.core.navigation.NavigationStrategy
+import shared.presentation.navigation.ArgsStrategy
+import shared.presentation.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationStrategy
 
 object ArgsNavigationToDestination : NavigationDestination<ArgsNavigationToDestination.Data>() {
 

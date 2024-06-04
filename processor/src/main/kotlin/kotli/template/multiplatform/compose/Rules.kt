@@ -22,7 +22,7 @@ object Rules {
     const val SrcIosMainDir = "*/src/iosMain"
     const val SrcJsMainDir = "*/src/jsMain"
     const val SrcJvmMainDir = "*/src/jvmMain"
-    const val SharedCoreDir = "shared/core"
+    const val SharedPresentationDir = "shared/presentation"
     const val SharedDataDir = "shared/data"
     const val SharedDesignDir = "shared/design"
 
@@ -65,7 +65,7 @@ object Rules {
     const val ShowcasesLoaderDir = "${ShowcasesDir}/feature/loader"
     const val ShowcasesPasscodeDir = "${ShowcasesDir}/feature/passcode"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
-    const val ThemeStateKt = "${SharedCoreDir}/src/commonMain/kotlin/shared/core/theme/ThemeState.kt"
+    const val ThemeStateKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeState.kt"
     // dataflow
     const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"
     const val AnalyticsSource = "*/*AnalyticsSource.kt"

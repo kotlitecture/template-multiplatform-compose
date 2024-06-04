@@ -31,7 +31,7 @@ Run your project to check what is included and how it works, and once everything
 title: Modules Structure
 ---
 flowchart TB
-    subgraph core["Architectural Components (core)"]
+    subgraph presentation["Architectural Components (presentation)"]
         a1["Jetpack ViewModel"]
         a2["Jetpack Navigation"]
         a3["Jetpack Lifecycle"]
@@ -59,7 +59,7 @@ flowchart TB
         d1 -.- d3
         d1 -.- d4
     end
-    core --> app
+    presentation --> app
     data --> app
     design --> app
 ```
@@ -77,13 +77,13 @@ Application logic is implemented in the app module and contains only app-specifi
 
 All common logic is part of the shared group, which is split into three modules:
 
-- **core** - architectural solutions to integrate app components with each other.
+- **presentation** - architectural solutions to integrate app components with each other.
 - **data** - data sources to use in the app.
 - **design** - the design system of the app (fonts, themes, UI components, etc.).
 
 These modules are used only at the app level. This approach lets you develop all three components independently and create a more complex app structure. For example, app-specific features can be implemented as separate modules, having the same shared dependencies.
 
-## Module - core
+## Module - presentation
 
 Provides architectural solutions to implement user flows and integrate all components with each other in a lifecycle-aware manner.
 

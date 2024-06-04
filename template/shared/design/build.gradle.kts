@@ -38,7 +38,7 @@ kotlin {
             }
         }
         commonMain.dependencies {
-            implementation(projects.shared.core)
+            implementation(projects.shared.presentation)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(compose.material3)

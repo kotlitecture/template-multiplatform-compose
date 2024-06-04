@@ -1,8 +1,8 @@
 package kotli.app.showcases.datasource.http.basic
 
 import androidx.navigation.NavGraphBuilder
-import shared.core.navigation.NavigationDestinationNoArgs
-import shared.core.navigation.NavigationStrategy
+import shared.presentation.navigation.NavigationDestinationNoArgs
+import shared.presentation.navigation.NavigationStrategy
 
 object BasicHttpDestination : NavigationDestinationNoArgs() {
 

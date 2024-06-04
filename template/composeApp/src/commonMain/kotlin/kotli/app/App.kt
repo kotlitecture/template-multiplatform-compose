@@ -27,7 +27,7 @@ import kotli.app.feature.navigation.samples.b.NavigationBViewModel
 import kotli.app.feature.navigation.samples.c.NavigationCViewModel
 import kotli.app.feature.theme.change.ChangeThemeViewModel
 import kotli.app.feature.theme.toggle.ToggleThemeViewModel
-import shared.core.ViewModelProvider
+import shared.presentation.ViewModelProvider
 
 /**
  * Root of the application.

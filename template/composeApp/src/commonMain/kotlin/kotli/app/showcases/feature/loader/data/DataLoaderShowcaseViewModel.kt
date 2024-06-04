@@ -2,8 +2,8 @@ package kotli.app.showcases.feature.loader.data
 
 import kotli.app.AppState
 import kotlinx.coroutines.delay
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
 
 class DataLoaderShowcaseViewModel(
     private val navigationState: NavigationState,

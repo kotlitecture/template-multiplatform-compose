@@ -1,5 +1,5 @@
 package kotli.app.feature.navigation.samples.b
 
-import shared.core.BaseViewModel
+import shared.presentation.BaseViewModel
 
 class NavigationBViewModel : BaseViewModel()

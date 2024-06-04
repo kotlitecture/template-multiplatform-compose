@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.core.BaseViewModel
-import shared.core.state.DataState
-import shared.core.state.StoreObject
-import shared.core.state.StoreState
+import shared.presentation.BaseViewModel
+import shared.presentation.state.DataState
+import shared.presentation.state.StoreObject
+import shared.presentation.state.StoreState
 
 class DataLoaderViewModel(
     private val configSource: AppConfigSource

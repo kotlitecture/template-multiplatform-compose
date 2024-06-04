@@ -8,9 +8,9 @@ import kotli.app.feature.navigation.samples.b.NavigationBDestination
 import kotli.app.feature.navigation.samples.c.NavigationCDestination
 import kotli.app.showcases.ShowcasesDestination
 import org.koin.dsl.module
-import shared.core.navigation.NavigationDestination
-import shared.core.navigation.NavigationState
-import shared.core.navigation.NavigationStrategy
+import shared.presentation.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStrategy
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
 

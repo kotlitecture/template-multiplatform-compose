@@ -1,7 +1,7 @@
 package kotli.app
 
 import kotli.app.showcases.ShowcasesDestination
-import shared.core.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationDestination
 
 /**
  * Application navigation router.

@@ -4,9 +4,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.core.BaseViewModel
-import shared.core.state.StoreObject
-import shared.core.theme.ThemeState
+import shared.presentation.BaseViewModel
+import shared.presentation.state.StoreObject
+import shared.presentation.theme.ThemeState
 
 /**
  * ViewModel responsible for toggling between light and dark themes.

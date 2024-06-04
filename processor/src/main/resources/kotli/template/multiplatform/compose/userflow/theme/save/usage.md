@@ -2,7 +2,7 @@
 
 Component package: `app.ui.theme`
 
-The current theme state is managed by an instance of `shared.core.theme.ThemeState`. This class provides a `configStore` property representing the currently selected theme configuration.
+The current theme state is managed by an instance of `shared.presentation.theme.ThemeState`. This class provides a `configStore` property representing the currently selected theme configuration.
 
 The feature utilizes `AppThemeProvider` to control the value of this property:
 - Persist its state whenever it changes.

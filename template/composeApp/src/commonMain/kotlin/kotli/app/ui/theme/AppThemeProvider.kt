@@ -1,8 +1,8 @@
 package kotli.app.ui.theme
 
 import androidx.compose.runtime.Composable
-import shared.core.provideViewModel
-import shared.core.theme.ThemeProvider
+import shared.presentation.provideViewModel
+import shared.presentation.theme.ThemeProvider
 
 @Composable
 fun AppThemeProvider(content: @Composable () -> Unit) {

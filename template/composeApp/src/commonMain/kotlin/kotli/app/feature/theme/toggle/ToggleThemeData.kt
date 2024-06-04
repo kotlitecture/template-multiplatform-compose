@@ -2,7 +2,7 @@ package kotli.app.feature.theme.toggle
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
-import shared.core.theme.ThemeData
+import shared.presentation.theme.ThemeData
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
 

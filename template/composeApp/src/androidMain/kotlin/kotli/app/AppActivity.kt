@@ -13,9 +13,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import kotli.app.di.get
-import shared.core.misc.extensions.findActivity
-import shared.core.navigation.NavigationState
-import shared.core.theme.ThemeState
+import shared.presentation.misc.extensions.findActivity
+import shared.presentation.navigation.NavigationState
+import shared.presentation.theme.ThemeState
 
 class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
