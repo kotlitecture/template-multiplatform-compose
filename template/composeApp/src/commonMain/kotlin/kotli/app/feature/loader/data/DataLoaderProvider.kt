@@ -8,8 +8,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.core.provideViewModel
-import shared.core.state.StoreState
+import shared.presentation.provideViewModel
+import shared.presentation.state.StoreState
 import shared.design.component.AppCard
 import shared.design.component.AppCircularProgressIndicator
 import shared.design.component.AppDialog

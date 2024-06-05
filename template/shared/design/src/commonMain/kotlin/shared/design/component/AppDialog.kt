@@ -15,8 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import shared.core.state.DataState
-import shared.core.state.StoreState
+import shared.presentation.state.DataState
+import shared.presentation.state.StoreState
 import shared.design.theme.AppTheme
 
 /**

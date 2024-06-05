@@ -3,8 +3,8 @@ package kotli.app.showcases.datasource.paging.basic
 import androidx.lifecycle.viewModelScope
 import app.cash.paging.cachedIn
 import kotli.app.datasource.paging.AppPagingSource
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
 
 class BasicPagingViewModel(
     private val navigationState: NavigationState,

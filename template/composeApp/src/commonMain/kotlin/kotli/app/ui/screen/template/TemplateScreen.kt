@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import shared.core.provideViewModel
+import shared.presentation.provideViewModel
 import shared.design.component.AppText
 
 @Composable

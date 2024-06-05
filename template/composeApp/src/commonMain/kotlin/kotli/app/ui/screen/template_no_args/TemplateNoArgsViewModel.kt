@@ -1,7 +1,7 @@
 package kotli.app.ui.screen.template_no_args
 
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
 
 class TemplateNoArgsViewModel(
     private val navigationState: NavigationState

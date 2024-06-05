@@ -4,7 +4,8 @@ import shared.data.datasource.config.DelegateConfigSource
 
 /**
  * This class represents a configuration source for application settings.
- * It delegates to a FirebaseRemoteConfigSource and provides methods to retrieve various configuration values.
+ * It delegates to an underlining source and provides methods to retrieve various configuration values
+ * without keys passed.
  */
 class AppConfigSource : DelegateConfigSource(
     // delegate

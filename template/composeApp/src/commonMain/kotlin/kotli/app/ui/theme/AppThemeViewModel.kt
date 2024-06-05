@@ -1,7 +1,7 @@
 package kotli.app.ui.theme
 
-import shared.core.BaseViewModel
-import shared.core.theme.ThemeState
+import shared.presentation.BaseViewModel
+import shared.presentation.theme.ThemeState
 
 class AppThemeViewModel(
     val themeState: ThemeState

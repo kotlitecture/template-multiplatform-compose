@@ -1,7 +1,7 @@
 package kotli.app.feature.navigation
 
 import androidx.compose.runtime.Composable
-import shared.core.provideViewModel
+import shared.presentation.provideViewModel
 import shared.design.container.AppDismissibleNavigation
 
 /**

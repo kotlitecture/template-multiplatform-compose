@@ -7,9 +7,9 @@ import androidx.navigation.NavGraphBuilder
 import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel
 import kotli.app.feature.theme.toggle.ToggleThemeButton
-import shared.core.navigation.NavigationDestination
-import shared.core.navigation.NavigationDestinationNoArgs
-import shared.core.navigation.NavigationStrategy
+import shared.presentation.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationDestinationNoArgs
+import shared.presentation.navigation.NavigationStrategy
 import shared.design.component.AppDialogContent
 
 /**

@@ -5,9 +5,9 @@ import io.ktor.client.request.get
 import kotlinx.coroutines.delay
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
+import shared.presentation.state.StoreObject
 import shared.data.datasource.http.HttpSource
 import shared.data.datasource.http.isHttpTimeoutException
 import shared.data.misc.extensions.isCancellationException

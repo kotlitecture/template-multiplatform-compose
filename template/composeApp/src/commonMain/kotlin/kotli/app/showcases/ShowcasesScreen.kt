@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.core.provideViewModel
-import shared.core.state.StoreObject
+import shared.presentation.provideViewModel
+import shared.presentation.state.StoreObject
 import shared.design.component.AppActionButton
 import shared.design.component.AppAlertDialog
 import shared.design.component.AppIcon

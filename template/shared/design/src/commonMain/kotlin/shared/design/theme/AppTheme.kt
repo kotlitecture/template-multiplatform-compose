@@ -10,7 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import shared.core.theme.ThemeContext
+import shared.presentation.theme.ThemeContext
 
 /**
  * Application theme context.

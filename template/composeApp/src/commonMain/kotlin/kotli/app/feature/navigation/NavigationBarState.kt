@@ -1,8 +1,8 @@
 package kotli.app.feature.navigation
 
-import shared.core.navigation.NavigationDestination
-import shared.core.state.StoreObject
-import shared.core.state.StoreState
+import shared.presentation.navigation.NavigationDestination
+import shared.presentation.state.StoreObject
+import shared.presentation.state.StoreState
 
 /**
  * Represents the state of the navigation bar.

@@ -4,9 +4,9 @@ import kotli.app.datasource.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
+import shared.presentation.state.StoreObject
 
 class PrimitiveKeyValueViewModel(
     private val navigationState: NavigationState,

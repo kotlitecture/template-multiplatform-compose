@@ -1,5 +1,5 @@
 package kotli.app.feature.navigation.samples.c
 
-import shared.core.BaseViewModel
+import shared.presentation.BaseViewModel
 
 class NavigationCViewModel : BaseViewModel()

@@ -1,8 +1,8 @@
 package kotli.app.feature.theme.change
 
 import androidx.navigation.NavGraphBuilder
-import shared.core.navigation.NavigationDestinationNoArgs
-import shared.core.navigation.NavigationStrategy
+import shared.presentation.navigation.NavigationDestinationNoArgs
+import shared.presentation.navigation.NavigationStrategy
 
 /**
  * Navigation destination for changing the theme.

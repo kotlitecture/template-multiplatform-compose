@@ -1,7 +1,7 @@
 package kotli.app.showcases.navigation.no_args.to
 
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
 
 class NoArgsNavigationToViewModel(
     private val navigationState: NavigationState

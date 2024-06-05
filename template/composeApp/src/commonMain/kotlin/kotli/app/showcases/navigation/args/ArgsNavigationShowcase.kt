@@ -4,7 +4,7 @@ import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel
 import kotli.app.showcases.navigation.args.from.ArgsNavigationFromDestination
 import kotli.app.showcases.navigation.args.to.ArgsNavigationToDestination
-import shared.core.navigation.NavigationDestination
+import shared.presentation.navigation.NavigationDestination
 
 object ArgsNavigationShowcase : ShowcaseItem {
 

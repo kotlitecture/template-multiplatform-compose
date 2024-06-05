@@ -26,43 +26,7 @@ Run your project to check what is included and how it works, and once everything
 
 # Architecture
 
-```mermaid
----
-title: Modules Structure
----
-flowchart TB
-    subgraph core["Architectural Components (core)"]
-        a1["Jetpack ViewModel"]
-        a2["Jetpack Navigation"]
-        a3["Jetpack Lifecycle"]
-        a4["MVVM"]
-    end
-    subgraph data["Data Sources (data)"]
-        b1["HTTP API"]
-        b2["KeyValue API"]
-        b3["SQL / NoSQL API"]
-        b4["..."]
-    end
-    subgraph design["Design System (design)"]
-        c1["Themes"]
-        c2["Fonts"]
-        c3["UI Components"]
-        c4["UI Containers"]
-    end
-    subgraph app["Business Logic (app)"]
-        direction TB
-        d1["Dependency Injection"]
-        d2["Feature 1"]
-        d3["Feature 2"]
-        d4["Feature N"]
-        d1 -.- d2
-        d1 -.- d3
-        d1 -.- d4
-    end
-    core --> app
-    data --> app
-    design --> app
-```
+![Modules](images/concept/arch_modules.png)
 
 The overall architecture is built on:
 - [Compose Multiplatform UI Framework](https://www.jetbrains.com/lp/compose-multiplatform/)
@@ -77,13 +41,13 @@ Application logic is implemented in the app module and contains only app-specifi
 
 All common logic is part of the shared group, which is split into three modules:
 
-- **core** - architectural solutions to integrate app components with each other.
+- **presentation** - architectural solutions to integrate app components with each other.
 - **data** - data sources to use in the app.
 - **design** - the design system of the app (fonts, themes, UI components, etc.).
 
 These modules are used only at the app level. This approach lets you develop all three components independently and create a more complex app structure. For example, app-specific features can be implemented as separate modules, having the same shared dependencies.
 
-## Module - core
+## Module - presentation
 
 Provides architectural solutions to implement user flows and integrate all components with each other in a lifecycle-aware manner.
 
@@ -143,7 +107,7 @@ When a project is configured and downloaded via [Kotli](https://kotlitecture.com
 
 |                   Showcases :: Overview                   |                Showcases :: Theme Dialog                |                  Showcases :: Key-Value Storage                   |
 |:---------------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
-| ![Showcases Overview](screenshots/showcases_overview.jpg) | ![Theme Dialog](screenshots/showcases_theme_dialog.jpg) | ![Key-Value Storage](screenshots/showcases_key_value_objects.jpg) |
+| ![Showcases Overview](images/screenshots/showcases_overview.jpg) | ![Theme Dialog](images/screenshots/showcases_theme_dialog.jpg) | ![Key-Value Storage](images/screenshots/showcases_key_value_objects.jpg) |
 
 # Features
 

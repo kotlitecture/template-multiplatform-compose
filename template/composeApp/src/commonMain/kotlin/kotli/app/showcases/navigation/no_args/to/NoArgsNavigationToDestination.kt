@@ -1,8 +1,8 @@
 package kotli.app.showcases.navigation.no_args.to
 
 import androidx.navigation.NavGraphBuilder
-import shared.core.navigation.NavigationDestinationNoArgs
-import shared.core.navigation.NavigationStrategy
+import shared.presentation.navigation.NavigationDestinationNoArgs
+import shared.presentation.navigation.NavigationStrategy
 
 object NoArgsNavigationToDestination : NavigationDestinationNoArgs() {
 

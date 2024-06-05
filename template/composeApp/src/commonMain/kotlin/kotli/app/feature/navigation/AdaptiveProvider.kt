@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import shared.core.size.ViewSize
-import shared.core.size.ViewSizeProvider
+import shared.presentation.size.ViewSize
+import shared.presentation.size.ViewSizeProvider
 
 /**
  * Composable function to display an adaptive navigation.

@@ -1,8 +1,8 @@
 package kotli.app.showcases
 
-import shared.core.BaseViewModel
-import shared.core.navigation.NavigationState
-import shared.core.state.StoreObject
+import shared.presentation.BaseViewModel
+import shared.presentation.navigation.NavigationState
+import shared.presentation.state.StoreObject
 
 /**
  * ViewModel for the showcases screen.
