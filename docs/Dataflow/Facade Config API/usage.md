@@ -34,7 +34,7 @@ class AppConfigSource : DelegateConfigSource() {
 }
 
 class TemplateViewModel (
-    private val configSource: AppConfigSource = instance() // ConfigSource
+    private val configSource: AppConfigSource = get() // ConfigSource
 ) : BaseViewModel() {
 
     private val counter by lazy { AtomicInteger(configSource.getCounterInitialValue()) }

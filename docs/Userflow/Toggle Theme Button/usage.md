@@ -2,11 +2,11 @@
 
 ## Overview
 
-Component package: `app.userflow.theme.toggle`
+Component package: `app.feature.theme.toggle`
 
 ## Example
 
-Simply add the `ToggleThemeButton` composable from the `app.userflow.theme.toggle` package to your screen.
+Simply add the `ToggleThemeButton` composable from the `app.feature.theme.toggle` package to your screen.
 
 ```kotlin
 @Composable
