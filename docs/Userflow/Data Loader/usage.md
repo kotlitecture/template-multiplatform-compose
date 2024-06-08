@@ -2,11 +2,11 @@
 
 ## Overview
 
-Component package: `app.userflow.loader.data`
+Component package: `app.feature.loader.data`
 
 The component is pre-configured at the `app.AppScreen` level to monitor state changes of the `app.AppState` instance.
 
-If you need to modify the behavior, including colors, texts, logic, etc., simply update the `app.userflow.loader.data.DataLoaderProvider` composable.
+If you need to modify the behavior, including colors, texts, logic, etc., simply update the `app.feature.loader.data.DataLoaderProvider` composable.
 
 ## Example
 
@@ -19,7 +19,7 @@ Simply inject the `app.AppState` instance into your **ViewModel** and call the `
 
 ```kotlin
 class TemplateViewModel(
-    private val appState: AppState = instance()
+    private val appState: AppState = get()
 ) : BaseViewModel() {
 
     fun onActionWithLoader() {
@@ -38,7 +38,7 @@ However, it is recommended to use it only at the **ViewModel** level.
 
 ```kotlin
 class DataRepository(
-    private val appState: AppState = instance()
+    private val appState: AppState = get()
 ) {
 
     fun performSomeAction() {
@@ -57,4 +57,4 @@ class DataRepository(
 
 ### Usage without `app.AppState`
 
-`app.userflow.loader.data.DataLoaderProvider` accepts any `StoreState` instance. As this is your code, feel free to use it as needed.
+`app.feature.loader.data.DataLoaderProvider` accepts any `StoreState` instance. As this is your code, feel free to use it as needed.

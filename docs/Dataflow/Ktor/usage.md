@@ -14,7 +14,7 @@ To start using, just inject it to your DI managed class.
 
 ```kotlin
 class ApiSource(
-    private val httpSource: HttpSource = instance()
+    private val httpSource: HttpSource = get()
 ) {
 
     suspend fun getIp(): String {

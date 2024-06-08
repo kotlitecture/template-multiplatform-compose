@@ -3,7 +3,7 @@
 ## Overview
 
 The integration comes with a simple API for easier usage of Jetpack Navigation.
-The API is available under the package `shared.core.navigation`.
+The API is available under the package `shared.presentation.navigation`.
 
 ## Create Destination
 
@@ -33,7 +33,7 @@ object TemplateDestination : NavigationDestination<TemplateDestination.Data>() {
 
 ## Register Destination
 
-All app destinations should be registered within an instance of the class `shared.core.navigation.NavigationState`.
+All app destinations should be registered within an instance of the class `shared.presentation.navigation.NavigationState`.
 This instance is already pre-configured in dependency injection (DI) through the `app.di.state.ProvidesNavigationState` class.
 Simply place all your destinations within this instance.
 
@@ -58,7 +58,7 @@ val ProvidesNavigationState = module {
 
 ## Navigate to Destination
 
-Once the navigation is aware of the destinations, you can initiate navigation to them using the `onBack` and `onNext` methods available in the `shared.core.navigation.NavigationState` class.
+Once the navigation is aware of the destinations, you can initiate navigation to them using the `onBack` and `onNext` methods available in the `shared.presentation.navigation.NavigationState` class.
 Simply inject `NavigationState` into your `ViewModel` or other dependency injection managed class, and navigate whenever necessary.
 
 ```kotlin

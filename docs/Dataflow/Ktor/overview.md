@@ -1,6 +1,6 @@
 # About
 
-This API provides access to the Ktor, the latter of which utilizes platform-specific API as its HTTP engine. This data source is pre-configured to facilitate both REST and WebSocket communications with the backend.
+This API provides access to the Ktor client, which utilizes platform-specific API as its HTTP engine. This data source is pre-configured to facilitate both REST and WebSocket communications with the backend.
 
 # Links
 
