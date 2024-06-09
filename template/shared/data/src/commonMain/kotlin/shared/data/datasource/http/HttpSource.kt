@@ -1,6 +1,5 @@
 package shared.data.datasource.http
 
-import shared.data.datasource.DataSource
 import io.ktor.client.HttpClient
 import io.ktor.client.network.sockets.ConnectTimeoutException
 import io.ktor.client.network.sockets.SocketTimeoutException
@@ -12,11 +11,12 @@ import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.websocket.WebSockets
-import io.ktor.client.request.headers
+import io.ktor.client.request.accept
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import shared.data.datasource.DataSource
 
 /**
  * A data source implementation that utilizes OkHttp as the underlying HTTP client.
@@ -57,9 +57,8 @@ class HttpSource(
             }
             BrowserUserAgent()
             defaultRequest {
-                headers {
-                    contentType(ContentType.Application.Json)
-                }
+                contentType(ContentType.Application.Json)
+                accept(ContentType.Application.Json)
             }
         }
     }

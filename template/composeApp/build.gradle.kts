@@ -33,6 +33,10 @@ kotlin {
     // {platform.ios.target}
     // {platform.js.target}
     js(IR) {
+        useEsModules()
+//        compilerOptions {
+//            target.set("es2015")
+//        }
         browser {
             commonWebpackConfig {
                 outputFileName = "app.js"
