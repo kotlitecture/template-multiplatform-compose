@@ -14,7 +14,8 @@ tasks {
         from(File(rootDir, "composeApp/build/dist/js/developmentExecutable"))
     }
     register("runSPA") {
-        named("run")
+        group = "application"
+        dependsOn("run")
     }
 }
 
