@@ -25,6 +25,7 @@ object Rules {
     const val SharedPresentationDir = "shared/presentation"
     const val SharedDataDir = "shared/data"
     const val SharedDesignDir = "shared/design"
+    const val BackendDir = "backend"
 
     // kotlin
     const val Kt = "*.kt"

@@ -4,6 +4,7 @@ import kotli.engine.BaseFeatureProvider
 import kotli.engine.FeatureProcessor
 import kotli.engine.FeatureType
 import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.backend.BackendPlatformProcessor
 import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.platform.js.JsPlatformProcessor
 import kotli.template.multiplatform.compose.platform.jvm.JvmPlatformProcessor
@@ -19,7 +20,8 @@ object PlatformProvider : BaseFeatureProvider() {
         IOSPlatformProcessor,
         AndroidPlatformProcessor,
         JvmPlatformProcessor,
-        JsPlatformProcessor
+        JsPlatformProcessor,
+        BackendPlatformProcessor
     )
 
 }
