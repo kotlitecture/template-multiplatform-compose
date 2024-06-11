@@ -16,15 +16,15 @@ import shared.design.component.AppSpacer8
 import shared.design.component.AppText
 import shared.design.component.AppTextHeader
 import shared.design.container.AppFixedTopBarColumn
-import template.composeapp.generated.resources.Res
-import template.composeapp.generated.resources.theme_change_dark_mode
-import template.composeapp.generated.resources.theme_change_dark_mode_off
-import template.composeapp.generated.resources.theme_change_dark_mode_on
-import template.composeapp.generated.resources.theme_change_dark_mode_system
-import template.composeapp.generated.resources.theme_change_dynamic_color
-import template.composeapp.generated.resources.theme_change_dynamic_color_off
-import template.composeapp.generated.resources.theme_change_dynamic_color_on
-import template.composeapp.generated.resources.theme_change_title
+import template.app.generated.resources.Res
+import template.app.generated.resources.theme_change_dark_mode
+import template.app.generated.resources.theme_change_dark_mode_off
+import template.app.generated.resources.theme_change_dark_mode_on
+import template.app.generated.resources.theme_change_dark_mode_system
+import template.app.generated.resources.theme_change_dynamic_color
+import template.app.generated.resources.theme_change_dynamic_color_off
+import template.app.generated.resources.theme_change_dynamic_color_on
+import template.app.generated.resources.theme_change_title
 
 @Composable
 fun ChangeThemeScreen() {

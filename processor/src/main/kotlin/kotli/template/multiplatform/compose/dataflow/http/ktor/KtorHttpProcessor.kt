@@ -7,7 +7,6 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotlin.time.Duration.Companion.hours
-import kotlin.time.Duration.Companion.minutes
 
 object KtorHttpProcessor : BaseFeatureProcessor() {
 
@@ -38,7 +37,7 @@ object KtorHttpProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("ktor")
+                RemoveMarkedLine("ktor-client")
             )
         )
     }

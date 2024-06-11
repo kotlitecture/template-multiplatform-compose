@@ -10,11 +10,11 @@ object Rules {
     const val BuildGradle = "*build.gradle.kts"
     const val SettingsGradle = "settings.gradle.kts"
     const val BuildGradleRoot = "build.gradle.kts"
-    const val BuildGradleComposeApp = "composeApp/build.gradle.kts"
+    const val BuildGradleApp = "app/build.gradle.kts"
     const val BuildGradleSharedData = "shared/data/build.gradle.kts"
     const val BuildGradleSharedDesign = "shared/design/build.gradle.kts"
     // proguard
-    const val ProguardRulesPro = "composeApp/assemble/proguard-rules.pro"
+    const val ProguardRulesPro = "app/assemble/proguard-rules.pro"
 
     // sources
     const val IosAppDir = "iosApp"
@@ -29,7 +29,7 @@ object Rules {
 
     // kotlin
     const val Kt = "*.kt"
-    const val CommonAppSrcDir = "composeApp/src"
+    const val CommonAppSrcDir = "app/src"
     const val SharedDesignSrcDir = "shared/design/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"

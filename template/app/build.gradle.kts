@@ -26,7 +26,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "App"
             isStatic = true
         }
     }
@@ -34,9 +34,6 @@ kotlin {
     // {platform.js.target}
     js(IR) {
         useEsModules()
-//        compilerOptions {
-//            target.set("es2015")
-//        }
         browser {
             commonWebpackConfig {
                 outputFileName = "app.js"

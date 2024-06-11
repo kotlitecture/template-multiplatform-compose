@@ -10,12 +10,8 @@ application {
 
 tasks {
     processResources {
-        dependsOn(":composeApp:jsBrowserDevelopmentExecutableDistribution")
-        from(File(rootDir, "composeApp/build/dist/js/developmentExecutable"))
-    }
-    register("runSPA") {
-        group = "application"
-        dependsOn("run")
+        dependsOn(":app:jsBrowserDevelopmentExecutableDistribution")
+        from(File(rootDir, "app/build/dist/js/developmentExecutable"))
     }
 }
 

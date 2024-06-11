@@ -124,7 +124,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.BuildGradleComposeApp,
+            Rules.BuildGradleApp,
             ReplaceMarkedText(
                 text = "kotli.app",
                 marker = "kotli.app",
@@ -155,9 +155,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         state.onApplyRules(
             "${Rules.CommonAppSrcDir}/*.kt",
             ReplaceMarkedText(
-                text = "import template.composeapp.",
-                marker = "import template.composeapp.",
-                replacer = "import ${name}.composeapp."
+                text = "import template.app.",
+                marker = "import template.app.",
+                replacer = "import ${name}.app."
             )
         )
         state.onApplyRules(

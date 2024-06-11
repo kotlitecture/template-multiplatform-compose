@@ -17,8 +17,8 @@ dependencyResolutionManagement {
     }
 }
 
+include(":app")
 include(":backend")
-include(":composeApp")
 include(":shared:data")
 include(":shared:design")
 include(":shared:presentation")
