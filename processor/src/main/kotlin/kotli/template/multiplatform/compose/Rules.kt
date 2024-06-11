@@ -11,6 +11,7 @@ object Rules {
     const val SettingsGradle = "settings.gradle.kts"
     const val BuildGradleRoot = "build.gradle.kts"
     const val BuildGradleApp = "app/build.gradle.kts"
+    const val BuildGradleBackend = "backend/build.gradle.kts"
     const val BuildGradleSharedData = "shared/data/build.gradle.kts"
     const val BuildGradleSharedDesign = "shared/design/build.gradle.kts"
     // proguard
