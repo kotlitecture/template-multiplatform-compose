@@ -67,6 +67,7 @@ kotlin {
             implementation(libs.napier)
             implementation(libs.touchlab.kermit)
             implementation(projects.shared.data)
+            implementation(projects.shared.domain)
             implementation(projects.shared.design)
             implementation(projects.shared.presentation)
         }

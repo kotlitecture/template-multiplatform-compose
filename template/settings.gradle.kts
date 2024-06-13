@@ -20,5 +20,6 @@ dependencyResolutionManagement {
 include(":app")
 include(":backend")
 include(":shared:data")
+include(":shared:domain")
 include(":shared:design")
 include(":shared:presentation")

@@ -8,6 +8,7 @@ import kotli.template.multiplatform.compose.platform.backend.BackendPlatformProc
 import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.platform.js.JsPlatformProcessor
 import kotli.template.multiplatform.compose.platform.jvm.JvmPlatformProcessor
+import kotli.template.multiplatform.compose.platform.shared.SharedDomainProcessor
 
 object PlatformProvider : BaseFeatureProvider() {
 
@@ -21,7 +22,8 @@ object PlatformProvider : BaseFeatureProvider() {
         AndroidPlatformProcessor,
         JvmPlatformProcessor,
         JsPlatformProcessor,
-        BackendPlatformProcessor
+        BackendPlatformProcessor,
+        SharedDomainProcessor
     )
 
 }

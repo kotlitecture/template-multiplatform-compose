@@ -25,6 +25,7 @@ object Rules {
     const val SrcJvmMainDir = "*/src/jvmMain"
     const val SharedPresentationDir = "shared/presentation"
     const val SharedDataDir = "shared/data"
+    const val SharedDomainDir = "shared/domain"
     const val SharedDesignDir = "shared/design"
     const val BackendDir = "backend"
 

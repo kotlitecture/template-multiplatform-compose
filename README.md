@@ -1,10 +1,15 @@
 # Compose Multiplatform Configurable Project Template
 
-Supported platforms:
+**Supported targets:**
 - Android
 - iOS
-- Web
+- Web (JS/Canvas)
 - Desktop (Windows, MacOS, Linux)
+- Backend (Server)
+
+```
+All targets are optional and configurable, along with any features:)
+```
 
 The template follows the general principals:
 
