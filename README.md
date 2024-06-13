@@ -8,12 +8,12 @@
 - Backend (Server)
 
 ```
-All targets are optional and configurable, along with any features:)
+All targets are optional and will be included only if selected during configuration, along with any features.
 ```
 
 The template follows the general principals:
 
-- The underlying architecture is minimalistic, pre-configured, and complies with [the latest recommended guidelines](https://developer.android.com/modern-android-development).
+- The underlying architecture is minimalistic, pre-configured, and complies with the latest recommended guidelines.
 - Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotlitecture.com).
 - All out-of-the-box solutions work seamlessly across all supported platforms and are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
 
@@ -33,7 +33,9 @@ Run your project to check what is included and how it works, and once everything
 
 ![Modules](images/concept/arch_modules.png)
 
-The overall architecture is built on:
+## Frontend
+
+The overall client architecture follows [the recommended guidelines](https://developer.android.com/modern-android-development) and is built on:
 - [Compose Multiplatform UI Framework](https://www.jetbrains.com/lp/compose-multiplatform/)
 - [Compose Multiplatform Images and resources](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-images-resources.html)
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose)
@@ -52,7 +54,7 @@ All common logic is part of the shared group, which is split into three modules:
 
 These modules are used only at the app level. This approach lets you develop all three components independently and create a more complex app structure. For example, app-specific features can be implemented as separate modules, having the same shared dependencies.
 
-## Module - presentation
+### Module - presentation
 
 Provides architectural solutions to implement user flows and integrate all components with each other in a lifecycle-aware manner.
 
@@ -67,13 +69,13 @@ However, the provided implementations are very intuitive to use and cover all po
 
 Feel free to choose what fits your needs best.
 
-## Module - data
+### Module - data
 
 Provides a fundamental implementation of commonly used data sources in different apps. During project setup via [Kotli](https://kotlitecture.com), only the required data sources will be included.
 
 All data sources have been configured to access the necessary data layer in a flexible and convenient manner.
 
-## Module - design
+### Module - design
 
 Provides pre-configured themes, fonts, and UI components to establish the initial [Design System](https://en.m.wikipedia.org/wiki/Design_system) of the entire app.
 
@@ -87,7 +89,7 @@ The main idea of this module is to create a **Design System** that can be used b
 Existing composables in this module are examples and can be changed/removed based on your needs.
 ```
 
-## Module - app
+### Module - app
 
 The Application module itself contains:
 
@@ -95,6 +97,12 @@ The Application module itself contains:
 - Showcases to demonstrate some features included during [project setup](https://kotlitecture.com/project).
 
 Once you download and import the initial project structure into your IDE, the project is ready to run on a device, enabling you to understand the included functionality and start adding the required features.
+
+## Backend
+
+The server architecture is based on [Ktor Framework](https://ktor.io).
+
+// TBA
 
 # Documentation
 
