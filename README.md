@@ -7,6 +7,15 @@
 - Desktop (Windows, MacOS, Linux)
 - Backend (Server)
 
+## Table of Contents
+
+- [Get started](#get-started)
+- [Architecture](#architecture)
+- [Documentation](#documentation)
+- [Showcases](#showcases)
+- [How to use](#how-to-use)
+- [Features](#features)
+
 ```
 All targets are optional and will be included only if selected during configuration, along with any features.
 ```
