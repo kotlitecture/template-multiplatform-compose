@@ -1,6 +1,7 @@
 # Compose Multiplatform Configurable Project Template
 
-**Supported targets:**
+## Supported Platforms
+
 - Android
 - iOS
 - Web (JS/Canvas)
