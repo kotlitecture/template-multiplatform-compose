@@ -18,7 +18,7 @@
 - [Features](#features)
 
 ```
-All targets are optional and will be included only if selected during configuration, along with any features.
+All target platforms are optional and will be included only if selected during configuration, along with any features.
 ```
 
 The template follows the general principals:
