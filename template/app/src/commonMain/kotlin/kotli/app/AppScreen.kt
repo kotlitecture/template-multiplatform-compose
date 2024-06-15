@@ -1,7 +1,7 @@
 package kotli.app
 
 import androidx.compose.runtime.Composable
-import kotli.app.feature.loader.data.DataLoaderProvider
+import kotli.app.ui.loader.LoaderProvider
 import kotli.app.feature.navigation.NavigationBarProvider
 import kotli.app.feature.navigation.BottomProvider
 import shared.presentation.navigation.rememberNavigationContext
@@ -22,5 +22,5 @@ fun AppScreen() {
             bottomBar = { BottomProvider() }
         )
     } // {userflow.navigation}
-    DataLoaderProvider(viewModel.appState)
+    LoaderProvider(viewModel.appState)
 }

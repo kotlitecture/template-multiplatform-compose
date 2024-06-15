@@ -1,4 +1,4 @@
-package kotli.app.feature.loader.data
+package kotli.app.ui.loader
 
 import kotli.app.datasource.config.AppConfigSource
 import kotlinx.coroutines.delay
@@ -11,7 +11,7 @@ import shared.presentation.state.DataState
 import shared.presentation.state.StoreObject
 import shared.presentation.state.StoreState
 
-class DataLoaderViewModel(
+class LoaderViewModel(
     private val configSource: AppConfigSource
 ) : BaseViewModel() {
 
@@ -25,9 +25,9 @@ class DataLoaderViewModel(
                 .distinctUntilChanged()
                 .collectLatest { loading ->
                     if (loading) {
-                        delay(configSource.getDataLoaderDelay())
+                        delay(configSource.getUiLoaderDelay())
                         isLoadingStore.set(true)
-                        delay(configSource.getDataLoaderTimeout())
+                        delay(configSource.getUiLoaderTimeout())
                         isLoadingStore.set(false)
                     } else {
                         isLoadingStore.set(false)

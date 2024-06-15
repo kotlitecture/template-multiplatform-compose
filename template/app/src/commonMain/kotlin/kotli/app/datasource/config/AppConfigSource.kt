@@ -13,6 +13,6 @@ class AppConfigSource : DelegateConfigSource(
     fun getPagingPageSize(): Int = getInt("paging_page_size") { 30 }
     fun getHttpTimeout(): Long = getLong("http_timeout") { 30_000 }
     fun getHttpRetryCount(): Int = getInt("http_retry_count") { 3 }
-    fun getDataLoaderDelay(): Long = getLong("data_loader_delay") { 50 }
-    fun getDataLoaderTimeout(): Long = getLong("data_loader_timeout") { 30_000 }
+    fun getUiLoaderDelay(): Long = getLong("ui_loader_delay") { 50 }
+    fun getUiLoaderTimeout(): Long = getLong("ui_loader_timeout") { 30_000 }
 }

@@ -20,7 +20,7 @@ import kotli.app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import kotli.app.ui.theme.AppThemePersistenceViewModel
 import kotli.app.ui.theme.AppThemeProvider
 import kotli.app.ui.theme.AppThemeViewModel
-import kotli.app.feature.loader.data.DataLoaderViewModel
+import kotli.app.ui.loader.LoaderViewModel
 import kotli.app.feature.navigation.NavigationBarViewModel
 import kotli.app.feature.navigation.samples.a.NavigationAViewModel
 import kotli.app.feature.navigation.samples.b.NavigationBViewModel
@@ -58,7 +58,7 @@ private val AppViewModelFactory = viewModelFactory {
     initializer { NoArgsNavigationToViewModel(get()) }
     initializer { ArgsNavigationFromViewModel(get()) }
     initializer { ArgsNavigationToViewModel(get()) }
-    initializer { DataLoaderViewModel(get()) }
+    initializer { LoaderViewModel(get()) }
     initializer { DataLoaderShowcaseViewModel(get(), get()) }
     initializer { PrimitiveKeyValueViewModel(get(), get()) }
     initializer { ObjectKeyValueViewModel(get(), get()) }

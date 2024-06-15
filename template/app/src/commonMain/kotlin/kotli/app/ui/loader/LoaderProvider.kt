@@ -1,4 +1,4 @@
-package kotli.app.feature.loader.data
+package kotli.app.ui.loader
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,14 +22,14 @@ import shared.design.component.AppDialog
  * @param state The state object representing the current data loading state.
  */
 @Composable
-fun DataLoaderProvider(state: StoreState) {
-    val viewModel: DataLoaderViewModel = provideViewModel()
+fun LoaderProvider(state: StoreState) {
+    val viewModel: LoaderViewModel = provideViewModel()
     LaunchedEffect(state) { viewModel.onBind(state) }
-    DataLoaderBlock(viewModel)
+    LoaderBlock(viewModel)
 }
 
 @Composable
-private fun DataLoaderBlock(viewModel: DataLoaderViewModel) {
+private fun LoaderBlock(viewModel: LoaderViewModel) {
     val isLoading = viewModel.isLoadingStore.asStateValueNotNull()
     if (!isLoading) return
     AppDialog(onDismissRequest = {}) {
