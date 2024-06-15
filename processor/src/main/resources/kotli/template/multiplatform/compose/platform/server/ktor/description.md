@@ -2,4 +2,4 @@ Despite it not being common practice to keep frontend and backend code in the sa
 
 The Ktor Server target adds a pre-configured module to the project, which can serve as the backend for your app.
 
-If you also include a JS target, the backend module will incorporate additional Gradle tasks to run and build the frontend and backend together, facilitating faster debugging of web-based solutions.
+If you also include a Web target, the backend module will incorporate additional Gradle tasks to run and build the frontend and backend together, facilitating faster debugging of web-based solutions.

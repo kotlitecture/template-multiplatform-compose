@@ -44,7 +44,7 @@ The overall client architecture follows [the recommended guidelines](https://dev
 - [Material 3 Design](https://m3.material.io)
 - [Koin Dependency Injection](https://insert-koin.io)
 
-Application logic is implemented in the app module and contains only app-specific behavior.
+Application logic is implemented in the `app` module and contains only app-specific behavior.
 
 All common logic is part of the shared group, which is split into three modules:
 
@@ -100,9 +100,11 @@ Once you download and import the initial project structure into your IDE, the pr
 
 ## Backend
 
-The server architecture is based on [Ktor Framework](https://ktor.io).
+The server architecture is based on either the [Ktor Framework](https://ktor.io) or [Spring Boot](https://spring.io/projects/spring-boot).
 
-// TBA
+Backend-specific logic is implemented in the `backend` module.
+
+To enable sharing some common models between the **backend** and **frontend**, the project also includes a `domain` module as part of the **shared** group.
 
 # Documentation
 
@@ -121,6 +123,15 @@ When a project is configured and downloaded via [Kotli](https://kotlitecture.com
 |                   Showcases :: Overview                   |                Showcases :: Theme Dialog                |                  Showcases :: Key-Value Storage                   |
 |:---------------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
 | ![Showcases Overview](images/screenshots/showcases_overview.jpg) | ![Theme Dialog](images/screenshots/showcases_theme_dialog.jpg) | ![Key-Value Storage](images/screenshots/showcases_key_value_objects.jpg) |
+
+# How to use downloaded project
+
+Once the project is downloaded, it includes the source code as well as a **README.md** file. This file visualizes all the features included as a table. The most useful columns in this table are:
+
+- **Configuration** - An overview of the official resources used to pre-configure this feature in the template. Use it as a reference to find any additional information related to the feature.
+- **Usage** - The main information related to using the feature. Use it as a starting point when you need to start working with the feature and don't know how to begin.
+
+For example, if you configured the project with **Web** and **iOS** platforms but don't know how to run the app on them (💀), find these platforms in the table and open their **Usage** guide.
 
 # Features
 
