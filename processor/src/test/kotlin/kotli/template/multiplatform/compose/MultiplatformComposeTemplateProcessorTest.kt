@@ -8,8 +8,8 @@ import kotli.engine.generator.PathOutputGenerator
 import kotli.engine.generator.ZipOutputGenerator
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
-import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
-import kotli.template.multiplatform.compose.platform.jvm.JvmPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
 import org.slf4j.LoggerFactory

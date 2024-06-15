@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.platform.js
+package kotli.template.multiplatform.compose.platform.client.js
 
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.CleanupMarkedBlock

@@ -3,5 +3,5 @@
 ## Run
 
 ```
-./gradlew jsBrowserRun
+./gradlew :app:jsBrowserRun
 ```

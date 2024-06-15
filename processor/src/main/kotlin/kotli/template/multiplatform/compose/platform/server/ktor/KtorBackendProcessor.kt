@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.platform.backend
+package kotli.template.multiplatform.compose.platform.server.ktor
 
 import kotli.engine.FeatureProcessor
 import kotli.engine.TemplateState
@@ -8,12 +8,16 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 import kotli.template.multiplatform.compose.platform.shared.SharedDomainProcessor
+import kotlin.time.Duration.Companion.hours
 
-object BackendPlatformProcessor : PlatformProcessor() {
+object KtorBackendProcessor : PlatformProcessor() {
 
-    const val ID = "platform.backend"
+    const val ID = "platform.server.ktor"
 
     override fun getId(): String = ID
+    override fun getWebUrl(state: TemplateState): String = "https://ktor.io"
+    override fun getIntegrationUrl(state: TemplateState): String = "https://ktor.io/docs/server-create-a-new-project.html"
+    override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         SharedDomainProcessor::class.java

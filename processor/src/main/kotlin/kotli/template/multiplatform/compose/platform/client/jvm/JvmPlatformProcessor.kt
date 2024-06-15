@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.platform.jvm
+package kotli.template.multiplatform.compose.platform.client.jvm
 
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile

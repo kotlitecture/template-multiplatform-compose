@@ -1,5 +1,0 @@
-## Run
-
-```
-./gradlew :backend:run
-```

@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.platform.android
+package kotli.template.multiplatform.compose.platform.client.android
 
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules

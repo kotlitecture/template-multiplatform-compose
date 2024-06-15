@@ -137,10 +137,11 @@ The generated project will include a similar table in its README.MD file, but wi
 | Essentials | Material 3 | [Link](docs/Essentials/Material%203/overview.md) | - | [Link](docs/Essentials/Material%203/usage.md) |
 | Essentials | Koin | [Link](docs/Essentials/Koin/overview.md) | - | - |
 | Essentials | Gradle (Kotlin DSL) | [Link](docs/Essentials/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
-| Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | - |
-| Platform | Android | [Link](docs/Platform/Android/overview.md) | - | - |
-| Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | - |
-| Platform | Web | [Link](docs/Platform/Web/overview.md) | - | - |
+| Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | [Link](docs/Platform/iOS/usage.md) |
+| Platform | Android | [Link](docs/Platform/Android/overview.md) | - | [Link](docs/Platform/Android/usage.md) |
+| Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | [Link](docs/Platform/Desktop/usage.md) |
+| Platform | Web | [Link](docs/Platform/Web/overview.md) | - | [Link](docs/Platform/Web/usage.md) |
+| Platform | Ktor Server | [Link](docs/Platform/Ktor%20Server/overview.md) | - | [Link](docs/Platform/Ktor%20Server/usage.md) |
 | Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
 | Dataflow | Facade Config API | [Link](docs/Dataflow/Facade%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Config%20API/usage.md) |
 | Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |

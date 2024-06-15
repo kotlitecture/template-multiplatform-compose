@@ -21,9 +21,11 @@ import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvid
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
 import kotli.template.multiplatform.compose.essentials.navigation.NavigationProvider
 import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
-import kotli.template.multiplatform.compose.platform.PlatformProvider
-import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
-import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.ClientPlatformProvider
+import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvider
+import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
 import kotli.template.multiplatform.compose.testing.logging.kermit.KermitProcessor
@@ -68,7 +70,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         BuildToolProvider,
 
         // platform
-        PlatformProvider,
+        ClientPlatformProvider,
+        ServerPlatformProvider,
+        SharedPlatformProvider,
 
         // dataflow
         CommonDataFlowProvider,
