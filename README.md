@@ -17,7 +17,7 @@ The template follows the general principals:
 - Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotlitecture.com).
 - All out-of-the-box solutions work seamlessly across all supported platforms and are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
 
-# Usage
+# Get started
 
 **!IMPORTANT!** The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
 
@@ -124,7 +124,7 @@ When a project is configured and downloaded via [Kotli](https://kotlitecture.com
 |:---------------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
 | ![Showcases Overview](images/screenshots/showcases_overview.jpg) | ![Theme Dialog](images/screenshots/showcases_theme_dialog.jpg) | ![Key-Value Storage](images/screenshots/showcases_key_value_objects.jpg) |
 
-# How to use downloaded project
+# How to use
 
 Once the project is downloaded, it includes the source code as well as a **README.md** file. This file visualizes all the features included as a table. The most useful columns in this table are:
 
