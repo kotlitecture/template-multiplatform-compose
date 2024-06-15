@@ -1,5 +1,1 @@
-Despite it not being common practice to keep frontend and backend code in the same repository due to differing project lifecycles and developer involvement, it is possible to organize the repository as a fully functional full-stack project.
-
-The Ktor Server target adds a pre-configured module to the project, which can serve as the backend for your app.
-
-If you also include a Web target, the backend module will incorporate additional Gradle tasks to run and build the frontend and backend together, facilitating faster debugging of web-based solutions.
+The server can be used both as a backend and a middle layer for the Web target (if such a configuration is included). When the Web client is included, the backend module will have extra commands configured to correctly run and assemble the server with web content served at the root context path (i.e., single-page application).
