@@ -138,7 +138,7 @@ When a project is configured and downloaded via [Kotli](https://kotlitecture.com
 
 Once the project is downloaded, it includes the source code as well as a **README.md** file. This file visualizes all the features included as a table. The most useful columns in this table are:
 
-- **Configuration** - An overview of the official resources used to pre-configure this feature in the template. Use it as a reference to find any additional information related to the feature.
+- **Overview** - A summary of the feature, including all official resources used to pre-configure this feature in the template. Use it as a reference to find any additional information related to the feature.
 - **Usage** - The main information related to using the feature. Use it as a starting point when you need to start working with the feature and don't know how to begin.
 
 For example, if you configured the project with **Web** and **iOS** platforms but don't know how to run the app on them (💀), find these platforms in the table and open their **Usage** guide.
