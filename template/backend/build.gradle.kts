@@ -23,9 +23,39 @@ dependencies {
 
 // {platform.js.config}
 tasks {
-    processResources {
+    val resourcesMain by lazy { project.layout.buildDirectory.dir("resources/main").get().asFile }
+    register("runDevSPA") {
+        group = "spa"
         dependsOn(":app:jsBrowserDevelopmentExecutableDistribution")
-        from(File(rootDir, "app/build/dist/js/developmentExecutable"))
+        doLast {
+            copy {
+                from(File(rootDir, "app/build/dist/js/developmentExecutable"))
+                into(resourcesMain)
+            }
+        }
+        finalizedBy("run")
+    }
+    register("runProdSPA") {
+        group = "spa"
+        dependsOn(":app:jsBrowserDistribution")
+        doLast {
+            copy {
+                from(File(rootDir, "app/build/dist/js/productionExecutable"))
+                into(resourcesMain)
+            }
+        }
+        finalizedBy("run")
+    }
+    register("assembleSPA") {
+        group = "spa"
+        dependsOn(":app:jsBrowserDistribution")
+        doLast {
+            copy {
+                from(File(rootDir, "app/build/dist/js/productionExecutable"))
+                into(resourcesMain)
+            }
+        }
+        finalizedBy("assemble")
     }
 }
 // {platform.js.config}
