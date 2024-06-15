@@ -1,1 +1,1 @@
-Web
+Web (JS)
