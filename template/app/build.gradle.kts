@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.android.application) // {platform.android}
+    alias(libs.plugins.sqldelight) // {dataflow.database.sqldelight}
     alias(libs.plugins.skie) // {platform.ios}
 }
 
@@ -65,6 +66,8 @@ kotlin {
             implementation(compose.components.resources)
             implementation(libs.koin.core)
             implementation(libs.napier)
+            implementation(libs.sqldelight.coroutines) // {dataflow.database.sqldelight}
+            implementation(libs.sqldelight.androidx.paging) // {dataflow.database.sqldelight}
             implementation(libs.touchlab.kermit)
             implementation(projects.shared.data)
             implementation(projects.shared.domain)
@@ -74,16 +77,44 @@ kotlin {
         // {platform.android.dependencies}
         androidMain.dependencies {
             implementation(libs.androidx.splashscreen)
+            implementation(libs.sqldelight.android.driver) // {dataflow.database.sqldelight}
         }
         // {platform.android.dependencies}
+        // {platform.ios.dependencies}
+        iosMain.dependencies {
+            implementation(libs.sqldelight.native.driver) // {dataflow.database.sqldelight}
+            implementation(libs.touchlab.stately.common) // {dataflow.database.sqldelight}
+            implementation(libs.touchlab.stately.isolate) // {dataflow.database.sqldelight}
+            implementation(libs.touchlab.stately.iso.collections) // {dataflow.database.sqldelight}
+        }
+        // {platform.ios.dependencies}
+        // {platform.js.dependencies}
+        jsMain.dependencies {
+            implementation(libs.sqldelight.web.worker.driver) // {dataflow.database.sqldelight}
+            implementation(libs.touchlab.stately.iso.collections.js) // {dataflow.database.sqldelight}
+            implementation(npm("sql.js", "1.10.3")) // {dataflow.database.sqldelight}
+            implementation(npm("@cashapp/sqldelight-sqljs-worker", libs.versions.sqldelight.get())) // {dataflow.database.sqldelight}
+            implementation(devNpm("copy-webpack-plugin", "9.1.0")) // {dataflow.database.sqldelight}
+        }
+        // {platform.js.dependencies}
         // {platform.jvm.dependencies}
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.sqldelight.sqlite.driver) // {dataflow.database.sqldelight}
         }
         // {platform.jvm.dependencies}
     }
 }
-
+// {sqldelight.config}
+sqldelight {
+    databases {
+        create("AppDatabase") {
+            packageName.set("kotli.app.datasource.database.sqldelight")
+            generateAsync.set(true)
+        }
+    }
+}
+// {sqldelight.config}
 // {platform.android.config}
 android {
     namespace = "kotli.app"
@@ -142,8 +173,3 @@ compose.desktop {
     }
 }
 // {platform.jvm.config}
-// {platform.js.config}
-compose.experimental {
-    web.application {}
-}
-// {platform.js.config}

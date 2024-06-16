@@ -1,11 +1,13 @@
 package kotli.template.multiplatform.compose.dataflow.http.ktor
 
 import kotli.engine.BaseFeatureProcessor
+import kotli.engine.FeatureProcessor
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.common.CommonKtorProcessor
 import kotlin.time.Duration.Companion.hours
 
 object KtorHttpProcessor : BaseFeatureProcessor() {
@@ -15,8 +17,10 @@ object KtorHttpProcessor : BaseFeatureProcessor() {
     override fun getId(): String = ID
     override fun getWebUrl(state: TemplateState): String = "https://ktor.io"
     override fun getIntegrationUrl(state: TemplateState): String = "https://ktor.io/docs/client-create-new-application.html"
-
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
+    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        CommonKtorProcessor::class.java
+    )
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(

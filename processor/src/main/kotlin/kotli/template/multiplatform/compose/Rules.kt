@@ -37,6 +37,8 @@ object Rules {
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppKt = "${CommonAppMainDir}/kotlin/kotli/app/App.kt"
     const val AppDIKt = "${CommonAppMainDir}/kotlin/kotli/app/di/DI.kt"
+    const val AppWebPackConfigDir = "app/webpack.config.d"
+    const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
     const val AppScreenKt = "${CommonAppMainDir}/kotlin/kotli/app/AppScreen.kt"
     const val AppNavigationRouterKt = "${CommonAppMainDir}/kotlin/kotli/app/AppNavigationRouter.kt"
     const val AppUiDir = "${CommonAppMainDir}/kotlin/kotli/app/ui"
@@ -78,5 +80,6 @@ object Rules {
     const val HttpSource = "*/*HttpSource.kt"
     const val KeyValueSource = "*/*KeyValueSource.kt"
     const val SettingsKeyValueSource = "*/*SettingsKeyValueSource.kt"
+    const val AppSqlDelightDir = "*/sqldelight/*"
 
 }

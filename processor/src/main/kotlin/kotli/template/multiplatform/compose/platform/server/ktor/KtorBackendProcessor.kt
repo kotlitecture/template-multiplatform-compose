@@ -6,6 +6,7 @@ import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.common.CommonKtorProcessor
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 import kotli.template.multiplatform.compose.platform.shared.SharedDomainProcessor
 import kotlin.time.Duration.Companion.hours
@@ -20,7 +21,8 @@ object KtorBackendProcessor : PlatformProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        SharedDomainProcessor::class.java
+        SharedDomainProcessor::class.java,
+        CommonKtorProcessor::class.java
     )
 
     override fun doRemove(state: TemplateState) {

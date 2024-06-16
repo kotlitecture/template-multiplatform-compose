@@ -9,9 +9,11 @@ import kotli.engine.model.Layer
 import kotli.engine.model.LayerTypes
 import kotli.engine.template.rule.RenamePackage
 import kotli.engine.template.rule.ReplaceMarkedText
+import kotli.template.multiplatform.compose.common.CommonProvider
 import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
+import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsKeyValueProcessor
@@ -62,6 +64,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     )
 
     override fun createProviders(): List<FeatureProvider> = listOf(
+        // common
+        CommonProvider,
+
         // essentials
         ToolkitProvider,
         NavigationProvider,
@@ -78,6 +83,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         CommonDataFlowProvider,
         AnalyticsProvider,
         ConfigProvider,
+        DatabaseProvider,
         KeyValueProvider,
         HttpProvider,
         PagingProvider,

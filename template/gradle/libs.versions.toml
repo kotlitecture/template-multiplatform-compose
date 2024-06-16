@@ -23,7 +23,9 @@ ktor = "2.3.11"
 logback = "1.5.6"
 multiplatform-settings = "1.1.1"
 napier = "2.7.1"
-skie = "0.8.0"
+skie = "0.8.2"
+sqldelight = "2.0.2"
+touchlab-stately = "2.0.7"
 touchlab-kermit = "2.0.3"
 
 [libraries]
@@ -66,7 +68,17 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+sqldelight-androidx-paging = { module = "app.cash.sqldelight:androidx-paging3-extensions", version.ref = "sqldelight" }
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
+sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+sqldelight-web-worker-driver = { module = "app.cash.sqldelight:web-worker-driver", version.ref = "sqldelight" }
 touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "touchlab-kermit" }
+touchlab-stately-common = { module = "co.touchlab:stately-common", version.ref = "touchlab-stately" }
+touchlab-stately-isolate = { module = "co.touchlab:stately-isolate", version.ref = "touchlab-stately" }
+touchlab-stately-iso-collections = { module = "co.touchlab:stately-iso-collections", version.ref = "touchlab-stately" }
+touchlab-stately-iso-collections-js = { module = "co.touchlab:stately-iso-collections-js", version.ref = "touchlab-stately" }
 
 [bundles]
 ktor-common = ["ktor-client-core", "ktor-client-logging", "ktor-client-serialization", "ktor-client-contentNegotiation", "ktor-client-websockets"]
@@ -81,4 +93,5 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 skie = { id = "co.touchlab.skie", version.ref = "skie" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 
