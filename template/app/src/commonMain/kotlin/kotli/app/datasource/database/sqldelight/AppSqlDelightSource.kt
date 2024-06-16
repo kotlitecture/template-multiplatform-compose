@@ -11,7 +11,7 @@ expect fun createSqlDriver(name: String): SqlDriver
  *
  * @property databaseName The name of the database.
  */
-class AppSqlDelightBoxSource(
+class AppSqlDelightSource(
     private val databaseName: String = "db"
 ) {
 

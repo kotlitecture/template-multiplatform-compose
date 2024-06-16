@@ -57,6 +57,14 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
                 RemoveMarkedLine("sqldelight")
             )
         )
+        state.onApplyRules(
+            Rules.SqlDelightSource,
+            RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.AppDIKt,
+            RemoveMarkedLine("SqlDelightSource")
+        )
     }
 
 }

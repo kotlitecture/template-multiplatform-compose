@@ -5,6 +5,7 @@ import kotli.app.di.datasource.ProvidesConfigSource
 import kotli.app.di.datasource.ProvidesHttpSource
 import kotli.app.di.datasource.ProvidesKeyValueSource
 import kotli.app.di.datasource.ProvidesPagingSource
+import kotli.app.di.datasource.ProvidesSqlDelightSource
 import kotli.app.di.state.ProvidesAppState
 import kotli.app.di.state.ProvidesNavigationBarState
 import kotli.app.di.state.ProvidesNavigationState
@@ -19,6 +20,7 @@ val koinDI = startKoin {
         ProvidesHttpSource,
         ProvidesKeyValueSource,
         ProvidesPagingSource,
+        ProvidesSqlDelightSource,
         ProvidesNavigationBarState,
         ProvidesNavigationState,
         ProvidesThemeState,

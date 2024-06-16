@@ -75,6 +75,7 @@ object Rules {
     // dataflow
     const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"
     const val AnalyticsSource = "*/*AnalyticsSource.kt"
+    const val SqlDelightSource = "*/*SqlDelightSource.kt"
     const val ConfigSource = "*/*ConfigSource.kt"
     const val PagingSource = "*/*Paging*.kt"
     const val HttpSource = "*/*HttpSource.kt"
