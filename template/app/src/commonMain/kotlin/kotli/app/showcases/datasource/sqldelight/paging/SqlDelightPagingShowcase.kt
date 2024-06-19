@@ -1,4 +1,4 @@
-package kotli.app.showcases.datasource.sqlight.paging
+package kotli.app.showcases.datasource.sqldelight.paging
 
 import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel

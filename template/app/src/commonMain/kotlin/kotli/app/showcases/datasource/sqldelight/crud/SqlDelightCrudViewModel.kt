@@ -1,4 +1,4 @@
-package kotli.app.showcases.datasource.sqlight.crud
+package kotli.app.showcases.datasource.sqldelight.crud
 
 import app.cash.sqldelight.async.coroutines.awaitAsList
 import app.cash.sqldelight.coroutines.asFlow

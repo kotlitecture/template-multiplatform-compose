@@ -1,4 +1,4 @@
-package kotli.app.showcases.datasource.sqlight.crud
+package kotli.app.showcases.datasource.sqldelight.crud
 
 import androidx.navigation.NavGraphBuilder
 import shared.presentation.navigation.NavigationDestinationNoArgs

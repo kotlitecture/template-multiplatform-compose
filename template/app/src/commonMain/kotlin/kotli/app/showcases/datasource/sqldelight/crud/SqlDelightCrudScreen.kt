@@ -1,4 +1,4 @@
-package kotli.app.showcases.datasource.sqlight.crud
+package kotli.app.showcases.datasource.sqldelight.crud
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
