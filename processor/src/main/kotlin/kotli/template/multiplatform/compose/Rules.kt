@@ -66,6 +66,7 @@ object Rules {
     const val ShowcasesHttpDir = "${ShowcasesDir}/datasource/http"
     const val ShowcasesPagingDir = "${ShowcasesDir}/datasource/paging"
     const val ShowcasesKeyValueDir = "${ShowcasesDir}/datasource/keyvalue"
+    const val ShowcasesSqlDelightDir = "${ShowcasesDir}/datasource/sqldelight"
     const val ShowcasesNavigationDir = "${ShowcasesDir}/navigation"
     const val ShowcasesThemeDir = "${ShowcasesDir}/feature/theme"
     const val ShowcasesLoaderDir = "${ShowcasesDir}/feature/loader"

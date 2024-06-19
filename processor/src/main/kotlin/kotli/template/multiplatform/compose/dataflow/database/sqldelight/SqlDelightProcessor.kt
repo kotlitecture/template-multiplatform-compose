@@ -10,6 +10,7 @@ import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotlin.time.Duration.Companion.hours
 
 object SqlDelightProcessor : BaseFeatureProcessor() {
@@ -18,7 +19,8 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = ID
     override fun getWebUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/2.0.2/multiplatform_sqlite/"
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://cashapp.github.io/sqldelight/2.0.2/multiplatform_sqlite/"
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
@@ -35,6 +37,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
                 state.layer.namespace
             )
         )
+        applyPaging(state)
     }
 
     override fun doRemove(state: TemplateState) {
@@ -64,6 +67,44 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppDIKt,
             RemoveMarkedLine("SqlDelightSource")
+        )
+        state.onApplyRules(
+            Rules.ShowcasesKt,
+            RemoveMarkedLine("SqlDelight")
+        )
+        state.onApplyRules(
+            Rules.ShowcasesSqlDelightDir,
+            RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.AppKt,
+            RemoveMarkedLine("SqlDelight")
+        )
+    }
+
+    private fun applyPaging(state: TemplateState) {
+        if (state.getFeature(CashAppPagingProcessor.ID) != null) return
+
+        state.onApplyRules(
+            Rules.BuildGradleApp,
+            RemoveMarkedLine("sqldelight.androidx.paging"),
+        )
+        state.onApplyRules(
+            VersionCatalogRules(
+                RemoveMarkedLine("sqldelight-androidx-paging")
+            )
+        )
+        state.onApplyRules(
+            "${Rules.ShowcasesSqlDelightDir}/paging",
+            RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.ShowcasesKt,
+            RemoveMarkedLine("SqlDelightPaging")
+        )
+        state.onApplyRules(
+            Rules.AppKt,
+            RemoveMarkedLine("SqlDelightPaging")
         )
     }
 

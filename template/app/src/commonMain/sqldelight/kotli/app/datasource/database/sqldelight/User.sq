@@ -1,16 +1,17 @@
-CREATE TABLE user (
+CREATE TABLE IF NOT EXISTS user (
   id INTEGER PRIMARY KEY NOT NULL,
   firstName TEXT,
   lastName TEXT
 );
 
-CREATE INDEX user_full_name ON user(firstName, lastName);
+CREATE INDEX IF NOT EXISTS user_full_name ON user(firstName, lastName);
 
 count:
 SELECT count(*) FROM user;
 
 getAll:
-SELECT * FROM user;
+SELECT * FROM user
+ORDER BY id DESC;
 
 getAllPaginated:
 SELECT *
@@ -20,6 +21,10 @@ LIMIT :limit OFFSET :offset;
 insert:
 INSERT INTO user(firstName, lastName)
 VALUES (?, ?);
+
+insertUser:
+INSERT INTO user
+VALUES ?;
 
 update:
 UPDATE user

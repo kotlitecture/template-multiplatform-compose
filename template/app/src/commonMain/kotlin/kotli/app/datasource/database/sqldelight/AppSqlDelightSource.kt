@@ -12,9 +12,9 @@ expect fun createSqlDriver(name: String): SqlDriver
  * @property databaseName The name of the database.
  */
 class AppSqlDelightSource(
-    private val databaseName: String = "db"
+    private val databaseName: String = "app.db"
 ) {
 
-    val database: AppDatabase by lazy { AppDatabase.invoke(createSqlDriver(databaseName)) }
+    val database by lazy { AppDatabase.invoke(createSqlDriver(databaseName)) }
 
 }

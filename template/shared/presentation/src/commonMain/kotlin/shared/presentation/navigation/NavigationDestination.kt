@@ -24,11 +24,11 @@ abstract class NavigationDestination<D> {
     /** Unique identifier for this destination. */
     abstract val id: String
 
-    /** Strategy for navigation behavior. */
-    abstract val navStrategy: NavigationStrategy
-
     /** Strategy for handling arguments associated with this destination. */
     abstract val argsStrategy: ArgsStrategy<D>
+
+    /** Strategy for navigation behavior. */
+    open val navStrategy: NavigationStrategy = NavigationStrategy.NewInstance
 
     /** Route string for navigation. */
     val route by lazy { "$id?$ATTR_DATA={$ATTR_DATA}" }
