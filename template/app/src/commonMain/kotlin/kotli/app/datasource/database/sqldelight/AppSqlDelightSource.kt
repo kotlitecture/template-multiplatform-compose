@@ -1,6 +1,11 @@
 package kotli.app.datasource.database.sqldelight
 
 import app.cash.sqldelight.db.SqlDriver
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.shareIn
 
 expect fun createSqlDriver(name: String): SqlDriver
 
@@ -15,6 +20,13 @@ class AppSqlDelightSource(
     private val databaseName: String = "app.db"
 ) {
 
-    val database by lazy { AppDatabase.invoke(createSqlDriver(databaseName)) }
+    private val db = flow {
+        val driver = createSqlDriver(databaseName)
+        AppDatabase.Schema.create(driver).await()
+        val database = AppDatabase.invoke(driver)
+        emit(database)
+    }.shareIn(GlobalScope, SharingStarted.Lazily, 1)
+
+    suspend fun getDatabase(): AppDatabase = db.first()
 
 }

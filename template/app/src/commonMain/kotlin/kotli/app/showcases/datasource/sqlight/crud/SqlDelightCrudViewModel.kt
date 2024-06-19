@@ -1,5 +1,6 @@
 package kotli.app.showcases.datasource.sqlight.crud
 
+import app.cash.sqldelight.async.coroutines.awaitAsList
 import app.cash.sqldelight.coroutines.asFlow
 import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
 import kotli.app.datasource.database.sqldelight.User
@@ -19,9 +20,9 @@ class SqlDelightCrudViewModel(
 
     override fun doBind() {
         launchAsync("getUsers") {
-            val database = databaseSource.database
+            val database = databaseSource.getDatabase()
             database.userQueries.getAll().asFlow()
-                .map { query -> query.executeAsList() }
+                .map { query -> query.awaitAsList() }
                 .onEach { println("USERS :: ${it.size}") }
                 .collectLatest(usersStore::set)
         }
@@ -37,12 +38,12 @@ class SqlDelightCrudViewModel(
             firstName = "first_name",
             lastName = "last_name"
         )
-        val database = databaseSource.database
+        val database = databaseSource.getDatabase()
         database.userQueries.insert(user.firstName, user.lastName)
     }
 
     fun onDelete(user: User) = launchAsync {
-        val database = databaseSource.database
+        val database = databaseSource.getDatabase()
         database.userQueries.delete(user.id)
     }
 }
