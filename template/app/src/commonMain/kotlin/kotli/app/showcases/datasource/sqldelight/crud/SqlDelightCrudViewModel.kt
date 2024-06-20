@@ -1,6 +1,7 @@
 package kotli.app.showcases.datasource.sqldelight.crud
 
 import app.cash.sqldelight.async.coroutines.awaitAsList
+import app.cash.sqldelight.async.coroutines.awaitAsOne
 import app.cash.sqldelight.coroutines.asFlow
 import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
 import kotli.app.datasource.database.sqldelight.User
@@ -32,7 +33,7 @@ class SqlDelightCrudViewModel(
 
     fun onAdd() = launchAsync {
         val database = databaseSource.getDatabase()
-        val count = database.userQueries.count().executeAsOne() + 1
+        val count = database.userQueries.count().awaitAsOne() + 1
         val firstName = "first_name_$count"
         val lastName = "last_name_$count"
         database.userQueries.insert(firstName, lastName)
