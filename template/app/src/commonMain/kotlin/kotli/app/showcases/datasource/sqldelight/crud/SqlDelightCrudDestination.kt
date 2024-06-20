@@ -8,6 +8,6 @@ object SqlDelightCrudDestination : NavigationDestinationNoArgs() {
 
     override val id: String = "sql_delight_crud_screen"
     override val navStrategy: NavigationStrategy = NavigationStrategy.NewInstance
-    override fun doBind(builder: NavGraphBuilder) = composable(builder) { BasicHttpScreen() }
+    override fun doBind(builder: NavGraphBuilder) = composable(builder) { SqlDelightCrudScreen() }
 
 }

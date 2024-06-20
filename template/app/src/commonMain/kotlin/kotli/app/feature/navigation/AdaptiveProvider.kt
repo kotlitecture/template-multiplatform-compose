@@ -19,7 +19,7 @@ fun AdaptiveProvider(content: @Composable () -> Unit) {
     ViewSizeProvider { size ->
         when {
             size <= ViewSize.Compact -> Bottom(content)
-            size <= ViewSize.Large -> Rail(content)
+            size < ViewSize.Large -> Rail(content)
             else -> Permanent(content)
         }
     }

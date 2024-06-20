@@ -6,6 +6,7 @@ import template.shared.design.generated.resources.ic_cancel
 import template.shared.design.generated.resources.ic_chevron_right
 import template.shared.design.generated.resources.ic_coffee
 import template.shared.design.generated.resources.ic_dark_mode
+import template.shared.design.generated.resources.ic_delete
 import template.shared.design.generated.resources.ic_info
 import template.shared.design.generated.resources.ic_light_mode
 import template.shared.design.generated.resources.ic_local_drink
@@ -34,5 +35,7 @@ interface AppIconsProvider {
         get() = DrawableResourceIcon(Res.drawable.ic_wine_bar)
     val localDrink: AppIconModel
         get() = DrawableResourceIcon(Res.drawable.ic_local_drink)
+    val delete: AppIconModel
+        get() = DrawableResourceIcon(Res.drawable.ic_delete)
 
 }

@@ -6,7 +6,7 @@ import shared.presentation.navigation.NavigationDestination
 
 object SqlDelightCrudShowcase : ShowcaseItem {
 
-    override val label: String = "CRUD operations on an SQL table"
+    override val label: String = "SQL CRUD"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
         viewModel.navigationState.onNext(SqlDelightCrudDestination)
