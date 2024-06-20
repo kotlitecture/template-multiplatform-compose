@@ -8,8 +8,13 @@
 - Desktop (Windows, MacOS, Linux)
 - Backend (Server)
 
+```
+All target platforms are optional and will be included only if selected during configuration, along with any features.
+```
+
 ## Table of Contents
 
+- [Overview](#overview)
 - [Get started](#get-started)
 - [Architecture](#architecture)
 - [Documentation](#documentation)
@@ -17,9 +22,7 @@
 - [How to use](#how-to-use)
 - [Features](#features)
 
-```
-All target platforms are optional and will be included only if selected during configuration, along with any features.
-```
+# Overview
 
 The template follows the general principals:
 
