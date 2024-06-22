@@ -14,6 +14,7 @@ object Rules {
     const val BuildGradleBackend = "backend/build.gradle.kts"
     const val BuildGradleSharedData = "shared/data/build.gradle.kts"
     const val BuildGradleSharedDesign = "shared/design/build.gradle.kts"
+    const val BuildGradleSharedDomain = "shared/domain/build.gradle.kts"
     // proguard
     const val ProguardRulesPro = "app/assemble/proguard-rules.pro"
 

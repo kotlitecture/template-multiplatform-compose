@@ -24,9 +24,9 @@ kotlin {
         browser()
     }
     // {platform.js.target}
-    // {platform.jvm.target}
+    // {platform.shared.domain}
     jvm()
-    // {platform.jvm.target}
+    // {platform.shared.domain}
     applyDefaultHierarchyTemplate()
     sourceSets {
         commonMain.dependencies {
