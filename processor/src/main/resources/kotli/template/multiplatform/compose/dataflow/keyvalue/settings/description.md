@@ -1,1 +1,3 @@
-Key-value storage API utilizing platform-specific storage to store data of any type using the common code.
+During the application lifecycle, it may be necessary to persist data across app reopenings (for example, chosen language, theme, font size, and other preferences).
+
+Key-value storage provides an efficient way to store and retrieve such data using a simple yet powerful API that can manage data of any complexity.

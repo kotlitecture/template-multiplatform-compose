@@ -1,7 +1,0 @@
-# Usage
-
-## Run
-
-```
-./gradlew jsBrowserRun
-```

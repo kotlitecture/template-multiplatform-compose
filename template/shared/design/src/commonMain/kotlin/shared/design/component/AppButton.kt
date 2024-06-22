@@ -3,6 +3,7 @@ package shared.design.component
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -71,6 +72,26 @@ fun AppElevatedButton(
     text: String
 ) {
     ElevatedButton(
+        modifier = modifier,
+        onClick = onClick,
+        content = { AppText(text = text) }
+    )
+}
+
+/**
+ * Outlined button with text.
+ *
+ * @param modifier Modifier to be applied to the button.
+ * @param onClick Callback to be invoked when the button is clicked.
+ * @param text Text to be displayed on the button.
+ */
+@Composable
+fun AppOutlinedButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    text: String
+) {
+    OutlinedButton(
         modifier = modifier,
         onClick = onClick,
         content = { AppText(text = text) }

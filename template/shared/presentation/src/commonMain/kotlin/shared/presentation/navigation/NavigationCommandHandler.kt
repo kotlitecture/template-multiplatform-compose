@@ -13,7 +13,8 @@ fun interface NavigationCommandHandler {
     fun handle(command: NavigationCommand)
 
     companion object {
-        fun create(context: NavigationContext? = null) =
-            NavigationCommandHandler { context?.let(it::execute) }
+        fun create(context: NavigationContext? = null) = NavigationCommandHandler { command ->
+            context?.let(command::execute)
+        }
     }
 }

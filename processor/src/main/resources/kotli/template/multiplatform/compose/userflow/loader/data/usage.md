@@ -1,10 +1,10 @@
 ## Overview
 
-Component package: `app.feature.loader.data`
+Component package: `app.ui.loader`
 
 The component is pre-configured at the `app.AppScreen` level to monitor state changes of the `app.AppState` instance.
 
-If you need to modify the behavior, including colors, texts, logic, etc., simply update the `app.feature.loader.data.DataLoaderProvider` composable.
+If you need to modify the behavior, including colors, texts, logic, etc., simply update the `app.ui.loader.LoaderProvider` composable.
 
 ## Example
 
@@ -55,4 +55,4 @@ class DataRepository(
 
 ### Usage without `app.AppState`
 
-`app.feature.loader.data.DataLoaderProvider` accepts any `StoreState` instance. As this is your code, feel free to use it as needed.
+`app.ui.loader.LoaderProvider` accepts any `StoreState` instance. As this is your code, feel free to use it as needed.

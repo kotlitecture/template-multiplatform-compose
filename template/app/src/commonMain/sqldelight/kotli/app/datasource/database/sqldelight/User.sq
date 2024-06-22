@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS user (
+  id INTEGER PRIMARY KEY NOT NULL,
+  firstName TEXT,
+  lastName TEXT
+);
+
+CREATE INDEX IF NOT EXISTS user_full_name ON user(firstName, lastName);
+
+count:
+SELECT count(*) FROM user;
+
+getAll:
+SELECT * FROM user
+ORDER BY id DESC;
+
+getAllPaginated:
+SELECT *
+FROM user
+ORDER BY id DESC
+LIMIT :limit OFFSET :offset;
+
+insert:
+INSERT INTO user(firstName, lastName)
+VALUES (?, ?);
+
+insertUser:
+INSERT INTO user
+VALUES ?;
+
+update:
+UPDATE user
+SET firstName = ?, lastName = ?
+WHERE id = ?;
+
+delete:
+DELETE FROM user WHERE id = ?;

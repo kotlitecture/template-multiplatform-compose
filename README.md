@@ -1,18 +1,36 @@
 # Compose Multiplatform Configurable Project Template
 
-Supported platforms:
+## Supported Platforms
+
 - Android
 - iOS
-- Web
+- Web (JS)
 - Desktop (Windows, MacOS, Linux)
+- Backend (Server)
+
+```
+All target platforms are optional and will be included only if selected during configuration, along with any features.
+```
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Get started](#get-started)
+- [Architecture](#architecture)
+- [Documentation](#documentation)
+- [Showcases](#showcases)
+- [How to use](#how-to-use)
+- [Features](#features)
+
+# Overview
 
 The template follows the general principals:
 
-- The underlying architecture is minimalistic, pre-configured, and complies with [the latest recommended guidelines](https://developer.android.com/modern-android-development).
+- The underlying architecture is minimalistic, pre-configured, and complies with the latest recommended guidelines.
 - Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotlitecture.com).
 - All out-of-the-box solutions work seamlessly across all supported platforms and are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
 
-# Usage
+# Get started
 
 **!IMPORTANT!** The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
 
@@ -28,7 +46,9 @@ Run your project to check what is included and how it works, and once everything
 
 ![Modules](images/concept/arch_modules.png)
 
-The overall architecture is built on:
+## Frontend
+
+The overall client architecture follows [the recommended guidelines](https://developer.android.com/modern-android-development) and is built on:
 - [Compose Multiplatform UI Framework](https://www.jetbrains.com/lp/compose-multiplatform/)
 - [Compose Multiplatform Images and resources](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-images-resources.html)
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose)
@@ -37,7 +57,7 @@ The overall architecture is built on:
 - [Material 3 Design](https://m3.material.io)
 - [Koin Dependency Injection](https://insert-koin.io)
 
-Application logic is implemented in the app module and contains only app-specific behavior.
+Application logic is implemented in the `app` module and contains only app-specific behavior.
 
 All common logic is part of the shared group, which is split into three modules:
 
@@ -47,7 +67,7 @@ All common logic is part of the shared group, which is split into three modules:
 
 These modules are used only at the app level. This approach lets you develop all three components independently and create a more complex app structure. For example, app-specific features can be implemented as separate modules, having the same shared dependencies.
 
-## Module - presentation
+### Module - presentation
 
 Provides architectural solutions to implement user flows and integrate all components with each other in a lifecycle-aware manner.
 
@@ -62,13 +82,13 @@ However, the provided implementations are very intuitive to use and cover all po
 
 Feel free to choose what fits your needs best.
 
-## Module - data
+### Module - data
 
 Provides a fundamental implementation of commonly used data sources in different apps. During project setup via [Kotli](https://kotlitecture.com), only the required data sources will be included.
 
 All data sources have been configured to access the necessary data layer in a flexible and convenient manner.
 
-## Module - design
+### Module - design
 
 Provides pre-configured themes, fonts, and UI components to establish the initial [Design System](https://en.m.wikipedia.org/wiki/Design_system) of the entire app.
 
@@ -82,7 +102,7 @@ The main idea of this module is to create a **Design System** that can be used b
 Existing composables in this module are examples and can be changed/removed based on your needs.
 ```
 
-## Module - app
+### Module - app
 
 The Application module itself contains:
 
@@ -90,6 +110,14 @@ The Application module itself contains:
 - Showcases to demonstrate some features included during [project setup](https://kotlitecture.com/project).
 
 Once you download and import the initial project structure into your IDE, the project is ready to run on a device, enabling you to understand the included functionality and start adding the required features.
+
+## Backend
+
+The server architecture is based on either the [Ktor Framework](https://ktor.io) or [Spring Boot](https://spring.io/projects/spring-boot).
+
+Backend-specific logic is implemented in the `backend` module.
+
+To enable sharing some common models between the **backend** and **frontend**, the project also includes a `domain` module as part of the **shared** group.
 
 # Documentation
 
@@ -109,6 +137,15 @@ When a project is configured and downloaded via [Kotli](https://kotlitecture.com
 |:---------------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
 | ![Showcases Overview](images/screenshots/showcases_overview.jpg) | ![Theme Dialog](images/screenshots/showcases_theme_dialog.jpg) | ![Key-Value Storage](images/screenshots/showcases_key_value_objects.jpg) |
 
+# How to use
+
+Once the project is downloaded, it includes the source code as well as a **README.md** file. This file visualizes all the features included as a table. The most useful columns in this table are:
+
+- **Overview** - A summary of the feature, including all official resources used to pre-configure this feature in the template. Use it as a reference to find any additional information related to the feature.
+- **Usage** - The main information related to using the feature. Use it as a starting point when you need to start working with the feature and don't know how to begin.
+
+For example, if you configured the project with **Web** and **iOS** platforms but don't know how to run the app on them (💀), find these platforms in the table and open their **Usage** guide.
+
 # Features
 
 The template is highly configurable, allowing you to include only the necessary features in the app.
@@ -124,14 +161,16 @@ The generated project will include a similar table in its README.MD file, but wi
 | Essentials | Material 3 | [Link](docs/Essentials/Material%203/overview.md) | - | [Link](docs/Essentials/Material%203/usage.md) |
 | Essentials | Koin | [Link](docs/Essentials/Koin/overview.md) | - | - |
 | Essentials | Gradle (Kotlin DSL) | [Link](docs/Essentials/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
-| Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | - |
-| Platform | Android | [Link](docs/Platform/Android/overview.md) | - | - |
-| Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | - |
-| Platform | Web | [Link](docs/Platform/Web/overview.md) | - | - |
+| Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | [Link](docs/Platform/iOS/usage.md) |
+| Platform | Android | [Link](docs/Platform/Android/overview.md) | - | [Link](docs/Platform/Android/usage.md) |
+| Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | [Link](docs/Platform/Desktop/usage.md) |
+| Platform | Web (JS) | [Link](docs/Platform/Web%20%28JS%29/overview.md) | - | [Link](docs/Platform/Web%20%28JS%29/usage.md) |
+| Platform | Ktor Server | [Link](docs/Platform/Ktor%20Server/overview.md) | - | [Link](docs/Platform/Ktor%20Server/usage.md) |
 | Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
 | Dataflow | Facade Config API | [Link](docs/Dataflow/Facade%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Config%20API/usage.md) |
+| Dataflow | SQLDelight | [Link](docs/Dataflow/SQLDelight/overview.md) | - | [Link](docs/Dataflow/SQLDelight/usage.md) |
 | Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
-| Dataflow | Ktor | [Link](docs/Dataflow/Ktor/overview.md) | - | [Link](docs/Dataflow/Ktor/usage.md) |
+| Dataflow | Ktor Client | [Link](docs/Dataflow/Ktor%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20Client/usage.md) |
 | Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
 | Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
 | Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |

@@ -1,2 +1,3 @@
-Basic facade API to begin configuring the layer without depending on any external implementation.
-The implementation can be provided later during the development phase, if necessary, without altering the facade logic.
+All applications operate with some read-only configurations (feature flags, URLs, etc.) required for the app to function properly in different environments.
+
+The Config API provides an intuitive facade for managing such configurations easily. This allows you to change the underlying implementation later (e.g., integrating Firebase Remote Config) without impacting the entire codebase.

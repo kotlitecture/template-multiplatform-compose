@@ -29,15 +29,15 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             Rules.AppKt,
-            RemoveMarkedLine("DataLoaderViewModel")
+            RemoveMarkedLine("LoaderViewModel")
         )
         state.onApplyRules(
             Rules.AppScreenKt,
-            RemoveMarkedLine("DataLoaderProvider")
+            RemoveMarkedLine("LoaderProvider")
         )
         state.onApplyRules(
             Rules.AppConfigSource,
-            RemoveMarkedLine("data_loader_")
+            RemoveMarkedLine("ui_loader_")
         )
     }
 

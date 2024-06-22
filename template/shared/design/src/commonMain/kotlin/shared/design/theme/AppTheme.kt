@@ -22,6 +22,7 @@ data class AppTheme(
     val colorScheme: ColorScheme
 ) : ThemeContext() {
 
+    val error: Color = colorScheme.error
     val surface: Color = colorScheme.surface
     val onSurface: Color = colorScheme.onSurface
 

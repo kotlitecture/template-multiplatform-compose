@@ -9,9 +9,11 @@ import kotli.engine.model.Layer
 import kotli.engine.model.LayerTypes
 import kotli.engine.template.rule.RenamePackage
 import kotli.engine.template.rule.ReplaceMarkedText
+import kotli.template.multiplatform.compose.common.CommonProvider
 import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
+import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsKeyValueProcessor
@@ -21,9 +23,11 @@ import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvid
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
 import kotli.template.multiplatform.compose.essentials.navigation.NavigationProvider
 import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
-import kotli.template.multiplatform.compose.platform.PlatformProvider
-import kotli.template.multiplatform.compose.platform.android.AndroidPlatformProcessor
-import kotli.template.multiplatform.compose.platform.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.ClientPlatformProvider
+import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvider
+import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
 import kotli.template.multiplatform.compose.testing.logging.kermit.KermitProcessor
@@ -60,6 +64,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     )
 
     override fun createProviders(): List<FeatureProvider> = listOf(
+        // common
+        CommonProvider,
+
         // essentials
         ToolkitProvider,
         NavigationProvider,
@@ -68,12 +75,15 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         BuildToolProvider,
 
         // platform
-        PlatformProvider,
+        ClientPlatformProvider,
+        ServerPlatformProvider,
+        SharedPlatformProvider,
 
         // dataflow
         CommonDataFlowProvider,
         AnalyticsProvider,
         ConfigProvider,
+        DatabaseProvider,
         KeyValueProvider,
         HttpProvider,
         PagingProvider,
@@ -124,7 +134,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.BuildGradleComposeApp,
+            Rules.BuildGradleApp,
             ReplaceMarkedText(
                 text = "kotli.app",
                 marker = "kotli.app",
@@ -155,9 +165,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         state.onApplyRules(
             "${Rules.CommonAppSrcDir}/*.kt",
             ReplaceMarkedText(
-                text = "import template.composeapp.",
-                marker = "import template.composeapp.",
-                replacer = "import ${name}.composeapp."
+                text = "import template.app.",
+                marker = "import template.app.",
+                replacer = "import ${name}.app."
             )
         )
         state.onApplyRules(

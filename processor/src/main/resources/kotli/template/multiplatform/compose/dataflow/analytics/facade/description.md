@@ -1,1 +1,3 @@
-Simple facade API to start working with analytics events without the actual implementation. The implementation can be provided later during the development phase without changing the facade logic.
+Sooner or later, the app may need to log events into an analytics system (Google Analytics, Amplitude, AppsFlyer, etc.).
+
+The Facade Analytics API provides a general functionality to start logging events from the beginning, even without an actual implementation. Later, you can add the required implementation without impacting the entire codebase.

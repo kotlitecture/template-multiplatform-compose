@@ -3,5 +3,5 @@
 ## Run
 
 ```
-./gradlew run
+./gradlew :app:run
 ```
