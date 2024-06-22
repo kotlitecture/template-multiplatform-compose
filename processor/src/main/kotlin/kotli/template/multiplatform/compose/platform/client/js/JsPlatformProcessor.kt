@@ -31,6 +31,10 @@ object JsPlatformProcessor : PlatformProcessor() {
             Rules.BuildGradleBackend,
             RemoveMarkedBlock(configBlock)
         )
+        state.onApplyRules(
+            Rules.AppWebPackConfigDir,
+            RemoveFile()
+        )
     }
 
 }
