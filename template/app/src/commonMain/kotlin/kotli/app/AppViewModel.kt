@@ -1,5 +1,6 @@
 package kotli.app
 
+import shared.design.component.AppSnackbarState
 import shared.presentation.BaseViewModel
 import shared.presentation.navigation.NavigationState
 
@@ -9,6 +10,7 @@ import shared.presentation.navigation.NavigationState
 class AppViewModel(
     private val navigationRouter: AppNavigationRouter,
     val navigationState: NavigationState,
+    val snackbarState: AppSnackbarState,
     val appState: AppState
 ) : BaseViewModel() {
 

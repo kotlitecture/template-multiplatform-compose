@@ -16,6 +16,7 @@ ORDER BY id DESC;
 getAllPaginated:
 SELECT *
 FROM user
+ORDER BY id DESC
 LIMIT :limit OFFSET :offset;
 
 insert:

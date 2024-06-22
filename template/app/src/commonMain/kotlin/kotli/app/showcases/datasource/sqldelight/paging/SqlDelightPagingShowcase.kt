@@ -9,7 +9,7 @@ object SqlDelightPagingShowcase : ShowcaseItem {
     override val label: String = "SQL Paging"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-//        viewModel.navigationState.onNext()
+        viewModel.navigationState.onNext(SqlDelightPagingDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

@@ -9,13 +9,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import app.cash.paging.compose.collectAsLazyPagingItems
 import kotli.app.datasource.database.sqldelight.User
 import shared.design.component.AppActionButton
 import shared.design.component.AppHorizontalDivider
+import shared.design.component.AppPagingList
 import shared.design.component.AppText
-import shared.design.component.AppTextButton
 import shared.design.container.AppFixedTopBarLazyColumn
 import shared.design.icon.AppIcons
 import shared.design.theme.AppTheme
@@ -24,37 +24,18 @@ import shared.presentation.provideViewModel
 @Composable
 fun SqlDelightPagingScreen() {
     val viewModel: SqlDelightPagingViewModel = provideViewModel()
-    val users = viewModel.usersStore.asStateValueNotNull()
+    val users = viewModel.usersFlow.collectAsLazyPagingItems()
     AppFixedTopBarLazyColumn(
         title = SqlDelightPagingShowcase.label,
         onBack = viewModel::onBack,
         content = {
-            users.forEach { user ->
-                item {
+            AppPagingList(
+                items = users,
+                itemContent = { user ->
                     UserBlock(user, viewModel::onDelete)
                 }
-            }
-            if (users.isEmpty()) {
-                item {
-                    AppText(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        text = "No users",
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
+            )
         }
-    )
-}
-
-@Composable
-private fun ActionsBlock(viewModel: SqlDelightPagingViewModel) {
-    AppTextButton(
-        modifier = Modifier.padding(16.dp),
-        onClick = viewModel::onAdd,
-        text = "Add user"
     )
 }
 

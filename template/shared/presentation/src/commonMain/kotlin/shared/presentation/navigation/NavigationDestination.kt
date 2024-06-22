@@ -182,7 +182,7 @@ abstract class NavigationDestination<D> {
         private fun extractId(route: String): String {
             return route.indexOf('?')
                 .ifIndex()
-                ?.let { route.substring(0, it) }
+                ?.let(route::take)
                 ?: route
         }
     }

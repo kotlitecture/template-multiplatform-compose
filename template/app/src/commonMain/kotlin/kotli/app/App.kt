@@ -28,6 +28,7 @@ import kotli.app.feature.navigation.samples.c.NavigationCViewModel
 import kotli.app.feature.theme.change.ChangeThemeViewModel
 import kotli.app.feature.theme.toggle.ToggleThemeViewModel
 import kotli.app.showcases.datasource.sqldelight.crud.SqlDelightCrudViewModel
+import kotli.app.showcases.datasource.sqldelight.paging.SqlDelightPagingViewModel
 import shared.presentation.ViewModelProvider
 
 /**
@@ -41,7 +42,7 @@ fun App() = ViewModelProvider(remember { AppViewModelFactory }) {
 }
 
 private val AppViewModelFactory = viewModelFactory {
-    initializer { AppViewModel(get(), get(), get()) }
+    initializer { AppViewModel(get(), get(), get(), get()) }
     initializer { AppThemeViewModel(get()) }
     initializer { AppThemePersistenceViewModel(get(), get()) }
     initializer { TemplateNoArgsViewModel(get()) }
@@ -64,4 +65,5 @@ private val AppViewModelFactory = viewModelFactory {
     initializer { PrimitiveKeyValueViewModel(get(), get()) }
     initializer { ObjectKeyValueViewModel(get(), get()) }
     initializer { SqlDelightCrudViewModel(get(), get()) }
+    initializer { SqlDelightPagingViewModel(get(), get(), get(), get()) }
 }
