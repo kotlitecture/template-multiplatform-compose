@@ -1,4 +1,4 @@
-package kotli.app.showcases.datasource.sqldelight.crud
+package kotli.app.showcases.datasource.sqldelight.paging
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import kotli.app.datasource.database.sqldelight.User
 import shared.design.component.AppActionButton
 import shared.design.component.AppHorizontalDivider
-import shared.design.component.AppOutlinedButton
 import shared.design.component.AppText
 import shared.design.component.AppTextButton
 import shared.design.container.AppFixedTopBarLazyColumn
@@ -23,13 +22,12 @@ import shared.design.theme.AppTheme
 import shared.presentation.provideViewModel
 
 @Composable
-fun SqlDelightCrudScreen() {
-    val viewModel: SqlDelightCrudViewModel = provideViewModel()
+fun SqlDelightPagingScreen() {
+    val viewModel: SqlDelightPagingViewModel = provideViewModel()
     val users = viewModel.usersStore.asStateValueNotNull()
     AppFixedTopBarLazyColumn(
-        title = SqlDelightCrudShowcase.label,
+        title = SqlDelightPagingShowcase.label,
         onBack = viewModel::onBack,
-        actions = { ActionsBlock(viewModel) },
         content = {
             users.forEach { user ->
                 item {
@@ -52,8 +50,8 @@ fun SqlDelightCrudScreen() {
 }
 
 @Composable
-private fun ActionsBlock(viewModel: SqlDelightCrudViewModel) {
-    AppOutlinedButton(
+private fun ActionsBlock(viewModel: SqlDelightPagingViewModel) {
+    AppTextButton(
         modifier = Modifier.padding(16.dp),
         onClick = viewModel::onAdd,
         text = "Add user"

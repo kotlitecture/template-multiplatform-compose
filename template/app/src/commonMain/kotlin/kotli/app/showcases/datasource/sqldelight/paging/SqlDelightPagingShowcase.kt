@@ -13,7 +13,7 @@ object SqlDelightPagingShowcase : ShowcaseItem {
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(
-
+        SqlDelightPagingDestination
     )
 
 }
