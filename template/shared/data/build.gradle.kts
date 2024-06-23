@@ -36,10 +36,15 @@ kotlin {
             }
         }
         commonMain.dependencies {
+            api(libs.kotlinx.datetime)
             api(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
             implementation(libs.multiplatform.settings.no.arg)
+            implementation(libs.touchlab.stately.concurrent.collections)
+        }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
         // {platform.android.dependencies}
         androidMain.dependencies {
