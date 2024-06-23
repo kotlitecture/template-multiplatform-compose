@@ -11,7 +11,6 @@ androidx-navigation = "2.7.0-alpha07"
 androidx-paging = "3.3.0"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
-compose-android = "1.6.7"
 compose-multiplatform = "1.6.11"
 junit = "4.13.2"
 koin = "3.6.0-Beta4"
@@ -36,8 +35,6 @@ androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navi
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "androidx-paging" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
 cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "cashapp-paging" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-android" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-android" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
