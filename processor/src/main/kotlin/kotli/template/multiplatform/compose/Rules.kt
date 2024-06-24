@@ -65,6 +65,7 @@ object Rules {
     const val UserFlowNavigationRailProvider = "${UserFlowNavigationDir}/RailProvider.kt"
     const val ShowcasesDir = "${CommonAppMainDir}/kotlin/kotli/app/showcases"
     const val ShowcasesHttpDir = "${ShowcasesDir}/datasource/http"
+    const val ShowcasesCacheDir = "${ShowcasesDir}/datasource/cache"
     const val ShowcasesPagingDir = "${ShowcasesDir}/datasource/paging"
     const val ShowcasesKeyValueDir = "${ShowcasesDir}/datasource/keyvalue"
     const val ShowcasesSqlDelightDir = "${ShowcasesDir}/datasource/sqldelight"
@@ -77,6 +78,7 @@ object Rules {
     // dataflow
     const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"
     const val AnalyticsSource = "*/*AnalyticsSource.kt"
+    const val CacheSource = "*/*CacheSource.kt"
     const val SqlDelightSource = "*/*SqlDelightSource.kt"
     const val ConfigSource = "*/*ConfigSource.kt"
     const val PagingSource = "*/*Paging*.kt"

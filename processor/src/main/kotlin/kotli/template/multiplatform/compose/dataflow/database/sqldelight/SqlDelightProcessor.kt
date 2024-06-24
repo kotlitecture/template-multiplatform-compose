@@ -1,6 +1,7 @@
 package kotli.template.multiplatform.compose.dataflow.database.sqldelight
 
 import kotli.engine.BaseFeatureProcessor
+import kotli.engine.FeatureProcessor
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.CleanupMarkedBlock
@@ -10,6 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotlin.time.Duration.Companion.hours
 
@@ -22,6 +24,10 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/2.0.2/multiplatform_sqlite/"
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
+
+    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        CommonStatelyProcessor::class.java
+    )
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
@@ -55,8 +61,10 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("touchlab-stately"),
-                RemoveMarkedLine("sqldelight")
+                RemoveMarkedLine("sqldelight"),
+                RemoveMarkedLine("stately-common"),
+                RemoveMarkedLine("stately-isolate"),
+                RemoveMarkedLine("stately-iso-collections"),
             )
         )
         state.onApplyRules(

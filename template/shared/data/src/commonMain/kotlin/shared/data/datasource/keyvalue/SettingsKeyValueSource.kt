@@ -2,7 +2,6 @@
 
 package shared.data.datasource.keyvalue
 
-import co.touchlab.stately.collections.ConcurrentMutableMap
 import com.russhwolf.settings.Settings
 import shared.data.serialization.SerializationStrategy
 

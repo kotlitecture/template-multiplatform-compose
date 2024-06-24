@@ -22,7 +22,10 @@ interface CacheKey<T> {
      * When a key is immortal, the cache entry will be initialized regardless of the component lifecycle.
      *
      * This can be useful when you need to proceed with some request without interruptions.
-     * For example, an OAuth refresh token actualization response needs to be completed and stored locally
+
+     * Another example:
+     *
+     * an OAuth refresh token actualization response needs to be completed and stored locally
      * as an atomic action, so any further calls under OAuth authorization can continue with the newly obtained token.
      * If such an action is processed on the server but interrupted and not stored on the client,
      * it is possible that the old token becomes outdated and any further request to update it will fail.

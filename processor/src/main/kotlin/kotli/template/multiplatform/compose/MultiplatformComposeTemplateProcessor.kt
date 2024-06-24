@@ -11,6 +11,7 @@ import kotli.engine.template.rule.RenamePackage
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.common.CommonProvider
 import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
+import kotli.template.multiplatform.compose.dataflow.cache.CacheProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
 import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
@@ -85,6 +86,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         ConfigProvider,
         DatabaseProvider,
         KeyValueProvider,
+        CacheProvider,
         HttpProvider,
         PagingProvider,
 

@@ -41,7 +41,7 @@ kotlin {
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
             implementation(libs.multiplatform.settings.no.arg)
-            implementation(libs.touchlab.stately.concurrent.collections)
+            implementation(libs.touchlab.stately.concurrent.collections) // {dataflow.cache.basic}
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

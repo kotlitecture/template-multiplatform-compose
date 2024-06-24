@@ -10,7 +10,8 @@ object CommonProvider : BaseFeatureProvider() {
     override fun getType(): FeatureType = FeatureTypes.Unspecified
     override fun getId(): String = "common"
     override fun createProcessors(): List<FeatureProcessor> = listOf(
-        CommonKtorProcessor
+        CommonKtorProcessor,
+        CommonStatelyProcessor
     )
 
 }
