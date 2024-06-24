@@ -133,6 +133,7 @@ open class InMemoryCacheSource(
                 }
             }
         job.invokeOnCompletion { jobs.remove(cacheKey)?.key }
+
         return job.await() as? T
     }
 
@@ -180,8 +181,11 @@ open class InMemoryCacheSource(
         }
 
         override suspend fun changes(): Flow<T> = flow<T> {
-            cache[cacheKey]?.data?.let { it as? T }?.let { emit(it) }
-            var attempt = 0
+            cache[cacheKey]?.data
+                ?.let { data -> data as? T }
+                ?.let { data -> emit(data) }
+
+            var retryAttempt = 0
             while (currentCoroutineContext().isActive) {
                 try {
                     val fresh = get()
@@ -189,11 +193,11 @@ open class InMemoryCacheSource(
                         emit(fresh)
                     }
                     delay(cacheKey.key.ttl)
-                    attempt = 0
+                    retryAttempt = 0
                 } catch (e: Exception) {
-                    attempt++
+                    retryAttempt++
                     when {
-                        attempt >= exceptionRetryCount -> throw e
+                        retryAttempt >= exceptionRetryCount -> throw e
                         else -> Unit
                     }
                 }
