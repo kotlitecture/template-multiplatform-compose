@@ -161,11 +161,6 @@ open class InMemoryCacheSource(
         }
     }
 
-    private data class CacheKeySnapshot(
-        val key: CacheKey<*>,
-        val type: KClass<*> = key::class
-    )
-
     private inner class CacheStateImpl<T>(
         override val key: CacheKey<T>,
         private val valueProvider: suspend () -> T?
@@ -173,26 +168,33 @@ open class InMemoryCacheSource(
 
         private val cacheKey = CacheKeySnapshot(key)
 
+        override suspend fun fresh(): T? = cache[cacheKey]?.invalidate().run { get() }
         override suspend fun last(): T? = cache[cacheKey]?.data as? T
         override suspend fun get(): T? = get(key, valueProvider)
-        override suspend fun fresh(): T? {
-            cache[cacheKey]?.invalidate()
-            return get()
-        }
 
         override suspend fun changes(): Flow<T> = flow<T> {
-            cache[cacheKey]?.data
+            getLastData()?.data
                 ?.let { data -> data as? T }
                 ?.let { data -> emit(data) }
 
             var retryAttempt = 0
             while (currentCoroutineContext().isActive) {
                 try {
-                    val fresh = get()
-                    if (fresh != null) {
-                        emit(fresh)
+                    val prev = getLastData()
+                    val next = get()
+
+                    if (next != null) {
+                        emit(next)
                     }
-                    delay(cacheKey.key.ttl)
+
+                    if (prev?.data != next) {
+                        delay(key.ttl)
+                    } else if (prev != null) {
+                        val now = Clock.System.now().toEpochMilliseconds()
+                        val time = key.ttl - (now - prev.createTime)
+                        delay(time)
+                    }
+
                     retryAttempt = 0
                 } catch (e: Exception) {
                     retryAttempt++
@@ -207,6 +209,13 @@ open class InMemoryCacheSource(
                 delay(changesRetryInterval)
             }
         }
+
+        private fun getLastData(): CacheData? = cache[cacheKey]
     }
+
+    private data class CacheKeySnapshot(
+        val key: CacheKey<*>,
+        val type: KClass<*> = key::class
+    )
 
 }

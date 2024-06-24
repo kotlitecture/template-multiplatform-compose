@@ -1,6 +1,7 @@
 package kotli.app.di
 
 import kotli.app.di.datasource.ProvidesAnalyticsSource
+import kotli.app.di.datasource.ProvidesCacheSource
 import kotli.app.di.datasource.ProvidesConfigSource
 import kotli.app.di.datasource.ProvidesHttpSource
 import kotli.app.di.datasource.ProvidesKeyValueSource
@@ -17,6 +18,7 @@ val koinDI = startKoin {
     modules(
         ProvidesAnalyticsSource,
         ProvidesConfigSource,
+        ProvidesCacheSource,
         ProvidesHttpSource,
         ProvidesKeyValueSource,
         ProvidesPagingSource,
