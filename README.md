@@ -170,6 +170,7 @@ The generated project will include a similar table in its README.MD file, but wi
 | Dataflow | Facade Config API | [Link](docs/Dataflow/Facade%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Config%20API/usage.md) |
 | Dataflow | SQLDelight | [Link](docs/Dataflow/SQLDelight/overview.md) | - | [Link](docs/Dataflow/SQLDelight/usage.md) |
 | Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
+| Dataflow | Basic In-Memory Cache API | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/usage.md) |
 | Dataflow | Ktor Client | [Link](docs/Dataflow/Ktor%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20Client/usage.md) |
 | Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
 | Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
