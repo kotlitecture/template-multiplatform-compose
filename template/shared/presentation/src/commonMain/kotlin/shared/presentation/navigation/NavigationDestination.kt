@@ -137,7 +137,7 @@ abstract class NavigationDestination<D> {
     @Composable
     private fun route(routeData: RouteData<D>) {
         val value = routeData.entry.arguments?.getString(ATTR_DATA)
-        val data = value?.let { argsStrategy.toObject(it) }
+        val data = value?.let(argsStrategy::toObject)
         routeData.provider.provide(data)
     }
 

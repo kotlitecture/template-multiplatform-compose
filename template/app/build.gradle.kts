@@ -149,10 +149,6 @@ android {
         sourceCompatibility(libs.versions.android.jvmTarget.get())
         targetCompatibility(libs.versions.android.jvmTarget.get())
     }
-    dependencies {
-        debugImplementation(libs.compose.ui.tooling)
-        debugImplementation(libs.compose.ui.tooling.preview)
-    }
 }
 // {platform.android.config}
 // {platform.jvm.config}

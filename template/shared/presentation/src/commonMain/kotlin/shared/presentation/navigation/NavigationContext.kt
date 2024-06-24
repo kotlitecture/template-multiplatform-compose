@@ -29,9 +29,9 @@ data class NavigationContext(
 @Stable
 @Composable
 fun rememberNavigationContext(navigationState: NavigationState): NavigationContext {
-    val navController = rememberNavController()
     val scope = rememberCoroutineScope()
-    return remember(navigationState, navController) {
+    val navController = rememberNavController()
+    return remember(navigationState, navController, scope) {
         NavigationContext(
             navigationState = navigationState,
             navController = navController,

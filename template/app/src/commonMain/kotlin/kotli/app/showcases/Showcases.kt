@@ -1,5 +1,6 @@
 package kotli.app.showcases
 
+import kotli.app.showcases.datasource.cache.basic.BasicCacheShowcase
 import kotli.app.showcases.datasource.http.basic.BasicHttpShowcase
 import kotli.app.showcases.datasource.keyvalue.`object`.ObjectKeyValueShowcase
 import kotli.app.showcases.datasource.keyvalue.primitive.PrimitiveKeyValueShowcase
@@ -25,16 +26,18 @@ object Showcases {
         ShowcaseItemGroup("Navigation + MVVM"),
         NoArgsNavigationShowcase,
         ArgsNavigationShowcase,
+        ShowcaseItemGroup("Datasource :: Cache"),
+        BasicCacheShowcase,
         ShowcaseItemGroup("Datasource :: Http"),
         BasicHttpShowcase,
         ShowcaseItemGroup("Datasource :: KeyValue"),
         PrimitiveKeyValueShowcase,
         ObjectKeyValueShowcase,
+        ShowcaseItemGroup("Datasource :: Paging"),
+        BasicPagingShowcase,
         ShowcaseItemGroup("Datasource :: SqlDelight"),
         SqlDelightCrudShowcase,
         SqlDelightPagingShowcase,
-        ShowcaseItemGroup("Datasource :: Paging"),
-        BasicPagingShowcase,
         ShowcaseItemGroup("Userflow :: Loader"),
         DataLoaderShowcase,
         ShowcaseItemGroup("Userflow :: Theme"),
