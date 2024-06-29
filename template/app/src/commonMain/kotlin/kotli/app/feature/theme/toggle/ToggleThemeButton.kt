@@ -2,7 +2,7 @@ package kotli.app.feature.theme.toggle
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.provideViewModel
 import shared.design.component.AppActionButton
 
 /**

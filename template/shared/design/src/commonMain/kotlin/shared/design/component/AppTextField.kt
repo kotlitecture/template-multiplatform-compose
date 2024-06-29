@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 import shared.design.icon.AppIcons
 
 /**
@@ -21,7 +21,7 @@ import shared.design.icon.AppIcons
 @Composable
 fun AppTextField(
     modifier: Modifier = Modifier,
-    valueStore: StoreObject<String>,
+    valueStore: DataState<String>,
     placeholder: String,
     supportingText: String? = null
 ) {

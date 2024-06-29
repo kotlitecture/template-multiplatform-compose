@@ -2,7 +2,7 @@ package kotli.app.di.datasource
 
 import kotli.app.datasource.config.AppConfigSource
 import org.koin.dsl.module
-import shared.data.datasource.http.HttpSource
+import shared.data.source.http.HttpSource
 
 val ProvidesHttpSource = module {
     single {

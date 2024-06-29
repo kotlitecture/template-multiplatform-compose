@@ -1,6 +1,6 @@
 package kotli.app.datasource.cache
 
-import shared.data.datasource.cache.InMemoryCacheSource
+import shared.data.source.cache.InMemoryCacheSource
 
 /**
  * Decorator class for working with L1 Cache.

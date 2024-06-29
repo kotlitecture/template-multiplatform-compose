@@ -5,11 +5,11 @@ import io.ktor.client.request.get
 import kotlinx.coroutines.delay
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
-import shared.data.datasource.http.HttpSource
-import shared.data.datasource.http.isHttpTimeoutException
+import shared.presentation.store.DataState
+import shared.data.source.http.HttpSource
+import shared.data.source.http.isHttpTimeoutException
 import shared.data.misc.isCancellationException
 
 class BasicHttpViewModel(
@@ -17,7 +17,7 @@ class BasicHttpViewModel(
     private val httpSource: HttpSource
 ) : BaseViewModel() {
 
-    val ipStore = StoreObject<String>()
+    val ipStore = DataState<String>()
 
     fun onBack() {
         navigationState.onBack()

@@ -8,8 +8,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.provideViewModel
-import shared.presentation.state.StoreState
+import shared.presentation.viewmodel.provideViewModel
+import shared.presentation.store.Store
 import shared.design.component.AppCard
 import shared.design.component.AppCircularProgressIndicator
 import shared.design.component.AppDialog
@@ -22,7 +22,7 @@ import shared.design.component.AppDialog
  * @param state The state object representing the current data loading state.
  */
 @Composable
-fun LoaderProvider(state: StoreState) {
+fun LoaderProvider(state: Store) {
     val viewModel: LoaderViewModel = provideViewModel()
     LaunchedEffect(state) { viewModel.onBind(state) }
     LoaderBlock(viewModel)

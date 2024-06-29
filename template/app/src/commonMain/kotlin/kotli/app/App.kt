@@ -30,7 +30,7 @@ import kotli.app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import kotli.app.ui.theme.AppThemePersistenceViewModel
 import kotli.app.ui.theme.AppThemeProvider
 import kotli.app.ui.theme.AppThemeViewModel
-import shared.presentation.ViewModelProvider
+import shared.presentation.viewmodel.ViewModelProvider
 
 /**
  * Root of the application.

@@ -1,8 +1,8 @@
 package kotli.app.feature.navigation
 
 import shared.presentation.navigation.NavigationDestination
-import shared.presentation.state.StoreObject
-import shared.presentation.state.StoreState
+import shared.presentation.store.DataState
+import shared.presentation.store.Store
 
 /**
  * Represents the state of the navigation bar.
@@ -13,15 +13,15 @@ data class NavigationBarState(
     val pages: List<NavigationBarPage>,
     val allowedDestinations: Set<NavigationDestination<*>> = emptySet(),
     val restrictedDestinations: Set<NavigationDestination<*>> = emptySet(),
-) : StoreState() {
+) : Store() {
 
     /** Store navigation visibility state. */
-    val visibilityStore: StoreObject<Boolean> = StoreObject()
+    val visibilityStore: DataState<Boolean> = DataState()
 
     /** Store object for the available pages. */
-    val pagesStore: StoreObject<List<NavigationBarPage>> = StoreObject(pages)
+    val pagesStore: DataState<List<NavigationBarPage>> = DataState(pages)
 
     /** Store object for the active page. */
-    val selectedPageStore: StoreObject<NavigationBarPage> = StoreObject()
+    val selectedPageStore: DataState<NavigationBarPage> = DataState()
 
 }

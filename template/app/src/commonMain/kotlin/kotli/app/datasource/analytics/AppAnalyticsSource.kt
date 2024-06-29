@@ -1,6 +1,6 @@
 package kotli.app.datasource.analytics
 
-import shared.data.datasource.analytics.CompositeAnalyticsSource
+import shared.data.source.analytics.CompositeAnalyticsSource
 
 /**
  * Decorator class for working with analytics events.

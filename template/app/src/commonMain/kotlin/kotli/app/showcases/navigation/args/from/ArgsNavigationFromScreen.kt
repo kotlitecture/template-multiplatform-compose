@@ -7,8 +7,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.ShowcaseHintBlock
 import kotli.app.showcases.navigation.args.ArgsNavigationShowcase
-import shared.presentation.provideViewModel
-import shared.presentation.state.StoreObject
+import shared.presentation.viewmodel.provideViewModel
+import shared.presentation.store.DataState
 import shared.design.component.AppElevatedButton
 import shared.design.component.AppTextField
 import shared.design.container.AppFixedTopBarColumn
@@ -56,7 +56,7 @@ fun ArgsNavigationFromScreen() {
 }
 
 @Composable
-private fun UserNameBlock(store: StoreObject<String>) {
+private fun UserNameBlock(store: DataState<String>) {
     AppTextField(
         modifier = Modifier
             .padding(16.dp)

@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import shared.presentation.size.ViewSize
-import shared.presentation.size.ViewSizeProvider
+import shared.presentation.ui.LayoutSize
+import shared.presentation.ui.AdaptiveLayoutProvider
 
 /**
  * Composable function to display an adaptive navigation.
@@ -16,10 +16,10 @@ import shared.presentation.size.ViewSizeProvider
  */
 @Composable
 fun AdaptiveProvider(content: @Composable () -> Unit) {
-    ViewSizeProvider { size ->
+    AdaptiveLayoutProvider { size ->
         when {
-            size <= ViewSize.Compact -> Bottom(content)
-            size < ViewSize.Large -> Rail(content)
+            size <= LayoutSize.Compact -> Bottom(content)
+            size < LayoutSize.Large -> Rail(content)
             else -> Permanent(content)
         }
     }

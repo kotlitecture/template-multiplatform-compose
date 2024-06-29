@@ -1,7 +1,7 @@
 package shared.presentation.theme
 
-import shared.presentation.state.StoreObject
-import shared.presentation.state.StoreState
+import shared.presentation.store.DataState
+import shared.presentation.store.Store
 
 /**
  * Represents the state of the theme settings within the application.
@@ -19,7 +19,7 @@ data class ThemeState(
     val defaultConfig: ThemeConfig,
     val dynamicConfig: ThemeConfig? = null,
     val availableThemes: List<ThemeContext> = emptyList(),
-) : StoreState() {
+) : Store() {
 
     private val contextById by lazy {
         val themes = availableThemes.associateBy { it.id }.toMutableMap()
@@ -32,13 +32,13 @@ data class ThemeState(
     }
 
     /** Store object for the font family. */
-    val configStore = StoreObject<ThemeConfig>()
+    val configStore = DataState<ThemeConfig>()
 
     /** Store object for the theme dark mode state. */
-    val systemDarkModeStore = StoreObject<Boolean>()
+    val systemDarkModeStore = DataState<Boolean>()
 
     /** Store object for the current theme context. */
-    val dataStore = StoreObject<ThemeData>()
+    val dataStore = DataState<ThemeData>()
 
     /**
      * Finds a theme provider by its ID.

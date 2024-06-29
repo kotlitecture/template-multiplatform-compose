@@ -1,8 +1,8 @@
 package kotli.app.feature.theme.change
 
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeState
 import kotlinx.coroutines.flow.collectLatest
@@ -22,7 +22,7 @@ class ChangeThemeViewModel(
 ) : BaseViewModel() {
 
     val configStore = themeState.configStore
-    val dynamicColorsStore = StoreObject<Boolean>()
+    val dynamicColorsStore = DataState<Boolean>()
 
     override fun doBind() {
         val dynamicConfig = themeState.dynamicConfig

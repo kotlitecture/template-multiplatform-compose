@@ -4,16 +4,16 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 
 class NavigationBarViewModel(
     private val navigationBarState: NavigationBarState,
     private val navigationState: NavigationState
 ) : BaseViewModel() {
 
-    val restrictionStore = StoreObject(true)
+    val restrictionStore = DataState(true)
     val pagesStore = navigationBarState.pagesStore
     val visibilityStore = navigationBarState.visibilityStore
     val selectedPageStore = navigationBarState.selectedPageStore

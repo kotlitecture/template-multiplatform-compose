@@ -1,6 +1,6 @@
 package shared.presentation.navigation
 
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull

@@ -16,11 +16,10 @@ import shared.design.component.AppActionButton
 import shared.design.component.AppHorizontalDivider
 import shared.design.component.AppOutlinedButton
 import shared.design.component.AppText
-import shared.design.component.AppTextButton
 import shared.design.container.AppFixedTopBarLazyColumn
 import shared.design.icon.AppIcons
 import shared.design.theme.AppTheme
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun SqlDelightCrudScreen() {

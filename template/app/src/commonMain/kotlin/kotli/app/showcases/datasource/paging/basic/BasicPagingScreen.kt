@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.cash.paging.compose.collectAsLazyPagingItems
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.provideViewModel
 import shared.design.component.AppHorizontalDivider
 import shared.design.component.AppPagingList
 import shared.design.component.AppText

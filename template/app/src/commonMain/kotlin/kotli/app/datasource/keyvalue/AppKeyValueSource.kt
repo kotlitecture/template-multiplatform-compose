@@ -1,6 +1,6 @@
 package kotli.app.datasource.keyvalue
 
-import shared.data.datasource.keyvalue.SettingsKeyValueSource
+import shared.data.source.keyvalue.SettingsKeyValueSource
 import shared.data.serialization.SerializationStrategy
 
 /**

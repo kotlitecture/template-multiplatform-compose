@@ -50,5 +50,5 @@ fun AppScaffold(
             )
         }
     )
-    AppErrorDialog(navigationState)
+    AppErrorDialog(navigationState.loadingState)
 }

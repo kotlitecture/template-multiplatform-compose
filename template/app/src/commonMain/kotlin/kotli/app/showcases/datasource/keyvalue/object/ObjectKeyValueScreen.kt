@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.ShowcaseHintBlock
-import shared.presentation.provideViewModel
-import shared.presentation.state.StoreObject
+import shared.presentation.viewmodel.provideViewModel
+import shared.presentation.store.DataState
 import shared.design.component.AppTextField
 import shared.design.container.AppFixedTopBarColumn
 
@@ -33,7 +33,7 @@ fun ObjectKeyValueScreen() {
 }
 
 @Composable
-private fun InputBlock(store: StoreObject<String>, supportStore: StoreObject<String>) {
+private fun InputBlock(store: DataState<String>, supportStore: DataState<String>) {
     AppTextField(
         modifier = Modifier
             .padding(16.dp)

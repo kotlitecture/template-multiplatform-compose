@@ -2,25 +2,25 @@ package shared.presentation.navigation
 
 import shared.presentation.navigation.command.DestinationCommand
 import shared.presentation.navigation.command.DestinationUriCommand
-import shared.presentation.state.StoreObject
-import shared.presentation.state.StoreState
+import shared.presentation.store.DataState
+import shared.presentation.store.Store
 
 /**
  * Represents the navigation state of the application, managing the destination and navigation data.
  *
- * This class extends [StoreState], providing mechanisms for managing the current navigation state.
+ * This class extends [Store], providing mechanisms for managing the current navigation state.
  *
  * @param destinations A list of navigation destinations available in the application.
  */
 class NavigationState(
     val destinations: List<NavigationDestination<*>>
-) : StoreState() {
+) : Store() {
 
     /** StoreObject to hold the initial navigation destination. */
-    val startDestinationStore: StoreObject<NavigationDestination<*>> = StoreObject()
+    val startDestinationStore: DataState<NavigationDestination<*>> = DataState()
 
     /** StoreObject to hold the current navigation destination. */
-    val currentDestinationStore: StoreObject<NavigationDestination<*>> = StoreObject()
+    val currentDestinationStore: DataState<NavigationDestination<*>> = DataState()
 
     /** StoreObject to hold the current navigation data. */
     internal var commandHandler: NavigationCommandHandler = NavigationCommandHandler.create()

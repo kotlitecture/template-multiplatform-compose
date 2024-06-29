@@ -7,7 +7,7 @@ import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
 import kotli.app.datasource.database.sqldelight.User
 import kotli.app.datasource.paging.AppPagingSource
 import shared.design.component.AppSnackbarState
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
 
 class SqlDelightPagingViewModel(

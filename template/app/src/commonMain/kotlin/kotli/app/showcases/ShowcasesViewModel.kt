@@ -1,8 +1,8 @@
 package kotli.app.showcases
 
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 
 /**
  * ViewModel for the showcases screen.
@@ -15,12 +15,12 @@ class ShowcasesViewModel(
     /**
      * Store object for managing the visibility of hints.
      */
-    val hintStore = StoreObject(false)
+    val hintStore = DataState(false)
 
     /**
      * Store object for managing the list of showcases.
      */
-    val showcasesStore = StoreObject(Showcases.all)
+    val showcasesStore = DataState(Showcases.all)
 
     /**
      * Sets the hint visibility to true.

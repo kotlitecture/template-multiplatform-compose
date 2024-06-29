@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.drop
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 import shared.data.serialization.SerializationStrategy
 
 class ObjectKeyValueViewModel(
@@ -17,8 +17,8 @@ class ObjectKeyValueViewModel(
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
-    val textStore = StoreObject<String>()
-    val supportTextStore = StoreObject<String>()
+    val textStore = DataState<String>()
+    val supportTextStore = DataState<String>()
 
     override fun doBind() {
         launchAsync("textStore") {

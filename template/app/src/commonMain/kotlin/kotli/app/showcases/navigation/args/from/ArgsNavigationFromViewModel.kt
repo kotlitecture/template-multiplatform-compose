@@ -1,15 +1,15 @@
 package kotli.app.showcases.navigation.args.from
 
 import kotli.app.showcases.navigation.args.to.ArgsNavigationToDestination
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 
 class ArgsNavigationFromViewModel(
     private val navigationState: NavigationState,
 ) : BaseViewModel() {
 
-    val userNameStore = StoreObject<String>()
+    val userNameStore = DataState<String>()
 
     fun onBack() {
         navigationState.onBack()

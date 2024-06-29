@@ -7,8 +7,8 @@ import androidx.compose.ui.unit.dp
 import kotli.app.showcases.ShowcaseHintBlock
 import shared.design.component.AppText
 import shared.design.container.AppFixedTopBarColumn
-import shared.presentation.provideViewModel
-import shared.presentation.state.StoreObject
+import shared.presentation.viewmodel.provideViewModel
+import shared.presentation.store.DataState
 
 @Composable
 fun BasicCacheScreen() {
@@ -32,7 +32,7 @@ fun BasicCacheScreen() {
 }
 
 @Composable
-private fun CacheBlock(store: StoreObject<String>) {
+private fun CacheBlock(store: DataState<String>) {
     AppText(
         modifier = Modifier.padding(horizontal = 16.dp),
         text = "Current cache value : ${store.asStateValue()}"

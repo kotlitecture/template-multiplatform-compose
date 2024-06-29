@@ -7,16 +7,16 @@ import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
 import kotli.app.datasource.database.sqldelight.User
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 
 class SqlDelightCrudViewModel(
     private val navigationState: NavigationState,
     private val databaseSource: AppSqlDelightSource
 ) : BaseViewModel() {
 
-    val usersStore = StoreObject<List<User>>(emptyList())
+    val usersStore = DataState<List<User>>(emptyList())
 
     override fun doBind() {
         launchAsync("getUsers") {

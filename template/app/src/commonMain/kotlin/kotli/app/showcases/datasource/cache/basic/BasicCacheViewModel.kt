@@ -5,18 +5,18 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.byUnicodePattern
-import shared.data.datasource.cache.CacheKey
-import shared.data.datasource.cache.CacheSource
-import shared.presentation.BaseViewModel
+import shared.data.source.cache.CacheKey
+import shared.data.source.cache.CacheSource
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 
 class BasicCacheViewModel(
     private val navigationState: NavigationState,
     private val cacheSource: CacheSource
 ) : BaseViewModel() {
 
-    val cacheStore = StoreObject<String>()
+    val cacheStore = DataState<String>()
 
     fun onBack() = navigationState.onBack()
 

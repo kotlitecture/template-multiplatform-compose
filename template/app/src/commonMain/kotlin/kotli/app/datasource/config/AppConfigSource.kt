@@ -1,6 +1,6 @@
 package kotli.app.datasource.config
 
-import shared.data.datasource.config.DelegateConfigSource
+import shared.data.source.config.DelegateConfigSource
 
 /**
  * This class represents a configuration source for application settings.

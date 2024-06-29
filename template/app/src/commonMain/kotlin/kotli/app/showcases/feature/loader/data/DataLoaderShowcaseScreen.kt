@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.ShowcaseHintBlock
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.provideViewModel
 import shared.design.component.AppElevatedButton
 import shared.design.container.AppFixedTopBarColumn
 

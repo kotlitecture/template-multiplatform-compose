@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeState
 import shared.data.serialization.SerializationStrategy

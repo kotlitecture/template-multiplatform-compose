@@ -19,7 +19,7 @@ import shared.design.component.AppText
 import shared.design.container.AppFixedTopBarLazyColumn
 import shared.design.icon.AppIcons
 import shared.design.theme.AppTheme
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun SqlDelightPagingScreen() {

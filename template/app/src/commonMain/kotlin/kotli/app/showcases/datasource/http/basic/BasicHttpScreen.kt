@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.ShowcaseHintBlock
-import shared.presentation.provideViewModel
-import shared.presentation.state.StoreObject
+import shared.presentation.viewmodel.provideViewModel
+import shared.presentation.store.DataState
 import shared.design.component.AppElevatedButton
 import shared.design.component.AppText
 import shared.design.container.AppFixedTopBarColumn
@@ -47,7 +47,7 @@ fun BasicHttpScreen() {
 }
 
 @Composable
-private fun IpBlock(ipStore: StoreObject<String>) {
+private fun IpBlock(ipStore: DataState<String>) {
     AppText(
         modifier = Modifier.padding(horizontal = 16.dp),
         text = ipStore.asStateValue()

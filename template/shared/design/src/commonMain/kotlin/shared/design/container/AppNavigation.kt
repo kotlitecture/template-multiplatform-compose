@@ -24,7 +24,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 import shared.design.component.AppIcon
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText
@@ -63,9 +63,9 @@ data class AppNavigationItem(
 @Composable
 fun AppBottomNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>
+    itemsStore: DataState<List<AppNavigationItem>>,
+    selectionStore: DataState<AppNavigationItem>,
+    visibilityStore: DataState<Boolean>
 ) {
     if (visibilityStore.asStateValue() == false) return
     val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return
@@ -92,9 +92,9 @@ fun AppBottomNavigation(
 @Composable
 fun AppDismissibleNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsStore: DataState<List<AppNavigationItem>>,
+    selectionStore: DataState<AppNavigationItem>,
+    visibilityStore: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
     val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
@@ -131,9 +131,9 @@ fun AppDismissibleNavigation(
 @Composable
 fun AppModalNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsStore: DataState<List<AppNavigationItem>>,
+    selectionStore: DataState<AppNavigationItem>,
+    visibilityStore: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
     val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
@@ -170,9 +170,9 @@ fun AppModalNavigation(
 @Composable
 fun AppPermanentNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsStore: DataState<List<AppNavigationItem>>,
+    selectionStore: DataState<AppNavigationItem>,
+    visibilityStore: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
     if (visibilityStore.asStateValue() == false) return run { content() }
@@ -206,9 +206,9 @@ fun AppPermanentNavigation(
 @Composable
 fun AppRailNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsStore: DataState<List<AppNavigationItem>>,
+    selectionStore: DataState<AppNavigationItem>,
+    visibilityStore: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
     if (visibilityStore.asStateValue() == false) return run { content() }
@@ -238,7 +238,7 @@ fun AppRailNavigation(
 }
 
 @Composable
-private fun createDrawerState(visibilityStore: StoreObject<Boolean>): DrawerState {
+private fun createDrawerState(visibilityStore: DataState<Boolean>): DrawerState {
     val initialValue = remember(visibilityStore) {
         if (visibilityStore.get() == true) {
             DrawerValue.Open
@@ -256,7 +256,7 @@ private fun createDrawerState(visibilityStore: StoreObject<Boolean>): DrawerStat
 
 @Composable
 private fun DrawerVisibilityHandler(
-    visibilityStore: StoreObject<Boolean>,
+    visibilityStore: DataState<Boolean>,
     drawerState: DrawerState
 ) {
     val visible = visibilityStore.asStateValue()

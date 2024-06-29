@@ -3,8 +3,8 @@ package shared.presentation.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
-import shared.presentation.ViewModelFactory
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.ViewModelFactory
+import shared.presentation.viewmodel.provideViewModel
 
 /**
  * Composable function responsible for providing navigation functionality to the UI.

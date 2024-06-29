@@ -31,6 +31,7 @@ kotlin {
     sourceSets {
         all {
             languageSettings {
+                optIn("kotlinx.coroutines.DelicateCoroutinesApi")
                 optIn("kotlin.io.encoding.ExperimentalEncodingApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
             }

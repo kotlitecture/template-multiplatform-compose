@@ -1,7 +1,7 @@
 package kotli.app.showcases.navigation.no_args.from
 
 import kotli.app.showcases.navigation.no_args.to.NoArgsNavigationToDestination
-import shared.presentation.BaseViewModel
+import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationState
 
 class NoArgsNavigationFromViewModel(

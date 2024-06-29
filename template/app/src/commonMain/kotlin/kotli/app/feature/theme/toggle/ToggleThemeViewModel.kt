@@ -4,8 +4,8 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.presentation.BaseViewModel
-import shared.presentation.state.StoreObject
+import shared.presentation.viewmodel.BaseViewModel
+import shared.presentation.store.DataState
 import shared.presentation.theme.ThemeState
 
 /**
@@ -17,7 +17,7 @@ class ToggleThemeViewModel(
     private val themeState: ThemeState
 ) : BaseViewModel() {
 
-    val dataStore: StoreObject<ToggleThemeData> = StoreObject()
+    val dataStore: DataState<ToggleThemeData> = DataState()
 
     override fun doBind() {
         launchAsync("doBind") {

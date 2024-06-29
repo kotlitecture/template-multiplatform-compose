@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
-import shared.presentation.ViewModelFactory
-import shared.presentation.provideViewModel
+import shared.presentation.viewmodel.ViewModelFactory
+import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun ThemeProvider(

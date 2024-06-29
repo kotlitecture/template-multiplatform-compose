@@ -6,22 +6,22 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.presentation.BaseViewModel
-import shared.presentation.state.DataState
-import shared.presentation.state.StoreObject
-import shared.presentation.state.StoreState
+import shared.presentation.viewmodel.BaseViewModel
+import shared.presentation.store.DataLoading
+import shared.presentation.store.DataState
+import shared.presentation.store.Store
 
 class LoaderViewModel(
     private val configSource: AppConfigSource
 ) : BaseViewModel() {
 
-    val isLoadingStore = StoreObject(false)
+    val isLoadingStore = DataState(false)
 
-    fun onBind(state: StoreState) {
+    fun onBind(state: Store) {
         launchAsync("dataStateStore") {
-            state.dataStateStore.asFlow()
+            state.loadingState.asFlow()
                 .filterNotNull()
-                .map { it is DataState.Loading }
+                .map { it is DataLoading.InProgress }
                 .distinctUntilChanged()
                 .collectLatest { loading ->
                     if (loading) {
