@@ -9,7 +9,7 @@ import shared.presentation.store.DataState
  * It manages the state and actions related to showcases.
  */
 class ShowcasesViewModel(
-    val navigationState: NavigationStore
+    val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     /**

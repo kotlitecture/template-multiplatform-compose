@@ -4,11 +4,11 @@ import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class TemplateViewModel(
-    private val navigationState: NavigationStore
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
 }

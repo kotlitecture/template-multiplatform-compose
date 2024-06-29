@@ -13,23 +13,23 @@ import kotlinx.coroutines.flow.map
 /**
  * ViewModel for handling theme change functionality.
  *
- * @property navigationState The navigation state to manage navigation within the app.
- * @property themeState The theme state to manage theme-related operations.
+ * @property navigationStore The navigation store to manage navigation within the app.
+ * @property themeStore The theme state to manage theme-related operations.
  */
 class ChangeThemeViewModel(
-    private val navigationState: NavigationStore,
-    private val themeState: ThemeStore
+    private val navigationStore: NavigationStore,
+    private val themeStore: ThemeStore
 ) : BaseViewModel() {
 
-    val configState = themeState.configState
+    val configState = themeStore.configState
     val dynamicColorsState = DataState<Boolean>()
 
     override fun doBind() {
-        val dynamicConfig = themeState.dynamicConfig
+        val dynamicConfig = themeStore.dynamicConfig
         if (dynamicConfig != null) {
             launchAsync("dynamicColors") {
                 val dynamicThemes = setOf(dynamicConfig.lightTheme.id, dynamicConfig.darkTheme.id)
-                themeState.configState.asFlow()
+                themeStore.configState.asFlow()
                     .filterNotNull()
                     .map { it.defaultTheme.id }
                     .map { it in dynamicThemes }
@@ -40,31 +40,31 @@ class ChangeThemeViewModel(
     }
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     fun onEnableDynamicColors() {
-        val dynamicConfig = themeState.dynamicConfig ?: return
-        val currentConfig = themeState.configState.get() ?: return
-        themeState.configState.set(copyState(dynamicConfig, currentConfig))
+        val dynamicConfig = themeStore.dynamicConfig ?: return
+        val currentConfig = themeStore.configState.get() ?: return
+        themeStore.configState.set(copyState(dynamicConfig, currentConfig))
     }
 
     fun onDisableDynamicColors() {
-        val defaultConfig = themeState.defaultConfig
-        val currentConfig = themeState.configState.get() ?: return
-        themeState.configState.set(copyState(defaultConfig, currentConfig))
+        val defaultConfig = themeStore.defaultConfig
+        val currentConfig = themeStore.configState.get() ?: return
+        themeStore.configState.set(copyState(defaultConfig, currentConfig))
     }
 
     fun onUseSystemDefault() {
-        themeState.setAuto()
+        themeStore.setAuto()
     }
 
     fun onUseLight() {
-        themeState.setLight()
+        themeStore.setLight()
     }
 
     fun onUseDark() {
-        themeState.setDark()
+        themeStore.setDark()
     }
 
     private fun copyState(to: ThemeConfig, from: ThemeConfig): ThemeConfig {

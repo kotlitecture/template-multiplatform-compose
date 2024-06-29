@@ -1,6 +1,6 @@
 package kotli.app.showcases.datasource.keyvalue.`object`
 
-import kotli.app.datasource.keyvalue.AppKeyValueSource
+import kotli.app.data.source.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
@@ -13,7 +13,7 @@ import shared.presentation.store.DataState
 import shared.data.serialization.SerializationStrategy
 
 class ObjectKeyValueViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
@@ -46,7 +46,7 @@ class ObjectKeyValueViewModel(
     }
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     @Serializable

@@ -9,7 +9,7 @@ object BasicCacheShowcase : ShowcaseItem {
     override val label: String = "Basic In-Memory Cache Usage"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(BasicCacheDestination)
+        viewModel.navigationStore.onNext(BasicCacheDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

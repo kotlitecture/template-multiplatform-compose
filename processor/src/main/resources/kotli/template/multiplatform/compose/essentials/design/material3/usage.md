@@ -1,8 +1,8 @@
 ## Overview
 
 - Component package: `app.ui.theme`
-- State management: `shared.presentation.theme.ThemeState`
-- DI integration: `app.di.state.ProvidesThemeState`
+- State management: `shared.presentation.theme.ThemeStore`
+- DI integration: `app.di.state.ProvidesThemeStore`
 
 This state instance is utilized by `app.ui.theme.AppThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
 
@@ -17,7 +17,7 @@ fun App() = ViewModelProvider(remember { AppViewModelFactory }) {
 
 ## Change Themes
 
-By default, `ThemeState` is initialized with pre-defined dark and light themes in the `design` module. To edit these themes:
+By default, `ThemeStore` is initialized with pre-defined dark and light themes in the `design` module. To edit these themes:
 
 1. Visit the [Material 3 Theme Builder](https://m3.material.io/theme-builder#/custom).
 2. Customize the desired color theme.

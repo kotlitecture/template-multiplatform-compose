@@ -9,7 +9,7 @@ object SqlDelightCrudShowcase : ShowcaseItem {
     override val label: String = "SQL CRUD"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(SqlDelightCrudDestination)
+        viewModel.navigationStore.onNext(SqlDelightCrudDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

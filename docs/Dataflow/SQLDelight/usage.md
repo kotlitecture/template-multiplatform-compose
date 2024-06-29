@@ -2,7 +2,7 @@
 
 ## Overview
 
-- Component package: `app.datasource.database.sqldelight`
+- Component package: `app.data.source.database.sqldelight`
 - DI integration: `app.di.datasource.ProvidesSqlDelightSource`
 
 The integration includes the following components:

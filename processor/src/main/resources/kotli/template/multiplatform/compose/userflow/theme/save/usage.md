@@ -2,7 +2,7 @@
 
 Component package: `app.ui.theme`
 
-The current theme state is managed by an instance of `shared.presentation.theme.ThemeState`. This class provides a `configStore` property representing the currently selected theme configuration.
+The current theme state is managed by an instance of `shared.presentation.theme.ThemeStore`. This class provides a `configStore` property representing the currently selected theme configuration.
 
 The feature utilizes `AppThemeProvider` to control the value of this property:
 - Persist its state whenever it changes.
@@ -14,19 +14,19 @@ Thus, whenever you update the current active application theme, it is automatica
 
 ```kotlin
 class ToggleThemeViewModel(
-    private val themeState: ThemeState = get()
+    private val themeStore: ThemeStore = get()
 ) : BaseViewModel() {
 
     fun onSetLightTheme() {
-        themeState.setLight()
+        themeStore.setLight()
     }
 
     fun onSetDarkTheme() {
-        themeState.setDark()
+        themeStore.setDark()
     }
 
     fun onSetCustomTheme() {
-        themeState.configStore.set(
+        themeStore.configStore.set(
             ThemeConfig(
                 ...
             )

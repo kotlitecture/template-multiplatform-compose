@@ -5,15 +5,15 @@ import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class NoArgsNavigationFromViewModel(
-    private val navigationState: NavigationStore
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     fun onNavigate() {
-        navigationState.onNext(NoArgsNavigationToDestination)
+        navigationStore.onNext(NoArgsNavigationToDestination)
     }
 
 }

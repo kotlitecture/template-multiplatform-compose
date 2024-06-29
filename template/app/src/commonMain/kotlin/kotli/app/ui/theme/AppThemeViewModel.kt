@@ -4,11 +4,11 @@ import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.theme.ThemeStore
 
 class AppThemeViewModel(
-    val themeState: ThemeStore
+    val themeStore: ThemeStore
 ) : BaseViewModel() {
 
     override fun doBind() {
-        themeState.configState.set(themeState.defaultConfig)
+        themeStore.configState.set(themeStore.defaultConfig)
     }
 
 }

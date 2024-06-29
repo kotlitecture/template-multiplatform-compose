@@ -6,17 +6,17 @@ import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class ArgsNavigationFromViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
 ) : BaseViewModel() {
 
     val userNameState = DataState<String>()
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     fun onNavigate() {
-        navigationState.onNext(
+        navigationStore.onNext(
             destination = ArgsNavigationToDestination,
             data = ArgsNavigationToDestination.Data(
                 userName = userNameState.get()

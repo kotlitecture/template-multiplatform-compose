@@ -1,8 +1,8 @@
 ## Overview
 
 The API can be accessed through:
-- `shared.data.datasource.config.ConfigSource` - facade interface at the core module level.
-- `app.datasource.config.AppConfigSource` - decorator class at the app level.
+- `shared.data.source.config.ConfigSource` - facade interface at the core module level.
+- `app.data.source.config.AppConfigSource` - decorator class at the app level.
 
 The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations. 
 

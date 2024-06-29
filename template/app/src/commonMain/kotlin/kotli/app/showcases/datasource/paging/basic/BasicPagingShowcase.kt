@@ -9,7 +9,7 @@ object BasicPagingShowcase : ShowcaseItem {
     override val label: String = "Basic Paging Usage"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(BasicPagingDestination)
+        viewModel.navigationStore.onNext(BasicPagingDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

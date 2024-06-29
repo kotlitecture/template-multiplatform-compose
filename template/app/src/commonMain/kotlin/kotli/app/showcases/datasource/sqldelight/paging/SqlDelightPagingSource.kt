@@ -6,8 +6,8 @@ import app.cash.paging.PagingSourceLoadResult
 import app.cash.paging.PagingSourceLoadResultPage
 import app.cash.paging.PagingState
 import app.cash.sqldelight.async.coroutines.awaitAsList
-import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
-import kotli.app.datasource.database.sqldelight.User
+import kotli.app.data.source.database.sqldelight.AppSqlDelightSource
+import kotli.app.data.source.database.sqldelight.User
 
 class SqlDelightPagingSource(private val databaseSource: AppSqlDelightSource) :
     PagingSource<Int, User>() {

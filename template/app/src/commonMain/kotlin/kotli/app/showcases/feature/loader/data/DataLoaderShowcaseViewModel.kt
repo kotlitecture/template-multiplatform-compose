@@ -6,16 +6,16 @@ import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class DataLoaderShowcaseViewModel(
-    private val navigationState: NavigationStore,
-    private val appState: AppStore
+    private val navigationStore: NavigationStore,
+    private val appStore: AppStore
 ) : BaseViewModel() {
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     fun onPerformAsyncAction() {
-        launchAsync("onPerformAsyncAction", appState) {
+        launchAsync("onPerformAsyncAction", appStore) {
             delay(3000L)
         }
     }

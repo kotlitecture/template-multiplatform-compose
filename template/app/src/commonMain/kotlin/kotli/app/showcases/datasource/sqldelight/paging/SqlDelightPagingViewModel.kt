@@ -3,16 +3,16 @@ package kotli.app.showcases.datasource.sqldelight.paging
 import androidx.lifecycle.viewModelScope
 import app.cash.paging.cachedIn
 import app.cash.sqldelight.async.coroutines.awaitAsOne
-import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
-import kotli.app.datasource.database.sqldelight.User
-import kotli.app.datasource.paging.AppPagingSource
-import shared.design.component.AppSnackbarState
+import kotli.app.data.source.database.sqldelight.AppSqlDelightSource
+import kotli.app.data.source.database.sqldelight.User
+import kotli.app.data.source.paging.AppPagingSource
+import shared.design.component.AppSnackbarStore
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class SqlDelightPagingViewModel(
-    private val appSnackbarState: AppSnackbarState,
-    private val navigationState: NavigationStore,
+    private val appSnackbarStore: AppSnackbarStore,
+    private val navigationStore: NavigationStore,
     private val databaseSource: AppSqlDelightSource,
     private val pagingSource: AppPagingSource,
 ) : BaseViewModel() {
@@ -29,7 +29,7 @@ class SqlDelightPagingViewModel(
     }
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     override fun doBind() {
@@ -68,7 +68,7 @@ class SqlDelightPagingViewModel(
 
     private fun showToast(message: String) {
         launchAsync("showToast") {
-            appSnackbarState.showSnackbar(message)
+            appSnackbarStore.showSnackbar(message)
         }
     }
 }

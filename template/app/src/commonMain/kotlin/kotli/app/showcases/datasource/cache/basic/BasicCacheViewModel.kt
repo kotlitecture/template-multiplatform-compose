@@ -12,13 +12,13 @@ import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class BasicCacheViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
     private val cacheSource: CacheSource
 ) : BaseViewModel() {
 
     val cacheState = DataState<String>()
 
-    fun onBack() = navigationState.onBack()
+    fun onBack() = navigationStore.onBack()
 
     override fun doBind() {
         launchAsync {

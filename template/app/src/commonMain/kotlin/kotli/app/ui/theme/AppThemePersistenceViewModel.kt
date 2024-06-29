@@ -1,6 +1,6 @@
 package kotli.app.ui.theme
 
-import kotli.app.datasource.keyvalue.AppKeyValueSource
+import kotli.app.data.source.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
@@ -14,7 +14,7 @@ import shared.data.serialization.SerializationStrategy
  * ViewModel class responsible for managing the theme state with persistence implemented by default.
  */
 class AppThemePersistenceViewModel(
-    val themeState: ThemeStore,
+    val themeStore: ThemeStore,
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
@@ -23,12 +23,12 @@ class AppThemePersistenceViewModel(
      */
     override fun doBind() {
         launchAsync("config") {
-            val key = themeState.persistentKey
+            val key = themeStore.persistentKey
             val strategy = SerializationStrategy.json(AppThemeConfigData.serializer())
             val config = keyValueSource.read(key, strategy)?.let { mapToModel(it) }
-                ?: themeState.defaultConfig
-            themeState.configState.set(config)
-            themeState.configState.asFlow()
+                ?: themeStore.defaultConfig
+            themeStore.configState.set(config)
+            themeStore.configState.asFlow()
                 .filterNotNull()
                 .filter { it !== config }
                 .map { mapToData(it) }
@@ -43,11 +43,11 @@ class AppThemePersistenceViewModel(
      * @return The mapped [ThemeConfig].
      */
     private fun mapToModel(from: AppThemeConfigData): ThemeConfig {
-        val initial = themeState.defaultConfig
+        val initial = themeStore.defaultConfig
         return initial.copy(
-            defaultTheme = themeState.getById(from.defaultThemeId) ?: initial.defaultTheme,
-            lightTheme = themeState.getById(from.lightThemeId) ?: initial.lightTheme,
-            darkTheme = themeState.getById(from.darkThemeId) ?: initial.darkTheme,
+            defaultTheme = themeStore.getById(from.defaultThemeId) ?: initial.defaultTheme,
+            lightTheme = themeStore.getById(from.lightThemeId) ?: initial.lightTheme,
+            darkTheme = themeStore.getById(from.darkThemeId) ?: initial.darkTheme,
             autoDark = from.autoDark ?: initial.autoDark
         )
     }

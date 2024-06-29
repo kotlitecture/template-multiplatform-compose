@@ -13,14 +13,14 @@ import shared.data.source.http.isHttpTimeoutException
 import shared.data.misc.isCancellationException
 
 class BasicHttpViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
     private val httpSource: HttpSource
 ) : BaseViewModel() {
 
     val ipState = DataState<String>()
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     fun onFetchIp() {

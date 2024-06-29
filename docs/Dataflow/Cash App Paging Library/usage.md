@@ -3,10 +3,10 @@
 ## Overview
 
 - DI integration: `app.di.datasource.ProvidesPagingSource`
-- Data source: `app.datasource.paging.AppPagingSource`
+- Data source: `app.data.source.paging.AppPagingSource`
 - UI component: `shared.design.component.AppPagingList`
 
-The integration includes an `AppPagingSource` class located in `app.datasource.paging` to facilitate working with the Paging Library.
+The integration includes an `AppPagingSource` class located in `app.data.source.paging` to facilitate working with the Paging Library.
 
 ## Example
 

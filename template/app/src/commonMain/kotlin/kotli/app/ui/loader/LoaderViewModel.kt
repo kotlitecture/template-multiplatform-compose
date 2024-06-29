@@ -1,6 +1,6 @@
 package kotli.app.ui.loader
 
-import kotli.app.datasource.config.AppConfigSource
+import kotli.app.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged

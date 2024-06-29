@@ -2,12 +2,12 @@ package kotli.app.showcases.datasource.paging.basic
 
 import androidx.lifecycle.viewModelScope
 import app.cash.paging.cachedIn
-import kotli.app.datasource.paging.AppPagingSource
+import kotli.app.data.source.paging.AppPagingSource
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class BasicPagingViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
     private val pagingSource: AppPagingSource
 ) : BaseViewModel() {
 
@@ -17,7 +17,7 @@ class BasicPagingViewModel(
     }
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
 }

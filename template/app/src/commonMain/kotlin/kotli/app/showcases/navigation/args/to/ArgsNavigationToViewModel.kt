@@ -4,11 +4,11 @@ import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class ArgsNavigationToViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
 ) : BaseViewModel() {
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
 }

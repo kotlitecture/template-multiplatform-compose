@@ -21,7 +21,7 @@ object ToggleThemeShowcase : ShowcaseItem {
     override val label: String = "Toggle Theme Button"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(ToggleThemeDestination)
+        viewModel.navigationStore.onNext(ToggleThemeDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

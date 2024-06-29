@@ -1,8 +1,8 @@
 ## Overview
 
 The API can be accessed through:
-- `shared.data.datasource.keyvalue.KeyValueSource` - facade interface at the core module level.
-- `app.datasource.keyvalue.AppKeyValueSource` - decorator class at the app level.
+- `shared.data.source.keyvalue.KeyValueSource` - facade interface at the core module level.
+- `app.data.source.keyvalue.AppKeyValueSource` - decorator class at the app level.
 
 The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations.
 

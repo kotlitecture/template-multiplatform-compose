@@ -6,7 +6,7 @@ import shared.design.theme.DarkThemeContext
 import shared.design.theme.LightThemeContext
 import org.koin.dsl.module
 
-val ProvidesThemeState = module {
+val ProvidesThemeStore = module {
     single {
         ThemeStore(
             defaultConfig = ThemeConfig(

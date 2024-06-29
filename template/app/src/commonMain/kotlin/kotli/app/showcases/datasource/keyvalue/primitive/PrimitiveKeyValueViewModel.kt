@@ -1,6 +1,6 @@
 package kotli.app.showcases.datasource.keyvalue.primitive
 
-import kotli.app.datasource.keyvalue.AppKeyValueSource
+import kotli.app.data.source.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
@@ -9,7 +9,7 @@ import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class PrimitiveKeyValueViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
@@ -29,7 +29,7 @@ class PrimitiveKeyValueViewModel(
     }
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
 }

@@ -9,7 +9,7 @@ object DataLoaderShowcase : ShowcaseItem {
     override val label: String = "App Data Loader"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(DataLoaderShowcaseDestination)
+        viewModel.navigationStore.onNext(DataLoaderShowcaseDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

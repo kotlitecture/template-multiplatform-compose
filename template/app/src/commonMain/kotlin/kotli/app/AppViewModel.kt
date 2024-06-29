@@ -1,6 +1,6 @@
 package kotli.app
 
-import shared.design.component.AppSnackbarState
+import shared.design.component.AppSnackbarStore
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
@@ -9,15 +9,15 @@ import shared.presentation.navigation.NavigationStore
  */
 class AppViewModel(
     private val navigationRouter: AppNavigationRouter,
-    val navigationState: NavigationStore,
-    val snackbarState: AppSnackbarState,
-    val appState: AppStore
+    val navigationStore: NavigationStore,
+    val snackbarStore: AppSnackbarStore,
+    val appStore: AppStore
 ) : BaseViewModel() {
 
     override fun doBind() {
         launchAsync("doBind") {
             val startDestination = navigationRouter.getStartDestination()
-            navigationState.setStartDestination(startDestination)
+            navigationStore.setStartDestination(startDestination)
         }
     }
 

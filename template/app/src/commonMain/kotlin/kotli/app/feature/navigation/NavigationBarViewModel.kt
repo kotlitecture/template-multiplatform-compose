@@ -9,25 +9,25 @@ import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class NavigationBarViewModel(
-    private val navigationBarState: NavigationBarStore,
-    private val navigationState: NavigationStore
+    private val navigationBarStore: NavigationBarStore,
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     val restrictionState = DataState(true)
-    val pagesState = navigationBarState.pagesState
-    val visibilityState = navigationBarState.visibilityState
-    val selectedPageState = navigationBarState.selectedPageState
+    val pagesState = navigationBarStore.pagesState
+    val visibilityState = navigationBarStore.visibilityState
+    val selectedPageState = navigationBarStore.selectedPageState
 
     override fun doBind() {
         launchAsync("doBind") {
-            val destStore = navigationState.currentDestinationState
+            val destStore = navigationStore.currentDestinationState
             pagesState.asFlow()
                 .filterNotNull()
                 .map { pages -> pages.associateBy { it.id } }
                 .flatMapLatest { pages -> destStore.asFlow().map { pages to it } }
                 .collectLatest { pair ->
-                    val restricted = navigationBarState.restrictedDestinations
-                    val allowed = navigationBarState.allowedDestinations
+                    val restricted = navigationBarStore.restrictedDestinations
+                    val allowed = navigationBarStore.allowedDestinations
                     val destination = pair.second
                     if (allowed.isNotEmpty()) {
                         restrictionState.set(!allowed.contains(destination))

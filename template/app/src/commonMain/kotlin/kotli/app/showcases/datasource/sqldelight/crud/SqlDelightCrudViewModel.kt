@@ -3,8 +3,8 @@ package kotli.app.showcases.datasource.sqldelight.crud
 import app.cash.sqldelight.async.coroutines.awaitAsList
 import app.cash.sqldelight.async.coroutines.awaitAsOne
 import app.cash.sqldelight.coroutines.asFlow
-import kotli.app.datasource.database.sqldelight.AppSqlDelightSource
-import kotli.app.datasource.database.sqldelight.User
+import kotli.app.data.source.database.sqldelight.AppSqlDelightSource
+import kotli.app.data.source.database.sqldelight.User
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
 import shared.presentation.viewmodel.BaseViewModel
@@ -12,7 +12,7 @@ import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class SqlDelightCrudViewModel(
-    private val navigationState: NavigationStore,
+    private val navigationStore: NavigationStore,
     private val databaseSource: AppSqlDelightSource
 ) : BaseViewModel() {
 
@@ -28,7 +28,7 @@ class SqlDelightCrudViewModel(
     }
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
 
     fun onAdd() = launchAsync {

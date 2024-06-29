@@ -10,7 +10,7 @@ import kotli.app.di.datasource.ProvidesSqlDelightSource
 import kotli.app.di.state.ProvidesAppState
 import kotli.app.di.state.ProvidesNavigationBarState
 import kotli.app.di.state.ProvidesNavigationState
-import kotli.app.di.state.ProvidesThemeState
+import kotli.app.di.state.ProvidesThemeStore
 import org.koin.core.context.startKoin
 
 val koinDI = startKoin {
@@ -25,7 +25,7 @@ val koinDI = startKoin {
         ProvidesSqlDelightSource,
         ProvidesNavigationBarState,
         ProvidesNavigationState,
-        ProvidesThemeState,
+        ProvidesThemeStore,
         ProvidesAppState
     )
 }

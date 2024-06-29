@@ -2,7 +2,7 @@
 
 ## Overview
 
-The data source is available within the class `shared.data.datasource.http.HttpSource`. An instance of this class can be obtained through dependency injection (DI) as a singleton in `app.di.datasource.ProvidesHttpSource`.
+The data source is available within the class `shared.data.source.http.HttpSource`. An instance of this class can be obtained through dependency injection (DI) as a singleton in `app.di.datasource.ProvidesHttpSource`.
 
 The class provides the next functionality:
 

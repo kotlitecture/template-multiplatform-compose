@@ -9,7 +9,7 @@ object ObjectKeyValueShowcase : ShowcaseItem {
     override val label: String = "Save and restore objects"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(ObjectKeyValueDestination)
+        viewModel.navigationStore.onNext(ObjectKeyValueDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

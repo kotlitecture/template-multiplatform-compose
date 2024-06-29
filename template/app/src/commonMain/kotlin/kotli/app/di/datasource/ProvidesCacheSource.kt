@@ -1,6 +1,6 @@
 package kotli.app.di.datasource
 
-import kotli.app.datasource.cache.AppCacheSource
+import kotli.app.data.source.cache.AppCacheSource
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import shared.data.source.cache.CacheSource

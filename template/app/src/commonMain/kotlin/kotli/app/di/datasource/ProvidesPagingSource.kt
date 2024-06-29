@@ -1,7 +1,7 @@
 package kotli.app.di.datasource
 
-import kotli.app.datasource.config.AppConfigSource
-import kotli.app.datasource.paging.AppPagingSource
+import kotli.app.data.source.config.AppConfigSource
+import kotli.app.data.source.paging.AppPagingSource
 import org.koin.dsl.module
 
 val ProvidesPagingSource = module {

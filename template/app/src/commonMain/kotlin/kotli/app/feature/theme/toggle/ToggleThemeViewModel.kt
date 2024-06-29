@@ -11,17 +11,17 @@ import shared.presentation.theme.ThemeStore
 /**
  * ViewModel responsible for toggling between light and dark themes.
  *
- * @param themeState The state of the theme to be toggled.
+ * @param themeStore The state of the theme to be toggled.
  */
 class ToggleThemeViewModel(
-    private val themeState: ThemeStore
+    private val themeStore: ThemeStore
 ) : BaseViewModel() {
 
     val dataState: DataState<ToggleThemeData> = DataState()
 
     override fun doBind() {
         launchAsync("doBind") {
-            themeState.dataState.asFlow()
+            themeStore.dataState.asFlow()
                 .filterNotNull()
                 .distinctUntilChanged()
                 .map { ToggleThemeData(it) }
@@ -35,9 +35,9 @@ class ToggleThemeViewModel(
     fun onToggle() {
         val data = dataState.get() ?: return
         if (data.isDark()) {
-            themeState.setLight()
+            themeStore.setLight()
         } else {
-            themeState.setDark()
+            themeStore.setDark()
         }
     }
 

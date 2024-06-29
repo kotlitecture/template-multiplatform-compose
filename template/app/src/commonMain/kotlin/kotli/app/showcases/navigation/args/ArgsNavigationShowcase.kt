@@ -11,7 +11,7 @@ object ArgsNavigationShowcase : ShowcaseItem {
     override val label: String = "Navigation with arguments"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(ArgsNavigationFromDestination)
+        viewModel.navigationStore.onNext(ArgsNavigationFromDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(

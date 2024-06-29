@@ -14,14 +14,14 @@ import shared.presentation.viewmodel.provideViewModel
 @Composable
 fun AppScreen() {
     val viewModel: AppViewModel = provideViewModel()
-    val navigationState = viewModel.navigationState
+    val navigationState = viewModel.navigationStore
     val navigationContext = rememberNavigationContext(navigationState)
     NavigationBarProvider { // {userflow.navigation}
         AppScaffold(
-            snackbarState = viewModel.snackbarState,
+            snackbarState = viewModel.snackbarStore,
             navigationContext = navigationContext,
             bottomBar = { BottomProvider() }
         )
     } // {userflow.navigation}
-    LoaderProvider(viewModel.appState)
+    LoaderProvider(viewModel.appStore)
 }

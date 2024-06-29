@@ -33,7 +33,7 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.ThemeStateKt,
+            Rules.ThemeStoreKt,
             RemoveMarkedLine(
                 marker = "theme_config",
                 singleLine = true

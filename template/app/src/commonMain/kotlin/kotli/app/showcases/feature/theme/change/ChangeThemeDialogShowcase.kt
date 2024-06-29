@@ -13,7 +13,7 @@ object ChangeThemeDialogShowcase : ShowcaseItem {
     override val label: String = "Change Theme Dialog"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationState.onNext(ChangeThemeDialogDestination)
+        viewModel.navigationStore.onNext(ChangeThemeDialogDestination)
     }
 
 }

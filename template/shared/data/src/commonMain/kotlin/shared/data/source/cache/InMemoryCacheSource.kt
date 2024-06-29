@@ -20,7 +20,7 @@ import kotlin.reflect.KClass
 
 /**
  * Basic implementation of a thread-safe cache for storing and retrieving in-memory data.
- * This cache can be utilized as an L1 Cache when managing HTTP requests, offering an efficient means
+ * This source can be utilized as an L1 Cache when managing HTTP requests, offering an efficient means
  * to present data without delays, but with the ability to update based on expiration and other conditions.
  *
  * @param changesRetryInterval The interval, in milliseconds, to retry cache changes.
