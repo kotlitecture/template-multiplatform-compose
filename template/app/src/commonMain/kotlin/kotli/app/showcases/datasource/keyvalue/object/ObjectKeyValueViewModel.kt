@@ -8,17 +8,17 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 import shared.data.serialization.SerializationStrategy
 
 class ObjectKeyValueViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
-    val textStore = DataState<String>()
-    val supportTextStore = DataState<String>()
+    val textState = DataState<String>()
+    val supportTextState = DataState<String>()
 
     override fun doBind() {
         launchAsync("textStore") {
@@ -26,8 +26,8 @@ class ObjectKeyValueViewModel(
             val serializer = SerializationStrategy.json(Data.serializer())
             val data: Data? = keyValueSource.read(key, serializer)
             data?.time?.let { updateSupportText(it) }
-            textStore.set(data?.text)
-            textStore.asFlow()
+            textState.set(data?.text)
+            textState.asFlow()
                 .drop(1)
                 .debounce(100)
                 .collectLatest { text ->
@@ -42,7 +42,7 @@ class ObjectKeyValueViewModel(
     }
 
     private fun updateSupportText(time: Instant) {
-        supportTextStore.set("Last save time: $time")
+        supportTextState.set("Last save time: $time")
     }
 
     fun onBack() {

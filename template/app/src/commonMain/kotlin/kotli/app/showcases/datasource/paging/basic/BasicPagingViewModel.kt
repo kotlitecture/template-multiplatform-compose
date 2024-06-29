@@ -4,10 +4,10 @@ import androidx.lifecycle.viewModelScope
 import app.cash.paging.cachedIn
 import kotli.app.datasource.paging.AppPagingSource
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 class BasicPagingViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
     private val pagingSource: AppPagingSource
 ) : BaseViewModel() {
 

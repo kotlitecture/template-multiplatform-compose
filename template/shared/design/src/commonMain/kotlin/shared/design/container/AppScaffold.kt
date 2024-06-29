@@ -32,7 +32,7 @@ fun AppScaffold(
     snackbarState: AppSnackbarState = remember { AppSnackbarState() }
 ) {
     val navigationState = navigationContext.navigationState
-    val startDestination = navigationState.startDestinationStore.asStateValue() ?: return
+    val startDestination = navigationState.startDestinationState.asStateValue() ?: return
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = topBar,

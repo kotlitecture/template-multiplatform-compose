@@ -30,7 +30,7 @@ fun LoaderProvider(state: Store) {
 
 @Composable
 private fun LoaderBlock(viewModel: LoaderViewModel) {
-    val isLoading = viewModel.isLoadingStore.asStateValueNotNull()
+    val isLoading = viewModel.isLoadingState.asStateValueNotNull()
     if (!isLoading) return
     AppDialog(onDismissRequest = {}) {
         Box(

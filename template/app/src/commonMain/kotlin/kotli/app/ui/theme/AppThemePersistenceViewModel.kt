@@ -7,14 +7,14 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.theme.ThemeConfig
-import shared.presentation.theme.ThemeState
+import shared.presentation.theme.ThemeStore
 import shared.data.serialization.SerializationStrategy
 
 /**
  * ViewModel class responsible for managing the theme state with persistence implemented by default.
  */
 class AppThemePersistenceViewModel(
-    val themeState: ThemeState,
+    val themeState: ThemeStore,
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
@@ -27,8 +27,8 @@ class AppThemePersistenceViewModel(
             val strategy = SerializationStrategy.json(AppThemeConfigData.serializer())
             val config = keyValueSource.read(key, strategy)?.let { mapToModel(it) }
                 ?: themeState.defaultConfig
-            themeState.configStore.set(config)
-            themeState.configStore.asFlow()
+            themeState.configState.set(config)
+            themeState.configState.asFlow()
                 .filterNotNull()
                 .filter { it !== config }
                 .map { mapToData(it) }

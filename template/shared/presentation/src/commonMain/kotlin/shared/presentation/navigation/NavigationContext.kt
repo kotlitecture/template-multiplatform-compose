@@ -16,7 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 @Immutable
 data class NavigationContext(
     val navController: NavHostController,
-    val navigationState: NavigationState,
+    val navigationState: NavigationStore,
     val scope: CoroutineScope
 )
 
@@ -28,7 +28,7 @@ data class NavigationContext(
  */
 @Stable
 @Composable
-fun rememberNavigationContext(navigationState: NavigationState): NavigationContext {
+fun rememberNavigationContext(navigationState: NavigationStore): NavigationContext {
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
     return remember(navigationState, navController, scope) {

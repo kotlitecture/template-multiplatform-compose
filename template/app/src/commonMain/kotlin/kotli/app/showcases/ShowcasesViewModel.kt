@@ -1,7 +1,7 @@
 package kotli.app.showcases
 
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 /**
@@ -9,24 +9,24 @@ import shared.presentation.store.DataState
  * It manages the state and actions related to showcases.
  */
 class ShowcasesViewModel(
-    val navigationState: NavigationState
+    val navigationState: NavigationStore
 ) : BaseViewModel() {
 
     /**
      * Store object for managing the visibility of hints.
      */
-    val hintStore = DataState(false)
+    val hintState = DataState(false)
 
     /**
      * Store object for managing the list of showcases.
      */
-    val showcasesStore = DataState(Showcases.all)
+    val showcasesState = DataState(Showcases.all)
 
     /**
      * Sets the hint visibility to true.
      */
     fun onShowHint() {
-        hintStore.set(true)
+        hintState.set(true)
     }
 
 }

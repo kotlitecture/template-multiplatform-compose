@@ -41,7 +41,7 @@ fun BasicHttpScreen() {
                 onClick = viewModel::onFetchIp,
                 text = "Fetch my ip"
             )
-            IpBlock(viewModel.ipStore)
+            IpBlock(viewModel.ipState)
         }
     )
 }

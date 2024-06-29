@@ -11,13 +11,13 @@ import shared.design.container.AppBottomNavigation
 @Composable
 fun BottomProvider(modifier: Modifier = Modifier) {
     val viewModel: NavigationBarViewModel = provideViewModel()
-    if (viewModel.restrictionStore.asStateValueNotNull()) {
+    if (viewModel.restrictionState.asStateValueNotNull()) {
         return
     }
     AppBottomNavigation(
         modifier = modifier,
-        itemsStore = viewModel.pagesStore,
-        visibilityStore = viewModel.visibilityStore,
-        selectionStore = viewModel.selectedPageStore
+        itemsState = viewModel.pagesState,
+        visibilityState = viewModel.visibilityState,
+        selectionState = viewModel.selectedPageState
     )
 }

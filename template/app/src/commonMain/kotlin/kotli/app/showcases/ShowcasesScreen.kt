@@ -29,7 +29,7 @@ import shared.design.icon.AppIcons
 @Composable
 fun ShowcasesScreen() {
     val viewModel: ShowcasesViewModel = provideViewModel()
-    val showcasesState = viewModel.showcasesStore.asStateNotNull()
+    val showcasesState = viewModel.showcasesState.asStateNotNull()
     AppFixedTopBarLazyColumn(
         title = "Showcases",
         actions = {
@@ -51,7 +51,7 @@ fun ShowcasesScreen() {
             item { AppSpacer16() }
         }
     )
-    HintBlock(viewModel.hintStore)
+    HintBlock(viewModel.hintState)
 }
 
 @Composable

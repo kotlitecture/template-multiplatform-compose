@@ -8,11 +8,11 @@ import kotli.app.datasource.database.sqldelight.User
 import kotli.app.datasource.paging.AppPagingSource
 import shared.design.component.AppSnackbarState
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 class SqlDelightPagingViewModel(
     private val appSnackbarState: AppSnackbarState,
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
     private val databaseSource: AppSqlDelightSource,
     private val pagingSource: AppPagingSource,
 ) : BaseViewModel() {

@@ -24,7 +24,7 @@ import shared.presentation.viewmodel.provideViewModel
 @Composable
 fun SqlDelightCrudScreen() {
     val viewModel: SqlDelightCrudViewModel = provideViewModel()
-    val users = viewModel.usersStore.asStateValueNotNull()
+    val users = viewModel.usersState.asStateValueNotNull()
     AppFixedTopBarLazyColumn(
         title = SqlDelightCrudShowcase.label,
         onBack = viewModel::onBack,

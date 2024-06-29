@@ -43,7 +43,7 @@ fun ArgsNavigationFromScreen() {
                     6. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
                 """.trimIndent()
             )
-            UserNameBlock(viewModel.userNameStore)
+            UserNameBlock(viewModel.userNameState)
             AppElevatedButton(
                 modifier = Modifier
                     .padding(16.dp)
@@ -61,7 +61,7 @@ private fun UserNameBlock(store: DataState<String>) {
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        valueStore = store,
+        valueState = store,
         placeholder = "User name"
     )
 }

@@ -6,23 +6,23 @@ import shared.presentation.store.DataState
 import shared.presentation.store.Store
 
 /**
- * Represents the navigation state of the application, managing the destination and navigation data.
+ * Represents the navigation store of the application, managing the destination and navigation data.
  *
  * This class extends [Store], providing mechanisms for managing the current navigation state.
  *
  * @param destinations A list of navigation destinations available in the application.
  */
-class NavigationState(
+class NavigationStore(
     val destinations: List<NavigationDestination<*>>
 ) : Store() {
 
-    /** StoreObject to hold the initial navigation destination. */
-    val startDestinationStore: DataState<NavigationDestination<*>> = DataState()
+    /** DataState to hold the initial navigation destination. */
+    val startDestinationState: DataState<NavigationDestination<*>> = DataState()
 
-    /** StoreObject to hold the current navigation destination. */
-    val currentDestinationStore: DataState<NavigationDestination<*>> = DataState()
+    /** DataState to hold the current navigation destination. */
+    val currentDestinationState: DataState<NavigationDestination<*>> = DataState()
 
-    /** StoreObject to hold the current navigation data. */
+    /** DataState to hold the current navigation data. */
     internal var commandHandler: NavigationCommandHandler = NavigationCommandHandler.create()
 
     /**
@@ -31,7 +31,7 @@ class NavigationState(
      * @param startDestination The start destination to be set.
      */
     fun setStartDestination(startDestination: NavigationDestination<*>) {
-        startDestinationStore.set(startDestination)
+        startDestinationState.set(startDestination)
     }
 
     /**

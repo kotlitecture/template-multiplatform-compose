@@ -12,14 +12,14 @@ import shared.design.container.AppPermanentNavigation
 @Composable
 fun PermanentProvider(content: @Composable () -> Unit) {
     val viewModel: NavigationBarViewModel = provideViewModel()
-    if (viewModel.restrictionStore.asStateValueNotNull()) {
+    if (viewModel.restrictionState.asStateValueNotNull()) {
         content()
         return
     }
     AppPermanentNavigation(
         content = content,
-        itemsStore = viewModel.pagesStore,
-        visibilityStore = viewModel.visibilityStore,
-        selectionStore = viewModel.selectedPageStore,
+        itemsState = viewModel.pagesState,
+        visibilityState = viewModel.visibilityState,
+        selectionState = viewModel.selectedPageState,
     )
 }

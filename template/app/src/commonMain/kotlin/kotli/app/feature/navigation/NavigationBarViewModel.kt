@@ -5,23 +5,23 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class NavigationBarViewModel(
-    private val navigationBarState: NavigationBarState,
-    private val navigationState: NavigationState
+    private val navigationBarState: NavigationBarStore,
+    private val navigationState: NavigationStore
 ) : BaseViewModel() {
 
-    val restrictionStore = DataState(true)
-    val pagesStore = navigationBarState.pagesStore
-    val visibilityStore = navigationBarState.visibilityStore
-    val selectedPageStore = navigationBarState.selectedPageStore
+    val restrictionState = DataState(true)
+    val pagesState = navigationBarState.pagesState
+    val visibilityState = navigationBarState.visibilityState
+    val selectedPageState = navigationBarState.selectedPageState
 
     override fun doBind() {
         launchAsync("doBind") {
-            val destStore = navigationState.currentDestinationStore
-            pagesStore.asFlow()
+            val destStore = navigationState.currentDestinationState
+            pagesState.asFlow()
                 .filterNotNull()
                 .map { pages -> pages.associateBy { it.id } }
                 .flatMapLatest { pages -> destStore.asFlow().map { pages to it } }
@@ -30,15 +30,15 @@ class NavigationBarViewModel(
                     val allowed = navigationBarState.allowedDestinations
                     val destination = pair.second
                     if (allowed.isNotEmpty()) {
-                        restrictionStore.set(!allowed.contains(destination))
+                        restrictionState.set(!allowed.contains(destination))
                     } else if (restricted.isNotEmpty()) {
-                        restrictionStore.set(restricted.contains(destination))
+                        restrictionState.set(restricted.contains(destination))
                     } else {
-                        restrictionStore.set(false)
+                        restrictionState.set(false)
                     }
                     destination?.id
                         ?.let(pair.first::get)
-                        ?.let(selectedPageStore::set)
+                        ?.let(selectedPageState::set)
                 }
         }
     }

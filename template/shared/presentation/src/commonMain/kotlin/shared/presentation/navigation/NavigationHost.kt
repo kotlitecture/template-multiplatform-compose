@@ -22,7 +22,7 @@ import androidx.navigation.compose.NavHost
 @Composable
 fun NavigationHost(
     modifier: Modifier = Modifier,
-    navigationState: NavigationState,
+    navigationState: NavigationStore,
     navigationContext: NavigationContext,
     startDestination: NavigationDestination<*>
 ) {
@@ -35,7 +35,7 @@ fun NavigationHost(
         builder = { navigationState.destinations.forEach { it.bind(this) } }
     )
     NavigationProvider(
-        navigationState = navigationState,
+        navigationStore = navigationState,
         navigationContext = navigationContext
     )
 }

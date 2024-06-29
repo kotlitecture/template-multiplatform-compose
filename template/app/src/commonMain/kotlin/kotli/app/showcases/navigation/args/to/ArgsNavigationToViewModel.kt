@@ -1,10 +1,10 @@
 package kotli.app.showcases.navigation.args.to
 
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 class ArgsNavigationToViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
 ) : BaseViewModel() {
 
     fun onBack() {

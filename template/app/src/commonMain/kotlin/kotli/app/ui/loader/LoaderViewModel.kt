@@ -15,7 +15,7 @@ class LoaderViewModel(
     private val configSource: AppConfigSource
 ) : BaseViewModel() {
 
-    val isLoadingStore = DataState(false)
+    val isLoadingState = DataState(false)
 
     fun onBind(state: Store) {
         launchAsync("dataStateStore") {
@@ -26,11 +26,11 @@ class LoaderViewModel(
                 .collectLatest { loading ->
                     if (loading) {
                         delay(configSource.getUiLoaderDelay())
-                        isLoadingStore.set(true)
+                        isLoadingState.set(true)
                         delay(configSource.getUiLoaderTimeout())
-                        isLoadingStore.set(false)
+                        isLoadingState.set(false)
                     } else {
-                        isLoadingStore.set(false)
+                        isLoadingState.set(false)
                     }
                 }
         }

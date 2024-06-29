@@ -8,22 +8,22 @@ import kotli.app.datasource.database.sqldelight.User
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class SqlDelightCrudViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
     private val databaseSource: AppSqlDelightSource
 ) : BaseViewModel() {
 
-    val usersStore = DataState<List<User>>(emptyList())
+    val usersState = DataState<List<User>>(emptyList())
 
     override fun doBind() {
         launchAsync("getUsers") {
             val database = databaseSource.getDatabase()
             database.userQueries.getAll().asFlow()
                 .map { query -> query.awaitAsList() }
-                .collectLatest(usersStore::set)
+                .collectLatest(usersState::set)
         }
     }
 

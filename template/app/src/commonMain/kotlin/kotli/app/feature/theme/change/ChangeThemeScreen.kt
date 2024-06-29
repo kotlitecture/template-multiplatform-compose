@@ -63,7 +63,7 @@ fun ChangeThemeLayout(
 
 @Composable
 fun DynamicColorBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
-    val use = viewModel.dynamicColorsStore.asStateValue() ?: return
+    val use = viewModel.dynamicColorsState.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dynamic_color))
         AppSpacer8()
@@ -82,7 +82,7 @@ fun DynamicColorBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
 
 @Composable
 fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
-    val config = viewModel.configStore.asStateValue() ?: return
+    val config = viewModel.configState.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dark_mode))
         AppSpacer8()

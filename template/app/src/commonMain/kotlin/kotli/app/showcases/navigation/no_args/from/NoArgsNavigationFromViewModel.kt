@@ -2,10 +2,10 @@ package kotli.app.showcases.navigation.no_args.from
 
 import kotli.app.showcases.navigation.no_args.to.NoArgsNavigationToDestination
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 class NoArgsNavigationFromViewModel(
-    private val navigationState: NavigationState
+    private val navigationState: NavigationStore
 ) : BaseViewModel() {
 
     fun onBack() {

@@ -26,7 +26,7 @@ fun BasicCacheScreen() {
                     You can navigate back and forth to this screen, but once 10 seconds have passed, the cache is updated with the new value.
                 """.trimIndent()
             )
-            CacheBlock(viewModel.cacheStore)
+            CacheBlock(viewModel.cacheState)
         }
     )
 }

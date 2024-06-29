@@ -2,16 +2,16 @@ package kotli.app
 
 import shared.design.component.AppSnackbarState
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 /**
  * ViewModel for the main screen of the application.
  */
 class AppViewModel(
     private val navigationRouter: AppNavigationRouter,
-    val navigationState: NavigationState,
+    val navigationState: NavigationStore,
     val snackbarState: AppSnackbarState,
-    val appState: AppState
+    val appState: AppStore
 ) : BaseViewModel() {
 
     override fun doBind() {

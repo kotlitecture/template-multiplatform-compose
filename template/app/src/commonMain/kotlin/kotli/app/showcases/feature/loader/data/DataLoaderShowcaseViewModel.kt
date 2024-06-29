@@ -1,13 +1,13 @@
 package kotli.app.showcases.feature.loader.data
 
-import kotli.app.AppState
+import kotli.app.AppStore
 import kotlinx.coroutines.delay
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 class DataLoaderShowcaseViewModel(
-    private val navigationState: NavigationState,
-    private val appState: AppState
+    private val navigationState: NavigationStore,
+    private val appState: AppStore
 ) : BaseViewModel() {
 
     fun onBack() {

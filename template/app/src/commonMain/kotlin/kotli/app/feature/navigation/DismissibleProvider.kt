@@ -12,14 +12,14 @@ import shared.design.container.AppDismissibleNavigation
 @Composable
 fun DismissibleProvider(content: @Composable () -> Unit) {
     val viewModel: NavigationBarViewModel = provideViewModel()
-    if (viewModel.restrictionStore.asStateValueNotNull()) {
+    if (viewModel.restrictionState.asStateValueNotNull()) {
         content()
         return
     }
     AppDismissibleNavigation(
         content = content,
-        itemsStore = viewModel.pagesStore,
-        visibilityStore = viewModel.visibilityStore,
-        selectionStore = viewModel.selectedPageStore,
+        itemsState = viewModel.pagesState,
+        visibilityState = viewModel.visibilityState,
+        selectionState = viewModel.selectedPageState,
     )
 }

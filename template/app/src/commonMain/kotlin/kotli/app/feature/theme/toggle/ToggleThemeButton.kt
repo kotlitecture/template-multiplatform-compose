@@ -13,7 +13,7 @@ import shared.design.component.AppActionButton
 @Composable
 fun ToggleThemeButton(modifier: Modifier = Modifier) {
     val viewModel: ToggleThemeViewModel = provideViewModel()
-    val data = viewModel.dataStore.asStateValue() ?: return
+    val data = viewModel.dataState.asStateValue() ?: return
     AppActionButton(
         modifier = modifier,
         onClick = viewModel::onToggle,

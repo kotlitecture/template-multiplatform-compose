@@ -25,7 +25,7 @@ fun PrimitiveKeyValueScreen() {
                     Any changes you make in the input fields will be stored. When you reopen the app, the input field will be pre-filled with the last data.
                 """.trimIndent()
             )
-            InputBlock(viewModel.textStore)
+            InputBlock(viewModel.textState)
         }
     )
 }
@@ -36,7 +36,7 @@ private fun InputBlock(store: DataState<String>) {
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        valueStore = store,
+        valueState = store,
         placeholder = "Input your text"
     )
 }

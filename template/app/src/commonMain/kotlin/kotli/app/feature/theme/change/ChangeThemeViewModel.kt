@@ -1,10 +1,10 @@
 package kotli.app.feature.theme.change
 
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 import shared.presentation.theme.ThemeConfig
-import shared.presentation.theme.ThemeState
+import shared.presentation.theme.ThemeStore
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
@@ -17,24 +17,24 @@ import kotlinx.coroutines.flow.map
  * @property themeState The theme state to manage theme-related operations.
  */
 class ChangeThemeViewModel(
-    private val navigationState: NavigationState,
-    private val themeState: ThemeState
+    private val navigationState: NavigationStore,
+    private val themeState: ThemeStore
 ) : BaseViewModel() {
 
-    val configStore = themeState.configStore
-    val dynamicColorsStore = DataState<Boolean>()
+    val configState = themeState.configState
+    val dynamicColorsState = DataState<Boolean>()
 
     override fun doBind() {
         val dynamicConfig = themeState.dynamicConfig
         if (dynamicConfig != null) {
             launchAsync("dynamicColors") {
                 val dynamicThemes = setOf(dynamicConfig.lightTheme.id, dynamicConfig.darkTheme.id)
-                themeState.configStore.asFlow()
+                themeState.configState.asFlow()
                     .filterNotNull()
                     .map { it.defaultTheme.id }
                     .map { it in dynamicThemes }
                     .distinctUntilChanged()
-                    .collectLatest(dynamicColorsStore::set)
+                    .collectLatest(dynamicColorsState::set)
             }
         }
     }
@@ -45,14 +45,14 @@ class ChangeThemeViewModel(
 
     fun onEnableDynamicColors() {
         val dynamicConfig = themeState.dynamicConfig ?: return
-        val currentConfig = themeState.configStore.get() ?: return
-        themeState.configStore.set(copyState(dynamicConfig, currentConfig))
+        val currentConfig = themeState.configState.get() ?: return
+        themeState.configState.set(copyState(dynamicConfig, currentConfig))
     }
 
     fun onDisableDynamicColors() {
         val defaultConfig = themeState.defaultConfig
-        val currentConfig = themeState.configStore.get() ?: return
-        themeState.configStore.set(copyState(defaultConfig, currentConfig))
+        val currentConfig = themeState.configState.get() ?: return
+        themeState.configState.set(copyState(defaultConfig, currentConfig))
     }
 
     fun onUseSystemDefault() {

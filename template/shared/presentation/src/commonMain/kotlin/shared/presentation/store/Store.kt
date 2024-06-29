@@ -13,7 +13,7 @@ import androidx.compose.runtime.Immutable
 abstract class Store {
 
     /** Store object to hold the [DataLoading]. */
-    val loadingState by lazy { DataState<DataLoading>() }
+    val loadingState: DataState<DataLoading> by lazy(::DataState)
 
     /**
      * Sets the loading state to 'loaded' for the specified identifier.

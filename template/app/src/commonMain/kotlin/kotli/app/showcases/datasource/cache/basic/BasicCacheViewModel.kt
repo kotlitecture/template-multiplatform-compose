@@ -8,15 +8,15 @@ import kotlinx.datetime.format.byUnicodePattern
 import shared.data.source.cache.CacheKey
 import shared.data.source.cache.CacheSource
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class BasicCacheViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
     private val cacheSource: CacheSource
 ) : BaseViewModel() {
 
-    val cacheStore = DataState<String>()
+    val cacheState = DataState<String>()
 
     fun onBack() = navigationState.onBack()
 
@@ -24,7 +24,7 @@ class BasicCacheViewModel(
         launchAsync {
             val cacheKey = SimpleCacheKey()
             val cacheEntry = cacheSource.get(cacheKey, ::getDateAsFormattedString)
-            cacheEntry.changes().collectLatest(cacheStore::set)
+            cacheEntry.changes().collectLatest(cacheState::set)
         }
     }
 

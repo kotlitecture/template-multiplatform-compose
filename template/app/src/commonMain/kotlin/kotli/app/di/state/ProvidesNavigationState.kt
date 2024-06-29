@@ -9,11 +9,11 @@ import kotli.app.feature.navigation.samples.c.NavigationCDestination
 import kotli.app.feature.theme.change.ChangeThemeDestination
 import kotli.app.feature.theme.change.ChangeThemeDialogDestination
 import org.koin.dsl.module
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 
 val ProvidesNavigationState = module {
     single {
-        NavigationState(
+        NavigationStore(
             destinations = listOf(
                 ShowcasesDestination,
                 TemplateDestination,

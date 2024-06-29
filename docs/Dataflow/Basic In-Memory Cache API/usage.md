@@ -30,7 +30,7 @@ class BasicCacheViewModel(
     private val cacheSource: CacheSource = get()
 ) : BaseViewModel() {
 
-    val cacheStore = StoreObject<String>()
+    val cacheStore = DataState<String>()
 
     override fun doBind() {
         launchAsync {

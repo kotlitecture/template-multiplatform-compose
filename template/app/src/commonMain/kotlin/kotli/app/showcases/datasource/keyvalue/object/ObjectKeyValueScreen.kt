@@ -27,7 +27,7 @@ fun ObjectKeyValueScreen() {
                     Additionally, the date of the last save will be displayed.
                 """.trimIndent()
             )
-            InputBlock(viewModel.textStore, viewModel.supportTextStore)
+            InputBlock(viewModel.textState, viewModel.supportTextState)
         }
     )
 }
@@ -38,7 +38,7 @@ private fun InputBlock(store: DataState<String>, supportStore: DataState<String>
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        valueStore = store,
+        valueState = store,
         placeholder = "Input your text",
         supportingText = supportStore.asStateValue()
     )

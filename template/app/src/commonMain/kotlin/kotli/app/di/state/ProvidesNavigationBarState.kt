@@ -2,21 +2,21 @@ package kotli.app.di.state
 
 import androidx.compose.runtime.Composable
 import kotli.app.feature.navigation.NavigationBarPage
-import kotli.app.feature.navigation.NavigationBarState
+import kotli.app.feature.navigation.NavigationBarStore
 import kotli.app.feature.navigation.samples.a.NavigationADestination
 import kotli.app.feature.navigation.samples.b.NavigationBDestination
 import kotli.app.feature.navigation.samples.c.NavigationCDestination
 import kotli.app.showcases.ShowcasesDestination
 import org.koin.dsl.module
 import shared.presentation.navigation.NavigationDestination
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.navigation.NavigationStrategy
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
 
 val ProvidesNavigationBarState = module {
     single {
-        NavigationBarState(
+        NavigationBarStore(
             pages = listOf(
                 // start {showcases}
                 createPage(
@@ -58,7 +58,7 @@ val ProvidesNavigationBarState = module {
 }
 
 private fun <D> createPage(
-    navigationState: NavigationState,
+    navigationState: NavigationStore,
     destination: NavigationDestination<D>,
     getInactiveIcon: () -> AppIconModel,
     getActiveIcon: () -> AppIconModel,
@@ -76,7 +76,7 @@ private fun <D> createPage(
 }
 
 private fun <D> navigate(
-    navigationState: NavigationState,
+    navigationState: NavigationStore,
     destination: NavigationDestination<D>
 ) {
     navigationState.onNext(

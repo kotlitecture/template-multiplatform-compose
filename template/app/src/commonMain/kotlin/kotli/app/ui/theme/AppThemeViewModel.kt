@@ -1,14 +1,14 @@
 package kotli.app.ui.theme
 
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.theme.ThemeState
+import shared.presentation.theme.ThemeStore
 
 class AppThemeViewModel(
-    val themeState: ThemeState
+    val themeState: ThemeStore
 ) : BaseViewModel() {
 
     override fun doBind() {
-        themeState.configStore.set(themeState.defaultConfig)
+        themeState.configState.set(themeState.defaultConfig)
     }
 
 }

@@ -10,7 +10,7 @@ import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun ThemeProvider(
-    state: ThemeState,
+    state: ThemeStore,
     content: @Composable () -> Unit
 ) {
     val viewModel: ThemeViewModel = provideViewModel(factory = remember { ViewModelFactory })
@@ -20,16 +20,16 @@ fun ThemeProvider(
 }
 
 @Composable
-private fun SystemDarkModeHandler(state: ThemeState) {
+private fun SystemDarkModeHandler(state: ThemeStore) {
     val systemDarkMode = isSystemInDarkTheme()
     LaunchedEffect(systemDarkMode) {
-        state.systemDarkModeStore.set(systemDarkMode)
+        state.systemDarkModeState.set(systemDarkMode)
     }
 }
 
 @Composable
-private fun ThemeSwitchHandler(state: ThemeState, content: @Composable () -> Unit) {
-    val data = state.dataStore.asStateValue() ?: return
+private fun ThemeSwitchHandler(state: ThemeStore, content: @Composable () -> Unit) {
+    val data = state.dataState.asStateValue() ?: return
     val theme = data.context
     CompositionLocalProvider(ThemeContext.localThemeContext provides theme) {
         theme.apply(data.fontFamily, content)

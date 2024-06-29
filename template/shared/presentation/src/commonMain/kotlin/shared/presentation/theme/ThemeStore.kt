@@ -14,7 +14,7 @@ import shared.presentation.store.Store
  * @property dynamicConfig the dynamic config to use if such can be provided.
  * @property availableThemes The list of all available theme data providers.
  */
-data class ThemeState(
+data class ThemeStore(
     val persistentKey: String = "theme_config",
     val defaultConfig: ThemeConfig,
     val dynamicConfig: ThemeConfig? = null,
@@ -31,14 +31,14 @@ data class ThemeState(
         themes
     }
 
-    /** Store object for the font family. */
-    val configStore = DataState<ThemeConfig>()
+    /** State of the font family. */
+    val configState = DataState<ThemeConfig>()
 
-    /** Store object for the theme dark mode state. */
-    val systemDarkModeStore = DataState<Boolean>()
+    /** State of the theme dark mode. */
+    val systemDarkModeState = DataState<Boolean>()
 
-    /** Store object for the current theme context. */
-    val dataStore = DataState<ThemeData>()
+    /** State of the current theme context. */
+    val dataState = DataState<ThemeData>()
 
     /**
      * Finds a theme provider by its ID.
@@ -54,8 +54,8 @@ data class ThemeState(
      * Sets the theme to light mode.
      */
     fun setLight() {
-        val config = configStore.get() ?: defaultConfig
-        configStore.set(
+        val config = configState.get() ?: defaultConfig
+        configState.set(
             config.copy(
                 autoDark = false,
                 defaultTheme = config.lightTheme
@@ -67,8 +67,8 @@ data class ThemeState(
      * Sets the theme to dark mode.
      */
     fun setDark() {
-        val config = configStore.get() ?: defaultConfig
-        configStore.set(
+        val config = configState.get() ?: defaultConfig
+        configState.set(
             config.copy(
                 autoDark = false,
                 defaultTheme = config.darkTheme
@@ -80,8 +80,8 @@ data class ThemeState(
      * Sets the theme to auto mode.
      */
     fun setAuto() {
-        val config = configStore.get() ?: defaultConfig
-        configStore.set(config.copy(autoDark = true))
+        val config = configState.get() ?: defaultConfig
+        configState.set(config.copy(autoDark = true))
     }
 
 }

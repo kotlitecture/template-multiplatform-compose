@@ -5,21 +5,21 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
 import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationState
+import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 
 class PrimitiveKeyValueViewModel(
-    private val navigationState: NavigationState,
+    private val navigationState: NavigationStore,
     private val keyValueSource: AppKeyValueSource
 ) : BaseViewModel() {
 
-    val textStore = DataState<String>()
+    val textState = DataState<String>()
 
     override fun doBind() {
         launchAsync("textStore") {
             val key = "my_primitive"
-            textStore.set(keyValueSource.read(key))
-            textStore.asFlow()
+            textState.set(keyValueSource.read(key))
+            textState.asFlow()
                 .drop(1)
                 .debounce(100)
                 .collectLatest { text ->
