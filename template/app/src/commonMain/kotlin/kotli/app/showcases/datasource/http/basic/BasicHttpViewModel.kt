@@ -10,7 +10,7 @@ import shared.presentation.navigation.NavigationState
 import shared.presentation.state.StoreObject
 import shared.data.datasource.http.HttpSource
 import shared.data.datasource.http.isHttpTimeoutException
-import shared.data.misc.extensions.isCancellationException
+import shared.data.misc.isCancellationException
 
 class BasicHttpViewModel(
     private val navigationState: NavigationState,

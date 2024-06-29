@@ -18,7 +18,8 @@ import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.Clock
-import shared.data.misc.extensions.isCancellationException
+import shared.data.misc.isCancellationException
+import kotlin.jvm.Transient
 import kotlin.reflect.KClass
 
 /**
@@ -40,20 +41,8 @@ open class InMemoryCacheSource(
     private val jobs = ConcurrentMutableMap<CacheKeySnapshot, Deferred<*>>()
     private val cache = ConcurrentMutableMap<CacheKeySnapshot, CacheData>()
 
-    override fun <T> getState(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheState<T> =
+    override fun <T> get(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheEntry<T> =
         CacheStateImpl(key, valueProvider)
-
-    override suspend fun <T> get(key: CacheKey<T>, valueProvider: suspend () -> T?): T? {
-        val cacheKey = CacheKeySnapshot(key)
-        val cacheItem = cache[cacheKey]
-        if (cacheItem == null || !cacheItem.isValid(key.ttl)) {
-            val data = getValue(cacheKey, valueProvider) ?: return null
-            cache[cacheKey] = CacheData(data)
-            return data
-        } else {
-            return cacheItem.data as T?
-        }
-    }
 
     override fun <T> put(key: CacheKey<T>, value: T) {
         val cacheKey = CacheKeySnapshot(key)
@@ -61,7 +50,7 @@ open class InMemoryCacheSource(
     }
 
     override fun clear() {
-        jobs.onEach { it.value.cancel() }
+        jobs.onEach { job -> job.value.cancel() }
         jobs.clear()
         cache.clear()
     }
@@ -141,6 +130,8 @@ open class InMemoryCacheSource(
         val data: Any?,
         val createTime: Long = Clock.System.now().toEpochMilliseconds()
     ) {
+
+        @Transient
         private var invalid: Boolean = false
 
         fun isValid(ttl: Long): Boolean = when {
@@ -164,13 +155,24 @@ open class InMemoryCacheSource(
     private inner class CacheStateImpl<T>(
         override val key: CacheKey<T>,
         private val valueProvider: suspend () -> T?
-    ) : CacheState<T> {
+    ) : CacheEntry<T> {
 
         private val cacheKey = CacheKeySnapshot(key)
 
-        override suspend fun fresh(): T? = cache[cacheKey]?.invalidate().run { get() }
+        override suspend fun fresh(): T? = cache[cacheKey]?.invalidate().run { value() }
         override suspend fun last(): T? = cache[cacheKey]?.data as? T
-        override suspend fun get(): T? = get(key, valueProvider)
+
+        override suspend fun value(): T? {
+            val cacheKey = CacheKeySnapshot(key)
+            val cacheItem = cache[cacheKey]
+            if (cacheItem == null || !cacheItem.isValid(key.ttl)) {
+                val data = getValue(cacheKey, valueProvider) ?: return null
+                cache[cacheKey] = CacheData(data)
+                return data
+            } else {
+                return cacheItem.data as T?
+            }
+        }
 
         override suspend fun changes(): Flow<T> = flow<T> {
             getLastData()?.data
@@ -181,7 +183,7 @@ open class InMemoryCacheSource(
             while (currentCoroutineContext().isActive) {
                 try {
                     val prev = getLastData()
-                    val next = get()
+                    val next = value()
 
                     if (next != null) {
                         emit(next)

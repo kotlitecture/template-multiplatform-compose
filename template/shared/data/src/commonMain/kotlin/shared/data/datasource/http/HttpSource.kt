@@ -1,6 +1,7 @@
 package shared.data.datasource.http
 
 import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
 import io.ktor.client.network.sockets.ConnectTimeoutException
 import io.ktor.client.network.sockets.SocketTimeoutException
 import io.ktor.client.plugins.BrowserUserAgent
@@ -28,7 +29,8 @@ import shared.data.datasource.DataSource
 class HttpSource(
     private val retries: Int = 0,
     private val timeout: Long = 15_000L,
-    private val retryInterval: Long = 3_000L
+    private val retryInterval: Long = 3_000L,
+    private val config: HttpClientConfig<*>.() -> Unit = {}
 ) : DataSource {
 
     /** https://ktor.io/docs/client-create-multiplatform-application.html */
@@ -60,6 +62,7 @@ class HttpSource(
                 contentType(ContentType.Application.Json)
                 accept(ContentType.Application.Json)
             }
+            config(this)
         }
     }
 

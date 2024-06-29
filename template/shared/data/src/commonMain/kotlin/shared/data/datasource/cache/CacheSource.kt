@@ -13,24 +13,14 @@ import kotlin.reflect.KClass
 interface CacheSource : DataSource {
 
     /**
-     * Retrieves the state of a cache entry associated with the specified key.
+     * Retrieves the cache entry associated with the specified key.
      * If the entry is not found in the cache, the provided value provider function is invoked to obtain the value.
      *
      * @param key The cache key associated with the entry.
      * @param valueProvider A suspend function that provides the value if the cache entry is not found.
      * @return A CacheState object representing the state of the cache entry.
      */
-    fun <T> getState(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheState<T>
-
-    /**
-     * Retrieves the value associated with the specified key from the cache.
-     * If the value is not found in the cache, the provided value provider function is invoked to obtain the value.
-     *
-     * @param key The cache key associated with the value.
-     * @param valueProvider A suspend function that provides the value if it is not found in the cache.
-     * @return The value associated with the key, or null if not found.
-     */
-    suspend fun <T> get(key: CacheKey<T>, valueProvider: suspend () -> T?): T?
+    fun <T> get(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheEntry<T>
 
     /**
      * Invalidates all cache entries associated with the specified key type.

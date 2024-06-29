@@ -1,4 +1,4 @@
-package shared.data.misc.extensions
+package shared.data.misc
 
 import kotlinx.coroutines.CancellationException
 

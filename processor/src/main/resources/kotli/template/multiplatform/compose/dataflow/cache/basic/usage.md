@@ -8,8 +8,7 @@ The difference is that the class serves as a **decorator** and can provide extra
 
 Facade **CacheSource** provides the following methods:
 
-- `getState(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheState<T>` - Retrieves the state of a cache entry associated with the specified key.
-- `get(key: CacheKey<T>, valueProvider: suspend () -> T?): T?` - Retrieves the value associated with the specified key from the cache.
+- `get(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheEntry<T>` - Retrieves the cache entry associated with the specified key.
 - `invalidate(type: Class<K>)` - Invalidates all cache entries associated with the specified key type.
 - `invalidate(key: K)` - Invalidates the cache entry associated with the specified key.
 - `remove(type: Class<K>)` - Removes all cache entries associated with the specified key type.
@@ -33,8 +32,8 @@ class BasicCacheViewModel(
     override fun doBind() {
         launchAsync {
             val cacheKey = SimpleCacheKey()
-            val cacheState = cacheSource.getState(cacheKey, ::getDateAsFormattedString)
-            cacheState.changes().collectLatest(cacheStore::set)
+            val cacheEntry = cacheSource.get(cacheKey, ::getDateAsFormattedString)
+            cacheEntry.changes().collectLatest(cacheStore::set)
         }
     }
 

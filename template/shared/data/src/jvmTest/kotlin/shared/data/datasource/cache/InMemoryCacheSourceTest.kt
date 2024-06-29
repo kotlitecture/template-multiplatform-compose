@@ -26,6 +26,7 @@ class InMemoryCacheSourceTest {
                         delay(2.seconds)
                         iteration
                     }
+                    .value()
                     ?.let(cached::add)
             }
         }
@@ -46,6 +47,7 @@ class InMemoryCacheSourceTest {
                         delay(1.seconds)
                         UUID.randomUUID()
                     }
+                    .value()
                     ?.let(cached::add)
             }
         }
@@ -56,15 +58,15 @@ class InMemoryCacheSourceTest {
     @Test
     fun `check cached state logic`() = runBlocking {
         val key = UUIDCacheKey(Int.MAX_VALUE, ttl = 100)
-        val valueState = cache.getState(key) { UUID.randomUUID() }
-        val value1 = valueState.get()
-        val value1Last = valueState.last()
+        val entry = cache.get(key) { UUID.randomUUID() }
+        val value1 = entry.value()
+        val value1Last = entry.last()
         delay(100)
-        val value2 = valueState.get()
+        val value2 = entry.value()
         delay(100)
         assertNotEquals(value1, value2)
         assertEquals(value1, value1Last)
-        assertNotEquals(value2, valueState.get())
+        assertNotEquals(value2, entry.value())
     }
 
     private data class TestCacheKey(

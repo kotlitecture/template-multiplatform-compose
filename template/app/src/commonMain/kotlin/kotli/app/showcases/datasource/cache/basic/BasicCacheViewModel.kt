@@ -23,8 +23,8 @@ class BasicCacheViewModel(
     override fun doBind() {
         launchAsync {
             val cacheKey = SimpleCacheKey()
-            val cacheState = cacheSource.getState(cacheKey, ::getDateAsFormattedString)
-            cacheState.changes().collectLatest(cacheStore::set)
+            val cacheEntry = cacheSource.get(cacheKey, ::getDateAsFormattedString)
+            cacheEntry.changes().collectLatest(cacheStore::set)
         }
     }
 
