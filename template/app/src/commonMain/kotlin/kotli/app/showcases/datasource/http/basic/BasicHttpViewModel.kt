@@ -32,7 +32,7 @@ class BasicHttpViewModel(
                 delay(500)
                 ipState.set("Proceed fetching…")
                 val url = "https://api64.ipify.org?format=json"
-                val ipData = httpSource.ktor.get(url).body<IpData>()
+                val ipData = httpSource.client.get(url).body<IpData>()
                 ipState.set(ipData.ip)
             } catch (e: Throwable) {
                 if (!e.isCancellationException() && !e.isHttpTimeoutException()) {

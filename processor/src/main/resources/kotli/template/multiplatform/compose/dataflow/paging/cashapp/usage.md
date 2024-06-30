@@ -1,6 +1,6 @@
 ## Overview
 
-- DI integration: `app.di.datasource.ProvidesPagingSource`
+- DI integration: `app.di.data.PagingSourceModule`
 - Data source: `app.data.source.paging.AppPagingSource`
 - UI component: `shared.design.component.AppPagingList`
 

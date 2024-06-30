@@ -1,10 +1,10 @@
-package kotli.app.di.datasource
+package kotli.app.di.data
 
 import kotli.app.data.source.config.AppConfigSource
 import org.koin.dsl.module
 import shared.data.source.http.HttpSource
 
-val ProvidesHttpSource = module {
+val httpSourceModule = module {
     single {
         val config: AppConfigSource = get()
         HttpSource(

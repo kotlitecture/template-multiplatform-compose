@@ -34,7 +34,7 @@ class HttpSource(
 ) : DataSource {
 
     /** https://ktor.io/docs/client-create-multiplatform-application.html */
-    val ktor by lazy {
+    val client by lazy {
         HttpClient {
             install(ContentNegotiation) {
                 json(

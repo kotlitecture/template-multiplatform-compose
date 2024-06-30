@@ -1,12 +1,12 @@
 package kotli.app.di
 
-import kotli.app.di.datasource.ProvidesAnalyticsSource
-import kotli.app.di.datasource.ProvidesCacheSource
-import kotli.app.di.datasource.ProvidesConfigSource
-import kotli.app.di.datasource.ProvidesHttpSource
-import kotli.app.di.datasource.ProvidesKeyValueSource
-import kotli.app.di.datasource.ProvidesPagingSource
-import kotli.app.di.datasource.ProvidesSqlDelightSource
+import kotli.app.di.data.analyticsSourceModule
+import kotli.app.di.data.cacheSourceModule
+import kotli.app.di.data.configSourceModule
+import kotli.app.di.data.httpSourceModule
+import kotli.app.di.data.keyValueSourceModule
+import kotli.app.di.data.pagingSourceModule
+import kotli.app.di.data.sqlDelightSourceModule
 import kotli.app.di.state.ProvidesAppState
 import kotli.app.di.state.ProvidesNavigationBarState
 import kotli.app.di.state.ProvidesNavigationState
@@ -16,13 +16,13 @@ import org.koin.core.context.startKoin
 val koinDI = startKoin {
     printLogger()
     modules(
-        ProvidesAnalyticsSource,
-        ProvidesConfigSource,
-        ProvidesCacheSource,
-        ProvidesHttpSource,
-        ProvidesKeyValueSource,
-        ProvidesPagingSource,
-        ProvidesSqlDelightSource,
+        analyticsSourceModule,
+        configSourceModule,
+        cacheSourceModule,
+        httpSourceModule,
+        keyValueSourceModule,
+        pagingSourceModule,
+        sqlDelightSourceModule,
         ProvidesNavigationBarState,
         ProvidesNavigationState,
         ProvidesThemeStore,
