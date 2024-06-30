@@ -5,12 +5,12 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import kotli.app.AppNavigationRouter
 import kotli.app.AppStore
 import kotli.app.AppViewModel
-import kotli.app.feature.navigation.NavigationBarViewModel
-import kotli.app.feature.navigation.samples.a.NavigationAViewModel
-import kotli.app.feature.navigation.samples.b.NavigationBViewModel
-import kotli.app.feature.navigation.samples.c.NavigationCViewModel
-import kotli.app.presentation.screen.theme.change.ChangeThemeViewModel
-import kotli.app.presentation.screen.theme.toggle.ToggleThemeViewModel
+import kotli.app.presentation.navigation.NavigationBarViewModel
+import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
+import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
+import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
+import kotli.app.presentation.ui.theme.change.ChangeThemeViewModel
+import kotli.app.presentation.ui.theme.toggle.ToggleThemeViewModel
 import kotli.app.showcases.ShowcasesViewModel
 import kotli.app.showcases.datasource.cache.basic.BasicCacheViewModel
 import kotli.app.showcases.datasource.http.basic.BasicHttpViewModel
@@ -24,7 +24,7 @@ import kotli.app.showcases.navigation.args.from.ArgsNavigationFromViewModel
 import kotli.app.showcases.navigation.args.to.ArgsNavigationToViewModel
 import kotli.app.showcases.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
-import kotli.app.ui.loader.LoaderViewModel
+import kotli.app.presentation.ui.loader.LoaderViewModel
 import kotli.app.ui.screen.template.TemplateViewModel
 import kotli.app.ui.screen.template_no_args.TemplateNoArgsViewModel
 import kotli.app.presentation.theme.AppThemePersistenceViewModel

@@ -16,7 +16,7 @@ object BottomNavigationProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.UserFlowNavigationBottomProvider,
+            Rules.AppNavigationBottomProvider,
             RemoveFile()
         )
         state.onApplyRules(

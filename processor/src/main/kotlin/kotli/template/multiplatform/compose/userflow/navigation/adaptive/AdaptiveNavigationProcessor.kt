@@ -33,7 +33,7 @@ object AdaptiveNavigationProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.UserFlowNavigationBarProvider,
+            Rules.AppNavigationBarProvider,
             ReplaceMarkedText(
                 "content()",
                 "content()",
@@ -48,7 +48,7 @@ object AdaptiveNavigationProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.UserFlowNavigationAdaptiveProvider,
+            Rules.AppNavigationAdaptiveProvider,
             RemoveFile()
         )
     }

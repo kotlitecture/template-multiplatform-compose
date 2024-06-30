@@ -1,11 +1,11 @@
 package kotli.app.di.presentation
 
 import androidx.compose.runtime.Composable
-import kotli.app.feature.navigation.NavigationBarPage
-import kotli.app.feature.navigation.NavigationBarStore
-import kotli.app.feature.navigation.samples.a.NavigationADestination
-import kotli.app.feature.navigation.samples.b.NavigationBDestination
-import kotli.app.feature.navigation.samples.c.NavigationCDestination
+import kotli.app.presentation.navigation.NavigationBarPage
+import kotli.app.presentation.navigation.NavigationBarStore
+import kotli.app.presentation.navigation.samples.a.NavigationADestination
+import kotli.app.presentation.navigation.samples.b.NavigationBDestination
+import kotli.app.presentation.navigation.samples.c.NavigationCDestination
 import kotli.app.showcases.ShowcasesDestination
 import org.koin.dsl.module
 import shared.presentation.navigation.NavigationDestination

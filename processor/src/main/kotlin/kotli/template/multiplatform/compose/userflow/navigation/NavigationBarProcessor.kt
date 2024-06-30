@@ -38,7 +38,7 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.UserFlowNavigationDir,
+            Rules.AppNavigationDir,
             RemoveFile()
         )
         state.onApplyRules(

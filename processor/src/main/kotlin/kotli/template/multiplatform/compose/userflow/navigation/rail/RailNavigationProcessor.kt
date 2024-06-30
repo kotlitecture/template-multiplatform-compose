@@ -18,7 +18,7 @@ object RailNavigationProcessor : BaseFeatureProcessor() {
     override fun doApply(state: TemplateState) {
         if (state.getFeature(AdaptiveNavigationProcessor.ID) == null) {
             state.onApplyRules(
-                Rules.UserFlowNavigationBarProvider,
+                Rules.AppNavigationBarProvider,
                 ReplaceMarkedText(
                     "content()",
                     "content()",
@@ -30,7 +30,7 @@ object RailNavigationProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.UserFlowNavigationRailProvider,
+            Rules.AppNavigationRailProvider,
             RemoveFile()
         )
     }
