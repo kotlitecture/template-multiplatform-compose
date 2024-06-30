@@ -1,7 +1,6 @@
 package shared.presentation.navigation
 
 import androidx.compose.runtime.Immutable
-import shared.presentation.state.DataState
 import kotlinx.coroutines.launch
 
 /**
@@ -28,7 +27,7 @@ abstract class NavigationCommand {
                 doExecute(navigationContext)
             } catch (e: Exception) {
                 val state = navigationContext.navigationState
-                state.dataStateStore.set(DataState.Error(id, e))
+                state.error(id, e)
             }
         }
     }

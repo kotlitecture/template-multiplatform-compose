@@ -23,7 +23,7 @@ object HttpShowcasesProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("BasicHttpViewModel")
         )
     }

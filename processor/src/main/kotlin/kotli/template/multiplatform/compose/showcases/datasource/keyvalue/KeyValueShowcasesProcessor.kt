@@ -23,7 +23,7 @@ object KeyValueShowcasesProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("KeyValueViewModel")
         )
     }

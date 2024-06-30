@@ -2,11 +2,11 @@
 
 ## Overview
 
-- DI integration: `app.di.datasource.ProvidesPagingSource`
-- Data source: `app.datasource.paging.AppPagingSource`
+- DI integration: `app.di.data.PagingSourceModule`
+- Data source: `app.data.source.paging.AppPagingSource`
 - UI component: `shared.design.component.AppPagingList`
 
-The integration includes an `AppPagingSource` class located in `app.datasource.paging` to facilitate working with the Paging Library.
+The integration includes an `AppPagingSource` class located in `app.data.source.paging` to facilitate working with the Paging Library.
 
 ## Example
 
@@ -15,11 +15,11 @@ The example is part of showcases provided when the feature is included into the 
 
 ```kotlin
 class BasicPagingViewModel(
-    private val pagingSource: AppPagingSource = get()
+    private val pagingSource: AppPagingSource
 ) : BaseViewModel() {
 
     val itemsFlow by lazy {
-        val pager = pagingSource.getPager { BasicPagingSource() }
+        val pager = pagingSource.getPager(::BasicPagingSource)
         pager.flow.cachedIn(viewModelScope)
     }
 

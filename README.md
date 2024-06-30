@@ -53,7 +53,8 @@ The overall client architecture follows [the recommended guidelines](https://dev
 - [Compose Multiplatform Images and resources](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-images-resources.html)
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose)
 - [Jetpack Navigation](https://developer.android.com/guide/navigation)
-- [Jetpack Lifecycle + ViewModel](https://developer.android.com/topic/libraries/architecture/lifecycle)
+- [Jetpack Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
+- [Jetpack ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 - [Material 3 Design](https://m3.material.io)
 - [Koin Dependency Injection](https://insert-koin.io)
 
@@ -73,8 +74,9 @@ Provides architectural solutions to implement user flows and integrate all compo
 
 It includes:
 
-- **MVVM pattern implementation** - based on the Jetpack ViewModel and Jetpack Lifecycle components.
-- **Navigation implementation** - based on the Jetpack Navigation component.
+- **MVVM pattern implementation** - based on the [Jetpack ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) and [Jetpack Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) components.
+- **Navigation implementation** - based on the [Jetpack Navigation](https://developer.android.com/guide/navigation) component.
+- **Store implementation** - initially based on [UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders), but more flexible like [Pinia](https://pinia.vuejs.org/core-concepts/). 
 
 The included solutions are not mandatory to follow, as all required dependencies are properly included to enable you to use your own patterns with Jetpack components.
 
@@ -182,6 +184,6 @@ The generated project will include a similar table in its README.MD file, but wi
 | Userflow | Save Theme API | [Link](docs/Userflow/Save%20Theme%20API/overview.md) | - | [Link](docs/Userflow/Save%20Theme%20API/usage.md) |
 | Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
 | Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
-| Userflow | Data Loader | [Link](docs/Userflow/Data%20Loader/overview.md) | - | [Link](docs/Userflow/Data%20Loader/usage.md) |
+| Userflow | Data Loading Indicator | [Link](docs/Userflow/Data%20Loading%20Indicator/overview.md) | - | [Link](docs/Userflow/Data%20Loading%20Indicator/usage.md) |
 | Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
 | Testing | Napier | [Link](docs/Testing/Napier/overview.md) | - | [Link](docs/Testing/Napier/usage.md) |

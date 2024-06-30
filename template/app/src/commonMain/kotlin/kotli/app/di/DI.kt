@@ -1,33 +1,33 @@
 package kotli.app.di
 
-import kotli.app.di.datasource.ProvidesAnalyticsSource
-import kotli.app.di.datasource.ProvidesCacheSource
-import kotli.app.di.datasource.ProvidesConfigSource
-import kotli.app.di.datasource.ProvidesHttpSource
-import kotli.app.di.datasource.ProvidesKeyValueSource
-import kotli.app.di.datasource.ProvidesPagingSource
-import kotli.app.di.datasource.ProvidesSqlDelightSource
-import kotli.app.di.state.ProvidesAppState
-import kotli.app.di.state.ProvidesNavigationBarState
-import kotli.app.di.state.ProvidesNavigationState
-import kotli.app.di.state.ProvidesThemeState
+import kotli.app.di.data.analyticsSourceModule
+import kotli.app.di.data.cacheSourceModule
+import kotli.app.di.data.configSourceModule
+import kotli.app.di.data.httpSourceModule
+import kotli.app.di.data.keyValueSourceModule
+import kotli.app.di.data.pagingSourceModule
+import kotli.app.di.data.sqlDelightSourceModule
+import kotli.app.di.presentation.appModule
+import kotli.app.di.presentation.navigationBarModule
+import kotli.app.di.presentation.navigationModule
+import kotli.app.di.presentation.themeModule
 import org.koin.core.context.startKoin
 
-val koinDI = startKoin {
+val koinApp = startKoin {
     printLogger()
     modules(
-        ProvidesAnalyticsSource,
-        ProvidesConfigSource,
-        ProvidesCacheSource,
-        ProvidesHttpSource,
-        ProvidesKeyValueSource,
-        ProvidesPagingSource,
-        ProvidesSqlDelightSource,
-        ProvidesNavigationBarState,
-        ProvidesNavigationState,
-        ProvidesThemeState,
-        ProvidesAppState
+        analyticsSourceModule,
+        configSourceModule,
+        cacheSourceModule,
+        httpSourceModule,
+        keyValueSourceModule,
+        pagingSourceModule,
+        sqlDelightSourceModule,
+        navigationBarModule,
+        navigationModule,
+        themeModule,
+        appModule
     )
 }
 
-inline fun <reified T : Any> get(): T = koinDI.koin.get<T>()
+inline fun <reified T : Any> get(): T = koinApp.koin.get<T>()

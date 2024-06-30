@@ -110,7 +110,7 @@ kotlin {
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("kotli.app.datasource.database.sqldelight")
+            packageName.set("kotli.app.data.source.database.sqldelight")
             generateAsync.set(true)
         }
     }

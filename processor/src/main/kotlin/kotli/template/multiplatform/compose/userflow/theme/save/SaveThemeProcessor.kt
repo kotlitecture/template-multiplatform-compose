@@ -26,14 +26,14 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("AppThemeViewModel")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.ThemeStateKt,
+            Rules.ThemeStoreKt,
             RemoveMarkedLine(
                 marker = "theme_config",
                 singleLine = true
@@ -48,7 +48,7 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("AppThemePersistenceViewModel")
         )
         state.onApplyRules(

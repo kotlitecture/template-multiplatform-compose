@@ -23,7 +23,7 @@ object PagingShowcasesProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("BasicPagingViewModel")
         )
     }

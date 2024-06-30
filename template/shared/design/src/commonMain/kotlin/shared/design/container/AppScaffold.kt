@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import shared.design.component.AppErrorDialog
-import shared.design.component.AppSnackbarState
+import shared.design.component.AppSnackbarStore
 import shared.presentation.navigation.NavigationContext
 import shared.presentation.navigation.NavigationHost
 
@@ -29,10 +29,10 @@ fun AppScaffold(
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     floatingActionButton: @Composable () -> Unit = {},
-    snackbarState: AppSnackbarState = remember { AppSnackbarState() }
+    snackbarState: AppSnackbarStore = remember { AppSnackbarStore() }
 ) {
     val navigationState = navigationContext.navigationState
-    val startDestination = navigationState.startDestinationStore.asStateValue() ?: return
+    val startDestination = navigationState.startDestinationState.asStateValue() ?: return
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = topBar,
@@ -50,5 +50,5 @@ fun AppScaffold(
             )
         }
     )
-    AppErrorDialog(navigationState)
+    AppErrorDialog(navigationState.loadingState)
 }

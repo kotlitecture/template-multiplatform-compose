@@ -24,7 +24,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import shared.presentation.state.StoreObject
+import shared.presentation.store.DataState
 import shared.design.component.AppIcon
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText
@@ -63,14 +63,14 @@ data class AppNavigationItem(
 @Composable
 fun AppBottomNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>
+    itemsState: DataState<List<AppNavigationItem>>,
+    selectionState: DataState<AppNavigationItem>,
+    visibilityState: DataState<Boolean>
 ) {
-    if (visibilityStore.asStateValue() == false) return
-    val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return
+    if (visibilityState.asStateValue() == false) return
+    val items = itemsState.asStateValue()?.takeIf { it.isNotEmpty() } ?: return
     NavigationBar(modifier) {
-        val selected = selectionStore.asStateValue()
+        val selected = selectionState.asStateValue()
         items.forEach { item ->
             val isSelected = item.id == selected?.id
             NavigationBarItem(
@@ -92,15 +92,15 @@ fun AppBottomNavigation(
 @Composable
 fun AppDismissibleNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsState: DataState<List<AppNavigationItem>>,
+    selectionState: DataState<AppNavigationItem>,
+    visibilityState: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
-    val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
+    val items = itemsState.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
     DismissibleNavigationDrawer(
         modifier = modifier,
-        drawerState = createDrawerState(visibilityStore),
+        drawerState = createDrawerState(visibilityState),
         drawerContent = {
             DismissibleDrawerSheet(
                 modifier = Modifier
@@ -108,7 +108,7 @@ fun AppDismissibleNavigation(
                     .verticalScroll(rememberScrollState())
             ) {
                 AppSpacer8()
-                val selected = selectionStore.asStateValue()
+                val selected = selectionState.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
                     NavigationDrawerItem(
@@ -117,7 +117,7 @@ fun AppDismissibleNavigation(
                         selected = isSelected,
                         onClick = {
                             item.onClick()
-                            visibilityStore.set(false)
+                            visibilityState.set(false)
                         }
                     )
                 }
@@ -131,15 +131,15 @@ fun AppDismissibleNavigation(
 @Composable
 fun AppModalNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsState: DataState<List<AppNavigationItem>>,
+    selectionState: DataState<AppNavigationItem>,
+    visibilityState: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
-    val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
+    val items = itemsState.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
     ModalNavigationDrawer(
         modifier = modifier,
-        drawerState = createDrawerState(visibilityStore),
+        drawerState = createDrawerState(visibilityState),
         drawerContent = {
             ModalDrawerSheet(
                 modifier = Modifier
@@ -147,7 +147,7 @@ fun AppModalNavigation(
                     .verticalScroll(rememberScrollState())
             ) {
                 AppSpacer8()
-                val selected = selectionStore.asStateValue()
+                val selected = selectionState.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
                     NavigationDrawerItem(
@@ -156,7 +156,7 @@ fun AppModalNavigation(
                         selected = isSelected,
                         onClick = {
                             item.onClick()
-                            visibilityStore.set(false)
+                            visibilityState.set(false)
                         }
                     )
                 }
@@ -170,13 +170,13 @@ fun AppModalNavigation(
 @Composable
 fun AppPermanentNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsState: DataState<List<AppNavigationItem>>,
+    selectionState: DataState<AppNavigationItem>,
+    visibilityState: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
-    if (visibilityStore.asStateValue() == false) return run { content() }
-    val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
+    if (visibilityState.asStateValue() == false) return run { content() }
+    val items = itemsState.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
     PermanentNavigationDrawer(
         modifier = modifier,
         drawerContent = {
@@ -186,7 +186,7 @@ fun AppPermanentNavigation(
                     .verticalScroll(rememberScrollState())
             ) {
                 AppSpacer8()
-                val selected = selectionStore.asStateValue()
+                val selected = selectionState.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
                     NavigationDrawerItem(
@@ -206,13 +206,13 @@ fun AppPermanentNavigation(
 @Composable
 fun AppRailNavigation(
     modifier: Modifier = Modifier,
-    itemsStore: StoreObject<List<AppNavigationItem>>,
-    selectionStore: StoreObject<AppNavigationItem>,
-    visibilityStore: StoreObject<Boolean>,
+    itemsState: DataState<List<AppNavigationItem>>,
+    selectionState: DataState<AppNavigationItem>,
+    visibilityState: DataState<Boolean>,
     content: @Composable () -> Unit
 ) {
-    if (visibilityStore.asStateValue() == false) return run { content() }
-    val items = itemsStore.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
+    if (visibilityState.asStateValue() == false) return run { content() }
+    val items = itemsState.asStateValue()?.takeIf { it.isNotEmpty() } ?: return run { content() }
     Row(modifier = modifier) {
         NavigationRail(
             modifier = Modifier
@@ -220,7 +220,7 @@ fun AppRailNavigation(
                 .verticalScroll(rememberScrollState()),
             content = {
                 AppSpacer8()
-                val selected = selectionStore.asStateValue()
+                val selected = selectionState.asStateValue()
                 items.forEach { item ->
                     val isSelected = item.id == selected?.id
                     NavigationRailItem(
@@ -238,28 +238,28 @@ fun AppRailNavigation(
 }
 
 @Composable
-private fun createDrawerState(visibilityStore: StoreObject<Boolean>): DrawerState {
-    val initialValue = remember(visibilityStore) {
-        if (visibilityStore.get() == true) {
+private fun createDrawerState(visibilityState: DataState<Boolean>): DrawerState {
+    val initialValue = remember(visibilityState) {
+        if (visibilityState.get() == true) {
             DrawerValue.Open
         } else {
             DrawerValue.Closed
         }
     }
     val drawerState: DrawerState = rememberDrawerState(initialValue) {
-        visibilityStore.set(it == DrawerValue.Open)
+        visibilityState.set(it == DrawerValue.Open)
         true
     }
-    DrawerVisibilityHandler(visibilityStore, drawerState)
+    DrawerVisibilityHandler(visibilityState, drawerState)
     return drawerState
 }
 
 @Composable
 private fun DrawerVisibilityHandler(
-    visibilityStore: StoreObject<Boolean>,
+    visibilityState: DataState<Boolean>,
     drawerState: DrawerState
 ) {
-    val visible = visibilityStore.asStateValue()
+    val visible = visibilityState.asStateValue()
     LaunchedEffect(visible) {
         if (!drawerState.isAnimationRunning) {
             when {

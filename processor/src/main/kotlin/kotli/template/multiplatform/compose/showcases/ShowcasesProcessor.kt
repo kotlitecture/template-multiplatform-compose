@@ -18,7 +18,7 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.ProvidesNavigationBarStateKt,
+            Rules.NavigationBarModuleKt,
             CleanupMarkedBlock("{showcases}")
         )
     }
@@ -29,15 +29,15 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.ProvidesNavigationStateKt,
+            Rules.NavigationModuleKt,
             RemoveMarkedLine("ShowcasesDestination")
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("ShowcasesViewModel")
         )
         state.onApplyRules(
-            Rules.ProvidesNavigationBarStateKt,
+            Rules.NavigationBarModuleKt,
             RemoveMarkedBlock("{showcases}"),
             RemoveMarkedLine("ic_nav_showcases"),
             RemoveMarkedLine("ShowcasesDestination"),
@@ -45,9 +45,9 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppNavigationRouterKt,
             ReplaceMarkedText(
-                text = "app.showcases.ShowcasesDestination",
-                marker = "app.showcases.ShowcasesDestination",
-                replacer = "app.ui.screen.template_no_args.TemplateNoArgsDestination"
+                text = "showcases.ShowcasesDestination",
+                marker = "showcases.ShowcasesDestination",
+                replacer = "template.screen_without_args.TemplateNoArgsDestination"
             ),
             ReplaceMarkedText(
                 text = "ShowcasesDestination",

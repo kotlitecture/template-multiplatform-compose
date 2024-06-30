@@ -1,8 +1,8 @@
 ## Overview
 
 The API can be accessed through:
-- `shared.data.datasource.keyvalue.KeyValueSource` - facade interface at the core module level.
-- `app.datasource.keyvalue.AppKeyValueSource` - decorator class at the app level.
+- `shared.data.source.keyvalue.KeyValueSource` - facade interface at the core module level.
+- `app.data.source.keyvalue.AppKeyValueSource` - decorator class at the app level.
 
 The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations.
 
@@ -20,14 +20,15 @@ Decorator **AppKeyValueSource** also provides the following methods with default
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.datasource.ProvidesKeyValueSource`.
+Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.data.KeyValueSourceModule`.
 
 To start using, just inject it to your DI managed class.
 
 ```kotlin
 class TemplateViewModel @Inject constructor(
-    private val keyValueSource: AppKeyValueSource = get() // KeyValueSource
+    private val keyValueSource: AppKeyValueSource // KeyValueSource
 ) : BaseViewModel() {
+    
     override fun doBind() {
         launchAsync("init settings") {
             ...

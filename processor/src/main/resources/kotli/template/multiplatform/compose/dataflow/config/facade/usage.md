@@ -1,8 +1,8 @@
 ## Overview
 
 The API can be accessed through:
-- `shared.data.datasource.config.ConfigSource` - facade interface at the core module level.
-- `app.datasource.config.AppConfigSource` - decorator class at the app level.
+- `shared.data.source.config.ConfigSource` - facade interface at the core module level.
+- `app.data.source.config.AppConfigSource` - decorator class at the app level.
 
 The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations. 
 
@@ -18,7 +18,7 @@ Facade **ConfigSource** provides the following methods:
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.datasource.ProvidesConfigSource`.
+Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.data.ConfigSourceModule`.
 
 However, it is recommended to use decorator methods instead of directly accessing facade methods,
 as the latter requires providing an extra parameter `defaultValue`, which might be hidden in the decorator.
@@ -32,7 +32,7 @@ class AppConfigSource : DelegateConfigSource() {
 }
 
 class TemplateViewModel (
-    private val configSource: AppConfigSource = get() // ConfigSource
+    private val configSource: AppConfigSource // ConfigSource
 ) : BaseViewModel() {
 
     private val counter by lazy { AtomicInteger(configSource.getCounterInitialValue()) }

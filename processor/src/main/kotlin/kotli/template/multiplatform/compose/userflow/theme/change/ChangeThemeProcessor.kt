@@ -24,16 +24,16 @@ object ChangeThemeProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.ProvidesNavigationStateKt,
+            Rules.NavigationModuleKt,
             RemoveMarkedLine("ChangeThemeDialogDestination"),
             RemoveMarkedLine("ChangeThemeDestination")
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("ChangeThemeViewModel")
         )
         state.onApplyRules(
-            Rules.UserFlowThemeChangeDir,
+            Rules.AppThemeChangeDir,
             RemoveFile()
         )
         state.onApplyRules(

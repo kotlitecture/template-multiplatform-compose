@@ -1,20 +1,20 @@
 ## Overview
 
-Component package: `app.feature.theme.change`
+Component package: `app.presentation.theme.change`
 
 ## Example
 
 ### As a separate screen
 
-Invoke the `ChangeThemeDestination` destination from your **ViewModel** or **View** utilizing the pre-configured **NavigationState**.
+Invoke the `ChangeThemeDestination` destination from your **ViewModel** or **View** utilizing the pre-configured **NavigationStore**.
 
 ```kotlin
 class TemplateViewModel(
-    private val navigationState: NavigationState = get()
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onChangeTheme() {
-        navigationState.onNext(ChangeThemeDestination)
+        navigationStore.onNext(ChangeThemeDestination)
     }
 
 }
@@ -22,15 +22,15 @@ class TemplateViewModel(
 
 ### As a dialog
 
-Invoke the `ChangeThemeDialogDestination` destination from your **ViewModel** or **View** utilizing the pre-configured **NavigationState**.
+Invoke the `ChangeThemeDialogDestination` destination from your **ViewModel** or **View** utilizing the pre-configured **NavigationStore**.
 
 ```kotlin
 class TemplateViewModel(
-    private val navigationState: NavigationState = get()
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onChangeTheme() {
-        navigationState.onNext(ChangeThemeDialogDestination)
+        navigationStore.onNext(ChangeThemeDialogDestination)
     }
 
 }

@@ -24,11 +24,11 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.UserFlowDataLoaderDir,
+            Rules.AppLoaderDir,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("LoaderViewModel")
         )
         state.onApplyRules(

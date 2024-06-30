@@ -29,7 +29,7 @@ object ToggleThemeShowcasesProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ToggleThemeShowcase")
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("ToggleThemeViewModel")
         )
     }

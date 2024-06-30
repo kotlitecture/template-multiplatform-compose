@@ -15,21 +15,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import shared.presentation.state.DataState
-import shared.presentation.state.StoreState
 import shared.design.theme.AppTheme
+import shared.presentation.store.DataLoading
+import shared.presentation.store.DataState
 
 /**
  * Provides a composable UI component for handling data loading and error states.
  *
- * @param state The [StoreState] object containing the data state.
+ * @param store The [DataState] object containing the data state.
  */
 @Composable
-fun AppErrorDialog(state: StoreState) {
-    val error = state.dataStateStore.asStateValue() as? DataState.Error ?: return
+fun AppErrorDialog(store: DataState<DataLoading>) {
+    val error = store.asStateValue() as? DataLoading.Error ?: return
     AlertDialog(
         modifier = Modifier.padding(24.dp),
-        onDismissRequest = state.dataStateStore::clear,
+        onDismissRequest = store::clear,
         properties = DialogProperties(
             dismissOnBackPress = true,
             dismissOnClickOutside = true,

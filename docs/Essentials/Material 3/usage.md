@@ -2,15 +2,15 @@
 
 ## Overview
 
-- Component package: `app.ui.theme`
-- State management: `shared.presentation.theme.ThemeState`
-- DI integration: `app.di.state.ProvidesThemeState`
+- Component package: `app.presentation.theme`
+- State management: `shared.presentation.theme.ThemeStore`
+- DI integration: `app.di.presentation.ThemeModule`
 
-This state instance is utilized by `app.ui.theme.AppThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
+This state instance is utilized by `app.presentation.theme.AppThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
 
 ```kotlin
 @Composable
-fun App() = ViewModelProvider(remember { AppViewModelFactory }) { 
+fun App() = ViewModelProvider(remember(::get)) {
     AppThemeProvider {
         AppScreen()
     }
@@ -19,7 +19,7 @@ fun App() = ViewModelProvider(remember { AppViewModelFactory }) {
 
 ## Change Themes
 
-By default, `ThemeState` is initialized with pre-defined dark and light themes in the `design` module. To edit these themes:
+By default, `ThemeStore` is initialized with pre-defined dark and light themes in the `design` module. To edit these themes:
 
 1. Visit the [Material 3 Theme Builder](https://m3.material.io/theme-builder#/custom).
 2. Customize the desired color theme.
