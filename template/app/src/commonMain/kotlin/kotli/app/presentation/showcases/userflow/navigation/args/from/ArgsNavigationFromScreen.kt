@@ -22,7 +22,7 @@ fun ArgsNavigationFromScreen() {
         content = {
             ShowcaseHintBlock(
                 text = """
-                    By clicking on the button below, the app will navigate to the [ArgsNavigationToDestination] using a pre-configured [NavigationState] instance.
+                    By clicking on the button below, the app will navigate to the [ArgsNavigationToDestination] using a pre-configured [NavigationStore] instance.
                     
                     Navigation will be done with [Data] instance filled with property [userName] from input field.
                     
@@ -30,17 +30,17 @@ fun ArgsNavigationFromScreen() {
                     
                     To create your own MVVM screen with arguments and make it available for navigation:
                     
-                    1. Copy the content of the package `app/ui/screen/template` to the required location for your screen.
+                    1. Copy the content of the package `presentation/template/screen_with_args` to the required location for your screen.
                     
                     2. Rename the copied classes (Destination, Screen, and ViewModel) to the desired ones.
                     
-                    3. Register the copied [Destination] class in `app/di/presentation/NavigationModule`.
+                    3. Register the copied [Destination] class in `di/presentation/NavigationModule`.
                     
-                    4. Register the copied [ViewModel] in app/App#AppViewModelFactory.
+                    4. Register the copied [ViewModel] in `di/presentation/AppModule` viewModelFactory.
                     
                     5. Implement the logic of the screen in the copied [Screen] class.
                     
-                    6. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
+                    6. Navigate to your screen using the [NavigationStore] instance, which can be injected into any DI-managed class.
                 """.trimIndent()
             )
             UserNameBlock(viewModel.userNameState)

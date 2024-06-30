@@ -39,17 +39,17 @@ abstract class BaseViewModel : ViewModel() {
      * Launches a coroutine in the main thread context, managing the loading state and error handling.
      *
      * @param id The identifier for the coroutine job.
-     * @param state The [Store] associated with the data state.
+     * @param store The [Store] associated with the data state.
      * @param block The block of code to execute as a coroutine.
      */
     protected fun launchMain(
         id: String? = null,
-        state: Store? = null,
+        store: Store? = null,
         block: suspend CoroutineScope.() -> Unit
     ) {
         launch(
             id = id,
-            state = state,
+            store = store,
             block = block,
             context = viewModelScope.coroutineContext,
         )
@@ -59,17 +59,17 @@ abstract class BaseViewModel : ViewModel() {
      * Launches a coroutine in the IO thread context, managing the loading state and error handling.
      *
      * @param id The identifier for the coroutine job.
-     * @param state The [Store] associated with the data state.
+     * @param store The [Store] associated with the data state.
      * @param block The block of code to execute as a coroutine.
      */
     protected fun launchAsync(
         id: String? = null,
-        state: Store? = null,
+        store: Store? = null,
         block: suspend CoroutineScope.() -> Unit
     ) {
         launch(
             id = id,
-            state = state,
+            store = store,
             block = block,
             context = Dispatchers.Default
         )
@@ -81,23 +81,23 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun launch(
         id: String?,
-        state: Store?,
+        store: Store?,
         context: CoroutineContext,
         block: suspend CoroutineScope.() -> Unit
     ) {
         id?.let(jobs::remove)?.cancel()
-        val loadingState = state?.let { DataLoading.InProgress(id) }
-        state?.loadingState?.set(loadingState)
+        val loadingState = store?.let { DataLoading.InProgress(id) }
+        store?.loadingState?.set(loadingState)
         val job = viewModelScope.launch(context = context, block = block)
-        if (state != null) {
+        if (store != null) {
             job.invokeOnCompletion { th ->
-                val currentState = state.loadingState.get()
+                val currentState = store.loadingState.get()
                 if (currentState == null || currentState.uid == loadingState?.uid) {
                     val nextState = when {
                         th == null -> DataLoading.Loaded(id)
                         else -> DataLoading.Error(id, th)
                     }
-                    state.loadingState.set(nextState)
+                    store.loadingState.set(nextState)
                 }
             }
         }

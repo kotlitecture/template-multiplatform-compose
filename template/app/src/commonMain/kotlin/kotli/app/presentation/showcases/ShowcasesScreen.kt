@@ -75,15 +75,15 @@ private fun HintBlock(hintStore: DataState<Boolean>) {
                 
                 Once everything is clear and you no longer require this screen, proceed with deletion:
 
-                1. Package `app/showcases`.
+                1. Package `presentation/showcases`.
                 
-                2. Usage of `ShowcasesDestination` in `app.AppNavigationRouter`.
+                2. Usage of `ShowcasesDestination` in `presentation/app/AppNavigationRouter`.
                 
-                3. Usage of `ShowcasesDestination` in `app.di.state.ProvidesNavigationState`.
+                3. Usage of `ShowcasesDestination` in `di/presentation/NavigationModule`.
                 
-                4. Usage of `ShowcasesDestination` in `app.di.state.ProvidesNavigationBarState`.
+                4. Usage of `ShowcasesDestination` in `di/presentation/NavigationBarModule`.
                 
-                5. Usage of all view models associated with Showcases in `app.App`.
+                5. Usage of all view models associated with Showcases in `di/presentation/AppModule`.
             """.trimIndent(),
         actionLabel = "Got it!",
         action = hintStore::clear

@@ -20,23 +20,23 @@ fun NoArgsNavigationFromScreen() {
         content = {
             ShowcaseHintBlock(
                 text = """
-                    By clicking on the button below, the app will navigate to the [NoArgsNavigationToDestination] using a pre-configured [NavigationState] instance.
+                    By clicking on the button below, the app will navigate to the [NoArgsNavigationToDestination] using a pre-configured [NavigationStore] instance.
 
                     Both the from and to destinations are implemented using the included MVVM template.
                     
                     To create your own MVVM screen and make it available for navigation:
                     
-                    1. Copy the content of the package `app/ui/screen/template_no_args` to the required location for your screen.
+                    1. Copy the content of the package `presentation/template/screen_without_args` to the required location for your screen.
                     
                     2. Rename the copied classes (Destination, Screen, and ViewModel) to the desired ones.
                     
-                    3. Register the copied [Destination] class in `app/di/state/ProvidesNavigationState`.
+                    3. Register the copied [Destination] class in `di/presentation/NavigationModule`.
                     
-                    4. Register the copied [ViewModel] in app/App#AppViewModelFactory.
+                    4. Register the copied [ViewModel] in `di/presentation/AppModule` viewModelFactory.
                     
                     5. Implement the logic of the screen in the copied [Screen] class.
                     
-                    6. Navigate to your screen using the [NavigationState] instance, which can be injected into any DI-managed class.
+                    6. Navigate to your screen using the [NavigationStore] instance, which can be injected into any DI-managed class.
                 """.trimIndent()
             )
             AppElevatedButton(

@@ -21,7 +21,7 @@ fun DataLoaderShowcaseScreen() {
                 text = """
                     This showcase demonstrates the usage of the app data loader.
 
-                    Whenever an operation needs to block the entire screen, simply pass an [AppState] instance into the `launchAsync` method of the [BaseViewModel]. The app screen will be covered with an overlay provided by [LoaderProvider].
+                    Whenever an operation needs to block the entire screen, simply pass an [AppStore] instance into the `launchAsync` method of the [BaseViewModel]. The app screen will be covered with an overlay provided by [LoaderProvider].
                 """.trimIndent()
             )
             AppElevatedButton(
