@@ -6,6 +6,7 @@ object Rules {
     const val StringsXml = "*/strings.xml"
     const val IndexHtml = "*/index.html"
     const val IosConfig = "*/Config.xcconfig"
+
     // gradle
     const val BuildGradle = "*build.gradle.kts"
     const val SettingsGradle = "settings.gradle.kts"
@@ -15,6 +16,7 @@ object Rules {
     const val BuildGradleSharedData = "shared/data/build.gradle.kts"
     const val BuildGradleSharedDesign = "shared/design/build.gradle.kts"
     const val BuildGradleSharedDomain = "shared/domain/build.gradle.kts"
+
     // proguard
     const val ProguardRulesPro = "app/assemble/proguard-rules.pro"
 
@@ -59,19 +61,22 @@ object Rules {
     const val AppNavigationPermanentProvider = "${AppNavigationDir}/PermanentProvider.kt"
     const val AppNavigationRailProvider = "${AppNavigationDir}/RailProvider.kt"
     const val ShowcasesDir = "${AppPresentationDir}/showcases"
-    const val ShowcasesHttpDir = "${ShowcasesDir}/datasource/http"
-    const val ShowcasesCacheDir = "${ShowcasesDir}/datasource/cache"
-    const val ShowcasesPagingDir = "${ShowcasesDir}/datasource/paging"
-    const val ShowcasesKeyValueDir = "${ShowcasesDir}/datasource/keyvalue"
-    const val ShowcasesSqlDelightDir = "${ShowcasesDir}/datasource/sqldelight"
-    const val ShowcasesNavigationDir = "${ShowcasesDir}/navigation"
-    const val ShowcasesThemeDir = "${ShowcasesDir}/feature/theme"
-    const val ShowcasesLoaderDir = "${ShowcasesDir}/feature/loader"
-    const val ShowcasesPasscodeDir = "${ShowcasesDir}/feature/passcode"
+    const val ShowcasesDataFlowDir = "${ShowcasesDir}/dataflow"
+    const val ShowcasesUserFlowDir = "${ShowcasesDir}/userflow"
+    const val ShowcasesHttpDir = "${ShowcasesDataFlowDir}/http"
+    const val ShowcasesCacheDir = "${ShowcasesDataFlowDir}/cache"
+    const val ShowcasesPagingDir = "${ShowcasesDataFlowDir}/paging"
+    const val ShowcasesKeyValueDir = "${ShowcasesDataFlowDir}/keyvalue"
+    const val ShowcasesSqlDelightDir = "${ShowcasesDataFlowDir}/sqldelight"
+    const val ShowcasesNavigationDir = "${ShowcasesUserFlowDir}/navigation"
+    const val ShowcasesThemeDir = "${ShowcasesUserFlowDir}/theme"
+    const val ShowcasesLoaderDir = "${ShowcasesUserFlowDir}/loader"
+    const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
     const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
     const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
     const val NavigationModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationModule.kt"
+
     // dataflow
     const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"
     const val AnalyticsSource = "*/*AnalyticsSource*.kt"
