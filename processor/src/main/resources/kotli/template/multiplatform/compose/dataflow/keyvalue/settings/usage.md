@@ -26,8 +26,9 @@ To start using, just inject it to your DI managed class.
 
 ```kotlin
 class TemplateViewModel @Inject constructor(
-    private val keyValueSource: AppKeyValueSource = get() // KeyValueSource
+    private val keyValueSource: AppKeyValueSource // KeyValueSource
 ) : BaseViewModel() {
+    
     override fun doBind() {
         launchAsync("init settings") {
             ...

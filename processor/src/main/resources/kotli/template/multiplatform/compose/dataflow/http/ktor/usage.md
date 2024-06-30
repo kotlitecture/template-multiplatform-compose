@@ -5,7 +5,7 @@
 
 The class provides the next functionality:
 
-- `ktor` - pre-configured HTTP client to work with HTTP through **Ktor API**.
+- `client` - pre-configured HTTP client to work with HTTP through **Ktor API**.
 
 ## Example
 

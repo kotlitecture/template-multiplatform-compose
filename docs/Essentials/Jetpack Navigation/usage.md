@@ -7,7 +7,7 @@ The API is available under the package `shared.presentation.navigation`.
 
 ## Create Destination
 
-To create your own destination, utilize the provided template `app.ui.screen.template.TemplateDestination`.
+To create your own destination, utilize the provided template `app.presentation.template.screen_with_args.TemplateDestination`.
 
 ```kotlin
 object TemplateDestination : NavigationDestination<TemplateDestination.Data>() {
@@ -33,14 +33,14 @@ object TemplateDestination : NavigationDestination<TemplateDestination.Data>() {
 
 ## Register Destination
 
-All app destinations should be registered within an instance of the class `shared.presentation.navigation.NavigationState`.
-This instance is already pre-configured in dependency injection (DI) through the `app.di.state.ProvidesNavigationState` class.
+All app destinations should be registered within an instance of the class `shared.presentation.navigation.NavigationStore`.
+This instance is already pre-configured in dependency injection (DI) through the `app.di.presentation.NavigationModule` class.
 Simply place all your destinations within this instance.
 
 ```kotlin
-val ProvidesNavigationState = module {
+val navigationModule = module {
     single {
-        NavigationState(
+        NavigationStore(
             destinations = listOf(
                 ShowcasesDestination,
                 TemplateDestination,
@@ -58,20 +58,20 @@ val ProvidesNavigationState = module {
 
 ## Navigate to Destination
 
-Once the navigation is aware of the destinations, you can initiate navigation to them using the `onBack` and `onNext` methods available in the `shared.presentation.navigation.NavigationState` class.
-Simply inject `NavigationState` into your `ViewModel` or other dependency injection managed class, and navigate whenever necessary.
+Once the navigation is aware of the destinations, you can initiate navigation to them using the `onBack` and `onNext` methods available in the `shared.presentation.navigation.NavigationStore` class.
+Simply inject `NavigationStore` into your `ViewModel` or other dependency injection managed class, and navigate whenever necessary.
 
 ```kotlin
 class HomeViewModel(
-    private val navigationState: NavigationState
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
     
     fun onShowSettings() {
-        navigationState.onNext(SettingsDestination)
+        navigationStore.onNext(SettingsDestination)
     }
 
 }
@@ -79,7 +79,7 @@ class HomeViewModel(
 
 ## Set Initial Destination
 
-When the app is first opened, you need to provide **NavigationState** with an initial destination. It can be done in pre-configured **AppNavigationRouter** class.
+When the app is first opened, you need to provide **NavigationStore** with an initial destination. It can be done in pre-configured **AppNavigationRouter** class.
 
 ```kotlin
 class AppNavigationRouter() {

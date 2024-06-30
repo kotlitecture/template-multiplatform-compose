@@ -2,15 +2,15 @@
 
 ## Overview
 
-- Component package: `app.ui.theme`
+- Component package: `app.presentation.theme`
 - State management: `shared.presentation.theme.ThemeStore`
-- DI integration: `app.di.state.ProvidesThemeStore`
+- DI integration: `app.di.presentation.ThemeModule`
 
-This state instance is utilized by `app.ui.theme.AppThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
+This state instance is utilized by `app.presentation.theme.AppThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
 
 ```kotlin
 @Composable
-fun App() = ViewModelProvider(remember { AppViewModelFactory }) { 
+fun App() = ViewModelProvider(remember(::get)) {
     AppThemeProvider {
         AppScreen()
     }

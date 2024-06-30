@@ -18,13 +18,13 @@ Facade **AnalyticsSource** provides the following methods:
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.datasource.ProvidesAnalyticsSource`.
+Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.data.AnalyticsSourceModule`.
 
 To start using, just inject any of them to your DI managed class. Recommended to use from `ViewModel` or `Repository` level.
 
 ```kotlin
 class TemplateViewModel (
-    private val analyticsSource: AnalyticsSource = get() // AppAnalyticsSource
+    private val analyticsSource: AnalyticsSource // AppAnalyticsSource
 ) : BaseViewModel() {
 
     fun onSomeAction() {

@@ -22,14 +22,15 @@ Decorator **AppKeyValueSource** also provides the following methods with default
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.datasource.ProvidesKeyValueSource`.
+Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.data.KeyValueSourceModule`.
 
 To start using, just inject it to your DI managed class.
 
 ```kotlin
 class TemplateViewModel @Inject constructor(
-    private val keyValueSource: AppKeyValueSource = get() // KeyValueSource
+    private val keyValueSource: AppKeyValueSource // KeyValueSource
 ) : BaseViewModel() {
+    
     override fun doBind() {
         launchAsync("init settings") {
             ...

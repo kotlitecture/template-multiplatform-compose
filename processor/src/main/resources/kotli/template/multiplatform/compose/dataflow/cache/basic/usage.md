@@ -24,7 +24,7 @@ To start using, just inject it to your DI managed class.
 
 ```kotlin
 class BasicCacheViewModel(
-    private val cacheSource: CacheSource = get()
+    private val cacheSource: CacheSource
 ) : BaseViewModel() {
 
     val cacheState = DataState<String>()

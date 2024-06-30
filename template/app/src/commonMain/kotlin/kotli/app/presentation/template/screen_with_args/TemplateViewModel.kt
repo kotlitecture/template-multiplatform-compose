@@ -7,6 +7,6 @@ class TemplateViewModel(
     private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
-    fun onBack() = navigationStore::onBack
+    fun onBack() = navigationStore.onBack()
 
 }

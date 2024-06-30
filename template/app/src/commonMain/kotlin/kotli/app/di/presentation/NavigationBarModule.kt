@@ -20,7 +20,7 @@ val navigationBarModule = module {
             pages = listOf(
                 // start {showcases}
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = ShowcasesDestination,
                     getActiveIcon = { AppIcons.school },
                     getInactiveIcon = { AppIcons.school },
@@ -28,21 +28,21 @@ val navigationBarModule = module {
                 ),
                 // end {showcases}
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = NavigationADestination,
                     getActiveIcon = { AppIcons.wineBar },
                     getInactiveIcon = { AppIcons.wineBar },
                     getLabel = { "Page 1" }
                 ),
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = NavigationBDestination,
                     getActiveIcon = { AppIcons.localDrink },
                     getInactiveIcon = { AppIcons.localDrink },
                     getLabel = { "Page 2" }
                 ),
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = NavigationCDestination,
                     getActiveIcon = { AppIcons.coffee },
                     getInactiveIcon = { AppIcons.coffee },
@@ -58,7 +58,7 @@ val navigationBarModule = module {
 }
 
 private fun <D> createPage(
-    navigationState: NavigationStore,
+    store: NavigationStore,
     destination: NavigationDestination<D>,
     getInactiveIcon: () -> AppIconModel,
     getActiveIcon: () -> AppIconModel,
@@ -71,15 +71,15 @@ private fun <D> createPage(
         alwaysShowLabel = false,
         getActiveIcon = getActiveIcon,
         getInactiveIcon = getInactiveIcon,
-        onClick = { navigate(navigationState, destination) }
+        onClick = { navigate(store, destination) }
     )
 }
 
 private fun <D> navigate(
-    navigationState: NavigationStore,
+    store: NavigationStore,
     destination: NavigationDestination<D>
 ) {
-    navigationState.onNext(
+    store.onNext(
         destination = destination,
         strategy = NavigationStrategy.SingleInstance
     )

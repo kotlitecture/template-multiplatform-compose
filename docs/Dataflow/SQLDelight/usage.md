@@ -3,7 +3,7 @@
 ## Overview
 
 - Component package: `app.data.source.database.sqldelight`
-- DI integration: `app.di.datasource.ProvidesSqlDelightSource`
+- DI integration: `app.di.data.SqlDelightSourceModule`
 
 The integration includes the following components:
 

@@ -1,10 +1,9 @@
 ## Overview
 
-- Component package: `app.feature.navigation`
+- Component package: `app.presentation.navigation`
 - DI integration: `app.di.presentation.NavigationBarModule`
-- State management: `app.feature.navigation.NavigationBarState`
-- Pre-configured destinations package: `app.feature.navigation.samples`
-
+- State management: `app.presentation.navigation.NavigationBarStore`
+- Pre-configured sample destinations package: `app.presentation.navigation.samples`
 
 ## Configuration
 
@@ -13,35 +12,35 @@ Configure your destinations using `NavigationBarModule`, and if necessary, speci
 ```kotlin
 val navigationBarModule = module {
     single {
-        NavigationBarState(
+        NavigationBarStore(
             pages = listOf(
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = NavigationADestination,
                     getActiveIcon = { Icons.Filled.WineBar },
                     getInactiveIcon = { Icons.Outlined.WineBar },
                     getLabel = { "Page 1" }
                 ),
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = NavigationBDestination,
                     getActiveIcon = { Icons.Filled.LocalDrink },
                     getInactiveIcon = { Icons.Outlined.LocalDrink },
                     getLabel = { "Page 2" }
                 ),
                 createPage(
-                    navigationState = get(),
+                    store = get(),
                     destination = NavigationCDestination,
                     getActiveIcon = { Icons.Filled.Coffee },
                     getInactiveIcon = { Icons.Outlined.Coffee },
                     getLabel = { "Page 3" }
                 ),
                 ...
-        ),
-        allowedDestinations = setOf(
-        ),
-        restrictedDestinations = setOf(
-        )
+            ),
+            allowedDestinations = setOf(
+            ),
+            restrictedDestinations = setOf(
+            )
         )
     }
 }
