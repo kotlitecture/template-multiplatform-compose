@@ -33,7 +33,7 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ShowcasesDestination")
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("ShowcasesViewModel")
         )
         state.onApplyRules(

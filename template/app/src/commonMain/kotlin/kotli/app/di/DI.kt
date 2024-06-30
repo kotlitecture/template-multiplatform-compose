@@ -13,7 +13,7 @@ import kotli.app.di.presentation.navigationModule
 import kotli.app.di.presentation.themeModule
 import org.koin.core.context.startKoin
 
-val koinDI = startKoin {
+val koinApp = startKoin {
     printLogger()
     modules(
         analyticsSourceModule,
@@ -30,4 +30,4 @@ val koinDI = startKoin {
     )
 }
 
-inline fun <reified T : Any> get(): T = koinDI.koin.get<T>()
+inline fun <reified T : Any> get(): T = koinApp.koin.get<T>()

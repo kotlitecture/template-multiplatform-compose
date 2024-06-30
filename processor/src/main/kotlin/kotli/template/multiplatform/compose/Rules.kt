@@ -36,7 +36,7 @@ object Rules {
     const val SharedDesignSrcDir = "shared/design/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
-    const val AppKt = "${CommonAppMainDir}/kotlin/kotli/app/App.kt"
+    const val AppModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/AppModule.kt"
     const val AppDIKt = "${CommonAppMainDir}/kotlin/kotli/app/di/DI.kt"
     const val AppWebPackConfigDir = "app/webpack.config.d"
     const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"

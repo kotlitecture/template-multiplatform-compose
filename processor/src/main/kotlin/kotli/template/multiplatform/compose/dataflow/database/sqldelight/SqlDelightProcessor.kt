@@ -84,7 +84,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("SqlDelight")
         )
     }
@@ -110,7 +110,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("SqlDelightPaging")
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("SqlDelightPaging")
         )
     }

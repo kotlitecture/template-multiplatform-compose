@@ -29,7 +29,7 @@ object ChangeThemeProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ChangeThemeDestination")
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("ChangeThemeViewModel")
         )
         state.onApplyRules(

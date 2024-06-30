@@ -55,7 +55,7 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ic_nav_c"),
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("NavigationAViewModel"),
             RemoveMarkedLine("NavigationBViewModel"),
             RemoveMarkedLine("NavigationCViewModel"),

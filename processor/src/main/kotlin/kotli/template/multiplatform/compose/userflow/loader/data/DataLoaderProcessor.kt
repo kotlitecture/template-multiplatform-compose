@@ -28,7 +28,7 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKt,
+            Rules.AppModuleKt,
             RemoveMarkedLine("LoaderViewModel")
         )
         state.onApplyRules(
