@@ -45,9 +45,9 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppNavigationRouterKt,
             ReplaceMarkedText(
-                text = "app.showcases.ShowcasesDestination",
-                marker = "app.showcases.ShowcasesDestination",
-                replacer = "app.ui.screen.template_no_args.TemplateNoArgsDestination"
+                text = "showcases.ShowcasesDestination",
+                marker = "showcases.ShowcasesDestination",
+                replacer = "template.screen_without_args.TemplateNoArgsDestination"
             ),
             ReplaceMarkedText(
                 text = "ShowcasesDestination",

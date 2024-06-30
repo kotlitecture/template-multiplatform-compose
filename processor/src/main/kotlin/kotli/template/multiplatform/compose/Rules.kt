@@ -58,7 +58,7 @@ object Rules {
     const val AppNavigationModalProvider = "${AppNavigationDir}/ModalProvider.kt"
     const val AppNavigationPermanentProvider = "${AppNavigationDir}/PermanentProvider.kt"
     const val AppNavigationRailProvider = "${AppNavigationDir}/RailProvider.kt"
-    const val ShowcasesDir = "${CommonAppMainDir}/kotlin/kotli/app/showcases"
+    const val ShowcasesDir = "${AppPresentationDir}/showcases"
     const val ShowcasesHttpDir = "${ShowcasesDir}/datasource/http"
     const val ShowcasesCacheDir = "${ShowcasesDir}/datasource/cache"
     const val ShowcasesPagingDir = "${ShowcasesDir}/datasource/paging"

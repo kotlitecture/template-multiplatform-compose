@@ -1,6 +1,6 @@
 package kotli.app.di.presentation
 
-import kotli.app.showcases.ShowcasesDestination
+import kotli.app.presentation.showcases.ShowcasesDestination
 import kotli.app.presentation.template.screen_with_args.TemplateDestination
 import kotli.app.presentation.template.screen_without_args.TemplateNoArgsDestination
 import kotli.app.presentation.navigation.samples.a.NavigationADestination

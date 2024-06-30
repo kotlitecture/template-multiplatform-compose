@@ -6,7 +6,7 @@ import kotli.app.presentation.navigation.NavigationBarStore
 import kotli.app.presentation.navigation.samples.a.NavigationADestination
 import kotli.app.presentation.navigation.samples.b.NavigationBDestination
 import kotli.app.presentation.navigation.samples.c.NavigationCDestination
-import kotli.app.showcases.ShowcasesDestination
+import kotli.app.presentation.showcases.ShowcasesDestination
 import org.koin.dsl.module
 import shared.presentation.navigation.NavigationDestination
 import shared.presentation.navigation.NavigationStore

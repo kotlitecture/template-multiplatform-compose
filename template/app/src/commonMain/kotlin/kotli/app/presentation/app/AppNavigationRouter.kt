@@ -1,6 +1,6 @@
 package kotli.app.presentation.app
 
-import kotli.app.showcases.ShowcasesDestination
+import kotli.app.presentation.showcases.ShowcasesDestination
 import shared.presentation.navigation.NavigationDestination
 
 /**
