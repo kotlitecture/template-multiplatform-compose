@@ -1,4 +1,4 @@
-package kotli.app.feature.theme.toggle
+package kotli.app.presentation.screen.theme.toggle
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

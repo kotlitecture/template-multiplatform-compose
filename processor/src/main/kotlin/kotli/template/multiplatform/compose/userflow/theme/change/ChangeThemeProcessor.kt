@@ -33,7 +33,7 @@ object ChangeThemeProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ChangeThemeViewModel")
         )
         state.onApplyRules(
-            Rules.UserFlowThemeChangeDir,
+            Rules.AppPresentationThemeChangeDir,
             RemoveFile()
         )
         state.onApplyRules(

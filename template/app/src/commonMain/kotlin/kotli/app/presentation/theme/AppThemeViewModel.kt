@@ -1,4 +1,4 @@
-package kotli.app.ui.theme
+package kotli.app.presentation.theme
 
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.theme.ThemeStore

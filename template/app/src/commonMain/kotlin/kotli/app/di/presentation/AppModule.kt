@@ -9,8 +9,8 @@ import kotli.app.feature.navigation.NavigationBarViewModel
 import kotli.app.feature.navigation.samples.a.NavigationAViewModel
 import kotli.app.feature.navigation.samples.b.NavigationBViewModel
 import kotli.app.feature.navigation.samples.c.NavigationCViewModel
-import kotli.app.feature.theme.change.ChangeThemeViewModel
-import kotli.app.feature.theme.toggle.ToggleThemeViewModel
+import kotli.app.presentation.screen.theme.change.ChangeThemeViewModel
+import kotli.app.presentation.screen.theme.toggle.ToggleThemeViewModel
 import kotli.app.showcases.ShowcasesViewModel
 import kotli.app.showcases.datasource.cache.basic.BasicCacheViewModel
 import kotli.app.showcases.datasource.http.basic.BasicHttpViewModel
@@ -27,8 +27,8 @@ import kotli.app.showcases.navigation.no_args.to.NoArgsNavigationToViewModel
 import kotli.app.ui.loader.LoaderViewModel
 import kotli.app.ui.screen.template.TemplateViewModel
 import kotli.app.ui.screen.template_no_args.TemplateNoArgsViewModel
-import kotli.app.ui.theme.AppThemePersistenceViewModel
-import kotli.app.ui.theme.AppThemeViewModel
+import kotli.app.presentation.theme.AppThemePersistenceViewModel
+import kotli.app.presentation.theme.AppThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarStore
 

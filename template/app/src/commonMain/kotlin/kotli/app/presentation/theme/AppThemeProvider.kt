@@ -1,4 +1,4 @@
-package kotli.app.ui.theme
+package kotli.app.presentation.theme
 
 import androidx.compose.runtime.Composable
 import shared.presentation.viewmodel.provideViewModel

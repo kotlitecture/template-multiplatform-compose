@@ -6,8 +6,8 @@ import kotli.app.ui.screen.template_no_args.TemplateNoArgsDestination
 import kotli.app.feature.navigation.samples.a.NavigationADestination
 import kotli.app.feature.navigation.samples.b.NavigationBDestination
 import kotli.app.feature.navigation.samples.c.NavigationCDestination
-import kotli.app.feature.theme.change.ChangeThemeDestination
-import kotli.app.feature.theme.change.ChangeThemeDialogDestination
+import kotli.app.presentation.screen.theme.change.ChangeThemeDestination
+import kotli.app.presentation.screen.theme.change.ChangeThemeDialogDestination
 import org.koin.dsl.module
 import shared.presentation.navigation.NavigationStore
 

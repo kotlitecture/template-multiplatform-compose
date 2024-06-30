@@ -24,7 +24,7 @@ object ToggleThemeProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.UserFlowThemeToggleDir,
+            Rules.AppPresentationThemeToggleDir,
             RemoveFile()
         )
         state.onApplyRules(

@@ -1,4 +1,4 @@
-package kotli.app.ui.theme
+package kotli.app.presentation.theme
 
 import kotlinx.serialization.Serializable
 

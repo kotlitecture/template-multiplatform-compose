@@ -2,7 +2,7 @@ package kotli.app.showcases.feature.theme.change
 
 import kotli.app.showcases.ShowcaseItem
 import kotli.app.showcases.ShowcasesViewModel
-import kotli.app.feature.theme.change.ChangeThemeDialogDestination
+import kotli.app.presentation.screen.theme.change.ChangeThemeDialogDestination
 
 /**
  * Showcase item representing a change theme dialog.
