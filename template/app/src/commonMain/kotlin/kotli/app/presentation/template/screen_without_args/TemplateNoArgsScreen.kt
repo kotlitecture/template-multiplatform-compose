@@ -1,4 +1,4 @@
-package kotli.app.ui.screen.template_no_args
+package kotli.app.presentation.template.screen_without_args
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

@@ -1,4 +1,4 @@
-package kotli.app.presentation.ui.theme.change
+package kotli.app.presentation.theme.change
 
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore

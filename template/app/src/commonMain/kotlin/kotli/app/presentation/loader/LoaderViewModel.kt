@@ -1,4 +1,4 @@
-package kotli.app.presentation.ui.loader
+package kotli.app.presentation.loader
 
 import kotli.app.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay

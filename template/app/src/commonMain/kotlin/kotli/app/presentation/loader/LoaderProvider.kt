@@ -1,4 +1,4 @@
-package kotli.app.presentation.ui.loader
+package kotli.app.presentation.loader
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

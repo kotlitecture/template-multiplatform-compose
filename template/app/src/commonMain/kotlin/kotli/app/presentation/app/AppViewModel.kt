@@ -1,4 +1,4 @@
-package kotli.app
+package kotli.app.presentation.app
 
 import shared.design.component.AppSnackbarStore
 import shared.presentation.viewmodel.BaseViewModel

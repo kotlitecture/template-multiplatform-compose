@@ -1,4 +1,4 @@
-package kotli.app.presentation.ui.theme.toggle
+package kotli.app.presentation.theme.toggle
 
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged

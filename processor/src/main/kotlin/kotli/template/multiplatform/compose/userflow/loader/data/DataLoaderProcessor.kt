@@ -24,7 +24,7 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppUiLoaderDir,
+            Rules.AppLoaderDir,
             RemoveFile()
         )
         state.onApplyRules(

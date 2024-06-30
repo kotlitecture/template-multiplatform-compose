@@ -1,4 +1,4 @@
-package kotli.app
+package kotli.app.presentation.app
 
 import shared.presentation.store.Store
 

@@ -1,14 +1,12 @@
-package kotli.app.ui.screen.template_no_args
+package kotli.app.presentation.template.screen_without_args
 
-import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
+import shared.presentation.viewmodel.BaseViewModel
 
 class TemplateNoArgsViewModel(
     private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
-    fun onBack() {
-        navigationStore.onBack()
-    }
+    fun onBack() = navigationStore::onBack
 
 }

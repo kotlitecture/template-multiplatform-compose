@@ -1,4 +1,4 @@
-package kotli.app.presentation.ui.theme.change
+package kotli.app.presentation.theme.change
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

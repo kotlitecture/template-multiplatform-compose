@@ -1,4 +1,4 @@
-package kotli.app.presentation.ui.theme.toggle
+package kotli.app.presentation.theme.toggle
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable

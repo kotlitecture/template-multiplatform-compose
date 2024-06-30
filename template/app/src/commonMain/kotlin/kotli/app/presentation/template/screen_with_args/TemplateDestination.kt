@@ -1,4 +1,4 @@
-package kotli.app.ui.screen.template
+package kotli.app.presentation.template.screen_with_args
 
 import androidx.navigation.NavGraphBuilder
 import kotlinx.serialization.Serializable
@@ -11,7 +11,9 @@ object TemplateDestination : NavigationDestination<TemplateDestination.Data>() {
     override val id: String = "template_screen"
     override val navStrategy: NavigationStrategy = NavigationStrategy.NewInstance
     override val argsStrategy: ArgsStrategy<Data> = ArgsStrategy.json(Data.serializer())
-    override fun doBind(builder: NavGraphBuilder) = composable(builder) { TemplateScreen(it!!) }
+    override fun doBind(builder: NavGraphBuilder) = composable(builder) { data ->
+        TemplateScreen(data!!)
+    }
 
     @Serializable
     data class Data(
