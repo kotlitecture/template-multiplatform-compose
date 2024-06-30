@@ -18,7 +18,7 @@ Facade **CacheSource** provides the following methods:
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.datasource.ProvidesCacheSource`.
+Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.data.CacheSourceModule`.
 
 To start using, just inject it to your DI managed class.
 

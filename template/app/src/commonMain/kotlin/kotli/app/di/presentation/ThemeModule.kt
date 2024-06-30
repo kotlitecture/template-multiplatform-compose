@@ -1,4 +1,4 @@
-package kotli.app.di.state
+package kotli.app.di.presentation
 
 import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeStore
@@ -6,7 +6,7 @@ import shared.design.theme.DarkThemeContext
 import shared.design.theme.LightThemeContext
 import org.koin.dsl.module
 
-val ProvidesThemeStore = module {
+val themeModule = module {
     single {
         ThemeStore(
             defaultConfig = ThemeConfig(

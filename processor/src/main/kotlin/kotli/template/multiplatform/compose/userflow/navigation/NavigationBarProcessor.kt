@@ -25,7 +25,7 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.AppDIKt,
-            RemoveMarkedLine("ProvidesNavigationBarState")
+            RemoveMarkedLine("navigationBarModule")
         )
         state.onApplyRules(
             Rules.AppScreenKt,
@@ -42,11 +42,11 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.ProvidesNavigationBarStateKt,
+            Rules.NavigationBarModuleKt,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.ProvidesNavigationStateKt,
+            Rules.NavigationModuleKt,
             RemoveMarkedLine("NavigationADestination"),
             RemoveMarkedLine("NavigationBDestination"),
             RemoveMarkedLine("NavigationCDestination"),

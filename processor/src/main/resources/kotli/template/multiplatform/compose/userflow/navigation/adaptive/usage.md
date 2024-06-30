@@ -1,17 +1,17 @@
 ## Overview
 
 - Component package: `app.feature.navigation`
-- DI integration: `app.di.state.ProvidesNavigationBarState`
+- DI integration: `app.di.presentation.NavigationBarModule`
 - State management: `app.feature.navigation.NavigationBarState`
 - Pre-configured destinations package: `app.feature.navigation.samples`
 
 
 ## Configuration
 
-Configure your destinations using `ProvidesNavigationBarState`, and if necessary, specify any restricted or allowed destinations which will force navigation to show/hide the navigation bar in some cases.
+Configure your destinations using `NavigationBarModule`, and if necessary, specify any restricted or allowed destinations which will force navigation to show/hide the navigation bar in some cases.
 
 ```kotlin
-val ProvidesNavigationBarState = module {
+val navigationBarModule = module {
     single {
         NavigationBarState(
             pages = listOf(

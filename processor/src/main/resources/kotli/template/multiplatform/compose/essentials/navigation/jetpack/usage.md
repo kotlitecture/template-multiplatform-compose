@@ -32,11 +32,11 @@ object TemplateDestination : NavigationDestination<TemplateDestination.Data>() {
 ## Register Destination
 
 All app destinations should be registered within an instance of the class `shared.presentation.navigation.NavigationState`.
-This instance is already pre-configured in dependency injection (DI) through the `app.di.state.ProvidesNavigationState` class.
+This instance is already pre-configured in dependency injection (DI) through the `app.di.presentation.NavigationModule` class.
 Simply place all your destinations within this instance.
 
 ```kotlin
-val ProvidesNavigationState = module {
+val navigationModule = module {
     single {
         NavigationState(
             destinations = listOf(
@@ -57,19 +57,19 @@ val ProvidesNavigationState = module {
 ## Navigate to Destination
 
 Once the navigation is aware of the destinations, you can initiate navigation to them using the `onBack` and `onNext` methods available in the `shared.presentation.navigation.NavigationState` class.
-Simply inject `NavigationState` into your `ViewModel` or other dependency injection managed class, and navigate whenever necessary.
+Simply inject `NavigationStore` into your `ViewModel` or other dependency injection managed class, and navigate whenever necessary.
 
 ```kotlin
 class HomeViewModel(
-    private val navigationState: NavigationState
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onBack() {
-        navigationState.onBack()
+        navigationStore.onBack()
     }
     
     fun onShowSettings() {
-        navigationState.onNext(SettingsDestination)
+        navigationStore.onNext(SettingsDestination)
     }
 
 }

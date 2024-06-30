@@ -18,7 +18,7 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.ProvidesNavigationBarStateKt,
+            Rules.NavigationBarModuleKt,
             CleanupMarkedBlock("{showcases}")
         )
     }
@@ -29,7 +29,7 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.ProvidesNavigationStateKt,
+            Rules.NavigationModuleKt,
             RemoveMarkedLine("ShowcasesDestination")
         )
         state.onApplyRules(
@@ -37,7 +37,7 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ShowcasesViewModel")
         )
         state.onApplyRules(
-            Rules.ProvidesNavigationBarStateKt,
+            Rules.NavigationBarModuleKt,
             RemoveMarkedBlock("{showcases}"),
             RemoveMarkedLine("ic_nav_showcases"),
             RemoveMarkedLine("ShowcasesDestination"),

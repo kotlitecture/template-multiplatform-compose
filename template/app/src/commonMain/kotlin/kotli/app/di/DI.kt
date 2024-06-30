@@ -7,10 +7,10 @@ import kotli.app.di.data.httpSourceModule
 import kotli.app.di.data.keyValueSourceModule
 import kotli.app.di.data.pagingSourceModule
 import kotli.app.di.data.sqlDelightSourceModule
-import kotli.app.di.state.ProvidesAppState
-import kotli.app.di.state.ProvidesNavigationBarState
-import kotli.app.di.state.ProvidesNavigationState
-import kotli.app.di.state.ProvidesThemeStore
+import kotli.app.di.presentation.appModule
+import kotli.app.di.presentation.navigationBarModule
+import kotli.app.di.presentation.navigationModule
+import kotli.app.di.presentation.themeModule
 import org.koin.core.context.startKoin
 
 val koinDI = startKoin {
@@ -23,10 +23,10 @@ val koinDI = startKoin {
         keyValueSourceModule,
         pagingSourceModule,
         sqlDelightSourceModule,
-        ProvidesNavigationBarState,
-        ProvidesNavigationState,
-        ProvidesThemeStore,
-        ProvidesAppState
+        navigationBarModule,
+        navigationModule,
+        themeModule,
+        appModule
     )
 }
 

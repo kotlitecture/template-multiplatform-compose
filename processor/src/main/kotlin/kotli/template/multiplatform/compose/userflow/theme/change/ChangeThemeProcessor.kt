@@ -24,7 +24,7 @@ object ChangeThemeProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.ProvidesNavigationStateKt,
+            Rules.NavigationModuleKt,
             RemoveMarkedLine("ChangeThemeDialogDestination"),
             RemoveMarkedLine("ChangeThemeDestination")
         )

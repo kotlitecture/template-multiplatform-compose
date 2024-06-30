@@ -1,4 +1,4 @@
-package kotli.app.di.state
+package kotli.app.di.presentation
 
 import androidx.compose.runtime.Composable
 import kotli.app.feature.navigation.NavigationBarPage
@@ -14,7 +14,7 @@ import shared.presentation.navigation.NavigationStrategy
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
 
-val ProvidesNavigationBarState = module {
+val navigationBarModule = module {
     single {
         NavigationBarStore(
             pages = listOf(

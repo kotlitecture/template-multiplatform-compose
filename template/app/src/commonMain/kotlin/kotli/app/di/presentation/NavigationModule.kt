@@ -1,4 +1,4 @@
-package kotli.app.di.state
+package kotli.app.di.presentation
 
 import kotli.app.showcases.ShowcasesDestination
 import kotli.app.ui.screen.template.TemplateDestination
@@ -11,7 +11,7 @@ import kotli.app.feature.theme.change.ChangeThemeDialogDestination
 import org.koin.dsl.module
 import shared.presentation.navigation.NavigationStore
 
-val ProvidesNavigationState = module {
+val navigationModule = module {
     single {
         NavigationStore(
             destinations = listOf(
