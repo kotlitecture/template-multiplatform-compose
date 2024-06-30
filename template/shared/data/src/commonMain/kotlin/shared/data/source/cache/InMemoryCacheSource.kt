@@ -53,13 +53,18 @@ open class InMemoryCacheSource(
     }
 
     override fun <K : CacheKey<*>> invalidate(type: KClass<K>) {
-        jobs.iterator().forEach { entry ->
+        val jobsIterator = jobs.iterator()
+        while (jobsIterator.hasNext()) {
+            val entry = jobsIterator.next()
             val key = entry.key
             if (key.type == type) {
-                jobs.remove(key)?.cancel()
+                jobsIterator.remove()
+                entry.value.cancel()
             }
         }
-        cache.iterator().forEach { entry ->
+        val cacheIterator = cache.iterator()
+        while (cacheIterator.hasNext()) {
+            val entry = cacheIterator.next()
             if (entry.key.type == type) {
                 entry.value.invalidate()
             }
@@ -73,15 +78,21 @@ open class InMemoryCacheSource(
     }
 
     override fun <K : CacheKey<*>> remove(type: KClass<K>) {
-        jobs.iterator().forEach { entry ->
+        val jobsIterator = jobs.iterator()
+        while (jobsIterator.hasNext()) {
+            val entry = jobsIterator.next()
             val key = entry.key
             if (key.type == type) {
-                jobs.remove(key)?.cancel()
+                jobsIterator.remove()
+                entry.value.cancel()
             }
         }
-        cache.iterator().forEach { entry ->
+        val cacheIterator = cache.iterator()
+        while (cacheIterator.hasNext()) {
+            val entry = cacheIterator.next()
             if (entry.key.type == type) {
-                cache.remove(entry.key)?.invalidate()
+                cacheIterator.remove()
+                entry.value.invalidate()
             }
         }
     }
