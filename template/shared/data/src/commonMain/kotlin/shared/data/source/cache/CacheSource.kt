@@ -51,14 +51,6 @@ interface CacheSource : DataSource {
     fun <K : CacheKey<*>> remove(key: K)
 
     /**
-     * Associates the specified value with the specified key in the cache.
-     *
-     *@param key The cache key to associate with the value.
-     * @param value The value to be stored in the cache.
-     */
-    fun <T> put(key: CacheKey<T>, value: T)
-
-    /**
      * Clears all entries from the cache.
      */
     fun clear()
