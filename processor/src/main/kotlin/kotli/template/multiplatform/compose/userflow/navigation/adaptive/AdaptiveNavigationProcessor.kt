@@ -2,11 +2,13 @@ package kotli.template.multiplatform.compose.userflow.navigation.adaptive
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.FeatureProcessor
+import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.bottom.BottomNavigationProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.dismissible.DismissibleNavigationProcessor
@@ -20,6 +22,7 @@ object AdaptiveNavigationProcessor : BaseFeatureProcessor() {
     const val ID = "userflow.navigation.adaptive"
 
     override fun getId(): String = ID
+    override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(

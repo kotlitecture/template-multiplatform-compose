@@ -3,6 +3,9 @@ package shared.data.source.cache
 import io.ktor.util.collections.ConcurrentSet
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.UUID
@@ -26,7 +29,7 @@ class InMemoryCacheSourceTest {
                         delay(2.seconds)
                         iteration
                     }
-                    .value()
+                    .getValue()
                     ?.let(cached::add)
             }
         }
@@ -47,8 +50,32 @@ class InMemoryCacheSourceTest {
                         delay(1.seconds)
                         UUID.randomUUID()
                     }
-                    .value()
+                    .getValue()
                     ?.let(cached::add)
+            }
+        }
+        delay(2.seconds)
+        assertEquals(1, cached.size)
+    }
+
+    @Test
+    fun `get changes in parallel`() = runBlocking {
+        val key = UUIDCacheKey(Int.MAX_VALUE)
+        val iterations = 1000
+        val cached = ConcurrentSet<UUID>()
+        repeat(iterations) {
+            launch {
+                delay(300)
+                cache
+                    .get(key) {
+                        delay(1.seconds)
+                        UUID.randomUUID()
+                    }
+                    .getChanges()
+                    .filterNotNull()
+                    .take(1)
+                    .first()
+                    .let(cached::add)
             }
         }
         delay(2.seconds)
@@ -59,14 +86,14 @@ class InMemoryCacheSourceTest {
     fun `check cached state logic`() = runBlocking {
         val key = UUIDCacheKey(Int.MAX_VALUE, ttl = 100)
         val entry = cache.get(key) { UUID.randomUUID() }
-        val value1 = entry.value()
-        val value1Last = entry.last()
+        val value1 = entry.getValue()
+        val value1Last = entry.getLast()
         delay(100)
-        val value2 = entry.value()
+        val value2 = entry.getValue()
         delay(100)
         assertNotEquals(value1, value2)
         assertEquals(value1, value1Last)
-        assertNotEquals(value2, entry.value())
+        assertNotEquals(value2, entry.getValue())
     }
 
     private data class TestCacheKey(

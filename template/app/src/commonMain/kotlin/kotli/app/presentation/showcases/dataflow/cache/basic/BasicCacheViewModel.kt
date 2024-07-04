@@ -24,7 +24,7 @@ class BasicCacheViewModel(
         launchAsync {
             val cacheKey = SimpleCacheKey()
             val cacheEntry = cacheSource.get(cacheKey, ::getDateAsFormattedString)
-            cacheEntry.changes().collectLatest(cacheState::set)
+            cacheEntry.getChanges().collectLatest(cacheState::set)
         }
     }
 
