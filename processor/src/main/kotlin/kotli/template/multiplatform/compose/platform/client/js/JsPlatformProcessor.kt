@@ -1,6 +1,8 @@
 package kotli.template.multiplatform.compose.platform.client.js
 
+import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
+import kotli.engine.model.FeatureTags
 import kotli.engine.template.rule.CleanupMarkedBlock
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedBlock
@@ -12,6 +14,7 @@ object JsPlatformProcessor : PlatformProcessor() {
     const val ID = "platform.js"
 
     override fun getId(): String = ID
+    override fun getTags(): List<FeatureTag> = listOf(FeatureTags.Client, FeatureTags.Web)
 
     override fun doApply(state: TemplateState) {
         super.doApply(state)
