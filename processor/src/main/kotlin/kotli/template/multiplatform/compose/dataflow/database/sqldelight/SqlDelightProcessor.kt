@@ -2,6 +2,7 @@ package kotli.template.multiplatform.compose.dataflow.database.sqldelight
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.FeatureProcessor
+import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.CleanupMarkedBlock
@@ -11,6 +12,7 @@ import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotlin.time.Duration.Companion.hours
@@ -20,6 +22,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
     const val ID = "dataflow.database.sqldelight"
 
     override fun getId(): String = ID
+    override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getWebUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/"
     override fun getIntegrationUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/2.0.2/multiplatform_sqlite/"
 
