@@ -1,7 +1,9 @@
 package kotli.template.multiplatform.compose.platform.server.ktor
 
 import kotli.engine.FeatureProcessor
+import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
+import kotli.engine.model.FeatureTags
 import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
@@ -16,6 +18,7 @@ object KtorBackendProcessor : PlatformProcessor() {
     const val ID = "platform.server.ktor"
 
     override fun getId(): String = ID
+    override fun getTags(): List<FeatureTag> = listOf(FeatureTags.Server)
     override fun getWebUrl(state: TemplateState): String = "https://ktor.io"
     override fun getIntegrationUrl(state: TemplateState): String = "https://ktor.io/docs/server-create-a-new-project.html"
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
