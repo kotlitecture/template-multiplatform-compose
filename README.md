@@ -27,14 +27,14 @@ All target platforms are optional and will be included only if selected during c
 The template follows the general principals:
 
 - The underlying architecture is minimalistic, pre-configured, and complies with the latest recommended guidelines.
-- Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotlitecture.com).
+- Third-party dependencies, components, DevOps practices, and configurations are optional and can be included or excluded through an online service [Kotli](https://kotli.xyz).
 - All out-of-the-box solutions work seamlessly across all supported platforms and are designed to accelerate the development of complex and production-ready applications within days, prioritizing simplicity and efficiency during the implementation and support phases.
 
 # Get started
 
 **!IMPORTANT!** The given template is a [Kotli Template](https://kotlitecture.github.io/engine/template_overview).
 
-To generate the required project structure, use online service [Kotli](https://kotlitecture.com/project) (it's free and only requires an internet connection).
+To generate the required project structure, use online service [Kotli](https://kotli.xyz/project) (it's free and only requires an internet connection).
 
 Once you configure the necessary features and generate the archive with source codes, you'll have a ready-to-use and working project structure that can be imported into your IDE to begin adding the required business logic.
 
@@ -86,7 +86,7 @@ Feel free to choose what fits your needs best.
 
 ### Module - data
 
-Provides a fundamental implementation of commonly used data sources in different apps. During project setup via [Kotli](https://kotlitecture.com), only the required data sources will be included.
+Provides a fundamental implementation of commonly used data sources in different apps. During project setup via [Kotli](https://kotli.xyz), only the required data sources will be included.
 
 All data sources have been configured to access the necessary data layer in a flexible and convenient manner.
 
@@ -109,7 +109,7 @@ Existing composables in this module are examples and can be changed/removed base
 The Application module itself contains:
 
 - Logic to properly connect all included components together with the help of Dependency Injection (Koin, by default).
-- Showcases to demonstrate some features included during [project setup](https://kotlitecture.com/project).
+- Showcases to demonstrate some features included during [project setup](https://kotli.xyz/project).
 
 Once you download and import the initial project structure into your IDE, the project is ready to run on a device, enabling you to understand the included functionality and start adding the required features.
 
@@ -123,17 +123,17 @@ To enable sharing some common models between the **backend** and **frontend**, t
 
 # Documentation
 
-Once you've configured your project through [Kotli](https://kotlitecture.com/project) and downloaded the generated source codes, this project become fully yours and is not bound to the service. Each project includes a README.MD file in its root with the following helpful details:
+Once you've configured your project through [Kotli](https://kotli.xyz/project) and downloaded the generated source codes, this project become fully yours and is not bound to the service. Each project includes a README.MD file in its root with the following helpful details:
 
 - A link to the initial template used to prepare the project structure (GitHub page of the template, similar to this one).
-- A link to the architecture ([Kotli](https://kotlitecture.com/project) project) used to prepare and download these sources.
-- A list of all features included in the project during its [setup](https://kotlitecture.com/project). Each feature includes additional documentation within the project's `docs` directory, making it easy to check what is included, find official links, and understand how to use and configure each functionality if needed.
+- A link to the architecture ([Kotli](https://kotli.xyz/project) project) used to prepare and download these sources.
+- A list of all features included in the project during its [setup](https://kotli.xyz/project). Each feature includes additional documentation within the project's `docs` directory, making it easy to check what is included, find official links, and understand how to use and configure each functionality if needed.
 
 All documentation related to features can also be found and accessed online, up-to-date, once you open the link to your Kotli project.
 
 # Showcases
 
-When a project is configured and downloaded via [Kotli](https://kotlitecture.com/project), it also provides showcases of all included features. Furthermore, the screen with showcases is configured as the initial screen when running the downloaded template.
+When a project is configured and downloaded via [Kotli](https://kotli.xyz/project), it also provides showcases of all included features. Furthermore, the screen with showcases is configured as the initial screen when running the downloaded template.
 
 |                   Showcases :: Overview                   |                Showcases :: Theme Dialog                |                  Showcases :: Key-Value Storage                   |
 |:---------------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
@@ -152,7 +152,7 @@ For example, if you configured the project with **Web** and **iOS** platforms bu
 
 The template is highly configurable, allowing you to include only the necessary features in the app.
 
-All these features are optional, will be updated over time, and can be included in the generated structure during [project setup](https://kotlitecture.com).
+All these features are optional, will be updated over time, and can be included in the generated structure during [project setup](https://kotli.xyz).
 
 The generated project will include a similar table in its README.MD file, but with only the configured features (direct and transitive).
 
