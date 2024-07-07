@@ -20,7 +20,7 @@ interface CacheSource : DataSource {
      * @param valueProvider A suspend function that provides the value if the cache entry is not found.
      * @return A CacheState object representing the state of the cache entry.
      */
-    fun <T> get(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheEntry<T>
+    fun <T, K : CacheKey<T>> get(key: K, valueProvider: suspend (key: K) -> T?): CacheEntry<T, K>
 
     /**
      * Invalidates all cache entries associated with the specified key type.
