@@ -11,7 +11,8 @@ object CommonProvider : BaseFeatureProvider() {
     override fun getId(): String = "common"
     override fun createProcessors(): List<FeatureProcessor> = listOf(
         CommonKtorProcessor,
-        CommonStatelyProcessor
+        CommonStatelyProcessor,
+        CommonKspProcessor
     )
 
 }

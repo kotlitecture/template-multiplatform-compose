@@ -20,7 +20,8 @@ object ClientPlatformProvider : BaseFeatureProvider() {
         IOSPlatformProcessor,
         AndroidPlatformProcessor,
         JvmPlatformProcessor,
-        JsPlatformProcessor
+        JsPlatformProcessor,
+        MobileAndDesktopProcessor
     )
 
 }
