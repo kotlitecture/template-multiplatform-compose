@@ -9,7 +9,7 @@ androidx-appcompat = "1.7.0"
 androidx-lifecycle = "2.8.0"
 androidx-navigation = "2.7.0-alpha07"
 androidx-paging = "3.3.0"
-androidx-room = "2.7.0-alpha04"
+androidx-room = "2.7.0-alpha05"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
 compose-multiplatform = "1.6.11"
@@ -26,7 +26,7 @@ multiplatform-settings = "1.1.1"
 napier = "2.7.1"
 skie = "0.8.2"
 sqldelight = "2.0.2"
-sqlite = "2.5.0-alpha04"
+sqlite-bundled = "2.5.0-alpha05"
 touchlab-stately = "2.0.7"
 touchlab-kermit = "2.0.3"
 
@@ -79,7 +79,7 @@ sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", 
 sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 sqldelight-web-worker-driver = { module = "app.cash.sqldelight:web-worker-driver", version.ref = "sqldelight" }
-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite-bundled" }
 touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "touchlab-kermit" }
 touchlab-stately-common = { module = "co.touchlab:stately-common", version.ref = "touchlab-stately" }
 touchlab-stately-concurrent-collections = { module = "co.touchlab:stately-concurrent-collections", version.ref = "touchlab-stately" }

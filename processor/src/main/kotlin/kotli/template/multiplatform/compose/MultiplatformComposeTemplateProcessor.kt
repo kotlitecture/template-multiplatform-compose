@@ -182,9 +182,13 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         )
         renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
         renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/iosArm64Main/kotlin")
         renamePackage(state, "${Rules.CommonAppSrcDir}/iosMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/iosSimulatorArm64Main/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/iosX64Main/kotlin")
         renamePackage(state, "${Rules.CommonAppSrcDir}/jsMain/kotlin")
         renamePackage(state, "${Rules.CommonAppSrcDir}/jvmMain/kotlin")
+        renamePackage(state, "${Rules.CommonAppSrcDir}/mobileAndDesktopMain/kotlin")
     }
 
     private fun renamePackage(state: TemplateState, root: String) {

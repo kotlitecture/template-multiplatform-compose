@@ -10,14 +10,14 @@ import kotli.engine.template.rule.CleanupMarkedLine
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
-import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonKspProcessor
-import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
 import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
-import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
+import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
 import kotlin.time.Duration.Companion.hours
 
 object RoomProcessor : BaseFeatureProcessor() {
@@ -26,99 +26,57 @@ object RoomProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.MobileAndDesktop
-    override fun getWebUrl(state: TemplateState): String = "https://developer.android.com/kotlin/multiplatform/room"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://developer.android.com/kotlin/multiplatform/room"
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
+    override fun getWebUrl(state: TemplateState): String =
+        "https://developer.android.com/kotlin/multiplatform/room"
+
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://developer.android.com/kotlin/multiplatform/room"
+
+    override fun canApply(state: TemplateState): Boolean {
+        return listOfNotNull(
+            state.getFeature(AndroidPlatformProcessor.ID),
+            state.getFeature(IOSPlatformProcessor.ID),
+            state.getFeature(JvmPlatformProcessor.ID)
+        ).isNotEmpty()
+    }
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        MobileAndDesktopProcessor::class.java,
         CommonKspProcessor::class.java,
         SqliteProcessor::class.java,
-        MobileAndDesktopProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
             Rules.BuildGradleApp,
-            CleanupMarkedBlock("{sqldelight.config}"),
-            CleanupMarkedLine("{dataflow.database.sqldelight}")
+            CleanupMarkedBlock("{dataflow.database.room.config}"),
+            CleanupMarkedLine("{dataflow.database.room}")
         )
-        state.onApplyRules(
-            "${Rules.CommonAppMainDir}/sqldelight",
-            RenamePackage(
-                "kotli.app",
-                state.layer.namespace
-            )
-        )
-        removePaging(state)
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.BuildGradleApp,
-            RemoveMarkedBlock("{sqldelight.config}"),
-            RemoveMarkedLine("{dataflow.database.sqldelight}")
-        )
-        state.onApplyRules(
-            Rules.AppSqlDelightConfigJs,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppSqlDelightDir,
-            RemoveFile()
+            RemoveMarkedBlock("{dataflow.database.room.config}"),
+            RemoveMarkedLine("{dataflow.database.room}")
         )
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("sqldelight"),
-                RemoveMarkedLine("stately-common"),
-                RemoveMarkedLine("stately-isolate"),
-                RemoveMarkedLine("stately-iso-collections"),
+                RemoveMarkedLine("androidx-room")
             )
         )
         state.onApplyRules(
-            Rules.SqlDelightSource,
+            Rules.RoomSource,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
-            RemoveMarkedLine("SqlDelightSource")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("SqlDelight")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesSqlDelightDir,
+            Rules.RoomDir,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("SqlDelight")
-        )
-    }
-
-    private fun removePaging(state: TemplateState) {
-        if (state.getFeature(CashAppPagingProcessor.ID) != null) return
-
-        state.onApplyRules(
-            Rules.BuildGradleApp,
-            RemoveMarkedLine("sqldelight.androidx.paging"),
-        )
-        state.onApplyRules(
-            VersionCatalogRules(
-                RemoveMarkedLine("sqldelight-androidx-paging")
-            )
-        )
-        state.onApplyRules(
-            "${Rules.ShowcasesSqlDelightDir}/paging",
+            "app/schemas",
             RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("SqlDelightPaging")
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("SqlDelightPaging")
         )
     }
 

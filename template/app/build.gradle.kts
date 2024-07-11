@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.android.application) // {platform.android}
     alias(libs.plugins.sqldelight) // {dataflow.database.sqldelight}
     alias(libs.plugins.skie) // {platform.ios}
-    alias(libs.plugins.ksp) // {dataflow.database.room}
+    alias(libs.plugins.ksp) // {common.ksp}
     alias(libs.plugins.room) // {dataflow.database.room}
 }
 
@@ -32,7 +32,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "App"
             isStatic = true
-            linkerOpts.add("-lsqlite3") // {dataflow.database.sqlite}
+            linkerOpts.add("-lsqlite3") // {dataflow.database.sqlite-linker}
         }
     }
     // {platform.ios.target}
@@ -98,12 +98,7 @@ kotlin {
             implementation(libs.sqldelight.web.worker.driver) // {dataflow.database.sqldelight}
             implementation(libs.touchlab.stately.iso.collections.js) // {dataflow.database.sqldelight}
             implementation(npm("sql.js", "1.10.3")) // {dataflow.database.sqldelight}
-            implementation(
-                npm(
-                    "@cashapp/sqldelight-sqljs-worker",
-                    libs.versions.sqldelight.get()
-                )
-            ) // {dataflow.database.sqldelight}
+            implementation(npm("@cashapp/sqldelight-sqljs-worker", libs.versions.sqldelight.get())) // {dataflow.database.sqldelight}
             implementation(devNpm("copy-webpack-plugin", "9.1.0")) // {dataflow.database.sqldelight}
         }
         // {platform.js.dependencies}

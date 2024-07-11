@@ -13,7 +13,8 @@ object DatabaseProvider : BaseDataFlowProvider() {
     override fun createProcessors(): List<FeatureProcessor> = listOf(
         SqlDelightProcessor,
         RoomProcessor,
-        SqliteProcessor
+        SqliteProcessor,
+        SqliteLinkerProcessor
     )
 
 }

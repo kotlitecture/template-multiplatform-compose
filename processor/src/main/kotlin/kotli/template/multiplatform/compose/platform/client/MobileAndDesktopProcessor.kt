@@ -1,6 +1,10 @@
 package kotli.template.multiplatform.compose.platform.client
 
 import kotli.engine.TemplateState
+import kotli.engine.template.rule.CleanupMarkedBlock
+import kotli.engine.template.rule.RemoveMarkedBlock
+import kotli.engine.template.rule.RemoveMarkedLine
+import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 
 object MobileAndDesktopProcessor : PlatformProcessor() {
@@ -10,9 +14,19 @@ object MobileAndDesktopProcessor : PlatformProcessor() {
 
     override fun getId(): String = ID
 
+    override fun doApply(state: TemplateState) {
+        state.onApplyRules(
+            Rules.BuildGradleApp,
+            CleanupMarkedBlock("{platform.mobile_and_desktop.dependencies}")
+        )
+    }
+
     override fun doRemove(state: TemplateState) {
-        super.doRemove(state)
-        error("TODO")
+        state.onApplyRules(
+            Rules.BuildGradleApp,
+            RemoveMarkedBlock("{platform.mobile_and_desktop.dependencies}"),
+            RemoveMarkedLine("mobileAndDesktopMain")
+        )
     }
 
 }

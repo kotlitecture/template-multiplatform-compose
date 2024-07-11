@@ -82,11 +82,13 @@ object Rules {
     const val AnalyticsSource = "*/*AnalyticsSource*.kt"
     const val CacheSource = "*/*CacheSource*.kt"
     const val SqlDelightSource = "*/*SqlDelightSource*.kt"
+    const val SqlDelightDir = "*/sqldelight/*"
+    const val RoomSource = "*/*RoomSource*.kt"
+    const val RoomDir = "*/database/room/*"
     const val ConfigSource = "*/*ConfigSource*.kt"
     const val PagingSource = "*/*Paging*.kt"
     const val HttpSource = "*/*HttpSource*.kt"
     const val KeyValueSource = "*/*KeyValueSource*.kt"
     const val SettingsKeyValueSource = "*/*SettingsKeyValueSource*.kt"
-    const val AppSqlDelightDir = "*/sqldelight/*"
 
 }
