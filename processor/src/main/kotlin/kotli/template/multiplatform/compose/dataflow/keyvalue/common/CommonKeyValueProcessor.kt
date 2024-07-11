@@ -27,7 +27,7 @@ object CommonKeyValueProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("KeyValueSource")
         )
     }

@@ -78,6 +78,10 @@ object RoomProcessor : BaseFeatureProcessor() {
             "app/schemas",
             RemoveFile()
         )
+        state.onApplyRules(
+            Rules.DIKt,
+            RemoveMarkedLine("RoomSource")
+        )
     }
 
 }

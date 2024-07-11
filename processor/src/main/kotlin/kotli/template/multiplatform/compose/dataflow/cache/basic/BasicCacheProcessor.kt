@@ -39,7 +39,7 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("CacheSource")
         )
         state.onApplyRules(
