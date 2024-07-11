@@ -112,7 +112,6 @@ kotlin {
         val mobileAndDesktopMain by creating {
             dependsOn(commonMain.get())
             dependencies {
-                implementation(libs.androidx.room.paging) // {dataflow.database.room}
                 implementation(libs.androidx.room.runtime) // {dataflow.database.room}
                 implementation(libs.sqlite.bundled) // {dataflow.database.sqlite}
             }

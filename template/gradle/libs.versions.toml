@@ -8,7 +8,6 @@ androidx-activity = "1.9.0"
 androidx-appcompat = "1.7.0"
 androidx-lifecycle = "2.8.0"
 androidx-navigation = "2.7.0-alpha07"
-androidx-paging = "3.3.0"
 androidx-room = "2.7.0-alpha05"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
@@ -35,7 +34,6 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
-androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "androidx-paging" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
 androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidx-room" }
