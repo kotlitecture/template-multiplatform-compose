@@ -33,4 +33,7 @@ interface UserDao {
     @Query("SELECT * FROM user")
     suspend fun getAll(): List<User>
 
+    @Query("SELECT COUNT(*) FROM user")
+    suspend fun count(): Long
+
 }
