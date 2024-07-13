@@ -82,6 +82,20 @@ object RoomProcessor : BaseFeatureProcessor() {
             Rules.DIKt,
             RemoveMarkedLine("RoomSource")
         )
+
+        // showcases
+        state.onApplyRules(
+            Rules.ShowcasesKt,
+            RemoveMarkedLine("Room")
+        )
+        state.onApplyRules(
+            Rules.ShowcasesRoomDir,
+            RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.AppModuleKt,
+            RemoveMarkedLine("createRoom")
+        )
     }
 
 }

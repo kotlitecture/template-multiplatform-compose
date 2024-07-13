@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.navigation
+package kotli.template.multiplatform.compose.showcases.dataflow.http
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
@@ -6,9 +6,9 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
-object NavigationShowcasesProcessor : BaseFeatureProcessor() {
+object HttpShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.navigation"
+    const val ID = "showcases.datasource.http"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
@@ -16,15 +16,15 @@ object NavigationShowcasesProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.ShowcasesKt,
-            RemoveMarkedLine("Navigation")
+            RemoveMarkedLine("Http")
         )
         state.onApplyRules(
-            Rules.ShowcasesNavigationDir,
+            Rules.ShowcasesHttpDir,
             RemoveFile()
         )
         state.onApplyRules(
             Rules.AppModuleKt,
-            RemoveMarkedLine("ArgsNavigation")
+            RemoveMarkedLine("BasicHttpViewModel")
         )
     }
 

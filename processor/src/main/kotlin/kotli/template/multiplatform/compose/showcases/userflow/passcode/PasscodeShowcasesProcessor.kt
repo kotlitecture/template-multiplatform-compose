@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.datasource.keyvalue
+package kotli.template.multiplatform.compose.showcases.userflow.passcode
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
@@ -6,9 +6,9 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
-object KeyValueShowcasesProcessor : BaseFeatureProcessor() {
+object PasscodeShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.datasource.keyvalue"
+    const val ID = "showcases.userflow.passcode"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
@@ -16,15 +16,11 @@ object KeyValueShowcasesProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.ShowcasesKt,
-            RemoveMarkedLine("KeyValue")
+            RemoveMarkedLine("Passcode")
         )
         state.onApplyRules(
-            Rules.ShowcasesKeyValueDir,
+            Rules.ShowcasesPasscodeDir,
             RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("KeyValueViewModel")
         )
     }
 

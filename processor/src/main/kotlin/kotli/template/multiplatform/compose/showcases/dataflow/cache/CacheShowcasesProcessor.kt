@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.datasource.http
+package kotli.template.multiplatform.compose.showcases.dataflow.cache
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
@@ -6,9 +6,9 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
-object HttpShowcasesProcessor : BaseFeatureProcessor() {
+object CacheShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.datasource.http"
+    const val ID = "showcases.datasource.cache"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
@@ -16,15 +16,15 @@ object HttpShowcasesProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.ShowcasesKt,
-            RemoveMarkedLine("Http")
+            RemoveMarkedLine("Cache")
         )
         state.onApplyRules(
-            Rules.ShowcasesHttpDir,
+            Rules.ShowcasesCacheDir,
             RemoveFile()
         )
         state.onApplyRules(
             Rules.AppModuleKt,
-            RemoveMarkedLine("BasicHttpViewModel")
+            RemoveMarkedLine("BasicCacheViewModel")
         )
     }
 

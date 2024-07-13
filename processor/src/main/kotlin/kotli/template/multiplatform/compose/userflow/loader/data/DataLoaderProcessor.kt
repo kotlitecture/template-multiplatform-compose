@@ -9,7 +9,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.config.facade.FacadeConfigProcessor
-import kotli.template.multiplatform.compose.showcases.feature.loader.data.DataLoaderShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.loader.data.DataLoaderShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object DataLoaderProcessor : BaseFeatureProcessor() {

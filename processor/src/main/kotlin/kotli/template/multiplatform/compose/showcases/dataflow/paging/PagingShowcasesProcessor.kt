@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.feature.passcode
+package kotli.template.multiplatform.compose.showcases.dataflow.paging
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
@@ -6,9 +6,9 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
-object PasscodeShowcasesProcessor : BaseFeatureProcessor() {
+object PagingShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.userflow.passcode"
+    const val ID = "showcases.datasource.paging"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
@@ -16,11 +16,15 @@ object PasscodeShowcasesProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.ShowcasesKt,
-            RemoveMarkedLine("Passcode")
+            RemoveMarkedLine("Paging")
         )
         state.onApplyRules(
-            Rules.ShowcasesPasscodeDir,
+            Rules.ShowcasesPagingDir,
             RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.AppModuleKt,
+            RemoveMarkedLine("BasicPagingViewModel")
         )
     }
 

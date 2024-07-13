@@ -4,7 +4,7 @@ import kotli.engine.FeatureProcessor
 import kotli.template.multiplatform.compose.dataflow.BaseDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.facade.FacadeConfigProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
-import kotli.template.multiplatform.compose.showcases.datasource.paging.PagingShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.paging.PagingShowcasesProcessor
 
 object PagingProvider : BaseDataFlowProvider() {
 

@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.datasource.paging
+package kotli.template.multiplatform.compose.showcases.userflow.navigation
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
@@ -6,9 +6,9 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
-object PagingShowcasesProcessor : BaseFeatureProcessor() {
+object NavigationShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.datasource.paging"
+    const val ID = "showcases.navigation"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
@@ -16,15 +16,15 @@ object PagingShowcasesProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.ShowcasesKt,
-            RemoveMarkedLine("Paging")
+            RemoveMarkedLine("Navigation")
         )
         state.onApplyRules(
-            Rules.ShowcasesPagingDir,
+            Rules.ShowcasesNavigationDir,
             RemoveFile()
         )
         state.onApplyRules(
             Rules.AppModuleKt,
-            RemoveMarkedLine("BasicPagingViewModel")
+            RemoveMarkedLine("ArgsNavigation")
         )
     }
 

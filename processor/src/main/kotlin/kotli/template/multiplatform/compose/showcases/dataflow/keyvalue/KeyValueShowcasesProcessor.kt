@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.showcases.datasource.cache
+package kotli.template.multiplatform.compose.showcases.dataflow.keyvalue
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
@@ -6,9 +6,9 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
-object CacheShowcasesProcessor : BaseFeatureProcessor() {
+object KeyValueShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "showcases.datasource.cache"
+    const val ID = "showcases.datasource.keyvalue"
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
@@ -16,15 +16,15 @@ object CacheShowcasesProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.ShowcasesKt,
-            RemoveMarkedLine("Cache")
+            RemoveMarkedLine("KeyValue")
         )
         state.onApplyRules(
-            Rules.ShowcasesCacheDir,
+            Rules.ShowcasesKeyValueDir,
             RemoveFile()
         )
         state.onApplyRules(
             Rules.AppModuleKt,
-            RemoveMarkedLine("BasicCacheViewModel")
+            RemoveMarkedLine("KeyValueViewModel")
         )
     }
 
