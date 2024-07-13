@@ -15,7 +15,6 @@ Facade **CacheSource** provides the following methods:
 - `invalidate(key: K)` - Invalidates the cache entry associated with the specified key.
 - `remove(type: Class<K>)` - Removes all cache entries associated with the specified key type.
 - `remove(key: K)` - Removes the cache entry associated with the specified key.
-- `put(key: CacheKey<T>, value: T)` - Associates the specified value with the specified key in the cache.
 - `clear()` - Clears all entries from the cache. 
 
 ## Example
