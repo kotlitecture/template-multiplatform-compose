@@ -5,6 +5,7 @@ import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpShowcase
 import kotli.app.presentation.showcases.dataflow.keyvalue.`object`.ObjectKeyValueShowcase
 import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKeyValueShowcase
 import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingShowcase
+import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingShowcase
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcase
@@ -35,6 +36,8 @@ object Showcases {
         ShowcaseItemGroup("Dataflow :: SqlDelight"),
         SqlDelightCrudShowcase,
         SqlDelightPagingShowcase,
+        ShowcaseItemGroup("Dataflow :: Room"),
+        RoomCrudShowcase,
         ShowcaseItemGroup("Userflow :: Navigation + MVVM"),
         NoArgsNavigationShowcase,
         ArgsNavigationShowcase,

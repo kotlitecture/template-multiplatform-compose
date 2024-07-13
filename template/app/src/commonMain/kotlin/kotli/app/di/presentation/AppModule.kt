@@ -25,6 +25,7 @@ import kotli.app.presentation.showcases.userflow.navigation.args.to.ArgsNavigati
 import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
 import kotli.app.presentation.loader.LoaderViewModel
+import kotli.app.presentation.showcases.dataflow.room.crud.createRoomCrudViewModel
 import kotli.app.presentation.template.screen_with_args.TemplateViewModel
 import kotli.app.presentation.template.screen_without_args.TemplateNoArgsViewModel
 import kotli.app.presentation.theme.AppThemePersistenceViewModel
@@ -63,6 +64,7 @@ val appModule = module {
             initializer { SqlDelightCrudViewModel(get(), get()) }
             initializer { SqlDelightPagingViewModel(get(), get(), get(), get()) }
             initializer { BasicCacheViewModel(get(), get()) }
+            initializer { createRoomCrudViewModel() }
         }
     }
 }

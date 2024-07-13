@@ -1,19 +1,19 @@
-package kotli.app.presentation.showcases.dataflow.sqldelight.paging
+package kotli.app.presentation.showcases.dataflow.room.crud
 
 import kotli.app.presentation.showcases.ShowcaseItem
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import shared.presentation.navigation.NavigationDestination
 
-object SqlDelightPagingShowcase : ShowcaseItem {
+object RoomCrudShowcase : ShowcaseItem {
 
-    override val label: String = "SqlDelight Paging"
+    override val label: String = "Room CRUD"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
-        viewModel.navigationStore.onNext(SqlDelightPagingDestination)
+        viewModel.navigationStore.onNext(RoomCrudDestination)
     }
 
     override fun dependsOn(): List<NavigationDestination<*>> = listOf(
-        SqlDelightPagingDestination
+        RoomCrudDestination
     )
 
 }

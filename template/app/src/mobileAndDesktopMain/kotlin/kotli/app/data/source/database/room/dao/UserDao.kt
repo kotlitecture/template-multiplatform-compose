@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import kotli.app.data.source.database.room.entity.User
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Represents a DAO (Data Access Object) for interacting with the [User] domain.
@@ -32,6 +33,9 @@ interface UserDao {
 
     @Query("SELECT * FROM user")
     suspend fun getAll(): List<User>
+
+    @Query("SELECT * FROM user")
+    fun getAllAsFlow(): Flow<List<User>>
 
     @Query("SELECT COUNT(*) FROM user")
     suspend fun count(): Long
