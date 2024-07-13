@@ -41,13 +41,16 @@ open class InMemoryCacheSource(
 
     private val dispatcher = Dispatchers.Default
     private val jobs = ConcurrentMutableMap<KeyData<*>, Deferred<*>>()
-    private val cache = ConcurrentMutableMap<KeyData<*>, EntryData<*>>()
+    private val cache = ConcurrentMutableMap<KeyData<*>, EntryData<*, *>>()
 
-    override fun <T> get(key: CacheKey<T>, valueProvider: suspend () -> T?): CacheEntry<T> {
+    override fun <T, K : CacheKey<T>> get(
+        key: K,
+        valueProvider: suspend (key: K) -> T?
+    ): CacheEntry<T, K> {
         val keyData = KeyData(key)
         val entryData = cache.computeIfAbsent(keyData) {
             EntryData(keyData, valueProvider)
-        } as CacheEntry<T>
+        } as CacheEntry<T, K>
         return entryData
     }
 
@@ -108,8 +111,8 @@ open class InMemoryCacheSource(
         cache.remove(cacheKey)
     }
 
-    private data class KeyData<T>(
-        val key: CacheKey<T>,
+    private data class KeyData<K : CacheKey<*>>(
+        val key: K,
         val type: KClass<*> = key::class
     )
 
@@ -118,25 +121,25 @@ open class InMemoryCacheSource(
         val updateTime: Long = Clock.System.now().toEpochMilliseconds()
     )
 
-    private inner class EntryData<T>(
-        private val keyData: KeyData<T>,
-        private val valueProvider: suspend () -> T?
-    ) : CacheEntry<T> {
+    private inner class EntryData<T, K : CacheKey<T>>(
+        private val keyData: KeyData<K>,
+        private val valueProvider: suspend (key: K) -> T?
+    ) : CacheEntry<T, K> {
 
         @Transient
         private var invalidated = false
         private val liveChanges by lazy { fetchLiveChanges() }
         private val changes = MutableStateFlow<EntrySnapshot<T>?>(null)
 
-        override val key: CacheKey<T> = keyData.key
+        override val key: K = keyData.key
 
-        override suspend fun setValue(value: T?) = changes.update { value?.let(::EntrySnapshot) }
+        override suspend fun set(value: T?) = changes.update { value?.let(::EntrySnapshot) }
 
-        override suspend fun getFresh(): T? = invalidate().run { getValue() }
+        override suspend fun fresh(): T? = invalidate().run { get() }
 
-        override suspend fun getLast(): T? = changes.value?.value
+        override suspend fun last(): T? = changes.value?.value
 
-        override suspend fun getValue(): T? {
+        override suspend fun get(): T? {
             return if (!isValid(key.ttl)) {
                 val newValue = fetchValue()
                 changes.updateAndGet { newValue?.let(::EntrySnapshot) }?.value
@@ -145,7 +148,7 @@ open class InMemoryCacheSource(
             }
         }
 
-        override suspend fun getChanges(): Flow<T?> = liveChanges
+        override suspend fun changes(): Flow<T?> = liveChanges
             .flatMapLatest { changes }
             .map { snapshot -> snapshot?.value }
             .retry { th -> !th.isCancellationException().also { delay(changesRetryInterval) } }
@@ -180,12 +183,12 @@ open class InMemoryCacheSource(
                 ?: run {
                     if (key.immortal()) {
                         jobs.computeIfAbsent(keyData) {
-                            GlobalScope.async { valueProvider() }
+                            GlobalScope.async { valueProvider(key) }
                         }
                     } else {
                         withContext(dispatcher) {
                             jobs.computeIfAbsent(keyData) {
-                                async { valueProvider() }
+                                async { valueProvider(key) }
                             }
                         }
                     }
@@ -199,8 +202,8 @@ open class InMemoryCacheSource(
             emit(true)
             var retryAttempt = 0
             while (currentCoroutineContext().isActive) {
-                try {
-                    getValue()
+                runCatching {
+                    get()
                     val updateTime = changes.value?.updateTime
 
                     if (updateTime == null) {
@@ -212,10 +215,10 @@ open class InMemoryCacheSource(
                     }
 
                     retryAttempt = 0
-                } catch (e: Exception) {
+                }.onFailure { th ->
                     retryAttempt++
                     when {
-                        retryAttempt >= exceptionRetryCount -> throw e
+                        retryAttempt >= exceptionRetryCount -> throw th
                         else -> delay(exceptionRetryInterval)
                     }
                 }

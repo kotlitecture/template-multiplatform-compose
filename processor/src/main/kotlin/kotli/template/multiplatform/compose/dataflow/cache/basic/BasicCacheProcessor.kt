@@ -11,7 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
-import kotli.template.multiplatform.compose.showcases.datasource.cache.CacheShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.cache.CacheShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object BasicCacheProcessor : BaseFeatureProcessor() {
@@ -39,7 +39,7 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("CacheSource")
         )
         state.onApplyRules(

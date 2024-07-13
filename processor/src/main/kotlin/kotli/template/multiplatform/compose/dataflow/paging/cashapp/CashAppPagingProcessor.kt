@@ -23,7 +23,7 @@ object CashAppPagingProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("paging")
+                RemoveMarkedLine("cashapp")
             )
         )
         state.onApplyRules(
@@ -31,7 +31,7 @@ object CashAppPagingProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("PagingSource")
         )
         state.onApplyRules(

@@ -6,7 +6,7 @@ import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
-import kotli.template.multiplatform.compose.showcases.datasource.keyvalue.KeyValueShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.keyvalue.KeyValueShowcasesProcessor
 import kotlin.time.Duration.Companion.minutes
 
 object CommonKeyValueProcessor : BaseFeatureProcessor() {
@@ -27,7 +27,7 @@ object CommonKeyValueProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("KeyValueSource")
         )
     }

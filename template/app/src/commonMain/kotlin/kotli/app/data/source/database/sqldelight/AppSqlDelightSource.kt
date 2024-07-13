@@ -1,14 +1,11 @@
 package kotli.app.data.source.database.sqldelight
 
 import app.cash.sqldelight.db.SqlDriver
-import kotli.app.data.source.database.sqldelight.AppDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.shareIn
-
-expect fun createSqlDriver(name: String): SqlDriver
 
 /**
  * This class represents a source for accessing the SqlDelight database.
@@ -31,3 +28,5 @@ class AppSqlDelightSource(
     suspend fun getDatabase(): AppDatabase = db.first()
 
 }
+
+expect fun createSqlDriver(name: String): SqlDriver

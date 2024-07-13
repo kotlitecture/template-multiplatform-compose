@@ -24,11 +24,11 @@ class BasicCacheViewModel(
         launchAsync {
             val cacheKey = SimpleCacheKey()
             val cacheEntry = cacheSource.get(cacheKey, ::getDateAsFormattedString)
-            cacheEntry.getChanges().collectLatest(cacheState::set)
+            cacheEntry.changes().collectLatest(cacheState::set)
         }
     }
 
-    private fun getDateAsFormattedString(): String {
+    private fun getDateAsFormattedString(key: SimpleCacheKey): String {
         val time = Clock.System.now()
         return time.format(DateTimeComponents.Format {
             byUnicodePattern("yyyy-MM-dd HH:mm:ss")

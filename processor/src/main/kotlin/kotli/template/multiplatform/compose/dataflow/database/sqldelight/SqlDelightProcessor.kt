@@ -14,7 +14,10 @@ import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
+import kotli.template.multiplatform.compose.dataflow.database.SqliteLinkerProcessor
+import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
+import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
 import kotlin.time.Duration.Companion.hours
 
 object SqlDelightProcessor : BaseFeatureProcessor() {
@@ -29,7 +32,9 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonStatelyProcessor::class.java
+        MobileAndDesktopProcessor::class.java,
+        CommonStatelyProcessor::class.java,
+        SqliteProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {
@@ -59,7 +64,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppSqlDelightDir,
+            Rules.SqlDelightDir,
             RemoveFile()
         )
         state.onApplyRules(
@@ -75,7 +80,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("SqlDelightSource")
         )
         state.onApplyRules(

@@ -6,7 +6,7 @@ import shared.presentation.navigation.NavigationDestination
 
 object SqlDelightPagingShowcase : ShowcaseItem {
 
-    override val label: String = "SQL Paging"
+    override val label: String = "SqlDelight Paging"
 
     override fun onClick(viewModel: ShowcasesViewModel) {
         viewModel.navigationStore.onNext(SqlDelightPagingDestination)

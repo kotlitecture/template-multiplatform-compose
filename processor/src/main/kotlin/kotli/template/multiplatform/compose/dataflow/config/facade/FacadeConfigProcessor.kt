@@ -23,7 +23,7 @@ object FacadeConfigProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDIKt,
+            Rules.DIKt,
             RemoveMarkedLine("ConfigSource")
         )
     }

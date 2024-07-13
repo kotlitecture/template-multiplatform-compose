@@ -47,7 +47,8 @@ object KtorBackendProcessor : PlatformProcessor() {
                 RemoveMarkedLine("logback"),
                 RemoveMarkedLine("server"),
                 RemoveMarkedLine("kotlin.jvm"),
-                RemoveMarkedLine("ktor.plugin")
+                RemoveMarkedLine("ktor.plugin"),
+                RemoveMarkedLine("kotlin-test-junit")
             )
         )
     }

@@ -2,6 +2,7 @@ package kotli.template.multiplatform.compose.dataflow.common
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
+import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
@@ -25,6 +26,11 @@ object CommonDataFlowProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.BuildGradle,
             RemoveMarkedLine("shared.data")
+        )
+        state.onApplyRules(
+            VersionCatalogRules(
+                RemoveMarkedLine("kotlin-test =")
+            )
         )
     }
 

@@ -4,7 +4,7 @@ import kotli.engine.FeatureProcessor
 import kotli.template.multiplatform.compose.dataflow.BaseDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.facade.FacadeConfigProcessor
 import kotli.template.multiplatform.compose.dataflow.http.ktor.KtorHttpProcessor
-import kotli.template.multiplatform.compose.showcases.datasource.http.HttpShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.http.HttpShowcasesProcessor
 
 object HttpProvider : BaseDataFlowProvider() {
 

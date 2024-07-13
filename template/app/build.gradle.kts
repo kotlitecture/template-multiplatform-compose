@@ -1,5 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat // {platform.jvm}
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig // {platform.js}
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -8,6 +9,8 @@ plugins {
     alias(libs.plugins.android.application) // {platform.android}
     alias(libs.plugins.sqldelight) // {dataflow.database.sqldelight}
     alias(libs.plugins.skie) // {platform.ios}
+    alias(libs.plugins.ksp) // {common.ksp}
+    alias(libs.plugins.room) // {dataflow.database.room}
 }
 
 kotlin {
@@ -29,6 +32,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "App"
             isStatic = true
+            linkerOpts.add("-lsqlite3") // {dataflow.database.sqlite-linker}
         }
     }
     // {platform.ios.target}
@@ -104,6 +108,18 @@ kotlin {
             implementation(libs.sqldelight.sqlite.driver) // {dataflow.database.sqldelight}
         }
         // {platform.jvm.dependencies}
+        // {platform.mobile_and_desktop.dependencies}
+        val mobileAndDesktopMain by creating {
+            dependsOn(commonMain.get())
+            dependencies {
+                implementation(libs.androidx.room.runtime) // {dataflow.database.room}
+                implementation(libs.sqlite.bundled) // {dataflow.database.sqlite}
+            }
+        }
+        // {platform.mobile_and_desktop.dependencies}
+        androidMain.get().dependsOn(mobileAndDesktopMain) // {platform.android}
+        iosMain.get().dependsOn(mobileAndDesktopMain) // {platform.ios}
+        jvmMain.get().dependsOn(mobileAndDesktopMain) // {platform.jvm}
     }
 }
 // {sqldelight.config}
@@ -142,7 +158,10 @@ android {
             isDebuggable = false
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "assemble/proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "assemble/proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -170,3 +189,17 @@ compose.desktop {
     }
 }
 // {platform.jvm.config}
+// {common.ksp.config}
+dependencies {
+    add("kspAndroid", libs.androidx.room.compiler) // {platform.android}
+    add("kspJvm", libs.androidx.room.compiler) // {platform.jvm}
+    add("kspIosX64", libs.androidx.room.compiler) // {platform.ios}
+    add("kspIosArm64", libs.androidx.room.compiler) // {platform.ios}
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler) // {platform.ios}
+}
+// {common.ksp.config}
+// {dataflow.database.room.config}
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+// {dataflow.database.room.config}

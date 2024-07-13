@@ -9,45 +9,45 @@ import kotlinx.coroutines.flow.update
  *
  * @param T The type of the cached value.
  */
-interface CacheEntry<T> {
+interface CacheEntry<T, K : CacheKey<T>> {
 
     /** The key associated with this cache entry. */
-    val key: CacheKey<T>
+    val key: K
 
     /**
      * Sets the specified value to the given entry.
      *
      * @param value The value to be stored in the entry.
      */
-    suspend fun setValue(value: T?)
+    suspend fun set(value: T?)
 
     /**
      * Retrieves the cached value.
      *
      * @return The cached value, or new one if the value is not present in the cache or expired.
      */
-    suspend fun getValue(): T?
+    suspend fun get(): T?
 
     /**
      * Retrieves the last cached value.
      *
      * @return The last cached value, or null if the value is not present in the cache.
      */
-    suspend fun getLast(): T?
+    suspend fun last(): T?
 
     /**
      * Retrieves a fresh copy of the cached value.
      *
      * @return A fresh copy of the cached value, or null if the value is not available.
      */
-    suspend fun getFresh(): T?
+    suspend fun fresh(): T?
 
     /**
      * Retrieves the last cached value if available, otherwise retrieves a fresh copy of the value.
      *
      * @return The last cached value if available, or a fresh copy of the value. Returns null if the value is not present in the cache.
      */
-    suspend fun getLastOrFresh() = getLast() ?: getFresh()
+    suspend fun lastOrFresh() = last() ?: fresh()
 
     /**
      * Emits the cached value whenever it changes.
@@ -55,7 +55,7 @@ interface CacheEntry<T> {
      *
      * @return A flow representing the changes to the cached value.
      */
-    suspend fun getChanges(): Flow<T?>
+    suspend fun changes(): Flow<T?>
 
     companion object {
         /**
@@ -65,16 +65,17 @@ interface CacheEntry<T> {
          * @param value The cached value.
          * @return A CacheState instance representing the single cached value.
          */
-        fun <T> of(key: CacheKey<T>, value: T): CacheEntry<T> = object : CacheEntry<T> {
-            private val valueChanges = MutableStateFlow<T?>(value)
+        fun <T, K : CacheKey<T>> of(key: K, value: T): CacheEntry<T, K> =
+            object : CacheEntry<T, K> {
+                private val valueChanges = MutableStateFlow<T?>(value)
 
-            override val key: CacheKey<T> = key
-            override suspend fun getValue(): T? = value
-            override suspend fun getLast(): T? = value
-            override suspend fun getFresh(): T? = value
-            override suspend fun getChanges(): Flow<T?> = valueChanges
-            override suspend fun setValue(value: T?) = valueChanges.update { value }
-        }
+                override val key: K = key
+                override suspend fun get(): T? = value
+                override suspend fun last(): T? = value
+                override suspend fun fresh(): T? = value
+                override suspend fun changes(): Flow<T?> = valueChanges
+                override suspend fun set(value: T?) = valueChanges.update { value }
+            }
     }
 
 }
