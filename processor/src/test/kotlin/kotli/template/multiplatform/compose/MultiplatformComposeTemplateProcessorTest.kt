@@ -8,7 +8,6 @@ import kotli.engine.generator.PathOutputGenerator
 import kotli.engine.generator.ZipOutputGenerator
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
-import kotli.template.multiplatform.compose.dataflow.database.room.RoomProcessor
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
 import kotlinx.coroutines.runBlocking
@@ -110,10 +109,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 processorId = processor.getId(),
                 namespace = "my.app",
                 name = "myApp",
-                features = listOf(
-                    Feature(AndroidPlatformProcessor.ID),
-                    Feature(RoomProcessor.ID),
-                )
+                features = listOf(Feature(AndroidPlatformProcessor.ID))
             )
             val generator = PathOutputGenerator(buildPath(), registry)
             val gradleGenerator = GradleProjectGenerator(commands(layer.features), generator)
