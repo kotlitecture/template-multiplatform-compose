@@ -37,6 +37,7 @@ object AndroidPlatformProcessor : PlatformProcessor() {
                 RemoveMarkedLine("androidx-appcompat"),
                 RemoveMarkedLine("androidx-splashscreen"),
                 RemoveMarkedLine("compose-android"),
+                RemoveMarkedLine("coroutines-android"),
             )
         )
     }

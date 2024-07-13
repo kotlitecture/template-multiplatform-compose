@@ -3,7 +3,9 @@ package kotli.template.multiplatform.compose.platform.client.jvm
 import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.model.FeatureTags
+import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.RemoveFile
+import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 
@@ -19,6 +21,11 @@ object JvmPlatformProcessor : PlatformProcessor() {
         state.onApplyRules(
             Rules.SrcJvmMainDir,
             RemoveFile()
+        )
+        state.onApplyRules(
+            VersionCatalogRules(
+                RemoveMarkedLine("coroutines-swing")
+            )
         )
     }
 
