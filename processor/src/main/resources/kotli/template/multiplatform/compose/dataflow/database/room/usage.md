@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.data.source.database.room`
-- DI integration: `app.di.datasource.ProvidesRoomSource`
+- DI integration: `app.di.data.RoomSourceModule`
 
 The integration includes the following components:
 
@@ -17,7 +17,7 @@ Imagine you need to add a new entity called **Address**. Here are the steps to f
 
 ### 1. Create the `Address` entity class
 
-You can use the `User` class in `app.datasource.database.room.entity` as a template.
+You can use the `User` class in `app.data.source.database.room.entity` as a template.
 
 ```kotlin
 @Entity(tableName = "address")
@@ -35,7 +35,7 @@ data class Address(
 
 ### 2. Create the `AddressDao` interface
 
-You can use the `UserDao` interface in `app.datasource.database.room.dao` as a template.
+You can use the `UserDao` interface in `app.data.source.database.room.dao` as a template.
 
 ```kotlin
 @Dao
@@ -51,7 +51,7 @@ interface AddressDao {
     @Query("SELECT * FROM address")
     fun getAll(): List<Address>
     @Query("SELECT * FROM address")
-    fun getAllPaginated(): PagingSource<Int, Address>
+    fun getAllAsFlow(): Flow<Address>
 }
 ```
 
@@ -75,7 +75,6 @@ abstract class AppDatabase : RoomDatabase() {
 
 ```kotlin
 class AppRoomSource(
-    private val app: Application,
     private val databaseName: String = "db"
 ) {
     ...
@@ -89,35 +88,26 @@ class AppRoomSource(
 In this example, we will directly use `AppRoomSource` from the `ViewModel` to access `AddressDao`. However, it is recommended to create a separate `Repository` layer and call all data sources from there.
 
 ```kotlin
-@HiltViewModel
-class TemplateViewModel @Inject constructor(
-    private val pagingSource: AppPagingSource,
+class AddressViewModel(
     private val roomSource: AppRoomSource,
     private val appState: AppState
 ) : BaseViewModel() {
 
-    val addressesStore = StoreObject<Flow<PagingData<Address>>>()
+    val addressesStore = DataState<List<Address>>()
 
-    override fun doBind() {
-        launchAsync("doBind") {
-            val addressDao = roomSource.addressDao
-            val pager = pagingSource.getPager { addressDao.getAllPaginated() }
-            addressesStore.set(pager.flow.cachedIn(viewModelScope))
-        }
+    override fun doBind() = launchAsync("getAll") {
+        val addressDao = roomSource.addressDao
+        addressDao.getAllAsFlow().collectLatest(addressesStore::set)
     }
 
-    fun onCreate(address: Address) {
-        launchAsync("onCreate", appState) {
-            val addressDao = roomSource.addressDao
-            addressDao.create(address)
-        }
+    fun onCreate(address: Address) = launchAsync("onCreate", appState) {
+        val addressDao = roomSource.addressDao
+        addressDao.create(address)
     }
 
-    fun onDelete(address: Address) {
-        launchAsync("onRemove", appState) {
-            val addressDao = roomSource.addressDao
-            addressDao.delete(address)
-        }
+    fun onDelete(address: Address) = launchAsync("onRemove", appState) {
+        val addressDao = roomSource.addressDao
+        addressDao.delete(address)
     }
 
 }

@@ -31,7 +31,7 @@ object RoomProcessor : BaseFeatureProcessor() {
         "https://developer.android.com/kotlin/multiplatform/room"
 
     override fun getIntegrationUrl(state: TemplateState): String =
-        "https://developer.android.com/kotlin/multiplatform/room"
+        "https://developer.android.com/kotlin/multiplatform/room#defining-database"
 
     override fun canApply(state: TemplateState): Boolean {
         return listOfNotNull(
