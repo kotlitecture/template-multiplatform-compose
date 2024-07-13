@@ -12,7 +12,6 @@ androidx-room = "2.7.0-alpha05"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
 compose-multiplatform = "1.6.11"
-junit = "4.13.2"
 koin = "3.6.0-Beta4"
 kotlin = "2.0.0"
 kotlinx-coroutines = "1.8.1"
@@ -39,7 +38,6 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
 cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "cashapp-paging" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
