@@ -26,7 +26,7 @@ abstract class NavigationCommand {
             try {
                 doExecute(navigationContext)
             } catch (e: Exception) {
-                val state = navigationContext.navigationState
+                val state = navigationContext.navigationStore
                 state.error(id, e)
             }
         }

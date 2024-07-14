@@ -138,7 +138,7 @@ abstract class NavigationDestination<D> {
     private fun route(routeData: RouteData<D>) {
         val value = routeData.entry.arguments?.getString(ATTR_DATA)
         val data = value?.let(argsStrategy::toObject)
-        routeData.provider.provide(data)
+        routeData.provider(data)
     }
 
     private fun createArgs() = listOf(

@@ -31,7 +31,7 @@ fun AppScaffold(
     floatingActionButton: @Composable () -> Unit = {},
     snackbarState: AppSnackbarStore = remember { AppSnackbarStore() }
 ) {
-    val navigationState = navigationContext.navigationState
+    val navigationState = navigationContext.navigationStore
     val startDestination = navigationState.startDestinationState.asStateValue() ?: return
     Scaffold(
         modifier = Modifier.fillMaxSize(),
