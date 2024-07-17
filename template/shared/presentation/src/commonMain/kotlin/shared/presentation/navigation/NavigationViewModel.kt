@@ -15,7 +15,7 @@ class NavigationViewModel : BaseViewModel() {
         navigationState.commandHandler = NavigationCommandHandler.create(context)
         launchAsync("currentDestinationStore") {
             context.navController.currentBackStackEntryFlow
-                .mapNotNull { it.destination.route }
+                .mapNotNull { entry -> entry.destination.route }
                 .mapNotNull(NavigationDestination.Companion::getByRoute)
                 .distinctUntilChanged()
                 .collectLatest { destination ->

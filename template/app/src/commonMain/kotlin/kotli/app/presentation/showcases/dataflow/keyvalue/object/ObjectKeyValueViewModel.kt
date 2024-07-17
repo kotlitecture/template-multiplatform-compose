@@ -1,20 +1,20 @@
 package kotli.app.presentation.showcases.dataflow.keyvalue.`object`
 
-import kotli.app.data.source.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
-import shared.presentation.viewmodel.BaseViewModel
+import shared.data.serialization.SerializationStrategy
+import shared.data.source.keyvalue.KeyValueSource
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
-import shared.data.serialization.SerializationStrategy
+import shared.presentation.viewmodel.BaseViewModel
 
 class ObjectKeyValueViewModel(
     private val navigationStore: NavigationStore,
-    private val keyValueSource: AppKeyValueSource
+    private val keyValueSource: KeyValueSource
 ) : BaseViewModel() {
 
     val textState = DataState<String>()

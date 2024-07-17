@@ -8,7 +8,7 @@ import shared.data.serialization.SerializationStrategy
 /**
  * Key-value data source implementation using [Settings](https://github.com/russhwolf/multiplatform-settings#no-arg-module).
  */
-open class SettingsKeyValueSource : KeyValueSource {
+open class SettingsKeyValueSource : KeyValueSource() {
 
     protected val settings by lazy { Settings() }
 
