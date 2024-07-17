@@ -1,6 +1,6 @@
 package kotli.app.data.source.database.sqldelight
 
-import app.cash.sqldelight.db.SqlDriver
+import kotli.app.factory.createSqlDriver
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
@@ -29,4 +29,3 @@ class AppSqlDelightSource(
 
 }
 
-expect fun createSqlDriver(name: String): SqlDriver
