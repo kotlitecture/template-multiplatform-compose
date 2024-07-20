@@ -4,7 +4,7 @@
 
 The API can be accessed through:
 - `shared.data.source.keyvalue.KeyValueSource` - base class at the core module level.
-- `shared.data.source.keyvalue.SettingsKeyValueSource` - implementation of the base class.
+- `shared.data.source.keyvalue.DataStoreSource` - implementation of the base class.
 
 **KeyValueSource** provides the following methods:
 
@@ -17,7 +17,7 @@ The API can be accessed through:
 
 ## Example
 
-Class instance is pre-configured via dependency injection (DI) as a singleton in `app.di.data.KeyValueSourceModule`.
+Class instance is pre-configured via dependency injection (DI) as a singleton in `app.factory.configureKoin`.
 
 To start using, just inject it to your DI managed class.
 

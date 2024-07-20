@@ -57,7 +57,7 @@ object SettingsKeyValueProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             "*/di/data/KeyValueSourceModule.kt",
-            RemoveMarkedLine("KeyValueSource")
+            RemoveFile()
         )
     }
 
