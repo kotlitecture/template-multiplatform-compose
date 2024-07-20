@@ -55,11 +55,12 @@ fun ShowcasesScreen() {
 }
 
 @Composable
-fun ShowcaseHintBlock(text: String) {
+fun ShowcaseHintBlock(text: String, modifier: Modifier = Modifier) {
     AppOutlinedCard(
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .then(modifier),
         text = text
     )
 }

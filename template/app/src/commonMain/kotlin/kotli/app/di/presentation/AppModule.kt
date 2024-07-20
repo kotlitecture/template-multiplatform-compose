@@ -2,15 +2,15 @@ package kotli.app.di.presentation
 
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import kotli.app.factory.createRoomCrudViewModel
 import kotli.app.presentation.app.AppNavigationRouter
 import kotli.app.presentation.app.AppStore
 import kotli.app.presentation.app.AppViewModel
+import kotli.app.presentation.loader.LoaderViewModel
 import kotli.app.presentation.navigation.NavigationBarViewModel
 import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
 import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
 import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
-import kotli.app.presentation.theme.change.ChangeThemeViewModel
-import kotli.app.presentation.theme.toggle.ToggleThemeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpViewModel
@@ -19,17 +19,18 @@ import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKey
 import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingViewModel
+import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.navigation.args.from.ArgsNavigationFromViewModel
 import kotli.app.presentation.showcases.userflow.navigation.args.to.ArgsNavigationToViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
-import kotli.app.presentation.loader.LoaderViewModel
-import kotli.app.factory.createRoomCrudViewModel
 import kotli.app.presentation.template.screen_with_args.TemplateViewModel
 import kotli.app.presentation.template.screen_without_args.TemplateNoArgsViewModel
 import kotli.app.presentation.theme.AppThemePersistenceViewModel
 import kotli.app.presentation.theme.AppThemeViewModel
+import kotli.app.presentation.theme.change.ChangeThemeViewModel
+import kotli.app.presentation.theme.toggle.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarStore
 
@@ -64,6 +65,7 @@ val appModule = module {
             initializer { SqlDelightCrudViewModel(get(), get()) }
             initializer { SqlDelightPagingViewModel(get(), get(), get(), get()) }
             initializer { BasicCacheViewModel(get(), get()) }
+            initializer { PlaceholderShowcaseViewModel(get()) }
             initializer { createRoomCrudViewModel() }
         }
     }
