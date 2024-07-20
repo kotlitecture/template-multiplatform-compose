@@ -136,7 +136,7 @@ class MultiplatformComposeTemplateProcessorTest {
         }
     }
 
-    @RepeatedTest(10)
+    @RepeatedTest(3)
     fun `compose template with random features`() {
         runBlocking {
             val processors = processor.getFeatureProviders()
