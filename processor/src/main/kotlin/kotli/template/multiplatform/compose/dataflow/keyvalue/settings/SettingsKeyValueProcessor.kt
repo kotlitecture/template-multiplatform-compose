@@ -19,8 +19,12 @@ object SettingsKeyValueProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
-    override fun getWebUrl(state: TemplateState): String = "https://github.com/russhwolf/multiplatform-settings"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#no-arg-module"
+    override fun getWebUrl(state: TemplateState): String =
+        "https://github.com/russhwolf/multiplatform-settings"
+
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#no-arg-module"
+
     override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         CommonKeyValueProcessor::class.java
@@ -46,6 +50,14 @@ object SettingsKeyValueProcessor : BaseFeatureProcessor() {
             VersionCatalogRules(
                 RemoveMarkedLine("multiplatform-settings")
             )
+        )
+        state.onApplyRules(
+            Rules.DIKt,
+            RemoveMarkedLine("KeyValueSource")
+        )
+        state.onApplyRules(
+            "*/di/data/KeyValueSourceModule.kt",
+            RemoveMarkedLine("KeyValueSource")
         )
     }
 

@@ -9,7 +9,7 @@ import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsK
 object KeyValueProvider : BaseDataFlowProvider() {
 
     override fun getId(): String = "dataflow.keyvalue"
-    override fun isMultiple(): Boolean = true
+    override fun isMultiple(): Boolean = false
     override fun createProcessors(): List<FeatureProcessor> = listOf(
         CommonKeyValueProcessor,
         SettingsKeyValueProcessor,

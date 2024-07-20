@@ -15,7 +15,6 @@ object CommonKeyValueProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = ID
     override fun isInternal(): Boolean = true
-    override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         KeyValueShowcasesProcessor::class.java
@@ -25,10 +24,6 @@ object CommonKeyValueProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.KeyValueSource,
             RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.DIKt,
-            RemoveMarkedLine("KeyValueSource")
         )
     }
 
