@@ -3,5 +3,5 @@
 ## Run
 
 ```
-./gradlew :app:jsBrowserRun
+./gradlew kotlinUpgradeYarnLock :app:jsBrowserRun
 ```

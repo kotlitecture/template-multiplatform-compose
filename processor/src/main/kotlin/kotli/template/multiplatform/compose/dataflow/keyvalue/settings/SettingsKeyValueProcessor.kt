@@ -11,6 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.keyvalue.common.CommonKeyValueProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.keyvalue.KeyValueShowcasesProcessor
 import kotlin.time.Duration.Companion.minutes
 
 object SettingsKeyValueProcessor : BaseFeatureProcessor() {
@@ -27,7 +28,8 @@ object SettingsKeyValueProcessor : BaseFeatureProcessor() {
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonKeyValueProcessor::class.java
+        CommonKeyValueProcessor::class.java,
+        KeyValueShowcasesProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {
