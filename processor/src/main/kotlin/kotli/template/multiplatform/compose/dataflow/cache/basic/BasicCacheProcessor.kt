@@ -10,6 +10,7 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
+import kotli.template.multiplatform.compose.common.CommonStatelyCollectionsProcessor
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.cache.CacheShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
@@ -22,8 +23,8 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 8.hours.inWholeMilliseconds
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        CommonStatelyCollectionsProcessor::class.java,
         CacheShowcasesProcessor::class.java,
-        CommonStatelyProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {
@@ -45,11 +46,6 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.BuildGradleSharedData,
             RemoveMarkedLine("{dataflow.cache.basic}")
-        )
-        state.onApplyRules(
-            VersionCatalogRules(
-                RemoveMarkedLine("stately-concurrent-collections")
-            )
         )
     }
 

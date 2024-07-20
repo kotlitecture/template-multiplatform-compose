@@ -11,7 +11,6 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
-import co.touchlab.stately.collections.ConcurrentMutableMap
 import kotlinx.coroutines.flow.first
 import okio.Path.Companion.toPath
 import shared.data.serialization.SerializationStrategy
@@ -23,12 +22,11 @@ import kotlin.reflect.KClass
  * @param app The application context.
  */
 @Suppress("UNCHECKED_CAST")
-open class DataStoreSource(
+class DataStoreSource(
     private val path: String
 ) : KeyValueSource() {
 
     private val dataStore: DataStore<Preferences> by lazy { PreferenceDataStoreFactory.createWithPath { path.toPath() } }
-    private val cache = ConcurrentMutableMap<String, Any?>()
 
     override suspend fun <T : Any> save(
         key: String,
@@ -47,7 +45,6 @@ open class DataStoreSource(
                     prefs[jsonKey] = serializationStrategy.toString(value).orEmpty()
                 }
             }
-            cache[key] = value
         }
     }
 
@@ -55,9 +52,6 @@ open class DataStoreSource(
         key: String,
         serializationStrategy: SerializationStrategy<T>
     ): T? {
-        if (cache.contains(key)) {
-            return cache[key] as T?
-        }
         val prefsKey = defineKey(key, serializationStrategy.getType())
         val value = if (prefsKey != null) {
             dataStore.data.first()[prefsKey]
@@ -65,9 +59,6 @@ open class DataStoreSource(
             val jsonKey = stringPreferencesKey(key)
             val jsonString = dataStore.data.first()[jsonKey] ?: return null
             serializationStrategy.toObject(jsonString)
-        }
-        if (value != null) {
-            cache[key] = value
         }
         return value
     }
@@ -77,7 +68,6 @@ open class DataStoreSource(
         serializationStrategy: SerializationStrategy<T>
     ): T? {
         val prev = read(key, serializationStrategy)
-        cache.remove(key)
         dataStore.edit { prefs ->
             prefs.remove(
                 defineKey(key, serializationStrategy.getType())
@@ -89,7 +79,6 @@ open class DataStoreSource(
 
     override suspend fun clear() {
         dataStore.edit { prefs -> prefs.clear() }
-        cache.clear()
     }
 
     private fun <T : Any> defineKey(key: String, type: KClass<T>): Preferences.Key<T>? {

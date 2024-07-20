@@ -27,7 +27,8 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getWebUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://cashapp.github.io/sqldelight/2.0.2/multiplatform_sqlite/"
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://cashapp.github.io/sqldelight/2.0.2/multiplatform_sqlite/"
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
@@ -94,6 +95,10 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppModuleKt,
             RemoveMarkedLine("SqlDelight")
+        )
+        state.onApplyRules(
+            "*/createSqlDriver.kt",
+            RemoveFile()
         )
     }
 

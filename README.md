@@ -1,4 +1,4 @@
-# Compose Multiplatform Configurable Project Template
+# Compose Multiplatform Fully Configurable Project Template
 
 ## Supported Platforms
 
