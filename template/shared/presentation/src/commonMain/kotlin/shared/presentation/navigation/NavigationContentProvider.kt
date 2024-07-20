@@ -19,6 +19,6 @@ fun interface NavigationContentProvider<D> {
      * @param data The data used to provide the navigation content. It can be nullable.
      */
     @Composable
-    fun provide(data: D?)
+    operator fun invoke(data: D?)
 
 }

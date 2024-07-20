@@ -79,7 +79,7 @@ abstract class BaseViewModel : ViewModel() {
         return viewModelScope.async(Dispatchers.Default) { block.invoke(this) }
     }
 
-    protected fun launch(
+    private fun launch(
         id: String?,
         store: Store?,
         context: CoroutineContext,

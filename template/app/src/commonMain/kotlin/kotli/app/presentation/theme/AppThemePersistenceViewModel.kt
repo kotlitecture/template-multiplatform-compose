@@ -1,21 +1,21 @@
 package kotli.app.presentation.theme
 
-import kotli.app.data.source.keyvalue.AppKeyValueSource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.presentation.viewmodel.BaseViewModel
+import shared.data.serialization.SerializationStrategy
+import shared.data.source.keyvalue.KeyValueSource
 import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeStore
-import shared.data.serialization.SerializationStrategy
+import shared.presentation.viewmodel.BaseViewModel
 
 /**
  * ViewModel class responsible for managing the theme state with persistence implemented by default.
  */
 class AppThemePersistenceViewModel(
     val themeStore: ThemeStore,
-    private val keyValueSource: AppKeyValueSource
+    private val keyValueSource: KeyValueSource
 ) : BaseViewModel() {
 
     /**
@@ -25,13 +25,13 @@ class AppThemePersistenceViewModel(
         launchAsync("config") {
             val key = themeStore.persistentKey
             val strategy = SerializationStrategy.json(AppThemeConfigData.serializer())
-            val config = keyValueSource.read(key, strategy)?.let { mapToModel(it) }
+            val config = keyValueSource.read(key, strategy)?.let(::mapToModel)
                 ?: themeStore.defaultConfig
             themeStore.configState.set(config)
             themeStore.configState.asFlow()
                 .filterNotNull()
-                .filter { it !== config }
-                .map { mapToData(it) }
+                .filter { current -> current !== config }
+                .map(::mapToData)
                 .collectLatest { data -> keyValueSource.save(key, data, strategy) }
         }
     }

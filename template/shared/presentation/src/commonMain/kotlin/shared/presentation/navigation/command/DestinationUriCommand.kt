@@ -22,8 +22,7 @@ data class DestinationUriCommand(
             val controller = navigationContext.navController
             strategy.proceed(null, uriString, controller)
         } catch (e: Exception) {
-            val navigationState = navigationContext.navigationState
-            navigationState.error(id, e)
+            navigationContext.navigationStore.error(id, e)
         }
     }
 

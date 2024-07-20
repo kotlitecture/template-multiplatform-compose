@@ -29,8 +29,7 @@ data class DestinationCommand<D>(
                 strategy.proceed(null, "", controller)
             }
         } catch (e: Exception) {
-            val navigationState = navigationContext.navigationState
-            navigationState.error(id, e)
+            navigationContext.navigationStore.error(id, e)
         }
     }
 

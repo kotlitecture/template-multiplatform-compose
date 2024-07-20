@@ -34,13 +34,6 @@ abstract class NavigationDestination<D> {
     val route by lazy { "$id?$ATTR_DATA={$ATTR_DATA}" }
 
     /**
-     * Gets the name of this destination.
-     *
-     * @return The name of the destination.
-     */
-    open fun getName(): String = id
-
-    /**
      * Binds this destination to the given NavGraphBuilder.
      *
      * @param builder The NavGraphBuilder to bind to.
@@ -61,17 +54,6 @@ abstract class NavigationDestination<D> {
     }
 
     /**
-     * Converts the navigation destination data to a Uri string.
-     *
-     * @param data The data to be included in the Uri string.
-     * @return The URI representing the navigation destination.
-     */
-    fun toUriString(data: D? = null): String {
-        if (data == null) return route
-        return "$id?$ATTR_DATA=${argsStrategy.toString(data)}"
-    }
-
-    /**
      * Navigates to this destination.
      *
      * @param data The data associated with the navigation.
@@ -80,7 +62,7 @@ abstract class NavigationDestination<D> {
      */
     @Suppress("UNCHECKED_CAST")
     internal fun navigate(data: Any?, strategy: NavigationStrategy, controller: NavHostController) {
-        val uriString = toUriString(data as? D)
+        val uriString = createUriString(data as? D)
         strategy.proceed(route, uriString, controller)
     }
 
@@ -138,7 +120,18 @@ abstract class NavigationDestination<D> {
     private fun route(routeData: RouteData<D>) {
         val value = routeData.entry.arguments?.getString(ATTR_DATA)
         val data = value?.let(argsStrategy::toObject)
-        routeData.provider.provide(data)
+        routeData.provider(data)
+    }
+
+    /**
+     * Converts the navigation destination data to a Uri string.
+     *
+     * @param data The data to be included in the Uri string.
+     * @return The URI representing the navigation destination.
+     */
+    private fun createUriString(data: D? = null): String {
+        if (data == null) return route
+        return "$id?$ATTR_DATA=${argsStrategy.toString(data)}"
     }
 
     private fun createArgs() = listOf(

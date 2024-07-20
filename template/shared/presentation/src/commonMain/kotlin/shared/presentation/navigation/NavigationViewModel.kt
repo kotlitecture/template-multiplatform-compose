@@ -1,10 +1,10 @@
 package shared.presentation.navigation
 
-import shared.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.launch
+import shared.presentation.viewmodel.BaseViewModel
 
 /**
  * ViewModel responsible for managing navigation-related functionality.
@@ -15,15 +15,15 @@ class NavigationViewModel : BaseViewModel() {
         navigationState.commandHandler = NavigationCommandHandler.create(context)
         launchAsync("currentDestinationStore") {
             context.navController.currentBackStackEntryFlow
-                .mapNotNull { it.destination.route }
+                .mapNotNull { entry -> entry.destination.route }
                 .mapNotNull(NavigationDestination.Companion::getByRoute)
                 .distinctUntilChanged()
-                .collectLatest {
+                .collectLatest { destination ->
                     val store = navigationState.currentDestinationState
                     if (store.isNull()) {
-                        context.scope.launch { store.set(it) }
+                        context.scope.launch { store.set(destination) }
                     } else {
-                        store.set(it)
+                        store.set(destination)
                     }
                 }
         }

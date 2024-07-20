@@ -16,14 +16,14 @@ object MobileAndDesktopProcessor : PlatformProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.BuildGradle,
             CleanupMarkedBlock("{platform.mobile_and_desktop.dependencies}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.BuildGradle,
             RemoveMarkedBlock("{platform.mobile_and_desktop.dependencies}"),
             RemoveMarkedLine("mobileAndDesktopMain")
         )

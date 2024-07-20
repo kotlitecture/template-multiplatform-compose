@@ -82,6 +82,10 @@ object RoomProcessor : BaseFeatureProcessor() {
             Rules.DIKt,
             RemoveMarkedLine("RoomSource")
         )
+        state.onApplyRules(
+            Rules.ConfigureKoinDI,
+            RemoveMarkedLine("RoomSource")
+        )
 
         // showcases
         state.onApplyRules(
@@ -95,6 +99,10 @@ object RoomProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppModuleKt,
             RemoveMarkedLine("createRoom")
+        )
+        state.onApplyRules(
+            "*/createRoom*.kt",
+            RemoveFile()
         )
     }
 

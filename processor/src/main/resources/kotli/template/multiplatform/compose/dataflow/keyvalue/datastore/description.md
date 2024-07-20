@@ -1,0 +1,1 @@
+The DataStore library stores data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences. 

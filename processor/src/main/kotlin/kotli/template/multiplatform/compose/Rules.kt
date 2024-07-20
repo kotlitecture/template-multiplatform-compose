@@ -34,6 +34,7 @@ object Rules {
 
     // kotlin
     const val DIKt = "*/DI*.kt"
+    const val ConfigureKoinDI = "*/configureKoin.kt"
     const val CommonAppSrcDir = "app/src"
     const val SharedDesignSrcDir = "shared/design/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
@@ -91,5 +92,6 @@ object Rules {
     const val HttpSource = "*/*HttpSource*.kt"
     const val KeyValueSource = "*/*KeyValueSource*.kt"
     const val SettingsKeyValueSource = "*/*SettingsKeyValueSource*.kt"
+    const val DataStoreSource = "*/*DataStoreSource.kt"
 
 }

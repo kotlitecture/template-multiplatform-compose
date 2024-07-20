@@ -1,4 +1,4 @@
-# Compose Multiplatform Configurable Project Template
+# Compose Multiplatform Fully Configurable Project Template
 
 ## Supported Platforms
 
@@ -173,6 +173,7 @@ The generated project will include a similar table in its README.MD file, but wi
 | Dataflow | SQLDelight | [Link](docs/Dataflow/SQLDelight/overview.md) | - | [Link](docs/Dataflow/SQLDelight/usage.md) |
 | Dataflow | SQLite (Room) | [Link](docs/Dataflow/SQLite%20%28Room%29/overview.md) | - | [Link](docs/Dataflow/SQLite%20%28Room%29/usage.md) |
 | Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
+| Dataflow | DataStore | [Link](docs/Dataflow/DataStore/overview.md) | - | [Link](docs/Dataflow/DataStore/usage.md) |
 | Dataflow | Basic In-Memory Cache API | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/usage.md) |
 | Dataflow | Ktor Client | [Link](docs/Dataflow/Ktor%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20Client/usage.md) |
 | Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |

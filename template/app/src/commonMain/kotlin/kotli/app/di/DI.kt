@@ -11,7 +11,7 @@ import kotli.app.di.presentation.appModule
 import kotli.app.di.presentation.navigationBarModule
 import kotli.app.di.presentation.navigationModule
 import kotli.app.di.presentation.themeModule
-import org.koin.core.KoinApplication
+import kotli.app.factory.configureKoin
 import org.koin.core.context.startKoin
 
 val koinApp = startKoin {
@@ -29,9 +29,7 @@ val koinApp = startKoin {
         themeModule,
         appModule
     )
-    configure(this)
+    configureKoin(this)
 }
-
-expect fun configure(app: KoinApplication)
 
 inline fun <reified T : Any> get(): T = koinApp.koin.get<T>()

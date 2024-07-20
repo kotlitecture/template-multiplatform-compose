@@ -42,7 +42,7 @@ kotlin {
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
             implementation(libs.multiplatform.settings.no.arg)
-            implementation(libs.touchlab.stately.concurrent.collections) // {dataflow.cache.basic}
+            implementation(libs.touchlab.stately.concurrent.collections) // {common.stately-collections}
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -69,6 +69,17 @@ kotlin {
             implementation(libs.ktor.client.java)
         }
         // {platform.jvm.dependencies}
+        // {platform.mobile_and_desktop.dependencies}
+        val mobileAndDesktopMain by creating {
+            dependsOn(commonMain.get())
+            dependencies {
+                implementation(libs.androidx.datastore.preferences) // {dataflow.keyvalue.datastore}
+            }
+        }
+        // {platform.mobile_and_desktop.dependencies}
+        androidMain.get().dependsOn(mobileAndDesktopMain) // {platform.android}
+        iosMain.get().dependsOn(mobileAndDesktopMain) // {platform.ios}
+        jvmMain.get().dependsOn(mobileAndDesktopMain) // {platform.jvm}
     }
 }
 

@@ -1,8 +1,8 @@
 package kotli.app.data.source.database.room
 
-import androidx.room.RoomDatabase
 import androidx.room.useWriterConnection
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import kotli.app.factory.createRoomDatabaseBuilder
 
 /**
  * This class represents a source for accessing the Room database.
@@ -16,7 +16,7 @@ class AppRoomSource(
 ) {
 
     private val db by lazy {
-        getRoomDatabaseBuilder(databaseName)
+        createRoomDatabaseBuilder(databaseName)
             .fallbackToDestructiveMigrationOnDowngrade(false)
             .setDriver(BundledSQLiteDriver())
             .build()
@@ -39,5 +39,3 @@ class AppRoomSource(
     suspend fun <R> withTransaction(block: suspend () -> R): R = db.useWriterConnection { block() }
 
 }
-
-expect fun getRoomDatabaseBuilder(name: String): RoomDatabase.Builder<AppDatabase>
