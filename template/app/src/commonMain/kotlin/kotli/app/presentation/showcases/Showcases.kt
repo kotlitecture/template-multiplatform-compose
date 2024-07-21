@@ -48,7 +48,7 @@ object Showcases {
         ChangeThemeScreenShowcase,
         ChangeThemeDialogShowcase,
         ToggleThemeShowcase,
-        ShowcaseItemGroup("Userflow :: Components"),
+        ShowcaseItemGroup("Userflow :: Design Components"),
         PlaceholderShowcase
     )
 
