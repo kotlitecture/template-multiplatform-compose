@@ -187,5 +187,6 @@ The generated project will include a similar table in its README.MD file, but wi
 | Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
 | Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
 | Userflow | Data Loading Indicator | [Link](docs/Userflow/Data%20Loading%20Indicator/overview.md) | - | [Link](docs/Userflow/Data%20Loading%20Indicator/usage.md) |
+| Userflow | Placeholder UI | [Link](docs/Userflow/Placeholder%20UI/overview.md) | - | [Link](docs/Userflow/Placeholder%20UI/usage.md) |
 | Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
 | Testing | Napier | [Link](docs/Testing/Napier/overview.md) | - | [Link](docs/Testing/Napier/usage.md) |
