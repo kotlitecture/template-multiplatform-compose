@@ -8,6 +8,7 @@ import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingShowcas
 import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingShowcase
+import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcase
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcase
 import kotli.app.presentation.showcases.userflow.theme.change.ChangeThemeDialogShowcase
 import kotli.app.presentation.showcases.userflow.theme.change.ChangeThemeScreenShowcase
@@ -46,7 +47,9 @@ object Showcases {
         ShowcaseItemGroup("Userflow :: Theme"),
         ChangeThemeScreenShowcase,
         ChangeThemeDialogShowcase,
-        ToggleThemeShowcase
+        ToggleThemeShowcase,
+        ShowcaseItemGroup("Userflow :: Design Components"),
+        PlaceholderShowcase
     )
 
 }

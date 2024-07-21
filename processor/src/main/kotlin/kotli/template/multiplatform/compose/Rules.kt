@@ -29,16 +29,13 @@ object Rules {
     const val SharedPresentationDir = "shared/presentation"
     const val SharedDataDir = "shared/data"
     const val SharedDomainDir = "shared/domain"
-    const val SharedDesignDir = "shared/design"
     const val BackendDir = "backend"
 
     // kotlin
     const val DIKt = "*/DI*.kt"
     const val ConfigureKoinDI = "*/configureKoin.kt"
     const val CommonAppSrcDir = "app/src"
-    const val SharedDesignSrcDir = "shared/design/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
-    const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/AppModule.kt"
     const val AppWebPackConfigDir = "app/webpack.config.d"
     const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
@@ -74,10 +71,18 @@ object Rules {
     const val ShowcasesThemeDir = "${ShowcasesUserFlowDir}/theme"
     const val ShowcasesLoaderDir = "${ShowcasesUserFlowDir}/loader"
     const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
+    const val ShowcasesPlaceholderDir = "${ShowcasesUserFlowDir}/component/placeholder"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
     const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
     const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
     const val NavigationModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationModule.kt"
+
+    // design
+    const val SharedDesignDir = "shared/design"
+    const val SharedDesignSrcDir = "${SharedDesignDir}/src"
+    const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
+    const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
+    const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
 
     // dataflow
     const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"

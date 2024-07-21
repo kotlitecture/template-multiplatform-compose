@@ -32,6 +32,7 @@ import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvid
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
 import kotli.template.multiplatform.compose.testing.logging.kermit.KermitProcessor
+import kotli.template.multiplatform.compose.userflow.component.ComponentProvider
 import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProvider
@@ -94,6 +95,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         NavigationBarProvider,
         ThemeProvider,
         LoaderProvider,
+        ComponentProvider,
 
         LoggingProvider,
 

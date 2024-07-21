@@ -26,6 +26,9 @@ data class AppTheme(
     val surface: Color = colorScheme.surface
     val onSurface: Color = colorScheme.onSurface
 
+    val highlightPrimary:Color = colorScheme.onSurface.copy(alpha = 0.15f)
+    val highlightSecondary:Color = colorScheme.onSurface.copy(alpha = 0.1f)
+
     val topBlur by lazy {
         Brush.verticalGradient(
             listOf(
