@@ -45,6 +45,13 @@ kotlin {
             implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
             api(libs.cashapp.paging.compose.common)
         }
+        val skikoMain by creating {
+            dependsOn(commonMain.get())
+        }
+        jsMain.get().dependsOn(skikoMain)
+        jvmMain.get().dependsOn(skikoMain)
+        nativeMain.get().dependsOn(skikoMain)
+        wasmJsMain.get().dependsOn(skikoMain)
     }
 }
 
