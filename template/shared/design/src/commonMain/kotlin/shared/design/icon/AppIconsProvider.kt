@@ -2,6 +2,7 @@ package shared.design.icon
 
 import template.shared.design.generated.resources.Res
 import template.shared.design.generated.resources.ic_arrow_back
+import template.shared.design.generated.resources.ic_backspace
 import template.shared.design.generated.resources.ic_cancel
 import template.shared.design.generated.resources.ic_chevron_right
 import template.shared.design.generated.resources.ic_coffee
@@ -37,5 +38,7 @@ interface AppIconsProvider {
         get() = DrawableResourceIcon(Res.drawable.ic_local_drink)
     val delete: AppIconModel
         get() = DrawableResourceIcon(Res.drawable.ic_delete)
+    val backspace: AppIconModel
+        get() = DrawableResourceIcon(Res.drawable.ic_backspace)
 
 }
