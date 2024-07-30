@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.data.source.database.room`
-- DI integration: `app.factory.configureKoin`
+- DI integration: `app.platform.configureKoin`
 
 The integration includes the following components:
 

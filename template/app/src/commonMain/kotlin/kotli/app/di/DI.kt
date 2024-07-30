@@ -11,7 +11,7 @@ import kotli.app.di.presentation.appModule
 import kotli.app.di.presentation.navigationBarModule
 import kotli.app.di.presentation.navigationModule
 import kotli.app.di.presentation.themeModule
-import kotli.app.factory.configureKoin
+import kotli.app.platform.configureKoin
 import org.koin.core.context.startKoin
 
 val koinApp = startKoin {

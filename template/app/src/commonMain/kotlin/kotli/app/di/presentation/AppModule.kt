@@ -2,7 +2,7 @@ package kotli.app.di.presentation
 
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import kotli.app.factory.createRoomCrudViewModel
+import kotli.app.platform.createRoomCrudViewModel
 import kotli.app.presentation.app.AppNavigationRouter
 import kotli.app.presentation.app.AppStore
 import kotli.app.presentation.app.AppViewModel

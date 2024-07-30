@@ -2,7 +2,7 @@ package kotli.app.data.source.database.room
 
 import androidx.room.useWriterConnection
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-import kotli.app.factory.createRoomDatabaseBuilder
+import kotli.app.platform.createRoomDatabaseBuilder
 
 /**
  * This class represents a source for accessing the Room database.
