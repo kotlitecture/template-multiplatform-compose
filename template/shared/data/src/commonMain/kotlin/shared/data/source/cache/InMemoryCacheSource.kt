@@ -45,11 +45,11 @@ open class InMemoryCacheSource(
 
     override fun <T, K : CacheKey<T>> get(
         key: K,
-        valueProvider: suspend (key: K) -> T?
+        resolver: CacheEntryResolver<T, K>
     ): CacheEntry<T, K> {
         val keyData = KeyData(key)
         val entryData = cache.computeIfAbsent(keyData) {
-            EntryData(keyData, valueProvider)
+            EntryData(keyData, resolver)
         } as CacheEntry<T, K>
         return entryData
     }
@@ -123,7 +123,7 @@ open class InMemoryCacheSource(
 
     private inner class EntryData<T, K : CacheKey<T>>(
         private val keyData: KeyData<K>,
-        private val valueProvider: suspend (key: K) -> T?
+        private val resolver: CacheEntryResolver<T, K>
     ) : CacheEntry<T, K> {
 
         @Transient
@@ -183,12 +183,12 @@ open class InMemoryCacheSource(
                 ?: run {
                     if (key.immortal()) {
                         jobs.computeIfAbsent(keyData) {
-                            GlobalScope.async { valueProvider(key) }
+                            GlobalScope.async { resolver.resolve(key) }
                         }
                     } else {
                         withContext(dispatcher) {
                             jobs.computeIfAbsent(keyData) {
-                                async { valueProvider(key) }
+                                async { resolver.resolve(key) }
                             }
                         }
                     }
