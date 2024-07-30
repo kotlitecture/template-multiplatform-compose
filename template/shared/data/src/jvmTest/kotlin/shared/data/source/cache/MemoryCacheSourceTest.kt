@@ -14,9 +14,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 import kotlin.time.Duration.Companion.seconds
 
-class InMemoryCacheSourceTest {
+class MemoryCacheSourceTest {
 
-    private val cache: CacheSource = InMemoryCacheSource()
+    private val cache: CacheSource = MemoryCacheSource()
 
     @Test
     fun `make sure all cache actions are performed in not blocking way`() = runBlocking {
