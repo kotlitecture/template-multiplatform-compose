@@ -13,6 +13,7 @@ import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
 import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
+import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionViewModel
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpViewModel
 import kotli.app.presentation.showcases.dataflow.keyvalue.`object`.ObjectKeyValueViewModel
 import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKeyValueViewModel
@@ -66,6 +67,7 @@ val appModule = module {
             initializer { SqlDelightPagingViewModel(get(), get(), get(), get()) }
             initializer { BasicCacheViewModel(get(), get()) }
             initializer { PlaceholderShowcaseViewModel(get()) }
+            initializer { BasicEncryptionViewModel(get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

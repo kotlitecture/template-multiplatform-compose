@@ -3,6 +3,7 @@ package kotli.app.di
 import kotli.app.di.data.analyticsSourceModule
 import kotli.app.di.data.cacheSourceModule
 import kotli.app.di.data.configSourceModule
+import kotli.app.di.data.encryptionSourceModule
 import kotli.app.di.data.httpSourceModule
 import kotli.app.di.data.keyValueSourceModule
 import kotli.app.di.data.pagingSourceModule
@@ -18,8 +19,9 @@ val koinApp = startKoin {
     printLogger()
     modules(
         analyticsSourceModule,
-        configSourceModule,
         cacheSourceModule,
+        configSourceModule,
+        encryptionSourceModule,
         httpSourceModule,
         keyValueSourceModule,
         pagingSourceModule,

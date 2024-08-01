@@ -31,6 +31,7 @@ kotlin {
     sourceSets {
         all {
             languageSettings {
+                optIn("kotlin.ExperimentalStdlibApi")
                 optIn("kotlinx.coroutines.DelicateCoroutinesApi")
                 optIn("kotlin.io.encoding.ExperimentalEncodingApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
@@ -41,6 +42,7 @@ kotlin {
             api(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
+            implementation(libs.korlibs.crypto)
             implementation(libs.multiplatform.settings.no.arg)
             implementation(libs.touchlab.stately.concurrent.collections) // {common.stately-collections}
         }

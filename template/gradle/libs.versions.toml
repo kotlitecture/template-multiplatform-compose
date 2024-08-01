@@ -15,6 +15,7 @@ cashapp-paging = "3.3.0-alpha02-0.5.1"
 compose-multiplatform = "1.6.11"
 compose-placeholder = "1.0.8"
 koin = "3.6.0-Beta4"
+korlibs = "6.0.0-alpha9"
 kotlin = "2.0.0"
 kotlinx-coroutines = "1.8.1"
 kotlinx-datetime = "0.6.0"
@@ -43,6 +44,7 @@ androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.re
 cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "cashapp-paging" }
 compose-placeholder-material3 = { module = "com.eygraber:compose-placeholder-material3", version.ref = "compose-placeholder" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+korlibs-crypto = { module = "com.soywiz:korlibs-crypto", version.ref = "korlibs" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }

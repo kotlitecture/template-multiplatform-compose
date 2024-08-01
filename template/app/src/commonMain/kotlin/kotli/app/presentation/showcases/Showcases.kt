@@ -1,6 +1,7 @@
 package kotli.app.presentation.showcases
 
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheShowcase
+import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionShowcase
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpShowcase
 import kotli.app.presentation.showcases.dataflow.keyvalue.`object`.ObjectKeyValueShowcase
 import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKeyValueShowcase
@@ -27,6 +28,8 @@ object Showcases {
     val all = listOf(
         ShowcaseItemGroup("Dataflow :: Cache"),
         BasicCacheShowcase,
+        ShowcaseItemGroup("Dataflow :: Encryption"),
+        BasicEncryptionShowcase,
         ShowcaseItemGroup("Dataflow :: Http"),
         BasicHttpShowcase,
         ShowcaseItemGroup("Dataflow :: KeyValue"),
