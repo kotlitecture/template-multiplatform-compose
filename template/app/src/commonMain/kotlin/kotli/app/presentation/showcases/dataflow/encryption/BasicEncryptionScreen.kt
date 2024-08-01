@@ -62,17 +62,3 @@ fun BasicEncryptionScreen() {
         }
     )
 }
-
-@Composable
-private fun FieldBlock(
-    modifier: Modifier,
-    label: String,
-    state: DataState<String>
-) {
-    AppTextField(
-        modifier = modifier,
-        placeholder = label,
-        supportingText = label,
-        valueState = state
-    )
-}

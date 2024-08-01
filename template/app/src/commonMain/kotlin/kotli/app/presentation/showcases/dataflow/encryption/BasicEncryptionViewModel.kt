@@ -1,8 +1,6 @@
 package kotli.app.presentation.showcases.dataflow.encryption
 
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import shared.data.source.encryption.EncryptionMethod
@@ -24,13 +22,11 @@ class BasicEncryptionViewModel(
     fun onBack() = navigationStore.onBack()
 
     override fun doBind() {
-        // encryption
-        launchAsync {
+        launchAsync("encryption") {
             pwdState.asFlow()
                 .flatMapLatest { password ->
                     textState.asFlow().map { text -> Data(password, text) }
                 }
-                .debounce(300L)
                 .map { data ->
                     val text = data.text
                     val password = data.password
@@ -44,13 +40,11 @@ class BasicEncryptionViewModel(
                 .collectLatest(encryptedTextState::set)
         }
 
-        // decryption
-        launchAsync {
+        launchAsync("decryption") {
             pwdState.asFlow()
                 .flatMapLatest { password ->
                     encryptedTextState.asFlow().map { text -> Data(password, text) }
                 }
-                .debounce(300L)
                 .map { data ->
                     val text = data.text
                     val password = data.password
@@ -59,7 +53,7 @@ class BasicEncryptionViewModel(
                     } else {
                         val method = EncryptionMethod.AES(password)
                         runCatching { encryptionSource.decrypt(text, method) }
-                            .getOrElse { th -> th.stackTraceToString() }
+                            .getOrElse { "Decryption error" }
                     }
                 }
                 .collectLatest(decryptedTextState::set)
