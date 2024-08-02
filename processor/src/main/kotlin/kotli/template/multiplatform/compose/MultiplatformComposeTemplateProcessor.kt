@@ -15,6 +15,7 @@ import kotli.template.multiplatform.compose.dataflow.cache.CacheProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
 import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
+import kotli.template.multiplatform.compose.dataflow.encryption.EncryptionProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
 import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsKeyValueProcessor
@@ -59,8 +60,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 Feature(DataLoaderProcessor.ID),
                 Feature(SaveThemeProcessor.ID),
                 Feature(ChangeThemeProcessor.ID),
-                Feature(ToggleThemeProcessor.ID),
-                Feature(KermitProcessor.ID),
+                Feature(ToggleThemeProcessor.ID)
             )
         )
     )
@@ -83,13 +83,14 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
         // dataflow
         CommonDataFlowProvider,
-        AnalyticsProvider,
+        KeyValueProvider,
+        EncryptionProvider,
+        CacheProvider,
         ConfigProvider,
         DatabaseProvider,
-        KeyValueProvider,
-        CacheProvider,
         HttpProvider,
         PagingProvider,
+        AnalyticsProvider,
 
         // userflow
         NavigationBarProvider,

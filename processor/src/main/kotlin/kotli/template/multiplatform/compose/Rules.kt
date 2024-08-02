@@ -64,6 +64,7 @@ object Rules {
     const val ShowcasesHttpDir = "${ShowcasesDataFlowDir}/http"
     const val ShowcasesCacheDir = "${ShowcasesDataFlowDir}/cache"
     const val ShowcasesPagingDir = "${ShowcasesDataFlowDir}/paging"
+    const val ShowcasesEncryptionDir = "${ShowcasesDataFlowDir}/encryption"
     const val ShowcasesKeyValueDir = "${ShowcasesDataFlowDir}/keyvalue"
     const val ShowcasesSqlDelightDir = "${ShowcasesDataFlowDir}/sqldelight"
     const val ShowcasesRoomDir = "${ShowcasesDataFlowDir}/room"
@@ -84,19 +85,28 @@ object Rules {
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
 
-    // dataflow
-    const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"
+    // dataflow -> analytics
     const val AnalyticsSource = "*/*AnalyticsSource*.kt"
+    // dataflow -> cache
     const val CacheSource = "*/*CacheSource*.kt"
+    // dataflow -> database
     const val SqlDelightSource = "*/*SqlDelightSource*.kt"
     const val SqlDelightDir = "*/sqldelight/*"
     const val RoomSource = "*/*RoomSource*.kt"
     const val RoomDir = "*/database/room/*"
+    // dataflow -> config
     const val ConfigSource = "*/*ConfigSource*.kt"
+    const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/data/source/config/AppConfigSource.kt"
+    // dataflow -> paging
     const val PagingSource = "*/*Paging*.kt"
+    // dataflow -> http
     const val HttpSource = "*/*HttpSource*.kt"
+    // dataflow -> keyvalue
     const val KeyValueSource = "*/*KeyValueSource*.kt"
     const val SettingsKeyValueSource = "*/*SettingsKeyValueSource*.kt"
     const val DataStoreSource = "*/*DataStoreSource.kt"
+    // dataflow -> encryption
+    const val EncryptionSource = "*/*EncryptionSource*.kt"
+    const val EncryptionDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/encryption"
 
 }
