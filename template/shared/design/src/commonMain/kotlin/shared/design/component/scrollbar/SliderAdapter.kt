@@ -17,6 +17,8 @@ internal class SliderAdapter(
     private val coroutineScope: CoroutineScope
 ) {
 
+    private val minHeightDouble = minHeight.toDouble()
+
     private val contentSize get() = adapter.contentSize
     private val visiblePart: Double
         get() {
@@ -28,7 +30,7 @@ internal class SliderAdapter(
         }
 
     val thumbSize: Double
-        get() = (trackSize * visiblePart).coerceAtLeast(minHeight.toDouble())
+        get() = minHeightDouble
 
 
     private val scrollScale: Double

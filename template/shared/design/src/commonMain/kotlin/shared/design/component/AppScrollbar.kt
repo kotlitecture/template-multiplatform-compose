@@ -21,6 +21,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
@@ -96,19 +97,23 @@ private fun AppVerticalScrollbar(
 @Composable
 private fun defaultMaterialScrollbarStyle(): ScrollbarStyle {
     val colorScheme = AppTheme.current.colorScheme
-    return ScrollbarStyle(
-        minimalHeight = 48.dp,
-        thickness = 12.dp,
-        hoverDurationMillis = 300,
-        thumbStyle = ThumbStyle(
-            shape = RoundedCornerShape(4.dp),
-            unhoverColor = Color(colorScheme.primary.toArgb()),
-            hoverColor = Color(colorScheme.primary.toArgb()),
-        ),
-        trackStyle = TrackStyle(
-            shape = RoundedCornerShape(4.dp),
-            unhoverColor = Color(colorScheme.surfaceColorAtElevation(8.dp).toArgb()),
-            hoverColor = Color(colorScheme.surfaceColorAtElevation(8.dp).toArgb()),
-        ),
-    )
+    return remember(colorScheme) {
+        val thumbColor = Color(colorScheme.primary.toArgb())
+        val trackColor = Color(colorScheme.surfaceColorAtElevation(8.dp).toArgb())
+        ScrollbarStyle(
+            minimalHeight = 48.dp,
+            thickness = 12.dp,
+            hoverDurationMillis = 300,
+            thumbStyle = ThumbStyle(
+                shape = RoundedCornerShape(8.dp),
+                unhoverColor = thumbColor,
+                hoverColor = thumbColor,
+            ),
+            trackStyle = TrackStyle(
+                shape = RectangleShape,
+                unhoverColor = trackColor,
+                hoverColor = trackColor,
+            ),
+        )
+    }
 }
