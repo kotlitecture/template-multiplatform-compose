@@ -6,6 +6,12 @@ import shared.data.source.encryption.EncryptionMethod
 import shared.data.source.encryption.EncryptionResolver
 import kotlin.reflect.KClass
 
+/**
+ * A resolver for AES encryption and decryption operations.
+ *
+ * This class provides implementations for encrypting and decrypting data using
+ * the AES encryption method with CBC mode and PKCS7 padding.
+ */
 internal class AesResolver : EncryptionResolver<EncryptionMethod.AES> {
 
     private val keyLength = 16

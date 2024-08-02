@@ -14,16 +14,18 @@ class BasicEncryptionViewModel(
     private val encryptionSource: EncryptionSource
 ) : BaseViewModel() {
 
-    val pwdState = DataState<String>()
     val textState = DataState<String>()
     val encryptedTextState = DataState<String>()
+    val encryptionPasswordState = DataState<String>()
+
     val decryptedTextState = DataState<String>()
+    val decryptionPasswordState = DataState<String>()
 
     fun onBack() = navigationStore.onBack()
 
     override fun doBind() {
         launchAsync("encryption") {
-            pwdState.asFlow()
+            encryptionPasswordState.asFlow()
                 .flatMapLatest { password ->
                     textState.asFlow().map { text -> Data(password, text) }
                 }
@@ -41,7 +43,7 @@ class BasicEncryptionViewModel(
         }
 
         launchAsync("decryption") {
-            pwdState.asFlow()
+            decryptionPasswordState.asFlow()
                 .flatMapLatest { password ->
                     encryptedTextState.asFlow().map { text -> Data(password, text) }
                 }

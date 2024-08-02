@@ -7,13 +7,13 @@ open class BasicEncryptionSource(
 
     private val byType by lazy { resolvers.associateBy { resolver -> resolver.methodType } }
 
-    override fun encrypt(data: String, method: EncryptionMethod): String {
-        val encoded = get(method).encrypt(data.encodeToByteArray(), method)
+    override fun encrypt(text: String, method: EncryptionMethod): String {
+        val encoded = get(method).encrypt(text.encodeToByteArray(), method)
         return encoded.toHexString()
     }
 
-    override fun decrypt(data: String, method: EncryptionMethod): String {
-        val decoded = get(method).decrypt(data.hexToByteArray(), method)
+    override fun decrypt(text: String, method: EncryptionMethod): String {
+        val decoded = get(method).decrypt(text.hexToByteArray(), method)
         return decoded.decodeToString()
     }
 
