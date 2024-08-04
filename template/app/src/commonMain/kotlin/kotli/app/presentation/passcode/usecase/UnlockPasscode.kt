@@ -13,8 +13,8 @@ class UnlockPasscode(
     private val passcodeStore: PasscodeStore
 ) : PasscodeUseCase() {
 
-    suspend operator fun invoke(code: String): PasscodeState {
-        val key = passcodeStore.passcodeConfigKey
+    suspend fun invoke(code: String): PasscodeState {
+        val key = passcodeStore.persistentKey
         val strategy = SerializationStrategy.json(PasscodeState.serializer())
         val state = keyValueSource.read(key, strategy) ?: unknownError()
 

@@ -8,7 +8,7 @@ class IsPasscodeExpired(
     private val passcodeStore: PasscodeStore
 ) : PasscodeUseCase() {
 
-    operator fun invoke(state: PasscodeState): Boolean {
+    fun invoke(state: PasscodeState): Boolean {
         val currentTime = Clock.System.now().toEpochMilliseconds()
         val unlockTime = state.unlockTime
 

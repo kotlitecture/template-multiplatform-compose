@@ -69,7 +69,7 @@ val appModule = module {
             initializer { BasicCacheViewModel(get(), get()) }
             initializer { PlaceholderShowcaseViewModel(get()) }
             initializer { BasicEncryptionViewModel(get(), get()) }
-            initializer { PasscodeViewModel(get(), get()) }
+            initializer { PasscodeViewModel(get(), get(), get(), get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

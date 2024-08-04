@@ -10,8 +10,8 @@ class UpdatePasscodeState(
     private val keyValueSource: KeyValueSource
 ) : PasscodeUseCase() {
 
-    suspend operator fun invoke(state: PasscodeState?) {
-        val key = passcodeStore.passcodeConfigKey
+    suspend fun invoke(state: PasscodeState?) {
+        val key = passcodeStore.persistentKey
         val strategy = SerializationStrategy.json(PasscodeState.serializer())
 
         keyValueSource.save(key, state, strategy)

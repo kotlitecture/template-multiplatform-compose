@@ -12,12 +12,12 @@ class SetPasscode(
     private val passcodeStore: PasscodeStore
 ) : PasscodeUseCase() {
 
-    suspend operator fun invoke(code: String): PasscodeState {
+    suspend fun invoke(code: String): PasscodeState {
         val encryptionMethod = encryptionMethod(code)
         val encodedCode = encryptionSource.encrypt(code, encryptionMethod)
 
         val state = PasscodeState(encodedCode)
-        val key = passcodeStore.passcodeConfigKey
+        val key = passcodeStore.persistentKey
         val strategy = SerializationStrategy.json(PasscodeState.serializer())
 
         keyValueSource.save(key, state, strategy)

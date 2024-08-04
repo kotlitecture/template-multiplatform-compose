@@ -8,16 +8,16 @@ import kotlin.time.Duration.Companion.seconds
 /**
  * Represents the state related to passcode configuration and management.
  *
+ * @param persistentKey The key used for persistent storage of the entered passcode.
  * @param passcodeLength The length of the passcode.
  * @param unlockAttemptsCount The maximum number of unlock attempts allowed.
  * @param resumeTimeout The timeout for resuming the passcode lock in milliseconds.
- * @param passcodeConfigKey The key used for persistent storage of the entered passcode.
  */
 data class PasscodeStore(
+    val persistentKey: String = "passcode_config",
     val passcodeLength: Int = 4,
     val unlockAttemptsCount: Int = 5,
     val resumeTimeout: Long = 1.seconds.inWholeMilliseconds,
-    val passcodeConfigKey: String = "passcode_config",
 ) : Store() {
 
     val passcodeState = DataState<PasscodeState>()
