@@ -11,6 +11,7 @@ import kotli.app.presentation.navigation.NavigationBarViewModel
 import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
 import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
 import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
+import kotli.app.presentation.passcode.PasscodeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
 import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionViewModel
@@ -68,6 +69,7 @@ val appModule = module {
             initializer { BasicCacheViewModel(get(), get()) }
             initializer { PlaceholderShowcaseViewModel(get()) }
             initializer { BasicEncryptionViewModel(get(), get()) }
+            initializer { PasscodeViewModel(get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

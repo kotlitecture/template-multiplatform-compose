@@ -1,4 +1,4 @@
-package kotli.app.presentation.passcode.common
+package kotli.app.presentation.passcode.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -54,7 +55,7 @@ fun PasscodeBlock(
                 text = title
             )
         }
-        Dots(
+        Passcode(
             modifier = Modifier.fillMaxWidth(),
             codeLength = codeLength,
             code = codeState
@@ -77,7 +78,7 @@ private fun ErrorBlock(errorState: DataState<String>) {
 }
 
 @Composable
-private fun Dots(
+private fun Passcode(
     modifier: Modifier = Modifier,
     code: DataState<String>,
     codeLength: Int,
@@ -87,27 +88,24 @@ private fun Dots(
         horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
     ) {
         val value = code.asStateValue().orEmpty()
-        repeat(codeLength) { idx -> Dot(idx <= value.length - 1) }
+        repeat(codeLength) { idx -> PasscodeDot(idx <= value.length - 1) }
     }
 }
 
 @Composable
-private fun Dot(filled: Boolean) {
+private fun PasscodeDot(filled: Boolean) {
     val size = 16.dp
-    val color = AppTheme.current.onSurface
-    if (filled) {
-        Box(
-            modifier = Modifier
-                .size(size)
-                .clip(CircleShape)
-                .background(color)
-        )
-    } else {
-        Box(
-            modifier = Modifier
-                .size(size)
-                .clip(CircleShape)
-                .border(2.dp, color, CircleShape)
-        )
-    }
+    Box(
+        modifier = Modifier
+            .size(size)
+            .clip(CircleShape)
+            .composed {
+                val color = AppTheme.current.onSurface
+                if (filled) {
+                    background(color)
+                } else {
+                    border(2.dp, color, CircleShape)
+                }
+            }
+    )
 }

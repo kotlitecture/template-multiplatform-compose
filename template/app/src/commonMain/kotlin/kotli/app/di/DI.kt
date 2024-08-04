@@ -11,6 +11,7 @@ import kotli.app.di.data.sqlDelightSourceModule
 import kotli.app.di.presentation.appModule
 import kotli.app.di.presentation.navigationBarModule
 import kotli.app.di.presentation.navigationModule
+import kotli.app.di.presentation.passcodeModule
 import kotli.app.di.presentation.themeModule
 import kotli.app.platform.configureKoin
 import org.koin.core.context.startKoin
@@ -28,6 +29,7 @@ val koinApp = startKoin {
         sqlDelightSourceModule,
         navigationBarModule,
         navigationModule,
+        passcodeModule,
         themeModule,
         appModule
     )

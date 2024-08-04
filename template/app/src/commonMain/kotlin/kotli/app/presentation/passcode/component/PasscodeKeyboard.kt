@@ -1,4 +1,4 @@
-package kotli.app.presentation.passcode.common
+package kotli.app.presentation.passcode.component
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -51,7 +51,7 @@ private val actionSpace = 24.dp
  * @param bottomLeftBlock Composable block for the bottom left area of the layout.
  */
 @Composable
-fun PasscodeLayout(
+fun PasscodeKeyboard(
     modifier: Modifier = Modifier,
     title: String? = null,
     codeState: DataState<String>,
