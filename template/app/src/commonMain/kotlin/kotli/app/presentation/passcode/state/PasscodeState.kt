@@ -1,7 +1,7 @@
 package kotli.app.presentation.passcode.state
 
-import kotlinx.datetime.Clock
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 /**
  * Data class representing passcode state.
@@ -9,6 +9,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PasscodeState(
     val encodedCode: String,
-    val unlockAttempts: Int = 0,
-    val unlockTime: Long = Clock.System.now().toEpochMilliseconds(),
+    val unlockAttempts: Int,
+    val unlockTime: Long,
+    @Transient val decodedCode: String? = null
 )

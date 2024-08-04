@@ -27,10 +27,12 @@ class UnlockPasscode(
 
             state.copy(
                 unlockAttempts = 0,
+                decodedCode = decodedCode,
                 unlockTime = Clock.System.now().toEpochMilliseconds()
             )
         }.getOrElse {
             state.copy(
+                decodedCode = null,
                 unlockAttempts = state.unlockAttempts + 1
             )
         }
