@@ -12,10 +12,13 @@ sealed class AppIconModel
 
 data class ColorIcon(val value: Color) : AppIconModel()
 
+data class UrlIcon(val value: String?) : AppIconModel()
+
 data class ImageVectorIcon(val value: ImageVector) : AppIconModel()
 
 data class DrawableResourceIcon(val value: DrawableResource) : AppIconModel()
 
 data class PainterIcon(val value: @Composable () -> Painter) : AppIconModel()
+
 
 

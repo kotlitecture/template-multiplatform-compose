@@ -21,6 +21,7 @@ import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKey
 import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingViewModel
+import kotli.app.presentation.showcases.userflow.component.image.coil.CoilShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.navigation.args.from.ArgsNavigationFromViewModel
@@ -70,6 +71,7 @@ val appModule = module {
             initializer { PlaceholderShowcaseViewModel(get()) }
             initializer { BasicEncryptionViewModel(get(), get()) }
             initializer { PasscodeViewModel(get(), get(), get(), get(), get()) }
+            initializer { CoilShowcaseViewModel(get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

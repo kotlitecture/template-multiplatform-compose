@@ -1,5 +1,6 @@
 package shared.design.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -9,12 +10,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import coil3.compose.rememberAsyncImagePainter
 import org.jetbrains.compose.resources.painterResource
 import shared.design.icon.AppIconModel
 import shared.design.icon.ColorIcon
 import shared.design.icon.DrawableResourceIcon
 import shared.design.icon.ImageVectorIcon
 import shared.design.icon.PainterIcon
+import shared.design.icon.UrlIcon
 
 /**
  * Icon.
@@ -32,6 +35,7 @@ fun AppIcon(
     model: AppIconModel?
 ) {
     when (model) {
+        is UrlIcon -> AppIcon(modifier, size, model)
         is ColorIcon -> AppIcon(modifier, size, model)
         is PainterIcon -> AppIcon(modifier, tint, size, model)
         is ImageVectorIcon -> AppIcon(modifier, tint, size, model)
@@ -62,6 +66,28 @@ private fun AppIcon(
         tint = tint
     )
 }
+
+// {userflow.coil}
+/**
+ * Icon from an http url.
+ *
+ * @param modifier Modifier to be applied to the icon.
+ * @param size Size of the icon.
+ * @param model http url representing the icon.
+ */
+@Composable
+private fun AppIcon(
+    modifier: Modifier = Modifier,
+    size: Dp = Dp.Unspecified,
+    model: UrlIcon
+) {
+    Image(
+        painter = rememberAsyncImagePainter(model.value),
+        modifier = modifier.size(size),
+        contentDescription = null
+    )
+}
+// {userflow.coil}
 
 /**
  * Icon from an ImageVector.

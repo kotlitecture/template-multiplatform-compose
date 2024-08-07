@@ -43,6 +43,8 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(compose.material3)
             implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor2)
             api(libs.cashapp.paging.compose.common)
         }
         val skikoMain by creating {
