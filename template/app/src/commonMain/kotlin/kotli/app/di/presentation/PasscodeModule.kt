@@ -1,6 +1,6 @@
 package kotli.app.di.presentation
 
-import kotli.app.presentation.passcode.PasscodeStore
+import kotli.app.presentation.passcode.model.PasscodeStore
 import kotli.app.presentation.passcode.usecase.GetPasscodeState
 import kotli.app.presentation.passcode.usecase.IsPasscodeExpired
 import kotli.app.presentation.passcode.usecase.SetPasscode

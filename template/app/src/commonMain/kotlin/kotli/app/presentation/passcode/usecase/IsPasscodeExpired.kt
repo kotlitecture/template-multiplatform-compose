@@ -1,7 +1,7 @@
 package kotli.app.presentation.passcode.usecase
 
-import kotli.app.presentation.passcode.PasscodeStore
-import kotli.app.presentation.passcode.state.PasscodeState
+import kotli.app.presentation.passcode.model.PasscodeStore
+import kotli.app.presentation.passcode.model.PasscodeState
 import kotlinx.datetime.Clock
 
 class IsPasscodeExpired(

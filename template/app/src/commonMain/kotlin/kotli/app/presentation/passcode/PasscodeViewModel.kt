@@ -1,17 +1,16 @@
 package kotli.app.presentation.passcode
 
+import kotli.app.presentation.passcode.model.PasscodeStore
 import kotli.app.presentation.passcode.usecase.GetPasscodeState
 import kotli.app.presentation.passcode.usecase.IsPasscodeExpired
 import kotli.app.presentation.passcode.usecase.UpdatePasscodeState
 import kotlinx.datetime.Clock
-import shared.presentation.navigation.NavigationStore
 import shared.presentation.viewmodel.BaseViewModel
 
 class PasscodeViewModel(
     private val updatePasscodeState: UpdatePasscodeState,
     private val isPasscodeExpired: IsPasscodeExpired,
     private val getPasscodeState: GetPasscodeState,
-    private val navigationStore: NavigationStore,
     private val passcodeStore: PasscodeStore,
 ) : BaseViewModel() {
 
