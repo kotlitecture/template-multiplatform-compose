@@ -1,9 +1,11 @@
 package shared.data.source.encryption
 
+import shared.data.source.DataSource
+
 /**
  * Interface representing a source for encryption and decryption operations.
  */
-interface EncryptionSource {
+interface EncryptionSource : DataSource {
 
     /**
      * Encrypts the given text using the specified encryption method.

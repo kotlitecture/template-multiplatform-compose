@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.shareIn
+import shared.data.source.DataSource
 
 /**
  * This class represents a source for accessing the SqlDelight database.
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.shareIn
  */
 class AppSqlDelightSource(
     private val databaseName: String = "app.db"
-) {
+) : DataSource {
 
     private val db = flow {
         val driver = createSqlDriver(databaseName)
