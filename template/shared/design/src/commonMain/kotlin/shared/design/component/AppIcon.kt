@@ -13,11 +13,11 @@ import androidx.compose.ui.unit.Dp
 import coil3.compose.rememberAsyncImagePainter
 import org.jetbrains.compose.resources.painterResource
 import shared.design.icon.AppIconModel
-import shared.design.icon.ColorIcon
-import shared.design.icon.DrawableResourceIcon
-import shared.design.icon.ImageVectorIcon
-import shared.design.icon.PainterIcon
-import shared.design.icon.UrlIcon
+import shared.design.icon.ColorModel
+import shared.design.icon.DrawableResourceModel
+import shared.design.icon.ImageVectorModel
+import shared.design.icon.PainterModel
+import shared.design.icon.UrlModel
 
 /**
  * Icon.
@@ -35,11 +35,11 @@ fun AppIcon(
     model: AppIconModel?
 ) {
     when (model) {
-        is UrlIcon -> AppIcon(modifier, size, model)
-        is ColorIcon -> AppIcon(modifier, size, model)
-        is PainterIcon -> AppIcon(modifier, tint, size, model)
-        is ImageVectorIcon -> AppIcon(modifier, tint, size, model)
-        is DrawableResourceIcon -> AppIcon(modifier, tint, size, model)
+        is UrlModel -> AppIcon(modifier, size, model)
+        is ColorModel -> AppIcon(modifier, size, model)
+        is PainterModel -> AppIcon(modifier, tint, size, model)
+        is ImageVectorModel -> AppIcon(modifier, tint, size, model)
+        is DrawableResourceModel -> AppIcon(modifier, tint, size, model)
         else -> Box(modifier = modifier.size(size).background(tint))
     }
 }
@@ -57,7 +57,7 @@ private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,
-    model: PainterIcon
+    model: PainterModel
 ) {
     Icon(
         modifier = modifier.size(size),
@@ -79,7 +79,7 @@ private fun AppIcon(
 private fun AppIcon(
     modifier: Modifier = Modifier,
     size: Dp = Dp.Unspecified,
-    model: UrlIcon
+    model: UrlModel
 ) {
     Image(
         painter = rememberAsyncImagePainter(model.value),
@@ -102,7 +102,7 @@ private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,
-    model: ImageVectorIcon
+    model: ImageVectorModel
 ) {
     Icon(
         modifier = modifier.size(size),
@@ -125,7 +125,7 @@ private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
     size: Dp = Dp.Unspecified,
-    model: DrawableResourceIcon
+    model: DrawableResourceModel
 ) {
     Icon(
         modifier = modifier.size(size),
@@ -146,7 +146,7 @@ private fun AppIcon(
 private fun AppIcon(
     modifier: Modifier = Modifier,
     size: Dp = Dp.Unspecified,
-    model: ColorIcon
+    model: ColorModel
 ) {
     Box(
         modifier = modifier

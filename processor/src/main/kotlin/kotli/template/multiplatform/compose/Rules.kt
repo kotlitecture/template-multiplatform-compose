@@ -58,6 +58,12 @@ object Rules {
     const val AppNavigationModalProvider = "${AppNavigationDir}/ModalProvider.kt"
     const val AppNavigationPermanentProvider = "${AppNavigationDir}/PermanentProvider.kt"
     const val AppNavigationRailProvider = "${AppNavigationDir}/RailProvider.kt"
+
+    const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
+    const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
+    const val NavigationModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationModule.kt"
+
+    // showcases
     const val ShowcasesDir = "*/presentation/showcases"
     const val ShowcasesDataFlowDir = "${ShowcasesDir}/dataflow"
     const val ShowcasesUserFlowDir = "${ShowcasesDir}/userflow"
@@ -73,10 +79,8 @@ object Rules {
     const val ShowcasesLoaderDir = "${ShowcasesUserFlowDir}/loader"
     const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
     const val ShowcasesPlaceholderDir = "${ShowcasesUserFlowDir}/component/placeholder"
+    const val ShowcasesCoilDir = "${ShowcasesUserFlowDir}/component/image/coil"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
-    const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
-    const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
-    const val NavigationModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationModule.kt"
 
     // design
     const val SharedDesignDir = "shared/design"
@@ -84,6 +88,7 @@ object Rules {
     const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
+    const val AppIcon = "${SharedDesignComponentDir}/AppIcon.kt"
 
     // dataflow -> analytics
     const val AnalyticsSource = "*/*AnalyticsSource*.kt"

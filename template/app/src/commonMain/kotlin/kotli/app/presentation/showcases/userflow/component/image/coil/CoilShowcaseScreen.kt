@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import kotli.app.presentation.showcases.ShowcaseHintBlock
 import shared.design.component.AppIcon
 import shared.design.container.AppFixedTopBarColumn
-import shared.design.icon.UrlIcon
+import shared.design.icon.UrlModel
 import shared.design.theme.AppTheme
 import shared.presentation.viewmodel.provideViewModel
 import kotlin.random.Random
@@ -37,7 +37,7 @@ fun CoilShowcaseScreen() {
                         .clip(RoundedCornerShape(Random.nextInt(50)))
                         .align(Alignment.CenterHorizontally)
                         .background(AppTheme.current.highlightPrimary),
-                    model = UrlIcon("https://picsum.photos/id/${idx + 1}/200/300")
+                    model = UrlModel("https://picsum.photos/id/${idx + 1}/200/300")
                 )
             }
         }

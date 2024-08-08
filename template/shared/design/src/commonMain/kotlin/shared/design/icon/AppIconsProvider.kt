@@ -17,28 +17,28 @@ import template.shared.design.generated.resources.ic_wine_bar
 interface AppIconsProvider {
 
     val info: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_info)
+        get() = DrawableResourceModel(Res.drawable.ic_info)
     val cancel: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_cancel)
+        get() = DrawableResourceModel(Res.drawable.ic_cancel)
     val arrowBack: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_arrow_back)
+        get() = DrawableResourceModel(Res.drawable.ic_arrow_back)
     val chevronRight: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_chevron_right)
+        get() = DrawableResourceModel(Res.drawable.ic_chevron_right)
     val lightMode: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_light_mode)
+        get() = DrawableResourceModel(Res.drawable.ic_light_mode)
     val darkMode: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_dark_mode)
+        get() = DrawableResourceModel(Res.drawable.ic_dark_mode)
     val school: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_school)
+        get() = DrawableResourceModel(Res.drawable.ic_school)
     val coffee: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_coffee)
+        get() = DrawableResourceModel(Res.drawable.ic_coffee)
     val wineBar: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_wine_bar)
+        get() = DrawableResourceModel(Res.drawable.ic_wine_bar)
     val localDrink: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_local_drink)
+        get() = DrawableResourceModel(Res.drawable.ic_local_drink)
     val delete: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_delete)
+        get() = DrawableResourceModel(Res.drawable.ic_delete)
     val backspace: AppIconModel
-        get() = DrawableResourceIcon(Res.drawable.ic_backspace)
+        get() = DrawableResourceModel(Res.drawable.ic_backspace)
 
 }
