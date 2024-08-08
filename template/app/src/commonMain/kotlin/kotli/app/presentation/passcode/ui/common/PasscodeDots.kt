@@ -1,4 +1,4 @@
-package kotli.app.presentation.passcode.component
+package kotli.app.presentation.passcode.ui.common
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -34,7 +34,7 @@ import shared.presentation.store.DataState
  * @param codeLength Length of the passcode.
  */
 @Composable
-fun PasscodeBlock(
+fun PasscodeDots(
     modifier: Modifier = Modifier,
     codeState: DataState<String>,
     errorState: DataState<String>? = null,
@@ -55,7 +55,7 @@ fun PasscodeBlock(
                 text = title
             )
         }
-        Passcode(
+        DotsBlock(
             modifier = Modifier.fillMaxWidth(),
             codeLength = codeLength,
             code = codeState
@@ -63,6 +63,21 @@ fun PasscodeBlock(
         Box(modifier = Modifier.heightIn(min = 24.dp)) {
             errorState?.let { ErrorBlock(errorState) }
         }
+    }
+}
+
+@Composable
+private fun DotsBlock(
+    modifier: Modifier = Modifier,
+    code: DataState<String>,
+    codeLength: Int,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+    ) {
+        val value = code.asStateValue().orEmpty()
+        repeat(codeLength) { idx -> DotBlock(idx <= value.length - 1) }
     }
 }
 
@@ -78,22 +93,7 @@ private fun ErrorBlock(errorState: DataState<String>) {
 }
 
 @Composable
-private fun Passcode(
-    modifier: Modifier = Modifier,
-    code: DataState<String>,
-    codeLength: Int,
-) {
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-    ) {
-        val value = code.asStateValue().orEmpty()
-        repeat(codeLength) { idx -> PasscodeDot(idx <= value.length - 1) }
-    }
-}
-
-@Composable
-private fun PasscodeDot(filled: Boolean) {
+private fun DotBlock(filled: Boolean) {
     val size = 16.dp
     Box(
         modifier = Modifier

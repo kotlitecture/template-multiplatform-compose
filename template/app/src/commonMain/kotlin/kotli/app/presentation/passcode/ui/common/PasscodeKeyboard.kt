@@ -1,4 +1,4 @@
-package kotli.app.presentation.passcode.component
+package kotli.app.presentation.passcode.ui.common
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -70,7 +70,7 @@ fun PasscodeKeyboard(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(actionSpace, Alignment.CenterVertically)
     ) {
-        PasscodeBlock(
+        PasscodeDots(
             title = title,
             codeState = codeState,
             errorState = errorState,

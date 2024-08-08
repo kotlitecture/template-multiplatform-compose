@@ -4,6 +4,6 @@ import androidx.compose.runtime.Composable
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun PasscodeProvider() {
-    provideViewModel<PasscodeViewModel>()
+fun PasscodeProvider(content: @Composable () -> Unit) {
+    val viewModel: PasscodeViewModel = provideViewModel()
 }

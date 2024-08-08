@@ -1,4 +1,4 @@
-package kotli.app.presentation.passcode.state
+package kotli.app.presentation.passcode.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient

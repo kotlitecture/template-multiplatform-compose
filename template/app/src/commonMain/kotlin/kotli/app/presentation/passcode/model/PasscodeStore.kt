@@ -1,6 +1,5 @@
-package kotli.app.presentation.passcode
+package kotli.app.presentation.passcode.model
 
-import kotli.app.presentation.passcode.state.PasscodeState
 import shared.presentation.store.DataState
 import shared.presentation.store.Store
 import kotlin.time.Duration.Companion.seconds
