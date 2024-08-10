@@ -3,6 +3,7 @@ package kotli.app.presentation.passcode.ui.unlock
 import androidx.compose.runtime.Composable
 import kotli.app.presentation.passcode.ui.common.PadTextButton
 import kotli.app.presentation.passcode.ui.common.PasscodeKeyboard
+import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeDialog
 import org.jetbrains.compose.resources.stringResource
 import shared.design.container.AppFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
@@ -29,4 +30,6 @@ fun UnlockPasscodeScreen() {
             }
         )
     }
+
+    ForgotPasscodeDialog(viewModel.forgotState)
 }

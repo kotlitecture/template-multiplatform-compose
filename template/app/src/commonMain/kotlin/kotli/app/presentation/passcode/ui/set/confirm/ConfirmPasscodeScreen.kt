@@ -18,11 +18,11 @@ fun ConfirmPasscodeScreen(data: ConfirmPasscodeDestination.Data) {
     ) {
         val error = stringResource(Res.string.passcode_confirm_error)
         PasscodeKeyboard(
+            onCodeChange = { code -> viewModel.onConfirm(data.code, code, error) },
             title = stringResource(Res.string.passcode_confirm_title),
             codeState = viewModel.enteredCodeState,
             errorState = viewModel.errorStore,
             codeLength = data.code.length,
-            onCodeChange = { code -> viewModel.onConfirm(data.code, code, error) }
         )
     }
 }
