@@ -15,7 +15,7 @@ class AppViewModel(
 ) : BaseViewModel() {
 
     override fun doBind() {
-        launchAsync("doBind") {
+        launchAsync("Init start destination") {
             val startDestination = navigationRouter.getStartDestination()
             navigationStore.setStartDestination(startDestination)
         }

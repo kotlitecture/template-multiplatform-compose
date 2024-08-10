@@ -14,6 +14,7 @@ import kotli.app.presentation.showcases.userflow.component.placeholder.Placehold
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcase
 import kotli.app.presentation.showcases.userflow.navigation.args.ArgsNavigationShowcase
 import kotli.app.presentation.showcases.userflow.navigation.no_args.NoArgsNavigationShowcase
+import kotli.app.presentation.showcases.userflow.passcode.set.SetPasscodeShowcase
 import kotli.app.presentation.showcases.userflow.theme.change.ChangeThemeDialogShowcase
 import kotli.app.presentation.showcases.userflow.theme.change.ChangeThemeScreenShowcase
 import kotli.app.presentation.showcases.userflow.theme.toggle.ToggleThemeShowcase
@@ -52,6 +53,8 @@ object Showcases {
         ChangeThemeScreenShowcase,
         ChangeThemeDialogShowcase,
         ToggleThemeShowcase,
+        ShowcaseItemGroup("Userflow :: Passcode"),
+        SetPasscodeShowcase,
         ShowcaseItemGroup("Userflow :: Design Components"),
         PlaceholderShowcase,
         CoilShowcase

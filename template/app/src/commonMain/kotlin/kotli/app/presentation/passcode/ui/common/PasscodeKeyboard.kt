@@ -37,7 +37,7 @@ import shared.presentation.store.DataState
 
 private val numberSize = 48.sp
 private val actionSize = 72.dp
-private val actionSpace = 24.dp
+private val actionSpace = 16.dp
 
 /**
  * Composable function representing the passcode layout.
@@ -108,14 +108,13 @@ fun PadTextButton(
     text: String,
     onClick: () -> Unit
 ) {
-    PadButton(
-        onClick = onClick
-    ) {
+    PadButton(onClick = onClick) {
         AppText(
             text = text,
             maxLines = 1,
             fontSize = 16.sp,
-            fontWeight = FontWeight.W500
+            fontWeight = FontWeight.W500,
+            color = AppTheme.current.onSurface,
         )
     }
 }
@@ -137,8 +136,9 @@ fun PadNumberButton(
         }
     ) {
         AppText(
+            color = AppTheme.current.onSurface,
             text = number.toString(),
-            fontSize = numberSize
+            fontSize = numberSize,
         )
     }
 }
@@ -149,10 +149,9 @@ fun PadIconButton(
     icon: AppIconModel,
     onClick: () -> Unit
 ) {
-    PadButton(
-        onClick = onClick
-    ) {
+    PadButton(onClick = onClick) {
         AppIcon(
+            tint = AppTheme.current.onSurface,
             modifier = modifier.size(32.dp),
             model = icon
         )

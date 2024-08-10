@@ -49,6 +49,7 @@ fun PasscodeDots(
         title?.let {
             AppText(
                 modifier = Modifier.fillMaxWidth(),
+                color = AppTheme.current.onSurface,
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.W600,
                 fontSize = 24.sp,

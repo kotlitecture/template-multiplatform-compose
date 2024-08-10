@@ -12,7 +12,7 @@ class InitPasscode(
     private val passcodeStore: PasscodeStore
 ) {
 
-    suspend fun invoke() {
+    suspend fun invoke(): LockState {
         val key = passcodeStore.persistentKey
         val resumeTimeout = passcodeStore.resumeTimeout
         val currentTime = Clock.System.now().toEpochMilliseconds()
@@ -25,9 +25,10 @@ class InitPasscode(
             else -> LockState.UNLOCKED
         }
 
-        println("INIT PASSCODE :: ${passcode} ${lock}")
         passcodeStore.passcodeState.set(passcode)
         passcodeStore.lockState.set(lock)
+
+        return lock
     }
 
 }

@@ -39,7 +39,7 @@ class UnlockPasscode(
             )
             keyValueSource.save(key, nextState, strategy)
             passcodeStore.passcodeState.set(nextState)
-            LockState.UNLOCKED
+            LockState.LOCKED
         }
 
         passcodeStore.lockState.set(lock)

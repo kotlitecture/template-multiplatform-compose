@@ -8,4 +8,9 @@
     <string name="theme_change_dark_mode_system">System default</string>
     <string name="theme_change_dark_mode_on">Dark</string>
     <string name="theme_change_dark_mode_off">Light</string>
+    <string name="passcode_enter_title">Enter new PIN code</string>
+    <string name="passcode_confirm_title">Confirm new PIN code</string>
+    <string name="passcode_confirm_error">PIN code don't match. Try again.</string>
+    <string name="passcode_unlock_title">Enter PIN</string>
+    <string name="passcode_unlock_forgot">Forgot?</string>
 </resources>
