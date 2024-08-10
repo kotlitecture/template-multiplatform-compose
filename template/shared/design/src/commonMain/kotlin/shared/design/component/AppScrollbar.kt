@@ -75,7 +75,7 @@ private fun AppVerticalScrollbar(
             if (isDragging || isHovered || isScrollInProgress) {
                 scrollbarAlpha.animateTo(1f)
             } else {
-                delay(1000L)
+                delay(3000L)
                 scrollbarAlpha.animateTo(0f)
             }
         }
