@@ -1,19 +1,17 @@
 package kotli.app.di.presentation
 
 import kotli.app.presentation.passcode.model.PasscodeStore
-import kotli.app.presentation.passcode.usecase.GetPasscodeState
-import kotli.app.presentation.passcode.usecase.IsPasscodeExpired
+import kotli.app.presentation.passcode.usecase.InitPasscode
 import kotli.app.presentation.passcode.usecase.SetPasscode
 import kotli.app.presentation.passcode.usecase.UnlockPasscode
-import kotli.app.presentation.passcode.usecase.UpdatePasscodeState
+import kotli.app.presentation.passcode.usecase.PausePasscode
 import org.koin.dsl.module
 
 val passcodeModule = module {
     single { PasscodeStore() }
 
-    factory { GetPasscodeState(get(), get()) }
-    factory { IsPasscodeExpired(get()) }
+    factory { InitPasscode(get(), get()) }
     factory { SetPasscode(get(), get(), get()) }
     factory { UnlockPasscode(get(), get(), get()) }
-    factory { UpdatePasscodeState(get(), get()) }
+    factory { PausePasscode(get(), get()) }
 }

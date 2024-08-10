@@ -1,43 +1,33 @@
 package kotli.app.presentation.passcode
 
 import kotli.app.presentation.passcode.model.PasscodeStore
-import kotli.app.presentation.passcode.usecase.GetPasscodeState
-import kotli.app.presentation.passcode.usecase.IsPasscodeExpired
-import kotli.app.presentation.passcode.usecase.UpdatePasscodeState
-import kotlinx.datetime.Clock
+import kotli.app.presentation.passcode.usecase.InitPasscode
+import kotli.app.presentation.passcode.usecase.PausePasscode
 import shared.presentation.viewmodel.BaseViewModel
 
 class PasscodeViewModel(
-    private val updatePasscodeState: UpdatePasscodeState,
-    private val isPasscodeExpired: IsPasscodeExpired,
-    private val getPasscodeState: GetPasscodeState,
-    private val passcodeStore: PasscodeStore,
+    private val initPasscode: InitPasscode,
+    private val pausePasscode: PausePasscode,
+    passcodeStore: PasscodeStore,
 ) : BaseViewModel() {
 
+    val lockState = passcodeStore.lockState
+
     override fun doBind() {
-        launchAsync("getPasscodeState") {
-            val state = getPasscodeState.invoke()
-            passcodeStore.passcodeState.set(state)
+        launchAsync("Init passcode") {
+            initPasscode.invoke()
         }
     }
 
     override fun doResume() {
-        val state = passcodeStore.passcodeState.get() ?: return
-
-        launchAsync("isPasscodeExpired") {
-            val expired = isPasscodeExpired.invoke(state)
-            if (expired) {
-                // TODO
-            }
+        launchAsync("Resume passcode") {
+            initPasscode.invoke()
         }
     }
 
     override fun doPause() {
-        val state = passcodeStore.passcodeState.get() ?: return
-        val newState = state.copy(unlockTime = Clock.System.now().toEpochMilliseconds())
-
-        launchAsync("updatePasscodeState") {
-            updatePasscodeState.invoke(newState)
+        launchAsync("Pause passcode") {
+            pausePasscode.invoke()
         }
     }
 

@@ -1,5 +1,6 @@
 package kotli.app.presentation.passcode.model
 
+import shared.data.source.encryption.EncryptionMethod
 import shared.presentation.store.DataState
 import shared.presentation.store.Store
 import kotlin.time.Duration.Companion.seconds
@@ -17,8 +18,10 @@ data class PasscodeStore(
     val passcodeLength: Int = 4,
     val unlockAttemptsCount: Int = 5,
     val resumeTimeout: Long = 1.seconds.inWholeMilliseconds,
+    val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::AES
 ) : Store() {
 
     val passcodeState = DataState<PasscodeState>()
+    val lockState = DataState(LockState.UNDEFINED)
 
 }
