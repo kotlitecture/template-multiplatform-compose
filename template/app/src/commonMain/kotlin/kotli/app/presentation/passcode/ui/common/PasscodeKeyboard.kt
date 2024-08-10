@@ -37,7 +37,7 @@ import shared.presentation.store.DataState
 
 private val numberSize = 48.sp
 private val actionSize = 72.dp
-private val actionSpace = 16.dp
+private val actionSpace = 24.dp
 
 /**
  * Composable function representing the passcode layout.
