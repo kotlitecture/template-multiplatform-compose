@@ -14,15 +14,17 @@ import shared.presentation.viewmodel.provideViewModel
 @Composable
 fun PasscodeProvider(content: @Composable () -> Unit) {
     val viewModel: PasscodeViewModel = provideViewModel()
-    val state = viewModel.lockState.asStateValueNotNull()
 
-    when (state) {
-        LockState.UNLOCKED -> content()
-        LockState.LOCKED -> UnlockPasscodeScreen()
+    when (val state = viewModel.lockState.asStateValueNotNull()) {
         LockState.UNDEFINED -> UndefinedState()
+        else -> {
+            content()
+            if (state == LockState.LOCKED) {
+                UnlockPasscodeScreen()
+                LoaderProvider(viewModel.passcodeStore)
+            }
+        }
     }
-
-    LoaderProvider(viewModel.passcodeStore)
 }
 
 @Composable

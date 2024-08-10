@@ -13,6 +13,7 @@ import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
 import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
 import kotli.app.presentation.passcode.PasscodeViewModel
 import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
+import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
 import kotli.app.presentation.passcode.ui.set.confirm.ConfirmPasscodeViewModel
 import kotli.app.presentation.passcode.ui.set.enter.EnterPasscodeViewModel
 import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeViewModel
@@ -80,6 +81,7 @@ val appModule = module {
             initializer { ConfirmPasscodeViewModel(get(), get(), get()) }
             initializer { UnlockPasscodeViewModel(get(), get()) }
             initializer { ForgotPasscodeViewModel(get(), get()) }
+            initializer { ResetPasscodeViewModel(get(), get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

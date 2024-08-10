@@ -1,15 +1,15 @@
-package kotli.app.presentation.passcode.ui.set.enter
+package kotli.app.presentation.passcode.ui.reset
 
 import kotli.app.presentation.passcode.model.PasscodeStore
-import kotli.app.presentation.passcode.ui.set.confirm.ConfirmPasscodeDestination
+import kotli.app.presentation.passcode.usecase.ResetPasscode
 import shared.presentation.navigation.NavigationStore
-import shared.presentation.navigation.NavigationStrategy
 import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
 
-class EnterPasscodeViewModel(
+class ResetPasscodeViewModel(
     private val navigationStore: NavigationStore,
-    passcodeStore: PasscodeStore
+    private val resetPasscode: ResetPasscode,
+    private val passcodeStore: PasscodeStore
 ) : BaseViewModel() {
 
     val passcodeLength = passcodeStore.passcodeLength
@@ -23,17 +23,20 @@ class EnterPasscodeViewModel(
         enteredCodeState.clear()
     }
 
-    fun onEnter(enteredCode: String) {
+    fun onReset(enteredCode: String) {
         enteredCodeState.set(enteredCode)
 
         if (enteredCode.length != passcodeLength) {
             return
         }
 
-        navigationStore.onNext(
-            destination = ConfirmPasscodeDestination,
-            strategy = NavigationStrategy.ReplacePrevious,
-            data = ConfirmPasscodeDestination.Data(enteredCode)
-        )
+        launchAsync("Reset passcode", passcodeStore) {
+            try {
+                resetPasscode.invoke(enteredCode)
+                navigationStore.onBack()
+            } catch (e: Exception) {
+                enteredCodeState.clear()
+            }
+        }
     }
 }

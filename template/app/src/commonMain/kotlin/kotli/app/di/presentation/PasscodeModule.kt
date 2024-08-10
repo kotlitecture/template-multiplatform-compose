@@ -14,8 +14,8 @@ val passcodeModule = module {
 
     factory { InitPasscode(get(), get()) }
     factory { PausePasscode(get(), get()) }
-    factory { ResetPasscode(get(), get()) }
     factory { ForgotPasscode(get(), get()) }
     factory { SetPasscode(get(), get(), get()) }
+    factory { ResetPasscode(get(), get(), get()) }
     factory { UnlockPasscode(get(), get(), get()) }
 }

@@ -3,6 +3,7 @@ package kotli.app.di.presentation
 import kotli.app.presentation.navigation.samples.a.NavigationADestination
 import kotli.app.presentation.navigation.samples.b.NavigationBDestination
 import kotli.app.presentation.navigation.samples.c.NavigationCDestination
+import kotli.app.presentation.passcode.ui.reset.ResetPasscodeDestination
 import kotli.app.presentation.passcode.ui.set.confirm.ConfirmPasscodeDestination
 import kotli.app.presentation.passcode.ui.set.enter.EnterPasscodeDestination
 import kotli.app.presentation.showcases.ShowcasesDestination
@@ -26,7 +27,8 @@ val navigationModule = module {
                 NavigationBDestination,
                 NavigationCDestination,
                 EnterPasscodeDestination,
-                ConfirmPasscodeDestination
+                ConfirmPasscodeDestination,
+                ResetPasscodeDestination
             )
         )
     }
