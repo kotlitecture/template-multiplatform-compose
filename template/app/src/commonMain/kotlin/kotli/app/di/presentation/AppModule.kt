@@ -77,7 +77,7 @@ val appModule = module {
             initializer { PasscodeViewModel(get(), get(), get(), get()) }
             initializer { CoilShowcaseViewModel(get()) }
             initializer { SetPasscodeViewModel(get(), get(), get(), get(), get()) }
-            initializer { ResetPasscodeViewModel(get(), get(), get()) }
+            initializer { ResetPasscodeViewModel(get(), get(), get(), get()) }
             initializer { UnlockPasscodeViewModel(get(), get()) }
             initializer { ForgotPasscodeViewModel(get(), get()) }
             initializer { createRoomCrudViewModel() }

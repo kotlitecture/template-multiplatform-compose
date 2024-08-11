@@ -62,7 +62,8 @@ class SetPasscodeViewModel(
 
     private suspend fun onUnlockExisting(enteredCode: String) {
         if (unlockPasscode.invoke(enteredCode) == LockState.LOCKED) {
-            errorStore.set(getString(Res.string.passcode_unlock_error))
+            val attempts = passcodeStore.getRemainingUnlockAttempts()
+            errorStore.set(getString(Res.string.passcode_unlock_error, attempts))
             enteredCodeState.clear()
         } else {
             uiState.set(SetPasscodeState.EnterNew())

@@ -3,6 +3,7 @@ package kotli.app.presentation.passcode.model
 import shared.data.source.encryption.EncryptionMethod
 import shared.presentation.store.DataState
 import shared.presentation.store.Store
+import kotlin.math.max
 import kotlin.time.Duration.Companion.seconds
 
 /**
@@ -23,5 +24,10 @@ data class PasscodeStore(
 
     val passcodeState = DataState<PasscodeState>()
     val lockState = DataState(LockState.UNDEFINED)
+
+    fun getRemainingUnlockAttempts(): Int {
+        val unlockAttempts = passcodeState.get()?.unlockAttempts ?: 0
+        return max(0, unlockAttemptsCount - unlockAttempts)
+    }
 
 }

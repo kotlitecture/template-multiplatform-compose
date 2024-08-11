@@ -38,7 +38,8 @@ class UnlockPasscodeViewModel(
         launchAsync("Unlock passcode", passcodeStore) {
             val lock = unlockPasscode.invoke(enteredCode)
             if (lock == LockState.LOCKED) {
-                val error = getString(Res.string.passcode_unlock_error)
+                val attempts = passcodeStore.getRemainingUnlockAttempts()
+                val error = getString(Res.string.passcode_unlock_error, attempts)
                 enteredCodeState.clear()
                 errorStore.set(error)
             }

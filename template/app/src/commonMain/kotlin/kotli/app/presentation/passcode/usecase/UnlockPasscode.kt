@@ -20,6 +20,8 @@ class UnlockPasscode(
         val state = keyValueSource.read(key, strategy) ?: unknownError()
 
         val lock = try {
+            check(passcodeStore.getRemainingUnlockAttempts() > 0) { unknownError() }
+
             val encodedCode = state.encodedCode
             val encryptionMethod = passcodeStore.encryptionMethod(code)
 

@@ -14,10 +14,10 @@ val passcodeModule = module {
     single { PasscodeStore() }
 
     factory { InitPasscode(get(), get()) }
+    factory { ResetPasscode(get(), get()) }
     factory { IsPasscodeSet(get(), get()) }
     factory { PausePasscode(get(), get()) }
     factory { ForgotPasscode(get(), get()) }
     factory { SetPasscode(get(), get(), get()) }
-    factory { ResetPasscode(get(), get(), get()) }
     factory { UnlockPasscode(get(), get(), get()) }
 }
