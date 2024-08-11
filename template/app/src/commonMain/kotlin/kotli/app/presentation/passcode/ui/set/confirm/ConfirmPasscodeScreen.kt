@@ -12,11 +12,11 @@ import template.app.generated.resources.passcode_confirm_title
 @Composable
 fun ConfirmPasscodeScreen(data: ConfirmPasscodeDestination.Data) {
     val viewModel: ConfirmPasscodeViewModel = provideViewModel()
+    val error = stringResource(Res.string.passcode_confirm_error)
 
     AppFixedTopBarColumn(
         onBack = viewModel::onBack
     ) {
-        val error = stringResource(Res.string.passcode_confirm_error)
         PasscodeKeyboard(
             onCodeChange = { code -> viewModel.onConfirm(data.code, code, error) },
             title = stringResource(Res.string.passcode_confirm_title),

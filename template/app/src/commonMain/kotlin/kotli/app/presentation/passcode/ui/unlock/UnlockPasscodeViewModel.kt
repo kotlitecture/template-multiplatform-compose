@@ -3,7 +3,6 @@ package kotli.app.presentation.passcode.ui.unlock
 import kotli.app.presentation.passcode.model.LockState
 import kotli.app.presentation.passcode.model.PasscodeStore
 import kotli.app.presentation.passcode.usecase.UnlockPasscode
-import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -25,8 +24,9 @@ class UnlockPasscodeViewModel(
         forgotState.set(true)
     }
 
-    fun onUnlock(enteredCode: String) {
+    fun onUnlock(enteredCode: String, error: String) {
         enteredCodeState.set(enteredCode)
+        errorStore.clear()
 
         if (enteredCode.length != passcodeLength) {
             return
@@ -36,6 +36,7 @@ class UnlockPasscodeViewModel(
             val lock = unlockPasscode.invoke(enteredCode)
             if (lock == LockState.LOCKED) {
                 enteredCodeState.clear()
+                errorStore.set(error)
             }
         }
     }
