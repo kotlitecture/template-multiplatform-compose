@@ -42,8 +42,6 @@ class UnlockPasscode(
             LockState.LOCKED
         }
 
-        passcodeStore.lockState.set(lock)
-
         return lock
     }
 

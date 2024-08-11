@@ -42,6 +42,7 @@ class UnlockPasscodeViewModel(
                 enteredCodeState.clear()
                 errorStore.set(error)
             }
+            passcodeStore.lockState.set(lock)
         }
     }
 }

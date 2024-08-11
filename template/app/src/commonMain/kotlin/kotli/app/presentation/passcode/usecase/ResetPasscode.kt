@@ -13,20 +13,26 @@ class ResetPasscode(
     private val passcodeStore: PasscodeStore
 ) {
 
-    suspend fun invoke(currentCode: String) {
-        val state = passcodeStore.passcodeState.get() ?: return
+    suspend fun invoke(currentCode: String): Boolean {
+        val state = passcodeStore.passcodeState.get() ?: return true
 
-        val encodedCode = state.encodedCode
-        val encryptionMethod = passcodeStore.encryptionMethod(currentCode)
-        val decodedCode = encryptionSource.decrypt(encodedCode, encryptionMethod)
+        return try {
+            val encodedCode = state.encodedCode
+            val encryptionMethod = passcodeStore.encryptionMethod(currentCode)
+            val decodedCode = encryptionSource.decrypt(encodedCode, encryptionMethod)
+            val reset = decodedCode == currentCode
 
-        if (decodedCode == currentCode) {
-            val key = passcodeStore.persistentKey
-            val strategy = SerializationStrategy.json(PasscodeState.serializer())
-            keyValueSource.remove(key, strategy)
-            passcodeStore.lockState.set(LockState.UNLOCKED)
-            passcodeStore.passcodeState.clear()
+            if (reset) {
+                val key = passcodeStore.persistentKey
+                val strategy = SerializationStrategy.json(PasscodeState.serializer())
+                keyValueSource.remove(key, strategy)
+                passcodeStore.lockState.set(LockState.UNLOCKED)
+                passcodeStore.passcodeState.clear()
+            }
+
+            reset
+        } catch (e: Exception) {
+            false
         }
     }
-
 }

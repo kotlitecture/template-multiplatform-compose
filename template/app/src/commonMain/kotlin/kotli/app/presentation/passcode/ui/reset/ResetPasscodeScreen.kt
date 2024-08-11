@@ -18,6 +18,7 @@ fun ResetPasscodeScreen() {
             title = stringResource(Res.string.passcode_reset_title),
             codeState = viewModel.enteredCodeState,
             codeLength = viewModel.passcodeLength,
+            errorState = viewModel.errorStore,
             onCodeChange = viewModel::onReset
         )
     }

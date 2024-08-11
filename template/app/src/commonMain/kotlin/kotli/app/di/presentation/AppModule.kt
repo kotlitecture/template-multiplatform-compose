@@ -14,8 +14,7 @@ import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
 import kotli.app.presentation.passcode.PasscodeViewModel
 import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
 import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
-import kotli.app.presentation.passcode.ui.set.confirm.ConfirmPasscodeViewModel
-import kotli.app.presentation.passcode.ui.set.enter.EnterPasscodeViewModel
+import kotli.app.presentation.passcode.ui.set.SetPasscodeViewModel
 import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
@@ -77,11 +76,10 @@ val appModule = module {
             initializer { BasicEncryptionViewModel(get(), get()) }
             initializer { PasscodeViewModel(get(), get(), get(), get()) }
             initializer { CoilShowcaseViewModel(get()) }
-            initializer { EnterPasscodeViewModel(get(), get()) }
-            initializer { ConfirmPasscodeViewModel(get(), get(), get()) }
+            initializer { SetPasscodeViewModel(get(), get(), get(), get(), get()) }
+            initializer { ResetPasscodeViewModel(get(), get(), get()) }
             initializer { UnlockPasscodeViewModel(get(), get()) }
             initializer { ForgotPasscodeViewModel(get(), get()) }
-            initializer { ResetPasscodeViewModel(get(), get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }
