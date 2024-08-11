@@ -2,9 +2,12 @@ package kotli.app.presentation.passcode.ui.set.confirm
 
 import kotli.app.presentation.passcode.model.PasscodeStore
 import kotli.app.presentation.passcode.usecase.SetPasscode
+import org.jetbrains.compose.resources.getString
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
+import template.app.generated.resources.Res
+import template.app.generated.resources.passcode_confirm_error
 
 class ConfirmPasscodeViewModel(
     private val navigationStore: NavigationStore,
@@ -23,7 +26,7 @@ class ConfirmPasscodeViewModel(
         enteredCodeState.clear()
     }
 
-    fun onConfirm(expectedCode: String, enteredCode: String, errorText: String) {
+    fun onConfirm(expectedCode: String, enteredCode: String) {
         enteredCodeState.set(enteredCode)
 
         if (enteredCode.isNotEmpty()) {
@@ -34,15 +37,15 @@ class ConfirmPasscodeViewModel(
             return
         }
 
-        if (enteredCode != expectedCode) {
-            errorStore.set(errorText)
-            enteredCodeState.clear()
-            return
-        }
-
         launchAsync("Set passcode", passcodeStore) {
-            setPasscode.invoke(enteredCode)
-            onBack()
+            if (enteredCode != expectedCode) {
+                val error = getString(Res.string.passcode_confirm_error)
+                enteredCodeState.clear()
+                errorStore.set(error)
+            } else {
+                setPasscode.invoke(enteredCode)
+                onBack()
+            }
         }
     }
 }

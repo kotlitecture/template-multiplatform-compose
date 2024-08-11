@@ -8,14 +8,12 @@ import org.jetbrains.compose.resources.stringResource
 import shared.design.container.AppFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
-import template.app.generated.resources.passcode_unlock_error
 import template.app.generated.resources.passcode_unlock_forgot
 import template.app.generated.resources.passcode_unlock_title
 
 @Composable
 fun UnlockPasscodeScreen() {
     val viewModel: UnlockPasscodeViewModel = provideViewModel()
-    val error = stringResource(Res.string.passcode_unlock_error)
 
     AppFixedTopBarColumn {
         PasscodeKeyboard(
@@ -23,7 +21,7 @@ fun UnlockPasscodeScreen() {
             codeState = viewModel.enteredCodeState,
             codeLength = viewModel.passcodeLength,
             errorState = viewModel.errorStore,
-            onCodeChange = { code -> viewModel.onUnlock(code, error) },
+            onCodeChange = viewModel::onUnlock,
             bottomLeftBlock = {
                 PadTextButton(
                     text = stringResource(Res.string.passcode_unlock_forgot),
