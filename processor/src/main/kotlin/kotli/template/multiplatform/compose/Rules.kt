@@ -36,10 +36,12 @@ object Rules {
     const val ConfigureKoinDI = "*/configureKoin.kt"
     const val CommonAppSrcDir = "app/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
+    const val AppKt = "${CommonAppMainDir}/kotlin/kotli/app/App.kt"
+    const val AppPresentationDir = "${CommonAppMainDir}/kotlin/kotli/app/presentation"
+    const val AppDiDir = "${CommonAppMainDir}/kotlin/kotli/app/di"
     const val AppModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/AppModule.kt"
     const val AppWebPackConfigDir = "app/webpack.config.d"
     const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
-    const val AppPresentationDir = "${CommonAppMainDir}/kotlin/kotli/app/presentation"
     const val AppScreenKt = "${AppPresentationDir}/app/AppScreen.kt"
     const val AppNavigationRouterKt = "${AppPresentationDir}/app/AppNavigationRouter.kt"
     const val AppThemeDir = "${AppPresentationDir}/theme"
@@ -61,7 +63,11 @@ object Rules {
 
     const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
     const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
-    const val NavigationModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationModule.kt"
+    const val NavigationModuleKt = "${AppDiDir}/presentation/NavigationModule.kt"
+
+    // userflow -> passcode
+    const val AppPasscodeDir = "${AppPresentationDir}/passcode"
+    const val PasscodeModuleKt = "${AppDiDir}/presentation/PasscodeModule.kt"
 
     // showcases
     const val ShowcasesDir = "*/presentation/showcases"

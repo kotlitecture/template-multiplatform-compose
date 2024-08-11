@@ -37,6 +37,7 @@ import kotli.template.multiplatform.compose.userflow.component.ComponentProvider
 import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProvider
+import kotli.template.multiplatform.compose.userflow.passcode.PasscodeProvider
 import kotli.template.multiplatform.compose.userflow.theme.ThemeProvider
 import kotli.template.multiplatform.compose.userflow.theme.change.ChangeThemeProcessor
 import kotli.template.multiplatform.compose.userflow.theme.save.SaveThemeProcessor
@@ -95,6 +96,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         // userflow
         NavigationBarProvider,
         ThemeProvider,
+        PasscodeProvider,
         LoaderProvider,
         ComponentProvider,
 

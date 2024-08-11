@@ -10,7 +10,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotlin.time.Duration.Companion.hours
 
-object KorlibsProcessor : BaseFeatureProcessor() {
+object KorlibsEncryptionProcessor : BaseFeatureProcessor() {
 
     const val ID = "dataflow.encryption.korlibs"
 
