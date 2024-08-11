@@ -23,7 +23,7 @@ fun ForgotPasscodeDialog(state: DataState<Boolean>) {
         text = stringResource(Res.string.passcode_forgot_message),
         confirmLabel = stringResource(Res.string.passcode_forgot_yes),
         dismissLabel = stringResource(Res.string.passcode_forgot_no),
-        confirmAction = viewModel::onConfirm,
+        confirmAction = { viewModel.onConfirm(state) },
         dismissAction = { state.set(false) }
     )
 }
