@@ -20,6 +20,7 @@ class UnlockPasscodeViewModel(
     val errorStore = DataState<String>()
 
     override fun doBind() {
+        forgotState.clear()
         enteredCodeState.clear()
     }
 
