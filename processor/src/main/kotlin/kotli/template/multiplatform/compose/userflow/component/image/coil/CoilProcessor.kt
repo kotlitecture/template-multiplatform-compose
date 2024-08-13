@@ -23,8 +23,7 @@ object CoilProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
     override fun getWebUrl(state: TemplateState): String = "https://coil-kt.github.io/coil/"
-    override fun getIntegrationUrl(state: TemplateState): String =
-        "https://coil-kt.github.io/coil/upgrading_to_coil3/#multiplatform"
+    override fun getIntegrationUrl(state: TemplateState): String = "https://coil-kt.github.io/coil/upgrading_to_coil3/#multiplatform"
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         ComponentProcessor::class.java
