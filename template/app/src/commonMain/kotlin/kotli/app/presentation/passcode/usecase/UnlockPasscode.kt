@@ -22,11 +22,11 @@ class UnlockPasscode(
         val lock = try {
             check(passcodeStore.getRemainingUnlockAttempts() > 0) { unknownError() }
 
-            val encodedCode = state.encodedCode
-            val encryptionMethod = passcodeStore.encryptionMethod(code)
-
-            val decodedCode = encryptionSource.decrypt(encodedCode, encryptionMethod)
-            check(decodedCode == code) { unknownError() }
+            val salt = state.salt
+            val expectedCode = state.encodedCode
+            val encryptionMethod = passcodeStore.encryptionMethod(salt)
+            val actualCode = encryptionSource.encrypt(code, encryptionMethod)
+            check(actualCode == expectedCode) { unknownError() }
 
             val nextState = state.copy(
                 unlockAttempts = 0,

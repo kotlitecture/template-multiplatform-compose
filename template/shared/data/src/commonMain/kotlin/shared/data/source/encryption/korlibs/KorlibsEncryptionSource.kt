@@ -13,7 +13,8 @@ import shared.data.source.encryption.EncryptionSource
 open class KorlibsEncryptionSource : EncryptionSource {
 
     private val source = BasicEncryptionSource(
-        AesResolver()
+        AesResolver(),
+        Pbkdf2Resolver()
     )
 
     override fun encrypt(text: String, method: EncryptionMethod): String {

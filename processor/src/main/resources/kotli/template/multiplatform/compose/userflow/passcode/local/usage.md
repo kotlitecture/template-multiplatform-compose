@@ -11,10 +11,10 @@ The flow is pre-configured to effectively manage the app lifecycle through `app.
 ```kotlin
 data class PasscodeStore(
     val persistentKey: String = "passcode_config", // the key to store the passcode state locally.
-    val passcodeLength: Int = 4, // the length of the passcode which user can set via default UI.
-    val unlockAttemptsCount: Int = 5, // the number of wrong attempts before passcode will be reset.
+    val passcodeLength: Int = 4, // the length of the passcode which user can set via the default UI.
+    val unlockAttemptsCount: Int = 5, // the number of wrong attempts before the lock screen will become permanent (until user reset it or you implement some other behaviour).
     val resumeTimeout: Long = 10.seconds.inWholeMilliseconds, // time to keep the app unlocked in the background.
-    val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::AES // method, used to encrypt the passcode to store it locally. 
+    val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::PBKDF2 // method, used to hash the passcode to store it locally. 
 )
 ```
 
@@ -34,7 +34,7 @@ class TemplateViewModel(
 }
 ```
 
-Once initiated, the user will be prompted to create and confirm their passcode.
+Once initiated, the user will be prompted to create and confirm their passcode. The passcode in hashed with `PBKDF2` hashing algorithm by default (which can be changed as everything else of course).
 
 ## Reset passcode
 

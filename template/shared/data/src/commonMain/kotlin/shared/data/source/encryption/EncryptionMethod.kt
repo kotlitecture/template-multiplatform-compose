@@ -7,8 +7,11 @@ sealed class EncryptionMethod {
 
     /**
      * AES encryption method with a specified password.
-     *
-     * @property password the password used for AES encryption.
      */
     data class AES(val password: String) : EncryptionMethod()
+
+    /**
+     * PBKDF2 hashing method with a specified salt.
+     */
+    data class PBKDF2(val salt: String) : EncryptionMethod()
 }
