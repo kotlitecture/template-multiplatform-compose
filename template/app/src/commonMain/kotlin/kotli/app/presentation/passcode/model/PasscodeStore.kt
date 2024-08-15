@@ -18,7 +18,7 @@ data class PasscodeStore(
     val persistentKey: String = "passcode_config",
     val passcodeLength: Int = 4,
     val unlockAttemptsCount: Int = 5,
-    val resumeTimeout: Long = 1.seconds.inWholeMilliseconds,
+    val resumeTimeout: Long = 10.seconds.inWholeMilliseconds,
     val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::AES
 ) : Store() {
 

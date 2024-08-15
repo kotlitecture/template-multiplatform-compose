@@ -18,9 +18,11 @@ class InitPasscode(
         val currentTime = Clock.System.now().toEpochMilliseconds()
         val strategy = SerializationStrategy.json(PasscodeState.serializer())
 
+        val currentLock = passcodeStore.lockState.getNotNull()
         val passcode = keyValueSource.read(key, strategy)
         val lock = when {
             passcode == null -> LockState.UNLOCKED
+            currentLock == LockState.UNDEFINED -> LockState.LOCKED
             currentTime - passcode.unlockTime > resumeTimeout -> LockState.LOCKED
             else -> LockState.UNLOCKED
         }
