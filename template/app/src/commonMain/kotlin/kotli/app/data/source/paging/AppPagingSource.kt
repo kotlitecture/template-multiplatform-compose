@@ -4,12 +4,13 @@ import app.cash.paging.Pager
 import app.cash.paging.PagingSource
 import app.cash.paging.createPager
 import app.cash.paging.createPagingConfig
+import shared.data.source.DataSource
 
 /**
  * This class represents a paging source for use with Jetpack Paging.
  * It provides a method to create a Pager instance with a specified page size.
  */
-class AppPagingSource(private val pageSize: Int) {
+class AppPagingSource(private val pageSize: Int) : DataSource {
 
     /**
      * Creates a Pager instance with the given paging source factory.

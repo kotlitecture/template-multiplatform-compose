@@ -36,10 +36,12 @@ object Rules {
     const val ConfigureKoinDI = "*/configureKoin.kt"
     const val CommonAppSrcDir = "app/src"
     const val CommonAppMainDir = "${CommonAppSrcDir}/commonMain"
+    const val AppKt = "${CommonAppMainDir}/kotlin/kotli/app/App.kt"
+    const val AppPresentationDir = "${CommonAppMainDir}/kotlin/kotli/app/presentation"
+    const val AppDiDir = "${CommonAppMainDir}/kotlin/kotli/app/di"
     const val AppModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/AppModule.kt"
     const val AppWebPackConfigDir = "app/webpack.config.d"
     const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
-    const val AppPresentationDir = "${CommonAppMainDir}/kotlin/kotli/app/presentation"
     const val AppScreenKt = "${AppPresentationDir}/app/AppScreen.kt"
     const val AppNavigationRouterKt = "${AppPresentationDir}/app/AppNavigationRouter.kt"
     const val AppThemeDir = "${AppPresentationDir}/theme"
@@ -58,12 +60,23 @@ object Rules {
     const val AppNavigationModalProvider = "${AppNavigationDir}/ModalProvider.kt"
     const val AppNavigationPermanentProvider = "${AppNavigationDir}/PermanentProvider.kt"
     const val AppNavigationRailProvider = "${AppNavigationDir}/RailProvider.kt"
+
+    const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
+    const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
+    const val NavigationModuleKt = "${AppDiDir}/presentation/NavigationModule.kt"
+
+    // userflow -> passcode
+    const val AppPasscodeDir = "${AppPresentationDir}/passcode"
+    const val PasscodeModuleKt = "${AppDiDir}/presentation/PasscodeModule.kt"
+
+    // showcases
     const val ShowcasesDir = "*/presentation/showcases"
     const val ShowcasesDataFlowDir = "${ShowcasesDir}/dataflow"
     const val ShowcasesUserFlowDir = "${ShowcasesDir}/userflow"
     const val ShowcasesHttpDir = "${ShowcasesDataFlowDir}/http"
     const val ShowcasesCacheDir = "${ShowcasesDataFlowDir}/cache"
     const val ShowcasesPagingDir = "${ShowcasesDataFlowDir}/paging"
+    const val ShowcasesEncryptionDir = "${ShowcasesDataFlowDir}/encryption"
     const val ShowcasesKeyValueDir = "${ShowcasesDataFlowDir}/keyvalue"
     const val ShowcasesSqlDelightDir = "${ShowcasesDataFlowDir}/sqldelight"
     const val ShowcasesRoomDir = "${ShowcasesDataFlowDir}/room"
@@ -72,10 +85,8 @@ object Rules {
     const val ShowcasesLoaderDir = "${ShowcasesUserFlowDir}/loader"
     const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
     const val ShowcasesPlaceholderDir = "${ShowcasesUserFlowDir}/component/placeholder"
+    const val ShowcasesCoilDir = "${ShowcasesUserFlowDir}/component/image/coil"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
-    const val ThemeStoreKt = "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
-    const val NavigationBarModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationBarModule.kt"
-    const val NavigationModuleKt = "${CommonAppMainDir}/kotlin/kotli/app/di/presentation/NavigationModule.kt"
 
     // design
     const val SharedDesignDir = "shared/design"
@@ -83,20 +94,30 @@ object Rules {
     const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
+    const val AppIcon = "${SharedDesignComponentDir}/AppIcon.kt"
 
-    // dataflow
-    const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/datasource/config/AppConfigSource.kt"
+    // dataflow -> analytics
     const val AnalyticsSource = "*/*AnalyticsSource*.kt"
+    // dataflow -> cache
     const val CacheSource = "*/*CacheSource*.kt"
+    // dataflow -> database
     const val SqlDelightSource = "*/*SqlDelightSource*.kt"
     const val SqlDelightDir = "*/sqldelight/*"
     const val RoomSource = "*/*RoomSource*.kt"
     const val RoomDir = "*/database/room/*"
+    // dataflow -> config
     const val ConfigSource = "*/*ConfigSource*.kt"
+    const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/data/source/config/AppConfigSource.kt"
+    // dataflow -> paging
     const val PagingSource = "*/*Paging*.kt"
+    // dataflow -> http
     const val HttpSource = "*/*HttpSource*.kt"
+    // dataflow -> keyvalue
     const val KeyValueSource = "*/*KeyValueSource*.kt"
     const val SettingsKeyValueSource = "*/*SettingsKeyValueSource*.kt"
     const val DataStoreSource = "*/*DataStoreSource.kt"
+    // dataflow -> encryption
+    const val EncryptionSource = "*/*EncryptionSource*.kt"
+    const val EncryptionDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/encryption"
 
 }

@@ -1,7 +1,7 @@
 package shared.data.source.keyvalue
 
-import shared.data.source.DataSource
 import shared.data.serialization.SerializationStrategy
+import shared.data.source.DataSource
 
 /**
  * Provides functionality to save, read, remove, and clear key-value pairs.
@@ -31,6 +31,18 @@ abstract class KeyValueSource : DataSource {
     }
 
     /**
+     * Removes the value associated with the specified key.
+     *
+     * @param key The key to remove.
+     * @throws IllegalStateException if serialization/deserialization fails or if the requested type is not supported.
+     *
+     * @return The removed value associated with the key, or `null` if the key does not exist.
+     */
+    suspend inline fun <reified T : Any> remove(key: String): T? {
+        return remove(key, SerializationStrategy.no())
+    }
+
+    /**
      * Saves the specified key-value pair.
      *
      * @param key The key to save.
@@ -50,7 +62,10 @@ abstract class KeyValueSource : DataSource {
      * @param serializationStrategy The serialization strategy used to convert the value to a string.
      * @return The value associated with the key, or `null` if the key does not exist.
      */
-    abstract suspend fun <T : Any> read(key: String, serializationStrategy: SerializationStrategy<T>): T?
+    abstract suspend fun <T : Any> read(
+        key: String,
+        serializationStrategy: SerializationStrategy<T>
+    ): T?
 
     /**
      * Removes the value associated with the specified key.
@@ -60,7 +75,10 @@ abstract class KeyValueSource : DataSource {
      *
      * @return The removed value associated with the key, or `null` if the key does not exist.
      */
-    abstract suspend fun <T : Any> remove(key: String, serializationStrategy: SerializationStrategy<T>): T?
+    abstract suspend fun <T : Any> remove(
+        key: String,
+        serializationStrategy: SerializationStrategy<T>
+    ): T?
 
     /**
      * Clears all key-value pairs.

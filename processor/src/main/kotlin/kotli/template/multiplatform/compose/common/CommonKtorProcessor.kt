@@ -13,7 +13,10 @@ object CommonKtorProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("ktor")
+                RemoveMarkedLine("ktor ="),
+                RemoveMarkedLine("ktor-client"),
+                RemoveMarkedLine("ktor-server"),
+                RemoveMarkedLine("ktor-common"),
             )
         )
     }

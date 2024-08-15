@@ -1,11 +1,14 @@
 package kotli.app.di.presentation
 
-import kotli.app.presentation.showcases.ShowcasesDestination
-import kotli.app.presentation.template.screen_with_args.TemplateDestination
-import kotli.app.presentation.template.screen_without_args.TemplateNoArgsDestination
 import kotli.app.presentation.navigation.samples.a.NavigationADestination
 import kotli.app.presentation.navigation.samples.b.NavigationBDestination
 import kotli.app.presentation.navigation.samples.c.NavigationCDestination
+import kotli.app.presentation.passcode.ui.reset.ResetPasscodeDestination
+import kotli.app.presentation.passcode.ui.set.SetPasscodeDestination
+import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeDestination
+import kotli.app.presentation.showcases.ShowcasesDestination
+import kotli.app.presentation.template.screen_with_args.TemplateDestination
+import kotli.app.presentation.template.screen_without_args.TemplateNoArgsDestination
 import kotli.app.presentation.theme.change.ChangeThemeDestination
 import kotli.app.presentation.theme.change.ChangeThemeDialogDestination
 import org.koin.dsl.module
@@ -23,6 +26,9 @@ val navigationModule = module {
                 NavigationADestination,
                 NavigationBDestination,
                 NavigationCDestination,
+                SetPasscodeDestination,
+                ResetPasscodeDestination,
+                UnlockPasscodeDestination
             )
         )
     }

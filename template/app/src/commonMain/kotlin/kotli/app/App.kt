@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import kotli.app.di.get
 import kotli.app.presentation.app.AppScreen
+import kotli.app.presentation.passcode.PasscodeProvider
 import kotli.app.presentation.theme.AppThemeProvider
 import shared.presentation.viewmodel.ViewModelProvider
 
@@ -13,6 +14,8 @@ import shared.presentation.viewmodel.ViewModelProvider
 @Composable
 fun App() = ViewModelProvider(remember(::get)) {
     AppThemeProvider {
-        AppScreen()
+        PasscodeProvider { // {userflow.passcode.local}
+            AppScreen()
+        } // {userflow.passcode.local}
     }
 }

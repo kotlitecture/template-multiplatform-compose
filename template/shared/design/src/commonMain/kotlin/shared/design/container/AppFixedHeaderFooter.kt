@@ -28,6 +28,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import shared.design.component.AppSpacerDynamic
 import shared.design.component.AppSpacerNavigationBar
 import shared.design.component.AppSpacerStatusBar
+import shared.design.component.AppVerticalScrollbarProvider
 import shared.design.theme.AppTheme
 
 /**
@@ -190,15 +191,18 @@ private fun ContentBlock(
     footerState: State<Int>,
     content: LazyListScope.() -> Unit
 ) {
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(appearance.backgroundColor)
-    ) {
-        if (headerState.value >= 0 && footerState.value >= 0) {
-            item { AppSpacerDynamic(heightState = headerState) }
-            content.invoke(this)
-            item { AppSpacerDynamic(heightState = footerState) }
+    AppVerticalScrollbarProvider { state ->
+        LazyColumn(
+            state = state,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(appearance.backgroundColor)
+        ) {
+            if (headerState.value >= 0 && footerState.value >= 0) {
+                item { AppSpacerDynamic(heightState = headerState) }
+                content.invoke(this)
+                item { AppSpacerDynamic(heightState = footerState) }
+            }
         }
     }
 }

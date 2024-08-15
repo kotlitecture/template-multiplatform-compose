@@ -2,7 +2,7 @@ package kotli.app.di.presentation
 
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import kotli.app.factory.createRoomCrudViewModel
+import kotli.app.platform.createRoomCrudViewModel
 import kotli.app.presentation.app.AppNavigationRouter
 import kotli.app.presentation.app.AppStore
 import kotli.app.presentation.app.AppViewModel
@@ -11,14 +11,21 @@ import kotli.app.presentation.navigation.NavigationBarViewModel
 import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
 import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
 import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
+import kotli.app.presentation.passcode.PasscodeViewModel
+import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
+import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
+import kotli.app.presentation.passcode.ui.set.SetPasscodeViewModel
+import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
+import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionViewModel
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpViewModel
 import kotli.app.presentation.showcases.dataflow.keyvalue.`object`.ObjectKeyValueViewModel
 import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKeyValueViewModel
 import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingViewModel
+import kotli.app.presentation.showcases.userflow.component.image.coil.CoilShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.navigation.args.from.ArgsNavigationFromViewModel
@@ -66,6 +73,13 @@ val appModule = module {
             initializer { SqlDelightPagingViewModel(get(), get(), get(), get()) }
             initializer { BasicCacheViewModel(get(), get()) }
             initializer { PlaceholderShowcaseViewModel(get()) }
+            initializer { BasicEncryptionViewModel(get(), get()) }
+            initializer { PasscodeViewModel(get(), get(), get(), get()) }
+            initializer { CoilShowcaseViewModel(get()) }
+            initializer { SetPasscodeViewModel(get(), get(), get(), get(), get()) }
+            initializer { ResetPasscodeViewModel(get(), get(), get(), get()) }
+            initializer { UnlockPasscodeViewModel(get(), get()) }
+            initializer { ForgotPasscodeViewModel(get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

@@ -26,7 +26,9 @@ class DataStoreSource(
     private val path: String
 ) : KeyValueSource() {
 
-    private val dataStore: DataStore<Preferences> by lazy { PreferenceDataStoreFactory.createWithPath { path.toPath() } }
+    private val dataStore: DataStore<Preferences> by lazy {
+        PreferenceDataStoreFactory.createWithPath { path.toPath() }
+    }
 
     override suspend fun <T : Any> save(
         key: String,

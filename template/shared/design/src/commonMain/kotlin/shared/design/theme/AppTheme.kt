@@ -33,9 +33,9 @@ data class AppTheme(
         Brush.verticalGradient(
             listOf(
                 surface,
+                surface.copy(alpha = 0.95f),
                 surface.copy(alpha = 0.9f),
-                surface.copy(alpha = 0.7f),
-                surface.copy(alpha = 0.5f),
+                surface.copy(alpha = 0.85f),
             )
         )
     }
@@ -43,9 +43,9 @@ data class AppTheme(
     val bottomBlur by lazy {
         Brush.verticalGradient(
             listOf(
-                surface.copy(alpha = 0.5f),
-                surface.copy(alpha = 0.7f),
+                surface.copy(alpha = 0.85f),
                 surface.copy(alpha = 0.9f),
+                surface.copy(alpha = 0.95f),
                 surface
             )
         )

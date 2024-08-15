@@ -3,7 +3,7 @@
 ## Overview
 
 - Component package: `app.data.source.database.room`
-- DI integration: `app.di.data.RoomSourceModule`
+- DI integration: `app.platform.configureKoin`
 
 The integration includes the following components:
 

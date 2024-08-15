@@ -10,12 +10,15 @@ import org.jetbrains.compose.resources.DrawableResource
 @Immutable
 sealed class AppIconModel
 
-data class ColorIcon(val value: Color) : AppIconModel()
+data class ColorModel(val value: Color) : AppIconModel()
 
-data class ImageVectorIcon(val value: ImageVector) : AppIconModel()
+data class UrlModel(val value: String?) : AppIconModel()
 
-data class DrawableResourceIcon(val value: DrawableResource) : AppIconModel()
+data class ImageVectorModel(val value: ImageVector) : AppIconModel()
 
-data class PainterIcon(val value: @Composable () -> Painter) : AppIconModel()
+data class DrawableResourceModel(val value: DrawableResource) : AppIconModel()
+
+data class PainterModel(val value: @Composable () -> Painter) : AppIconModel()
+
 
 

@@ -86,8 +86,8 @@ private fun HintBlock(hintStore: DataState<Boolean>) {
                 
                 5. Usage of all view models associated with Showcases in `di/presentation/AppModule`.
             """.trimIndent(),
-        actionLabel = "Got it!",
-        action = hintStore::clear
+        confirmLabel = "Got it!",
+        confirmAction = hintStore::clear
     )
 }
 

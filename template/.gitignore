@@ -1,4 +1,6 @@
 *.iml
+*.db
+*.json
 .gradle
 **/build/
 xcuserdata

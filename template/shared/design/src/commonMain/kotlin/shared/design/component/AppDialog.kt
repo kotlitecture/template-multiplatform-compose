@@ -56,8 +56,8 @@ fun AppErrorDialog(store: DataState<DataLoading>) {
  * @param onDismissRequest Callback to be invoked when the dialog is dismissed.
  * @param title Title of the dialog.
  * @param text Text content of the dialog.
- * @param actionLabel Label for the action button.
- * @param action Callback to be invoked when the action button is clicked.
+ * @param confirmLabel Label for the action button.
+ * @param confirmAction Callback to be invoked when the action button is clicked.
  */
 @Composable
 fun AppAlertDialog(
@@ -65,8 +65,10 @@ fun AppAlertDialog(
     onDismissRequest: () -> Unit,
     title: String,
     text: String,
-    actionLabel: String,
-    action: () -> Unit
+    confirmLabel: String,
+    confirmAction: () -> Unit,
+    dismissLabel: String? = null,
+    dismissAction: (() -> Unit)? = null
 ) {
     AlertDialog(
         modifier = modifier,
@@ -75,9 +77,17 @@ fun AppAlertDialog(
         text = { AppText(text = text) },
         confirmButton = {
             AppTextButton(
-                text = actionLabel,
-                onClick = action
+                text = confirmLabel,
+                onClick = confirmAction
             )
+        },
+        dismissButton = dismissLabel?.let {
+            {
+                AppTextButton(
+                    text = dismissLabel,
+                    onClick = dismissAction!!
+                )
+            }
         }
     )
 }

@@ -158,25 +158,26 @@ The generated project will include a similar table in its README.MD file, but wi
 
 | Group | Feature | Overview | Configuration | Usage |
 |-------|---------|----------|---------------|-------|
-| Essentials | Compose Multiplatform | [Link](docs/Essentials/Compose%20Multiplatform/overview.md) | - | - |
-| Essentials | Jetpack Navigation | [Link](docs/Essentials/Jetpack%20Navigation/overview.md) | - | [Link](docs/Essentials/Jetpack%20Navigation/usage.md) |
-| Essentials | Material 3 | [Link](docs/Essentials/Material%203/overview.md) | - | [Link](docs/Essentials/Material%203/usage.md) |
-| Essentials | Koin | [Link](docs/Essentials/Koin/overview.md) | - | - |
-| Essentials | Gradle (Kotlin DSL) | [Link](docs/Essentials/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
 | Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | [Link](docs/Platform/iOS/usage.md) |
 | Platform | Android | [Link](docs/Platform/Android/overview.md) | - | [Link](docs/Platform/Android/usage.md) |
 | Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | [Link](docs/Platform/Desktop/usage.md) |
 | Platform | Web (JS) | [Link](docs/Platform/Web%20%28JS%29/overview.md) | - | [Link](docs/Platform/Web%20%28JS%29/usage.md) |
 | Platform | Ktor Server | [Link](docs/Platform/Ktor%20Server/overview.md) | - | [Link](docs/Platform/Ktor%20Server/usage.md) |
-| Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
+| Essentials | Compose Multiplatform | [Link](docs/Essentials/Compose%20Multiplatform/overview.md) | - | - |
+| Essentials | Jetpack Navigation | [Link](docs/Essentials/Jetpack%20Navigation/overview.md) | - | [Link](docs/Essentials/Jetpack%20Navigation/usage.md) |
+| Essentials | Material 3 | [Link](docs/Essentials/Material%203/overview.md) | - | [Link](docs/Essentials/Material%203/usage.md) |
+| Essentials | Koin | [Link](docs/Essentials/Koin/overview.md) | - | - |
+| Essentials | Gradle (Kotlin DSL) | [Link](docs/Essentials/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
+| Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
+| Dataflow | DataStore | [Link](docs/Dataflow/DataStore/overview.md) | - | [Link](docs/Dataflow/DataStore/usage.md) |
+| Dataflow | Korlibs Crypto Library | [Link](docs/Dataflow/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Dataflow/Korlibs%20Crypto%20Library/usage.md) |
+| Dataflow | Basic In-Memory Cache API | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/usage.md) |
 | Dataflow | Facade Config API | [Link](docs/Dataflow/Facade%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Config%20API/usage.md) |
 | Dataflow | SQLDelight | [Link](docs/Dataflow/SQLDelight/overview.md) | - | [Link](docs/Dataflow/SQLDelight/usage.md) |
 | Dataflow | SQLite (Room) | [Link](docs/Dataflow/SQLite%20%28Room%29/overview.md) | - | [Link](docs/Dataflow/SQLite%20%28Room%29/usage.md) |
-| Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
-| Dataflow | DataStore | [Link](docs/Dataflow/DataStore/overview.md) | - | [Link](docs/Dataflow/DataStore/usage.md) |
-| Dataflow | Basic In-Memory Cache API | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/usage.md) |
 | Dataflow | Ktor Client | [Link](docs/Dataflow/Ktor%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20Client/usage.md) |
 | Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
+| Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
 | Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
 | Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |
 | Userflow | Modal Navigation | [Link](docs/Userflow/Modal%20Navigation/overview.md) | - | [Link](docs/Userflow/Modal%20Navigation/usage.md) |
@@ -187,6 +188,8 @@ The generated project will include a similar table in its README.MD file, but wi
 | Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
 | Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
 | Userflow | Data Loading Indicator | [Link](docs/Userflow/Data%20Loading%20Indicator/overview.md) | - | [Link](docs/Userflow/Data%20Loading%20Indicator/usage.md) |
+| Userflow | Local Passcode Flow | [Link](docs/Userflow/Local%20Passcode%20Flow/overview.md) | - | [Link](docs/Userflow/Local%20Passcode%20Flow/usage.md) |
 | Userflow | Placeholder UI | [Link](docs/Userflow/Placeholder%20UI/overview.md) | - | [Link](docs/Userflow/Placeholder%20UI/usage.md) |
+| Userflow | Coil Image Library | [Link](docs/Userflow/Coil%20Image%20Library/overview.md) | - | [Link](docs/Userflow/Coil%20Image%20Library/usage.md) |
 | Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
 | Testing | Napier | [Link](docs/Testing/Napier/overview.md) | - | [Link](docs/Testing/Napier/usage.md) |

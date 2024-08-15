@@ -17,7 +17,7 @@ The API can be accessed through:
 
 ## Example
 
-Class instance is pre-configured via dependency injection (DI) as a singleton in `app.factory.configureKoin`.
+Class instance is pre-configured via dependency injection (DI) as a singleton in `app.platform.configureKoin`.
 
 To start using, just inject it to your DI managed class.
 
