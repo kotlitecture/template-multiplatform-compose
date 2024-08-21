@@ -126,7 +126,6 @@ open class MemoryCacheSource(
         private val resolver: CacheEntryResolver<T, K>
     ) : CacheEntry<T, K> {
 
-        @Transient
         private var invalidated = false
         private val liveChanges by lazy { fetchLiveChanges() }
         private val changes = MutableStateFlow<EntrySnapshot<T>?>(null)

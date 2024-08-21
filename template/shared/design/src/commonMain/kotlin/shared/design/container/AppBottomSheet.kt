@@ -6,11 +6,12 @@ import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.ModalBottomSheetDefaults
+import androidx.compose.material3.ModalBottomSheetProperties
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.design.component.AppSpacerNavigationBar
@@ -64,10 +65,12 @@ fun AppBottomSheet(
     ModalBottomSheet(
         modifier = modifier,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = appearance.fullscreen),
-        windowInsets = WindowInsets.systemBars.only(WindowInsetsSides.Horizontal),
-        properties = ModalBottomSheetDefaults.properties(
-            shouldDismissOnBackPress = appearance.shouldDismissOnBackPress
-        ),
+        contentWindowInsets = { WindowInsets.systemBars.only(WindowInsetsSides.Horizontal) },
+        properties = remember(appearance.shouldDismissOnBackPress) {
+            ModalBottomSheetProperties(
+                shouldDismissOnBackPress = appearance.shouldDismissOnBackPress
+            )
+        },
         containerColor = appearance.backgroundColor,
         onDismissRequest = onDismissRequest,
         content = {
