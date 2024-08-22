@@ -53,7 +53,6 @@ kotlin {
         jsMain.get().dependsOn(skikoMain)
         jvmMain.get().dependsOn(skikoMain)
         nativeMain.get().dependsOn(skikoMain)
-        wasmJsMain.get().dependsOn(skikoMain)
     }
 }
 

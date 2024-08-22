@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.android.application) // {platform.android}
     alias(libs.plugins.sqldelight) // {dataflow.database.sqldelight}
-    alias(libs.plugins.skie) // {platform.ios}
     alias(libs.plugins.ksp) // {common.ksp}
     alias(libs.plugins.room) // {dataflow.database.room}
 }
