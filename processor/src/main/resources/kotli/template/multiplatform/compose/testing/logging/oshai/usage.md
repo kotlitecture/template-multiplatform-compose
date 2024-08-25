@@ -5,15 +5,13 @@ Library is pre-configured in the `app` module.
 ## Example
 
 ```kotlin
-import io.github.aakira.napier.Napier
+private val logger = KotlinLogging.logger {}
 
 class Application {
 
-    init { Napier.base(DebugAntilog()) }
-    
     @JvmStatic
     fun main(args: Array<String>) {
-        Napier.i { "Hello World" }
+        logger.info { "Hello World!" }
     }
 }
 ```

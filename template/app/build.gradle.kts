@@ -62,6 +62,7 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.components.resources)
             implementation(libs.koin.core)
+            implementation(libs.kotlin.logging)
             implementation(libs.napier)
             implementation(libs.sqldelight.coroutines) // {dataflow.database.sqldelight}
             implementation(libs.sqldelight.androidx.paging) // {dataflow.database.sqldelight}
