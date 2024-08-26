@@ -1,23 +1,22 @@
+-dontoptimize
+
+-keep class kotli.app.** { *; }
+-keep class coil3.** { *; }
 -keep class io.ktor.** { *; }
 -keep class kotlin.** { *; }
 -keep class kotlinx.** { *; }
 -keep class kotlinx.coroutines.** { *; }
 -keep class org.jetbrains.skia.** { *; }
 -keep class org.jetbrains.skiko.** { *; }
+-keep class org.sqlite.** { *; }
 
 -dontwarn kotlinx.**
+-dontwarn okhttp3.**
 -dontwarn org.slf4j.**
 -dontwarn org.slf4j.impl.StaticLoggerBinder
 -dontwarn java.lang.management.ManagementFactory
 -dontwarn java.lang.management.RuntimeMXBean
 
--keep,includedescriptorclasses class kotli.app.**$$serializer { *; }
--keepclassmembers class kotli.app.** {
-    *** Companion;
-}
--keepclasseswithmembers class kotli.app.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
 -if @kotlinx.serialization.Serializable class **
 -keepclassmembers class <1> {
     static <1>$Companion Companion;

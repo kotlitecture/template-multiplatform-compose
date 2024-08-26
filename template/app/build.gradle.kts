@@ -176,11 +176,13 @@ compose.desktop {
             packageName = "kotli.app"
             packageVersion = "1.0.0"
             modules(
-                "java.net.http"
+                "java.sql",
+                "java.net.http",
+                "jdk.unsupported",
             )
         }
         buildTypes.release.proguard {
-            obfuscate.set(true)
+            obfuscate.set(false)
             configurationFiles.from(project.file("assemble/proguard-rules.pro"))
         }
     }
