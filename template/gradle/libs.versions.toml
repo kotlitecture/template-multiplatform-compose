@@ -15,6 +15,8 @@ cashapp-paging = "3.3.0-alpha02-0.5.1"
 coil = "3.0.0-alpha10"
 compose-multiplatform = "1.7.0-alpha03"
 compose-placeholder = "1.0.8"
+filekit = "0.8.2"
+generativeai = "0.5.0-1.0.0"
 koin = "4.0.0-RC1"
 korlibs = "6.0.0"
 kotlin = "2.0.20"
@@ -25,11 +27,12 @@ kotlinx-serialization-json = "1.7.1"
 ktor = "2.3.12"
 ksp = "2.0.20-1.0.24"
 logback = "1.5.6"
+markdown-renderer = "0.26.0-rc01"
 multiplatform-settings = "1.1.1"
 napier = "2.7.1"
 sqldelight = "2.0.2"
 sqlite-bundled = "2.5.0-alpha07"
-touchlab-stately = "2.0.7"
+touchlab-stately = "2.1.0"
 touchlab-kermit = "2.0.3"
 
 [libraries]
@@ -46,6 +49,8 @@ cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-commo
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-ktor2 = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil" }
 compose-placeholder-material3 = { module = "com.eygraber:compose-placeholder-material3", version.ref = "compose-placeholder" }
+filekit-compose = { module = "io.github.vinceglb:filekit-compose", version.ref = "filekit" }
+generativeai = { module = "dev.shreyaspatil.generativeai:generativeai-google", version.ref = "generativeai" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 korlibs-crypto = { module = "com.soywiz:korlibs-crypto", version.ref = "korlibs" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
@@ -74,6 +79,9 @@ ktor-server-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+markdown-renderer = { module = "com.mikepenz:multiplatform-markdown-renderer", version.ref = "markdown-renderer" }
+markdown-renderer-m3 = { module = "com.mikepenz:multiplatform-markdown-renderer-m3", version.ref = "markdown-renderer" }
+markdown-renderer-coil3 = { module = "com.mikepenz:multiplatform-markdown-renderer-coil3", version.ref = "markdown-renderer" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
