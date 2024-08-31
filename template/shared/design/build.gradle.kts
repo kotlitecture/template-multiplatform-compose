@@ -45,6 +45,10 @@ kotlin {
             implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor2)
+            implementation(libs.filekit.compose)
+            implementation(libs.markdown.renderer)
+            implementation(libs.markdown.renderer.m3)
+            implementation(libs.markdown.renderer.coil3)
             api(libs.cashapp.paging.compose.common)
         }
         val skikoMain by creating {

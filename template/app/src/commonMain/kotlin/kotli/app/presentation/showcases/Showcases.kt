@@ -10,6 +10,7 @@ import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingShowcase
 import kotli.app.presentation.showcases.userflow.component.image.coil.CoilShowcase
+import kotli.app.presentation.showcases.userflow.component.markdown.MarkdownShowcase
 import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcase
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcase
 import kotli.app.presentation.showcases.userflow.navigation.args.ArgsNavigationShowcase
@@ -59,7 +60,8 @@ object Showcases {
         ResetPasscodeShowcase,
         ShowcaseItemGroup("Userflow :: Design Components"),
         PlaceholderShowcase,
-        CoilShowcase
+        CoilShowcase,
+        MarkdownShowcase
     )
 
 }
