@@ -14,8 +14,6 @@ import shared.presentation.viewmodel.ViewModelProvider
 @Composable
 fun App() = ViewModelProvider(remember(::get)) {
     AppThemeProvider {
-        PasscodeProvider { // {userflow.passcode.local}
-            AppScreen()
-        } // {userflow.passcode.local}
+        AppScreen()
     }
 }

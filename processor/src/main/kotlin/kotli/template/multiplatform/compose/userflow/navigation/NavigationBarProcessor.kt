@@ -32,9 +32,9 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("{userflow.navigation}"),
             RemoveMarkedLine("NavigationBarProvider"),
             ReplaceMarkedText(
-                marker = "        ",
-                text = "        ",
-                replacer = "    "
+                marker = "            ",
+                text = "            ",
+                replacer = "        "
             )
         )
         state.onApplyRules(

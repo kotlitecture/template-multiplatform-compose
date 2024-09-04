@@ -10,8 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.viewmodel.provideViewModel
-import shared.presentation.store.DataState
 import shared.design.component.AppActionButton
 import shared.design.component.AppAlertDialog
 import shared.design.component.AppIcon
@@ -21,6 +19,8 @@ import shared.design.component.AppText
 import shared.design.component.AppTextPrimaryHeader
 import shared.design.container.AppFixedTopBarLazyColumn
 import shared.design.icon.AppIcons
+import shared.presentation.store.DataState
+import shared.presentation.viewmodel.provideViewModel
 
 /**
  * Composable function for displaying the showcases screen.

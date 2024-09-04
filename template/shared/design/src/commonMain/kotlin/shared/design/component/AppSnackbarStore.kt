@@ -3,7 +3,6 @@ package shared.design.component
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import shared.presentation.store.Store
@@ -42,8 +41,6 @@ class AppSnackbarStore : Store() {
      * @param withDismissAction a boolean to show a dismiss action in the Snackbar. This is
      * recommended to be set to true for better accessibility when a Snackbar is set with a
      * [SnackbarDuration.Indefinite]
-     * @param duration duration to control how long snackbar will be shown in [SnackbarHost], either
-     * [SnackbarDuration.Short], [SnackbarDuration.Long] or [SnackbarDuration.Indefinite].
      *
      * @return [SnackbarResult.ActionPerformed] if option action has been clicked or
      * [SnackbarResult.Dismissed] if snackbar has been dismissed via timeout or by the user
