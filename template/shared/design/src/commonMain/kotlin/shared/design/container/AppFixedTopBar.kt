@@ -14,8 +14,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import shared.design.icon.AppIcons
 import shared.design.component.AppActionButton
+import shared.design.icon.AppIcons
 import shared.design.theme.AppTheme
 
 /**
@@ -31,7 +31,8 @@ fun AppFixedTopBarColumn(
     title: String? = null,
     onBack: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
-    content: @Composable ColumnScope.() -> Unit
+    footer: @Composable (ColumnScope.() -> Unit)? = null,
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     AppFixedHeaderFooterColumn(
         modifier = modifier.fillMaxSize(),
@@ -40,7 +41,7 @@ fun AppFixedTopBarColumn(
         ),
         header = { HeaderBlock(title, onBack, actions) },
         content = content,
-        footer = {}
+        footer = footer
     )
 }
 
@@ -56,6 +57,7 @@ fun AppFixedTopBarLazyColumn(
     title: String? = null,
     onBack: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
+    footer: @Composable (ColumnScope.() -> Unit)? = null,
     content: LazyListScope.() -> Unit
 ) {
     AppFixedHeaderFooterLazyColumn(
@@ -65,7 +67,7 @@ fun AppFixedTopBarLazyColumn(
         ),
         header = { HeaderBlock(title, onBack, actions) },
         content = content,
-        footer = {}
+        footer = footer
     )
 }
 

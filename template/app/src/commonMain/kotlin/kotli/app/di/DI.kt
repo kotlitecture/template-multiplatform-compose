@@ -1,5 +1,6 @@
 package kotli.app.di
 
+import kotli.app.di.data.aiSourceModule
 import kotli.app.di.data.analyticsSourceModule
 import kotli.app.di.data.cacheSourceModule
 import kotli.app.di.data.configSourceModule
@@ -31,7 +32,8 @@ val koinApp = startKoin {
         navigationModule,
         passcodeModule,
         themeModule,
-        appModule
+        appModule,
+        aiSourceModule
     )
     configureKoin(this)
 }

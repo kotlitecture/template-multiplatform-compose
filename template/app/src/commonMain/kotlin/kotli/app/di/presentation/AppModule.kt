@@ -17,6 +17,7 @@ import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
 import kotli.app.presentation.passcode.ui.set.SetPasscodeViewModel
 import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
+import kotli.app.presentation.showcases.dataflow.ai.gemini.GeminiViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
 import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionViewModel
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpViewModel
@@ -82,6 +83,7 @@ val appModule = module {
             initializer { UnlockPasscodeViewModel(get(), get()) }
             initializer { ForgotPasscodeViewModel(get(), get()) }
             initializer { MarkdownShowcaseViewModel(get()) }
+            initializer { GeminiViewModel(get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }

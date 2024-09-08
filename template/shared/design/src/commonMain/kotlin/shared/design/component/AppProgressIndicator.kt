@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
@@ -13,11 +14,12 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun AppCircularProgressIndicator(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    size: Dp = 40.dp
 ) {
     CircularProgressIndicator(
         modifier = modifier
-            .size(40.dp),
+            .size(size),
         strokeWidth = 3.dp
     )
 }
