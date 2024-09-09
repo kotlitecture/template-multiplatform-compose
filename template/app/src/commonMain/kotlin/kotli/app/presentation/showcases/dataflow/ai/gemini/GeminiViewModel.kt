@@ -18,7 +18,7 @@ class GeminiViewModel(
 
     fun onGenerateReply(prompt: String?) = launchAsync("onGenerateReply") {
         if (prompt.isNullOrBlank()) return@launchAsync
-        val geminiReply = GeminiReply()
+        val geminiReply = GeminiReply(prompt = prompt)
         state.update { current ->
             current!!.copy(
                 loading = true,

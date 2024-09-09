@@ -3,12 +3,14 @@ package kotli.app.presentation.showcases.dataflow.ai.gemini
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,6 +22,7 @@ import shared.design.component.AppMarkdown
 import shared.design.component.AppTextField
 import shared.design.container.AppFixedTopBarLazyColumn
 import shared.design.theme.AppTheme
+import shared.presentation.store.DataState
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -31,7 +34,7 @@ fun GeminiScreen() {
         title = GeminiShowcase.label,
         onBack = viewModel::onBack,
         footer = {
-            PromptBlock(state, viewModel::onGenerateReply)
+            PromptBlock(viewModel::onGenerateReply)
         },
         content = {
             state.replies.forEach { reply ->
@@ -60,22 +63,32 @@ private fun LoadingBlock() {
 
 @Composable
 private fun ReplyBlock(geminiReply: GeminiReply) {
-    val reply = geminiReply.replyState.asStateValue() ?: return
-    AppCard(
+    val reply = geminiReply.replyState.asStateValue()
+    Column(
         modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-            .clip(RoundedCornerShape(8.dp))
-            .background(AppTheme.current.highlightSecondary)
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        AppMarkdown(
-            modifier = Modifier.padding(8.dp),
-            text = reply
-        )
+        AppCard(
+            modifier = Modifier
+                .align(Alignment.End)
+                .clip(RoundedCornerShape(8.dp))
+                .background(AppTheme.current.highlightSecondary)
+        ) {
+            AppMarkdown(
+                modifier = Modifier.padding(8.dp),
+                text = geminiReply.prompt
+            )
+        }
+
+        AppMarkdown(text = reply.orEmpty())
     }
 }
 
 @Composable
-private fun PromptBlock(state: GeminiState, onPrompt: (prompt: String?) -> Unit) {
+private fun PromptBlock(onPrompt: (prompt: String?) -> Unit) {
+    val promptState = remember { DataState<String>() }
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -87,15 +100,15 @@ private fun PromptBlock(state: GeminiState, onPrompt: (prompt: String?) -> Unit)
         AppTextField(
             modifier = Modifier
                 .weight(1f),
-            valueState = state.promptState,
+            valueState = promptState,
             placeholder = "Enter your prompt"
         )
 
         AppElevatedButton(
             modifier = Modifier.wrapContentWidth(),
             onClick = {
-                onPrompt(state.getPrompt())
-                state.promptState.clear()
+                onPrompt(promptState.get())
+                promptState.clear()
             },
             text = "Enter",
         )
