@@ -25,7 +25,7 @@ class GeminiViewModel(
                 replies = current.replies.plus(geminiReply)
             )
         }
-        aiSource.generateContent(prompt).collect { reply ->
+        aiSource.reply(prompt).collect { reply ->
             geminiReply.replyState.update { it?.plus(reply) ?: reply }
             state.update { current ->
                 current!!.copy(

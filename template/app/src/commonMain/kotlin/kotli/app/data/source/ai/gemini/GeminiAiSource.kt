@@ -5,21 +5,25 @@ import kotli.app.data.source.ai.AiSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.mapNotNull
 
-class GeminiSource(
+class GeminiAiSource(
     apiKey: String
 ) : AiSource {
 
-    private val flash = GenerativeModel(
-        modelName = "gemini-1.5-flash",
-        apiKey = apiKey
-    )
+    private val flash by lazy {
+        GenerativeModel(
+            modelName = "gemini-1.5-flash",
+            apiKey = apiKey
+        )
+    }
 
-    private val pro = GenerativeModel(
-        modelName = "gemini-pro",
-        apiKey = apiKey
-    )
+    private val pro by lazy {
+        GenerativeModel(
+            modelName = "gemini-pro",
+            apiKey = apiKey
+        )
+    }
 
-    override suspend fun generateContent(prompt: String): Flow<String> {
+    override suspend fun reply(prompt: String): Flow<String> {
         return flash.generateContentStream(prompt)
             .mapNotNull { response -> response.text }
     }

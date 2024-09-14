@@ -75,6 +75,7 @@ object Rules {
     const val ShowcasesUserFlowDir = "${ShowcasesDir}/userflow"
     const val ShowcasesHttpDir = "${ShowcasesDataFlowDir}/http"
     const val ShowcasesCacheDir = "${ShowcasesDataFlowDir}/cache"
+    const val ShowcasesAiDir = "${ShowcasesDataFlowDir}/ai"
     const val ShowcasesPagingDir = "${ShowcasesDataFlowDir}/paging"
     const val ShowcasesEncryptionDir = "${ShowcasesDataFlowDir}/encryption"
     const val ShowcasesKeyValueDir = "${ShowcasesDataFlowDir}/keyvalue"
@@ -119,5 +120,7 @@ object Rules {
     // dataflow -> encryption
     const val EncryptionSource = "*/*EncryptionSource*.kt"
     const val EncryptionDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/encryption"
+    // dataflow -> AiSource
+    const val AiSource = "*/*AiSource*.kt"
 
 }
