@@ -46,9 +46,9 @@ kotlin {
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor2)
             implementation(libs.filekit.compose)
-            implementation(libs.markdown.renderer)
-            implementation(libs.markdown.renderer.m3)
-            implementation(libs.markdown.renderer.coil3)
+            implementation(libs.markdown.renderer) // {userflow.component.markdown}
+            implementation(libs.markdown.renderer.m3) // {userflow.component.markdown}
+            implementation(libs.markdown.renderer.coil3) // {userflow.component.markdown}
             api(libs.cashapp.paging.compose.common)
         }
         val skikoMain by creating {
