@@ -6,11 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.presentation.showcases.ShowcaseHintBlock
-import shared.presentation.viewmodel.provideViewModel
-import shared.presentation.store.DataState
 import shared.design.component.AppElevatedButton
+import shared.design.component.AppSpacer16
 import shared.design.component.AppText
 import shared.design.container.AppFixedTopBarColumn
+import shared.presentation.store.DataState
+import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun BasicHttpScreen() {
@@ -42,6 +43,7 @@ fun BasicHttpScreen() {
                 text = "Fetch my ip"
             )
             IpBlock(viewModel.ipState)
+            AppSpacer16()
         }
     )
 }

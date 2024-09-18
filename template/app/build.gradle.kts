@@ -180,6 +180,7 @@ compose.desktop {
                 "java.sql",
                 "java.net.http",
                 "jdk.unsupported",
+                "jdk.security.auth",
             )
         }
         buildTypes.release.proguard {

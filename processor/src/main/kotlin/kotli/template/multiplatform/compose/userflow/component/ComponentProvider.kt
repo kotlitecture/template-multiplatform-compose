@@ -2,6 +2,7 @@ package kotli.template.multiplatform.compose.userflow.component
 
 import kotli.engine.FeatureProcessor
 import kotli.template.multiplatform.compose.userflow.BaseUserFlowProvider
+import kotli.template.multiplatform.compose.userflow.component.filekit.FileKitProcessor
 import kotli.template.multiplatform.compose.userflow.component.image.coil.CoilProcessor
 import kotli.template.multiplatform.compose.userflow.component.markdown.MarkdownProcessor
 import kotli.template.multiplatform.compose.userflow.component.placeholder.PlaceholderProcessor
@@ -13,7 +14,8 @@ object ComponentProvider : BaseUserFlowProvider() {
         ComponentProcessor,
         PlaceholderProcessor,
         CoilProcessor,
-        MarkdownProcessor
+        MarkdownProcessor,
+        FileKitProcessor
     )
 
 }

@@ -87,6 +87,7 @@ object Rules {
     const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
     const val ShowcasesPlaceholderDir = "${ShowcasesUserFlowDir}/component/placeholder"
     const val ShowcasesMarkdownDir = "${ShowcasesUserFlowDir}/component/markdown"
+    const val ShowcasesFilePickerDir = "${ShowcasesUserFlowDir}/component/filepicker"
     const val ShowcasesCoilDir = "${ShowcasesUserFlowDir}/component/image/coil"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
 
@@ -97,6 +98,7 @@ object Rules {
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
     const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"
+    const val AppFilePicker = "${SharedDesignComponentDir}/AppFilePicker.kt"
     const val AppIcon = "${SharedDesignComponentDir}/AppIcon.kt"
 
     // dataflow -> analytics
