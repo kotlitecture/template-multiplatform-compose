@@ -6,5 +6,5 @@ import org.koin.dsl.module
 
 val aiSourceModule = module {
     // https://ai.google.dev/gemini-api/docs/api-key
-    single<AiSource> { GeminiAiSource("GEMINI_API_KEY") }
+    single<AiSource> { GeminiAiSource() }
 }
