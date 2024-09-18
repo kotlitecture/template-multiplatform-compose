@@ -8,6 +8,8 @@ import io.github.vinceglb.filekit.core.PickerType
 import io.github.vinceglb.filekit.core.PlatformFile
 import io.github.vinceglb.filekit.core.PlatformFiles
 
+private const val MAX_FILES = 50
+
 data class AppFilePickerFile(
     val name: String,
     val path: String?,
@@ -21,7 +23,7 @@ fun interface AppFilePickerLauncher {
 
 @Composable
 fun getFileLauncher(
-    maxFiles: Int = 1,
+    maxFiles: Int = MAX_FILES,
     title: String? = null,
     extensions: List<String>? = null,
     onResult: (files: List<AppFilePickerFile>) -> Unit
@@ -36,7 +38,7 @@ fun getFileLauncher(
 
 @Composable
 fun getImageLauncher(
-    maxFiles: Int = 1,
+    maxFiles: Int = MAX_FILES,
     title: String? = null,
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
@@ -50,7 +52,7 @@ fun getImageLauncher(
 
 @Composable
 fun getVideoLauncher(
-    maxFiles: Int = 1,
+    maxFiles: Int = MAX_FILES,
     title: String? = null,
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
@@ -64,7 +66,7 @@ fun getVideoLauncher(
 
 @Composable
 fun getMediaLauncher(
-    maxFiles: Int = 1,
+    maxFiles: Int = MAX_FILES,
     title: String? = null,
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
@@ -85,7 +87,7 @@ private fun PlatformFile.toAppFile() = AppFilePickerFile(
 
 @Composable
 private fun getLauncher(
-    maxFiles: Int = 1,
+    maxFiles: Int = MAX_FILES,
     title: String? = null,
     type: PickerType = PickerType.File(),
     mode: PickerMode<PlatformFiles> = PickerMode.Multiple(maxFiles),
