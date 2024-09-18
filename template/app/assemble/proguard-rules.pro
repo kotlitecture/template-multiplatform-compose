@@ -9,6 +9,8 @@
 -keep class org.jetbrains.skia.** { *; }
 -keep class org.jetbrains.skiko.** { *; }
 -keep class org.sqlite.** { *; }
+-keep class com.sun.jna.** { *; }
+-keep class * implements com.sun.jna.** { *; }
 
 -dontwarn kotlinx.**
 -dontwarn okhttp3.**

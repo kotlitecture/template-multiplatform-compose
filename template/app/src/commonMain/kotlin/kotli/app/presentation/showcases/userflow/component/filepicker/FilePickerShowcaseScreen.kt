@@ -15,6 +15,7 @@ import kotli.app.presentation.showcases.ShowcaseHintBlock
 import shared.design.component.AppCard
 import shared.design.component.AppElevatedButton
 import shared.design.component.AppFilePickerFile
+import shared.design.component.AppSpacer16
 import shared.design.component.AppText
 import shared.design.component.getFileLauncher
 import shared.design.container.AppFixedTopBarLazyColumn
@@ -51,6 +52,8 @@ fun FilePickerShowcaseScreen() {
             files.forEach { file ->
                 item { FileBlock(file) }
             }
+
+            item { AppSpacer16() }
         }
     )
 }
