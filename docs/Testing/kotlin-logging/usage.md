@@ -7,13 +7,13 @@ Library is pre-configured in the `app` module.
 ## Example
 
 ```kotlin
-import co.touchlab.kermit.Logger
+private val logger = KotlinLogging.logger {}
 
 class Application {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        Logger.i { "Hello World" }
+        logger.info { "Hello World!" }
     }
 }
 ```
