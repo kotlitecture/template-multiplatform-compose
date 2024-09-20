@@ -178,6 +178,8 @@ The generated project will include a similar table in its README.MD file, but wi
 | Dataflow | Ktor Client | [Link](docs/Dataflow/Ktor%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20Client/usage.md) |
 | Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
 | Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
+| Dataflow | Gemini | [Link](docs/Dataflow/Gemini/overview.md) | - | [Link](docs/Dataflow/Gemini/usage.md) |
+| Userflow | Markdown Text Renderer | [Link](docs/Userflow/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/Userflow/Markdown%20Text%20Renderer/usage.md) |
 | Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
 | Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |
 | Userflow | Modal Navigation | [Link](docs/Userflow/Modal%20Navigation/overview.md) | - | [Link](docs/Userflow/Modal%20Navigation/usage.md) |
@@ -191,5 +193,7 @@ The generated project will include a similar table in its README.MD file, but wi
 | Userflow | Local Passcode Flow | [Link](docs/Userflow/Local%20Passcode%20Flow/overview.md) | - | [Link](docs/Userflow/Local%20Passcode%20Flow/usage.md) |
 | Userflow | Placeholder UI | [Link](docs/Userflow/Placeholder%20UI/overview.md) | - | [Link](docs/Userflow/Placeholder%20UI/usage.md) |
 | Userflow | Coil Image Library | [Link](docs/Userflow/Coil%20Image%20Library/overview.md) | - | [Link](docs/Userflow/Coil%20Image%20Library/usage.md) |
+| Userflow | FileKit | [Link](docs/Userflow/FileKit/overview.md) | - | [Link](docs/Userflow/FileKit/usage.md) |
+| Testing | kotlin-logging | [Link](docs/Testing/kotlin-logging/overview.md) | - | [Link](docs/Testing/kotlin-logging/usage.md) |
 | Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
 | Testing | Napier | [Link](docs/Testing/Napier/overview.md) | - | [Link](docs/Testing/Napier/usage.md) |
