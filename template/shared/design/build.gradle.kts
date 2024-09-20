@@ -45,6 +45,10 @@ kotlin {
             implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor2)
+            implementation(libs.filekit.compose)
+            implementation(libs.markdown.renderer) // {userflow.component.markdown}
+            implementation(libs.markdown.renderer.m3) // {userflow.component.markdown}
+            implementation(libs.markdown.renderer.coil3) // {userflow.component.markdown}
             api(libs.cashapp.paging.compose.common)
         }
         val skikoMain by creating {
@@ -53,7 +57,6 @@ kotlin {
         jsMain.get().dependsOn(skikoMain)
         jvmMain.get().dependsOn(skikoMain)
         nativeMain.get().dependsOn(skikoMain)
-        wasmJsMain.get().dependsOn(skikoMain)
     }
 }
 

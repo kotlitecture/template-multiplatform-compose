@@ -17,6 +17,5 @@ class Application {
     fun main(args: Array<String>) {
         Napier.i { "Hello World" }
     }
-
 }
 ```

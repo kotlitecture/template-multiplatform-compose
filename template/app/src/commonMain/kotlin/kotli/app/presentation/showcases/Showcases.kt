@@ -1,5 +1,6 @@
 package kotli.app.presentation.showcases
 
+import kotli.app.presentation.showcases.dataflow.ai.gemini.GeminiShowcase
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheShowcase
 import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionShowcase
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpShowcase
@@ -9,7 +10,9 @@ import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingShowcas
 import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudShowcase
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingShowcase
+import kotli.app.presentation.showcases.userflow.component.filepicker.FilePickerShowcase
 import kotli.app.presentation.showcases.userflow.component.image.coil.CoilShowcase
+import kotli.app.presentation.showcases.userflow.component.markdown.MarkdownShowcase
 import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcase
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcase
 import kotli.app.presentation.showcases.userflow.navigation.args.ArgsNavigationShowcase
@@ -45,6 +48,8 @@ object Showcases {
         SqlDelightPagingShowcase,
         ShowcaseItemGroup("Dataflow :: Room"),
         RoomCrudShowcase,
+        ShowcaseItemGroup("Dataflow :: AI"),
+        GeminiShowcase,
         ShowcaseItemGroup("Userflow :: Navigation + MVVM"),
         NoArgsNavigationShowcase,
         ArgsNavigationShowcase,
@@ -59,7 +64,9 @@ object Showcases {
         ResetPasscodeShowcase,
         ShowcaseItemGroup("Userflow :: Design Components"),
         PlaceholderShowcase,
-        CoilShowcase
+        CoilShowcase,
+        MarkdownShowcase,
+        FilePickerShowcase
     )
 
 }

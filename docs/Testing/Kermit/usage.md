@@ -15,6 +15,5 @@ class Application {
     fun main(args: Array<String>) {
         Logger.i { "Hello World" }
     }
-
 }
 ```

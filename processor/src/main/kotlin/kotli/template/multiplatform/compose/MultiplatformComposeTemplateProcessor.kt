@@ -10,6 +10,7 @@ import kotli.engine.model.LayerTypes
 import kotli.engine.template.rule.RenamePackage
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.common.CommonProvider
+import kotli.template.multiplatform.compose.dataflow.ai.AiProvider
 import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
 import kotli.template.multiplatform.compose.dataflow.cache.CacheProvider
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
@@ -32,7 +33,6 @@ import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvid
 import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
-import kotli.template.multiplatform.compose.testing.logging.kermit.KermitProcessor
 import kotli.template.multiplatform.compose.userflow.component.ComponentProvider
 import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
@@ -92,6 +92,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         HttpProvider,
         PagingProvider,
         AnalyticsProvider,
+        AiProvider,
 
         // userflow
         NavigationBarProvider,

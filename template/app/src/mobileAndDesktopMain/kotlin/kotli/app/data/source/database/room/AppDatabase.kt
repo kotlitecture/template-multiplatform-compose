@@ -1,10 +1,12 @@
 package kotli.app.data.source.database.room
 
+import androidx.room.ConstructedBy
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import kotli.app.data.source.database.room.dao.UserDao
 import kotli.app.data.source.database.room.entity.User
+import kotli.app.platform.AppDatabaseConstructor
 
 /**
  * This class represents the Room database for the application.
@@ -16,6 +18,7 @@ import kotli.app.data.source.database.room.entity.User
     version = 1
 )
 @TypeConverters(Converters::class)
+@ConstructedBy(AppDatabaseConstructor::class)
 abstract class AppDatabase : RoomDatabase() {
 
     /**

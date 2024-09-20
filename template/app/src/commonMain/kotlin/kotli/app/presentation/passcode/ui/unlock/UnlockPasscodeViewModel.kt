@@ -11,7 +11,7 @@ import template.app.generated.resources.passcode_unlock_error
 
 class UnlockPasscodeViewModel(
     private val unlockPasscode: UnlockPasscode,
-    private val passcodeStore: PasscodeStore,
+    private val passcodeStore: PasscodeStore
 ) : BaseViewModel() {
 
     val passcodeLength = passcodeStore.passcodeLength

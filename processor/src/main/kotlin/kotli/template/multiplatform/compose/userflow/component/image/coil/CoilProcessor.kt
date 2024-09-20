@@ -6,7 +6,6 @@ import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.CleanupMarkedBlock
-import kotli.engine.template.rule.CleanupMarkedLine
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
@@ -23,7 +22,8 @@ object CoilProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
     override fun getWebUrl(state: TemplateState): String = "https://coil-kt.github.io/coil/"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://coil-kt.github.io/coil/upgrading_to_coil3/#multiplatform"
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://coil-kt.github.io/coil/upgrading_to_coil3/#multiplatform"
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         ComponentProcessor::class.java
@@ -39,7 +39,7 @@ object CoilProcessor : BaseFeatureProcessor() {
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
             Rules.BuildGradleSharedDesign,
-            RemoveMarkedLine("coil")
+            RemoveMarkedLine("libs.coil")
         )
 
         state.onApplyRules(
@@ -51,7 +51,8 @@ object CoilProcessor : BaseFeatureProcessor() {
 
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("coil")
+                RemoveMarkedLine("coil ="),
+                RemoveMarkedLine("\"coil\"")
             )
         )
 

@@ -75,6 +75,7 @@ object Rules {
     const val ShowcasesUserFlowDir = "${ShowcasesDir}/userflow"
     const val ShowcasesHttpDir = "${ShowcasesDataFlowDir}/http"
     const val ShowcasesCacheDir = "${ShowcasesDataFlowDir}/cache"
+    const val ShowcasesAiDir = "${ShowcasesDataFlowDir}/ai"
     const val ShowcasesPagingDir = "${ShowcasesDataFlowDir}/paging"
     const val ShowcasesEncryptionDir = "${ShowcasesDataFlowDir}/encryption"
     const val ShowcasesKeyValueDir = "${ShowcasesDataFlowDir}/keyvalue"
@@ -85,6 +86,8 @@ object Rules {
     const val ShowcasesLoaderDir = "${ShowcasesUserFlowDir}/loader"
     const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
     const val ShowcasesPlaceholderDir = "${ShowcasesUserFlowDir}/component/placeholder"
+    const val ShowcasesMarkdownDir = "${ShowcasesUserFlowDir}/component/markdown"
+    const val ShowcasesFilePickerDir = "${ShowcasesUserFlowDir}/component/filepicker"
     const val ShowcasesCoilDir = "${ShowcasesUserFlowDir}/component/image/coil"
     const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
 
@@ -94,6 +97,8 @@ object Rules {
     const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
     const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
+    const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"
+    const val AppFilePicker = "${SharedDesignComponentDir}/AppFilePicker.kt"
     const val AppIcon = "${SharedDesignComponentDir}/AppIcon.kt"
 
     // dataflow -> analytics
@@ -119,5 +124,7 @@ object Rules {
     // dataflow -> encryption
     const val EncryptionSource = "*/*EncryptionSource*.kt"
     const val EncryptionDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/encryption"
+    // dataflow -> AiSource
+    const val AiSource = "*/*AiSource*.kt"
 
 }

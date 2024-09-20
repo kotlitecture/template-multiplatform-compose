@@ -1,6 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat // {platform.jvm}
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig // {platform.js}
-
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -8,7 +5,6 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.android.application) // {platform.android}
     alias(libs.plugins.sqldelight) // {dataflow.database.sqldelight}
-    alias(libs.plugins.skie) // {platform.ios}
     alias(libs.plugins.ksp) // {common.ksp}
     alias(libs.plugins.room) // {dataflow.database.room}
 }
@@ -42,11 +38,6 @@ kotlin {
         browser {
             commonWebpackConfig {
                 outputFileName = "app.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        add(project.projectDir.path)
-                    }
-                }
             }
             useCommonJs()
         }
@@ -71,10 +62,12 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.components.resources)
             implementation(libs.koin.core)
+            implementation(libs.kotlin.logging)
             implementation(libs.napier)
             implementation(libs.sqldelight.coroutines) // {dataflow.database.sqldelight}
             implementation(libs.sqldelight.androidx.paging) // {dataflow.database.sqldelight}
             implementation(libs.touchlab.kermit)
+            implementation(libs.generativeai)
             implementation(projects.shared.data)
             implementation(projects.shared.domain)
             implementation(projects.shared.design)
@@ -176,15 +169,22 @@ compose.desktop {
     application {
         mainClass = "MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(
+                org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg,
+                org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi,
+                org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb
+            )
             packageName = "kotli.app"
             packageVersion = "1.0.0"
             modules(
-                "java.net.http"
+                "java.sql",
+                "java.net.http",
+                "jdk.unsupported",
+                "jdk.security.auth",
             )
         }
         buildTypes.release.proguard {
-            obfuscate.set(true)
+            obfuscate.set(false)
             configurationFiles.from(project.file("assemble/proguard-rules.pro"))
         }
     }

@@ -38,7 +38,7 @@ import shared.design.theme.AppTheme
 @Composable
 fun AppVerticalScrollbarProvider(
     modifier: Modifier = Modifier,
-    minimumItemCount: Int = 30,
+    minimumItemCount: Int = 20,
     state: LazyListState = rememberLazyListState(),
     content: @Composable (state: LazyListState) -> Unit
 ) {

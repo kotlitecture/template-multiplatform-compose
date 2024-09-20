@@ -1,35 +1,38 @@
 [versions]
-agp = "8.3.2"
+agp = "8.4.2"
 android-compileSdk = "34"
 android-jvmTarget = "11"
 android-minSdk = "24"
 android-targetSdk = "34"
-androidx-activity = "1.9.1"
+androidx-activity = "1.9.2"
 androidx-appcompat = "1.7.0"
 androidx-datastore = "1.1.1"
-androidx-lifecycle = "2.8.0"
-androidx-navigation = "2.7.0-alpha07"
-androidx-room = "2.7.0-alpha05"
+androidx-lifecycle = "2.8.2"
+androidx-navigation = "2.8.0-alpha10"
+androidx-room = "2.7.0-alpha08"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
 coil = "3.0.0-alpha10"
-compose-multiplatform = "1.6.11"
+compose-multiplatform = "1.7.0-beta02"
 compose-placeholder = "1.0.8"
-koin = "4.0.0-RC1"
+filekit = "0.8.2"
+generativeai = "0.5.0-1.0.0"
+koin = "4.0.0"
 korlibs = "6.0.0"
-kotlin = "2.0.10"
+kotlin = "2.0.20"
+kotlin-logging = "7.0.0"
 kotlinx-coroutines = "1.8.1"
-kotlinx-datetime = "0.6.0"
-kotlinx-serialization-json = "1.6.3"
+kotlinx-datetime = "0.6.1"
+kotlinx-serialization-json = "1.7.1"
 ktor = "2.3.12"
-ksp = "2.0.10-1.0.24"
+ksp = "2.0.20-1.0.24"
 logback = "1.5.6"
+markdown-renderer = "0.27.0-b02"
 multiplatform-settings = "1.1.1"
 napier = "2.7.1"
-skie = "0.8.4"
 sqldelight = "2.0.2"
-sqlite-bundled = "2.5.0-alpha05"
-touchlab-stately = "2.0.7"
+sqlite-bundled = "2.5.0-alpha08"
+touchlab-stately = "2.1.0"
 touchlab-kermit = "2.0.3"
 
 [libraries]
@@ -46,6 +49,8 @@ cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-commo
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-ktor2 = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil" }
 compose-placeholder-material3 = { module = "com.eygraber:compose-placeholder-material3", version.ref = "compose-placeholder" }
+filekit-compose = { module = "io.github.vinceglb:filekit-compose", version.ref = "filekit" }
+generativeai = { module = "dev.shreyaspatil.generativeai:generativeai-google", version.ref = "generativeai" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 korlibs-crypto = { module = "com.soywiz:korlibs-crypto", version.ref = "korlibs" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
@@ -53,6 +58,7 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging", version.ref = "kotlin-logging" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
@@ -73,6 +79,9 @@ ktor-server-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+markdown-renderer = { module = "com.mikepenz:multiplatform-markdown-renderer", version.ref = "markdown-renderer" }
+markdown-renderer-m3 = { module = "com.mikepenz:multiplatform-markdown-renderer-m3", version.ref = "markdown-renderer" }
+markdown-renderer-coil3 = { module = "com.mikepenz:multiplatform-markdown-renderer-coil3", version.ref = "markdown-renderer" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
@@ -104,6 +113,5 @@ kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", vers
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 room = { id = "androidx.room", version.ref = "androidx-room" }
-skie = { id = "co.touchlab.skie", version.ref = "skie" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 

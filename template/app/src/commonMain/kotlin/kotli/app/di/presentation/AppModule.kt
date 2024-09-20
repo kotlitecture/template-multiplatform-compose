@@ -17,6 +17,7 @@ import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
 import kotli.app.presentation.passcode.ui.set.SetPasscodeViewModel
 import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
+import kotli.app.presentation.showcases.dataflow.ai.gemini.GeminiViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
 import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionViewModel
 import kotli.app.presentation.showcases.dataflow.http.basic.BasicHttpViewModel
@@ -25,7 +26,9 @@ import kotli.app.presentation.showcases.dataflow.keyvalue.primitive.PrimitiveKey
 import kotli.app.presentation.showcases.dataflow.paging.basic.BasicPagingViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.crud.SqlDelightCrudViewModel
 import kotli.app.presentation.showcases.dataflow.sqldelight.paging.SqlDelightPagingViewModel
+import kotli.app.presentation.showcases.userflow.component.filepicker.FilePickerShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.component.image.coil.CoilShowcaseViewModel
+import kotli.app.presentation.showcases.userflow.component.markdown.MarkdownShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.component.placeholder.PlaceholderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.loader.data.DataLoaderShowcaseViewModel
 import kotli.app.presentation.showcases.userflow.navigation.args.from.ArgsNavigationFromViewModel
@@ -80,6 +83,9 @@ val appModule = module {
             initializer { ResetPasscodeViewModel(get(), get(), get(), get()) }
             initializer { UnlockPasscodeViewModel(get(), get()) }
             initializer { ForgotPasscodeViewModel(get(), get()) }
+            initializer { MarkdownShowcaseViewModel(get()) }
+            initializer { FilePickerShowcaseViewModel(get()) }
+            initializer { GeminiViewModel(get(), get()) }
             initializer { createRoomCrudViewModel() }
         }
     }
