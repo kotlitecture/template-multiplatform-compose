@@ -1,14 +1,14 @@
 ## Overview
 
 The API can be accessed through:
-- `app.data.source.ai.AiSource` – an interface at the app level.
-- `app.data.source.ai.gemini.GeminiAiSource` – a class that implements the interface at the app level.
+- `app.data.source.ai.AiSource` - an interface at the app level.
+- `app.data.source.ai.gemini.GeminiAiSource` - a class that implements the interface at the app level.
 
 The API is pre-configured in `app.di.data.AiSourceModule`.
 
 **AiSource** provides the following method:
 
-- `reply(prompt: String): Flow<String>` – Sends a request to the AI and returns a flow of generated replies.
+- `reply(prompt: String): Flow<String>` - Sends a request to the AI and returns a flow of generated replies.
 
 ## Configuration
 
