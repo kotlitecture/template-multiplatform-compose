@@ -9,6 +9,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.ModalBottomSheetProperties
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
@@ -56,6 +57,7 @@ data class AppBottomSheetAppearance(
  * @param content The content of the bottom sheet.
  */
 @Composable
+@NonRestartableComposable
 fun AppBottomSheet(
     modifier: Modifier = Modifier,
     appearance: AppBottomSheetAppearance = AppBottomSheetAppearance.default(),

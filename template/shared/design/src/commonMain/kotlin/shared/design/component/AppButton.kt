@@ -6,6 +6,7 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.design.icon.AppIconModel
@@ -19,6 +20,7 @@ import shared.design.icon.AppIconModel
  * @param tint The color to tint the icon.
  */
 @Composable
+@NonRestartableComposable
 fun AppActionButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -45,6 +47,7 @@ fun AppActionButton(
  * @param text Text to be displayed on the button.
  */
 @Composable
+@NonRestartableComposable
 fun AppTextButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -66,6 +69,7 @@ fun AppTextButton(
  * @param text Text to be displayed on the button.
  */
 @Composable
+@NonRestartableComposable
 fun AppElevatedButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -86,6 +90,7 @@ fun AppElevatedButton(
  * @param text Text to be displayed on the button.
  */
 @Composable
+@NonRestartableComposable
 fun AppOutlinedButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,

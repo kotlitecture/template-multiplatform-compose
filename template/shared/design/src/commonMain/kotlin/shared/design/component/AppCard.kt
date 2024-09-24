@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -15,6 +16,7 @@ import androidx.compose.ui.unit.dp
  * @param text Text content to be displayed inside the card.
  */
 @Composable
+@NonRestartableComposable
 fun AppOutlinedCard(
     modifier: Modifier = Modifier,
     text: String
@@ -37,6 +39,7 @@ fun AppOutlinedCard(
  * @param content Custom content to be displayed inside the card.
  */
 @Composable
+@NonRestartableComposable
 fun AppOutlinedCard(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit
@@ -54,6 +57,7 @@ fun AppOutlinedCard(
  * @param content Custom content to be displayed inside the card.
  */
 @Composable
+@NonRestartableComposable
 fun AppCard(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit

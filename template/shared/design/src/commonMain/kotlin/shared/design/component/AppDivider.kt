@@ -3,6 +3,7 @@ package shared.design.component
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 
 /**
@@ -11,6 +12,7 @@ import androidx.compose.ui.Modifier
  * @param modifier Modifier to be applied to the divider.
  */
 @Composable
+@NonRestartableComposable
 fun AppHorizontalDivider(modifier: Modifier = Modifier.fillMaxWidth()) {
     HorizontalDivider(modifier)
 }

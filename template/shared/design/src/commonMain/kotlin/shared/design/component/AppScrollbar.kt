@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,6 +37,7 @@ import shared.design.component.scrollbar.rememberScrollbarAdapter
 import shared.design.theme.AppTheme
 
 @Composable
+@NonRestartableComposable
 fun AppVerticalScrollbarProvider(
     modifier: Modifier = Modifier,
     minimumItemCount: Int = 20,

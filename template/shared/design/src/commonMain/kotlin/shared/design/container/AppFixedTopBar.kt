@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import shared.design.component.AppActionButton
@@ -26,6 +27,7 @@ import shared.design.theme.AppTheme
  * @param content The content to be displayed below the top bar.
  */
 @Composable
+@NonRestartableComposable
 fun AppFixedTopBarColumn(
     modifier: Modifier = Modifier.imePadding(),
     title: String? = null,
@@ -53,6 +55,7 @@ fun AppFixedTopBarColumn(
  * @param content The content to be displayed below the top bar.
  */
 @Composable
+@NonRestartableComposable
 fun AppFixedTopBarLazyColumn(
     title: String? = null,
     onBack: (() -> Unit)? = null,

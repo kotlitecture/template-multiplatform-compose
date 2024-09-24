@@ -2,6 +2,7 @@ package shared.design.component
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
@@ -53,6 +54,7 @@ fun AppText(
  * @param color Color of the text.
  */
 @Composable
+@NonRestartableComposable
 fun AppText(
     modifier: Modifier = Modifier,
     textState: DataState<String>,
@@ -83,6 +85,7 @@ fun AppText(
  * @param color Color of the header text.
  */
 @Composable
+@NonRestartableComposable
 fun AppTextHeader(
     modifier: Modifier = Modifier,
     text: String,
@@ -104,6 +107,7 @@ fun AppTextHeader(
  * @param text Text to be displayed as primary header.
  */
 @Composable
+@NonRestartableComposable
 fun AppTextPrimaryHeader(
     modifier: Modifier = Modifier,
     text: String

@@ -28,7 +28,6 @@ import kotlin.coroutines.CoroutineContext
  * https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-lifecycle.html#viewmodel-implementation
  * https://github.com/Kotlin/kotlinx.coroutines/blob/master/ui/coroutines-guide-ui.md
  */
-@Stable
 @Immutable
 abstract class BaseViewModel : ViewModel() {
 

@@ -11,6 +11,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
@@ -60,6 +61,7 @@ fun AppErrorDialog(store: DataState<DataLoading>) {
  * @param confirmAction Callback to be invoked when the action button is clicked.
  */
 @Composable
+@NonRestartableComposable
 fun AppAlertDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
@@ -100,6 +102,7 @@ fun AppAlertDialog(
  * @param content Custom content to be displayed inside the dialog.
  */
 @Composable
+@NonRestartableComposable
 fun AppDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
@@ -119,6 +122,7 @@ fun AppDialog(
  * @param content Custom content to be displayed inside the dialog content.
  */
 @Composable
+@NonRestartableComposable
 fun AppDialogContent(
     modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit

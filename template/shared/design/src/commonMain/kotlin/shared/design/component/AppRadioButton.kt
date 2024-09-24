@@ -2,6 +2,7 @@ package shared.design.component
 
 import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 
 /**
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
  * @param onClick Callback to be invoked when the radio button is clicked.
  */
 @Composable
+@NonRestartableComposable
 fun AppRadioButton(
     modifier: Modifier = Modifier,
     selected: Boolean,

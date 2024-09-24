@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
@@ -53,6 +54,7 @@ fun AppIcon(
  * @param model ImageVector representing the icon.
  */
 @Composable
+@NonRestartableComposable
 private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
@@ -76,6 +78,7 @@ private fun AppIcon(
  * @param model http url representing the icon.
  */
 @Composable
+@NonRestartableComposable
 private fun AppIcon(
     modifier: Modifier = Modifier,
     size: Dp = Dp.Unspecified,
@@ -98,6 +101,7 @@ private fun AppIcon(
  * @param model ImageVector representing the icon.
  */
 @Composable
+@NonRestartableComposable
 private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
@@ -121,6 +125,7 @@ private fun AppIcon(
  * @param model DrawableResource representing the icon.
  */
 @Composable
+@NonRestartableComposable
 private fun AppIcon(
     modifier: Modifier = Modifier,
     tint: Color = LocalContentColor.current,
@@ -143,6 +148,7 @@ private fun AppIcon(
  * @param model Color representing the icon.
  */
 @Composable
+@NonRestartableComposable
 private fun AppIcon(
     modifier: Modifier = Modifier,
     size: Dp = Dp.Unspecified,

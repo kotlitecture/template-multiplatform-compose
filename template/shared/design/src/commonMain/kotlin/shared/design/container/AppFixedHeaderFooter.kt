@@ -14,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
@@ -79,6 +80,7 @@ data class AppFixedHeaderFooterAppearance(
  * @param content The main content of the fixed header layout.
  */
 @Composable
+@NonRestartableComposable
 fun AppFixedHeaderFooterColumn(
     modifier: Modifier = Modifier.imePadding(),
     appearance: AppFixedHeaderFooterAppearance = AppFixedHeaderFooterAppearance.default(),
@@ -105,6 +107,7 @@ fun AppFixedHeaderFooterColumn(
  * @param content The main content of the fixed header layout.
  */
 @Composable
+@NonRestartableComposable
 fun AppFixedHeaderFooterLazyColumn(
     modifier: Modifier = Modifier,
     appearance: AppFixedHeaderFooterAppearance = AppFixedHeaderFooterAppearance.default(),
