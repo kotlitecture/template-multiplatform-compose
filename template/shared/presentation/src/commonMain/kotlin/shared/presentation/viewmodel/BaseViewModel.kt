@@ -41,7 +41,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param store The [Store] associated with the data state.
      * @param block The block of code to execute as a coroutine.
      */
-    protected fun launchMain(
+    protected fun launchUI(
         id: String? = null,
         store: Store? = null,
         block: suspend CoroutineScope.() -> Unit
@@ -50,7 +50,7 @@ abstract class BaseViewModel : ViewModel() {
             id = id,
             store = store,
             block = block,
-            context = viewModelScope.coroutineContext,
+            context = Dispatchers.Main.immediate,
         )
     }
 

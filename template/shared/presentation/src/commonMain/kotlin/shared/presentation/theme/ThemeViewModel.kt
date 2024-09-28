@@ -10,16 +10,16 @@ import shared.presentation.viewmodel.BaseViewModel
  */
 internal class ThemeViewModel : BaseViewModel() {
 
-    fun onBind(state: ThemeStore) {
-        launchAsync("dataStore") {
-            state.systemDarkModeState.asFlow()
+    fun onBind(store: ThemeStore) {
+        launchAsync("Init theme state") {
+            store.systemDarkModeState.asFlow()
                 .filterNotNull()
                 .flatMapLatest { darkMode ->
-                    state.configState.asFlow()
+                    store.configState.asFlow()
                         .filterNotNull()
                         .mapNotNull { config -> map(config, darkMode) }
                 }
-                .collect(state.dataState::set)
+                .collect(store.dataState::set)
         }
     }
 

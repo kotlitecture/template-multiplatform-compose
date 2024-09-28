@@ -10,7 +10,7 @@ import shared.design.icon.AppIcons
  * Data class representing theme toggle data.
  */
 @Immutable
-data class ToggleThemeData(
+data class ToggleThemeState(
     private val data: ThemeData
 ) {
 

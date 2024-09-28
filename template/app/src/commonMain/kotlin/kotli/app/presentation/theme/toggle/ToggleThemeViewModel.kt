@@ -1,12 +1,13 @@
 package kotli.app.presentation.theme.toggle
 
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.store.DataState
 import shared.presentation.theme.ThemeStore
+import shared.presentation.viewmodel.BaseViewModel
 
 /**
  * ViewModel responsible for toggling between light and dark themes.
@@ -17,15 +18,16 @@ class ToggleThemeViewModel(
     private val themeStore: ThemeStore
 ) : BaseViewModel() {
 
-    val dataState: DataState<ToggleThemeData> = DataState()
+    private val _uiState = MutableStateFlow<ToggleThemeState?>(null)
+    val uiState = _uiState.asStateFlow()
 
     override fun doBind() {
         launchAsync("doBind") {
             themeStore.dataState.asFlow()
                 .filterNotNull()
                 .distinctUntilChanged()
-                .map { ToggleThemeData(it) }
-                .collectLatest(dataState::set)
+                .map { ToggleThemeState(it) }
+                .collectLatest(_uiState::value::set)
         }
     }
 
@@ -33,8 +35,8 @@ class ToggleThemeViewModel(
      * Toggles the theme between light and dark modes.
      */
     fun onToggle() {
-        val data = dataState.get() ?: return
-        if (data.isDark()) {
+        val state = _uiState.value ?: return
+        if (state.isDark()) {
             themeStore.setLight()
         } else {
             themeStore.setDark()

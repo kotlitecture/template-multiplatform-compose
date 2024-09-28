@@ -13,17 +13,17 @@ class NavigationViewModel : BaseViewModel() {
 
     fun onBind(navigationState: NavigationStore, context: NavigationContext) {
         navigationState.commandHandler = NavigationCommandHandler.create(context)
-        launchAsync("currentDestinationStore") {
+        launchAsync("Remember current destination") {
             context.navController.currentBackStackEntryFlow
                 .mapNotNull { entry -> entry.destination.route }
                 .mapNotNull(NavigationDestination.Companion::getByRoute)
                 .distinctUntilChanged()
                 .collectLatest { destination ->
-                    val store = navigationState.currentDestinationState
-                    if (store.isNull()) {
-                        context.scope.launch { store.set(destination) }
+                    val state = navigationState.currentDestinationState
+                    if (state.isNull()) {
+                        context.scope.launch { state.set(destination) }
                     } else {
-                        store.set(destination)
+                        state.set(destination)
                     }
                 }
         }

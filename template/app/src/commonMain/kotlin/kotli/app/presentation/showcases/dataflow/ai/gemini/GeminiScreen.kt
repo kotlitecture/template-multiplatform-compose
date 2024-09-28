@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,7 +23,6 @@ import shared.design.component.AppMarkdown
 import shared.design.component.AppTextField
 import shared.design.container.AppFixedTopBarLazyColumn
 import shared.design.theme.AppTheme
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -88,7 +88,7 @@ private fun ReplyBlock(geminiReply: GeminiReply) {
 
 @Composable
 private fun PromptBlock(onPrompt: (prompt: String?) -> Unit) {
-    val promptState = remember { DataState<String>() }
+    val promptState = remember { mutableStateOf("") }
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -107,8 +107,8 @@ private fun PromptBlock(onPrompt: (prompt: String?) -> Unit) {
         AppElevatedButton(
             modifier = Modifier.wrapContentWidth(),
             onClick = {
-                onPrompt(promptState.get())
-                promptState.clear()
+                onPrompt(promptState.value)
+                promptState.value = ""
             },
             text = "Enter",
         )

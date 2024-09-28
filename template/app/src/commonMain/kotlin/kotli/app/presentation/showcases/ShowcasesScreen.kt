@@ -30,6 +30,7 @@ import shared.presentation.viewmodel.provideViewModel
 fun ShowcasesScreen() {
     val viewModel: ShowcasesViewModel = provideViewModel()
     val showcasesState = viewModel.showcasesState.asStateNotNull()
+
     AppFixedTopBarLazyColumn(
         title = "Showcases",
         actions = {

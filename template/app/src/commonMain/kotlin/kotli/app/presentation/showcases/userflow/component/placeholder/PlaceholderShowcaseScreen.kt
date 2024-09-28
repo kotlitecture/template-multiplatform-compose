@@ -3,16 +3,15 @@ package kotli.app.presentation.showcases.userflow.component.placeholder
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.presentation.showcases.ShowcaseHintBlock
 import shared.design.component.AppElevatedButton
-import shared.design.component.AppSpacer16
 import shared.design.component.AppTextField
 import shared.design.component.withPlaceholder
 import shared.design.container.AppFixedTopBarColumn
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -48,7 +47,7 @@ fun PlaceholderShowcaseScreen() {
                     .padding(16.dp)
                     .fillMaxWidth()
                     .withPlaceholder(loading, cornerRadius = 8.dp),
-                valueState = remember { DataState("") },
+                valueState = remember { mutableStateOf("") },
                 placeholder = "Text"
             )
         }

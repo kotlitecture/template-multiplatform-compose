@@ -1,15 +1,15 @@
 package kotli.app.presentation.showcases.userflow.navigation.args.from
 
+import androidx.compose.runtime.mutableStateOf
 import kotli.app.presentation.showcases.userflow.navigation.args.to.ArgsNavigationToDestination
-import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
+import shared.presentation.viewmodel.BaseViewModel
 
 class ArgsNavigationFromViewModel(
     private val navigationStore: NavigationStore,
 ) : BaseViewModel() {
 
-    val userNameState = DataState<String>()
+    val userNameState = mutableStateOf("")
 
     fun onBack() {
         navigationStore.onBack()
@@ -19,7 +19,7 @@ class ArgsNavigationFromViewModel(
         navigationStore.onNext(
             destination = ArgsNavigationToDestination,
             data = ArgsNavigationToDestination.Data(
-                userName = userNameState.get()
+                userName = userNameState.value
             )
         )
     }

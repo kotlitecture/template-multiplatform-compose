@@ -15,8 +15,8 @@ import shared.presentation.viewmodel.provideViewModel
 @Composable
 fun AppScreen() {
     val viewModel: AppViewModel = provideViewModel()
-    val navigationState = viewModel.navigationStore
-    val navigationContext = rememberNavigationContext(navigationState)
+    val navigationStore = viewModel.navigationStore
+    val navigationContext = rememberNavigationContext(navigationStore)
     PasscodeProvider { // {userflow.passcode.local}
         NavigationBarProvider { // {userflow.navigation}
             AppScaffold(

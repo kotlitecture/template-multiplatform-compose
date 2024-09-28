@@ -1,5 +1,7 @@
 package kotli.app.presentation.showcases.dataflow.keyvalue.`object`
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.snapshotFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
@@ -9,7 +11,6 @@ import kotlinx.serialization.Serializable
 import shared.data.serialization.SerializationStrategy
 import shared.data.source.keyvalue.KeyValueSource
 import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
 
 class ObjectKeyValueViewModel(
@@ -17,17 +18,18 @@ class ObjectKeyValueViewModel(
     private val keyValueSource: KeyValueSource
 ) : BaseViewModel() {
 
-    val textState = DataState<String>()
-    val supportTextState = DataState<String>()
+    val textState = mutableStateOf("")
+    val supportTextState = mutableStateOf("")
 
     override fun doBind() {
+        val textFlow = snapshotFlow { textState.value }
         launchAsync("textStore") {
             val key = "my_object"
             val serializer = SerializationStrategy.json(Data.serializer())
             val data: Data? = keyValueSource.read(key, serializer)
             data?.time?.let { updateSupportText(it) }
-            textState.set(data?.text)
-            textState.asFlow()
+            textState.value = data?.text.orEmpty()
+            textFlow
                 .drop(1)
                 .debounce(100)
                 .collectLatest { text ->
@@ -42,7 +44,7 @@ class ObjectKeyValueViewModel(
     }
 
     private fun updateSupportText(time: Instant) {
-        supportTextState.set("Last save time: $time")
+        supportTextState.value = "Last save time: $time"
     }
 
     fun onBack() {

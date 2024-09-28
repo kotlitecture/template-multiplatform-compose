@@ -1,12 +1,13 @@
 package kotli.app.presentation.showcases.dataflow.encryption
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.snapshotFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import shared.data.source.encryption.EncryptionMethod
 import shared.data.source.encryption.EncryptionSource
 import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
 
 class BasicEncryptionViewModel(
@@ -14,51 +15,55 @@ class BasicEncryptionViewModel(
     private val encryptionSource: EncryptionSource
 ) : BaseViewModel() {
 
-    val textState = DataState<String>()
-    val encryptedTextState = DataState<String>()
-    val encryptionPasswordState = DataState<String>()
+    val textState = mutableStateOf("")
+    val encryptedTextState = mutableStateOf("")
+    val encryptionPasswordState = mutableStateOf("")
 
-    val decryptedTextState = DataState<String>()
-    val decryptionPasswordState = DataState<String>()
+    val decryptedTextState = mutableStateOf("")
+    val decryptionPasswordState = mutableStateOf("")
 
     fun onBack() = navigationStore.onBack()
 
     override fun doBind() {
+        val encryptionPasswordFlow = snapshotFlow { encryptionPasswordState.value }
+        val decryptionPasswordFlow = snapshotFlow { decryptionPasswordState.value }
+        val encryptedTextFlow = snapshotFlow { encryptedTextState.value }
+        val textFlow = snapshotFlow { textState.value }
         launchAsync("encryption") {
-            encryptionPasswordState.asFlow()
+            encryptionPasswordFlow
                 .flatMapLatest { password ->
-                    textState.asFlow().map { text -> Data(password, text) }
+                    textFlow.map { text -> Data(password, text) }
                 }
                 .map { data ->
                     val text = data.text
                     val password = data.password
-                    if (password == null || text == null) {
-                        null
+                    if (password.isNullOrEmpty() || text.isNullOrEmpty()) {
+                        ""
                     } else {
                         val method = EncryptionMethod.AES(password)
                         encryptionSource.encrypt(text, method)
                     }
                 }
-                .collectLatest(encryptedTextState::set)
+                .collectLatest(encryptedTextState::value::set)
         }
 
         launchAsync("decryption") {
-            decryptionPasswordState.asFlow()
+            decryptionPasswordFlow
                 .flatMapLatest { password ->
-                    encryptedTextState.asFlow().map { text -> Data(password, text) }
+                    encryptedTextFlow.map { text -> Data(password, text) }
                 }
                 .map { data ->
                     val text = data.text
                     val password = data.password
-                    if (password == null || text == null) {
-                        null
+                    if (password.isNullOrEmpty() || text.isNullOrEmpty()) {
+                        ""
                     } else {
                         val method = EncryptionMethod.AES(password)
                         runCatching { encryptionSource.decrypt(text, method) }
                             .getOrElse { "Decryption error" }
                     }
                 }
-                .collectLatest(decryptedTextState::set)
+                .collectLatest(decryptedTextState::value::set)
         }
     }
 
@@ -66,5 +71,4 @@ class BasicEncryptionViewModel(
         val password: String?,
         val text: String?
     )
-
 }

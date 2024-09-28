@@ -35,15 +35,6 @@ class NavigationStore(
     }
 
     /**
-     * Executes any command related to navigation.
-     *
-     * @param command The command to execute.
-     */
-    fun onCommand(command: NavigationCommand) {
-        commandHandler.handle(command)
-    }
-
-    /**
      * Navigate back to the previous screen.
      */
     fun onBack() {
@@ -95,4 +86,12 @@ class NavigationStore(
         )
     }
 
+    /**
+     * Executes any command related to navigation.
+     *
+     * @param command The command to execute.
+     */
+    private fun onCommand(command: NavigationCommand) {
+        commandHandler.handle(command)
+    }
 }

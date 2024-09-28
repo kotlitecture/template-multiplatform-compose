@@ -48,7 +48,7 @@ fun ChangeThemeDialog() {
 }
 
 @Composable
-fun ChangeThemeLayout(
+private fun ChangeThemeLayout(
     modifier: Modifier = Modifier,
     viewModel: ChangeThemeViewModel = provideViewModel()
 ) {
@@ -62,7 +62,7 @@ fun ChangeThemeLayout(
 }
 
 @Composable
-fun DynamicColorBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
+private fun DynamicColorBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
     val use = viewModel.dynamicColorsState.asStateValue() ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dynamic_color))
@@ -105,12 +105,12 @@ fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = provideViewModel()
 }
 
 @Composable
-fun HeaderBlock(title: String) {
+private fun HeaderBlock(title: String) {
     AppTextHeader(text = title)
 }
 
 @Composable
-fun ToggleBlock(label: String, selected: Boolean, onClick: () -> Unit) {
+private fun ToggleBlock(label: String, selected: Boolean, onClick: () -> Unit) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically

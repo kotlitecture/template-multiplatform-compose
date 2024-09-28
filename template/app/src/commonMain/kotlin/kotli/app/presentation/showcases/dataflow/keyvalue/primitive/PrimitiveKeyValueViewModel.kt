@@ -1,11 +1,12 @@
 package kotli.app.presentation.showcases.dataflow.keyvalue.primitive
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.snapshotFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
 import shared.data.source.keyvalue.KeyValueSource
 import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
 
 class PrimitiveKeyValueViewModel(
@@ -13,13 +14,14 @@ class PrimitiveKeyValueViewModel(
     private val keyValueSource: KeyValueSource
 ) : BaseViewModel() {
 
-    val textState = DataState<String>()
+    val textState = mutableStateOf("")
 
     override fun doBind() {
+        val textFlow = snapshotFlow { textState.value }
         launchAsync("textStore") {
             val key = "my_primitive"
-            textState.set(keyValueSource.read(key))
-            textState.asFlow()
+            textState.value = keyValueSource.read<String>(key).orEmpty()
+            textFlow
                 .drop(1)
                 .debounce(100)
                 .collectLatest { text ->

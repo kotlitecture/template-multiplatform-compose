@@ -3,13 +3,13 @@ package kotli.app.presentation.showcases.dataflow.keyvalue.primitive
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.presentation.showcases.ShowcaseHintBlock
-import shared.presentation.viewmodel.provideViewModel
-import shared.presentation.store.DataState
 import shared.design.component.AppTextField
 import shared.design.container.AppFixedTopBarColumn
+import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun PrimitiveKeyValueScreen() {
@@ -31,12 +31,12 @@ fun PrimitiveKeyValueScreen() {
 }
 
 @Composable
-private fun InputBlock(store: DataState<String>) {
+private fun InputBlock(state: MutableState<String>) {
     AppTextField(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        valueState = store,
+        valueState = state,
         placeholder = "Input your text"
     )
 }

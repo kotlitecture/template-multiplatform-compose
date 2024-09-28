@@ -3,6 +3,7 @@ package kotli.app.presentation.showcases.userflow.navigation.args.from
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.presentation.showcases.ShowcaseHintBlock
@@ -56,12 +57,12 @@ fun ArgsNavigationFromScreen() {
 }
 
 @Composable
-private fun UserNameBlock(store: DataState<String>) {
+private fun UserNameBlock(state: MutableState<String>) {
     AppTextField(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        valueState = store,
+        valueState = state,
         placeholder = "User name"
     )
 }
