@@ -95,7 +95,7 @@ object Rules {
     const val SharedDesignDir = "shared/design"
     const val SharedDesignSrcDir = "${SharedDesignDir}/src"
     const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
-    const val AppIconsProviderKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIconsProvider.kt"
+    const val AppIconsKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIcons.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
     const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"
     const val AppFilePicker = "${SharedDesignComponentDir}/AppFilePicker.kt"
