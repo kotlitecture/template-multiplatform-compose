@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import shared.presentation.store.DataLoading
-import shared.presentation.store.DataState
 import shared.presentation.store.Store
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -15,9 +14,10 @@ class LoaderViewModel(
     private val configSource: AppConfigSource
 ) : BaseViewModel() {
 
-    val uiState = DataState(false)
+    private val _state = MutableLoaderState()
+    val state: LoaderState = _state
 
-    fun onBind(store: Store) = launchAsync("Handle loading state") {
+    suspend fun onBind(store: Store) {
         store.loadingState.asFlow()
             .filterNotNull()
             .map { state -> state is DataLoading.InProgress }
@@ -25,11 +25,11 @@ class LoaderViewModel(
             .collectLatest { loading ->
                 if (loading) {
                     delay(configSource.getUiLoaderDelay())
-                    uiState.set(true)
+                    _state.loading = true
                     delay(configSource.getUiLoaderTimeout())
-                    uiState.set(false)
+                    _state.loading = false
                 } else {
-                    uiState.set(false)
+                    _state.loading = false
                 }
             }
     }

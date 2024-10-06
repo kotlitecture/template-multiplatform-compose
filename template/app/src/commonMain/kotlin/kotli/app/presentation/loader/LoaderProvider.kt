@@ -25,12 +25,13 @@ import shared.presentation.viewmodel.provideViewModel
 fun LoaderProvider(store: Store) {
     val viewModel: LoaderViewModel = provideViewModel()
     LaunchedEffect(store) { viewModel.onBind(store) }
-    LoaderBlock(viewModel.uiState.asStateValueNotNull())
+    LoaderBlock(viewModel.state)
 }
 
 @Composable
-private fun LoaderBlock(loading: Boolean) {
-    if (!loading) return
+private fun LoaderBlock(state: LoaderState) {
+    if (!state.loading) return
+
     AppDialog(onDismissRequest = {}) {
         Box(
             modifier = Modifier.fillMaxSize(),
