@@ -1,6 +1,6 @@
 ## Overview
 
-- Component package: `app.data.source.database.sqldelight`
+- Component package: `app.common.data.source.database.sqldelight`
 - DI integration: `app.di.data.SqlDelightSourceModule`
 
 The integration includes the following components:

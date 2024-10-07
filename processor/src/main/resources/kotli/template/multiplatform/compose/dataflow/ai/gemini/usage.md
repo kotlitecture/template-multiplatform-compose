@@ -1,8 +1,8 @@
 ## Overview
 
 The API can be accessed through:
-- `app.data.source.ai.AiSource` - an interface at the app level.
-- `app.data.source.ai.gemini.GeminiAiSource` - a class that implements the interface at the app level.
+- `app.common.data.source.ai.AiSource` - an interface at the app level.
+- `app.common.data.source.ai.gemini.GeminiAiSource` - a class that implements the interface at the app level.
 
 The API is pre-configured in `app.di.data.AiSourceModule`.
 

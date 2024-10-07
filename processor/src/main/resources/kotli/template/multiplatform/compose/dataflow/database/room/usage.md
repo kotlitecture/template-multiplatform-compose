@@ -1,6 +1,6 @@
 ## Overview
 
-- Component package: `app.data.source.database.room`
+- Component package: `app.common.data.source.database.room`
 - DI integration: `app.platform.configureKoin`
 
 The integration includes the following components:
@@ -17,7 +17,7 @@ Imagine you need to add a new entity called **Address**. Here are the steps to f
 
 ### 1. Create the `Address` entity class
 
-You can use the `User` class in `app.data.source.database.room.entity` as a template.
+You can use the `User` class in `app.common.data.source.database.room.entity` as a template.
 
 ```kotlin
 @Entity(tableName = "address")
@@ -35,7 +35,7 @@ data class Address(
 
 ### 2. Create the `AddressDao` interface
 
-You can use the `UserDao` interface in `app.data.source.database.room.dao` as a template.
+You can use the `UserDao` interface in `app.common.data.source.database.room.dao` as a template.
 
 ```kotlin
 @Dao

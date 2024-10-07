@@ -2,7 +2,7 @@
 
 The API can be accessed through:
 - `shared.data.source.encryption.EncryptionSource` - facade interface at the core module level.
-- `app.data.source.encryption.AppEncryptionSource` - decorator class at the app level.
+- `app.common.data.source.encryption.AppEncryptionSource` - decorator class at the app level.
 
 The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations.
 
