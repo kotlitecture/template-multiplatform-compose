@@ -1,4 +1,4 @@
-package kotli.app.presentation.loader
+package kotli.app.common.presentation.loader
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,7 +22,7 @@ import shared.presentation.viewmodel.provideViewModel
  * @param store The state object representing the current data loading state.
  */
 @Composable
-fun LoaderProvider(store: Store) {
+fun LoaderDialog(store: Store) {
     val viewModel: LoaderViewModel = provideViewModel()
     LaunchedEffect(store) { viewModel.onBind(store) }
     LoaderBlock(viewModel.state)

@@ -1,7 +1,7 @@
 package kotli.app.presentation.app
 
 import androidx.compose.runtime.Composable
-import kotli.app.presentation.loader.LoaderProvider
+import kotli.app.common.presentation.loader.LoaderDialog
 import kotli.app.presentation.navigation.BottomProvider
 import kotli.app.presentation.navigation.NavigationBarProvider
 import kotli.app.presentation.passcode.PasscodeProvider
@@ -25,6 +25,6 @@ fun AppScreen() {
                 bottomBar = { BottomProvider() }
             )
         } // {userflow.navigation}
-        LoaderProvider(viewModel.appStore)
+        LoaderDialog(viewModel.appStore)
     } // {userflow.passcode.local}
 }

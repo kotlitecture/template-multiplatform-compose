@@ -5,7 +5,7 @@ import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
-import shared.presentation.store.Store
+import androidx.compose.runtime.Stable
 
 /**
  * A holder for managing the display of snackbars.
@@ -13,11 +13,12 @@ import shared.presentation.store.Store
  * This class encapsulates the logic for showing snackbars, providing a consistent way to manage
  * snackbar messages and actions within your application.
  *
- * @constructor Creates an instance of [AppSnackbarStore].
+ * @constructor Creates an instance of [AppSnackbarState].
  *
  * @property hostState Internal state used to show snackbars.
  */
-class AppSnackbarStore : Store() {
+@Stable
+class AppSnackbarState {
 
     internal val hostState = SnackbarHostState()
 

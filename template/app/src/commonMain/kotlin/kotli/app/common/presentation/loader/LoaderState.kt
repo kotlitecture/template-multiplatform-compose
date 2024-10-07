@@ -1,4 +1,4 @@
-package kotli.app.presentation.loader
+package kotli.app.common.presentation.loader
 
 import androidx.compose.runtime.Stable
 

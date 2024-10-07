@@ -6,7 +6,7 @@ import kotli.app.platform.createRoomCrudViewModel
 import kotli.app.presentation.app.AppNavigationRouter
 import kotli.app.presentation.app.AppStore
 import kotli.app.presentation.app.AppViewModel
-import kotli.app.presentation.loader.LoaderViewModel
+import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.presentation.navigation.NavigationBarViewModel
 import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
 import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
@@ -42,11 +42,11 @@ import kotli.app.presentation.theme.AppThemeViewModel
 import kotli.app.presentation.theme.change.ChangeThemeViewModel
 import kotli.app.presentation.theme.toggle.ToggleThemeViewModel
 import org.koin.dsl.module
-import shared.design.component.AppSnackbarStore
+import shared.design.component.AppSnackbarState
 
 val appModule = module {
     single { AppStore() }
-    single { AppSnackbarStore() }
+    single { AppSnackbarState() }
     single { AppNavigationRouter() }
     single {
         viewModelFactory {

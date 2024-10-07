@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import kotli.app.presentation.loader.LoaderProvider
+import kotli.app.common.presentation.loader.LoaderDialog
 import kotli.app.presentation.passcode.model.LockState
 import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeScreen
 import shared.design.theme.AppTheme
@@ -21,7 +21,7 @@ fun PasscodeProvider(content: @Composable () -> Unit) {
             content()
             if (state == LockState.LOCKED) {
                 UnlockPasscodeScreen()
-                LoaderProvider(viewModel.passcodeStore)
+                LoaderDialog(viewModel.passcodeStore)
             }
         }
     }

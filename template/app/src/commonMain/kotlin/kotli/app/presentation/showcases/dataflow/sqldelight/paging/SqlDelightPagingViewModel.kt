@@ -6,12 +6,12 @@ import app.cash.sqldelight.async.coroutines.awaitAsOne
 import kotli.app.common.data.source.database.sqldelight.AppSqlDelightSource
 import kotli.app.common.data.source.database.sqldelight.User
 import kotli.app.common.data.source.paging.AppPagingSource
-import shared.design.component.AppSnackbarStore
+import shared.design.component.AppSnackbarState
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 
 class SqlDelightPagingViewModel(
-    private val appSnackbarStore: AppSnackbarStore,
+    private val appSnackbarStore: AppSnackbarState,
     private val navigationStore: NavigationStore,
     private val databaseSource: AppSqlDelightSource,
     private val pagingSource: AppPagingSource,

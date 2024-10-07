@@ -36,7 +36,7 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             Rules.AppScreenKt,
-            RemoveMarkedLine("LoaderProvider")
+            RemoveMarkedLine("LoaderDialog")
         )
         state.onApplyRules(
             Rules.AppConfigSource,

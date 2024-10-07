@@ -3,7 +3,7 @@ package kotli.app.platform
 import kotli.app.di.get
 import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudViewModel
 import kotli.app.presentation.showcases.dataflow.room.crud.model.UserData
-import shared.design.component.AppSnackbarStore
+import shared.design.component.AppSnackbarState
 import shared.presentation.navigation.NavigationStore
 
 actual fun createRoomCrudViewModel(): RoomCrudViewModel = RoomCrudViewModelImpl(
@@ -12,7 +12,7 @@ actual fun createRoomCrudViewModel(): RoomCrudViewModel = RoomCrudViewModelImpl(
 )
 
 private class RoomCrudViewModelImpl(
-    private val snackbarStore: AppSnackbarStore,
+    private val snackbarStore: AppSnackbarState,
     navigationStore: NavigationStore
 ) : RoomCrudViewModel(
     navigationStore
