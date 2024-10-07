@@ -3,9 +3,9 @@ package kotli.app.presentation.showcases.dataflow.sqldelight.paging
 import androidx.lifecycle.viewModelScope
 import app.cash.paging.cachedIn
 import app.cash.sqldelight.async.coroutines.awaitAsOne
-import kotli.app.data.source.database.sqldelight.AppSqlDelightSource
-import kotli.app.data.source.database.sqldelight.User
-import kotli.app.data.source.paging.AppPagingSource
+import kotli.app.common.data.source.database.sqldelight.AppSqlDelightSource
+import kotli.app.common.data.source.database.sqldelight.User
+import kotli.app.common.data.source.paging.AppPagingSource
 import shared.design.component.AppSnackbarStore
 import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore

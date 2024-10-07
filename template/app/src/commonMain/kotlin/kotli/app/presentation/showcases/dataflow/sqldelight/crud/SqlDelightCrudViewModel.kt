@@ -3,8 +3,8 @@ package kotli.app.presentation.showcases.dataflow.sqldelight.crud
 import app.cash.sqldelight.async.coroutines.awaitAsList
 import app.cash.sqldelight.async.coroutines.awaitAsOne
 import app.cash.sqldelight.coroutines.asFlow
-import kotli.app.data.source.database.sqldelight.AppSqlDelightSource
-import kotli.app.data.source.database.sqldelight.User
+import kotli.app.common.data.source.database.sqldelight.AppSqlDelightSource
+import kotli.app.common.data.source.database.sqldelight.User
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
 import shared.presentation.viewmodel.BaseViewModel

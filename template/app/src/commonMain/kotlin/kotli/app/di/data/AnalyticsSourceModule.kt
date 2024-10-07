@@ -1,6 +1,6 @@
 package kotli.app.di.data
 
-import kotli.app.data.source.analytics.AppAnalyticsSource
+import kotli.app.common.data.source.analytics.AppAnalyticsSource
 import shared.data.source.analytics.AnalyticsSource
 import org.koin.dsl.bind
 import org.koin.dsl.module

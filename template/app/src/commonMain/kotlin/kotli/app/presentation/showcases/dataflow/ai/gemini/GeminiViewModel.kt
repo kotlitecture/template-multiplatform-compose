@@ -1,6 +1,6 @@
 package kotli.app.presentation.showcases.dataflow.ai.gemini
 
-import kotli.app.data.source.ai.AiSource
+import kotli.app.common.data.source.ai.AiSource
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel

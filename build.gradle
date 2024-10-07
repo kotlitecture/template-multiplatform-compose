@@ -14,6 +14,7 @@ versionCatalogUpdate {
 }
 
 tasks.register('cleanAll') {
+    group = "clean"
     doLast {
         def dirs = []
         project.rootDir.eachDirRecurse { dir ->

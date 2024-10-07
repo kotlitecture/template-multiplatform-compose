@@ -2,7 +2,7 @@ package kotli.app.platform
 
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
-import kotli.app.data.source.database.room.AppDatabase
+import kotli.app.common.data.source.database.room.AppDatabase
 
 expect fun createRoomDatabaseBuilder(name: String): RoomDatabase.Builder<AppDatabase>
 

@@ -1,6 +1,9 @@
 package kotli.app.presentation.loader
 
-import kotli.app.data.source.config.AppConfigSource
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import kotli.app.common.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -34,4 +37,7 @@ class LoaderViewModel(
             }
     }
 
+    class MutableLoaderState : LoaderState {
+        override var loading: Boolean by mutableStateOf(false)
+    }
 }

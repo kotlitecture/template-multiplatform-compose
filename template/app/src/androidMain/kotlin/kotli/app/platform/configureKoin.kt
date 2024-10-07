@@ -1,6 +1,6 @@
 package kotli.app.platform
 
-import kotli.app.data.source.database.room.AppRoomSource
+import kotli.app.common.data.source.database.room.AppRoomSource
 import org.koin.core.KoinApplication
 import org.koin.dsl.module
 import shared.data.source.keyvalue.DataStoreSource

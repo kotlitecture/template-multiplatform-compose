@@ -1,7 +1,7 @@
 package kotli.app.platform
 
-import kotli.app.data.source.database.room.AppRoomSource
-import kotli.app.data.source.database.room.entity.User
+import kotli.app.common.data.source.database.room.AppRoomSource
+import kotli.app.common.data.source.database.room.entity.User
 import kotli.app.di.get
 import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudViewModel
 import kotli.app.presentation.showcases.dataflow.room.crud.model.UserData

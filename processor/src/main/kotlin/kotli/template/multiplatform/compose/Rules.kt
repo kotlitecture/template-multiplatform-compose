@@ -112,7 +112,7 @@ object Rules {
     const val RoomDir = "*/database/room/*"
     // dataflow -> config
     const val ConfigSource = "*/*ConfigSource*.kt"
-    const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/data/source/config/AppConfigSource.kt"
+    const val AppConfigSource = "${CommonAppMainDir}/kotlin/kotli/app/common/data/source/config/AppConfigSource.kt"
     // dataflow -> paging
     const val PagingSource = "*/*Paging*.kt"
     // dataflow -> http

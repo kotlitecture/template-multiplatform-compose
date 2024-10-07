@@ -1,7 +1,7 @@
 package kotli.app.di.data
 
-import kotli.app.data.source.ai.AiSource
-import kotli.app.data.source.ai.gemini.GeminiAiSource
+import kotli.app.common.data.source.ai.AiSource
+import kotli.app.common.data.source.ai.gemini.GeminiAiSource
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
