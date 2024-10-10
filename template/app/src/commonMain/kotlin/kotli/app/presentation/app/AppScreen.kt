@@ -7,6 +7,7 @@ import kotli.app.presentation.navigation.NavigationBarProvider
 import kotli.app.presentation.passcode.PasscodeProvider
 import shared.design.container.AppScaffold
 import shared.presentation.navigation.rememberNavigationContext
+import shared.presentation.store.DataLoading
 import shared.presentation.viewmodel.provideViewModel
 
 /**
@@ -25,6 +26,6 @@ fun AppScreen() {
                 bottomBar = { BottomProvider() }
             )
         } // {userflow.navigation}
-        LoaderDialog(viewModel.appStore)
+        LoaderDialog { viewModel.appStore.loadingState.get() is DataLoading }
     } // {userflow.passcode.local}
 }

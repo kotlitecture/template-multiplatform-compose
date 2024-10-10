@@ -15,7 +15,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import kotli.app.di.get
 import shared.presentation.misc.extensions.findActivity
 import shared.presentation.navigation.NavigationStore
-import shared.presentation.theme.ThemeStore
+import shared.presentation.theme.ThemeState
 
 class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,10 +30,10 @@ class AppActivity : ComponentActivity() {
 }
 
 @Composable
-private fun EdgeToEdgeHandler(state: ThemeStore) {
+private fun EdgeToEdgeHandler(state: ThemeState) {
     val activity = LocalContext.current.findActivity() ?: return
-    val data = state.dataState.asStateValue() ?: return
-    val dark = data.context.dark
+    val theme = state.currentTheme ?: return
+    val dark = theme.dark
     val barStyle = remember(dark) {
         if (dark) {
             SystemBarStyle.dark(Color.TRANSPARENT)

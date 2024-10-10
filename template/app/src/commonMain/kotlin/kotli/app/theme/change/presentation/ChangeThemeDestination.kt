@@ -1,11 +1,8 @@
-package kotli.app.presentation.theme.change
+package kotli.app.theme.change.presentation
 
 import androidx.navigation.NavGraphBuilder
 import shared.presentation.navigation.NavigationDestinationNoArgs
 
-/**
- * Navigation destination for changing the theme.
- */
 object ChangeThemeDestination : NavigationDestinationNoArgs() {
 
     override val id: String = "change_theme_screen"

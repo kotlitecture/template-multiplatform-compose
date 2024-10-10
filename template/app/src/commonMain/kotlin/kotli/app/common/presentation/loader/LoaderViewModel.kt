@@ -3,14 +3,12 @@ package kotli.app.common.presentation.loader
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import kotli.app.common.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.map
-import shared.presentation.store.DataLoading
-import shared.presentation.store.Store
 import shared.presentation.viewmodel.BaseViewModel
 
 class LoaderViewModel(
@@ -20,10 +18,9 @@ class LoaderViewModel(
     private val _state = MutableLoaderState()
     val state: LoaderState = _state
 
-    suspend fun onBind(store: Store) {
-        store.loadingState.asFlow()
+    suspend fun onBind(isLoading: () -> Boolean) {
+        snapshotFlow(isLoading)
             .filterNotNull()
-            .map { state -> state is DataLoading.InProgress }
             .distinctUntilChanged()
             .collectLatest { loading ->
                 if (loading) {

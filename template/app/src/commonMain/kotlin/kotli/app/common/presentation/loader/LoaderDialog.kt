@@ -19,12 +19,12 @@ import shared.presentation.viewmodel.provideViewModel
  * This function displays a loading dialog when the provided state indicates that data is being loaded.
  * The dialog contains a circular progress indicator.
  *
- * @param store The state object representing the current data loading state.
+ * @param isLoading The loading state of the dialog.
  */
 @Composable
-fun LoaderDialog(store: Store) {
+fun LoaderDialog(isLoading: () -> Boolean) {
     val viewModel: LoaderViewModel = provideViewModel()
-    LaunchedEffect(store) { viewModel.onBind(store) }
+    LaunchedEffect(isLoading) { viewModel.onBind(isLoading) }
     LoaderBlock(viewModel.state)
 }
 

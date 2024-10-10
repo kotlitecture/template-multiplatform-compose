@@ -37,10 +37,10 @@ import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsN
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
 import kotli.app.presentation.template.screen_with_args.TemplateViewModel
 import kotli.app.presentation.template.screen_without_args.TemplateNoArgsViewModel
-import kotli.app.presentation.theme.AppThemePersistenceViewModel
-import kotli.app.presentation.theme.AppThemeViewModel
-import kotli.app.presentation.theme.change.ChangeThemeViewModel
-import kotli.app.presentation.theme.toggle.ToggleThemeViewModel
+import kotli.app.theme.provide.presentation.AppThemePersistenceViewModel
+import kotli.app.theme.provide.presentation.AppThemeViewModel
+import kotli.app.theme.change.presentation.ChangeThemeViewModel
+import kotli.app.theme.toggle.presentation.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarState
 
@@ -52,7 +52,7 @@ val appModule = module {
         viewModelFactory {
             initializer { AppViewModel(get(), get(), get(), get()) }
             initializer { AppThemeViewModel(get()) }
-            initializer { AppThemePersistenceViewModel(get(), get()) }
+            initializer { AppThemePersistenceViewModel(get(), get(), get()) }
             initializer { TemplateNoArgsViewModel(get()) }
             initializer { TemplateViewModel(get()) }
             initializer { ShowcasesViewModel(get()) }

@@ -9,8 +9,8 @@ import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeDestination
 import kotli.app.presentation.showcases.ShowcasesDestination
 import kotli.app.presentation.template.screen_with_args.TemplateDestination
 import kotli.app.presentation.template.screen_without_args.TemplateNoArgsDestination
-import kotli.app.presentation.theme.change.ChangeThemeDestination
-import kotli.app.presentation.theme.change.ChangeThemeDialogDestination
+import kotli.app.theme.change.presentation.ChangeThemeDestination
+import kotli.app.theme.change.presentation.ChangeThemeDialogDestination
 import org.koin.dsl.module
 import shared.presentation.navigation.NavigationStore
 

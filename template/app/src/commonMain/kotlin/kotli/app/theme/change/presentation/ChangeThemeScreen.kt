@@ -1,4 +1,4 @@
-package kotli.app.presentation.theme.change
+package kotli.app.theme.change.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,13 +9,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
-import shared.presentation.viewmodel.provideViewModel
 import shared.design.component.AppDialogContent
 import shared.design.component.AppRadioButton
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText
 import shared.design.component.AppTextHeader
 import shared.design.container.AppFixedTopBarColumn
+import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.theme_change_dark_mode
 import template.app.generated.resources.theme_change_dark_mode_off
@@ -35,7 +35,12 @@ fun ChangeThemeScreen() {
         content = {
             ChangeThemeLayout(
                 modifier = Modifier.padding(16.dp),
-                viewModel = viewModel
+                state = viewModel.state,
+                onUseDark = viewModel::onUseDark,
+                onUseLight = viewModel::onUseLight,
+                onUseSystemDefault = viewModel::onUseSystemDefault,
+                onEnableDynamicColors = viewModel::onEnableDynamicColors,
+                onDisableDynamicColors = viewModel::onDisableDynamicColors
             )
         }
     )
@@ -44,62 +49,94 @@ fun ChangeThemeScreen() {
 @Composable
 fun ChangeThemeDialog() {
     val viewModel: ChangeThemeViewModel = provideViewModel()
-    AppDialogContent { ChangeThemeLayout(viewModel = viewModel) }
+    AppDialogContent {
+        ChangeThemeLayout(
+            state = viewModel.state,
+            onUseDark = viewModel::onUseDark,
+            onUseLight = viewModel::onUseLight,
+            onUseSystemDefault = viewModel::onUseSystemDefault,
+            onEnableDynamicColors = viewModel::onEnableDynamicColors,
+            onDisableDynamicColors = viewModel::onDisableDynamicColors
+        )
+    }
 }
 
 @Composable
 private fun ChangeThemeLayout(
     modifier: Modifier = Modifier,
-    viewModel: ChangeThemeViewModel = provideViewModel()
+    state: ChangeThemeState,
+    onUseDark: () -> Unit,
+    onUseLight: () -> Unit,
+    onUseSystemDefault: () -> Unit,
+    onEnableDynamicColors: () -> Unit,
+    onDisableDynamicColors: () -> Unit,
 ) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        DynamicColorBlock()
-        DarkModePreferenceBlock(viewModel)
+        DynamicColorBlock(
+            state = state,
+            onEnableDynamicColors = onEnableDynamicColors,
+            onDisableDynamicColors = onDisableDynamicColors
+        )
+        DarkModePreferenceBlock(
+            state = state,
+            onUseDark = onUseDark,
+            onUseLight = onUseLight,
+            onUseSystemDefault = onUseSystemDefault
+        )
     }
 }
 
 @Composable
-private fun DynamicColorBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
-    val use = viewModel.dynamicColorsState.asStateValue() ?: return
+private fun DynamicColorBlock(
+    state: ChangeThemeState,
+    onEnableDynamicColors: () -> Unit,
+    onDisableDynamicColors: () -> Unit,
+) {
+    val dynamic = state.dynamic ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dynamic_color))
         AppSpacer8()
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dynamic_color_on),
-            selected = use,
-            onClick = viewModel::onEnableDynamicColors
+            selected = dynamic,
+            onClick = onEnableDynamicColors
         )
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dynamic_color_off),
-            selected = !use,
-            onClick = viewModel::onDisableDynamicColors
+            selected = !dynamic,
+            onClick = onDisableDynamicColors
         )
     }
 }
 
 @Composable
-fun DarkModePreferenceBlock(viewModel: ChangeThemeViewModel = provideViewModel()) {
-    val config = viewModel.configState.asStateValue() ?: return
+fun DarkModePreferenceBlock(
+    state: ChangeThemeState,
+    onUseDark: () -> Unit,
+    onUseLight: () -> Unit,
+    onUseSystemDefault: () -> Unit
+) {
+    val config = state.currentConfig ?: return
     Column {
         HeaderBlock(stringResource(Res.string.theme_change_dark_mode))
         AppSpacer8()
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dark_mode_system),
             selected = config.autoDark,
-            onClick = viewModel::onUseSystemDefault
+            onClick = onUseSystemDefault
         )
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dark_mode_off),
             selected = !config.autoDark && !config.defaultTheme.dark,
-            onClick = viewModel::onUseLight
+            onClick = onUseLight
         )
         ToggleBlock(
             label = stringResource(Res.string.theme_change_dark_mode_on),
             selected = !config.autoDark && config.defaultTheme.dark,
-            onClick = viewModel::onUseDark
+            onClick = onUseDark
         )
     }
 }
