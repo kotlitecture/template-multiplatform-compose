@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontFamily
  */
 @Stable
 interface ThemeState {
-
     val persistentKey: String
     val defaultConfig: ThemeConfig
     val dynamicConfig: ThemeConfig?

@@ -11,6 +11,8 @@ import shared.presentation.theme.ThemeMutableState
 import shared.presentation.theme.ThemeState
 
 val themeModule = module {
+    single { StoreThemeUseCase(get()) }
+    single { RestoreThemeUseCase(get()) }
     single<ThemeMutableState> {
         ThemeMutableState(
             defaultConfig = ThemeConfig(
@@ -20,7 +22,4 @@ val themeModule = module {
             )
         )
     }.bind(ThemeState::class)
-
-    single { StoreThemeUseCase(get()) }
-    single { RestoreThemeUseCase(get()) }
 }
