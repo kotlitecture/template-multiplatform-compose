@@ -7,9 +7,9 @@ import kotli.app.common.data.source.database.sqldelight.AppSqlDelightSource
 import kotli.app.common.data.source.database.sqldelight.User
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
+import shared.presentation.viewmodel.BaseViewModel
 
 class SqlDelightCrudViewModel(
     private val navigationStore: NavigationStore,
@@ -31,7 +31,7 @@ class SqlDelightCrudViewModel(
         navigationStore.onBack()
     }
 
-    fun onAdd() = launchAsync {
+    fun onAdd() = launchAsync("Add new user") {
         val database = databaseSource.getDatabase()
         val count = database.userQueries.count().awaitAsOne() + 1
         val firstName = "first_name_$count"
@@ -39,7 +39,7 @@ class SqlDelightCrudViewModel(
         database.userQueries.insert(firstName, lastName)
     }
 
-    fun onDelete(user: User) = launchAsync {
+    fun onDelete(user: User) = launchAsync("Delete user ${user.id}") {
         val database = databaseSource.getDatabase()
         database.userQueries.delete(user.id)
     }

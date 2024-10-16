@@ -16,7 +16,7 @@ class GeminiViewModel(
         navigationStore.onBack()
     }
 
-    fun onGenerateReply(prompt: String?) = launchAsync("onGenerateReply") {
+    fun onGenerateReply(prompt: String?) = launchAsync("Generate reply") {
         if (prompt.isNullOrBlank()) return@launchAsync
         val geminiReply = GeminiReply(prompt = prompt)
         state.update { current ->

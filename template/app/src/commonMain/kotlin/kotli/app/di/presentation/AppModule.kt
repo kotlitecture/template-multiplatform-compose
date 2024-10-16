@@ -2,11 +2,11 @@ package kotli.app.di.presentation
 
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.platform.createRoomCrudViewModel
 import kotli.app.presentation.app.AppNavigationRouter
 import kotli.app.presentation.app.AppStore
 import kotli.app.presentation.app.AppViewModel
-import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.presentation.navigation.NavigationBarViewModel
 import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
 import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
@@ -37,9 +37,9 @@ import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsN
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
 import kotli.app.presentation.template.screen_with_args.TemplateViewModel
 import kotli.app.presentation.template.screen_without_args.TemplateNoArgsViewModel
+import kotli.app.theme.change.presentation.ChangeThemeViewModel
 import kotli.app.theme.provide.presentation.AppThemePersistenceViewModel
 import kotli.app.theme.provide.presentation.AppThemeViewModel
-import kotli.app.theme.change.presentation.ChangeThemeViewModel
 import kotli.app.theme.toggle.presentation.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarState
@@ -69,7 +69,7 @@ val appModule = module {
             initializer { ArgsNavigationFromViewModel(get()) }
             initializer { ArgsNavigationToViewModel(get()) }
             initializer { LoaderViewModel(get()) }
-            initializer { DataLoaderShowcaseViewModel(get(), get()) }
+            initializer { DataLoaderShowcaseViewModel(get()) }
             initializer { PrimitiveKeyValueViewModel(get(), get()) }
             initializer { ObjectKeyValueViewModel(get(), get()) }
             initializer { SqlDelightCrudViewModel(get(), get()) }
@@ -82,7 +82,7 @@ val appModule = module {
             initializer { SetPasscodeViewModel(get(), get(), get(), get(), get()) }
             initializer { ResetPasscodeViewModel(get(), get(), get(), get()) }
             initializer { UnlockPasscodeViewModel(get(), get()) }
-            initializer { ForgotPasscodeViewModel(get(), get()) }
+            initializer { ForgotPasscodeViewModel(get()) }
             initializer { MarkdownShowcaseViewModel(get()) }
             initializer { FilePickerShowcaseViewModel(get()) }
             initializer { GeminiViewModel(get(), get()) }

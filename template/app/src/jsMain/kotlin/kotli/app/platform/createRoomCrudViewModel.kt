@@ -17,11 +17,11 @@ private class RoomCrudViewModelImpl(
 ) : RoomCrudViewModel(
     navigationStore
 ) {
-    override fun onAdd() = launchAsync {
+    override fun onAdd() = launchAsync("Add new user") {
         snackbarStore.showSnackbar("Room is not supported for the Web target")
     }
 
-    override fun onDelete(user: UserData) = launchAsync {
+    override fun onDelete(user: UserData) = launchAsync("Delete user ${user.id}") {
         snackbarStore.showSnackbar("Room is not supported for the Web target")
     }
 

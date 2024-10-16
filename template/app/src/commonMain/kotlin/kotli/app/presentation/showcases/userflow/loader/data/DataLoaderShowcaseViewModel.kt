@@ -1,13 +1,11 @@
 package kotli.app.presentation.showcases.userflow.loader.data
 
-import kotli.app.presentation.app.AppStore
 import kotlinx.coroutines.delay
-import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
+import shared.presentation.viewmodel.BaseViewModel
 
 class DataLoaderShowcaseViewModel(
-    private val navigationStore: NavigationStore,
-    private val appStore: AppStore
+    private val navigationStore: NavigationStore
 ) : BaseViewModel() {
 
     fun onBack() {
@@ -15,7 +13,7 @@ class DataLoaderShowcaseViewModel(
     }
 
     fun onPerformAsyncAction() {
-        launchAsync("onPerformAsyncAction", appStore) {
+        launchAsync("onPerformAsyncAction") {
             delay(3000L)
         }
     }

@@ -19,7 +19,7 @@ class NavigationBarViewModel(
     val selectedPageState = navigationBarStore.selectedPageState
 
     override fun doBind() {
-        launchAsync("doBind") {
+        launchAsync("Init pages") {
             val destStore = navigationStore.currentDestinationState
             pagesState.asFlow()
                 .filterNotNull()

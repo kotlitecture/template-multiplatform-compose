@@ -1,13 +1,11 @@
 package kotli.app.presentation.app
 
 import androidx.compose.runtime.Composable
-import kotli.app.common.presentation.loader.LoaderDialog
 import kotli.app.presentation.navigation.BottomProvider
 import kotli.app.presentation.navigation.NavigationBarProvider
 import kotli.app.presentation.passcode.PasscodeProvider
 import shared.design.container.AppScaffold
 import shared.presentation.navigation.rememberNavigationContext
-import shared.presentation.store.DataLoading
 import shared.presentation.viewmodel.provideViewModel
 
 /**
@@ -26,6 +24,5 @@ fun AppScreen() {
                 bottomBar = { BottomProvider() }
             )
         } // {userflow.navigation}
-        LoaderDialog { viewModel.appStore.loadingState.get() is DataLoading }
     } // {userflow.passcode.local}
 }

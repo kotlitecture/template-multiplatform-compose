@@ -50,7 +50,7 @@ class SetPasscodeViewModel(
             return
         }
 
-        launchAsync("Check passcode", passcodeStore) {
+        launchAsync("Check passcode") {
             when (val state = uiState.get()) {
                 is SetPasscodeState.ConfirmNew -> onConfirmNew(state.code, enteredCode)
                 is SetPasscodeState.UnlockExisting -> onUnlockExisting(enteredCode)

@@ -7,8 +7,8 @@ import kotli.app.common.data.source.database.sqldelight.AppSqlDelightSource
 import kotli.app.common.data.source.database.sqldelight.User
 import kotli.app.common.data.source.paging.AppPagingSource
 import shared.design.component.AppSnackbarState
-import shared.presentation.viewmodel.BaseViewModel
 import shared.presentation.navigation.NavigationStore
+import shared.presentation.viewmodel.BaseViewModel
 
 class SqlDelightPagingViewModel(
     private val appSnackbarStore: AppSnackbarState,
@@ -33,10 +33,10 @@ class SqlDelightPagingViewModel(
     }
 
     override fun doBind() {
-        launchAsync("fillUsers") { fillUsers() }
+        launchAsync("Init users") { fillUsers() }
     }
 
-    fun onDelete(user: User) = launchAsync {
+    fun onDelete(user: User) = launchAsync("Delete user ${user.id}") {
         val database = databaseSource.getDatabase()
         database.userQueries.delete(user.id)
         showToast("User ${user.lastName} deleted")
