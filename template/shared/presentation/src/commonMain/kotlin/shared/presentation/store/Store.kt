@@ -16,20 +16,6 @@ abstract class Store {
     val loadingState: DataState<DataLoading> by lazy(::DataState)
 
     /**
-     * Sets the loading state to 'loaded' for the specified identifier.
-     *
-     * @param id The identifier associated with the loaded state.
-     */
-    fun loaded(id: String) = loadingState.set(DataLoading.Loaded(id))
-
-    /**
-     * Sets the loading state to 'loading' for the specified identifier.
-     *
-     * @param id The identifier associated with the loading state.
-     */
-    fun loading(id: String) = loadingState.set(DataLoading.InProgress(id))
-
-    /**
      * Sets the loading state to 'error' with the specified exception for the specified identifier.
      *
      * @param id The identifier associated with the error state.

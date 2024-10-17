@@ -134,9 +134,8 @@ abstract class BaseViewModel : ViewModel() {
     fun bind() {
         val owner = LocalLifecycleOwner.current
         LaunchedEffect(owner) {
-            val initial = !initialized
-            initialized = true
-            if (initial) {
+            if (!initialized) {
+                initialized = true
                 doInit()
             }
             doBind()
