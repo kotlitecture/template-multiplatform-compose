@@ -11,16 +11,8 @@ import androidx.compose.ui.unit.dp
 import shared.design.component.AppCard
 import shared.design.component.AppCircularProgressIndicator
 import shared.design.component.AppDialog
-import shared.presentation.store.Store
 import shared.presentation.viewmodel.provideViewModel
 
-/**
- * Composable function for providing a data loading indicator.
- * This function displays a loading dialog when the provided state indicates that data is being loaded.
- * The dialog contains a circular progress indicator.
- *
- * @param isLoading The loading state of the dialog.
- */
 @Composable
 fun LoaderDialog(isLoading: () -> Boolean) {
     val viewModel: LoaderViewModel = provideViewModel()

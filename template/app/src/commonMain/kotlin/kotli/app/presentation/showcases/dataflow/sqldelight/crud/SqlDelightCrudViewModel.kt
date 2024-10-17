@@ -19,7 +19,7 @@ class SqlDelightCrudViewModel(
     val usersState = DataState<List<User>>(emptyList())
 
     override fun doBind() {
-        launchAsync("getUsers") {
+        async("getUsers") {
             val database = databaseSource.getDatabase()
             database.userQueries.getAll().asFlow()
                 .map { query -> query.awaitAsList() }
@@ -31,7 +31,7 @@ class SqlDelightCrudViewModel(
         navigationStore.onBack()
     }
 
-    fun onAdd() = launchAsync("Add new user") {
+    fun onAdd() = async("Add new user") {
         val database = databaseSource.getDatabase()
         val count = database.userQueries.count().awaitAsOne() + 1
         val firstName = "first_name_$count"
@@ -39,7 +39,7 @@ class SqlDelightCrudViewModel(
         database.userQueries.insert(firstName, lastName)
     }
 
-    fun onDelete(user: User) = launchAsync("Delete user ${user.id}") {
+    fun onDelete(user: User) = async("Delete user ${user.id}") {
         val database = databaseSource.getDatabase()
         database.userQueries.delete(user.id)
     }

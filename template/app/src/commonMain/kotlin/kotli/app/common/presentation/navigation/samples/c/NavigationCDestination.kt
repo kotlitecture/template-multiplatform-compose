@@ -1,4 +1,4 @@
-package kotli.app.presentation.navigation.samples.c
+package kotli.app.common.presentation.navigation.samples.c
 
 import androidx.navigation.NavGraphBuilder
 import shared.presentation.navigation.NavigationStrategy

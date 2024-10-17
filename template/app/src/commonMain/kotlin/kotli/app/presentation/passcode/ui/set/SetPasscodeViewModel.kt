@@ -32,7 +32,7 @@ class SetPasscodeViewModel(
     }
 
     override fun doBind() {
-        launchAsync("Init state") {
+        async("Init state") {
             enteredCodeState.clear()
             if (isPasscodeSet.invoke()) {
                 uiState.set(SetPasscodeState.UnlockExisting())
@@ -50,7 +50,7 @@ class SetPasscodeViewModel(
             return
         }
 
-        launchAsync("Check passcode") {
+        async("Check passcode") {
             when (val state = uiState.get()) {
                 is SetPasscodeState.ConfirmNew -> onConfirmNew(state.code, enteredCode)
                 is SetPasscodeState.UnlockExisting -> onUnlockExisting(enteredCode)

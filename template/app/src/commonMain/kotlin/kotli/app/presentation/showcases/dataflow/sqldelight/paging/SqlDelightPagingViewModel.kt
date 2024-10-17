@@ -33,10 +33,10 @@ class SqlDelightPagingViewModel(
     }
 
     override fun doBind() {
-        launchAsync("Init users") { fillUsers() }
+        async("Init users") { fillUsers() }
     }
 
-    fun onDelete(user: User) = launchAsync("Delete user ${user.id}") {
+    fun onDelete(user: User) = async("Delete user ${user.id}") {
         val database = databaseSource.getDatabase()
         database.userQueries.delete(user.id)
         showToast("User ${user.lastName} deleted")
@@ -67,7 +67,7 @@ class SqlDelightPagingViewModel(
     }
 
     private fun showToast(message: String) {
-        launchAsync("showToast") {
+        async("showToast") {
             appSnackbarStore.showSnackbar(message)
         }
     }

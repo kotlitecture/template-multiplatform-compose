@@ -13,14 +13,6 @@ import androidx.compose.ui.unit.sp
 import shared.design.theme.AppTheme
 import shared.presentation.store.DataState
 
-/**
- * Text.
- *
- * @param modifier Modifier to be applied to the text.
- * @param text Text to be displayed.
- * @param textAlign Alignment of the text within its container.
- * @param color Color of the text.
- */
 @Composable
 fun AppText(
     modifier: Modifier = Modifier,
@@ -45,14 +37,6 @@ fun AppText(
     )
 }
 
-/**
- * Text.
- *
- * @param modifier Modifier to be applied to the text.
- * @param textState Text state to be displayed.
- * @param textAlign Alignment of the text within its container.
- * @param color Color of the text.
- */
 @Composable
 @NonRestartableComposable
 fun AppText(
@@ -77,13 +61,6 @@ fun AppText(
     )
 }
 
-/**
- * Header text.
- *
- * @param modifier Modifier to be applied to the header text.
- * @param text Text to be displayed as header.
- * @param color Color of the header text.
- */
 @Composable
 @NonRestartableComposable
 fun AppTextHeader(
@@ -100,12 +77,6 @@ fun AppTextHeader(
     )
 }
 
-/**
- * Primary header text.
- *
- * @param modifier Modifier to be applied to the primary header text.
- * @param text Text to be displayed as primary header.
- */
 @Composable
 @NonRestartableComposable
 fun AppTextPrimaryHeader(

@@ -93,5 +93,6 @@ enum class NavigationStrategy {
         }
     }
 
-    protected open fun doProceed(route: String?, uriString: String, controller: NavHostController) = Unit
+    protected open fun doProceed(route: String?, uriString: String, controller: NavHostController) =
+        Unit
 }

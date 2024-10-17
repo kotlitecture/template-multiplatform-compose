@@ -18,7 +18,7 @@ class PrimitiveKeyValueViewModel(
 
     override fun doBind() {
         val textFlow = snapshotFlow { textState.value }
-        launchAsync("textStore") {
+        async("textStore") {
             val key = "my_primitive"
             textState.value = keyValueSource.read<String>(key).orEmpty()
             textFlow

@@ -20,7 +20,7 @@ private class RoomCrudViewModelImpl(
 ) : RoomCrudViewModel(navigationStore) {
 
     override fun doBind() {
-        launchAsync("Get available users") {
+        async("Get available users") {
             roomSource.userDao
                 .getAllAsFlow().map { users ->
                     users.map { user ->
@@ -31,7 +31,7 @@ private class RoomCrudViewModelImpl(
         }
     }
 
-    override fun onAdd() = launchAsync("Add new user") {
+    override fun onAdd() = async("Add new user") {
         val dao = roomSource.userDao
         val count = dao.count() + 1
         val firstName = "first_name_$count"
@@ -39,7 +39,7 @@ private class RoomCrudViewModelImpl(
         dao.create(User(firstName = firstName, lastName = lastName))
     }
 
-    override fun onDelete(user: UserData) = launchAsync("Delete user ${user.id}") {
+    override fun onDelete(user: UserData) = async("Delete user ${user.id}") {
         val dao = roomSource.userDao
         dao.delete(User(user.id))
     }

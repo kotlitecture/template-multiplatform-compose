@@ -13,7 +13,7 @@ class DataLoaderShowcaseViewModel(
     }
 
     fun onPerformAsyncAction() {
-        launchAsync("onPerformAsyncAction") {
+        async("onPerformAsyncAction") {
             delay(3000L)
         }
     }

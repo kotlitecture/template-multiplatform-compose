@@ -29,7 +29,7 @@ class BasicEncryptionViewModel(
         val decryptionPasswordFlow = snapshotFlow { decryptionPasswordState.value }
         val encryptedTextFlow = snapshotFlow { encryptedTextState.value }
         val textFlow = snapshotFlow { textState.value }
-        launchAsync("encryption") {
+        async("encryption") {
             encryptionPasswordFlow
                 .flatMapLatest { password ->
                     textFlow.map { text -> Data(password, text) }
@@ -47,7 +47,7 @@ class BasicEncryptionViewModel(
                 .collectLatest(encryptedTextState::value::set)
         }
 
-        launchAsync("decryption") {
+        async("decryption") {
             decryptionPasswordFlow
                 .flatMapLatest { password ->
                     encryptedTextFlow.map { text -> Data(password, text) }

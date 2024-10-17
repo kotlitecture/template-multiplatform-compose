@@ -1,16 +1,13 @@
-package kotli.app.di.presentation
+package kotli.app.di.feature
 
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import kotli.app.AppViewModel
 import kotli.app.common.presentation.loader.LoaderViewModel
+import kotli.app.common.presentation.navigation.samples.a.NavigationAViewModel
+import kotli.app.common.presentation.navigation.samples.b.NavigationBViewModel
+import kotli.app.common.presentation.navigation.samples.c.NavigationCViewModel
 import kotli.app.platform.createRoomCrudViewModel
-import kotli.app.presentation.app.AppNavigationRouter
-import kotli.app.presentation.app.AppStore
-import kotli.app.presentation.app.AppViewModel
-import kotli.app.presentation.navigation.NavigationBarViewModel
-import kotli.app.presentation.navigation.samples.a.NavigationAViewModel
-import kotli.app.presentation.navigation.samples.b.NavigationBViewModel
-import kotli.app.presentation.navigation.samples.c.NavigationCViewModel
 import kotli.app.presentation.passcode.PasscodeViewModel
 import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
 import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
@@ -43,14 +40,14 @@ import kotli.app.theme.provide.presentation.AppThemeViewModel
 import kotli.app.theme.toggle.presentation.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarState
+import shared.presentation.navigation.NavigationStore
 
 val appModule = module {
-    single { AppStore() }
     single { AppSnackbarState() }
-    single { AppNavigationRouter() }
+    single { NavigationStore(emptyList()) }
     single {
         viewModelFactory {
-            initializer { AppViewModel(get(), get(), get(), get()) }
+            initializer { AppViewModel(get()) }
             initializer { AppThemeViewModel(get()) }
             initializer { AppThemePersistenceViewModel(get(), get(), get()) }
             initializer { TemplateNoArgsViewModel(get()) }
@@ -63,7 +60,6 @@ val appModule = module {
             initializer { NavigationAViewModel() }
             initializer { NavigationBViewModel() }
             initializer { NavigationCViewModel() }
-            initializer { NavigationBarViewModel(get(), get()) }
             initializer { NoArgsNavigationFromViewModel(get()) }
             initializer { NoArgsNavigationToViewModel(get()) }
             initializer { ArgsNavigationFromViewModel(get()) }

@@ -24,7 +24,7 @@ class BasicHttpViewModel(
     }
 
     fun onFetchIp() {
-        launchAsync("onFetchIp") {
+        async("onFetchIp") {
             try {
                 ipState.set("Start fetching…")
                 delay(500)

@@ -19,13 +19,6 @@ import shared.design.component.AppActionButton
 import shared.design.icon.AppIcons
 import shared.design.theme.AppTheme
 
-/**
- * Composable function for rendering a layout with a fixed top bar.
- *
- * @param title The title text to display in the top app bar.
- * @param onBack The callback to be invoked when the back navigation icon is clicked.
- * @param content The content to be displayed below the top bar.
- */
 @Composable
 @NonRestartableComposable
 fun AppFixedTopBarColumn(
@@ -47,13 +40,6 @@ fun AppFixedTopBarColumn(
     )
 }
 
-/**
- * Composable function for rendering a layout with a fixed top bar.
- *
- * @param title The title text to display in the top app bar.
- * @param onBack The callback to be invoked when the back navigation icon is clicked.
- * @param content The content to be displayed below the top bar.
- */
 @Composable
 @NonRestartableComposable
 fun AppFixedTopBarLazyColumn(

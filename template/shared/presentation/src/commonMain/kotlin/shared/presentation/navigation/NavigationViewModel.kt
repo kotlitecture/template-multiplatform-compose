@@ -13,7 +13,7 @@ class NavigationViewModel : BaseViewModel() {
 
     fun onBind(navigationState: NavigationStore, context: NavigationContext) {
         navigationState.commandHandler = NavigationCommandHandler.create(context)
-        launchAsync("Remember current destination") {
+        async("Remember current destination") {
             context.navController.currentBackStackEntryFlow
                 .mapNotNull { entry -> entry.destination.route }
                 .mapNotNull(NavigationDestination.Companion::getByRoute)

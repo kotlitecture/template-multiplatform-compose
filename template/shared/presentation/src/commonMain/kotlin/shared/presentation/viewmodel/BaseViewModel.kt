@@ -38,7 +38,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param id The identifier for the coroutine job.
      * @param block The block of code to execute as a coroutine.
      */
-    protected fun launchUI(
+    protected fun ui(
         id: String,
         block: suspend CoroutineScope.() -> Unit
     ) {
@@ -56,7 +56,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param force Force new execution despite any existing is in progress.
      * @param block The block of code to execute as a coroutine.
      */
-    protected fun launchAsync(
+    protected fun async(
         id: String,
         force: Boolean = false,
         block: suspend CoroutineScope.() -> Unit

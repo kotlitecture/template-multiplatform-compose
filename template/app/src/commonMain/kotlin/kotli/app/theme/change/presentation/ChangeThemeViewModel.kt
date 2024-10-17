@@ -23,7 +23,7 @@ class ChangeThemeViewModel(
 
     override fun doBind() {
         val config = themeState.dynamicConfig ?: return
-        launchAsync("Configure dynamic colors") {
+        async("Configure dynamic colors") {
             val themes = setOf(config.lightTheme.id, config.darkTheme.id)
             snapshotFlow { themeState.currentConfig }
                 .filterNotNull()

@@ -16,7 +16,7 @@ class PlaceholderShowcaseViewModel(
     }
 
     fun onShow() {
-        launchAsync("onShow") {
+        async("onShow") {
             loadingState.set(true)
             delay(3000L)
             loadingState.set(false)

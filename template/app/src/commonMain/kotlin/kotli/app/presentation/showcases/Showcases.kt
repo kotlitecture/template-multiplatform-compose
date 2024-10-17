@@ -1,5 +1,6 @@
 package kotli.app.presentation.showcases
 
+import kotli.app.AppRoute
 import kotli.app.presentation.showcases.dataflow.ai.gemini.GeminiShowcase
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheShowcase
 import kotli.app.presentation.showcases.dataflow.encryption.BasicEncryptionShowcase
@@ -22,11 +23,13 @@ import kotli.app.presentation.showcases.userflow.passcode.SetPasscodeShowcase
 import kotli.app.presentation.showcases.userflow.theme.change.ChangeThemeDialogShowcase
 import kotli.app.presentation.showcases.userflow.theme.change.ChangeThemeScreenShowcase
 import kotli.app.presentation.showcases.userflow.theme.toggle.ToggleThemeShowcase
+import kotlinx.serialization.Serializable
 
-/**
- * Object containing all showcase items.
- */
-object Showcases {
+@Serializable
+data class Showcases22(val id: String)
+
+@Serializable
+object Showcases : AppRoute {
 
     /**
      * A list containing all showcase items.

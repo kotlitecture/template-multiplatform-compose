@@ -11,7 +11,7 @@ import shared.presentation.viewmodel.BaseViewModel
  */
 internal class ThemeViewModel : BaseViewModel() {
 
-    fun onBind(state: ThemeMutableState) = launchAsync("Init theme state") {
+    fun onBind(state: ThemeMutableState) = async("Init theme state") {
         val systemDarkModeFlow = snapshotFlow { state.systemDarkMode }.filterNotNull()
         val currentConfigFlow = snapshotFlow { state.currentConfig }.filterNotNull()
 

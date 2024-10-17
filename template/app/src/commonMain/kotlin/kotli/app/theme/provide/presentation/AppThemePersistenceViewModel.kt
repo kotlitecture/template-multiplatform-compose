@@ -18,7 +18,7 @@ class AppThemePersistenceViewModel(
     private val restoreTheme: RestoreThemeUseCase
 ) : BaseViewModel() {
 
-    override fun doBind() = launchAsync("Restore last selected theme") {
+    override fun doBind() = async("Restore last selected theme") {
         val key = state.persistentKey
         val config = restoreTheme.invoke(key)?.let(::map) ?: state.defaultConfig
         state.currentConfig = config

@@ -29,9 +29,6 @@ data class ThemeMutableState(
 
     override fun getById(id: String?): Theme? = byId[id]
 
-    /**
-     * Sets the theme to light mode.
-     */
     fun setLight() {
         val config = currentConfig ?: defaultConfig
         currentConfig = config.copy(
@@ -40,9 +37,6 @@ data class ThemeMutableState(
         )
     }
 
-    /**
-     * Sets the theme to dark mode.
-     */
     fun setDark() {
         val config = currentConfig ?: defaultConfig
         currentConfig = config.copy(
@@ -51,9 +45,6 @@ data class ThemeMutableState(
         )
     }
 
-    /**
-     * Sets the theme to auto mode.
-     */
     fun setAuto() {
         val config = currentConfig ?: defaultConfig
         currentConfig = config.copy(autoDark = true)

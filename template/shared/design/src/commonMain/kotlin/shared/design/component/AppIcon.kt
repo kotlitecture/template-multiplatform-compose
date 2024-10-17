@@ -20,14 +20,6 @@ import shared.design.icon.ImageVectorModel
 import shared.design.icon.PainterModel
 import shared.design.icon.UrlModel
 
-/**
- * Icon.
- *
- * @param modifier Modifier to be applied to the icon.
- * @param tint Color to be applied to the icon.
- * @param size Size of the icon.
- * @param model Data model representing the icon.
- */
 @Composable
 fun AppIcon(
     modifier: Modifier = Modifier,
@@ -45,14 +37,6 @@ fun AppIcon(
     }
 }
 
-/**
- * Icon from an Painter.
- *
- * @param modifier Modifier to be applied to the icon.
- * @param tint Color to be applied to the icon.
- * @param size Size of the icon.
- * @param model ImageVector representing the icon.
- */
 @Composable
 @NonRestartableComposable
 private fun AppIcon(
@@ -70,13 +54,6 @@ private fun AppIcon(
 }
 
 // {userflow.coil}
-/**
- * Icon from an http url.
- *
- * @param modifier Modifier to be applied to the icon.
- * @param size Size of the icon.
- * @param model http url representing the icon.
- */
 @Composable
 @NonRestartableComposable
 private fun AppIcon(
@@ -90,16 +67,8 @@ private fun AppIcon(
         contentDescription = null
     )
 }
-// {userflow.coil}
 
-/**
- * Icon from an ImageVector.
- *
- * @param modifier Modifier to be applied to the icon.
- * @param tint Color to be applied to the icon.
- * @param size Size of the icon.
- * @param model ImageVector representing the icon.
- */
+// {userflow.coil}
 @Composable
 @NonRestartableComposable
 private fun AppIcon(
@@ -116,14 +85,6 @@ private fun AppIcon(
     )
 }
 
-/**
- * Icon from a DrawableResource.
- *
- * @param modifier Modifier to be applied to the icon.
- * @param tint Color to be applied to the icon.
- * @param size Size of the icon.
- * @param model DrawableResource representing the icon.
- */
 @Composable
 @NonRestartableComposable
 private fun AppIcon(
@@ -140,13 +101,6 @@ private fun AppIcon(
     )
 }
 
-/**
- * Colored box as an icon.
- *
- * @param modifier Modifier to be applied to the icon.
- * @param size Size of the icon.
- * @param model Color representing the icon.
- */
 @Composable
 @NonRestartableComposable
 private fun AppIcon(

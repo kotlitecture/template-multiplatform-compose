@@ -32,15 +32,6 @@ import shared.design.component.AppSpacerStatusBar
 import shared.design.component.AppVerticalScrollbarProvider
 import shared.design.theme.AppTheme
 
-/**
- * Represents the appearance configuration for a layout.
- *
- * @property backgroundColor The background color of the fixed header layout.
- * @property headerBrush The brush used to paint the header section of the fixed header layout.
- * @property footerBrush The brush used to paint the footer section of the fixed header layout.
- * @property statusSpacer Whether to include a spacer for the system status bar.
- * @property navigationSpacer Whether to include a spacer for the system navigation bar.
- */
 data class AppFixedHeaderFooterAppearance(
     val backgroundColor: Color,
     val headerBrush: Brush,
@@ -70,15 +61,6 @@ data class AppFixedHeaderFooterAppearance(
     }
 }
 
-/**
- * Composable function representing a Column layout with fixed header and footer.
- *
- * @param modifier The modifier to apply to the layout.
- * @param appearance The appearance configuration for the fixed header layout.
- * @param header The composable content for the header section.
- * @param footer The composable content for the footer section.
- * @param content The main content of the fixed header layout.
- */
 @Composable
 @NonRestartableComposable
 fun AppFixedHeaderFooterColumn(
@@ -97,15 +79,6 @@ fun AppFixedHeaderFooterColumn(
     }
 }
 
-/**
- * Composable function representing a LazyColumn layout with fixed header and footer.
- *
- * @param modifier The modifier to apply to the layout.
- * @param appearance The appearance configuration for the fixed header layout.
- * @param header The composable content for the header section.
- * @param footer The composable content for the footer section.
- * @param content The main content of the fixed header layout.
- */
 @Composable
 @NonRestartableComposable
 fun AppFixedHeaderFooterLazyColumn(

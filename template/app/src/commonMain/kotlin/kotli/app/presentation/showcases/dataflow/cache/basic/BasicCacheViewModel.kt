@@ -21,7 +21,7 @@ class BasicCacheViewModel(
     fun onBack() = navigationStore.onBack()
 
     override fun doBind() {
-        launchAsync("Load data from cache") {
+        async("Load data from cache") {
             val cacheKey = SimpleCacheKey()
             val cacheEntry = cacheSource.get(cacheKey, ::getDateAsFormattedString)
             cacheEntry.changes().collectLatest(cacheState::set)

@@ -1,4 +1,4 @@
-package kotli.app.presentation.navigation.samples.a
+package kotli.app.common.presentation.navigation.samples.a
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

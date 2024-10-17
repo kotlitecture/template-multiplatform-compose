@@ -69,24 +69,6 @@ class NavigationStore(
     }
 
     /**
-     * Navigates to the specified URI using the provided navigation strategy.
-     *
-     * @param uriString The Uri string of the destination.
-     * @param strategy The navigation strategy to use.
-     */
-    fun onNext(
-        uriString: String,
-        strategy: NavigationStrategy
-    ) {
-        onCommand(
-            DestinationUriCommand(
-                uriString = uriString,
-                strategy = strategy
-            )
-        )
-    }
-
-    /**
      * Executes any command related to navigation.
      *
      * @param command The command to execute.

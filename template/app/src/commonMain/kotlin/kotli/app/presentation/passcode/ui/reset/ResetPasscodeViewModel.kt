@@ -38,7 +38,7 @@ class ResetPasscodeViewModel(
             return
         }
 
-        launchAsync("Reset passcode") {
+        async("Reset passcode") {
             if (unlockPasscode.invoke(enteredCode) == LockState.UNLOCKED) {
                 resetPasscode.invoke()
                 navigationStore.onBack()

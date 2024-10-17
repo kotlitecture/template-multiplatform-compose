@@ -23,7 +23,7 @@ class ObjectKeyValueViewModel(
 
     override fun doBind() {
         val textFlow = snapshotFlow { textState.value }
-        launchAsync("textStore") {
+        async("textStore") {
             val key = "my_object"
             val serializer = SerializationStrategy.json(Data.serializer())
             val data: Data? = keyValueSource.read(key, serializer)

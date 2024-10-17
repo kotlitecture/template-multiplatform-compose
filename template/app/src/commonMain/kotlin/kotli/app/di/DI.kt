@@ -9,11 +9,9 @@ import kotli.app.di.data.httpSourceModule
 import kotli.app.di.data.keyValueSourceModule
 import kotli.app.di.data.pagingSourceModule
 import kotli.app.di.data.sqlDelightSourceModule
-import kotli.app.di.presentation.appModule
-import kotli.app.di.presentation.navigationBarModule
-import kotli.app.di.presentation.navigationModule
-import kotli.app.di.presentation.passcodeModule
 import kotli.app.di.feature.themeModule
+import kotli.app.di.feature.appModule
+import kotli.app.di.presentation.passcodeModule
 import kotli.app.platform.configureKoin
 import org.koin.core.context.startKoin
 
@@ -28,8 +26,6 @@ val koinApp = startKoin {
         keyValueSourceModule,
         pagingSourceModule,
         sqlDelightSourceModule,
-        navigationBarModule,
-        navigationModule,
         passcodeModule,
         themeModule,
         appModule,

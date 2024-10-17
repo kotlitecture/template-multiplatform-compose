@@ -11,9 +11,6 @@ import com.eygraber.compose.placeholder.placeholder
 import com.eygraber.compose.placeholder.shimmer
 import shared.design.theme.AppTheme
 
-/**
- * Draws some skeleton UI which is typically used whilst content is 'loading'.
- */
 fun Modifier.withPlaceholder(
     visible: Boolean,
     cornerRadius: Dp = 4.dp

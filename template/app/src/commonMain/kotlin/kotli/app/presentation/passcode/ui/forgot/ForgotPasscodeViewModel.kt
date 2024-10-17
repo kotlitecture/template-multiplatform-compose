@@ -9,7 +9,7 @@ class ForgotPasscodeViewModel(
 ) : BaseViewModel() {
 
     fun onConfirm(state: DataState<Boolean>) {
-        launchAsync("Reset passcode") {
+        async("Reset passcode") {
             forgotPasscode.invoke()
             state.set(false)
         }

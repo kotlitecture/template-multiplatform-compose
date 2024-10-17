@@ -18,13 +18,6 @@ import androidx.compose.ui.graphics.Color
 import shared.design.component.AppSpacerNavigationBar
 import shared.design.theme.AppTheme
 
-/**
- * Data class representing the appearance configuration for a bottom sheet.
- *
- * @param backgroundColor The background color of the bottom sheet.
- * @param shouldDismissOnBackPress Flag indicating whether the bottom sheet should be dismissed on back press.
- * @param fullscreen Flag indicating whether the bottom sheet should occupy the entire screen.
- */
 data class AppBottomSheetAppearance(
     val backgroundColor: Color,
     val shouldDismissOnBackPress: Boolean,
@@ -48,14 +41,6 @@ data class AppBottomSheetAppearance(
     }
 }
 
-/**
- * Composable function for rendering a bottom sheet layout.
- *
- * @param modifier The modifier to be applied to the bottom sheet.
- * @param appearance The appearance configuration for the bottom sheet.
- * @param onDismissRequest The callback to be invoked when the bottom sheet is dismissed.
- * @param content The content of the bottom sheet.
- */
 @Composable
 @NonRestartableComposable
 fun AppBottomSheet(
