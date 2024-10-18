@@ -10,7 +10,7 @@ class BViewModel : BaseViewModel() {
     private val _state = BMutableState()
     val state: BState = _state
 
-    class BMutableState : BState {
+    private class BMutableState : BState {
         override var title: String by mutableStateOf("B")
     }
 

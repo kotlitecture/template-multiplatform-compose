@@ -10,8 +10,6 @@ import kotli.app.common.presentation.navigation.NavigationItem
 import kotli.app.common.presentation.navigation.NavigationMutableState
 import kotli.app.common.presentation.navigation.NavigationState
 import kotli.app.feature.a.presentation.ARoute
-import kotli.app.feature.b.presentation.BRoute
-import kotli.app.feature.c.presentation.CRoute
 import kotli.app.feature.passcode.reset.presentation.ResetPasscodeRoute
 import kotli.app.feature.passcode.set.presentation.SetPasscodeRoute
 import kotli.app.feature.showcases.ShowcasesRoute
@@ -23,6 +21,7 @@ import kotlinx.serialization.serializer
 import shared.design.component.AppSnackbarState
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
+import shared.presentation.misc.singleInstance
 import shared.presentation.viewmodel.BaseViewModel
 
 class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
@@ -125,7 +124,7 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
     @OptIn(InternalSerializationApi::class)
     private fun Any.createItemId(): Int = this::class.serializer().generateHashCode()
 
-    class AppMutableState(
+    private class AppMutableState(
         override val snackbarState: AppSnackbarState,
         override val navigationState: NavigationState,
         override val transitionDuration: Int = 100

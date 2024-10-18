@@ -9,7 +9,7 @@ import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun ThemeProvider(
-    state: ThemeMutableState,
+    state: ThemeState,
     content: @Composable () -> Unit
 ) {
     val viewModel: ThemeViewModel = provideViewModel(factory = ViewModelFactory)

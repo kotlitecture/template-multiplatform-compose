@@ -15,7 +15,7 @@ abstract class Theme {
     abstract fun apply(state: ThemeState, content: @Composable () -> Unit)
 
     companion object {
-        internal val localThemeContext = staticCompositionLocalOf<Theme> { NoThemeContext() }
+        internal val localThemeContext = staticCompositionLocalOf<Theme> { NoTheme }
 
         val current: Theme
             @Composable
@@ -24,7 +24,7 @@ abstract class Theme {
     }
 }
 
-private class NoThemeContext : Theme() {
+private object NoTheme : Theme() {
 
     override val id: String = ""
     override val dark: Boolean = false

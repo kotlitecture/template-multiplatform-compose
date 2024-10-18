@@ -21,7 +21,6 @@ val passcodeModule = module {
             encryptionSource = get()
         )
     }
-
     factory { ForgotPasscodeUseCase(get(), get()) }
     factory { GetPasscodeLengthUseCase(get()) }
     factory { GetLockStateUseCase(get()) }

@@ -2,12 +2,11 @@ package kotli.app.feature.theme.toggle.presentation
 
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
-import shared.presentation.theme.ThemeMutableState
 import shared.presentation.theme.ThemeState
 import shared.presentation.viewmodel.BaseViewModel
 
 class ToggleThemeViewModel(
-    private val themeState: ThemeMutableState
+    private val themeState: ThemeState
 ) : BaseViewModel() {
 
     private val _state = ToggleThemeMutableState(themeState)

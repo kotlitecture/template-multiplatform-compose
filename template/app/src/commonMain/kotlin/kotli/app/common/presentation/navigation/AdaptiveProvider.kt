@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
-import shared.presentation.ui.AdaptiveLayoutProvider
-import shared.presentation.ui.LayoutSize
+import shared.design.container.AppAdaptiveLayout
+import shared.design.container.LayoutSize
 
 @Composable
 @NonRestartableComposable
@@ -16,7 +16,7 @@ fun AdaptiveProvider(
     state: NavigationState,
     content: @Composable () -> Unit
 ) {
-    AdaptiveLayoutProvider { size ->
+    AppAdaptiveLayout { size ->
         when {
             size <= LayoutSize.Compact -> Bottom(state, content)
             size < LayoutSize.Large -> Rail(state, content)

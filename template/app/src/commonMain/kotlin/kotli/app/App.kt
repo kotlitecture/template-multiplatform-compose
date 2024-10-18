@@ -46,7 +46,7 @@ private fun AppContent(state: AppState, navController: NavHostController) {
                 startDestination = startDestination,
                 enterTransition = { fadeIn(animationSpec = tween(state.transitionDuration)) },
                 exitTransition = { fadeOut(animationSpec = tween(state.transitionDuration)) },
-                builder = { appRoutes(navController) }
+                builder = { appRoute(navController) }
             )
         }
     )

@@ -1,19 +1,19 @@
 package kotli.app.feature.theme.provide.presentation
 
 import androidx.compose.runtime.snapshotFlow
-import kotli.app.feature.theme.provide.domain.ThemeConfigModel
 import kotli.app.feature.theme.provide.domain.RestoreThemeUseCase
 import kotli.app.feature.theme.provide.domain.StoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.ThemeConfigModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import shared.presentation.theme.ThemeConfig
-import shared.presentation.theme.ThemeMutableState
+import shared.presentation.theme.ThemeState
 import shared.presentation.viewmodel.BaseViewModel
 
 class ThemePersistenceViewModel(
-    val state: ThemeMutableState,
+    val state: ThemeState,
     private val storeTheme: StoreThemeUseCase,
     private val restoreTheme: RestoreThemeUseCase
 ) : BaseViewModel() {

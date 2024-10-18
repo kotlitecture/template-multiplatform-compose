@@ -10,12 +10,12 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.theme.ThemeConfig
-import shared.presentation.theme.ThemeMutableState
+import shared.presentation.theme.ThemeState
 import shared.presentation.viewmodel.BaseViewModel
 
 class ChangeThemeViewModel(
     private val navigationStore: NavigationStore,
-    private val themeState: ThemeMutableState
+    private val themeState: ThemeState
 ) : BaseViewModel() {
 
     private val _state = ChangeThemeMutableState(themeState)
@@ -70,7 +70,7 @@ class ChangeThemeViewModel(
     }
 
     private data class ChangeThemeMutableState(
-        val themeState: ThemeMutableState
+        val themeState: ThemeState
     ) : ChangeThemeState {
         override var dynamic: Boolean? by mutableStateOf(null)
         override var currentConfig: ThemeConfig? by themeState::currentConfig

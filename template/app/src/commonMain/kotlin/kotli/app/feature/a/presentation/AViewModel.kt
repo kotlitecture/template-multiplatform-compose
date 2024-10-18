@@ -10,7 +10,7 @@ class AViewModel : BaseViewModel() {
     private val _state = AMutableState()
     val state: AState = _state
 
-    class AMutableState : AState {
+    private class AMutableState : AState {
         override var title: String by mutableStateOf("A")
     }
 

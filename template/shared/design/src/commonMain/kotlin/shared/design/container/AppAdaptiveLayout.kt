@@ -1,4 +1,4 @@
-package shared.presentation.ui
+package shared.design.container
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -11,12 +11,12 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import shared.presentation.ui.LayoutSize.Unknown
+import shared.design.container.LayoutSize.Unknown
 
 internal val LocalLayoutSize = compositionLocalOf { Unknown }
 
 @Composable
-fun AdaptiveLayoutProvider(
+fun AppAdaptiveLayout(
     modifier: Modifier = Modifier.fillMaxSize(),
     content: @Composable BoxScope.(size: LayoutSize) -> Unit
 ) {

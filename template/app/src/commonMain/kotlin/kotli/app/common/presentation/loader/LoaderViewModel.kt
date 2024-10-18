@@ -34,7 +34,7 @@ class LoaderViewModel(
             }
     }
 
-    class MutableLoaderState : LoaderState {
+    private class MutableLoaderState : LoaderState {
         override var loading: Boolean by mutableStateOf(false)
     }
 }

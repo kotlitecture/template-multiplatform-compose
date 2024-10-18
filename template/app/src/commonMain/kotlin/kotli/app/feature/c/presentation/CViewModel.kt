@@ -10,7 +10,7 @@ class CViewModel : BaseViewModel() {
     private val _state = CMutableState()
     val state: CState = _state
 
-    class CMutableState : CState {
+    private class CMutableState : CState {
         override var title: String by mutableStateOf("C")
     }
 
