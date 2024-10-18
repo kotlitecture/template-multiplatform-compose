@@ -83,7 +83,7 @@ class PasscodeRepositoryImpl(
     }
 
     override suspend fun check(code: String): LockState {
-        val passcode = getPasscode() ?: unknownError()
+        val passcode = getPasscode() ?: return LockState.UNLOCKED
 
         return runCatching {
             check(getRemainingUnlockAttempts() > 0) { unknownError() }
