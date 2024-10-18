@@ -1,8 +1,8 @@
 package kotli.app.feature.passcode.common.data
 
-import kotli.app.feature.passcode.common.domain.LockState
-import kotli.app.feature.passcode.common.domain.Passcode
-import kotli.app.feature.passcode.common.domain.PasscodeRepository
+import kotli.app.feature.passcode.common.domain.model.LockState
+import kotli.app.feature.passcode.common.domain.model.Passcode
+import kotli.app.feature.passcode.common.domain.repository.PasscodeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.datetime.Clock

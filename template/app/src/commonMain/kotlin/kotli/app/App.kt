@@ -20,7 +20,7 @@ import kotli.app.feature.b.domain.BRoute
 import kotli.app.feature.b.presentation.BScreen
 import kotli.app.feature.c.domain.CRoute
 import kotli.app.feature.c.presentation.CScreen
-import kotli.app.feature.passcode.provider.presentation.PasscodeProvider
+import kotli.app.feature.passcode.provide.presentation.PasscodeProvider
 import kotli.app.feature.showcases.ShowcasesRoute
 import kotli.app.feature.showcases.ShowcasesScreen
 import kotli.app.feature.theme.provide.presentation.AppThemeProvider

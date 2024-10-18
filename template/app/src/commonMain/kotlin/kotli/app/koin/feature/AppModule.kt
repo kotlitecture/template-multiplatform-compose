@@ -7,10 +7,10 @@ import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.feature.a.presentation.AViewModel
 import kotli.app.feature.b.presentation.BViewModel
 import kotli.app.feature.c.presentation.CViewModel
-import kotli.app.feature.passcode.provider.presentation.PasscodeViewModel
+import kotli.app.feature.passcode.provide.presentation.PasscodeViewModel
 import kotli.app.feature.passcode.forgot.presentation.ForgotPasscodeViewModel
-import kotli.app.feature.passcode.ui.reset.ResetPasscodeViewModel
-import kotli.app.feature.passcode.ui.set.SetPasscodeViewModel
+import kotli.app.feature.passcode.reset.presentation.ResetPasscodeViewModel
+import kotli.app.feature.passcode.set.presentation.SetPasscodeViewModel
 import kotli.app.feature.passcode.unlock.presentation.UnlockPasscodeViewModel
 import kotli.app.feature.showcases.ShowcasesViewModel
 import kotli.app.feature.showcases.dataflow.ai.gemini.GeminiViewModel

@@ -1,4 +1,4 @@
-package kotli.app.feature.passcode.unlock.presentation
+package kotli.app.feature.passcode.reset.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,19 +8,21 @@ import kotli.app.feature.passcode.common.domain.model.LockState
 import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeLengthUseCase
 import kotli.app.feature.passcode.common.domain.usecase.GetRemainingAttemptsUseCase
 import kotli.app.feature.passcode.common.domain.usecase.UnlockPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.ResetPasscodeUseCase
 import org.jetbrains.compose.resources.getString
 import shared.presentation.viewmodel.BaseViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_unlock_error
 
-class UnlockPasscodeViewModel(
+class ResetPasscodeViewModel(
+    private val resetPasscode: ResetPasscodeUseCase,
     private val unlockPasscode: UnlockPasscodeUseCase,
     private val getAttempts: GetRemainingAttemptsUseCase,
     private val getPasscodeLength: GetPasscodeLengthUseCase
 ) : BaseViewModel() {
 
-    private val _state = UnlockPasscodeMutableState()
-    val state: UnlockPasscodeState = _state
+    private val _state = ResetPasscodeMutableState()
+    val state: ResetPasscodeState = _state
 
     override fun doBind() = ui("Init state") {
         val length = getPasscodeLength.invoke()
@@ -32,15 +34,7 @@ class UnlockPasscodeViewModel(
         }
     }
 
-    fun onForgot() {
-        _state.forgot = true
-    }
-
-    fun onCancelForgot() {
-        _state.forgot = false
-    }
-
-    fun onUnlock(enteredCode: String) {
+    fun onReset(enteredCode: String, onSuccess: () -> Unit) {
         if (_state.passcodeLength == 0) return
 
         Snapshot.withMutableSnapshot {
@@ -50,11 +44,13 @@ class UnlockPasscodeViewModel(
 
         if (enteredCode.length != _state.passcodeLength) return
 
-        async("Unlock passcode", force = true) {
+        async("Reset passcode", force = true) {
             try {
                 _state.loading = true
-                val lockState = unlockPasscode.invoke(enteredCode)
-                if (lockState == LockState.LOCKED) {
+                if (unlockPasscode.invoke(enteredCode) == LockState.UNLOCKED) {
+                    resetPasscode.invoke()
+                    onSuccess()
+                } else {
                     val attempts = getAttempts.invoke()
                     val error = getString(Res.string.passcode_unlock_error, attempts)
                     Snapshot.withMutableSnapshot {
@@ -69,9 +65,8 @@ class UnlockPasscodeViewModel(
         }
     }
 
-    private class UnlockPasscodeMutableState : UnlockPasscodeState {
+    private class ResetPasscodeMutableState : ResetPasscodeState {
         override var error: String? by mutableStateOf(null)
-        override var forgot: Boolean by mutableStateOf(false)
         override var loading: Boolean by mutableStateOf(false)
         override var enteredCode: String by mutableStateOf("")
         override var passcodeLength: Int by mutableStateOf(0)

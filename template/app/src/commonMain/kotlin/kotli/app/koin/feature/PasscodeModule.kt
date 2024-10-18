@@ -1,16 +1,16 @@
 package kotli.app.koin.feature
 
 import kotli.app.feature.passcode.common.data.PasscodeRepositoryImpl
-import kotli.app.feature.passcode.common.domain.PasscodeRepository
-import kotli.app.feature.passcode.forgot.domain.ForgotPasscodeUseCase
-import kotli.app.feature.passcode.provider.domain.GetPasscodeUseCase
-import kotli.app.feature.passcode.provider.domain.UpdatePasscodeUseCase
-import kotli.app.feature.passcode.unlock.domain.GetPasscodeLengthUseCase
-import kotli.app.feature.passcode.unlock.domain.GetRemainingAttemptsUseCase
-import kotli.app.feature.passcode.usecase.IsPasscodeSet
-import kotli.app.feature.passcode.usecase.ResetPasscode
-import kotli.app.feature.passcode.usecase.SetPasscode
-import kotli.app.feature.passcode.common.domain.UnlockPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.repository.PasscodeRepository
+import kotli.app.feature.passcode.common.domain.usecase.ForgotPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.UpdatePasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeLengthUseCase
+import kotli.app.feature.passcode.common.domain.usecase.GetRemainingAttemptsUseCase
+import kotli.app.feature.passcode.common.domain.usecase.IsPasscodeSetUseCase
+import kotli.app.feature.passcode.common.domain.usecase.ResetPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.SetPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.UnlockPasscodeUseCase
 import org.koin.dsl.module
 
 val passcodeModule = module {
@@ -21,13 +21,13 @@ val passcodeModule = module {
         )
     }
 
-    factory { SetPasscode(get()) }
-    factory { ResetPasscode(get()) }
-    factory { IsPasscodeSet(get()) }
-    factory { UnlockPasscodeUseCase(get()) }
-    factory { GetPasscodeUseCase(get()) }
-    factory { UpdatePasscodeUseCase(get()) }
     factory { ForgotPasscodeUseCase(get(), get()) }
     factory { GetPasscodeLengthUseCase(get()) }
+    factory { GetPasscodeUseCase(get()) }
     factory { GetRemainingAttemptsUseCase(get()) }
+    factory { IsPasscodeSetUseCase(get()) }
+    factory { ResetPasscodeUseCase(get()) }
+    factory { SetPasscodeUseCase(get()) }
+    factory { UnlockPasscodeUseCase(get()) }
+    factory { UpdatePasscodeUseCase(get()) }
 }

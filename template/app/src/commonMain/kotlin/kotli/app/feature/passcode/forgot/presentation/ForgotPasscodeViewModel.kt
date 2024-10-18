@@ -3,7 +3,7 @@ package kotli.app.feature.passcode.forgot.presentation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import kotli.app.feature.passcode.forgot.domain.ForgotPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.ForgotPasscodeUseCase
 import shared.presentation.viewmodel.BaseViewModel
 
 class ForgotPasscodeViewModel(
