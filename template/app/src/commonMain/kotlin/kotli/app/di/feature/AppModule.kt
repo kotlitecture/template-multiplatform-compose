@@ -8,11 +8,11 @@ import kotli.app.feature.a.presentation.AViewModel
 import kotli.app.feature.b.presentation.BViewModel
 import kotli.app.feature.c.presentation.CViewModel
 import kotli.app.di.platform.createRoomCrudViewModel
-import kotli.app.presentation.passcode.PasscodeViewModel
-import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
-import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel
-import kotli.app.presentation.passcode.ui.set.SetPasscodeViewModel
-import kotli.app.presentation.passcode.ui.unlock.UnlockPasscodeViewModel
+import kotli.app.feature.passcode.PasscodeViewModel
+import kotli.app.feature.passcode.ui.forgot.ForgotPasscodeViewModel
+import kotli.app.feature.passcode.ui.reset.ResetPasscodeViewModel
+import kotli.app.feature.passcode.ui.set.SetPasscodeViewModel
+import kotli.app.feature.passcode.ui.unlock.UnlockPasscodeViewModel
 import kotli.app.presentation.showcases.ShowcasesViewModel
 import kotli.app.presentation.showcases.dataflow.ai.gemini.GeminiViewModel
 import kotli.app.presentation.showcases.dataflow.cache.basic.BasicCacheViewModel
@@ -33,8 +33,8 @@ import kotli.app.presentation.showcases.userflow.navigation.args.to.ArgsNavigati
 import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
 import kotli.app.feature.theme.change.presentation.ChangeThemeViewModel
-import kotli.app.feature.theme.provide.presentation.AppThemePersistenceViewModel
-import kotli.app.feature.theme.provide.presentation.AppThemeViewModel
+import kotli.app.feature.theme.provide.presentation.ThemePersistenceViewModel
+import kotli.app.feature.theme.provide.presentation.ThemeViewModel
 import kotli.app.feature.theme.toggle.presentation.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarState
@@ -50,8 +50,8 @@ val appModule = module {
             initializer { CViewModel() }
             initializer { ShowcasesViewModel(get()) }
             initializer { AppViewModel(get()) }
-            initializer { AppThemeViewModel(get()) }
-            initializer { AppThemePersistenceViewModel(get(), get(), get()) }
+            initializer { ThemeViewModel(get()) }
+            initializer { ThemePersistenceViewModel(get(), get(), get()) }
             initializer { ChangeThemeViewModel(get(), get()) }
             initializer { ToggleThemeViewModel(get()) }
             initializer { BasicPagingViewModel(get(), get()) }

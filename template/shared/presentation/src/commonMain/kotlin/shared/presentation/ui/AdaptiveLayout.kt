@@ -13,15 +13,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import shared.presentation.ui.LayoutSize.Unknown
 
-/** Local composition used to access the current [LayoutSize]. */
 internal val LocalLayoutSize = compositionLocalOf { Unknown }
 
-/**
- * Provides the size of its containing view to its children.
- *
- * @param modifier Modifier to be applied to the view size provider.
- * @param content Composable lambda to be executed with the view size as a parameter.
- */
 @Composable
 fun AdaptiveLayoutProvider(
     modifier: Modifier = Modifier.fillMaxSize(),
@@ -50,7 +43,6 @@ enum class LayoutSize {
     ;
 
     companion object {
-        /** Returns the current [LayoutSize] in the composition. */
         val current: LayoutSize
             @Composable
             @ReadOnlyComposable

@@ -1,13 +1,13 @@
 package kotli.app.di.feature
 
-import kotli.app.presentation.passcode.model.PasscodeStore
-import kotli.app.presentation.passcode.usecase.ForgotPasscode
-import kotli.app.presentation.passcode.usecase.InitPasscode
-import kotli.app.presentation.passcode.usecase.IsPasscodeSet
-import kotli.app.presentation.passcode.usecase.PausePasscode
-import kotli.app.presentation.passcode.usecase.ResetPasscode
-import kotli.app.presentation.passcode.usecase.SetPasscode
-import kotli.app.presentation.passcode.usecase.UnlockPasscode
+import kotli.app.feature.passcode.model.PasscodeStore
+import kotli.app.feature.passcode.usecase.ForgotPasscode
+import kotli.app.feature.passcode.usecase.InitPasscode
+import kotli.app.feature.passcode.usecase.IsPasscodeSet
+import kotli.app.feature.passcode.usecase.PausePasscode
+import kotli.app.feature.passcode.usecase.ResetPasscode
+import kotli.app.feature.passcode.usecase.SetPasscode
+import kotli.app.feature.passcode.usecase.UnlockPasscode
 import org.koin.dsl.module
 
 val passcodeModule = module {

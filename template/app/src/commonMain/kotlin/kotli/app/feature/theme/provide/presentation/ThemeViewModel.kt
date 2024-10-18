@@ -1,0 +1,11 @@
+package kotli.app.feature.theme.provide.presentation
+
+import shared.presentation.theme.ThemeMutableState
+import shared.presentation.viewmodel.BaseViewModel
+
+class ThemeViewModel(val state: ThemeMutableState) : BaseViewModel() {
+
+    init {
+        state.currentConfig = state.defaultConfig
+    }
+}
