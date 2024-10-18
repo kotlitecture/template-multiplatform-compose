@@ -1,9 +1,9 @@
 package kotli.app.feature.passcode.ui.reset
 
-import kotli.app.feature.passcode.model.LockState
+import kotli.app.feature.passcode.common.domain.LockState
 import kotli.app.feature.passcode.model.PasscodeStore
 import kotli.app.feature.passcode.usecase.ResetPasscode
-import kotli.app.feature.passcode.usecase.UnlockPasscode
+import kotli.app.feature.passcode.common.domain.UnlockPasscodeUseCase
 import org.jetbrains.compose.resources.getString
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
@@ -13,7 +13,7 @@ import template.app.generated.resources.passcode_unlock_error
 
 class ResetPasscodeViewModel(
     private val navigationStore: NavigationStore,
-    private val unlockPasscode: UnlockPasscode,
+    private val unlockPasscode: UnlockPasscodeUseCase,
     private val resetPasscode: ResetPasscode,
     private val passcodeStore: PasscodeStore
 ) : BaseViewModel() {

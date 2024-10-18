@@ -1,4 +1,4 @@
-package kotli.app.feature.passcode.ui.common
+package kotli.app.feature.passcode.common.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -22,15 +22,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import shared.design.component.AppText
 import shared.design.theme.AppTheme
-import shared.presentation.store.DataState
 
 @Composable
 fun PasscodeDots(
     modifier: Modifier = Modifier,
-    codeState: DataState<String>,
-    errorState: DataState<String>? = null,
+    codeLength: Int,
     title: String? = null,
-    codeLength: Int = 4
+    getCode: () -> String?,
+    getError: () -> String?
 ) {
     Column(
         modifier = modifier.padding(horizontal = 16.dp),
@@ -50,10 +49,10 @@ fun PasscodeDots(
         DotsBlock(
             modifier = Modifier.fillMaxWidth(),
             codeLength = codeLength,
-            code = codeState
+            getCode = getCode
         )
         Box(modifier = Modifier.heightIn(min = 24.dp)) {
-            errorState?.let { ErrorBlock(errorState) }
+            ErrorBlock(getError)
         }
     }
 }
@@ -61,21 +60,23 @@ fun PasscodeDots(
 @Composable
 private fun DotsBlock(
     modifier: Modifier = Modifier,
-    code: DataState<String>,
+    getCode: () -> String?,
     codeLength: Int,
 ) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
     ) {
-        val value = code.asStateValue().orEmpty()
+        val value = getCode().orEmpty()
         repeat(codeLength) { idx -> DotBlock(idx <= value.length - 1) }
     }
 }
 
 @Composable
-private fun ErrorBlock(errorState: DataState<String>) {
-    val error = errorState.asStateValue() ?: return
+private fun ErrorBlock(
+    getError: () -> String?
+) {
+    val error = getError() ?: return
     AppText(
         text = error,
         maxLines = 1,

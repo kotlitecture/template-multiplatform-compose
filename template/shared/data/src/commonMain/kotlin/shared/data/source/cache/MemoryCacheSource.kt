@@ -21,7 +21,6 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.Clock
 import shared.data.misc.isCancellationException
-import kotlin.jvm.Transient
 import kotlin.reflect.KClass
 
 /**

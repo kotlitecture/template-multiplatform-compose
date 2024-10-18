@@ -1,10 +1,10 @@
 package kotli.app.feature.passcode.ui.set
 
-import kotli.app.feature.passcode.model.LockState
+import kotli.app.feature.passcode.common.domain.LockState
 import kotli.app.feature.passcode.model.PasscodeStore
 import kotli.app.feature.passcode.usecase.IsPasscodeSet
 import kotli.app.feature.passcode.usecase.SetPasscode
-import kotli.app.feature.passcode.usecase.UnlockPasscode
+import kotli.app.feature.passcode.common.domain.UnlockPasscodeUseCase
 import org.jetbrains.compose.resources.getString
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.store.DataState
@@ -15,7 +15,7 @@ import template.app.generated.resources.passcode_unlock_error
 
 class SetPasscodeViewModel(
     private val navigationStore: NavigationStore,
-    private val unlockPasscode: UnlockPasscode,
+    private val unlockPasscode: UnlockPasscodeUseCase,
     private val isPasscodeSet: IsPasscodeSet,
     private val passcodeStore: PasscodeStore,
     private val setPasscode: SetPasscode,

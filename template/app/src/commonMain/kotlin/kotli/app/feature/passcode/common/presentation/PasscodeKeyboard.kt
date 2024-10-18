@@ -1,4 +1,4 @@
-package kotli.app.feature.passcode.ui.common
+package kotli.app.feature.passcode.common.presentation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -33,7 +33,6 @@ import shared.design.component.AppText
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
 import shared.design.theme.AppTheme
-import shared.presentation.store.DataState
 
 private val numberSize = 48.sp
 private val actionSize = 72.dp
@@ -42,14 +41,14 @@ private val actionSpace = 24.dp
 @Composable
 fun PasscodeKeyboard(
     modifier: Modifier = Modifier,
-    title: String? = null,
-    codeState: DataState<String>,
-    errorState: DataState<String>? = null,
     codeLength: Int,
+    title: String? = null,
+    getCode: () -> String?,
+    getError: () -> String?,
     onCodeChange: (code: String) -> Unit,
     bottomLeftBlock: @Composable (size: Dp) -> Unit = {},
     bottomRightBlock: @Composable (size: Dp) -> Unit = {
-        EraseBlock(codeState, onCodeChange)
+        EraseBlock(getCode, onCodeChange)
     }
 ) {
     Column(
@@ -61,30 +60,30 @@ fun PasscodeKeyboard(
     ) {
         PasscodeDots(
             title = title,
-            codeState = codeState,
-            errorState = errorState,
+            getCode = getCode,
+            getError = getError,
             codeLength = codeLength
         )
         Row(horizontalArrangement = Arrangement.spacedBy(actionSpace)) {
-            PadNumberButton(1, codeLength, codeState, onCodeChange)
-            PadNumberButton(2, codeLength, codeState, onCodeChange)
-            PadNumberButton(3, codeLength, codeState, onCodeChange)
+            PadNumberButton(1, codeLength, getCode, onCodeChange)
+            PadNumberButton(2, codeLength, getCode, onCodeChange)
+            PadNumberButton(3, codeLength, getCode, onCodeChange)
         }
         Row(horizontalArrangement = Arrangement.spacedBy(actionSpace)) {
-            PadNumberButton(4, codeLength, codeState, onCodeChange)
-            PadNumberButton(5, codeLength, codeState, onCodeChange)
-            PadNumberButton(6, codeLength, codeState, onCodeChange)
+            PadNumberButton(4, codeLength, getCode, onCodeChange)
+            PadNumberButton(5, codeLength, getCode, onCodeChange)
+            PadNumberButton(6, codeLength, getCode, onCodeChange)
         }
         Row(horizontalArrangement = Arrangement.spacedBy(actionSpace)) {
-            PadNumberButton(7, codeLength, codeState, onCodeChange)
-            PadNumberButton(8, codeLength, codeState, onCodeChange)
-            PadNumberButton(9, codeLength, codeState, onCodeChange)
+            PadNumberButton(7, codeLength, getCode, onCodeChange)
+            PadNumberButton(8, codeLength, getCode, onCodeChange)
+            PadNumberButton(9, codeLength, getCode, onCodeChange)
         }
         Row(horizontalArrangement = Arrangement.spacedBy(actionSpace)) {
             Box(modifier = Modifier.size(actionSize)) {
                 bottomLeftBlock(actionSize)
             }
-            PadNumberButton(0, codeLength, codeState, onCodeChange)
+            PadNumberButton(0, codeLength, getCode, onCodeChange)
             Box(modifier = Modifier.size(actionSize)) {
                 bottomRightBlock(actionSize)
             }
@@ -112,14 +111,13 @@ fun PadTextButton(
 fun PadNumberButton(
     number: Int,
     codeLength: Int,
-    codeState: DataState<String>,
+    getCode: () -> String?,
     onCodeChange: (code: String) -> Unit
 ) {
     PadButton(
         backgroundColor = AppTheme.current.surface,
         onClick = {
-            codeState.get().orEmpty()
-                .let { code -> code + number }
+            (getCode().orEmpty() + number)
                 .takeIf { code -> code.length <= codeLength }
                 ?.let(onCodeChange)
         }
@@ -175,18 +173,22 @@ fun PadButton(
 }
 
 @Composable
-fun EraseBlock(codeState: DataState<String>, onCodeChange: (code: String) -> Unit) {
+fun EraseBlock(
+    getCode: () -> String?,
+    onCodeChange: (code: String) -> Unit
+) {
     Box(modifier = Modifier.size(actionSize)) {
+        val code = getCode()
         AnimatedVisibility(
             modifier = Modifier.size(actionSize),
             enter = scaleIn() + fadeIn(),
             exit = scaleOut() + fadeOut(),
-            visible = !codeState.asStateValue().isNullOrEmpty()
+            visible = !code.isNullOrEmpty()
         ) {
             PadIconButton(
                 icon = AppIcons.backspace,
                 onClick = {
-                    codeState.get()
+                    code
                         ?.takeIf { code -> code.isNotEmpty() }
                         ?.let { code -> code.take(code.length - 1) }
                         ?.let(onCodeChange)

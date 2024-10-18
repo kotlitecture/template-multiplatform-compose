@@ -1,6 +1,5 @@
-package kotli.app.feature.theme.provide.domain.usecase
+package kotli.app.feature.theme.provide.domain
 
-import kotli.app.feature.theme.provide.domain.model.ThemeConfigModel
 import shared.data.serialization.SerializationStrategy
 import shared.data.source.keyvalue.KeyValueSource
 

@@ -1,4 +1,4 @@
-package kotli.app.feature.theme.provide.domain.model
+package kotli.app.feature.theme.provide.domain
 
 import kotlinx.serialization.Serializable
 

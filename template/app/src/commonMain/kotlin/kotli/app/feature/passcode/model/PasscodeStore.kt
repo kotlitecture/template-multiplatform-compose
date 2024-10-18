@@ -1,5 +1,7 @@
 package kotli.app.feature.passcode.model
 
+import kotli.app.feature.passcode.common.domain.LockState
+import kotli.app.feature.passcode.common.domain.Passcode
 import shared.data.source.encryption.EncryptionMethod
 import shared.presentation.store.DataState
 import shared.presentation.store.Store
@@ -22,7 +24,7 @@ data class PasscodeStore(
     val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::PBKDF2
 ) : Store() {
 
-    val passcodeState = DataState<PasscodeState>()
+    val passcodeState = DataState<Passcode>()
     val lockState = DataState(LockState.UNDEFINED)
 
     fun getRemainingUnlockAttempts(): Int {

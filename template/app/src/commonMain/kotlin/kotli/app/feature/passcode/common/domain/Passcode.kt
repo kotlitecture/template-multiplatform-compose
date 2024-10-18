@@ -1,12 +1,9 @@
-package kotli.app.feature.passcode.model
+package kotli.app.feature.passcode.common.domain
 
 import kotlinx.serialization.Serializable
 
-/**
- * Data class representing passcode state.
- * */
 @Serializable
-data class PasscodeState(
+data class Passcode(
     val salt: String,
     val encodedCode: String,
     val unlockAttempts: Int,

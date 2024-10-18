@@ -1,4 +1,4 @@
-package kotli.app.feature.passcode.model
+package kotli.app.feature.passcode.common.domain
 
 enum class LockState {
 

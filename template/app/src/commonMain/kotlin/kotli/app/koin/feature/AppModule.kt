@@ -7,12 +7,11 @@ import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.feature.a.presentation.AViewModel
 import kotli.app.feature.b.presentation.BViewModel
 import kotli.app.feature.c.presentation.CViewModel
-import kotli.app.koin.platform.createRoomCrudViewModel
-import kotli.app.feature.passcode.PasscodeViewModel
-import kotli.app.feature.passcode.ui.forgot.ForgotPasscodeViewModel
+import kotli.app.feature.passcode.provider.presentation.PasscodeViewModel
+import kotli.app.feature.passcode.forgot.presentation.ForgotPasscodeViewModel
 import kotli.app.feature.passcode.ui.reset.ResetPasscodeViewModel
 import kotli.app.feature.passcode.ui.set.SetPasscodeViewModel
-import kotli.app.feature.passcode.ui.unlock.UnlockPasscodeViewModel
+import kotli.app.feature.passcode.unlock.presentation.UnlockPasscodeViewModel
 import kotli.app.feature.showcases.ShowcasesViewModel
 import kotli.app.feature.showcases.dataflow.ai.gemini.GeminiViewModel
 import kotli.app.feature.showcases.dataflow.cache.basic.BasicCacheViewModel
@@ -36,6 +35,7 @@ import kotli.app.feature.theme.change.presentation.ChangeThemeViewModel
 import kotli.app.feature.theme.provide.presentation.ThemePersistenceViewModel
 import kotli.app.feature.theme.provide.presentation.ThemeViewModel
 import kotli.app.feature.theme.toggle.presentation.ToggleThemeViewModel
+import kotli.app.koin.platform.createRoomCrudViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarState
 import shared.presentation.navigation.NavigationStore
@@ -69,11 +69,11 @@ val appModule = module {
             initializer { BasicCacheViewModel(get(), get()) }
             initializer { PlaceholderShowcaseViewModel(get()) }
             initializer { BasicEncryptionViewModel(get(), get()) }
-            initializer { PasscodeViewModel(get(), get(), get(), get()) }
+            initializer { PasscodeViewModel(get(), get()) }
             initializer { CoilShowcaseViewModel(get()) }
             initializer { SetPasscodeViewModel(get(), get(), get(), get(), get()) }
             initializer { ResetPasscodeViewModel(get(), get(), get(), get()) }
-            initializer { UnlockPasscodeViewModel(get(), get()) }
+            initializer { UnlockPasscodeViewModel(get(), get(), get()) }
             initializer { ForgotPasscodeViewModel(get()) }
             initializer { MarkdownShowcaseViewModel(get()) }
             initializer { FilePickerShowcaseViewModel(get()) }

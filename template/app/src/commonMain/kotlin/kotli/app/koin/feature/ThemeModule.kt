@@ -1,7 +1,7 @@
 package kotli.app.koin.feature
 
-import kotli.app.feature.theme.provide.domain.usecase.RestoreThemeUseCase
-import kotli.app.feature.theme.provide.domain.usecase.StoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.RestoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.StoreThemeUseCase
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import shared.design.theme.DarkThemeContext
@@ -11,8 +11,6 @@ import shared.presentation.theme.ThemeMutableState
 import shared.presentation.theme.ThemeState
 
 val themeModule = module {
-    single { StoreThemeUseCase(get()) }
-    single { RestoreThemeUseCase(get()) }
     single<ThemeMutableState> {
         ThemeMutableState(
             defaultConfig = ThemeConfig(
@@ -22,4 +20,7 @@ val themeModule = module {
             )
         )
     }.bind(ThemeState::class)
+
+    single { StoreThemeUseCase(get()) }
+    single { RestoreThemeUseCase(get()) }
 }
