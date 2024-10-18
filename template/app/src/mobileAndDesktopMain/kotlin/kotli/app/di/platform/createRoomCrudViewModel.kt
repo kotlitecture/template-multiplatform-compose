@@ -3,8 +3,8 @@ package kotli.app.di.platform
 import kotli.app.common.data.source.database.room.AppRoomSource
 import kotli.app.common.data.source.database.room.entity.User
 import kotli.app.di.get
-import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudViewModel
-import kotli.app.presentation.showcases.dataflow.room.crud.model.UserData
+import kotli.app.feature.showcases.dataflow.room.crud.RoomCrudViewModel
+import kotli.app.feature.showcases.dataflow.room.crud.model.UserData
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
 import shared.presentation.navigation.NavigationStore

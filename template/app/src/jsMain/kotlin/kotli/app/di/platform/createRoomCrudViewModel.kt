@@ -1,8 +1,8 @@
 package kotli.app.di.platform
 
 import kotli.app.di.get
-import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudViewModel
-import kotli.app.presentation.showcases.dataflow.room.crud.model.UserData
+import kotli.app.feature.showcases.dataflow.room.crud.RoomCrudViewModel
+import kotli.app.feature.showcases.dataflow.room.crud.model.UserData
 import shared.design.component.AppSnackbarState
 import shared.presentation.navigation.NavigationStore
 

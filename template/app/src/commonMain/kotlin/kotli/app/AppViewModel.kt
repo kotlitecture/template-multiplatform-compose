@@ -11,7 +11,7 @@ import kotli.app.common.presentation.navigation.NavigationState
 import kotli.app.feature.a.domain.ARoute
 import kotli.app.feature.b.domain.BRoute
 import kotli.app.feature.c.domain.CRoute
-import kotli.app.presentation.showcases.ShowcasesRoute
+import kotli.app.feature.showcases.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
