@@ -4,7 +4,7 @@ import kotli.app.feature.passcode.common.domain.model.LockState
 import kotli.app.feature.passcode.common.domain.repository.PasscodeRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetPasscodeUseCase(
+class GetLockStateUseCase(
     private val repository: PasscodeRepository
 ) {
 

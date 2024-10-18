@@ -10,5 +10,6 @@ interface SetPasscodeState {
     val enteredCode: String
     val passcodeLength: Int
     val step: SetPasscodeStep?
+    val event: SetPasscodeEvent?
 
 }

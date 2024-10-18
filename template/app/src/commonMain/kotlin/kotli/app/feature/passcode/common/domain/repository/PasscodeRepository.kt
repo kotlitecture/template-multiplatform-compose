@@ -14,6 +14,8 @@ interface PasscodeRepository {
 
     suspend fun unlock(code: String): LockState
 
+    suspend fun check(code: String): LockState
+
     suspend fun setPasscode(passcode: Passcode)
 
     suspend fun getPasscode(): Passcode?

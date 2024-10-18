@@ -1,7 +1,7 @@
-package kotli.app.feature.b.domain
+package kotli.app.feature.c.presentation
 
 import kotli.app.AppRoute
 import kotlinx.serialization.Serializable
 
 @Serializable
-object BRoute : AppRoute
+object CRoute : AppRoute

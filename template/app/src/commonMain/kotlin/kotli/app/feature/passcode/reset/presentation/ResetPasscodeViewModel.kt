@@ -7,8 +7,8 @@ import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.feature.passcode.common.domain.model.LockState
 import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeLengthUseCase
 import kotli.app.feature.passcode.common.domain.usecase.GetRemainingAttemptsUseCase
-import kotli.app.feature.passcode.common.domain.usecase.UnlockPasscodeUseCase
 import kotli.app.feature.passcode.common.domain.usecase.ResetPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.UnlockPasscodeUseCase
 import org.jetbrains.compose.resources.getString
 import shared.presentation.viewmodel.BaseViewModel
 import template.app.generated.resources.Res
@@ -34,7 +34,7 @@ class ResetPasscodeViewModel(
         }
     }
 
-    fun onReset(enteredCode: String, onSuccess: () -> Unit) {
+    fun onReset(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
         Snapshot.withMutableSnapshot {
@@ -49,7 +49,7 @@ class ResetPasscodeViewModel(
                 _state.loading = true
                 if (unlockPasscode.invoke(enteredCode) == LockState.UNLOCKED) {
                     resetPasscode.invoke()
-                    onSuccess()
+                    _state.event = ResetPasscodeEvent.Complete
                 } else {
                     val attempts = getAttempts.invoke()
                     val error = getString(Res.string.passcode_unlock_error, attempts)
@@ -70,5 +70,6 @@ class ResetPasscodeViewModel(
         override var loading: Boolean by mutableStateOf(false)
         override var enteredCode: String by mutableStateOf("")
         override var passcodeLength: Int by mutableStateOf(0)
+        override var event: ResetPasscodeEvent? by mutableStateOf(null)
     }
 }

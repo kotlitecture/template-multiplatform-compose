@@ -9,9 +9,10 @@ import androidx.navigation.serialization.generateHashCode
 import kotli.app.common.presentation.navigation.NavigationItem
 import kotli.app.common.presentation.navigation.NavigationMutableState
 import kotli.app.common.presentation.navigation.NavigationState
-import kotli.app.feature.a.domain.ARoute
-import kotli.app.feature.b.domain.BRoute
-import kotli.app.feature.c.domain.CRoute
+import kotli.app.feature.a.presentation.ARoute
+import kotli.app.feature.b.presentation.BRoute
+import kotli.app.feature.c.presentation.CRoute
+import kotli.app.feature.passcode.set.presentation.SetPasscodeRoute
 import kotli.app.feature.showcases.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -94,7 +95,7 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
             inactiveIcon = AppIcons.localDrink,
         ),
         createItem(
-            route = CRoute,
+            route = SetPasscodeRoute,
             onRoute = onRoute,
             label = "Page C",
             activeIcon = AppIcons.coffee,

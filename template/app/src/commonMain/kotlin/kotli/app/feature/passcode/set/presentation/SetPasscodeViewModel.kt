@@ -5,11 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.feature.passcode.common.domain.model.LockState
+import kotli.app.feature.passcode.common.domain.usecase.CheckPasscodeUseCase
 import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeLengthUseCase
 import kotli.app.feature.passcode.common.domain.usecase.GetRemainingAttemptsUseCase
 import kotli.app.feature.passcode.common.domain.usecase.IsPasscodeSetUseCase
 import kotli.app.feature.passcode.common.domain.usecase.SetPasscodeUseCase
-import kotli.app.feature.passcode.common.domain.usecase.UnlockPasscodeUseCase
 import org.jetbrains.compose.resources.getString
 import shared.presentation.viewmodel.BaseViewModel
 import template.app.generated.resources.Res
@@ -19,7 +19,7 @@ import template.app.generated.resources.passcode_unlock_error
 class SetPasscodeViewModel(
     private val setPasscode: SetPasscodeUseCase,
     private val isPasscodeSet: IsPasscodeSetUseCase,
-    private val unlockPasscode: UnlockPasscodeUseCase,
+    private val checkPasscode: CheckPasscodeUseCase,
     private val getAttempts: GetRemainingAttemptsUseCase,
     private val getPasscodeLength: GetPasscodeLengthUseCase
 ) : BaseViewModel() {
@@ -29,7 +29,7 @@ class SetPasscodeViewModel(
 
     override fun doBind() = async("Init state") {
         val length = getPasscodeLength.invoke()
-        val state = if (isPasscodeSet.invoke()) {
+        val step = if (isPasscodeSet.invoke()) {
             SetPasscodeStep.UnlockExisting()
         } else {
             SetPasscodeStep.EnterNew()
@@ -39,11 +39,11 @@ class SetPasscodeViewModel(
             _state.enteredCode = ""
             _state.loading = false
             _state.error = null
-            _state.step = state
+            _state.step = step
         }
     }
 
-    fun onEnter(enteredCode: String, onComplete: () -> Unit) {
+    fun onEnter(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
         Snapshot.withMutableSnapshot {
@@ -57,12 +57,7 @@ class SetPasscodeViewModel(
             try {
                 _state.loading = true
                 when (val step = _state.step) {
-                    is SetPasscodeStep.ConfirmNew -> onConfirmNew(
-                        step.code,
-                        enteredCode,
-                        onComplete
-                    )
-
+                    is SetPasscodeStep.ConfirmNew -> onConfirmNew(step.code, enteredCode)
                     is SetPasscodeStep.UnlockExisting -> onUnlockExisting(enteredCode)
                     is SetPasscodeStep.EnterNew -> onEnterNew(enteredCode)
                     else -> Unit
@@ -74,7 +69,7 @@ class SetPasscodeViewModel(
     }
 
     private suspend fun onUnlockExisting(enteredCode: String) {
-        if (unlockPasscode.invoke(enteredCode) == LockState.LOCKED) {
+        if (checkPasscode.invoke(enteredCode) == LockState.LOCKED) {
             val attempts = getAttempts.invoke()
             val error = getString(Res.string.passcode_unlock_error, attempts)
             Snapshot.withMutableSnapshot {
@@ -101,8 +96,7 @@ class SetPasscodeViewModel(
 
     private suspend fun onConfirmNew(
         expectedCode: String,
-        enteredCode: String,
-        onComplete: () -> Unit
+        enteredCode: String
     ) {
         if (enteredCode != expectedCode) {
             Snapshot.withMutableSnapshot {
@@ -113,7 +107,7 @@ class SetPasscodeViewModel(
             }
         } else {
             setPasscode.invoke(enteredCode)
-            onComplete()
+            _state.event = SetPasscodeEvent.Complete
         }
     }
 
@@ -123,5 +117,6 @@ class SetPasscodeViewModel(
         override var enteredCode: String by mutableStateOf("")
         override var passcodeLength: Int by mutableStateOf(0)
         override var step: SetPasscodeStep? by mutableStateOf(null)
+        override var event: SetPasscodeEvent? by mutableStateOf(null)
     }
 }

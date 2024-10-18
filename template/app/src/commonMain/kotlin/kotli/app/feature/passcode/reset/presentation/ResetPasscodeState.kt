@@ -9,5 +9,6 @@ interface ResetPasscodeState {
     val loading: Boolean
     val enteredCode: String
     val passcodeLength: Int
+    val event: ResetPasscodeEvent?
 
 }

@@ -6,5 +6,6 @@ import androidx.compose.runtime.Stable
 interface ForgotPasscodeState {
 
     val loading: Boolean
+    val event: ForgotPasscodeEvent?
 
 }

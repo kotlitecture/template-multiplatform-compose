@@ -4,13 +4,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import kotli.app.feature.passcode.common.domain.model.LockState
-import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeUseCase
+import kotli.app.feature.passcode.common.domain.usecase.GetLockStateUseCase
 import kotli.app.feature.passcode.common.domain.usecase.UpdatePasscodeUseCase
 import kotlinx.coroutines.flow.collectLatest
 import shared.presentation.viewmodel.BaseViewModel
 
 class PasscodeViewModel(
-    private val getPasscode: GetPasscodeUseCase,
+    private val getLockState: GetLockStateUseCase,
     private val updatePasscode: UpdatePasscodeUseCase
 ) : BaseViewModel() {
 
@@ -26,7 +26,7 @@ class PasscodeViewModel(
     }
 
     private fun init() = async("Init passcode", true) {
-        getPasscode.invoke().collectLatest { lockState ->
+        getLockState.invoke().collectLatest { lockState ->
             _state.lockState = lockState
         }
     }

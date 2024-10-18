@@ -5,12 +5,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotli.app.feature.a.domain.ARoute
 import shared.design.component.AppText
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun AScreen(route: ARoute) {
+fun AScreen() {
     val viewModel: AViewModel = provideViewModel()
     val state = viewModel.state
 

@@ -82,7 +82,7 @@ class PasscodeRepositoryImpl(
         lockStateFlow.value = LockState.UNLOCKED
     }
 
-    override suspend fun unlock(code: String): LockState {
+    override suspend fun check(code: String): LockState {
         val passcode = getPasscode() ?: unknownError()
 
         return runCatching {
@@ -110,6 +110,12 @@ class PasscodeRepositoryImpl(
 
             LockState.LOCKED
         }
+    }
+
+    override suspend fun unlock(code: String): LockState {
+        lockStateFlow.value = check(code)
+
+        return lockStateFlow.value
     }
 
     private fun unknownError(): Nothing = error("unknown error")
