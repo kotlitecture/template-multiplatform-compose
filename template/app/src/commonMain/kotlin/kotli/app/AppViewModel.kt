@@ -8,7 +8,10 @@ import androidx.navigation.NavHostController
 import kotli.app.common.presentation.navigation.NavigationItem
 import kotli.app.common.presentation.navigation.NavigationMutableState
 import kotli.app.common.presentation.navigation.NavigationState
-import kotli.app.presentation.showcases.Showcases
+import kotli.app.feature.a.domain.ARoute
+import kotli.app.feature.b.domain.BRoute
+import kotli.app.feature.c.domain.CRoute
+import kotli.app.presentation.showcases.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
@@ -32,7 +35,7 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
         configure(
             items = items,
             startDestination = startDestination,
-            selected = itemsById[startDestination.getNavigationId()],
+            selected = itemsById[startDestination.createItemId()],
         )
 
         navController.currentBackStackEntryFlow
@@ -52,10 +55,8 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
     }
 
     private fun getStartDestination(): Any {
-        return Showcases
+        return ShowcasesRoute
     }
-
-    private fun Any.getNavigationId(): String = this::class.qualifiedName.orEmpty()
 
     private fun configure(
         startDestination: Any,
@@ -73,7 +74,7 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
     private fun createItems(onRoute: (route: Any) -> Unit) = listOf(
         // start {showcases}
         createItem(
-            route = Showcases,
+            route = ShowcasesRoute,
             onRoute = onRoute,
             label = "Showcases",
             activeIcon = AppIcons.school,
@@ -81,23 +82,23 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
         ),
         // end {showcases}
         createItem(
-            route = Showcases,
+            route = ARoute,
             onRoute = onRoute,
-            label = "Page 1",
+            label = "Page A",
             activeIcon = AppIcons.wineBar,
             inactiveIcon = AppIcons.wineBar,
         ),
         createItem(
-            route = Showcases,
+            route = BRoute,
             onRoute = onRoute,
-            label = "Page 2",
+            label = "Page B",
             activeIcon = AppIcons.localDrink,
             inactiveIcon = AppIcons.localDrink,
         ),
         createItem(
-            route = Showcases,
+            route = CRoute,
             onRoute = onRoute,
-            label = "Page 3",
+            label = "Page C",
             activeIcon = AppIcons.coffee,
             inactiveIcon = AppIcons.coffee,
         )
@@ -117,13 +118,16 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
             activeIcon = activeIcon,
             inactiveIcon = inactiveIcon,
             onClick = { onRoute(route) },
-            id = route.getNavigationId()
+            id = route.createItemId()
         )
     }
 
+    private fun Any.createItemId(): String = this::class.qualifiedName.orEmpty()
+
     class AppMutableState(
         override val snackbarState: AppSnackbarState,
-        override val navigationState: NavigationState
+        override val navigationState: NavigationState,
+        override val transitionDuration: Int = 100
     ) : AppState {
         override var startDestination: Any? by mutableStateOf(null)
     }

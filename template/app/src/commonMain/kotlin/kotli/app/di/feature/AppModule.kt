@@ -4,9 +4,9 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotli.app.AppViewModel
 import kotli.app.common.presentation.loader.LoaderViewModel
-import kotli.app.common.presentation.navigation.samples.a.NavigationAViewModel
-import kotli.app.common.presentation.navigation.samples.b.NavigationBViewModel
-import kotli.app.common.presentation.navigation.samples.c.NavigationCViewModel
+import kotli.app.feature.a.presentation.AViewModel
+import kotli.app.feature.b.presentation.BViewModel
+import kotli.app.feature.c.presentation.CViewModel
 import kotli.app.platform.createRoomCrudViewModel
 import kotli.app.presentation.passcode.PasscodeViewModel
 import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
@@ -32,8 +32,6 @@ import kotli.app.presentation.showcases.userflow.navigation.args.from.ArgsNaviga
 import kotli.app.presentation.showcases.userflow.navigation.args.to.ArgsNavigationToViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
-import kotli.app.presentation.template.screen_with_args.TemplateViewModel
-import kotli.app.presentation.template.screen_without_args.TemplateNoArgsViewModel
 import kotli.app.theme.change.presentation.ChangeThemeViewModel
 import kotli.app.theme.provide.presentation.AppThemePersistenceViewModel
 import kotli.app.theme.provide.presentation.AppThemeViewModel
@@ -47,19 +45,17 @@ val appModule = module {
     single { NavigationStore(emptyList()) }
     single {
         viewModelFactory {
+            initializer { AViewModel() }
+            initializer { BViewModel() }
+            initializer { CViewModel() }
+            initializer { ShowcasesViewModel(get()) }
             initializer { AppViewModel(get()) }
             initializer { AppThemeViewModel(get()) }
             initializer { AppThemePersistenceViewModel(get(), get(), get()) }
-            initializer { TemplateNoArgsViewModel(get()) }
-            initializer { TemplateViewModel(get()) }
-            initializer { ShowcasesViewModel(get()) }
             initializer { ChangeThemeViewModel(get(), get()) }
             initializer { ToggleThemeViewModel(get()) }
             initializer { BasicPagingViewModel(get(), get()) }
             initializer { BasicHttpViewModel(get(), get()) }
-            initializer { NavigationAViewModel() }
-            initializer { NavigationBViewModel() }
-            initializer { NavigationCViewModel() }
             initializer { NoArgsNavigationFromViewModel(get()) }
             initializer { NoArgsNavigationToViewModel(get()) }
             initializer { ArgsNavigationFromViewModel(get()) }

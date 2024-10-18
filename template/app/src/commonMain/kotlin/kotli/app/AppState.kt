@@ -10,5 +10,6 @@ interface AppState {
     val navigationState: NavigationState
     val snackbarState: AppSnackbarState
     val startDestination: Any?
+    val transitionDuration: Int
 
 }

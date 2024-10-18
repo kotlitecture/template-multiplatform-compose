@@ -22,12 +22,8 @@ import shared.design.icon.AppIcons
 import shared.presentation.store.DataState
 import shared.presentation.viewmodel.provideViewModel
 
-/**
- * Composable function for displaying the showcases screen.
- * It displays a list of showcases along with a header and a hint block.
- */
 @Composable
-fun ShowcasesScreen() {
+fun ShowcasesScreen(route: ShowcasesRoute) {
     val viewModel: ShowcasesViewModel = provideViewModel()
     val showcasesState = viewModel.showcasesState.asStateNotNull()
 

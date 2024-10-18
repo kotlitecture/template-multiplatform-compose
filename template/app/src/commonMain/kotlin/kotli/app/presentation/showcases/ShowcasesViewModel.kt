@@ -20,7 +20,7 @@ class ShowcasesViewModel(
     /**
      * Store object for managing the list of showcases.
      */
-    val showcasesState = DataState(Showcases.all)
+    val showcasesState = DataState(ShowcasesRoute.all)
 
     /**
      * Sets the hint visibility to true.
