@@ -7,7 +7,7 @@ import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.feature.a.presentation.AViewModel
 import kotli.app.feature.b.presentation.BViewModel
 import kotli.app.feature.c.presentation.CViewModel
-import kotli.app.platform.createRoomCrudViewModel
+import kotli.app.di.platform.createRoomCrudViewModel
 import kotli.app.presentation.passcode.PasscodeViewModel
 import kotli.app.presentation.passcode.ui.forgot.ForgotPasscodeViewModel
 import kotli.app.presentation.passcode.ui.reset.ResetPasscodeViewModel

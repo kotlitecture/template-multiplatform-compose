@@ -1,4 +1,4 @@
-package kotli.app.platform
+package kotli.app.di.platform
 
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager

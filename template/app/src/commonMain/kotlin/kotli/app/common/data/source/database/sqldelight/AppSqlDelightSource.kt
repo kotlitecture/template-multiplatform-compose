@@ -1,7 +1,7 @@
 package kotli.app.common.data.source.database.sqldelight
 
 import kotli.app.common.data.source.database.sqldelight.AppDatabase
-import kotli.app.platform.createSqlDriver
+import kotli.app.di.platform.createSqlDriver
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first

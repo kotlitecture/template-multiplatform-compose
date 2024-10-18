@@ -1,4 +1,4 @@
-package kotli.app.platform
+package kotli.app.di.platform
 
 import kotli.app.di.get
 import kotli.app.presentation.showcases.dataflow.room.crud.RoomCrudViewModel

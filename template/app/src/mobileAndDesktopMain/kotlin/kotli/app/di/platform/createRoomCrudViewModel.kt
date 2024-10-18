@@ -1,4 +1,4 @@
-package kotli.app.platform
+package kotli.app.di.platform
 
 import kotli.app.common.data.source.database.room.AppRoomSource
 import kotli.app.common.data.source.database.room.entity.User

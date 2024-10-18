@@ -12,7 +12,7 @@ import kotli.app.di.common.sqlDelightSourceModule
 import kotli.app.di.feature.themeModule
 import kotli.app.di.feature.appModule
 import kotli.app.di.feature.passcodeModule
-import kotli.app.platform.configureKoin
+import kotli.app.di.platform.configureKoin
 import org.koin.core.context.startKoin
 
 val koinApp = startKoin {

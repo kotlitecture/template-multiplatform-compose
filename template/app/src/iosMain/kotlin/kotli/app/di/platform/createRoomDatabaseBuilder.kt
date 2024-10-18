@@ -1,4 +1,4 @@
-package kotli.app.platform
+package kotli.app.di.platform
 
 import androidx.room.Room
 import androidx.room.RoomDatabase

@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import kotli.app.common.data.source.database.room.dao.UserDao
 import kotli.app.common.data.source.database.room.entity.User
-import kotli.app.platform.AppDatabaseConstructor
+import kotli.app.di.platform.AppDatabaseConstructor
 
 /**
  * This class represents the Room database for the application.
