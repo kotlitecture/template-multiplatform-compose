@@ -28,7 +28,7 @@ class PasscodeRepositoryImpl(
     private val passcodeStrategy = SerializationStrategy.json(Passcode.serializer())
     private val lockStateFlow = MutableStateFlow(LockState.UNDEFINED)
 
-    override suspend fun getPasscodeLength(): Int {
+    override fun getPasscodeLength(): Int {
         return passcodeLength
     }
 

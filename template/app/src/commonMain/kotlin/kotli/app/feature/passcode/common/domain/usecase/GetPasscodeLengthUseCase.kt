@@ -6,7 +6,7 @@ class GetPasscodeLengthUseCase(
     private val repository: PasscodeRepository
 ) {
 
-    suspend fun invoke(): Int {
+    fun invoke(): Int {
         return repository.getPasscodeLength()
     }
 

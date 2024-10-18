@@ -14,23 +14,13 @@ import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_unlock_error
 
 class UnlockPasscodeViewModel(
+    getPasscodeLength: GetPasscodeLengthUseCase,
     private val unlockPasscode: UnlockPasscodeUseCase,
     private val getAttempts: GetRemainingAttemptsUseCase,
-    private val getPasscodeLength: GetPasscodeLengthUseCase
 ) : BaseViewModel() {
 
-    private val _state = UnlockPasscodeMutableState()
+    private val _state = UnlockPasscodeMutableState(getPasscodeLength.invoke())
     val state: UnlockPasscodeState = _state
-
-    override fun doBind() = ui("Init state") {
-        val length = getPasscodeLength.invoke()
-        Snapshot.withMutableSnapshot {
-            _state.passcodeLength = length
-            _state.enteredCode = ""
-            _state.loading = false
-            _state.error = null
-        }
-    }
 
     fun onForgot() {
         _state.forgot = true
@@ -69,11 +59,12 @@ class UnlockPasscodeViewModel(
         }
     }
 
-    private class UnlockPasscodeMutableState : UnlockPasscodeState {
+    private class UnlockPasscodeMutableState(
+        override val passcodeLength: Int
+    ) : UnlockPasscodeState {
         override var error: String? by mutableStateOf(null)
         override var forgot: Boolean by mutableStateOf(false)
         override var loading: Boolean by mutableStateOf(false)
         override var enteredCode: String by mutableStateOf("")
-        override var passcodeLength: Int by mutableStateOf(0)
     }
 }

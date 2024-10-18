@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface PasscodeRepository {
 
-    suspend fun getPasscodeLength(): Int
+    fun getPasscodeLength(): Int
 
     suspend fun getRemainingUnlockAttempts(): Int
 

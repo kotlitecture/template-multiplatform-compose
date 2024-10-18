@@ -17,25 +17,23 @@ import template.app.generated.resources.passcode_set_confirm_new_error
 import template.app.generated.resources.passcode_unlock_error
 
 class SetPasscodeViewModel(
+    getPasscodeLength: GetPasscodeLengthUseCase,
     private val setPasscode: SetPasscodeUseCase,
     private val isPasscodeSet: IsPasscodeSetUseCase,
     private val checkPasscode: CheckPasscodeUseCase,
     private val getAttempts: GetRemainingAttemptsUseCase,
-    private val getPasscodeLength: GetPasscodeLengthUseCase
 ) : BaseViewModel() {
 
-    private val _state = SetPasscodeMutableState()
+    private val _state = SetPasscodeMutableState(getPasscodeLength.invoke())
     val state: SetPasscodeState = _state
 
     override fun doBind() = async("Init state") {
-        val length = getPasscodeLength.invoke()
         val step = if (isPasscodeSet.invoke()) {
             SetPasscodeStep.UnlockExisting()
         } else {
             SetPasscodeStep.EnterNew()
         }
         Snapshot.withMutableSnapshot {
-            _state.passcodeLength = length
             _state.enteredCode = ""
             _state.loading = false
             _state.error = null
@@ -111,11 +109,12 @@ class SetPasscodeViewModel(
         }
     }
 
-    private class SetPasscodeMutableState : SetPasscodeState {
+    private class SetPasscodeMutableState(
+        override val passcodeLength: Int
+    ) : SetPasscodeState {
         override var error: String? by mutableStateOf(null)
         override var loading: Boolean by mutableStateOf(false)
         override var enteredCode: String by mutableStateOf("")
-        override var passcodeLength: Int by mutableStateOf(0)
         override var step: SetPasscodeStep? by mutableStateOf(null)
         override var event: SetPasscodeEvent? by mutableStateOf(null)
     }
