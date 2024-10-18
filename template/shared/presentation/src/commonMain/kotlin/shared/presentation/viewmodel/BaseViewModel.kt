@@ -33,7 +33,7 @@ abstract class BaseViewModel : ViewModel() {
     private var initialized = false
 
     /**
-     * Launches a coroutine in the main thread context, managing the loading state and error handling.
+     * Launches a coroutine in the main thread context.
      *
      * @param id The identifier for the coroutine job.
      * @param block The block of code to execute as a coroutine.
@@ -50,7 +50,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Launches a coroutine in the IO thread context, managing the loading state and error handling.
+     * Launches a coroutine in the IO thread context.
      *
      * @param id The identifier for the coroutine job.
      * @param force Force new execution despite any existing is in progress.

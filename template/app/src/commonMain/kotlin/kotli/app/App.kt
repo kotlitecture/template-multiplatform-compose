@@ -13,7 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import kotli.app.common.presentation.navigation.BottomProvider
 import kotli.app.common.presentation.navigation.NavigationProvider
-import kotli.app.di.get
+import kotli.app.koin.get
 import kotli.app.feature.a.domain.ARoute
 import kotli.app.feature.a.presentation.AScreen
 import kotli.app.feature.b.domain.BRoute

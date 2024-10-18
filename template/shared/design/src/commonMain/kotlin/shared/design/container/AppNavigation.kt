@@ -30,7 +30,7 @@ import shared.design.component.AppText
 import shared.design.icon.AppIconModel
 
 data class AppNavigationItem(
-    val id: String,
+    val id: Int,
     val label: String?,
     val enabled: Boolean,
     val showLabel: Boolean,

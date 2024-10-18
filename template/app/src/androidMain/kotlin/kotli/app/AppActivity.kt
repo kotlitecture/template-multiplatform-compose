@@ -12,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotli.app.di.get
+import kotli.app.koin.get
 import shared.presentation.misc.extensions.findActivity
 import shared.presentation.navigation.NavigationStore
 import shared.presentation.theme.ThemeState
