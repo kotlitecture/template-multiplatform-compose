@@ -6,9 +6,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
 import shared.presentation.viewmodel.BaseViewModel
 
-/**
- * ViewModel responsible for managing the app theme state.
- */
 internal class ThemeViewModel : BaseViewModel() {
 
     fun onBind(state: ThemeMutableState) = async("Init theme state") {

@@ -32,10 +32,10 @@ import kotli.app.presentation.showcases.userflow.navigation.args.from.ArgsNaviga
 import kotli.app.presentation.showcases.userflow.navigation.args.to.ArgsNavigationToViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.from.NoArgsNavigationFromViewModel
 import kotli.app.presentation.showcases.userflow.navigation.no_args.to.NoArgsNavigationToViewModel
-import kotli.app.theme.change.presentation.ChangeThemeViewModel
-import kotli.app.theme.provide.presentation.AppThemePersistenceViewModel
-import kotli.app.theme.provide.presentation.AppThemeViewModel
-import kotli.app.theme.toggle.presentation.ToggleThemeViewModel
+import kotli.app.feature.theme.change.presentation.ChangeThemeViewModel
+import kotli.app.feature.theme.provide.presentation.AppThemePersistenceViewModel
+import kotli.app.feature.theme.provide.presentation.AppThemeViewModel
+import kotli.app.feature.theme.toggle.presentation.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.design.component.AppSnackbarState
 import shared.presentation.navigation.NavigationStore

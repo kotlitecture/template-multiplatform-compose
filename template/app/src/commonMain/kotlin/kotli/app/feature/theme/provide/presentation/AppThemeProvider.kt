@@ -1,4 +1,4 @@
-package kotli.app.theme.provide.presentation
+package kotli.app.feature.theme.provide.presentation
 
 import androidx.compose.runtime.Composable
 import shared.presentation.theme.ThemeProvider

@@ -1,9 +1,9 @@
-package kotli.app.theme.provide.presentation
+package kotli.app.feature.theme.provide.presentation
 
 import androidx.compose.runtime.snapshotFlow
-import kotli.app.theme.provide.domain.model.ThemeConfigModel
-import kotli.app.theme.provide.domain.usecase.RestoreThemeUseCase
-import kotli.app.theme.provide.domain.usecase.StoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.model.ThemeConfigModel
+import kotli.app.feature.theme.provide.domain.usecase.RestoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.usecase.StoreThemeUseCase
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull

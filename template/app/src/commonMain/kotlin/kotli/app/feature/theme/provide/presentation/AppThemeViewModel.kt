@@ -1,4 +1,4 @@
-package kotli.app.theme.provide.presentation
+package kotli.app.feature.theme.provide.presentation
 
 import shared.presentation.theme.ThemeMutableState
 import shared.presentation.viewmodel.BaseViewModel

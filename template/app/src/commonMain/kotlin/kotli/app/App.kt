@@ -23,7 +23,7 @@ import kotli.app.feature.c.presentation.CScreen
 import kotli.app.presentation.passcode.PasscodeProvider
 import kotli.app.presentation.showcases.ShowcasesRoute
 import kotli.app.presentation.showcases.ShowcasesScreen
-import kotli.app.theme.provide.presentation.AppThemeProvider
+import kotli.app.feature.theme.provide.presentation.AppThemeProvider
 import shared.design.container.AppScaffold
 import shared.presentation.viewmodel.ViewModelProvider
 import shared.presentation.viewmodel.provideViewModel

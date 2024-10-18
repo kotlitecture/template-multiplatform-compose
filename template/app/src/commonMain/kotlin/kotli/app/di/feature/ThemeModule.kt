@@ -1,7 +1,7 @@
 package kotli.app.di.feature
 
-import kotli.app.theme.provide.domain.usecase.RestoreThemeUseCase
-import kotli.app.theme.provide.domain.usecase.StoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.usecase.RestoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.usecase.StoreThemeUseCase
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import shared.design.theme.DarkThemeContext

@@ -2,7 +2,7 @@ package kotli.app.presentation.showcases.userflow.theme.change
 
 import kotli.app.presentation.showcases.ShowcaseItem
 import kotli.app.presentation.showcases.ShowcasesViewModel
-import kotli.app.theme.change.presentation.ChangeThemeDestination
+import kotli.app.feature.theme.change.presentation.ChangeThemeDestination
 
 /**
  * Showcase item representing a change theme screen.
