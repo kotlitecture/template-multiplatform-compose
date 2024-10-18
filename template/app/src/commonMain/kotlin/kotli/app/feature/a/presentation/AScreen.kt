@@ -12,11 +12,12 @@ import shared.presentation.viewmodel.provideViewModel
 @Composable
 fun AScreen(route: ARoute) {
     val viewModel: AViewModel = provideViewModel()
+    val state = viewModel.state
 
     Box(Modifier.fillMaxSize()) {
         AppText(
             modifier = Modifier.align(Alignment.Center),
-            text = "A"
+            text = state.title
         )
     }
 }

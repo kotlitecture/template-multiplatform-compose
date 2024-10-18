@@ -12,11 +12,12 @@ import shared.presentation.viewmodel.provideViewModel
 @Composable
 fun CScreen(route: CRoute) {
     val viewModel: CViewModel = provideViewModel()
+    val state = viewModel.state
 
     Box(Modifier.fillMaxSize()) {
         AppText(
             modifier = Modifier.align(Alignment.Center),
-            text = "C"
+            text = state.title
         )
     }
 }
