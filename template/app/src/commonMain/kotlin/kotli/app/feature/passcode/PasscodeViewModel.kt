@@ -17,25 +17,19 @@ class PasscodeViewModel(
 
     val lockState = passcodeStore.lockState
 
-    override fun doInit() {
-        async("Init passcode") {
-            val lock = initPasscode.invoke()
-            if (lock == LockState.LOCKED) {
-                navigationStore.currentDestinationState.set(UnlockPasscodeDestination)
-            }
+    override fun doInit() = async("Init passcode") {
+        val lock = initPasscode.invoke()
+        if (lock == LockState.LOCKED) {
+            navigationStore.currentDestinationState.set(UnlockPasscodeDestination)
         }
     }
 
-    override fun doResume() {
-        async("Resume passcode") {
-            initPasscode.invoke()
-        }
+    override fun doResume() = async("Resume passcode") {
+        initPasscode.invoke()
     }
 
-    override fun doPause() {
-        async("Pause passcode") {
-            pausePasscode.invoke()
-        }
+    override fun doPause() = async("Pause passcode") {
+        pausePasscode.invoke()
     }
 
 }

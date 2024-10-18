@@ -24,15 +24,6 @@ import shared.design.component.AppText
 import shared.design.theme.AppTheme
 import shared.presentation.store.DataState
 
-/**
- * Composable function representing the passcode block.
- *
- * @param modifier Modifier to be applied to the passcode block.
- * @param codeState State representing the current passcode.
- * @param title Optional title for the passcode block.
- * @param errorState State representing any error message to display.
- * @param codeLength Length of the passcode.
- */
 @Composable
 fun PasscodeDots(
     modifier: Modifier = Modifier,

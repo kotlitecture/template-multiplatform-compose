@@ -39,17 +39,6 @@ private val numberSize = 48.sp
 private val actionSize = 72.dp
 private val actionSpace = 24.dp
 
-/**
- * Composable function representing the passcode layout.
- *
- * @param modifier Modifier to be applied to the layout.
- * @param title Optional title for the passcode layout.
- * @param errorState State representing any error message to display.
- * @param codeState State representing the current passcode.
- * @param codeLength Length of the passcode.
- * @param onCodeChange Callback function invoked when the passcode changes.
- * @param bottomLeftBlock Composable block for the bottom left area of the layout.
- */
 @Composable
 fun PasscodeKeyboard(
     modifier: Modifier = Modifier,
