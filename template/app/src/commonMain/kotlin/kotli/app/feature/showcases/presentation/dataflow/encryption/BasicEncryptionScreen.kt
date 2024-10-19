@@ -12,11 +12,13 @@ import shared.design.container.AppFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun BasicEncryptionScreen() {
+fun BasicEncryptionScreen(onBack: () -> Unit) {
     val viewModel: BasicEncryptionViewModel = provideViewModel()
+    val state = viewModel.state
+
     AppFixedTopBarColumn(
-        title = BasicEncryptionShowcase.label,
-        onBack = viewModel::onBack,
+        title = BasicEncryptionRoute.screen.label,
+        onBack = onBack,
         content = {
             Row(
                 modifier = Modifier
@@ -28,14 +30,16 @@ fun BasicEncryptionScreen() {
                     modifier = Modifier.weight(1f),
                     placeholder = "Enter password",
                     supportingText = "Password to encrypt the text",
-                    valueState = viewModel.encryptionPasswordState
+                    getValue = state::encryptionPassword,
+                    onValueChange = viewModel::onEncryptionPasswordChanged
                 )
 
                 AppTextField(
                     modifier = Modifier.weight(1f),
                     placeholder = "Enter text",
                     supportingText = "Text",
-                    valueState = viewModel.textState
+                    getValue = state::text,
+                    onValueChange = viewModel::onTextChanged
                 )
             }
             AppTextField(
@@ -43,9 +47,10 @@ fun BasicEncryptionScreen() {
                     .padding(16.dp)
                     .fillMaxWidth(),
                 placeholder = "",
+                readOnly = true,
                 supportingText = "This text is encrypted based on the entered password and text",
-                valueState = viewModel.encryptedTextState,
-                readOnly = true
+                getValue = state::encryptedText,
+                onValueChange = viewModel::onEncryptedTextChanged
             )
 
             Row(
@@ -58,15 +63,17 @@ fun BasicEncryptionScreen() {
                     modifier = Modifier.weight(1f),
                     placeholder = "Enter password",
                     supportingText = "Password to decrypt the text",
-                    valueState = viewModel.decryptionPasswordState
+                    getValue = state::decryptionPassword,
+                    onValueChange = viewModel::onDecryptionPasswordChanged
                 )
 
                 AppTextField(
                     modifier = Modifier.weight(1f),
                     placeholder = "",
+                    readOnly = true,
                     supportingText = "Decrypted text",
-                    valueState = viewModel.decryptedTextState,
-                    readOnly = true
+                    getValue = state::decryptedText,
+                    onValueChange = viewModel::onDecryptedTextChanged
                 )
             }
         }

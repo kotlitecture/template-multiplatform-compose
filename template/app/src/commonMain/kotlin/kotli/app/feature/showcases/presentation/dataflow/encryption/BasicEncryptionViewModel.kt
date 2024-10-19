@@ -1,74 +1,77 @@
 package kotli.app.feature.showcases.presentation.dataflow.encryption
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import shared.data.source.encryption.EncryptionMethod
 import shared.data.source.encryption.EncryptionSource
-import shared.presentation.navigation.NavigationStore
 import shared.presentation.viewmodel.BaseViewModel
 
 class BasicEncryptionViewModel(
-    private val navigationStore: NavigationStore,
     private val encryptionSource: EncryptionSource
 ) : BaseViewModel() {
 
-    val textState = mutableStateOf("")
-    val encryptedTextState = mutableStateOf("")
-    val encryptionPasswordState = mutableStateOf("")
-
-    val decryptedTextState = mutableStateOf("")
-    val decryptionPasswordState = mutableStateOf("")
-
-    fun onBack() = navigationStore.onBack()
+    private val _state = BasicEncryptionMutableState()
+    val state: BasicEncryptionState = _state
 
     override fun doBind() {
-        val encryptionPasswordFlow = snapshotFlow { encryptionPasswordState.value }
-        val decryptionPasswordFlow = snapshotFlow { decryptionPasswordState.value }
-        val encryptedTextFlow = snapshotFlow { encryptedTextState.value }
-        val textFlow = snapshotFlow { textState.value }
-        async("encryption") {
-            encryptionPasswordFlow
-                .flatMapLatest { password ->
-                    textFlow.map { text -> Data(password, text) }
+        val encryptionPasswordFlow = snapshotFlow { _state.encryptionPassword }
+        val decryptionPasswordFlow = snapshotFlow { _state.decryptionPassword }
+        val encryptedTextFlow = snapshotFlow { _state.encryptedText }
+        val textFlow = snapshotFlow { _state.text }
+
+        async("Encryption") {
+            combine(encryptionPasswordFlow, textFlow) { password, text ->
+                if (password.isEmpty() || text.isEmpty()) {
+                    ""
+                } else {
+                    val method = EncryptionMethod.AES(password)
+                    encryptionSource.encrypt(text, method)
                 }
-                .map { data ->
-                    val text = data.text
-                    val password = data.password
-                    if (password.isNullOrEmpty() || text.isNullOrEmpty()) {
-                        ""
-                    } else {
-                        val method = EncryptionMethod.AES(password)
-                        encryptionSource.encrypt(text, method)
-                    }
-                }
-                .collectLatest(encryptedTextState::value::set)
+            }.collectLatest(_state::encryptedText::set)
         }
 
-        async("decryption") {
-            decryptionPasswordFlow
-                .flatMapLatest { password ->
-                    encryptedTextFlow.map { text -> Data(password, text) }
+        async("Decryption") {
+            combine(decryptionPasswordFlow, encryptedTextFlow) { password, text ->
+                if (password.isEmpty() || text.isEmpty()) {
+                    ""
+                } else {
+                    val method = EncryptionMethod.AES(password)
+                    runCatching { encryptionSource.decrypt(text, method) }
+                        .getOrElse { "Decryption error" }
                 }
-                .map { data ->
-                    val text = data.text
-                    val password = data.password
-                    if (password.isNullOrEmpty() || text.isNullOrEmpty()) {
-                        ""
-                    } else {
-                        val method = EncryptionMethod.AES(password)
-                        runCatching { encryptionSource.decrypt(text, method) }
-                            .getOrElse { "Decryption error" }
-                    }
-                }
-                .collectLatest(decryptedTextState::value::set)
+            }.collectLatest(_state::decryptedText::set)
         }
     }
 
-    private data class Data(
-        val password: String?,
-        val text: String?
-    )
+    fun onEncryptionPasswordChanged(text: String) {
+        _state.encryptionPassword = text
+    }
+
+    fun onDecryptionPasswordChanged(text: String) {
+        _state.decryptionPassword = text
+    }
+
+    fun onEncryptedTextChanged(text: String) {
+        _state.encryptedText = text
+    }
+
+    fun onDecryptedTextChanged(text: String) {
+        _state.decryptedText = text
+    }
+
+    fun onTextChanged(text: String) {
+        _state.text = text
+    }
+
+    private class BasicEncryptionMutableState : BasicEncryptionState {
+        override var text: String by mutableStateOf("")
+        override var encryptedText: String by mutableStateOf("")
+        override var encryptionPassword: String by mutableStateOf("")
+        override var decryptedText: String by mutableStateOf("")
+        override var decryptionPassword: String by mutableStateOf("")
+    }
 }

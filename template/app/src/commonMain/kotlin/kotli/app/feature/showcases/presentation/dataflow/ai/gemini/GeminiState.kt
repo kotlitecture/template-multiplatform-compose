@@ -1,13 +1,15 @@
 package kotli.app.feature.showcases.presentation.dataflow.ai.gemini
 
-import shared.presentation.store.DataState
+import androidx.compose.runtime.Stable
 
-data class GeminiState(
-    val replies: List<GeminiReply> = emptyList(),
-    val loading: Boolean = false
-)
+@Stable
+interface GeminiState {
+    val replies: List<GeminiReply>
+    val loading: Boolean
+}
 
-data class GeminiReply(
-    val prompt: String,
-    val replyState: DataState<String> = DataState()
-)
+@Stable
+interface GeminiReply {
+    val prompt: String
+    val reply: String
+}

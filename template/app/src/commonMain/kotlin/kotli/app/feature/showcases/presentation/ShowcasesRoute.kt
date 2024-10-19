@@ -6,6 +6,18 @@ import androidx.navigation.compose.composable
 import kotli.app.AppRoute
 import kotli.app.feature.passcode.reset.presentation.ResetPasscodeScreen
 import kotli.app.feature.passcode.set.presentation.SetPasscodeScreen
+import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiRoute
+import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiScreen
+import kotli.app.feature.showcases.presentation.dataflow.cache.basic.BasicCacheRoute
+import kotli.app.feature.showcases.presentation.dataflow.cache.basic.BasicCacheScreen
+import kotli.app.feature.showcases.presentation.dataflow.encryption.BasicEncryptionRoute
+import kotli.app.feature.showcases.presentation.dataflow.encryption.BasicEncryptionScreen
+import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpRoute
+import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpScreen
+import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueRoute
+import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueScreen
+import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueRoute
+import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueScreen
 import kotli.app.feature.showcases.presentation.userflow.component.filepicker.FilePickerRoute
 import kotli.app.feature.showcases.presentation.userflow.component.filepicker.FilePickerScreen
 import kotli.app.feature.showcases.presentation.userflow.component.image.coil.CoilRoute
@@ -43,4 +55,10 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<ChangeThemeScreenRoute> { ChangeThemeScreen() }
     composable<ChangeThemeDialogRoute> { ChangeThemeDialog() }
     composable<ToggleThemeRoute> { ToggleThemeScreen() }
+    composable<GeminiRoute> { GeminiScreen(navController::back) }
+    composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }
+    composable<BasicEncryptionRoute> { BasicEncryptionScreen(navController::back) }
+    composable<BasicHttpRoute> { BasicHttpScreen(navController::back) }
+    composable<ObjectKeyValueRoute> { ObjectKeyValueScreen(navController::back) }
+    composable<PrimitiveKeyValueRoute> { PrimitiveKeyValueScreen(navController::back) }
 }

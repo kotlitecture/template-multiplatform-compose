@@ -8,14 +8,14 @@ import kotli.app.feature.showcases.presentation.ShowcaseHintBlock
 import shared.design.component.AppText
 import shared.design.container.AppFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
-import shared.presentation.store.DataState
 
 @Composable
-fun BasicCacheScreen() {
+fun BasicCacheScreen(onBack: () -> Unit) {
     val viewModel: BasicCacheViewModel = provideViewModel()
+
     AppFixedTopBarColumn(
-        title = BasicCacheShowcase.label,
-        onBack = viewModel::onBack,
+        title = BasicCacheRoute.screen.label,
+        onBack = onBack,
         content = {
             ShowcaseHintBlock(
                 text = """
@@ -26,15 +26,15 @@ fun BasicCacheScreen() {
                     You can navigate back and forth to this screen, but once 10 seconds have passed, the cache is updated with the new value.
                 """.trimIndent()
             )
-            CacheBlock(viewModel.cacheState)
+            CacheBlock(viewModel.state)
         }
     )
 }
 
 @Composable
-private fun CacheBlock(store: DataState<String>) {
+private fun CacheBlock(state: BasicCacheState) {
     AppText(
         modifier = Modifier.padding(horizontal = 16.dp),
-        text = "Current cache value : ${store.asStateValue()}"
+        text = "Current cache value : ${state.cache}"
     )
 }

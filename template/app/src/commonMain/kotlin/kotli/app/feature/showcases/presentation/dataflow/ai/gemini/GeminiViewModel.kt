@@ -1,37 +1,46 @@
 package kotli.app.feature.showcases.presentation.dataflow.ai.gemini
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.common.data.source.ai.AiSource
-import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.BaseViewModel
 
 class GeminiViewModel(
-    private val navigationStore: NavigationStore,
     private val aiSource: AiSource
 ) : BaseViewModel() {
 
-    val state = DataState(GeminiState())
+    private val _state = GeminiMutableState()
+    val state: GeminiState = _state
 
-    fun onBack() {
-        navigationStore.onBack()
-    }
+    fun onGenerateReply(prompt: String?) {
+        if (prompt.isNullOrBlank()) return
+        async("Generate reply") {
+            val reply = GeminiMutableReply(prompt)
 
-    fun onGenerateReply(prompt: String?) = async("Generate reply") {
-        if (prompt.isNullOrBlank()) return@async
-        val geminiReply = GeminiReply(prompt = prompt)
-        state.update { current ->
-            current!!.copy(
-                loading = true,
-                replies = current.replies.plus(geminiReply)
-            )
-        }
-        aiSource.reply(prompt).collect { reply ->
-            geminiReply.replyState.update { it?.plus(reply) ?: reply }
-            state.update { current ->
-                current!!.copy(
-                    loading = false
-                )
+            Snapshot.withMutableSnapshot {
+                _state.loading = true
+                _state.replies = _state.replies.plus(reply)
+            }
+
+            aiSource.reply(prompt).collect { geminiReply ->
+                Snapshot.withMutableSnapshot {
+                    _state.loading = false
+                    reply.reply = reply.reply.plus(geminiReply)
+                }
             }
         }
+    }
+
+    private class GeminiMutableState : GeminiState {
+        override var replies: List<GeminiReply> by mutableStateOf(emptyList())
+        override var loading: Boolean by mutableStateOf(false)
+    }
+
+    private class GeminiMutableReply(
+        override val prompt: String
+    ) : GeminiReply {
+        override var reply: String by mutableStateOf("")
     }
 }

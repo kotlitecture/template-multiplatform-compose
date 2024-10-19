@@ -4,6 +4,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import kotli.app.feature.showcases.domain.Showcase
+import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiRoute
+import kotli.app.feature.showcases.presentation.dataflow.cache.basic.BasicCacheRoute
+import kotli.app.feature.showcases.presentation.dataflow.encryption.BasicEncryptionRoute
+import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpRoute
+import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueRoute
+import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueRoute
 import kotli.app.feature.showcases.presentation.userflow.component.filepicker.FilePickerRoute
 import kotli.app.feature.showcases.presentation.userflow.component.image.coil.CoilRoute
 import kotli.app.feature.showcases.presentation.userflow.component.markdown.MarkdownRoute
@@ -20,14 +26,14 @@ class ShowcasesViewModel : BaseViewModel() {
 
     private val showcases = listOf(
         Showcase.Header("Dataflow :: Cache"),
-        BasicCacheShowcase,
+        BasicCacheRoute.screen,
         Showcase.Header("Dataflow :: Encryption"),
-        BasicEncryptionShowcase,
+        BasicEncryptionRoute.screen,
         Showcase.Header("Dataflow :: Http"),
-        BasicHttpShowcase,
+        BasicHttpRoute.screen,
         Showcase.Header("Dataflow :: KeyValue"),
-        PrimitiveKeyValueShowcase,
-        ObjectKeyValueShowcase,
+        PrimitiveKeyValueRoute.screen,
+        ObjectKeyValueRoute.screen,
         Showcase.Header("Dataflow :: Paging"),
         BasicPagingShowcase,
         Showcase.Header("Dataflow :: SqlDelight"),
@@ -36,7 +42,7 @@ class ShowcasesViewModel : BaseViewModel() {
         Showcase.Header("Dataflow :: Room"),
         RoomCrudShowcase,
         Showcase.Header("Dataflow :: AI"),
-        GeminiShowcase,
+        GeminiRoute.screen,
         Showcase.Header("Userflow :: Loader"),
         LoaderRoute.screen,
         Showcase.Header("Userflow :: Theme"),

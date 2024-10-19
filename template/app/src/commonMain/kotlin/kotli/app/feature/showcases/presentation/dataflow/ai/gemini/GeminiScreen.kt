@@ -26,13 +26,13 @@ import shared.design.theme.AppTheme
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun GeminiScreen() {
+fun GeminiScreen(onBack: () -> Unit) {
     val viewModel: GeminiViewModel = provideViewModel()
-    val state = viewModel.state.asStateValueNotNull()
+    val state = viewModel.state
 
     AppFixedTopBarLazyColumn(
-        title = GeminiRoute.label,
-        onBack = viewModel::onBack,
+        title = GeminiRoute.screen.label,
+        onBack = onBack,
         footer = {
             PromptBlock(viewModel::onGenerateReply)
         },
@@ -63,7 +63,6 @@ private fun LoadingBlock() {
 
 @Composable
 private fun ReplyBlock(geminiReply: GeminiReply) {
-    val reply = geminiReply.replyState.asStateValue()
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -81,8 +80,7 @@ private fun ReplyBlock(geminiReply: GeminiReply) {
                 text = geminiReply.prompt
             )
         }
-
-        AppMarkdown(text = reply.orEmpty())
+        AppMarkdown(text = geminiReply.reply)
     }
 }
 

@@ -10,15 +10,16 @@ import shared.design.component.AppElevatedButton
 import shared.design.component.AppSpacer16
 import shared.design.component.AppText
 import shared.design.container.AppFixedTopBarColumn
-import shared.presentation.store.DataState
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun BasicHttpScreen() {
+fun BasicHttpScreen(onBack: () -> Unit) {
     val viewModel: BasicHttpViewModel = provideViewModel()
+    val state = viewModel.state
+
     AppFixedTopBarColumn(
-        title = BasicHttpShowcase.label,
-        onBack = viewModel::onBack,
+        title = BasicHttpRoute.screen.label,
+        onBack = onBack,
         content = {
             ShowcaseHintBlock(
                 text = """
@@ -42,16 +43,16 @@ fun BasicHttpScreen() {
                 onClick = viewModel::onFetchIp,
                 text = "Fetch my ip"
             )
-            IpBlock(viewModel.ipState)
+            IpBlock(state)
             AppSpacer16()
         }
     )
 }
 
 @Composable
-private fun IpBlock(ipStore: DataState<String>) {
+private fun IpBlock(state: BasicHttpState) {
     AppText(
         modifier = Modifier.padding(horizontal = 16.dp),
-        text = ipStore.asStateValue()
+        text = state.ip
     )
 }

@@ -1,49 +1,43 @@
 package kotli.app.feature.showcases.presentation.dataflow.http.basic
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.coroutines.delay
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import shared.presentation.viewmodel.BaseViewModel
-import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
+import shared.data.misc.isCancellationException
 import shared.data.source.http.HttpSource
 import shared.data.source.http.isHttpTimeoutException
-import shared.data.misc.isCancellationException
+import shared.presentation.viewmodel.BaseViewModel
 
 class BasicHttpViewModel(
-    private val navigationStore: NavigationStore,
     private val httpSource: HttpSource
 ) : BaseViewModel() {
 
-    val ipState = DataState<String>()
+    private val _state = BasicHttpMutableState()
+    val state: BasicHttpState = _state
 
-    fun onBack() {
-        navigationStore.onBack()
-    }
-
-    fun onFetchIp() {
-        async("onFetchIp") {
-            try {
-                ipState.set("Start fetching…")
-                delay(500)
-                ipState.set("Delay fetching…")
-                delay(500)
-                ipState.set("Proceed fetching…")
-                val url = "https://api64.ipify.org?format=json"
-                val ipData = httpSource.client.get(url).body<IpData>()
-                ipState.set(ipData.ip)
-            } catch (e: Throwable) {
-                if (!e.isCancellationException() && !e.isHttpTimeoutException()) {
-                    ipState.set(
-                        """
+    fun onFetchIp() = async("Fetch IP") {
+        try {
+            _state.ip = "Start fetching…"
+            delay(500)
+            _state.ip = "Delay fetching…"
+            delay(500)
+            _state.ip = "Proceed fetching…"
+            val url = "https://api64.ipify.org?format=json"
+            val ipData = httpSource.client.get(url).body<IpData>()
+            _state.ip = ipData.ip
+        } catch (e: Throwable) {
+            if (!e.isCancellationException() && !e.isHttpTimeoutException()) {
+                _state.ip =
+                    """
 Error (see system console):
 ${e.message.orEmpty()}
 ${e.stackTraceToString()}
                         """.trimIndent()
-                    )
-                }
             }
         }
     }
@@ -53,5 +47,9 @@ ${e.stackTraceToString()}
         @SerialName("ip")
         val ip: String
     )
+
+    private class BasicHttpMutableState : BasicHttpState {
+        override var ip: String by mutableStateOf("")
+    }
 
 }

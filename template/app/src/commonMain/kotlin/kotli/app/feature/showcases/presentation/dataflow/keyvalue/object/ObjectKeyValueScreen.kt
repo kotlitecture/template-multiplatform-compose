@@ -3,7 +3,6 @@ package kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.feature.showcases.presentation.ShowcaseHintBlock
@@ -12,11 +11,13 @@ import shared.design.container.AppFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun ObjectKeyValueScreen() {
+fun ObjectKeyValueScreen(onBack: () -> Unit) {
     val viewModel: ObjectKeyValueViewModel = provideViewModel()
+    val state = viewModel.state
+
     AppFixedTopBarColumn(
-        title = ObjectKeyValueShowcase.label,
-        onBack = viewModel::onBack,
+        title = ObjectKeyValueRoute.screen.label,
+        onBack = onBack,
         content = {
             ShowcaseHintBlock(
                 text = """
@@ -27,19 +28,26 @@ fun ObjectKeyValueScreen() {
                     Additionally, the date of the last save will be displayed.
                 """.trimIndent()
             )
-            InputBlock(viewModel.textState, viewModel.supportTextState)
+            InputBlock(
+                state = state,
+                onTextChanged = viewModel::onTextChanged
+            )
         }
     )
 }
 
 @Composable
-private fun InputBlock(state: MutableState<String>, supportState: MutableState<String>) {
+private fun InputBlock(
+    state: ObjectKeyValueState,
+    onTextChanged: (text: String) -> Unit
+) {
     AppTextField(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),
-        valueState = state,
+        getValue = state::text::get,
+        onValueChange = onTextChanged,
         placeholder = "Input your text",
-        supportingText = supportState.value
+        supportingText = state.supportText
     )
 }
