@@ -6,10 +6,10 @@ import kotli.app.AppMutableState
 import kotli.app.AppState
 import kotli.app.AppViewModel
 import kotli.app.common.presentation.loader.LoaderViewModel
-import kotli.app.feature.navigation.provide.presentation.NavigationMutableState
 import kotli.app.feature.navigation.a.presentation.AViewModel
 import kotli.app.feature.navigation.b.presentation.BViewModel
 import kotli.app.feature.navigation.c.presentation.CViewModel
+import kotli.app.feature.navigation.provide.presentation.NavigationViewModel
 import kotli.app.feature.passcode.presentation.forgot.ForgotPasscodeViewModel
 import kotli.app.feature.passcode.presentation.provide.PasscodeViewModel
 import kotli.app.feature.passcode.presentation.reset.ResetPasscodeViewModel
@@ -39,14 +39,14 @@ import kotli.app.feature.showcases.presentation.userflow.loader.LoaderViewModel 
 
 val appModule = module {
     single { AppSnackbarState() }
-    single { NavigationMutableState() }
-    single { AppMutableState(get(), get()) }.bind(AppState::class)
+    single { AppMutableState(get()) }.bind(AppState::class)
     single {
         viewModelFactory {
             initializer { AViewModel() }
             initializer { BViewModel() }
             initializer { CViewModel() }
             initializer { AppViewModel(get()) }
+            initializer { NavigationViewModel() }
             initializer { ThemeViewModel(get()) }
             initializer { ThemePersistenceViewModel(get(), get(), get()) }
             initializer { ShowcasesViewModel() }

@@ -26,8 +26,6 @@ fun App() = ViewModelProvider(get()) {
     val navController = rememberNavController()
     val state = viewModel.state
 
-    LaunchedEffect(navController) { viewModel.onBind(navController) }
-
     ThemeProvider {
         PasscodeProvider { // {userflow.passcode.local}
             NavigationProvider(navController) { // {userflow.navigation}
