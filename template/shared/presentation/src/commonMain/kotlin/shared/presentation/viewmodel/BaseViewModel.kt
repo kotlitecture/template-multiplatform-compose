@@ -51,15 +51,6 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Take a MutableSnapshot and run block within it on the main thread.
-     */
-    protected fun withMutableSnapshot(block: () -> Unit) {
-        viewModelScope.launch(Dispatchers.Main.immediate) {
-            Snapshot.withMutableSnapshot(block)
-        }
-    }
-
-    /**
      * Launches a coroutine in the IO thread context.
      *
      * @param id The identifier for the coroutine job.
@@ -77,6 +68,15 @@ abstract class BaseViewModel : ViewModel() {
             block = block,
             context = Dispatchers.Default
         )
+    }
+
+    /**
+     * Take a MutableSnapshot and run block within it on the main thread.
+     */
+    protected fun withMutableSnapshot(block: () -> Unit) {
+        viewModelScope.launch(Dispatchers.Main.immediate) {
+            Snapshot.withMutableSnapshot(block)
+        }
     }
 
     protected suspend fun <T> withAsync(block: suspend CoroutineScope.() -> T): Deferred<T> {
