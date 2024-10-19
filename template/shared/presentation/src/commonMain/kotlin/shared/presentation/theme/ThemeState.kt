@@ -28,10 +28,10 @@ interface ThemeState {
 }
 
 data class ThemeStateImpl(
+    override val defaultConfig: ThemeConfig,
+    override val dynamicConfig: ThemeConfig? = null,
     override val persistentKey: String = "theme_config",
     override val availableThemes: List<Theme> = emptyList(),
-    override val dynamicConfig: ThemeConfig? = null,
-    override val defaultConfig: ThemeConfig,
 ) : ThemeState {
 
     private val byId by lazy {

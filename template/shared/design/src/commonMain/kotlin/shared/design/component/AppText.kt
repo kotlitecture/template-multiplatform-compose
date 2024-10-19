@@ -11,7 +11,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import shared.design.theme.AppTheme
-import shared.presentation.store.DataState
 
 @Composable
 fun AppText(
@@ -31,30 +30,6 @@ fun AppText(
         color = color,
         maxLines = maxLines,
         textAlign = textAlign,
-        fontSize = fontSize,
-        fontStyle = fontStyle,
-        fontWeight = fontWeight
-    )
-}
-
-@Composable
-@NonRestartableComposable
-fun AppText(
-    modifier: Modifier = Modifier,
-    textState: DataState<String>,
-    maxLines: Int = Int.MAX_VALUE,
-    textAlign: TextAlign? = null,
-    color: Color = Color.Unspecified,
-    fontSize: TextUnit = TextUnit.Unspecified,
-    fontStyle: FontStyle? = null,
-    fontWeight: FontWeight? = null,
-) {
-    AppText(
-        modifier = modifier,
-        text = textState.asStateValue(),
-        maxLines = maxLines,
-        textAlign = textAlign,
-        color = color,
         fontSize = fontSize,
         fontStyle = fontStyle,
         fontWeight = fontWeight

@@ -17,28 +17,26 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import shared.design.theme.AppTheme
-import shared.presentation.store.DataLoading
-import shared.presentation.store.DataState
 
 @Composable
-fun AppErrorDialog(store: DataState<DataLoading>) {
-    val error = store.asStateValue() as? DataLoading.Error ?: return
+@NonRestartableComposable
+fun AppErrorDialog(title: String, th: Throwable, onClose: () -> Unit) {
     AlertDialog(
         modifier = Modifier.padding(24.dp),
-        onDismissRequest = store::clear,
+        onDismissRequest = onClose,
         properties = DialogProperties(
             dismissOnBackPress = true,
             dismissOnClickOutside = true,
             usePlatformDefaultWidth = false
         ),
         title = {
-            Text(text = error.id.orEmpty())
+            Text(text = title)
         },
         text = {
             Text(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState()),
-                text = error.th.stackTraceToString()
+                text = th.stackTraceToString()
             )
         },
         confirmButton = {}
