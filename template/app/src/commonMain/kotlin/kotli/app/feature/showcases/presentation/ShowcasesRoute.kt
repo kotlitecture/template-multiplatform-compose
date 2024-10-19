@@ -3,6 +3,7 @@ package kotli.app.feature.showcases.presentation
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.dialog
 import kotli.app.AppRoute
 import kotli.app.feature.passcode.presentation.reset.ResetPasscodeScreen
 import kotli.app.feature.passcode.presentation.set.SetPasscodeScreen
@@ -60,9 +61,9 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<LoaderRoute> { LoaderScreen(navController::back) }
     composable<ResetPasscodeRoute> { ResetPasscodeScreen(navController::back) }
     composable<SetPasscodeRoute> { SetPasscodeScreen(navController::back) }
-    composable<ChangeThemeScreenRoute> { ChangeThemeScreen() }
-    composable<ChangeThemeDialogRoute> { ChangeThemeDialog() }
-    composable<ToggleThemeRoute> { ToggleThemeScreen() }
+    composable<ChangeThemeScreenRoute> { ChangeThemeScreen(navController::back) }
+    dialog<ChangeThemeDialogRoute> { ChangeThemeDialog() }
+    dialog<ToggleThemeRoute> { ToggleThemeScreen() }
     composable<GeminiRoute> { GeminiScreen(navController::back) }
     composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }
     composable<BasicEncryptionRoute> { BasicEncryptionScreen(navController::back) }

@@ -8,13 +8,11 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import shared.presentation.navigation.NavigationStore
 import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeState
 import shared.presentation.viewmodel.BaseViewModel
 
 class ChangeThemeViewModel(
-    private val navigationStore: NavigationStore,
     private val themeState: ThemeState
 ) : BaseViewModel() {
 
@@ -32,10 +30,6 @@ class ChangeThemeViewModel(
                 .distinctUntilChanged()
                 .collectLatest(_state::dynamic::set)
         }
-    }
-
-    fun onBack() {
-        navigationStore.onBack()
     }
 
     fun onEnableDynamicColors() {

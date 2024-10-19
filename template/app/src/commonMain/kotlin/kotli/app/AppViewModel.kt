@@ -1,14 +1,8 @@
 package kotli.app
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import androidx.navigation.NavHostController
 import androidx.navigation.serialization.generateHashCode
 import kotli.app.common.presentation.navigation.NavigationItem
-import kotli.app.common.presentation.navigation.NavigationMutableState
-import kotli.app.common.presentation.navigation.NavigationState
 import kotli.app.feature.a.presentation.ARoute
 import kotli.app.feature.b.presentation.BRoute
 import kotli.app.feature.c.presentation.CRoute
@@ -18,16 +12,15 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.serializer
-import shared.design.component.AppSnackbarState
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
 import shared.presentation.misc.singleInstance
 import shared.presentation.viewmodel.BaseViewModel
 
-class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
+class AppViewModel(
+    private val _state: AppMutableState
+) : BaseViewModel() {
 
-    private val navigationState = NavigationMutableState()
-    private val _state = AppMutableState(snackbarState, navigationState)
     val state: AppState = _state
 
     fun onBind(navController: NavHostController) = async("Init app navigation") {
@@ -64,9 +57,9 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
     ) {
         withMutableSnapshot {
             _state.startDestination = startDestination
-            navigationState.selected = selected
-            navigationState.visible = true
-            navigationState.items = items
+            _state.navigationState.selected = selected
+            _state.navigationState.visible = true
+            _state.navigationState.items = items
         }
     }
 
@@ -124,11 +117,4 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
     @OptIn(InternalSerializationApi::class)
     private fun Any.createItemId(): Int = this::class.serializer().generateHashCode()
 
-    private class AppMutableState(
-        override val snackbarState: AppSnackbarState,
-        override val navigationState: NavigationState,
-        override val transitionDuration: Int = 100
-    ) : AppState {
-        override var startDestination: Any? by mutableStateOf(null)
-    }
 }

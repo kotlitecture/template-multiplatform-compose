@@ -14,7 +14,6 @@ import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import kotli.app.koin.get
 import shared.presentation.misc.extensions.findActivity
-import shared.presentation.navigation.NavigationStore
 import shared.presentation.theme.ThemeState
 
 class AppActivity : ComponentActivity() {
@@ -50,6 +49,6 @@ private fun EdgeToEdgeHandler(state: ThemeState) {
 }
 
 @Composable
-private fun SplashBlock(splashScreen: SplashScreen, navigationState: NavigationStore) {
-    splashScreen.setKeepOnScreenCondition { navigationState.currentDestinationState.isNull() }
+private fun SplashBlock(splashScreen: SplashScreen, state: AppState) {
+    splashScreen.setKeepOnScreenCondition { state.startDestination == null }
 }

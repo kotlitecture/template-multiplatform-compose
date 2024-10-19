@@ -27,11 +27,12 @@ import template.app.generated.resources.theme_change_dynamic_color_on
 import template.app.generated.resources.theme_change_title
 
 @Composable
-fun ChangeThemeScreen() {
+fun ChangeThemeScreen(onBack: () -> Unit) {
     val viewModel: ChangeThemeViewModel = provideViewModel()
+
     AppFixedTopBarColumn(
         title = stringResource(Res.string.theme_change_title),
-        onBack = viewModel::onBack,
+        onBack = onBack,
         content = {
             ChangeThemeLayout(
                 modifier = Modifier.padding(16.dp),
