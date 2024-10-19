@@ -1,4 +1,4 @@
-package kotli.app.feature.a.presentation
+package kotli.app.feature.navigation.b.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,8 +9,8 @@ import shared.design.component.AppText
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun AScreen() {
-    val viewModel: AViewModel = provideViewModel()
+fun BScreen() {
+    val viewModel: BViewModel = provideViewModel()
     val state = viewModel.state
 
     Box(Modifier.fillMaxSize()) {

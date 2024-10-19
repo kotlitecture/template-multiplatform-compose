@@ -1,4 +1,4 @@
-package kotli.app.feature.c.presentation
+package kotli.app.feature.navigation.c.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

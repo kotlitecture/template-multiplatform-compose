@@ -1,8 +1,10 @@
-package kotli.app.common.presentation.navigation
+package kotli.app.feature.navigation.provide.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import kotli.app.common.presentation.navigation.NavigationItem
+import kotli.app.common.presentation.navigation.NavigationState
 
 class NavigationMutableState : NavigationState {
 

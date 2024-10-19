@@ -1,4 +1,4 @@
-package kotli.app.feature.a.presentation
+package kotli.app.feature.navigation.a.presentation
 
 import androidx.compose.runtime.Stable
 

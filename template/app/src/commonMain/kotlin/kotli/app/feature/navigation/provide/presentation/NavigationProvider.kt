@@ -1,10 +1,11 @@
-package kotli.app.common.presentation.navigation
+package kotli.app.feature.navigation.provide.presentation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
 
 @Composable
 fun NavigationProvider(
-    state: NavigationState,
+    navController: NavController,
     content: @Composable () -> Unit
 ) {
     content()

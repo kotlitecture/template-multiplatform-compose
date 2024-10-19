@@ -3,9 +3,9 @@ package kotli.app
 import androidx.navigation.NavHostController
 import androidx.navigation.serialization.generateHashCode
 import kotli.app.common.presentation.navigation.NavigationItem
-import kotli.app.feature.a.presentation.ARoute
-import kotli.app.feature.b.presentation.BRoute
-import kotli.app.feature.c.presentation.CRoute
+import kotli.app.feature.navigation.a.presentation.ARoute
+import kotli.app.feature.navigation.b.presentation.BRoute
+import kotli.app.feature.navigation.c.presentation.CRoute
 import kotli.app.feature.showcases.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged

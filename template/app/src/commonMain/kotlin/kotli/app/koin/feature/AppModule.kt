@@ -6,10 +6,10 @@ import kotli.app.AppMutableState
 import kotli.app.AppState
 import kotli.app.AppViewModel
 import kotli.app.common.presentation.loader.LoaderViewModel
-import kotli.app.common.presentation.navigation.NavigationMutableState
-import kotli.app.feature.a.presentation.AViewModel
-import kotli.app.feature.b.presentation.BViewModel
-import kotli.app.feature.c.presentation.CViewModel
+import kotli.app.feature.navigation.provide.presentation.NavigationMutableState
+import kotli.app.feature.navigation.a.presentation.AViewModel
+import kotli.app.feature.navigation.b.presentation.BViewModel
+import kotli.app.feature.navigation.c.presentation.CViewModel
 import kotli.app.feature.passcode.presentation.forgot.ForgotPasscodeViewModel
 import kotli.app.feature.passcode.presentation.provide.PasscodeViewModel
 import kotli.app.feature.passcode.presentation.reset.ResetPasscodeViewModel

@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import kotli.app.common.presentation.navigation.BottomProvider
-import kotli.app.common.presentation.navigation.NavigationProvider
+import kotli.app.feature.navigation.provide.presentation.BottomNavigationProvider
+import kotli.app.feature.navigation.provide.presentation.NavigationProvider
 import kotli.app.feature.passcode.presentation.provide.PasscodeProvider
 import kotli.app.feature.theme.provide.presentation.ThemeProvider
 import kotli.app.koin.get
@@ -30,7 +30,7 @@ fun App() = ViewModelProvider(get()) {
 
     ThemeProvider {
         PasscodeProvider { // {userflow.passcode.local}
-            NavigationProvider(state.navigationState) { // {userflow.navigation}
+            NavigationProvider(navController) { // {userflow.navigation}
                 AppContent(state, navController)
             } // {userflow.navigation}
         } // {userflow.passcode.local}
@@ -42,7 +42,7 @@ private fun AppContent(state: AppState, navController: NavHostController) {
     val startDestination = state.startDestination ?: return
     AppScaffold(
         snackbarState = state.snackbarState,
-        bottomBar = { BottomProvider(state.navigationState) },
+        bottomBar = { BottomNavigationProvider(navController) },
         content = { paddings ->
             NavHost(
                 modifier = Modifier

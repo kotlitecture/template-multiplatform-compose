@@ -1,7 +1,7 @@
-package kotli.app.feature.c.presentation
+package kotli.app.feature.navigation.b.presentation
 
 import kotli.app.AppRoute
 import kotlinx.serialization.Serializable
 
 @Serializable
-object CRoute : AppRoute
+object BRoute : AppRoute
