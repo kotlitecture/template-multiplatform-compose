@@ -1,9 +1,9 @@
 package kotli.app.feature.theme.provide.presentation
 
 import androidx.compose.runtime.snapshotFlow
-import kotli.app.feature.theme.provide.domain.RestoreThemeUseCase
-import kotli.app.feature.theme.provide.domain.StoreThemeUseCase
-import kotli.app.feature.theme.provide.domain.ThemeConfigModel
+import kotli.app.feature.theme.provide.domain.model.ThemeConfigModel
+import kotli.app.feature.theme.provide.domain.usecase.RestoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.usecase.StoreThemeUseCase
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
@@ -19,14 +19,13 @@ class ThemePersistenceViewModel(
 ) : BaseViewModel() {
 
     override fun doBind() = async("Restore last selected theme") {
-        val key = state.persistentKey
-        val config = restoreTheme.invoke(key)?.let(::map) ?: state.defaultConfig
+        val config = restoreTheme.invoke()?.let(::map) ?: state.defaultConfig
         state.currentConfig = config
         snapshotFlow { state.currentConfig }
             .filterNotNull()
             .filter { current -> current !== config }
             .map(::map)
-            .collectLatest { model -> storeTheme.invoke(key, model) }
+            .collectLatest(storeTheme::invoke)
     }
 
     private fun map(from: ThemeConfigModel): ThemeConfig {

@@ -1,7 +1,9 @@
 package kotli.app.koin.feature
 
-import kotli.app.feature.theme.provide.domain.RestoreThemeUseCase
-import kotli.app.feature.theme.provide.domain.StoreThemeUseCase
+import kotli.app.feature.theme.provide.data.ThemeRepositoryImpl
+import kotli.app.feature.theme.provide.domain.repository.ThemeRepository
+import kotli.app.feature.theme.provide.domain.usecase.RestoreThemeUseCase
+import kotli.app.feature.theme.provide.domain.usecase.StoreThemeUseCase
 import org.koin.dsl.module
 import shared.design.theme.DarkThemeContext
 import shared.design.theme.LightThemeContext
@@ -19,6 +21,7 @@ val themeModule = module {
             )
         )
     }
+    single<ThemeRepository> { ThemeRepositoryImpl("theme_config", get()) }
     single { StoreThemeUseCase(get()) }
     single { RestoreThemeUseCase(get()) }
 }
