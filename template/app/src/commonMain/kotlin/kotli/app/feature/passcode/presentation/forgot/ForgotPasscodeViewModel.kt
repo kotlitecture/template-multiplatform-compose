@@ -19,7 +19,7 @@ class ForgotPasscodeViewModel(
             _state.loading = true
             forgotPasscode.invoke()
         } finally {
-            Snapshot.withMutableSnapshot {
+            withMutableSnapshot {
                 _state.event = ForgotPasscodeEvent.Complete
                 _state.loading = false
             }

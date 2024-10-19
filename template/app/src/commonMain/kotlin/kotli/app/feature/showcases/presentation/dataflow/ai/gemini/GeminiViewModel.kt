@@ -19,13 +19,13 @@ class GeminiViewModel(
         async("Generate reply") {
             val reply = GeminiMutableReply(prompt)
 
-            Snapshot.withMutableSnapshot {
+            withMutableSnapshot {
                 _state.loading = true
                 _state.replies = _state.replies.plus(reply)
             }
 
             aiSource.reply(prompt).collect { geminiReply ->
-                Snapshot.withMutableSnapshot {
+                withMutableSnapshot {
                     _state.loading = false
                     reply.reply = reply.reply.plus(geminiReply)
                 }

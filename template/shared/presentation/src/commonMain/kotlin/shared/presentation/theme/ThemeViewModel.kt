@@ -19,7 +19,7 @@ internal class ThemeViewModel : BaseViewModel() {
                 autoDark && darkMode -> config.darkTheme
                 else -> config.defaultTheme
             }
-            Snapshot.withMutableSnapshot {
+            withMutableSnapshot {
                 state.fontFamily = config.fontFamily
                 state.systemDarkMode = darkMode
                 state.currentConfig = config

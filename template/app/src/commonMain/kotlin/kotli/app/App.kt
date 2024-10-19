@@ -3,8 +3,11 @@ package kotli.app
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
@@ -40,8 +43,11 @@ private fun AppContent(state: AppState, navController: NavHostController) {
     AppScaffold(
         snackbarState = state.snackbarState,
         bottomBar = { BottomProvider(state.navigationState) },
-        content = {
+        content = { paddings ->
             NavHost(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddings),
                 navController = navController,
                 startDestination = startDestination,
                 enterTransition = { fadeIn(animationSpec = tween(state.transitionDuration)) },

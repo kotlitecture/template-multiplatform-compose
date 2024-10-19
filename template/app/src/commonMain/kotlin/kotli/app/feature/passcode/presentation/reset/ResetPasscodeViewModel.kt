@@ -27,7 +27,7 @@ class ResetPasscodeViewModel(
     fun onReset(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
-        Snapshot.withMutableSnapshot {
+        withMutableSnapshot {
             _state.enteredCode = enteredCode
             _state.error = null
         }
@@ -43,7 +43,7 @@ class ResetPasscodeViewModel(
                 } else {
                     val attempts = getAttempts.invoke()
                     val error = getString(Res.string.passcode_unlock_error, attempts)
-                    Snapshot.withMutableSnapshot {
+                    withMutableSnapshot {
                         _state.enteredCode = ""
                         _state.loading = false
                         _state.error = error

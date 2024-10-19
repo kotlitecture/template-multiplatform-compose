@@ -62,7 +62,7 @@ class AppViewModel(snackbarState: AppSnackbarState) : BaseViewModel() {
         selected: NavigationItem?,
         items: List<NavigationItem>
     ) {
-        Snapshot.withMutableSnapshot {
+        withMutableSnapshot {
             _state.startDestination = startDestination
             navigationState.selected = selected
             navigationState.visible = true

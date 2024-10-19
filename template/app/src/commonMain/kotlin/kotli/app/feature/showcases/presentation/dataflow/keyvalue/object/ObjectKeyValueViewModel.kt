@@ -3,11 +3,7 @@ package kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.Snapshot
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.drop
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
@@ -19,34 +15,30 @@ class ObjectKeyValueViewModel(
     private val keyValueSource: KeyValueSource
 ) : BaseViewModel() {
 
+    private val key = "my_object"
+    private val serializer = SerializationStrategy.json(Data.serializer())
+
     private val _state = ObjectKeyValueMutableState()
     val state: ObjectKeyValueState = _state
 
-    override fun doBind() = async("Handle input changes") {
-        val key = "my_object"
-        val serializer = SerializationStrategy.json(Data.serializer())
+    override fun doBind() = async("Restore text") {
         val data: Data? = keyValueSource.read(key, serializer)
-
-        Snapshot.withMutableSnapshot {
-            data?.time?.let(::updateSupportText)
+        withMutableSnapshot {
             _state.text = data?.text.orEmpty()
+            data?.time?.let(::updateSupportText)
         }
-
-        snapshotFlow { _state.text }
-            .drop(1)
-            .debounce(100)
-            .collectLatest { text ->
-                val newData = Data(
-                    text = text,
-                    time = Clock.System.now()
-                )
-                keyValueSource.save(key, newData, serializer)
-                updateSupportText(newData.time)
-            }
     }
 
     fun onTextChanged(text: String) {
         _state.text = text
+        async("Save changes", force = true) {
+            val newData = Data(
+                text = text,
+                time = Clock.System.now()
+            )
+            keyValueSource.save(key, newData, serializer)
+            updateSupportText(newData.time)
+        }
     }
 
     private fun updateSupportText(time: Instant) {

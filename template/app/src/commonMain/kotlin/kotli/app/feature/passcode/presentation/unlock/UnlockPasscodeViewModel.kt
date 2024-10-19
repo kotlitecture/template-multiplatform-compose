@@ -22,6 +22,12 @@ class UnlockPasscodeViewModel(
     private val _state = UnlockPasscodeMutableState(getPasscodeLength.invoke())
     val state: UnlockPasscodeState = _state
 
+    override fun doBind() = withMutableSnapshot {
+        _state.enteredCode = ""
+        _state.loading = false
+        _state.error = null
+    }
+
     fun onForgot() {
         _state.forgot = true
     }
@@ -33,7 +39,7 @@ class UnlockPasscodeViewModel(
     fun onUnlock(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
-        Snapshot.withMutableSnapshot {
+        withMutableSnapshot {
             _state.enteredCode = enteredCode
             _state.error = null
         }
@@ -47,7 +53,7 @@ class UnlockPasscodeViewModel(
                 if (lockState == LockState.LOCKED) {
                     val attempts = getAttempts.invoke()
                     val error = getString(Res.string.passcode_unlock_error, attempts)
-                    Snapshot.withMutableSnapshot {
+                    withMutableSnapshot {
                         _state.enteredCode = ""
                         _state.loading = false
                         _state.error = error

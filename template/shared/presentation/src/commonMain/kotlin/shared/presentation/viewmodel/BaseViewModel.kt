@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.snapshots.Snapshot
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
@@ -47,6 +48,15 @@ abstract class BaseViewModel : ViewModel() {
             block = block,
             context = Dispatchers.Main.immediate,
         )
+    }
+
+    /**
+     * Take a MutableSnapshot and run block within it on the main thread.
+     */
+    protected fun withMutableSnapshot(block: () -> Unit) {
+        viewModelScope.launch(Dispatchers.Main.immediate) {
+            Snapshot.withMutableSnapshot(block)
+        }
     }
 
     /**

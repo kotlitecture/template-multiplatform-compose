@@ -33,7 +33,7 @@ class SetPasscodeViewModel(
         } else {
             SetPasscodeStep.EnterNew()
         }
-        Snapshot.withMutableSnapshot {
+        withMutableSnapshot {
             _state.enteredCode = ""
             _state.loading = false
             _state.error = null
@@ -44,7 +44,7 @@ class SetPasscodeViewModel(
     fun onEnter(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
-        Snapshot.withMutableSnapshot {
+        withMutableSnapshot {
             _state.enteredCode = enteredCode
             _state.error = null
         }
@@ -70,13 +70,13 @@ class SetPasscodeViewModel(
         if (checkPasscode.invoke(enteredCode) == LockState.LOCKED) {
             val attempts = getAttempts.invoke()
             val error = getString(Res.string.passcode_unlock_error, attempts)
-            Snapshot.withMutableSnapshot {
+            withMutableSnapshot {
                 _state.enteredCode = ""
                 _state.loading = false
                 _state.error = error
             }
         } else {
-            Snapshot.withMutableSnapshot {
+            withMutableSnapshot {
                 _state.step = SetPasscodeStep.EnterNew()
                 _state.enteredCode = ""
                 _state.loading = false
@@ -85,7 +85,7 @@ class SetPasscodeViewModel(
     }
 
     private fun onEnterNew(enteredCode: String) {
-        Snapshot.withMutableSnapshot {
+        withMutableSnapshot {
             _state.step = SetPasscodeStep.ConfirmNew(code = enteredCode)
             _state.enteredCode = ""
             _state.loading = false
@@ -97,9 +97,10 @@ class SetPasscodeViewModel(
         enteredCode: String
     ) {
         if (enteredCode != expectedCode) {
-            Snapshot.withMutableSnapshot {
-                _state.error = getString(Res.string.passcode_set_confirm_new_error)
+            val error = getString(Res.string.passcode_set_confirm_new_error)
+            withMutableSnapshot {
                 _state.step = SetPasscodeStep.EnterNew()
+                _state.error = error
                 _state.enteredCode = ""
                 _state.loading = false
             }
