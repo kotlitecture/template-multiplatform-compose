@@ -1,12 +1,11 @@
-package kotli.app.feature.showcases.presentation
+package kotli.app.feature.showcases
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import kotli.app.AppRoute
-import kotli.app.feature.passcode.presentation.reset.ResetPasscodeScreen
-import kotli.app.feature.passcode.presentation.set.SetPasscodeScreen
+import kotli.app.feature.showcases.presentation.ShowcasesScreen
 import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiRoute
 import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiScreen
 import kotli.app.feature.showcases.presentation.dataflow.cache.basic.BasicCacheRoute
@@ -37,14 +36,8 @@ import kotli.app.feature.showcases.presentation.userflow.component.placeholder.P
 import kotli.app.feature.showcases.presentation.userflow.component.placeholder.PlaceholderScreen
 import kotli.app.feature.showcases.presentation.userflow.loader.LoaderRoute
 import kotli.app.feature.showcases.presentation.userflow.loader.LoaderScreen
-import kotli.app.feature.showcases.presentation.userflow.passcode.ResetPasscodeRoute
-import kotli.app.feature.showcases.presentation.userflow.passcode.SetPasscodeRoute
-import kotli.app.feature.showcases.presentation.userflow.theme.change.ChangeThemeDialogRoute
-import kotli.app.feature.showcases.presentation.userflow.theme.change.ChangeThemeScreenRoute
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeScreen
-import kotli.app.feature.theme.change.presentation.ChangeThemeDialog
-import kotli.app.feature.theme.change.presentation.ChangeThemeScreen
 import kotlinx.serialization.Serializable
 import shared.presentation.misc.back
 import shared.presentation.misc.newInstance
@@ -59,10 +52,6 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<MarkdownRoute> { MarkdownScreen(navController::back) }
     composable<PlaceholderRoute> { PlaceholderScreen(navController::back) }
     composable<LoaderRoute> { LoaderScreen(navController::back) }
-    composable<ResetPasscodeRoute> { ResetPasscodeScreen(navController::back) }
-    composable<SetPasscodeRoute> { SetPasscodeScreen(navController::back) }
-    composable<ChangeThemeScreenRoute> { ChangeThemeScreen(navController::back) }
-    dialog<ChangeThemeDialogRoute> { ChangeThemeDialog() }
     dialog<ToggleThemeRoute> { ToggleThemeScreen() }
     composable<GeminiRoute> { GeminiScreen(navController::back) }
     composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }

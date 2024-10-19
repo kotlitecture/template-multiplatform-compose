@@ -19,10 +19,8 @@ import kotli.app.feature.showcases.presentation.userflow.component.image.coil.Co
 import kotli.app.feature.showcases.presentation.userflow.component.markdown.MarkdownRoute
 import kotli.app.feature.showcases.presentation.userflow.component.placeholder.PlaceholderRoute
 import kotli.app.feature.showcases.presentation.userflow.loader.LoaderRoute
-import kotli.app.feature.showcases.presentation.userflow.passcode.ResetPasscodeRoute
-import kotli.app.feature.showcases.presentation.userflow.passcode.SetPasscodeRoute
-import kotli.app.feature.showcases.presentation.userflow.theme.change.ChangeThemeDialogRoute
-import kotli.app.feature.showcases.presentation.userflow.theme.change.ChangeThemeScreenRoute
+import kotli.app.feature.showcases.presentation.userflow.passcode.PasscodeShowcases
+import kotli.app.feature.showcases.presentation.userflow.theme.change.ChangeThemeShowcases
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -50,12 +48,12 @@ class ShowcasesViewModel : BaseViewModel() {
         Showcase.Header("Userflow :: Loader"),
         LoaderRoute.screen,
         Showcase.Header("Userflow :: Theme"),
-        ChangeThemeScreenRoute.screen,
-        ChangeThemeDialogRoute.screen,
+        ChangeThemeShowcases.screen,
+        ChangeThemeShowcases.dialog,
         ToggleThemeRoute.screen,
         Showcase.Header("Userflow :: Passcode"),
-        SetPasscodeRoute.screen,
-        ResetPasscodeRoute.screen,
+        PasscodeShowcases.set,
+        PasscodeShowcases.reset,
         Showcase.Header("Userflow :: Design Components"),
         PlaceholderRoute.screen,
         FilePickerRoute.screen,

@@ -6,7 +6,7 @@ import kotli.app.common.presentation.navigation.NavigationItem
 import kotli.app.feature.a.presentation.ARoute
 import kotli.app.feature.b.presentation.BRoute
 import kotli.app.feature.c.presentation.CRoute
-import kotli.app.feature.showcases.presentation.ShowcasesRoute
+import kotli.app.feature.showcases.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
@@ -24,9 +24,9 @@ class AppViewModel(
     val state: AppState = _state
 
     fun onBind(navController: NavHostController) = async("Init app navigation") {
-        val startDestination = getStartDestination()
         val items = createItems(navController::singleInstance)
         val itemsById = items.associateBy { item -> item.id }
+        val startDestination = getStartDestination()
 
         configure(
             items = items,
