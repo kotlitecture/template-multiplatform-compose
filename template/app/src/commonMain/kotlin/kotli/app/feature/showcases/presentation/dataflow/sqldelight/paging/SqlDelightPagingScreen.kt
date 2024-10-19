@@ -22,12 +22,13 @@ import shared.design.theme.AppTheme
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun SqlDelightPagingScreen() {
+fun SqlDelightPagingScreen(onBack: () -> Unit) {
     val viewModel: SqlDelightPagingViewModel = provideViewModel()
-    val users = viewModel.usersFlow.collectAsLazyPagingItems()
+    val users = viewModel.state.users.collectAsLazyPagingItems()
+
     AppFixedTopBarLazyColumn(
-        title = SqlDelightPagingShowcase.label,
-        onBack = viewModel::onBack,
+        title = SqlDelightPagingRoute.screen.label,
+        onBack = onBack,
         content = {
             AppPagingList(
                 items = users,

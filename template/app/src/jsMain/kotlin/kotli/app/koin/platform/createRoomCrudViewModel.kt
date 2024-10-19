@@ -1,22 +1,18 @@
 package kotli.app.koin.platform
 
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudViewModel
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.UserData
 import kotli.app.koin.get
-import kotli.app.feature.showcases.dataflow.room.crud.RoomCrudViewModel
-import kotli.app.feature.showcases.dataflow.room.crud.model.UserData
 import shared.design.component.AppSnackbarState
-import shared.presentation.navigation.NavigationStore
 
 actual fun createRoomCrudViewModel(): RoomCrudViewModel = RoomCrudViewModelImpl(
-    snackbarStore = get(),
-    navigationStore = get()
+    snackbarStore = get()
 )
 
 private class RoomCrudViewModelImpl(
-    private val snackbarStore: AppSnackbarState,
-    navigationStore: NavigationStore
-) : RoomCrudViewModel(
-    navigationStore
-) {
+    private val snackbarStore: AppSnackbarState
+) : RoomCrudViewModel() {
+
     override fun onAdd() = async("Add new user") {
         snackbarStore.showSnackbar("Room is not supported for the Web target")
     }

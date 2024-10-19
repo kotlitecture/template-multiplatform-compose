@@ -10,6 +10,10 @@ import kotli.app.feature.showcases.presentation.dataflow.encryption.BasicEncrypt
 import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpRoute
 import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueRoute
 import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueRoute
+import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingRoute
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudRoute
+import kotli.app.feature.showcases.presentation.dataflow.sqldelight.crud.SqlDelightCrudRoute
+import kotli.app.feature.showcases.presentation.dataflow.sqldelight.paging.SqlDelightPagingRoute
 import kotli.app.feature.showcases.presentation.userflow.component.filepicker.FilePickerRoute
 import kotli.app.feature.showcases.presentation.userflow.component.image.coil.CoilRoute
 import kotli.app.feature.showcases.presentation.userflow.component.markdown.MarkdownRoute
@@ -35,12 +39,12 @@ class ShowcasesViewModel : BaseViewModel() {
         PrimitiveKeyValueRoute.screen,
         ObjectKeyValueRoute.screen,
         Showcase.Header("Dataflow :: Paging"),
-        BasicPagingShowcase,
-        Showcase.Header("Dataflow :: SqlDelight"),
-        SqlDelightCrudShowcase,
-        SqlDelightPagingShowcase,
+        BasicPagingRoute.screen,
         Showcase.Header("Dataflow :: Room"),
-        RoomCrudShowcase,
+        RoomCrudRoute.screen,
+        Showcase.Header("Dataflow :: SqlDelight"),
+        SqlDelightCrudRoute.screen,
+        SqlDelightPagingRoute.screen,
         Showcase.Header("Dataflow :: AI"),
         GeminiRoute.screen,
         Showcase.Header("Userflow :: Loader"),

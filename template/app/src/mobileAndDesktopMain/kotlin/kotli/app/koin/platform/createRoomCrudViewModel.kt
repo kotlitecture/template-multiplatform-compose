@@ -2,33 +2,28 @@ package kotli.app.koin.platform
 
 import kotli.app.common.data.source.database.room.AppRoomSource
 import kotli.app.common.data.source.database.room.entity.User
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudViewModel
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.UserData
 import kotli.app.koin.get
-import kotli.app.feature.showcases.dataflow.room.crud.RoomCrudViewModel
-import kotli.app.feature.showcases.dataflow.room.crud.model.UserData
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import shared.presentation.navigation.NavigationStore
 
 actual fun createRoomCrudViewModel(): RoomCrudViewModel = RoomCrudViewModelImpl(
-    navigationStore = get(),
     roomSource = get()
 )
 
 private class RoomCrudViewModelImpl(
-    navigationStore: NavigationStore,
     private val roomSource: AppRoomSource
-) : RoomCrudViewModel(navigationStore) {
+) : RoomCrudViewModel() {
 
-    override fun doBind() {
-        async("Get available users") {
-            roomSource.userDao
-                .getAllAsFlow().map { users ->
-                    users.map { user ->
-                        UserData(user.id, user.firstName, user.lastName)
-                    }
+    override fun doBind() = async("Get available users") {
+        roomSource.userDao
+            .getAllAsFlow().map { users ->
+                users.map { user ->
+                    UserData(user.id, user.firstName, user.lastName)
                 }
-                .collectLatest(usersState::set)
-        }
+            }
+            .collectLatest(_state::users::set)
     }
 
     override fun onAdd() = async("Add new user") {

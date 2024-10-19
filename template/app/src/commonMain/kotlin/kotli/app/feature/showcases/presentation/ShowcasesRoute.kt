@@ -18,6 +18,14 @@ import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.Objec
 import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueScreen
 import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueRoute
 import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueScreen
+import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingRoute
+import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingScreen
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudRoute
+import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudScreen
+import kotli.app.feature.showcases.presentation.dataflow.sqldelight.crud.SqlDelightCrudRoute
+import kotli.app.feature.showcases.presentation.dataflow.sqldelight.crud.SqlDelightCrudScreen
+import kotli.app.feature.showcases.presentation.dataflow.sqldelight.paging.SqlDelightPagingRoute
+import kotli.app.feature.showcases.presentation.dataflow.sqldelight.paging.SqlDelightPagingScreen
 import kotli.app.feature.showcases.presentation.userflow.component.filepicker.FilePickerRoute
 import kotli.app.feature.showcases.presentation.userflow.component.filepicker.FilePickerScreen
 import kotli.app.feature.showcases.presentation.userflow.component.image.coil.CoilRoute
@@ -61,4 +69,8 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<BasicHttpRoute> { BasicHttpScreen(navController::back) }
     composable<ObjectKeyValueRoute> { ObjectKeyValueScreen(navController::back) }
     composable<PrimitiveKeyValueRoute> { PrimitiveKeyValueScreen(navController::back) }
+    composable<BasicPagingRoute> { BasicPagingScreen(navController::back) }
+    composable<RoomCrudRoute> { RoomCrudScreen(navController::back) }
+    composable<SqlDelightCrudRoute> { SqlDelightCrudScreen(navController::back) }
+    composable<SqlDelightPagingRoute> { SqlDelightPagingScreen(navController::back) }
 }

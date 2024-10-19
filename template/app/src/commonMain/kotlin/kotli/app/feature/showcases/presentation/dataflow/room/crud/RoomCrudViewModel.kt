@@ -1,17 +1,20 @@
 package kotli.app.feature.showcases.presentation.dataflow.room.crud
 
-import kotli.app.feature.showcases.dataflow.room.crud.model.UserData
-import shared.presentation.navigation.NavigationStore
-import shared.presentation.store.DataState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import shared.presentation.viewmodel.BaseViewModel
 
-abstract class RoomCrudViewModel(val navigationStore: NavigationStore) : BaseViewModel() {
+abstract class RoomCrudViewModel : BaseViewModel() {
 
-    val usersState = DataState<List<UserData>>(emptyList())
-
-    fun onBack() = navigationStore.onBack()
+    protected val _state = RoomCrudMutableState()
+    val state: RoomCrudState = _state
 
     abstract fun onAdd()
 
     abstract fun onDelete(user: UserData)
+
+    protected class RoomCrudMutableState : RoomCrudState {
+        override var users: List<UserData> by mutableStateOf(emptyList())
+    }
 }

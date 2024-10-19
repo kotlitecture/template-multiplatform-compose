@@ -1,4 +1,4 @@
-package kotli.app.feature.showcases.presentation.dataflow.room.crud.model
+package kotli.app.feature.showcases.presentation.dataflow.room.crud
 
 data class UserData(
     val id: Long,

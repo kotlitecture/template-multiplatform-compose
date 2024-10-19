@@ -11,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import kotli.app.feature.showcases.dataflow.room.crud.model.UserData
 import shared.design.component.AppActionButton
 import shared.design.component.AppHorizontalDivider
 import shared.design.component.AppOutlinedButton
@@ -22,19 +21,23 @@ import shared.design.theme.AppTheme
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun RoomCrudScreen() {
+fun RoomCrudScreen(onBack: () -> Unit) {
     val viewModel: RoomCrudViewModel = provideViewModel()
-    val users = viewModel.usersState.asStateValueNotNull()
+    val state = viewModel.state
+
     AppFixedTopBarLazyColumn(
-        title = RoomCrudShowcase.label,
-        onBack = viewModel::onBack,
+        title = RoomCrudRoute.screen.label,
+        onBack = onBack,
         actions = { ActionsBlock(viewModel) },
         content = {
+            val users = state.users
+
             users.forEach { user ->
                 item {
                     UserBlock(user, viewModel::onDelete)
                 }
             }
+
             if (users.isEmpty()) {
                 item {
                     AppText(

@@ -22,19 +22,23 @@ import shared.design.theme.AppTheme
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun SqlDelightCrudScreen() {
+fun SqlDelightCrudScreen(onBack: () -> Unit) {
     val viewModel: SqlDelightCrudViewModel = provideViewModel()
-    val users = viewModel.usersState.asStateValueNotNull()
+    val state = viewModel.state
+
     AppFixedTopBarLazyColumn(
-        title = SqlDelightCrudShowcase.label,
-        onBack = viewModel::onBack,
+        title = SqlDelightCrudRoute.screen.label,
+        onBack = onBack,
         actions = { ActionsBlock(viewModel) },
         content = {
+            val users = state.users
+
             users.forEach { user ->
                 item {
                     UserBlock(user, viewModel::onDelete)
                 }
             }
+
             if (users.isEmpty()) {
                 item {
                     AppText(
