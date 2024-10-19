@@ -3,10 +3,10 @@ package kotli.app.feature.passcode
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import kotli.app.feature.passcode.reset.presentation.ResetPasscodeRoute
-import kotli.app.feature.passcode.reset.presentation.ResetPasscodeScreen
-import kotli.app.feature.passcode.set.presentation.SetPasscodeRoute
-import kotli.app.feature.passcode.set.presentation.SetPasscodeScreen
+import kotli.app.feature.passcode.presentation.reset.ResetPasscodeRoute
+import kotli.app.feature.passcode.presentation.reset.ResetPasscodeScreen
+import kotli.app.feature.passcode.presentation.set.SetPasscodeRoute
+import kotli.app.feature.passcode.presentation.set.SetPasscodeScreen
 import shared.presentation.misc.back
 
 fun NavGraphBuilder.passcode(navController: NavHostController) {

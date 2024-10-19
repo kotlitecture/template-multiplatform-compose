@@ -10,7 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import kotli.app.common.presentation.navigation.BottomProvider
 import kotli.app.common.presentation.navigation.NavigationProvider
-import kotli.app.feature.passcode.provide.presentation.PasscodeProvider
+import kotli.app.feature.passcode.presentation.provide.PasscodeProvider
 import kotli.app.feature.theme.provide.presentation.ThemeProvider
 import kotli.app.koin.get
 import shared.design.container.AppScaffold

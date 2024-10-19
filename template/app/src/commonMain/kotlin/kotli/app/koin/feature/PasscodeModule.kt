@@ -1,17 +1,17 @@
 package kotli.app.koin.feature
 
-import kotli.app.feature.passcode.common.data.PasscodeRepositoryImpl
-import kotli.app.feature.passcode.common.domain.repository.PasscodeRepository
-import kotli.app.feature.passcode.common.domain.usecase.CheckPasscodeUseCase
-import kotli.app.feature.passcode.common.domain.usecase.ForgotPasscodeUseCase
-import kotli.app.feature.passcode.common.domain.usecase.GetLockStateUseCase
-import kotli.app.feature.passcode.common.domain.usecase.GetPasscodeLengthUseCase
-import kotli.app.feature.passcode.common.domain.usecase.GetRemainingAttemptsUseCase
-import kotli.app.feature.passcode.common.domain.usecase.IsPasscodeSetUseCase
-import kotli.app.feature.passcode.common.domain.usecase.ResetPasscodeUseCase
-import kotli.app.feature.passcode.common.domain.usecase.SetPasscodeUseCase
-import kotli.app.feature.passcode.common.domain.usecase.UnlockPasscodeUseCase
-import kotli.app.feature.passcode.common.domain.usecase.UpdatePasscodeUseCase
+import kotli.app.feature.passcode.data.PasscodeRepositoryImpl
+import kotli.app.feature.passcode.domain.repository.PasscodeRepository
+import kotli.app.feature.passcode.domain.usecase.CheckPasscodeUseCase
+import kotli.app.feature.passcode.domain.usecase.ForgotPasscodeUseCase
+import kotli.app.feature.passcode.domain.usecase.GetLockStateUseCase
+import kotli.app.feature.passcode.domain.usecase.GetPasscodeLengthUseCase
+import kotli.app.feature.passcode.domain.usecase.GetRemainingAttemptsUseCase
+import kotli.app.feature.passcode.domain.usecase.IsPasscodeSetUseCase
+import kotli.app.feature.passcode.domain.usecase.ResetPasscodeUseCase
+import kotli.app.feature.passcode.domain.usecase.SetPasscodeUseCase
+import kotli.app.feature.passcode.domain.usecase.UnlockPasscodeUseCase
+import kotli.app.feature.passcode.domain.usecase.UpdatePasscodeUseCase
 import org.koin.dsl.module
 
 val passcodeModule = module {

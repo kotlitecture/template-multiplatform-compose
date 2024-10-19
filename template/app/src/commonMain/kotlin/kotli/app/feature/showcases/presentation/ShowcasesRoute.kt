@@ -4,8 +4,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import kotli.app.AppRoute
-import kotli.app.feature.passcode.reset.presentation.ResetPasscodeScreen
-import kotli.app.feature.passcode.set.presentation.SetPasscodeScreen
+import kotli.app.feature.passcode.presentation.reset.ResetPasscodeScreen
+import kotli.app.feature.passcode.presentation.set.SetPasscodeScreen
 import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiRoute
 import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiScreen
 import kotli.app.feature.showcases.presentation.dataflow.cache.basic.BasicCacheRoute
