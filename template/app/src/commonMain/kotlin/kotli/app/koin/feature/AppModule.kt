@@ -7,12 +7,11 @@ import kotli.app.common.presentation.loader.LoaderViewModel
 import kotli.app.feature.a.presentation.AViewModel
 import kotli.app.feature.b.presentation.BViewModel
 import kotli.app.feature.c.presentation.CViewModel
-import kotli.app.feature.passcode.provide.presentation.PasscodeViewModel
 import kotli.app.feature.passcode.forgot.presentation.ForgotPasscodeViewModel
+import kotli.app.feature.passcode.provide.presentation.PasscodeViewModel
 import kotli.app.feature.passcode.reset.presentation.ResetPasscodeViewModel
 import kotli.app.feature.passcode.set.presentation.SetPasscodeViewModel
 import kotli.app.feature.passcode.unlock.presentation.UnlockPasscodeViewModel
-import kotli.app.feature.showcases.ShowcasesViewModel
 import kotli.app.feature.showcases.dataflow.ai.gemini.GeminiViewModel
 import kotli.app.feature.showcases.dataflow.cache.basic.BasicCacheViewModel
 import kotli.app.feature.showcases.dataflow.encryption.BasicEncryptionViewModel
@@ -22,6 +21,7 @@ import kotli.app.feature.showcases.dataflow.keyvalue.primitive.PrimitiveKeyValue
 import kotli.app.feature.showcases.dataflow.paging.basic.BasicPagingViewModel
 import kotli.app.feature.showcases.dataflow.sqldelight.crud.SqlDelightCrudViewModel
 import kotli.app.feature.showcases.dataflow.sqldelight.paging.SqlDelightPagingViewModel
+import kotli.app.feature.showcases.presentation.ShowcasesViewModel
 import kotli.app.feature.showcases.userflow.component.filepicker.FilePickerShowcaseViewModel
 import kotli.app.feature.showcases.userflow.component.image.coil.CoilShowcaseViewModel
 import kotli.app.feature.showcases.userflow.component.markdown.MarkdownShowcaseViewModel
@@ -48,10 +48,10 @@ val appModule = module {
             initializer { AViewModel() }
             initializer { BViewModel() }
             initializer { CViewModel() }
-            initializer { ShowcasesViewModel(get()) }
             initializer { AppViewModel(get()) }
             initializer { ThemeViewModel(get()) }
             initializer { ThemePersistenceViewModel(get(), get(), get()) }
+            initializer { ShowcasesViewModel() }
             initializer { ChangeThemeViewModel(get(), get()) }
             initializer { ToggleThemeViewModel(get()) }
             initializer { BasicPagingViewModel(get(), get()) }

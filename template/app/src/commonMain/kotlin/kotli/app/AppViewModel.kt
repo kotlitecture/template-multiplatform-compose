@@ -12,7 +12,7 @@ import kotli.app.common.presentation.navigation.NavigationState
 import kotli.app.feature.a.presentation.ARoute
 import kotli.app.feature.passcode.reset.presentation.ResetPasscodeRoute
 import kotli.app.feature.passcode.set.presentation.SetPasscodeRoute
-import kotli.app.feature.showcases.ShowcasesRoute
+import kotli.app.feature.showcases.presentation.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
