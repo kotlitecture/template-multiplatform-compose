@@ -79,13 +79,13 @@ private val darkScheme = darkColorScheme(
     surfaceContainerHighest = surfaceContainerHighestDark,
 )
 
-val LightThemeContext = AppTheme(
+val LightTheme = AppTheme(
     dark = false,
     id = "material_3_light",
     colorScheme = lightScheme
 )
 
-val DarkThemeContext = AppTheme(
+val DarkTheme = AppTheme(
     dark = true,
     id = "material_3_dark",
     colorScheme = darkScheme
