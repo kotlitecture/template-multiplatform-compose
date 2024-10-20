@@ -32,7 +32,7 @@ object GeminiProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("generativeai")
         )
         state.onApplyRules(
@@ -41,7 +41,7 @@ object GeminiProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppKoinDiKt,
             RemoveMarkedLine("aiSource")
         )
 
@@ -55,7 +55,7 @@ object GeminiProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("GeminiViewModel")
         )
     }

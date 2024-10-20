@@ -6,7 +6,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -15,13 +14,12 @@ import kotli.app.feature.navigation.provide.presentation.BottomNavigationProvide
 import kotli.app.feature.navigation.provide.presentation.NavigationProvider
 import kotli.app.feature.passcode.presentation.provide.PasscodeProvider
 import kotli.app.feature.theme.provide.presentation.ThemeProvider
-import kotli.app.koin.get
 import shared.design.container.AppScaffold
 import shared.presentation.viewmodel.ViewModelProvider
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun App() = ViewModelProvider(get()) {
+fun App() = ViewModelProvider({ app() }) {
     val viewModel: AppViewModel = provideViewModel()
     val navController = rememberNavController()
     val state = viewModel.state

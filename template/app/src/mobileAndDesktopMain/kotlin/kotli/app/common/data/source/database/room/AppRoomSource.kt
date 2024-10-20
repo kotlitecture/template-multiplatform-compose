@@ -2,7 +2,7 @@ package kotli.app.common.data.source.database.room
 
 import androidx.room.useWriterConnection
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-import kotli.app.koin.platform.createRoomDatabaseBuilder
+import kotli.app.di.platform.createRoomDatabaseBuilder
 import shared.data.source.DataSource
 
 /**

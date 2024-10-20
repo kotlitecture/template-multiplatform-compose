@@ -29,7 +29,7 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("AppThemeViewModel")
         )
     }
@@ -51,7 +51,7 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("AppThemePersistenceViewModel")
         )
         state.onApplyRules(

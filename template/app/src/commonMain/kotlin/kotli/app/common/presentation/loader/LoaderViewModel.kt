@@ -7,8 +7,6 @@ import androidx.compose.runtime.snapshotFlow
 import kotli.app.common.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filterNotNull
 import shared.presentation.viewmodel.BaseViewModel
 
 class LoaderViewModel(
@@ -19,19 +17,16 @@ class LoaderViewModel(
     val state: LoaderState = _state
 
     suspend fun onBind(isLoading: () -> Boolean) {
-        snapshotFlow(isLoading)
-            .filterNotNull()
-            .distinctUntilChanged()
-            .collectLatest { loading ->
-                if (loading) {
-                    delay(configSource.getUiLoaderDelay())
-                    _state.loading = true
-                    delay(configSource.getUiLoaderTimeout())
-                    _state.loading = false
-                } else {
-                    _state.loading = false
-                }
+        snapshotFlow(isLoading).collectLatest { loading ->
+            if (loading) {
+                delay(configSource.getUiLoaderDelay())
+                _state.loading = true
+                delay(configSource.getUiLoaderTimeout())
+                _state.loading = false
+            } else {
+                _state.loading = false
             }
+        }
     }
 
     private class MutableLoaderState : LoaderState {

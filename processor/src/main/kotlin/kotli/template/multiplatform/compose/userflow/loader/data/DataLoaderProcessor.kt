@@ -31,7 +31,7 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("LoaderViewModel")
         )
         state.onApplyRules(

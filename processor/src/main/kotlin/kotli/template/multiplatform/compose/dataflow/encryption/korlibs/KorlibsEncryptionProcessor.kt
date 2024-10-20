@@ -32,7 +32,7 @@ object KorlibsEncryptionProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppKoinDiKt,
             RemoveMarkedLine("EncryptionSource")
         )
         state.onApplyRules(
@@ -54,7 +54,7 @@ object KorlibsEncryptionProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("Encryption")
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("EncryptionViewModel")
         )
     }

@@ -30,7 +30,7 @@ object ChangeThemeShowcasesProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("ChangeThemeDialogShowcase"),
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("ChangeThemeViewModel")
         )
     }

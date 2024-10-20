@@ -44,7 +44,7 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppKoinDiKt,
             RemoveMarkedLine("passcode")
         )
         state.onApplyRules(
@@ -52,7 +52,7 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("passcode")
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("passcode")
         )
         state.onApplyRules(

@@ -49,7 +49,7 @@ object RoomProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             CleanupMarkedBlock("{dataflow.database.room.config}"),
             CleanupMarkedLine("{dataflow.database.room}")
         )
@@ -57,7 +57,7 @@ object RoomProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedBlock("{dataflow.database.room.config}"),
             RemoveMarkedLine("{dataflow.database.room}")
         )
@@ -79,11 +79,11 @@ object RoomProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppKoinDiKt,
             RemoveMarkedLine("RoomSource")
         )
         state.onApplyRules(
-            Rules.ConfigureKoinDI,
+            Rules.AppConfigureKoinKt,
             RemoveMarkedLine("RoomSource")
         )
 
@@ -97,7 +97,7 @@ object RoomProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("createRoom")
         )
         state.onApplyRules(

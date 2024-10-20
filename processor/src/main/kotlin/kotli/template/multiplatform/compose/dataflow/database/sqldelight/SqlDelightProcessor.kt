@@ -14,7 +14,6 @@ import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
-import kotli.template.multiplatform.compose.dataflow.database.SqliteLinkerProcessor
 import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
@@ -40,12 +39,12 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             CleanupMarkedBlock("{sqldelight.config}"),
             CleanupMarkedLine("{dataflow.database.sqldelight}")
         )
         state.onApplyRules(
-            "${Rules.CommonAppMainDir}/sqldelight",
+            "${Rules.AppCommonMain}/sqldelight",
             RenamePackage(
                 "kotli.app",
                 state.layer.namespace
@@ -56,7 +55,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedBlock("{sqldelight.config}"),
             RemoveMarkedLine("{dataflow.database.sqldelight}")
         )
@@ -81,7 +80,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppKoinDiKt,
             RemoveMarkedLine("SqlDelightSource")
         )
         state.onApplyRules(
@@ -93,7 +92,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("SqlDelight")
         )
         state.onApplyRules(
@@ -106,7 +105,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
         if (state.getFeature(CashAppPagingProcessor.ID) != null) return
 
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("sqldelight.androidx.paging"),
         )
         state.onApplyRules(
@@ -123,7 +122,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("SqlDelightPaging")
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("SqlDelightPaging")
         )
     }

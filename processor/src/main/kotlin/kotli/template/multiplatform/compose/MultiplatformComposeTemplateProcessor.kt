@@ -142,7 +142,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             ReplaceMarkedText(
                 text = "kotli.app",
                 marker = "kotli.app",
@@ -171,7 +171,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     override fun processAfter(state: TemplateState) {
         val name = normalizeRootName(state.layer.name)
         state.onApplyRules(
-            "${Rules.CommonAppSrcDir}/*.kt",
+            "${Rules.AppSrc}/*.kt",
             ReplaceMarkedText(
                 text = "import template.app.",
                 marker = "import template.app.",
@@ -186,15 +186,15 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 replacer = "import ${name}."
             )
         )
-        renamePackage(state, "${Rules.CommonAppSrcDir}/androidMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/commonMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/iosArm64Main/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/iosMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/iosSimulatorArm64Main/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/iosX64Main/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/jsMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/jvmMain/kotlin")
-        renamePackage(state, "${Rules.CommonAppSrcDir}/mobileAndDesktopMain/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/androidMain/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/commonMain/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/iosArm64Main/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/iosMain/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/iosSimulatorArm64Main/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/iosX64Main/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/jsMain/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/jvmMain/kotlin")
+        renamePackage(state, "${Rules.AppSrc}/mobileAndDesktopMain/kotlin")
     }
 
     private fun renamePackage(state: TemplateState, root: String) {

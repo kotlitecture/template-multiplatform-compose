@@ -22,7 +22,7 @@ object NapierProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("napier")
         )
         state.onApplyRules(

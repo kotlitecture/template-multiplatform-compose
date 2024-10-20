@@ -22,7 +22,7 @@ object OshaiLoggingProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("kotlin.logging")
         )
         state.onApplyRules(

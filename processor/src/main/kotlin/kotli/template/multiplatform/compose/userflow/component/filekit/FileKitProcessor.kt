@@ -45,7 +45,7 @@ object FileKitProcessor : BaseFeatureProcessor() {
         )
 
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("FilePickerShowcaseViewModel")
         )
 

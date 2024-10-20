@@ -31,7 +31,7 @@ object ToggleThemeProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("ToggleThemeViewModel")
         )
     }

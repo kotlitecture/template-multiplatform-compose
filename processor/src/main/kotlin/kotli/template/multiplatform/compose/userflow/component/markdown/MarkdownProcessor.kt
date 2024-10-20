@@ -52,7 +52,7 @@ object MarkdownProcessor : BaseFeatureProcessor() {
         )
 
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("MarkdownShowcaseViewModel")
         )
 

@@ -57,7 +57,7 @@ object CoilProcessor : BaseFeatureProcessor() {
         )
 
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("CoilShowcaseViewModel")
         )
 

@@ -20,14 +20,14 @@ object SqliteProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             CleanupMarkedLine("{dataflow.database.sqlite}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("{dataflow.database.sqlite}")
         )
         state.onApplyRules(

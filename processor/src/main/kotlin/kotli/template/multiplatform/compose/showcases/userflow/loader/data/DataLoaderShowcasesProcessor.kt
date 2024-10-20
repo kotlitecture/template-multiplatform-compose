@@ -23,7 +23,7 @@ object DataLoaderShowcasesProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
+            Rules.AppKoinAppModuleKt,
             RemoveMarkedLine("DataLoaderShowcaseViewModel")
         )
     }
