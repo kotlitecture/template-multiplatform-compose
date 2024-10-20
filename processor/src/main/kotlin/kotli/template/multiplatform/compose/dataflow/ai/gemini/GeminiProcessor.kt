@@ -9,6 +9,7 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
+import kotli.template.multiplatform.compose.showcases.dataflow.ai.GeminiShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.component.markdown.MarkdownProcessor
 import kotlin.time.Duration.Companion.hours
 
@@ -23,7 +24,7 @@ object GeminiProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MarkdownProcessor::class.java
+        GeminiShowcasesProcessor::class.java
     )
 
     override fun doRemove(state: TemplateState) {
@@ -43,20 +44,6 @@ object GeminiProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppKoinDiKt,
             RemoveMarkedLine("aiSource")
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Gemini"),
-            RemoveMarkedLine("Dataflow :: AI"),
-        )
-        state.onApplyRules(
-            Rules.ShowcasesAiDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("GeminiViewModel")
         )
     }
 

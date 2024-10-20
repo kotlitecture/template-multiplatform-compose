@@ -6,7 +6,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -105,14 +104,6 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Lifecycle-aware method called when binding the ViewModel to a [LifecycleOwner].
-     *
-     * @param owner The [LifecycleOwner] to bind to.
-     */
-    @Composable
-    protected open fun doBind(owner: LifecycleOwner) = Unit
-
-    /**
      * Lifecycle-aware method called when initializing the ViewModel.
      */
     protected open fun doInit() = Unit
@@ -169,7 +160,6 @@ abstract class BaseViewModel : ViewModel() {
                 }
             }
         }
-        doBind(owner)
     }
 
     override fun onCleared() {
