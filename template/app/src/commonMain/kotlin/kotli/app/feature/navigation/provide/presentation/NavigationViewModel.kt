@@ -10,7 +10,7 @@ import kotli.app.common.presentation.navigation.NavigationState
 import kotli.app.feature.navigation.a.presentation.ARoute
 import kotli.app.feature.navigation.b.presentation.BRoute
 import kotli.app.feature.navigation.c.presentation.CRoute
-import kotli.app.feature.showcases.ShowcasesRoute
+import kotli.app.feature.showcases.presentation.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapNotNull
@@ -30,15 +30,16 @@ class NavigationViewModel : BaseViewModel() {
         val items = createItems(navController::singleInstance)
         val itemsById = items.associateBy { item -> item.id }
 
+        withMutableSnapshot {
+            _state.visible = true
+            _state.items = items
+        }
+
         navController.currentBackStackEntryFlow
             .mapNotNull { entry -> entry.destination.id }
             .distinctUntilChanged()
             .collectLatest { destinationId ->
-                withMutableSnapshot {
-                    _state.selected = itemsById[destinationId]
-                    _state.visible = true
-                    _state.items = items
-                }
+                _state.selected = itemsById[destinationId]
             }
     }
 

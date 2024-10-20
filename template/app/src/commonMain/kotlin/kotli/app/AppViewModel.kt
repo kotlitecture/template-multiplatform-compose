@@ -1,6 +1,6 @@
 package kotli.app
 
-import kotli.app.feature.showcases.ShowcasesRoute
+import kotli.app.feature.showcases.presentation.ShowcasesRoute
 import shared.presentation.viewmodel.BaseViewModel
 
 class AppViewModel(

@@ -6,9 +6,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
-import kotli.app.AppRoute
 import kotli.app.di.inject
 import kotli.app.di.platform.createRoomCrudViewModel
+import kotli.app.feature.showcases.presentation.ShowcasesRoute
 import kotli.app.feature.showcases.presentation.ShowcasesScreen
 import kotli.app.feature.showcases.presentation.ShowcasesViewModel
 import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiRoute
@@ -55,15 +55,11 @@ import kotli.app.feature.showcases.presentation.userflow.loader.LoaderScreen
 import kotli.app.feature.showcases.presentation.userflow.loader.LoaderViewModel
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeScreen
-import kotlinx.serialization.Serializable
 import shared.presentation.misc.back
 import shared.presentation.misc.newInstance
 
-@Serializable
-object ShowcasesRoute : AppRoute
-
 fun NavGraphBuilder.showcases(navController: NavHostController) {
-    composable<ShowcasesRoute> { ShowcasesScreen { screen -> navController.newInstance(screen.route) } }
+    composable<ShowcasesRoute> { ShowcasesScreen(navController::newInstance) }
     composable<FilePickerRoute> { FilePickerScreen(navController::back) }
     composable<CoilRoute> { CoilScreen(navController::back) }
     composable<MarkdownRoute> { MarkdownScreen(navController::back) }

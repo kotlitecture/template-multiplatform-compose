@@ -24,7 +24,7 @@ import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun ShowcasesScreen(
-    onShow: (screen: Showcase.Screen) -> Unit
+    onShow: (route: Any) -> Unit
 ) {
     val viewModel: ShowcasesViewModel = provideViewModel()
     val state = viewModel.state
@@ -100,7 +100,7 @@ private fun HintBlock(
 
 private fun LazyListScope.showcaseScreen(
     screen: Showcase.Screen,
-    onShow: (screen: Showcase.Screen) -> Unit
+    onShow: (route: Any) -> Unit
 ) {
     item {
         AppOutlinedCard(
@@ -111,7 +111,7 @@ private fun LazyListScope.showcaseScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable(onClick = { onShow(screen) })
+                    .clickable(onClick = { onShow(screen.route) })
                     .padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
