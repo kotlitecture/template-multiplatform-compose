@@ -10,7 +10,6 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.dataflow.ai.GeminiShowcasesProcessor
-import kotli.template.multiplatform.compose.userflow.component.markdown.MarkdownProcessor
 import kotlin.time.Duration.Companion.hours
 
 object GeminiProcessor : BaseFeatureProcessor() {
@@ -42,7 +41,7 @@ object GeminiProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("aiSource")
         )
     }

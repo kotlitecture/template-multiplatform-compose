@@ -6,12 +6,11 @@ import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.CleanupMarkedBlock
-import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
-import kotli.template.multiplatform.compose.userflow.component.ComponentProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.component.image.CoilShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object CoilProcessor : BaseFeatureProcessor() {
@@ -26,7 +25,7 @@ object CoilProcessor : BaseFeatureProcessor() {
         "https://coil-kt.github.io/coil/upgrading_to_coil3/#multiplatform"
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        ComponentProcessor::class.java
+        CoilShowcasesProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {
@@ -54,21 +53,6 @@ object CoilProcessor : BaseFeatureProcessor() {
                 RemoveMarkedLine("coil ="),
                 RemoveMarkedLine("\"coil\"")
             )
-        )
-
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("CoilShowcaseViewModel")
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesCoilDir,
-            RemoveFile()
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("CoilShowcase")
         )
     }
 

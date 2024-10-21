@@ -18,6 +18,7 @@ import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProc
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.database.room.RoomShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object RoomProcessor : BaseFeatureProcessor() {
@@ -43,6 +44,7 @@ object RoomProcessor : BaseFeatureProcessor() {
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         MobileAndDesktopProcessor::class.java,
+        RoomShowcasesProcessor::class.java,
         CommonKspProcessor::class.java,
         SqliteProcessor::class.java,
     )
@@ -79,30 +81,12 @@ object RoomProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("RoomSource")
         )
         state.onApplyRules(
             Rules.AppConfigureKoinKt,
             RemoveMarkedLine("RoomSource")
-        )
-
-        // showcases
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Room")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesRoomDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("createRoom")
-        )
-        state.onApplyRules(
-            "*/createRoom*.kt",
-            RemoveFile()
         )
     }
 

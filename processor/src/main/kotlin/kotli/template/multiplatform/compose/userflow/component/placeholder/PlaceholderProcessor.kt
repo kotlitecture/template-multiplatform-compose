@@ -10,7 +10,7 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
-import kotli.template.multiplatform.compose.userflow.component.ComponentProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.component.placeholder.PlaceholderShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object PlaceholderProcessor : BaseFeatureProcessor() {
@@ -20,11 +20,14 @@ object PlaceholderProcessor : BaseFeatureProcessor() {
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
-    override fun getWebUrl(state: TemplateState): String = "https://github.com/eygraber/compose-placeholder"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://github.com/eygraber/compose-placeholder?tab=readme-ov-file#gradle"
+    override fun getWebUrl(state: TemplateState): String =
+        "https://github.com/eygraber/compose-placeholder"
+
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://github.com/eygraber/compose-placeholder?tab=readme-ov-file#gradle"
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        ComponentProcessor::class.java
+        PlaceholderShowcasesProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {
@@ -49,21 +52,6 @@ object PlaceholderProcessor : BaseFeatureProcessor() {
             VersionCatalogRules(
                 RemoveMarkedLine("compose-placeholder")
             )
-        )
-
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("PlaceholderShowcaseViewModel")
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesPlaceholderDir,
-            RemoveFile()
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("PlaceholderShowcase")
         )
     }
 

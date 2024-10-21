@@ -31,7 +31,7 @@ object CashAppPagingProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("PagingSource")
         )
         state.onApplyRules(

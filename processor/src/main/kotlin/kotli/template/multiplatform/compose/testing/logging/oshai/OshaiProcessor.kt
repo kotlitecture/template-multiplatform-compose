@@ -9,7 +9,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotlin.time.Duration.Companion.minutes
 
-object OshaiLoggingProcessor : BaseFeatureProcessor() {
+object OshaiProcessor : BaseFeatureProcessor() {
 
     const val ID = "testing.logging.oshai"
 

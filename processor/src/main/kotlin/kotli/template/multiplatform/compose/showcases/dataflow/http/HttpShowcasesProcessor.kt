@@ -1,31 +1,19 @@
 package kotli.template.multiplatform.compose.showcases.dataflow.http
 
-import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
-import kotli.engine.template.rule.RemoveFile
-import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
-object HttpShowcasesProcessor : BaseFeatureProcessor() {
+object HttpShowcasesProcessor : BaseShowcasesProcessor() {
 
     const val ID = "showcases.datasource.http"
 
     override fun getId(): String = ID
-    override fun isInternal(): Boolean = true
 
     override fun doRemove(state: TemplateState) {
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Http")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesHttpDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("BasicHttpViewModel")
-        )
+        removeDir(state, "${Rules.AppShowcasesDataflow}/http")
+        removeFromConfig(state, "Http")
+        removeFromViewModel(state, "Http")
     }
 
 }

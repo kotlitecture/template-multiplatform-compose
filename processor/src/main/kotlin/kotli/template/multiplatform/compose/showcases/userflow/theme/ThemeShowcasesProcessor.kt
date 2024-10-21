@@ -1,22 +1,16 @@
 package kotli.template.multiplatform.compose.showcases.userflow.theme
 
-import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
-import kotli.engine.template.rule.RemoveMarkedLine
-import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
-object ThemeShowcasesProcessor : BaseFeatureProcessor() {
+object ThemeShowcasesProcessor : BaseShowcasesProcessor() {
 
     const val ID = "showcases.userflow.theme"
 
     override fun getId(): String = ID
-    override fun isInternal(): Boolean = true
 
     override fun doRemove(state: TemplateState) {
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Userflow :: Theme")
-        )
+        removeFromViewModel(state, "Userflow :: Theme")
     }
 
 }

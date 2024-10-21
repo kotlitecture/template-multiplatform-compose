@@ -54,7 +54,7 @@ object SettingsKeyValueProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("KeyValueSource")
         )
         state.onApplyRules(

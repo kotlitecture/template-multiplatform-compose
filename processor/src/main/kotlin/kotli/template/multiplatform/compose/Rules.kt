@@ -32,11 +32,17 @@ object Rules {
     const val AppCommonPresentation = "${AppCommonMain}/common/presentation"
     const val AppConfigureKoinKt = "*/configureKoin.kt"
 
-    const val AppKoin = "${AppCommonMain}/koin"
-    const val AppKoinDiKt = "${AppKoin}/DI.kt"
-    const val AppKoinAppModuleKt = "${AppKoin}/feature/AppModule.kt"
-    const val AppKoinThemeModuleKt = "${AppKoin}/feature/ThemeModule.kt"
-    const val AppKoinPasscodeModuleKt = "${AppKoin}/feature/PasscodeModule.kt"
+    const val AppDI = "${AppCommonMain}/di"
+    const val AppDiKt = "${AppDI}/DI.kt"
+    const val AppKoinThemeModuleKt = "${AppDI}/feature/ThemeModule.kt"
+    const val AppKoinPasscodeModuleKt = "${AppDI}/feature/PasscodeModule.kt"
+
+    // showcases
+    const val AppShowcases = "${AppFeature}/showcases"
+    const val AppShowcasesDataflow = "${AppShowcases}/presentation/dataflow"
+    const val AppShowcasesUserflow = "${AppShowcases}/presentation/userflow"
+    const val AppShowcasesViewModelKt = "${AppShowcases}/presentation/ShowcasesViewModel.kt"
+    const val AppShowcasesConfigKt = "${AppShowcases}/ShowcasesConfig.kt"
 
     // gradle
     const val BuildGradle = "*build.gradle.kts"
@@ -74,38 +80,15 @@ object Rules {
     const val ThemeStoreKt =
         "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
     const val NavigationBarModuleKt = "${AppCommonMain}/di/presentation/NavigationBarModule.kt"
-    const val NavigationModuleKt = "${AppKoin}/presentation/NavigationModule.kt"
+    const val NavigationModuleKt = "${AppDI}/presentation/NavigationModule.kt"
 
     // userflow -> passcode
     const val AppPasscodeDir = "${AppPresentation}/passcode"
-    const val PasscodeModuleKt = "${AppKoin}/presentation/PasscodeModule.kt"
-
-    // showcases
-    const val ShowcasesDir = "*/presentation/showcases"
-    const val ShowcasesDataFlowDir = "${ShowcasesDir}/dataflow"
-    const val ShowcasesUserFlowDir = "${ShowcasesDir}/userflow"
-    const val ShowcasesHttpDir = "${ShowcasesDataFlowDir}/http"
-    const val ShowcasesCacheDir = "${ShowcasesDataFlowDir}/cache"
-    const val ShowcasesAiDir = "${ShowcasesDataFlowDir}/ai"
-    const val ShowcasesPagingDir = "${ShowcasesDataFlowDir}/paging"
-    const val ShowcasesEncryptionDir = "${ShowcasesDataFlowDir}/encryption"
-    const val ShowcasesKeyValueDir = "${ShowcasesDataFlowDir}/keyvalue"
-    const val ShowcasesSqlDelightDir = "${ShowcasesDataFlowDir}/sqldelight"
-    const val ShowcasesRoomDir = "${ShowcasesDataFlowDir}/room"
-    const val ShowcasesNavigationDir = "${ShowcasesUserFlowDir}/navigation"
-    const val ShowcasesThemeDir = "${ShowcasesUserFlowDir}/theme"
-    const val ShowcasesLoaderDir = "${ShowcasesUserFlowDir}/loader"
-    const val ShowcasesPasscodeDir = "${ShowcasesUserFlowDir}/passcode"
-    const val ShowcasesPlaceholderDir = "${ShowcasesUserFlowDir}/component/placeholder"
-    const val ShowcasesMarkdownDir = "${ShowcasesUserFlowDir}/component/markdown"
-    const val ShowcasesFilePickerDir = "${ShowcasesUserFlowDir}/component/filepicker"
-    const val ShowcasesCoilDir = "${ShowcasesUserFlowDir}/component/image/coil"
-    const val ShowcasesKt = "${ShowcasesDir}/Showcases.kt"
+    const val PasscodeModuleKt = "${AppDI}/presentation/PasscodeModule.kt"
 
     // design
     const val SharedDesignSrcDir = "${SharedDesignDir}/src"
-    const val SharedDesignComponentDir =
-        "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
+    const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
     const val AppIconsKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIcons.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
     const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"

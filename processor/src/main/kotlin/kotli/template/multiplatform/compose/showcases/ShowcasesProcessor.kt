@@ -25,7 +25,7 @@ object ShowcasesProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.ShowcasesDir,
+            Rules.AppShowcases,
             RemoveFile()
         )
         state.onApplyRules(

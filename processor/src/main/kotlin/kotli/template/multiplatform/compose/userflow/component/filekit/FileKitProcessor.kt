@@ -9,7 +9,7 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
-import kotli.template.multiplatform.compose.userflow.component.ComponentProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.component.filepicker.FilePickerShowcasesProcessor
 import kotlin.time.Duration.Companion.minutes
 
 object FileKitProcessor : BaseFeatureProcessor() {
@@ -24,7 +24,7 @@ object FileKitProcessor : BaseFeatureProcessor() {
         "https://github.com/vinceglb/FileKit?tab=readme-ov-file#-quick-start"
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        ComponentProcessor::class.java
+        FilePickerShowcasesProcessor::class.java
     )
 
     override fun doRemove(state: TemplateState) {
@@ -42,21 +42,6 @@ object FileKitProcessor : BaseFeatureProcessor() {
             VersionCatalogRules(
                 RemoveMarkedLine("filekit")
             )
-        )
-
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("FilePickerShowcaseViewModel")
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesFilePickerDir,
-            RemoveFile()
-        )
-
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("FilePickerShowcase")
         )
     }
 

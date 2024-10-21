@@ -17,6 +17,7 @@ import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
 import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.database.sqldelight.SqlDelightShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object SqlDelightProcessor : BaseFeatureProcessor() {
@@ -32,6 +33,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        SqlDelightShowcasesProcessor::class.java,
         MobileAndDesktopProcessor::class.java,
         CommonStatelyProcessor::class.java,
         SqliteProcessor::class.java
@@ -80,20 +82,8 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("SqlDelightSource")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("SqlDelight")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesSqlDelightDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("SqlDelight")
         )
         state.onApplyRules(
             "*/createSqlDriver.kt",
@@ -112,18 +102,6 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             VersionCatalogRules(
                 RemoveMarkedLine("sqldelight-androidx-paging")
             )
-        )
-        state.onApplyRules(
-            "${Rules.ShowcasesSqlDelightDir}/paging",
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("SqlDelightPaging")
-        )
-        state.onApplyRules(
-            Rules.AppKoinAppModuleKt,
-            RemoveMarkedLine("SqlDelightPaging")
         )
     }
 

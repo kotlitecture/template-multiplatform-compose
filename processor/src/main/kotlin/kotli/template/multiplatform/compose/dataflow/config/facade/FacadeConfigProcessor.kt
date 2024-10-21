@@ -23,7 +23,7 @@ object FacadeConfigProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("ConfigSource")
         )
     }

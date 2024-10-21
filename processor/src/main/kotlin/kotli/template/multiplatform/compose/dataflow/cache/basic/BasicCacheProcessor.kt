@@ -38,7 +38,7 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppKoinDiKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("CacheSource")
         )
         state.onApplyRules(
