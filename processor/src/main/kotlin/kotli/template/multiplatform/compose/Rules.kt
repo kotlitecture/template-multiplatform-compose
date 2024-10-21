@@ -13,36 +13,9 @@ object Rules {
     const val SrcIosMainDir = "*/src/ios*"
     const val SrcJsMainDir = "*/src/jsMain"
     const val SrcJvmMainDir = "*/src/jvmMain"
-    const val SharedPresentationDir = "shared/presentation"
     const val SharedDataDir = "shared/data"
     const val SharedDomainDir = "shared/domain"
     const val SharedDesignDir = "shared/design"
-
-    // app
-    const val App = "app"
-    const val AppSrc = "${App}/src"
-    const val AppBuildGradle = "${App}/build.gradle.kts"
-    const val AppCommonMain = "${AppSrc}/commonMain/kotlin/kotli/app"
-    const val AppCommon = "${AppCommonMain}/common"
-    const val AppFeature = "${AppCommonMain}/feature"
-    const val AppPresentation = "${AppCommonMain}/presentation"
-    const val AppKt = "${AppCommonMain}/App.kt"
-    const val AppRouteKt = "${AppCommonMain}/AppRoute.kt"
-    const val AppViewModelKt = "${AppCommonMain}/AppViewModel.kt"
-    const val AppCommonPresentation = "${AppCommonMain}/common/presentation"
-    const val AppConfigureKoinKt = "*/configureKoin.kt"
-
-    const val AppDI = "${AppCommonMain}/di"
-    const val AppDiKt = "${AppDI}/DI.kt"
-    const val AppKoinThemeModuleKt = "${AppDI}/feature/ThemeModule.kt"
-    const val AppKoinPasscodeModuleKt = "${AppDI}/feature/PasscodeModule.kt"
-
-    // showcases
-    const val AppShowcases = "${AppFeature}/showcases"
-    const val AppShowcasesDataflow = "${AppShowcases}/presentation/dataflow"
-    const val AppShowcasesUserflow = "${AppShowcases}/presentation/userflow"
-    const val AppShowcasesViewModelKt = "${AppShowcases}/presentation/ShowcasesViewModel.kt"
-    const val AppShowcasesConfigKt = "${AppShowcases}/ShowcasesConfig.kt"
 
     // gradle
     const val BuildGradle = "*build.gradle.kts"
@@ -53,38 +26,56 @@ object Rules {
     const val BuildGradleSharedDesign = "${SharedDesignDir}/build.gradle.kts"
     const val BuildGradleSharedDomain = "${SharedDomainDir}/build.gradle.kts"
 
-    // proguard
-    const val ProguardRulesPro = "${App}/assemble/proguard-rules.pro"
+    // app
+    const val App = "app"
+    const val AppSrc = "${App}/src"
+    const val AppBuildGradle = "${App}/build.gradle.kts"
+    const val AppCommonMain = "${AppSrc}/commonMain"
+    const val AppCommonMainRoot = "${AppCommonMain}/kotlin/kotli/app"
+    const val AppCommon = "${AppCommonMainRoot}/common"
+    const val AppFeature = "${AppCommonMainRoot}/feature"
+    const val AppKt = "${AppCommonMainRoot}/App.kt"
+    const val AppConfigKt = "${AppCommonMainRoot}/AppConfig.kt"
+    const val AppViewModelKt = "${AppCommonMainRoot}/AppViewModel.kt"
+    const val AppCommonPresentation = "${AppCommonMainRoot}/common/presentation"
+    const val AppCommonPresentationConfigKt = "${AppCommonPresentation}/CommonConfig.kt"
+    const val AppConfigureKoinKt = "*/configureKoin.kt"
 
+    // app -> di
+    const val AppDI = "${AppCommonMainRoot}/di"
+    const val AppDiKt = "${AppDI}/DI.kt"
+
+    // app -> misc
+    const val AppProguardRulesPro = "${App}/assemble/proguard-rules.pro"
     const val AppWebPackConfigDir = "app/webpack.config.d"
     const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
-    const val AppScreenKt = "${AppPresentation}/app/AppScreen.kt"
-    const val AppNavigationRouterKt = "${AppPresentation}/app/AppNavigationRouter.kt"
-    const val AppThemeDir = "${AppPresentation}/theme"
-    const val AppThemeViewModelKt = "${AppThemeDir}/AppThemeViewModel.kt"
-    const val AppThemeChangeDir = "${AppPresentation}/theme/change"
-    const val AppThemeToggleDir = "${AppPresentation}/theme/toggle"
-    const val AppThemeProviderKt = "${AppThemeDir}/AppThemeProvider.kt"
-    const val AppThemeConfigDataKt = "${AppThemeDir}/AppThemeConfigData.kt"
-    const val AppThemePersistenceViewModelKt = "${AppThemeDir}/AppThemePersistenceViewModel.kt"
-    const val AppLoaderDir = "${AppCommonPresentation}/loader"
-    const val AppNavigationDir = "${AppPresentation}/navigation"
-    const val AppNavigationBarProvider = "${AppNavigationDir}/NavigationBarProvider.kt"
-    const val AppNavigationAdaptiveProvider = "${AppNavigationDir}/AdaptiveProvider.kt"
-    const val AppNavigationBottomProvider = "${AppNavigationDir}/BottomProvider.kt"
-    const val AppNavigationDismissibleProvider = "${AppNavigationDir}/DismissibleProvider.kt"
-    const val AppNavigationModalProvider = "${AppNavigationDir}/ModalProvider.kt"
-    const val AppNavigationPermanentProvider = "${AppNavigationDir}/PermanentProvider.kt"
-    const val AppNavigationRailProvider = "${AppNavigationDir}/RailProvider.kt"
 
-    const val ThemeStoreKt =
-        "${SharedPresentationDir}/src/commonMain/kotlin/shared/presentation/theme/ThemeStore.kt"
-    const val NavigationBarModuleKt = "${AppCommonMain}/di/presentation/NavigationBarModule.kt"
-    const val NavigationModuleKt = "${AppDI}/presentation/NavigationModule.kt"
+    // app -> common -> presentation -> loader
+    const val AppCommonLoader = "${AppCommonPresentation}/loader"
 
-    // userflow -> passcode
-    const val AppPasscodeDir = "${AppPresentation}/passcode"
-    const val PasscodeModuleKt = "${AppDI}/presentation/PasscodeModule.kt"
+    // app -> common -> presentation -> navigation
+    const val AppCommonNavigation = "${AppCommonPresentation}/navigation"
+
+    // app -> feature -> passcode
+    const val AppPasscode = "${AppFeature}/passcode"
+    const val AppDIPasscodeModuleKt = "${AppDI}/feature/PasscodeModule.kt"
+
+    // app -> feature -> theme
+    const val AppTheme = "${AppFeature}/theme"
+    const val AppThemeConfigKt = "${AppTheme}/ThemeConfig.kt"
+    const val AppDIThemeModuleKt = "${AppDI}/feature/ThemeModule.kt"
+
+    // app -> feature -> navigation
+    const val AppNavigation = "${AppFeature}/navigation"
+    const val AppNavigationProvider = "${AppNavigation}/provide/presentation/NavigationProvider.kt"
+    const val AppNavigationViewModel = "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
+
+    // app -> feature -> showcases
+    const val AppShowcases = "${AppFeature}/showcases"
+    const val AppShowcasesDataflow = "${AppShowcases}/presentation/dataflow"
+    const val AppShowcasesUserflow = "${AppShowcases}/presentation/userflow"
+    const val AppShowcasesViewModelKt = "${AppShowcases}/presentation/ShowcasesViewModel.kt"
+    const val AppShowcasesConfigKt = "${AppShowcases}/ShowcasesConfig.kt"
 
     // design
     const val SharedDesignSrcDir = "${SharedDesignDir}/src"
@@ -109,7 +100,7 @@ object Rules {
 
     // dataflow -> config
     const val ConfigSource = "*/*ConfigSource*.kt"
-    const val AppConfigSource = "${AppCommonMain}/common/data/source/config/AppConfigSource.kt"
+    const val AppConfigSource = "${AppCommon}/data/source/config/AppConfigSource.kt"
 
     // dataflow -> paging
     const val PagingSource = "*/*Paging*.kt"

@@ -27,9 +27,9 @@ val koinApp = startKoin {
         keyValueSourceModule,
         pagingSourceModule,
         sqlDelightSourceModule,
-        appModule,
         passcodeModule,
         themeModule,
+        appModule,
     )
     configureKoin(this)
 }

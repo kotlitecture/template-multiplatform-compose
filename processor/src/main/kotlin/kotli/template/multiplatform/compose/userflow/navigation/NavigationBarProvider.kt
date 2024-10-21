@@ -14,8 +14,8 @@ import kotli.template.multiplatform.compose.userflow.navigation.rail.RailNavigat
 object NavigationBarProvider : BaseFeatureProvider() {
 
     override fun getId(): String = "userflow.navigation"
-    override fun isMultiple(): Boolean = false
     override fun getType(): FeatureType = FeatureTypes.UserFlow
+    override fun isMultiple(): Boolean = false
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         NavigationBarProcessor::class.java

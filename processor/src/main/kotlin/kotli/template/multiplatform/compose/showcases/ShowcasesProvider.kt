@@ -4,6 +4,7 @@ import kotli.engine.BaseFeatureProvider
 import kotli.engine.FeatureProcessor
 import kotli.engine.FeatureType
 import kotli.engine.model.FeatureTypes
+import kotli.template.multiplatform.compose.showcases.dataflow.ai.GeminiShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.cache.CacheShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.database.room.RoomShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.database.sqldelight.SqlDelightShowcasesProcessor
@@ -27,6 +28,10 @@ object ShowcasesProvider : BaseFeatureProvider() {
     override fun getId(): String = "showcases"
     override fun getType(): FeatureType = FeatureTypes.Examples
 
+    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        ShowcasesProcessor::class.java
+    )
+
     override fun createProcessors(): List<FeatureProcessor> = listOf(
         ShowcasesProcessor,
         ThemeShowcasesProcessor,
@@ -45,7 +50,8 @@ object ShowcasesProvider : BaseFeatureProvider() {
         FilePickerShowcasesProcessor,
         CoilShowcasesProcessor,
         MarkdownShowcasesProcessor,
-        PlaceholderShowcasesProcessor
+        PlaceholderShowcasesProcessor,
+        GeminiShowcasesProcessor
     )
 
 }

@@ -1,4 +1,4 @@
-package kotli.app.common
+package kotli.app.common.presentation
 
 import androidx.lifecycle.viewmodel.InitializerViewModelFactoryBuilder
 import androidx.lifecycle.viewmodel.initializer

@@ -159,7 +159,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.ProguardRulesPro,
+            Rules.AppProguardRulesPro,
             ReplaceMarkedText(
                 text = "kotli.app",
                 marker = "kotli.app",

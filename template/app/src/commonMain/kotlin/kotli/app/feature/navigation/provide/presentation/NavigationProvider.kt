@@ -3,6 +3,7 @@ package kotli.app.feature.navigation.provide.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavHostController
+import kotli.app.common.presentation.navigation.AdaptiveProvider
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -13,5 +14,5 @@ fun NavigationProvider(
     val viewModel: NavigationViewModel = provideViewModel()
     LaunchedEffect(navController) { viewModel.onBind(navController) }
 
-    content()
+    AdaptiveProvider(viewModel.state, content)
 }
