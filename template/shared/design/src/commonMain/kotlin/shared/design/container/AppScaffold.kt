@@ -17,8 +17,8 @@ fun AppScaffold(
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     floatingActionButton: @Composable () -> Unit = {},
-    content: @Composable (PaddingValues) -> Unit = {},
     snackbarState: AppSnackbarState = remember { AppSnackbarState() },
+    content: @Composable (PaddingValues) -> Unit = {},
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),

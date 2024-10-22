@@ -1,6 +1,6 @@
 ## Overview
 
-- DI integration: `app.di.data.HttpSourceModule`
+- DI integration: `app.di.common.HttpSourceModule`
 - Data source: `shared.data.source.http.HttpSource`
 
 The class provides the next functionality:

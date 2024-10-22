@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import kotli.app.feature.navigation.provide.presentation.BottomNavigationProvider
@@ -23,30 +24,41 @@ fun App() = ViewModelProvider({ app() }) {
     val viewModel: AppViewModel = provideViewModel()
     val navController = rememberNavController()
     val state = viewModel.state
-
     ThemeProvider {
         PasscodeProvider { // {userflow.passcode.local}
             NavigationProvider(navController) { // {userflow.navigation}
-                state.startDestination?.let { startDestination ->
-                    AppScaffold(
-                        snackbarState = state.snackbarState,
-                        bottomBar = { BottomNavigationProvider(navController) },
-                        content = { paddings ->
-                            val transition = remember { tween<Float>(state.transitionDuration) }
-                            NavHost(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .padding(paddings),
-                                navController = navController,
-                                startDestination = startDestination,
-                                enterTransition = { fadeIn(animationSpec = transition) },
-                                exitTransition = { fadeOut(animationSpec = transition) },
-                                builder = { app(navController) }
-                            )
-                        }
-                    )
-                }
+                AppScaffold(state, navController)
             } // {userflow.navigation}
         } // {userflow.passcode.local}
     }
+}
+
+@Composable
+private fun AppScaffold(state: AppState, navController: NavHostController) {
+    val startDestination = state.startDestination ?: return
+    AppScaffold(
+        snackbarState = state.snackbarState,
+        bottomBar = { BottomNavigationProvider(navController) }
+    ) { paddings ->
+        val modifier = Modifier.fillMaxSize().padding(paddings)
+        AppContent(modifier, state, startDestination, navController)
+    }
+}
+
+@Composable
+private fun AppContent(
+    modifier: Modifier,
+    state: AppState,
+    startDestination: Any,
+    navController: NavHostController,
+) {
+    val transition = remember { tween<Float>(state.transitionDuration) }
+    NavHost(
+        modifier = modifier,
+        navController = navController,
+        startDestination = startDestination,
+        enterTransition = { fadeIn(animationSpec = transition) },
+        exitTransition = { fadeOut(animationSpec = transition) },
+        builder = { app(navController) }
+    )
 }

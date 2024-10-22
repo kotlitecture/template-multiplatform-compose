@@ -4,7 +4,7 @@
 
 The API can be accessed through:
 - `shared.data.source.analytics.AnalyticsSource` - facade interface at the core module level.
-- `app.data.source.analytics.AppAnalyticsSource` - decorator class at the app level.
+- `app.common.data.source.analytics.AppAnalyticsSource` - decorator class at the app level.
 
 The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations. 
 
@@ -18,7 +18,7 @@ Facade **AnalyticsSource** provides the following methods:
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.data.AnalyticsSourceModule`.
+Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.common.AnalyticsSourceModule`.
 
 To start using, just inject any of them to your DI managed class. Recommended to use from `ViewModel` or `Repository` level.
 

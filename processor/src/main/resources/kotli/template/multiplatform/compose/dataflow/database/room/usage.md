@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.common.data.source.database.room`
-- DI integration: `app.platform.configureKoin`
+- DI integration: `app.di.platform.configureKoin`
 
 The integration includes the following components:
 
@@ -89,23 +89,22 @@ In this example, we will directly use `AppRoomSource` from the `ViewModel` to ac
 
 ```kotlin
 class AddressViewModel(
-    private val roomSource: AppRoomSource,
-    private val appState: AppState
+    private val roomSource: AppRoomSource
 ) : BaseViewModel() {
 
-    val addressesStore = DataState<List<Address>>()
+    val addresses = mutableStateOf(emptyList<Address>())
 
-    override fun doBind() = launchAsync("getAll") {
+    override fun doBind() = async("Get all addresses") {
         val addressDao = roomSource.addressDao
-        addressDao.getAllAsFlow().collectLatest(addressesStore::set)
+        addressDao.getAllAsFlow().collectLatest(addresses::value::set)
     }
 
-    fun onCreate(address: Address) = launchAsync("onCreate", appState) {
+    fun onCreate(address: Address) = async("onCreate", appState) {
         val addressDao = roomSource.addressDao
         addressDao.create(address)
     }
 
-    fun onDelete(address: Address) = launchAsync("onRemove", appState) {
+    fun onDelete(address: Address) = async("onRemove", appState) {
         val addressDao = roomSource.addressDao
         addressDao.delete(address)
     }

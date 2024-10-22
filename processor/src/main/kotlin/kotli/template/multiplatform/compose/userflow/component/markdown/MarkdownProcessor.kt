@@ -11,6 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.userflow.component.markdown.MarkdownShowcasesProcessor
+import kotli.template.multiplatform.compose.userflow.component.image.coil.CoilProcessor
 import kotlin.time.Duration.Companion.hours
 
 object MarkdownProcessor : BaseFeatureProcessor() {
@@ -27,7 +28,8 @@ object MarkdownProcessor : BaseFeatureProcessor() {
         "https://github.com/mikepenz/multiplatform-markdown-renderer?tab=readme-ov-file#setup"
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MarkdownShowcasesProcessor::class.java
+        MarkdownShowcasesProcessor::class.java,
+        CoilProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {

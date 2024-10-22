@@ -16,10 +16,10 @@ import kotlin.random.Random
 import kotlin.time.Duration.Companion.seconds
 
 class PasscodeRepositoryImpl(
-    private val persistentKey: String = "passcode_config",
-    private val passcodeLength: Int = 4,
-    private val unlockAttemptsCount: Int = 5,
-    private val resumeTimeout: Long = 10.seconds.inWholeMilliseconds,
+    private val passcodeLength: Int,
+    private val resumeTimeout: Long,
+    private val persistentKey: String,
+    private val unlockAttemptsCount: Int,
     private val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::PBKDF2,
     private val encryptionSource: EncryptionSource,
     private val keyValueSource: KeyValueSource,

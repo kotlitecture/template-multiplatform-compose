@@ -2,48 +2,55 @@
 
 ## Overview
 
-- Component package: `app.presentation.navigation`
-- DI integration: `app.di.presentation.NavigationBarModule`
-- State management: `app.presentation.navigation.NavigationBarStore`
-- Pre-configured sample destinations package: `app.presentation.navigation.samples`
+- Component package: `app.feature.navigation`
 
 ## Configuration
 
-Configure your destinations using `NavigationBarModule`, and if necessary, specify any restricted or allowed destinations which will force navigation to show/hide the navigation bar in some cases.
+Register all required destinations using `app.feature.navigation.NavigationConfig`.
 
 ```kotlin
-val navigationBarModule = module {
-    single {
-        NavigationBarStore(
-            pages = listOf(
-                createPage(
-                    store = get(),
-                    destination = NavigationADestination,
-                    getActiveIcon = { Icons.Filled.WineBar },
-                    getInactiveIcon = { Icons.Outlined.WineBar },
-                    getLabel = { "Page 1" }
-                ),
-                createPage(
-                    store = get(),
-                    destination = NavigationBDestination,
-                    getActiveIcon = { Icons.Filled.LocalDrink },
-                    getInactiveIcon = { Icons.Outlined.LocalDrink },
-                    getLabel = { "Page 2" }
-                ),
-                createPage(
-                    store = get(),
-                    destination = NavigationCDestination,
-                    getActiveIcon = { Icons.Filled.Coffee },
-                    getInactiveIcon = { Icons.Outlined.Coffee },
-                    getLabel = { "Page 3" }
-                ),
-                ...
-            ),
-            allowedDestinations = setOf(
-            ),
-            restrictedDestinations = setOf(
-            )
+fun NavGraphBuilder.navigation(navController: NavHostController) {
+    composable<ARoute> { AScreen() }
+    composable<BRoute> { BScreen() }
+    composable<CRoute> { CScreen() }
+}
+
+fun InitializerViewModelFactoryBuilder.navigation() {
+    initializer { AViewModel() }
+    initializer { BViewModel() }
+    initializer { CViewModel() }
+    initializer { NavigationViewModel() }
+}
+```
+
+Configure your navigation items using `app.feature.navigation.provide.presentation.NavigationViewModel`.
+
+```kotlin
+class NavigationViewModel : BaseViewModel() {
+    ...
+    private fun createItems(onRoute: (route: Any) -> Unit) = listOf(
+        createItem(
+            route = ARoute,
+            onRoute = onRoute,
+            label = "Page A",
+            activeIcon = AppIcons.wineBar,
+            inactiveIcon = AppIcons.wineBar,
+        ),
+        createItem(
+            route = BRoute,
+            onRoute = onRoute,
+            label = "Page B",
+            activeIcon = AppIcons.localDrink,
+            inactiveIcon = AppIcons.localDrink,
+        ),
+        createItem(
+            route = CRoute,
+            onRoute = onRoute,
+            label = "Page C",
+            activeIcon = AppIcons.coffee,
+            inactiveIcon = AppIcons.coffee,
         )
-    }
+    )
+    ...
 }
 ```

@@ -64,9 +64,9 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("{userflow.passcode.local}"),
             RemoveMarkedLine("PasscodeProvider"),
             ReplaceMarkedText(
-                marker = "        ",
-                text = "        ",
-                replacer = "    "
+                marker = "            ",
+                text = "            ",
+                replacer = "        "
             )
         )
     }

@@ -13,12 +13,17 @@ import kotli.app.feature.passcode.domain.usecase.SetPasscodeUseCase
 import kotli.app.feature.passcode.domain.usecase.UnlockPasscodeUseCase
 import kotli.app.feature.passcode.domain.usecase.UpdatePasscodeUseCase
 import org.koin.dsl.module
+import kotlin.time.Duration.Companion.seconds
 
 val passcodeModule = module {
     single<PasscodeRepository> {
         PasscodeRepositoryImpl(
+            passcodeLength = 4,
+            unlockAttemptsCount = 5,
+            persistentKey = "passcode_config",
+            resumeTimeout = 10.seconds.inWholeMilliseconds,
+            encryptionSource = get(),
             keyValueSource = get(),
-            encryptionSource = get()
         )
     }
     factory { ForgotPasscodeUseCase(get(), get()) }
