@@ -27,12 +27,12 @@ object ToggleThemeProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppThemeToggleDir,
-            RemoveFile()
+            Rules.AppThemeConfigKt,
+            RemoveMarkedLine("ToggleTheme")
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("ToggleThemeViewModel")
+            "${Rules.AppTheme}/toggle",
+            RemoveFile()
         )
     }
 

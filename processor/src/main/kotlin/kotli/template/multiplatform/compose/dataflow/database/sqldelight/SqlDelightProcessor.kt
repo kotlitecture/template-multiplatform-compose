@@ -14,10 +14,10 @@ import kotli.engine.template.rule.RenamePackage
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
-import kotli.template.multiplatform.compose.dataflow.database.SqliteLinkerProcessor
 import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.database.sqldelight.SqlDelightShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object SqlDelightProcessor : BaseFeatureProcessor() {
@@ -33,6 +33,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
+        SqlDelightShowcasesProcessor::class.java,
         MobileAndDesktopProcessor::class.java,
         CommonStatelyProcessor::class.java,
         SqliteProcessor::class.java
@@ -40,12 +41,12 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             CleanupMarkedBlock("{sqldelight.config}"),
             CleanupMarkedLine("{dataflow.database.sqldelight}")
         )
         state.onApplyRules(
-            "${Rules.CommonAppMainDir}/sqldelight",
+            "${Rules.AppCommonMain}/sqldelight",
             RenamePackage(
                 "kotli.app",
                 state.layer.namespace
@@ -56,7 +57,7 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedBlock("{sqldelight.config}"),
             RemoveMarkedLine("{dataflow.database.sqldelight}")
         )
@@ -81,20 +82,8 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("SqlDelightSource")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("SqlDelight")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesSqlDelightDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("SqlDelight")
         )
         state.onApplyRules(
             "*/createSqlDriver.kt",
@@ -106,25 +95,13 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
         if (state.getFeature(CashAppPagingProcessor.ID) != null) return
 
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("sqldelight.androidx.paging"),
         )
         state.onApplyRules(
             VersionCatalogRules(
                 RemoveMarkedLine("sqldelight-androidx-paging")
             )
-        )
-        state.onApplyRules(
-            "${Rules.ShowcasesSqlDelightDir}/paging",
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("SqlDelightPaging")
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("SqlDelightPaging")
         )
     }
 

@@ -12,10 +12,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotli.app.di.get
+import kotli.app.di.inject
 import shared.presentation.misc.extensions.findActivity
-import shared.presentation.navigation.NavigationStore
-import shared.presentation.theme.ThemeStore
+import shared.presentation.theme.ThemeState
 
 class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,17 +22,17 @@ class AppActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             App()
-            EdgeToEdgeHandler(get())
-            SplashBlock(splashScreen, get())
+            EdgeToEdgeHandler(inject())
+            SplashBlock(splashScreen, inject())
         }
     }
 }
 
 @Composable
-private fun EdgeToEdgeHandler(state: ThemeStore) {
+private fun EdgeToEdgeHandler(state: ThemeState) {
     val activity = LocalContext.current.findActivity() ?: return
-    val data = state.dataState.asStateValue() ?: return
-    val dark = data.context.dark
+    val theme = state.currentTheme ?: return
+    val dark = theme.dark
     val barStyle = remember(dark) {
         if (dark) {
             SystemBarStyle.dark(Color.TRANSPARENT)
@@ -50,6 +49,6 @@ private fun EdgeToEdgeHandler(state: ThemeStore) {
 }
 
 @Composable
-private fun SplashBlock(splashScreen: SplashScreen, navigationState: NavigationStore) {
-    splashScreen.setKeepOnScreenCondition { navigationState.currentDestinationState.isNull() }
+private fun SplashBlock(splashScreen: SplashScreen, state: AppState) {
+    splashScreen.setKeepOnScreenCondition { state.startDestination == null }
 }

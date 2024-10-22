@@ -1,37 +1,49 @@
 ## Overview
 
-Component package: `app.presentation.theme.change`
+- Component package: `app.feature.theme.change`
+- DI integration: `app.di.feature.ThemeModule`
 
 ## Example
 
 ### As a separate screen
 
-Invoke the `ChangeThemeDestination` destination from your **ViewModel** or **View** utilizing the pre-configured **NavigationStore**.
-
 ```kotlin
-class TemplateViewModel(
-    private val navigationStore: NavigationStore
-) : BaseViewModel() {
-
-    fun onChangeTheme() {
-        navigationStore.onNext(ChangeThemeDestination)
+@Composable
+fun App() {
+    val navController = rememberNavController()
+    
+    LaunchEffect(Unit) {
+        navController.navigate(ChangeThemeRoute)
     }
+}
 
+OR
+
+@Composable
+fun App() {
+    val navController = rememberNavController()
+    ChangeThemeScreen(
+        onBack = navController::back
+    )
 }
 ```
 
 ### As a dialog
 
-Invoke the `ChangeThemeDialogDestination` destination from your **ViewModel** or **View** utilizing the pre-configured **NavigationStore**.
-
 ```kotlin
-class TemplateViewModel(
-    private val navigationStore: NavigationStore
-) : BaseViewModel() {
+@Composable
+fun App() {
+    val navController = rememberNavController()
 
-    fun onChangeTheme() {
-        navigationStore.onNext(ChangeThemeDialogDestination)
+    LaunchEffect(Unit) {
+        navController.navigate(ChangeThemeDialogRoute)
     }
+}
 
+OR
+
+@Composable
+fun App() {
+    ChangeThemeDialog()
 }
 ```

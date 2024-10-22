@@ -52,7 +52,6 @@ kotlin {
         all {
             languageSettings {
                 optIn("kotlinx.coroutines.FlowPreview")
-                optIn("kotlinx.cinterop.ExperimentalForeignApi")
                 optIn("kotlinx.coroutines.DelicateCoroutinesApi")
                 optIn("androidx.compose.ui.ExperimentalComposeUiApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
@@ -120,7 +119,7 @@ kotlin {
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("kotli.app.data.source.database.sqldelight")
+            packageName.set("kotli.app.common.data.source.database.sqldelight")
             generateAsync.set(true)
         }
     }

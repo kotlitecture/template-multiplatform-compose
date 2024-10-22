@@ -1,6 +1,8 @@
 package shared.design.component
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import io.github.vinceglb.filekit.compose.rememberFilePickerLauncher
 import io.github.vinceglb.filekit.core.PickerMode
@@ -17,11 +19,13 @@ data class AppFilePickerFile(
     val readBytes: suspend () -> ByteArray,
 )
 
+@Stable
 fun interface AppFilePickerLauncher {
     fun launch()
 }
 
 @Composable
+@NonRestartableComposable
 fun getFileLauncher(
     maxFiles: Int = MAX_FILES,
     title: String? = null,
@@ -37,6 +41,7 @@ fun getFileLauncher(
 }
 
 @Composable
+@NonRestartableComposable
 fun getImageLauncher(
     maxFiles: Int = MAX_FILES,
     title: String? = null,
@@ -51,6 +56,7 @@ fun getImageLauncher(
 }
 
 @Composable
+@NonRestartableComposable
 fun getVideoLauncher(
     maxFiles: Int = MAX_FILES,
     title: String? = null,
@@ -65,6 +71,7 @@ fun getVideoLauncher(
 }
 
 @Composable
+@NonRestartableComposable
 fun getMediaLauncher(
     maxFiles: Int = MAX_FILES,
     title: String? = null,

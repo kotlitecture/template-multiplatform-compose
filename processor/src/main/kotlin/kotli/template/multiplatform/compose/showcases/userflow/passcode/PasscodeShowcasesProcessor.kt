@@ -1,27 +1,19 @@
 package kotli.template.multiplatform.compose.showcases.userflow.passcode
 
-import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
-import kotli.engine.template.rule.RemoveFile
-import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
-object PasscodeShowcasesProcessor : BaseFeatureProcessor() {
+object PasscodeShowcasesProcessor : BaseShowcasesProcessor() {
 
     const val ID = "showcases.userflow.passcode"
 
     override fun getId(): String = ID
-    override fun isInternal(): Boolean = true
 
     override fun doRemove(state: TemplateState) {
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Passcode")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesPasscodeDir,
-            RemoveFile()
-        )
+        removeDir(state, "${Rules.AppShowcasesUserflow}/passcode")
+        removeFromConfig(state, "Passcode")
+        removeFromViewModel(state, "Passcode")
     }
 
 }

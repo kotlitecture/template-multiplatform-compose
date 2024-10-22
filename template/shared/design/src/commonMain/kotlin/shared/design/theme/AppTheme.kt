@@ -4,30 +4,26 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import shared.presentation.theme.ThemeContext
+import shared.presentation.theme.Theme
+import shared.presentation.theme.ThemeState
 
-/**
- * Application theme context.
- */
-@Immutable
 data class AppTheme(
     override val id: String,
     override val dark: Boolean,
     val colorScheme: ColorScheme
-) : ThemeContext() {
+) : Theme() {
 
     val error: Color = colorScheme.error
     val surface: Color = colorScheme.surface
     val onSurface: Color = colorScheme.onSurface
 
-    val highlightPrimary:Color = colorScheme.onSurface.copy(alpha = 0.15f)
-    val highlightSecondary:Color = colorScheme.onSurface.copy(alpha = 0.1f)
+    val highlightPrimary: Color = colorScheme.onSurface.copy(alpha = 0.15f)
+    val highlightSecondary: Color = colorScheme.onSurface.copy(alpha = 0.1f)
 
     val topBlur by lazy {
         Brush.verticalGradient(
@@ -52,7 +48,9 @@ data class AppTheme(
     }
 
     @Composable
-    override fun apply(fontFamily: FontFamily, content: @Composable () -> Unit) {
+    override fun apply(state: ThemeState, content: @Composable () -> Unit) {
+        val fontFamily = state.fontFamily
+
         MaterialTheme(
             typography = remember(fontFamily) { map(fontFamily) },
             colorScheme = colorScheme,
@@ -86,11 +84,10 @@ data class AppTheme(
     }
 
     companion object {
-        /** Returns the current App theme data in the composition. */
         val current: AppTheme
             @Composable
             @ReadOnlyComposable
-            get() = ThemeContext.current as AppTheme
+            get() = Theme.current as AppTheme
     }
 
 }

@@ -1,15 +1,15 @@
 ## Overview
 
-- Component package: `app.presentation.theme`
-- State management: `shared.presentation.theme.ThemeStore`
-- DI integration: `app.di.presentation.ThemeModule`
+- Component package: `app.feature.theme`
+- State management: `shared.presentation.theme.ThemeState`
+- DI integration: `app.di.feature.ThemeModule`
 
-This state instance is utilized by `app.presentation.theme.AppThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
+This state instance is utilized by `app.feature.theme.provide.presentation.ThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
 
 ```kotlin
 @Composable
-fun App() = ViewModelProvider(remember(::get)) {
-    AppThemeProvider {
+fun App() = ViewModelProvider({ app() }) {
+    ThemeProvider {
         AppScreen()
     }
 }
@@ -17,7 +17,7 @@ fun App() = ViewModelProvider(remember(::get)) {
 
 ## Change Themes
 
-By default, `ThemeStore` is initialized with pre-defined dark and light themes in the `design` module. To edit these themes:
+By default, `ThemeState` is initialized with pre-defined dark and light themes in the `design` module. To edit these themes:
 
 1. Visit the [Material 3 Theme Builder](https://m3.material.io/theme-builder#/custom).
 2. Customize the desired color theme.
@@ -25,13 +25,13 @@ By default, `ThemeStore` is initialized with pre-defined dark and light themes i
 4. Paste the exported files (**Theme.kt** and **Color.kt**) into the package `shared.design.theme` of the `design` module and update their package declaration accordingly.
 5. In the `Theme.kt` file add the following snippet:
    ```kotlin
-   val LightThemeContext = AppTheme(
+   val LightTheme = AppTheme(
     dark = false,
     id = "material_3_light",
     colorScheme = LightColors
    )
 
-   val DarkThemeContext = AppTheme(
+   val DarkTheme = AppTheme(
     dark = true,
     id = "material_3_dark",
     colorScheme = DarkColors

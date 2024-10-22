@@ -15,14 +15,14 @@ object SqliteLinkerProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             CleanupMarkedLine("{dataflow.database.sqlite-linker}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("{dataflow.database.sqlite-linker}")
         )
     }

@@ -15,7 +15,7 @@ The API can be accessed through:
 
 ## Example
 
-Class instance is pre-configured via dependency injection (DI) as a singleton in `app.platform.configureKoin`.
+Class instance is pre-configured via dependency injection (DI) as a singleton in `app.di.platform.configureKoin`.
 
 To start using, just inject it to your DI managed class.
 
@@ -24,12 +24,10 @@ class TemplateViewModel @Inject constructor(
     private val keyValueSource: KeyValueSource
 ) : BaseViewModel() {
     
-    override fun doBind() {
-        launchAsync("init settings") {
-            ...
-            val passcode: String? = keyValueSource.read("name")
-            ...
-        }
+    override fun doBind() = async("Init settings") {
+        ...
+        val passcode: String? = keyValueSource.read("name")
+        ...
     }
 }
 ```

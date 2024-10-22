@@ -33,30 +33,26 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppScreenKt,
+            Rules.AppKt,
             CleanupMarkedLine("{userflow.passcode.local}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.PasscodeModuleKt,
+            Rules.AppDiKt,
+            RemoveMarkedLine("passcode")
+        )
+        state.onApplyRules(
+            Rules.AppConfigKt,
+            RemoveMarkedLine("passcode")
+        )
+        state.onApplyRules(
+            Rules.AppPasscode,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
-            RemoveMarkedLine("passcode")
-        )
-        state.onApplyRules(
-            Rules.NavigationModuleKt,
-            RemoveMarkedLine("passcode")
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("passcode")
-        )
-        state.onApplyRules(
-            Rules.AppPasscodeDir,
+            Rules.AppDIPasscodeModuleKt,
             RemoveFile()
         )
         state.onApplyRules(
@@ -64,13 +60,13 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("passcode_")
         )
         state.onApplyRules(
-            Rules.AppScreenKt,
+            Rules.AppKt,
             RemoveMarkedLine("{userflow.passcode.local}"),
             RemoveMarkedLine("PasscodeProvider"),
             ReplaceMarkedText(
-                marker = "        ",
-                text = "        ",
-                replacer = "    "
+                marker = "            ",
+                text = "            ",
+                replacer = "        "
             )
         )
     }

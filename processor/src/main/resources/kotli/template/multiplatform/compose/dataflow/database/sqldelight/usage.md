@@ -1,7 +1,7 @@
 ## Overview
 
-- Component package: `app.data.source.database.sqldelight`
-- DI integration: `app.di.data.SqlDelightSourceModule`
+- Component package: `app.common.data.source.database.sqldelight`
+- DI integration: `app.di.common.SqlDelightSourceModule`
 
 The integration includes the following components:
 
@@ -70,12 +70,12 @@ class EditAddressViewModel(
     private val databaseSource: AppSqlDelightSource
 ) : BaseViewModel() {
 
-    fun onAdd() = launchAsync {
+    fun onAdd() = async {
         val database = databaseSource.getDatabase()
         database.addressQueries.insert("Country", "City", "Street")
     }
 
-    fun onDelete(address: Address) = launchAsync {
+    fun onDelete(address: Address) = async {
         val database = databaseSource.getDatabase()
         database.addressQueries.delete(address.id)
     }

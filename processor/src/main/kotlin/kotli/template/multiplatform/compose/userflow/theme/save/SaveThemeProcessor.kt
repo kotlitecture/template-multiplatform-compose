@@ -6,6 +6,7 @@ import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
+import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.engine.template.rule.ReplaceText
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
@@ -25,40 +26,43 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppThemeViewModelKt,
+            "${Rules.AppTheme}/provide/presentation/ThemeViewModel.kt",
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("AppThemeViewModel")
+            Rules.AppThemeConfigKt,
+            RemoveMarkedLine("ThemeViewModel")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.ThemeStoreKt,
-            RemoveMarkedLine(
-                marker = "theme_config",
-                singleLine = true
-            )
-        )
-        state.onApplyRules(
-            Rules.AppThemeConfigDataKt,
+            "${Rules.AppTheme}/provide/presentation/ThemePersistenceViewModel.kt",
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppThemePersistenceViewModelKt,
+            "${Rules.AppTheme}/provide/domain",
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("AppThemePersistenceViewModel")
+            "${Rules.AppTheme}/provide/data",
+            RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppThemeProviderKt,
-            ReplaceText(
-                text = "AppThemePersistenceViewModel",
-                replacer = "AppThemeViewModel"
+            Rules.AppThemeConfigKt,
+            RemoveMarkedLine("ThemePersistenceViewModel")
+        )
+        state.onApplyRules(
+            Rules.AppDIThemeModuleKt,
+            RemoveMarkedLine("UseCase"),
+            RemoveMarkedLine("Repository"),
+        )
+        state.onApplyRules(
+            "${Rules.AppTheme}/provide/presentation/ThemeProvider.kt",
+            ReplaceMarkedText(
+                "ThemePersistenceViewModel",
+                "ThemePersistenceViewModel",
+                "ThemeViewModel"
             )
         )
     }

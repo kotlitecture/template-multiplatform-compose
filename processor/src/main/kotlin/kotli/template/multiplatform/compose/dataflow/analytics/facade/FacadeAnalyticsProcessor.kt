@@ -23,7 +23,7 @@ object FacadeAnalyticsProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("AnalyticsSource")
         )
     }

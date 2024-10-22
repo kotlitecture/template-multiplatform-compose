@@ -1,7 +1,7 @@
 ## Overview
 
-- Component package: `app.data.source.database.room`
-- DI integration: `app.platform.configureKoin`
+- Component package: `app.common.data.source.database.room`
+- DI integration: `app.di.platform.configureKoin`
 
 The integration includes the following components:
 
@@ -17,7 +17,7 @@ Imagine you need to add a new entity called **Address**. Here are the steps to f
 
 ### 1. Create the `Address` entity class
 
-You can use the `User` class in `app.data.source.database.room.entity` as a template.
+You can use the `User` class in `app.common.data.source.database.room.entity` as a template.
 
 ```kotlin
 @Entity(tableName = "address")
@@ -35,7 +35,7 @@ data class Address(
 
 ### 2. Create the `AddressDao` interface
 
-You can use the `UserDao` interface in `app.data.source.database.room.dao` as a template.
+You can use the `UserDao` interface in `app.common.data.source.database.room.dao` as a template.
 
 ```kotlin
 @Dao
@@ -89,23 +89,22 @@ In this example, we will directly use `AppRoomSource` from the `ViewModel` to ac
 
 ```kotlin
 class AddressViewModel(
-    private val roomSource: AppRoomSource,
-    private val appState: AppState
+    private val roomSource: AppRoomSource
 ) : BaseViewModel() {
 
-    val addressesStore = DataState<List<Address>>()
+    val addresses = mutableStateOf(emptyList<Address>())
 
-    override fun doBind() = launchAsync("getAll") {
+    override fun doBind() = async("Get all addresses") {
         val addressDao = roomSource.addressDao
-        addressDao.getAllAsFlow().collectLatest(addressesStore::set)
+        addressDao.getAllAsFlow().collectLatest(addresses::value::set)
     }
 
-    fun onCreate(address: Address) = launchAsync("onCreate", appState) {
+    fun onCreate(address: Address) = async("onCreate", appState) {
         val addressDao = roomSource.addressDao
         addressDao.create(address)
     }
 
-    fun onDelete(address: Address) = launchAsync("onRemove", appState) {
+    fun onDelete(address: Address) = async("onRemove", appState) {
         val addressDao = roomSource.addressDao
         addressDao.delete(address)
     }

@@ -17,49 +17,34 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppScreenKt,
+            Rules.AppKt,
             CleanupMarkedLine("{userflow.navigation}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.DIKt,
-            RemoveMarkedLine("navigationBarModule")
+            Rules.AppNavigation,
+            RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppScreenKt,
+            Rules.AppCommonNavigation,
+            RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.AppConfigKt,
+            RemoveMarkedLine("navigation("),
+            RemoveMarkedLine("feature.navigation"),
+        )
+        state.onApplyRules(
+            Rules.AppKt,
             RemoveMarkedLine("{userflow.navigation}"),
-            RemoveMarkedLine("NavigationBarProvider"),
+            RemoveMarkedLine("NavigationProvider"),
             ReplaceMarkedText(
-                marker = "            ",
-                text = "            ",
-                replacer = "        "
+                marker = "                ",
+                text = "                ",
+                replacer = "            "
             )
-        )
-        state.onApplyRules(
-            Rules.AppNavigationDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.NavigationBarModuleKt,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.NavigationModuleKt,
-            RemoveMarkedLine("NavigationADestination"),
-            RemoveMarkedLine("NavigationBDestination"),
-            RemoveMarkedLine("NavigationCDestination"),
-            RemoveMarkedLine("ic_nav_a"),
-            RemoveMarkedLine("ic_nav_b"),
-            RemoveMarkedLine("ic_nav_c"),
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("NavigationAViewModel"),
-            RemoveMarkedLine("NavigationBViewModel"),
-            RemoveMarkedLine("NavigationCViewModel"),
-            RemoveMarkedLine("NavigationBarViewModel")
         )
     }
 

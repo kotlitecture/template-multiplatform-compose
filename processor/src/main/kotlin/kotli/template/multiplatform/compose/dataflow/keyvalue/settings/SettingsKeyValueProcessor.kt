@@ -54,11 +54,11 @@ object SettingsKeyValueProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("KeyValueSource")
         )
         state.onApplyRules(
-            "*/di/data/KeyValueSourceModule.kt",
+            "*/KeyValueSourceModule.kt",
             RemoveFile()
         )
     }

@@ -1,31 +1,19 @@
 package kotli.template.multiplatform.compose.showcases.dataflow.cache
 
-import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
-import kotli.engine.template.rule.RemoveFile
-import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
-object CacheShowcasesProcessor : BaseFeatureProcessor() {
+object CacheShowcasesProcessor : BaseShowcasesProcessor() {
 
     const val ID = "showcases.datasource.cache"
 
     override fun getId(): String = ID
-    override fun isInternal(): Boolean = true
 
     override fun doRemove(state: TemplateState) {
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Cache")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesCacheDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("BasicCacheViewModel")
-        )
+        removeDir(state, "${Rules.AppShowcasesDataflow}/cache")
+        removeFromConfig(state, "Cache")
+        removeFromViewModel(state, "Cache")
     }
 
 }

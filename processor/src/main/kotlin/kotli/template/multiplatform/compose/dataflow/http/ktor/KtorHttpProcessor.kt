@@ -31,7 +31,7 @@ object KtorHttpProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.DIKt,
+            Rules.AppDiKt,
             RemoveMarkedLine("HttpSource")
         )
         state.onApplyRules(

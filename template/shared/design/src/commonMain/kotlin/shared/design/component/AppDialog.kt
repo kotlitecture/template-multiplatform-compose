@@ -11,55 +11,40 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import shared.design.theme.AppTheme
-import shared.presentation.store.DataLoading
-import shared.presentation.store.DataState
 
-/**
- * Provides a composable UI component for handling data loading and error states.
- *
- * @param store The [DataState] object containing the data state.
- */
 @Composable
-fun AppErrorDialog(store: DataState<DataLoading>) {
-    val error = store.asStateValue() as? DataLoading.Error ?: return
+@NonRestartableComposable
+fun AppErrorDialog(title: String, th: Throwable, onClose: () -> Unit) {
     AlertDialog(
         modifier = Modifier.padding(24.dp),
-        onDismissRequest = store::clear,
+        onDismissRequest = onClose,
         properties = DialogProperties(
             dismissOnBackPress = true,
             dismissOnClickOutside = true,
             usePlatformDefaultWidth = false
         ),
         title = {
-            Text(text = error.id.orEmpty())
+            Text(text = title)
         },
         text = {
             Text(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState()),
-                text = error.th.stackTraceToString()
+                text = th.stackTraceToString()
             )
         },
         confirmButton = {}
     )
 }
 
-/**
- * Alert dialog with title, text, and action button.
- *
- * @param modifier Modifier to be applied to the dialog.
- * @param onDismissRequest Callback to be invoked when the dialog is dismissed.
- * @param title Title of the dialog.
- * @param text Text content of the dialog.
- * @param confirmLabel Label for the action button.
- * @param confirmAction Callback to be invoked when the action button is clicked.
- */
 @Composable
+@NonRestartableComposable
 fun AppAlertDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
@@ -92,14 +77,8 @@ fun AppAlertDialog(
     )
 }
 
-/**
- * Dialog with custom content.
- *
- * @param modifier Modifier to be applied to the dialog.
- * @param onDismissRequest Callback to be invoked when the dialog is dismissed.
- * @param content Custom content to be displayed inside the dialog.
- */
 @Composable
+@NonRestartableComposable
 fun AppDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
@@ -112,13 +91,8 @@ fun AppDialog(
     )
 }
 
-/**
- * Dialog content with custom layout.
- *
- * @param modifier Modifier to be applied to the dialog content.
- * @param content Custom content to be displayed inside the dialog content.
- */
 @Composable
+@NonRestartableComposable
 fun AppDialogContent(
     modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit

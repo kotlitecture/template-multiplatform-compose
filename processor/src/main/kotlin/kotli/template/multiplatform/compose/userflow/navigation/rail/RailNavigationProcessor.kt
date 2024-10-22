@@ -19,22 +19,13 @@ object RailNavigationProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun doApply(state: TemplateState) {
-        if (state.getFeature(AdaptiveNavigationProcessor.ID) == null) {
-            state.onApplyRules(
-                Rules.AppNavigationBarProvider,
-                ReplaceMarkedText(
-                    "content()",
-                    "content()",
-                    "RailProvider(content)"
-                )
-            )
-        }
-    }
-
-    override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppNavigationRailProvider,
-            RemoveFile()
+            Rules.AppNavigationProvider,
+            ReplaceMarkedText(
+                "AdaptiveProvider",
+                "AdaptiveProvider",
+                "RailProvider"
+            )
         )
     }
 

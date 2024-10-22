@@ -11,7 +11,6 @@ object ComponentProvider : BaseUserFlowProvider() {
 
     override fun getId(): String = "userflow.component"
     override fun createProcessors(): List<FeatureProcessor> = listOf(
-        ComponentProcessor,
         PlaceholderProcessor,
         CoilProcessor,
         MarkdownProcessor,

@@ -19,22 +19,13 @@ object ModalNavigationProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun doApply(state: TemplateState) {
-        if (state.getFeature(AdaptiveNavigationProcessor.ID) == null) {
-            state.onApplyRules(
-                Rules.AppNavigationBarProvider,
-                ReplaceMarkedText(
-                    "content()",
-                    "content()",
-                    "ModalProvider(content)"
-                )
-            )
-        }
-    }
-
-    override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppNavigationModalProvider,
-            RemoveFile()
+            Rules.AppNavigationProvider,
+            ReplaceMarkedText(
+                "AdaptiveProvider",
+                "AdaptiveProvider",
+                "ModalProvider"
+            )
         )
     }
 

@@ -57,7 +57,7 @@ object DataStoreProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.ConfigureKoinDI,
+            Rules.AppConfigureKoinKt,
             RemoveMarkedLine("DataStoreSource"),
             RemoveMarkedLine("KeyValueSource"),
         )

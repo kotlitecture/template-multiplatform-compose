@@ -4,34 +4,37 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import shared.presentation.viewmodel.ViewModelFactory
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun ThemeProvider(
-    state: ThemeStore,
+    state: ThemeState,
     content: @Composable () -> Unit
 ) {
-    val viewModel: ThemeViewModel = provideViewModel(factory = remember { ViewModelFactory })
+    val viewModel: ThemeViewModel = provideViewModel(factory = ViewModelFactory)
     LaunchedEffect(state) { viewModel.onBind(state) }
-    SystemDarkModeHandler(state)
+    SystemDarkModeHandler(state::systemDarkMode::set)
     ThemeSwitchHandler(state, content)
 }
 
 @Composable
-private fun SystemDarkModeHandler(state: ThemeStore) {
+private fun SystemDarkModeHandler(
+    onSystemDarkModeChanged: (mode: Boolean) -> Unit
+) {
     val systemDarkMode = isSystemInDarkTheme()
     LaunchedEffect(systemDarkMode) {
-        state.systemDarkModeState.set(systemDarkMode)
+        onSystemDarkModeChanged(systemDarkMode)
     }
 }
 
 @Composable
-private fun ThemeSwitchHandler(state: ThemeStore, content: @Composable () -> Unit) {
-    val data = state.dataState.asStateValue() ?: return
-    val theme = data.context
-    CompositionLocalProvider(ThemeContext.localThemeContext provides theme) {
-        theme.apply(data.fontFamily, content)
+private fun ThemeSwitchHandler(
+    state: ThemeState,
+    content: @Composable () -> Unit
+) {
+    val theme = state.currentTheme ?: return
+    CompositionLocalProvider(Theme.localThemeContext provides theme) {
+        theme.apply(state, content)
     }
 }

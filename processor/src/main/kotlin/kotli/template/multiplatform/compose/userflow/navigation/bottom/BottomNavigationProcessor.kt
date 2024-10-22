@@ -19,12 +19,8 @@ object BottomNavigationProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppNavigationBottomProvider,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppScreenKt,
-            RemoveMarkedLine("BottomProvider")
+            Rules.AppKt,
+            RemoveMarkedLine("BottomNavigationProvider")
         )
     }
 

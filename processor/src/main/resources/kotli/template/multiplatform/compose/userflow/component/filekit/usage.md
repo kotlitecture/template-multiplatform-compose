@@ -1,7 +1,7 @@
 ## Overview
 
 **Component**: `shared.design.component.AppFilePicker`  
-**Showcases**: `app.presentation.showcases.userflow.component.filepicker`
+**Showcases**: `app.feature.showcases.presentation.userflow.component.filepicker`
 
 The component provides a general facade to abstract the underlying framework, allowing for easier replacement or modification in the future.
 

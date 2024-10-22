@@ -1,31 +1,19 @@
 package kotli.template.multiplatform.compose.showcases.dataflow.paging
 
-import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
-import kotli.engine.template.rule.RemoveFile
-import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
-object PagingShowcasesProcessor : BaseFeatureProcessor() {
+object PagingShowcasesProcessor : BaseShowcasesProcessor() {
 
     const val ID = "showcases.datasource.paging"
 
     override fun getId(): String = ID
-    override fun isInternal(): Boolean = true
 
     override fun doRemove(state: TemplateState) {
-        state.onApplyRules(
-            Rules.ShowcasesKt,
-            RemoveMarkedLine("Paging")
-        )
-        state.onApplyRules(
-            Rules.ShowcasesPagingDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("BasicPagingViewModel")
-        )
+        removeDir(state, "${Rules.AppShowcasesDataflow}/paging")
+        removeFromConfig(state, "Paging")
+        removeFromViewModel(state, "Paging")
     }
 
 }

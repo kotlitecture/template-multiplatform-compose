@@ -27,16 +27,17 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppLoaderDir,
+            Rules.AppCommonLoader,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppModuleKt,
-            RemoveMarkedLine("LoaderViewModel")
+            Rules.AppCommonPresentationConfigKt,
+            RemoveMarkedLine("Loader"),
+            RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppScreenKt,
-            RemoveMarkedLine("LoaderProvider")
+            Rules.AppConfigKt,
+            RemoveMarkedLine("common")
         )
         state.onApplyRules(
             Rules.AppConfigSource,

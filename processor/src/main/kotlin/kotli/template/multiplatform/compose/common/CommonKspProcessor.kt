@@ -16,7 +16,7 @@ object CommonKspProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             CleanupMarkedLine("{common.ksp}"),
             CleanupMarkedBlock("{common.ksp.config}")
         )
@@ -29,7 +29,7 @@ object CommonKspProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.BuildGradleApp,
+            Rules.AppBuildGradle,
             RemoveMarkedLine("{common.ksp}"),
             RemoveMarkedBlock("{common.ksp.config}")
         )

@@ -75,8 +75,7 @@ Provides architectural solutions to implement user flows and integrate all compo
 It includes:
 
 - **MVVM pattern implementation** - based on the [Jetpack ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) and [Jetpack Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) components.
-- **Navigation implementation** - based on the [Jetpack Navigation](https://developer.android.com/guide/navigation) component.
-- **Store implementation** - initially based on [UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders), but more flexible like [Pinia](https://pinia.vuejs.org/core-concepts/). 
+- **Navigation integration** - based on the [Jetpack Navigation](https://developer.android.com/guide/navigation) component.
 
 The included solutions are not mandatory to follow, as all required dependencies are properly included to enable you to use your own patterns with Jetpack components.
 
@@ -179,20 +178,20 @@ The generated project will include a similar table in its README.MD file, but wi
 | Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
 | Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
 | Dataflow | Gemini | [Link](docs/Dataflow/Gemini/overview.md) | - | [Link](docs/Dataflow/Gemini/usage.md) |
+| Userflow | Coil Image Library | [Link](docs/Userflow/Coil%20Image%20Library/overview.md) | - | [Link](docs/Userflow/Coil%20Image%20Library/usage.md) |
 | Userflow | Markdown Text Renderer | [Link](docs/Userflow/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/Userflow/Markdown%20Text%20Renderer/usage.md) |
-| Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
-| Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |
-| Userflow | Modal Navigation | [Link](docs/Userflow/Modal%20Navigation/overview.md) | - | [Link](docs/Userflow/Modal%20Navigation/usage.md) |
-| Userflow | Dismissible Navigation | [Link](docs/Userflow/Dismissible%20Navigation/overview.md) | - | [Link](docs/Userflow/Dismissible%20Navigation/usage.md) |
-| Userflow | Bottom Navigation | [Link](docs/Userflow/Bottom%20Navigation/overview.md) | - | [Link](docs/Userflow/Bottom%20Navigation/usage.md) |
 | Userflow | Adaptive Navigation | [Link](docs/Userflow/Adaptive%20Navigation/overview.md) | - | [Link](docs/Userflow/Adaptive%20Navigation/usage.md) |
+| Userflow | Bottom Navigation | [Link](docs/Userflow/Bottom%20Navigation/overview.md) | - | [Link](docs/Userflow/Bottom%20Navigation/usage.md) |
+| Userflow | Dismissible Navigation | [Link](docs/Userflow/Dismissible%20Navigation/overview.md) | - | [Link](docs/Userflow/Dismissible%20Navigation/usage.md) |
+| Userflow | Modal Navigation | [Link](docs/Userflow/Modal%20Navigation/overview.md) | - | [Link](docs/Userflow/Modal%20Navigation/usage.md) |
+| Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |
+| Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
 | Userflow | Save Theme API | [Link](docs/Userflow/Save%20Theme%20API/overview.md) | - | [Link](docs/Userflow/Save%20Theme%20API/usage.md) |
 | Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
 | Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
 | Userflow | Data Loading Indicator | [Link](docs/Userflow/Data%20Loading%20Indicator/overview.md) | - | [Link](docs/Userflow/Data%20Loading%20Indicator/usage.md) |
 | Userflow | Local Passcode Flow | [Link](docs/Userflow/Local%20Passcode%20Flow/overview.md) | - | [Link](docs/Userflow/Local%20Passcode%20Flow/usage.md) |
 | Userflow | Placeholder UI | [Link](docs/Userflow/Placeholder%20UI/overview.md) | - | [Link](docs/Userflow/Placeholder%20UI/usage.md) |
-| Userflow | Coil Image Library | [Link](docs/Userflow/Coil%20Image%20Library/overview.md) | - | [Link](docs/Userflow/Coil%20Image%20Library/usage.md) |
 | Userflow | FileKit | [Link](docs/Userflow/FileKit/overview.md) | - | [Link](docs/Userflow/FileKit/usage.md) |
 | Testing | kotlin-logging | [Link](docs/Testing/kotlin-logging/overview.md) | - | [Link](docs/Testing/kotlin-logging/usage.md) |
 | Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
