@@ -12,7 +12,7 @@ import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeState
 import shared.presentation.viewmodel.BaseViewModel
 
-class ThemePersistenceViewModel(
+class ThemeStatefulViewModel(
     val state: ThemeState,
     private val storeTheme: StoreThemeUseCase,
     private val restoreTheme: RestoreThemeUseCase

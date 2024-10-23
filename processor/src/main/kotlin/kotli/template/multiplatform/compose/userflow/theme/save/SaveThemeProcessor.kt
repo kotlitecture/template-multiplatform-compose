@@ -26,18 +26,18 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            "${Rules.AppTheme}/provide/presentation/ThemeViewModel.kt",
+            "${Rules.AppTheme}/provide/presentation/ThemeStatelessViewModel.kt",
             RemoveFile()
         )
         state.onApplyRules(
             Rules.AppThemeConfigKt,
-            RemoveMarkedLine("ThemeViewModel")
+            RemoveMarkedLine("ThemeStatelessViewModel")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            "${Rules.AppTheme}/provide/presentation/ThemePersistenceViewModel.kt",
+            "${Rules.AppTheme}/provide/presentation/ThemeStatefulViewModel.kt",
             RemoveFile()
         )
         state.onApplyRules(
@@ -50,7 +50,7 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             Rules.AppThemeConfigKt,
-            RemoveMarkedLine("ThemePersistenceViewModel")
+            RemoveMarkedLine("ThemeStatefulViewModel")
         )
         state.onApplyRules(
             Rules.AppDIThemeModuleKt,
@@ -60,9 +60,9 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             "${Rules.AppTheme}/provide/presentation/ThemeProvider.kt",
             ReplaceMarkedText(
-                "ThemePersistenceViewModel",
-                "ThemePersistenceViewModel",
-                "ThemeViewModel"
+                "ThemeStatefulViewModel",
+                "ThemeStatefulViewModel",
+                "ThemeStatelessViewModel"
             )
         )
     }

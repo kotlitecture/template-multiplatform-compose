@@ -6,6 +6,6 @@ import shared.presentation.theme.ThemeProvider as SharedThemeProvider
 
 @Composable
 fun ThemeProvider(content: @Composable () -> Unit) {
-    val viewModel: ThemePersistenceViewModel = provideViewModel()
+    val viewModel: ThemeStatefulViewModel = provideViewModel()
     SharedThemeProvider(viewModel.state, content)
 }
