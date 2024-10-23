@@ -83,15 +83,11 @@ private fun HintBlock(
                 
                 Once everything is clear and you no longer require this screen, proceed with deletion:
 
-                1. Package `feature/showcases`.
+                1. Usage of `ShowcasesRoute` in `feature.navigation.provide.presentation.NavigationViewModel`.
                 
-                2. Usage of `ShowcasesDestination` in `presentation/app/AppNavigationRouter`.
+                2. Usage of `showcases()` in `AppConfig`.
                 
-                3. Usage of `ShowcasesDestination` in `di/presentation/NavigationModule`.
-                
-                4. Usage of `ShowcasesDestination` in `di/presentation/NavigationBarModule`.
-                
-                5. Usage of all view models associated with Showcases in `di/presentation/AppModule`.
+                3. Package `feature.showcases`.
             """.trimIndent(),
         confirmLabel = "Got it!",
         confirmAction = onHide
