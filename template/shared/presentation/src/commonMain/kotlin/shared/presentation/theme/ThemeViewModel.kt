@@ -1,7 +1,6 @@
 package shared.presentation.theme
 
 import androidx.compose.runtime.snapshotFlow
-import androidx.compose.runtime.snapshots.Snapshot
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
 import shared.presentation.viewmodel.BaseViewModel
@@ -19,7 +18,7 @@ internal class ThemeViewModel : BaseViewModel() {
                 autoDark && darkMode -> config.darkTheme
                 else -> config.defaultTheme
             }
-            withMutableSnapshot {
+            withState {
                 state.fontFamily = config.fontFamily
                 state.systemDarkMode = darkMode
                 state.currentConfig = config

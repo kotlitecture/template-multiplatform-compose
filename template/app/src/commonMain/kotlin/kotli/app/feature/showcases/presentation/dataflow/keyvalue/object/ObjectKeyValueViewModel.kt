@@ -3,7 +3,6 @@ package kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
@@ -23,7 +22,7 @@ class ObjectKeyValueViewModel(
 
     override fun doBind() = async("Restore text") {
         val data: Data? = keyValueSource.read(key, serializer)
-        withMutableSnapshot {
+        withState {
             _state.text = data?.text.orEmpty()
             data?.time?.let(::updateSupportText)
         }

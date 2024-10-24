@@ -3,7 +3,6 @@ package kotli.app.feature.showcases.presentation.dataflow.ai.gemini
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.common.data.source.ai.AiSource
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -19,13 +18,13 @@ class GeminiViewModel(
         async("Generate reply") {
             val reply = GeminiMutableReply(prompt)
 
-            withMutableSnapshot {
+            withState {
                 _state.loading = true
                 _state.replies = _state.replies.plus(reply)
             }
 
             aiSource.reply(prompt).collect { geminiReply ->
-                withMutableSnapshot {
+                withState {
                     _state.loading = false
                     reply.reply = reply.reply.plus(geminiReply)
                 }

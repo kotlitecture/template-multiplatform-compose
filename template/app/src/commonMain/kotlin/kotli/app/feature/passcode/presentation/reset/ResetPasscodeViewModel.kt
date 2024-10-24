@@ -3,7 +3,6 @@ package kotli.app.feature.passcode.presentation.reset
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.feature.passcode.domain.model.LockState
 import kotli.app.feature.passcode.domain.usecase.CheckPasscodeUseCase
 import kotli.app.feature.passcode.domain.usecase.GetPasscodeLengthUseCase
@@ -27,7 +26,7 @@ class ResetPasscodeViewModel(
     fun onReset(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
-        withMutableSnapshot {
+        withState {
             _state.enteredCode = enteredCode
             _state.error = null
         }
@@ -43,7 +42,7 @@ class ResetPasscodeViewModel(
                 } else {
                     val attempts = getAttempts.invoke()
                     val error = getString(Res.string.passcode_unlock_error, attempts)
-                    withMutableSnapshot {
+                    withState {
                         _state.enteredCode = ""
                         _state.loading = false
                         _state.error = error

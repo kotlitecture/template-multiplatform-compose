@@ -30,7 +30,7 @@ class NavigationViewModel : BaseViewModel() {
         val items = createItems(navController::singleInstance)
         val itemsById = items.associateBy { item -> item.id }
 
-        withMutableSnapshot {
+        withState {
             _state.visible = true
             _state.items = items
         }

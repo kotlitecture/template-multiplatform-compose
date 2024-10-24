@@ -18,7 +18,8 @@ import kotli.app.feature.showcases.presentation.userflow.component.filepicker.Fi
 import kotli.app.feature.showcases.presentation.userflow.component.image.coil.CoilRoute
 import kotli.app.feature.showcases.presentation.userflow.component.markdown.MarkdownRoute
 import kotli.app.feature.showcases.presentation.userflow.component.placeholder.PlaceholderRoute
-import kotli.app.feature.showcases.presentation.userflow.loader.LoaderRoute
+import kotli.app.feature.showcases.presentation.userflow.loader.advanced.AdvancedLoaderRoute
+import kotli.app.feature.showcases.presentation.userflow.loader.basic.BasicLoaderRoute
 import kotli.app.feature.showcases.presentation.userflow.passcode.PasscodeShowcases
 import kotli.app.feature.showcases.presentation.userflow.theme.change.ChangeThemeShowcases
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
@@ -46,7 +47,8 @@ class ShowcasesViewModel : BaseViewModel() {
         Showcase.Header("Dataflow :: AI"),
         GeminiRoute.screen,
         Showcase.Header("Userflow :: Loader"),
-        LoaderRoute.screen,
+        BasicLoaderRoute.screen,
+        AdvancedLoaderRoute.screen,
         Showcase.Header("Userflow :: Theme"),
         ChangeThemeShowcases.screen,
         ChangeThemeShowcases.dialog,

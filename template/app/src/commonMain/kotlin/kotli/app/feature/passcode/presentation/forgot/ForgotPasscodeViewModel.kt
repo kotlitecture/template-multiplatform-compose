@@ -3,7 +3,6 @@ package kotli.app.feature.passcode.presentation.forgot
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.feature.passcode.domain.usecase.ForgotPasscodeUseCase
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -19,7 +18,7 @@ class ForgotPasscodeViewModel(
             _state.loading = true
             forgotPasscode.invoke()
         } finally {
-            withMutableSnapshot {
+            withState {
                 _state.event = ForgotPasscodeEvent.Complete
                 _state.loading = false
             }

@@ -50,9 +50,12 @@ import kotli.app.feature.showcases.presentation.userflow.component.markdown.Mark
 import kotli.app.feature.showcases.presentation.userflow.component.placeholder.PlaceholderRoute
 import kotli.app.feature.showcases.presentation.userflow.component.placeholder.PlaceholderScreen
 import kotli.app.feature.showcases.presentation.userflow.component.placeholder.PlaceholderViewModel
-import kotli.app.feature.showcases.presentation.userflow.loader.LoaderRoute
-import kotli.app.feature.showcases.presentation.userflow.loader.LoaderScreen
-import kotli.app.feature.showcases.presentation.userflow.loader.LoaderViewModel
+import kotli.app.feature.showcases.presentation.userflow.loader.advanced.AdvancedLoaderRoute
+import kotli.app.feature.showcases.presentation.userflow.loader.advanced.AdvancedLoaderScreen
+import kotli.app.feature.showcases.presentation.userflow.loader.advanced.AdvancedLoaderViewModel
+import kotli.app.feature.showcases.presentation.userflow.loader.basic.BasicLoaderRoute
+import kotli.app.feature.showcases.presentation.userflow.loader.basic.BasicLoaderScreen
+import kotli.app.feature.showcases.presentation.userflow.loader.basic.BasicLoaderViewModel
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
 import kotli.app.feature.showcases.presentation.userflow.theme.toggle.ToggleThemeScreen
 import shared.presentation.misc.back
@@ -64,7 +67,8 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<CoilRoute> { CoilScreen(navController::back) }
     composable<MarkdownRoute> { MarkdownScreen(navController::back) }
     composable<PlaceholderRoute> { PlaceholderScreen(navController::back) }
-    composable<LoaderRoute> { LoaderScreen(navController::back) }
+    composable<BasicLoaderRoute> { BasicLoaderScreen(navController::back) }
+    composable<AdvancedLoaderRoute> { AdvancedLoaderScreen(navController::back) }
     dialog<ToggleThemeRoute> { ToggleThemeScreen() }
     composable<GeminiRoute> { GeminiScreen(navController::back) }
     composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }
@@ -82,7 +86,8 @@ fun InitializerViewModelFactoryBuilder.showcases() {
     initializer { ShowcasesViewModel() }
     initializer { BasicPagingViewModel(inject()) }
     initializer { BasicHttpViewModel(inject()) }
-    initializer { LoaderViewModel() }
+    initializer { BasicLoaderViewModel() }
+    initializer { AdvancedLoaderViewModel() }
     initializer { PrimitiveKeyValueViewModel(inject()) }
     initializer { ObjectKeyValueViewModel(inject()) }
     initializer { SqlDelightCrudViewModel(inject()) }

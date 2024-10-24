@@ -11,29 +11,45 @@ import androidx.compose.ui.unit.dp
 import shared.design.component.AppCard
 import shared.design.component.AppCircularProgressIndicator
 import shared.design.component.AppDialog
+import shared.design.component.AppErrorDialog
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun LoaderDialog(isLoading: () -> Boolean) {
     val viewModel: LoaderViewModel = provideViewModel()
     LaunchedEffect(isLoading) { viewModel.onBind(isLoading) }
-    LoaderBlock(viewModel.state)
+    LoaderBlock(viewModel.state, viewModel::onClose)
 }
 
 @Composable
-private fun LoaderBlock(state: LoaderState) {
-    if (!state.loading) return
+fun LoaderDialog(state: LoaderState) {
+    LoaderBlock(state, state::cancel)
+}
 
-    AppDialog(onDismissRequest = {}) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            AppCard {
-                AppCircularProgressIndicator(
-                    modifier = Modifier.padding(16.dp)
-                )
+@Composable
+private fun LoaderBlock(state: LoaderState, onClose: () -> Unit) {
+    when {
+        state.loading -> {
+            AppDialog(onDismissRequest = {}) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AppCard {
+                        AppCircularProgressIndicator(
+                            modifier = Modifier.padding(16.dp)
+                        )
+                    }
+                }
             }
+        }
+
+        state.error != null -> state.error?.let { error ->
+            AppErrorDialog(
+                title = state.id.orEmpty(),
+                onClose = onClose,
+                th = error
+            )
         }
     }
 }

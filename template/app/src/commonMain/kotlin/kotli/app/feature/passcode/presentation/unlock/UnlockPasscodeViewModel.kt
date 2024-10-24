@@ -3,7 +3,6 @@ package kotli.app.feature.passcode.presentation.unlock
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.feature.passcode.domain.model.LockState
 import kotli.app.feature.passcode.domain.usecase.GetPasscodeLengthUseCase
 import kotli.app.feature.passcode.domain.usecase.GetRemainingAttemptsUseCase
@@ -22,7 +21,7 @@ class UnlockPasscodeViewModel(
     private val _state = UnlockPasscodeMutableState(getPasscodeLength.invoke())
     val state: UnlockPasscodeState = _state
 
-    override fun doBind() = withMutableSnapshot {
+    override fun doBind() = withState {
         _state.enteredCode = ""
         _state.loading = false
         _state.error = null
@@ -39,7 +38,7 @@ class UnlockPasscodeViewModel(
     fun onUnlock(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
-        withMutableSnapshot {
+        withState {
             _state.enteredCode = enteredCode
             _state.error = null
         }
@@ -53,7 +52,7 @@ class UnlockPasscodeViewModel(
                 if (lockState == LockState.LOCKED) {
                     val attempts = getAttempts.invoke()
                     val error = getString(Res.string.passcode_unlock_error, attempts)
-                    withMutableSnapshot {
+                    withState {
                         _state.enteredCode = ""
                         _state.loading = false
                         _state.error = error
