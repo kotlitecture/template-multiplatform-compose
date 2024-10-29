@@ -37,8 +37,8 @@ object Rules {
     const val AppKt = "${AppCommonMainRoot}/App.kt"
     const val AppConfigKt = "${AppCommonMainRoot}/AppConfig.kt"
     const val AppViewModelKt = "${AppCommonMainRoot}/AppViewModel.kt"
-    const val AppCommonPresentation = "${AppCommonMainRoot}/common/presentation"
-    const val AppCommonPresentationConfigKt = "${AppCommonPresentation}/CommonConfig.kt"
+    const val AppCommonPresentation = "${AppCommon}/presentation"
+    const val AppCommonConfigKt = "${AppCommon}/CommonConfig.kt"
     const val AppConfigureKoinKt = "*/configureKoin.kt"
 
     // app -> di
