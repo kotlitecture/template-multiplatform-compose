@@ -3,7 +3,6 @@ package kotli.app.feature.passcode.presentation.set
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.feature.passcode.domain.model.LockState
 import kotli.app.feature.passcode.domain.usecase.CheckPasscodeUseCase
 import kotli.app.feature.passcode.domain.usecase.GetPasscodeLengthUseCase
@@ -33,7 +32,7 @@ class SetPasscodeViewModel(
         } else {
             SetPasscodeStep.EnterNew()
         }
-        withMutableSnapshot {
+        withState {
             _state.enteredCode = ""
             _state.loading = false
             _state.error = null
@@ -44,7 +43,7 @@ class SetPasscodeViewModel(
     fun onEnter(enteredCode: String) {
         if (_state.passcodeLength == 0) return
 
-        withMutableSnapshot {
+        withState {
             _state.enteredCode = enteredCode
             _state.error = null
         }
@@ -70,13 +69,13 @@ class SetPasscodeViewModel(
         if (checkPasscode.invoke(enteredCode) == LockState.LOCKED) {
             val attempts = getAttempts.invoke()
             val error = getString(Res.string.passcode_unlock_error, attempts)
-            withMutableSnapshot {
+            withState {
                 _state.enteredCode = ""
                 _state.loading = false
                 _state.error = error
             }
         } else {
-            withMutableSnapshot {
+            withState {
                 _state.step = SetPasscodeStep.EnterNew()
                 _state.enteredCode = ""
                 _state.loading = false
@@ -85,7 +84,7 @@ class SetPasscodeViewModel(
     }
 
     private fun onEnterNew(enteredCode: String) {
-        withMutableSnapshot {
+        withState {
             _state.step = SetPasscodeStep.ConfirmNew(code = enteredCode)
             _state.enteredCode = ""
             _state.loading = false
@@ -98,7 +97,7 @@ class SetPasscodeViewModel(
     ) {
         if (enteredCode != expectedCode) {
             val error = getString(Res.string.passcode_set_confirm_new_error)
-            withMutableSnapshot {
+            withState {
                 _state.step = SetPasscodeStep.EnterNew()
                 _state.error = error
                 _state.enteredCode = ""

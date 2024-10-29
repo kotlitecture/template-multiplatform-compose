@@ -1,4 +1,4 @@
-package kotli.app.feature.showcases.presentation.userflow.loader
+package kotli.app.feature.showcases.presentation.userflow.loader.basic
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,10 +6,10 @@ import androidx.compose.runtime.setValue
 import kotlinx.coroutines.delay
 import shared.presentation.viewmodel.BaseViewModel
 
-class LoaderViewModel : BaseViewModel() {
+class BasicLoaderViewModel : BaseViewModel() {
 
     private val _state = LoaderMutableState()
-    val state: LoaderState = _state
+    val state: BasicLoaderState = _state
 
     fun onShow() = async("Show loader") {
         _state.loading = true
@@ -17,7 +17,7 @@ class LoaderViewModel : BaseViewModel() {
         _state.loading = false
     }
 
-    private class LoaderMutableState : LoaderState {
+    private class LoaderMutableState : BasicLoaderState {
         override var loading: Boolean by mutableStateOf(false)
     }
 

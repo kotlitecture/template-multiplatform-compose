@@ -6,7 +6,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -52,7 +51,7 @@ private fun AppContent(
     startDestination: Any,
     navController: NavHostController,
 ) {
-    val transition = remember { tween<Float>(state.transitionDuration) }
+    val transition = tween<Float>(state.transitionDuration)
     NavHost(
         modifier = modifier,
         navController = navController,

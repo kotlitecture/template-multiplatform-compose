@@ -39,7 +39,12 @@ fun AppErrorDialog(title: String, th: Throwable, onClose: () -> Unit) {
                 text = th.stackTraceToString()
             )
         },
-        confirmButton = {}
+        confirmButton = {
+            AppTextButton(
+                text = "OK",
+                onClick = onClose
+            )
+        }
     )
 }
 

@@ -1,4 +1,4 @@
-package kotli.app.feature.showcases.presentation.userflow.loader
+package kotli.app.feature.showcases.presentation.userflow.loader.advanced
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,17 +12,19 @@ import shared.design.container.AppFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
-fun LoaderScreen(onBack: () -> Unit) {
-    val viewModel: LoaderViewModel = provideViewModel()
+fun AdvancedLoaderScreen(onBack: () -> Unit) {
+    val viewModel: AdvancedLoaderViewModel = provideViewModel()
     val state = viewModel.state
 
     AppFixedTopBarColumn(
-        title = LoaderRoute.screen.label,
+        title = AdvancedLoaderRoute.screen.label,
         onBack = onBack,
         content = {
             ShowcaseHintBlock(
                 text = """
-                    This showcase demonstrates the usage of the LoaderDialog.
+                    This showcase demonstrates the advanced usage of the LoaderDialog.
+                    
+                    In this example, the loader is used to catch any errors and show them to the user.
                 """.trimIndent()
             )
             AppElevatedButton(
@@ -35,5 +37,5 @@ fun LoaderScreen(onBack: () -> Unit) {
         }
     )
 
-    LoaderDialog(state::loading)
+    LoaderDialog(state.loaderState)
 }

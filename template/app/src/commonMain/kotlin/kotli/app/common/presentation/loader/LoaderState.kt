@@ -6,5 +6,12 @@ import androidx.compose.runtime.Stable
 interface LoaderState {
 
     val loading: Boolean
+    val error: Throwable?
+    val id: String?
 
+    suspend fun runCatching(id: String, withLoader: Boolean = true, block: suspend () -> Unit)
+
+    fun cancel()
+
+    companion object
 }

@@ -45,7 +45,7 @@ abstract class BaseViewModel : ViewModel() {
         launch(
             id = id,
             block = block,
-            context = Dispatchers.Main.immediate,
+            context = Dispatchers.Main,
         )
     }
 
@@ -72,8 +72,8 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * Take a MutableSnapshot and run block within it on the main thread.
      */
-    protected fun withMutableSnapshot(block: () -> Unit) {
-        viewModelScope.launch(Dispatchers.Main.immediate) {
+    protected fun withState(block: () -> Unit) {
+        viewModelScope.launch(Dispatchers.Main) {
             Snapshot.withMutableSnapshot(block)
         }
     }
