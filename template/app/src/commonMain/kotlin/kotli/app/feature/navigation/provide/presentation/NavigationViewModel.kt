@@ -26,13 +26,13 @@ class NavigationViewModel : BaseViewModel() {
     private val _state = NavigationMutableState()
     val state: NavigationState = _state
 
-    fun onBind(navController: NavHostController) = async("Init navigation") {
+    suspend fun onBind(navController: NavHostController) {
         val items = createItems(navController::singleInstance)
         val itemsById = items.associateBy { item -> item.id }
 
         withState {
-            _state.visible = true
             _state.items = items
+            _state.visible = true
         }
 
         navController.currentBackStackEntryFlow
