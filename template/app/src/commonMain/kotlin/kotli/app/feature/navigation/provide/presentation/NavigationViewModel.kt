@@ -13,8 +13,8 @@ import kotli.app.feature.navigation.c.presentation.CRoute
 import kotli.app.feature.showcases.presentation.ShowcasesRoute
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
-import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.serializer
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
@@ -38,9 +38,8 @@ class NavigationViewModel : BaseViewModel() {
         navController.currentBackStackEntryFlow
             .mapNotNull { entry -> entry.destination.id }
             .distinctUntilChanged()
-            .collectLatest { destinationId ->
-                _state.selected = itemsById[destinationId]
-            }
+            .map(itemsById::get)
+            .collectLatest(_state::selected::set)
     }
 
     private fun createItems(onRoute: (route: Any) -> Unit) = listOf(
@@ -94,7 +93,6 @@ class NavigationViewModel : BaseViewModel() {
         )
     }
 
-    @OptIn(InternalSerializationApi::class)
     private fun Any.createItemId(): Int = this::class.serializer().generateHashCode()
 
     private class NavigationMutableState : NavigationState {

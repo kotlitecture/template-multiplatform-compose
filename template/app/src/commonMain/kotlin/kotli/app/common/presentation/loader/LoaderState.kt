@@ -9,7 +9,7 @@ interface LoaderState {
     val error: Throwable?
     val id: String?
 
-    suspend fun runCatching(id: String, withLoader: Boolean = true, block: suspend () -> Unit)
+    suspend fun runCatching(label: String, withLoader: Boolean = true, block: suspend () -> Unit)
 
     fun cancel()
 

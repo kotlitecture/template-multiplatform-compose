@@ -55,6 +55,7 @@ kotlin {
                 optIn("kotlinx.coroutines.DelicateCoroutinesApi")
                 optIn("androidx.compose.ui.ExperimentalComposeUiApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                optIn("kotlinx.serialization.InternalSerializationApi")
                 optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
             }
         }

@@ -10,7 +10,7 @@ class AdvancedLoaderViewModel : BaseViewModel() {
     private val _state = AdvancedLoaderMutableState()
     val state: AdvancedLoaderState = _state
 
-    fun onShow() = async("Show loader") {
+    fun onShow() = async("onShow") {
         _state.loaderState.runCatching("Advanced loader") {
             delay(1000L)
             throw IllegalStateException("Some caught error.")
