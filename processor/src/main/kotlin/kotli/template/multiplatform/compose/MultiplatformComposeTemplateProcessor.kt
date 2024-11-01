@@ -186,6 +186,14 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 replacer = "import ${name}."
             )
         )
+        state.onApplyRules(
+            "${Rules.BackendSrc}/*.yaml",
+            ReplaceMarkedText(
+                text = "kotli.app.",
+                marker = "kotli.app.",
+                replacer = "${state.layer.namespace}."
+            )
+        )
         renamePackage(state, "${Rules.AppSrc}/androidMain/kotlin")
         renamePackage(state, "${Rules.AppSrc}/commonMain/kotlin")
         renamePackage(state, "${Rules.AppSrc}/iosArm64Main/kotlin")
@@ -195,6 +203,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         renamePackage(state, "${Rules.AppSrc}/jsMain/kotlin")
         renamePackage(state, "${Rules.AppSrc}/jvmMain/kotlin")
         renamePackage(state, "${Rules.AppSrc}/mobileAndDesktopMain/kotlin")
+        renamePackage(state, "${Rules.BackendSrc}/main/kotlin")
+        renamePackage(state, "${Rules.BackendSrc}/test/kotlin")
     }
 
     private fun renamePackage(state: TemplateState, root: String) {
