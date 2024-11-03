@@ -68,8 +68,8 @@ object Rules {
     // app -> feature -> navigation
     const val AppNavigation = "${AppFeature}/navigation"
     const val AppNavigationProvider = "${AppNavigation}/provide/presentation/NavigationProvider.kt"
-    const val AppNavigationViewModel =
-        "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
+    const val AppBottomNavigationProvider = "${AppNavigation}/provide/presentation/BottomNavigationProvider.kt"
+    const val AppNavigationViewModel = "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
 
     // app -> feature -> showcases
     const val AppShowcases = "${AppFeature}/showcases"

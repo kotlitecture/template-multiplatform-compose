@@ -22,6 +22,10 @@ object BottomNavigationProcessor : BaseFeatureProcessor() {
             Rules.AppKt,
             RemoveMarkedLine("BottomNavigationProvider")
         )
+        state.onApplyRules(
+            Rules.AppBottomNavigationProvider,
+            RemoveFile()
+        )
     }
 
 }
