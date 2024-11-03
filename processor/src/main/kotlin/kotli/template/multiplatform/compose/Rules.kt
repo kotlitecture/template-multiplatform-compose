@@ -68,7 +68,8 @@ object Rules {
     // app -> feature -> navigation
     const val AppNavigation = "${AppFeature}/navigation"
     const val AppNavigationProvider = "${AppNavigation}/provide/presentation/NavigationProvider.kt"
-    const val AppNavigationViewModel = "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
+    const val AppNavigationViewModel =
+        "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
 
     // app -> feature -> showcases
     const val AppShowcases = "${AppFeature}/showcases"
@@ -79,7 +80,8 @@ object Rules {
 
     // design
     const val SharedDesignSrcDir = "${SharedDesignDir}/src"
-    const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
+    const val SharedDesignComponentDir =
+        "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
     const val AppIconsKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIcons.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
     const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"
@@ -119,5 +121,9 @@ object Rules {
 
     // dataflow -> AiSource
     const val AiSource = "*/*AiSource*.kt"
+
+    // backend
+    const val Backend = "backend"
+    const val BackendSrc = "${Backend}/src"
 
 }

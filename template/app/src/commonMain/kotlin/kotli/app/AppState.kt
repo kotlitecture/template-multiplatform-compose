@@ -15,7 +15,7 @@ interface AppState {
 
 class AppMutableState(
     override val snackbarState: AppSnackbarState,
-    override val transitionDuration: Int = 100,
+    override val transitionDuration: Int = 0,
 ) : AppState {
     override var startDestination: Any? by mutableStateOf(null)
 }

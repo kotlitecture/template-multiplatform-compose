@@ -8,6 +8,7 @@ import androidx.compose.runtime.snapshots.Snapshot
 import kotli.app.common.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
+import shared.data.misc.isCancellationException
 import shared.presentation.viewmodel.BaseViewModel
 
 class LoaderViewModel(
@@ -38,16 +39,18 @@ private class LoaderMutableState : LoaderState {
     override var error: Throwable? by mutableStateOf(null)
     override var id: String? by mutableStateOf(null)
 
-    override suspend fun runCatching(id: String, withLoader: Boolean, block: suspend () -> Unit) {
+    override suspend fun runCatching(label: String, withLoader: Boolean, block: suspend () -> Unit) {
         try {
             if (withLoader) {
                 loading = true
             }
             block()
         } catch (th: Throwable) {
-            Snapshot.withMutableSnapshot {
-                this.error = th
-                this.id = id
+            if (!th.isCancellationException()) {
+                Snapshot.withMutableSnapshot {
+                    this.error = th
+                    this.id = label
+                }
             }
         } finally {
             if (withLoader) {
