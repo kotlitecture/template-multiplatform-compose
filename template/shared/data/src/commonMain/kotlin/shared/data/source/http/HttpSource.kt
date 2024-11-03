@@ -11,6 +11,10 @@ import io.ktor.client.plugins.HttpRequestTimeoutException
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.DEFAULT
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.websocket.WebSockets
 import io.ktor.client.request.accept
 import io.ktor.http.ContentType
@@ -36,6 +40,7 @@ class HttpSource(
     /** https://ktor.io/docs/client-create-multiplatform-application.html */
     val client by lazy {
         HttpClient {
+            config(this)
             install(ContentNegotiation) {
                 json(
                     Json {
@@ -43,6 +48,10 @@ class HttpSource(
                         useAlternativeNames = false
                     }
                 )
+            }
+            install(Logging) {
+                logger = Logger.DEFAULT
+                level = LogLevel.HEADERS
             }
             install(WebSockets)
             install(HttpRedirect)
@@ -62,7 +71,6 @@ class HttpSource(
                 contentType(ContentType.Application.Json)
                 accept(ContentType.Application.Json)
             }
-            config(this)
         }
     }
 

@@ -10,6 +10,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonKtorProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.http.HttpShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
 object KtorHttpProcessor : BaseFeatureProcessor() {
@@ -19,10 +20,13 @@ object KtorHttpProcessor : BaseFeatureProcessor() {
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getWebUrl(state: TemplateState): String = "https://ktor.io"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://ktor.io/docs/client-create-new-application.html"
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://ktor.io/docs/client-create-new-application.html"
+
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonKtorProcessor::class.java
+        CommonKtorProcessor::class.java,
+        HttpShowcasesProcessor::class.java
     )
 
     override fun doRemove(state: TemplateState) {

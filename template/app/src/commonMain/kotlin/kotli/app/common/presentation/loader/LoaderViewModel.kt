@@ -5,15 +5,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.Snapshot
-import kotli.app.common.data.source.config.AppConfigSource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import shared.data.misc.isCancellationException
 import shared.presentation.viewmodel.BaseViewModel
 
-class LoaderViewModel(
-    private val configSource: AppConfigSource
-) : BaseViewModel() {
+class LoaderViewModel : BaseViewModel() {
 
     private val _state = LoaderMutableState()
     val state: LoaderState = _state
@@ -21,9 +18,9 @@ class LoaderViewModel(
     suspend fun onBind(isLoading: () -> Boolean) {
         snapshotFlow(isLoading).collectLatest { loading ->
             if (loading) {
-                delay(configSource.getUiLoaderDelay())
+                delay(_state.delay)
                 _state.loading = true
-                delay(configSource.getUiLoaderTimeout())
+                delay(_state.timeout)
                 _state.loading = false
             } else {
                 _state.loading = false
@@ -35,11 +32,17 @@ class LoaderViewModel(
 }
 
 private class LoaderMutableState : LoaderState {
+    override val delay: Long = 50
+    override val timeout: Long = 30_000
     override var loading: Boolean by mutableStateOf(false)
     override var error: Throwable? by mutableStateOf(null)
     override var id: String? by mutableStateOf(null)
 
-    override suspend fun runCatching(label: String, withLoader: Boolean, block: suspend () -> Unit) {
+    override suspend fun runCatching(
+        label: String,
+        withLoader: Boolean,
+        block: suspend () -> Unit
+    ) {
         try {
             if (withLoader) {
                 loading = true

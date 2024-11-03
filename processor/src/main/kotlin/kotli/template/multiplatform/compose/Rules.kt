@@ -93,6 +93,7 @@ object Rules {
 
     // dataflow -> cache
     const val CacheSource = "*/*CacheSource*.kt"
+    const val CacheSourceDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/cache"
 
     // dataflow -> database
     const val SqlDelightSource = "*/*SqlDelightSource*.kt"
