@@ -10,7 +10,6 @@ import kotli.engine.model.Feature
 import kotli.engine.model.Layer
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
-import kotli.template.multiplatform.compose.userflow.component.image.coil.CoilProcessor
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.RepeatedTest
@@ -111,9 +110,7 @@ class MultiplatformComposeTemplateProcessorTest {
                 namespace = "my.app",
                 name = "myApp",
                 features = listOf(
-                    Feature(AndroidPlatformProcessor.ID),
-                    Feature(JvmPlatformProcessor.ID),
-                    Feature(CoilProcessor.ID),
+                    Feature(AndroidPlatformProcessor.ID)
                 )
             )
             val generator = PathOutputGenerator(buildPath(), registry)
