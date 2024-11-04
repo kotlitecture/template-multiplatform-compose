@@ -5,6 +5,8 @@ import androidx.compose.runtime.Stable
 @Stable
 interface LoaderState {
 
+    val delay:Long
+    val timeout:Long
     val loading: Boolean
     val error: Throwable?
     val id: String?

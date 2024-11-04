@@ -52,7 +52,7 @@ kotlin {
         // {platform.android.dependencies}
         androidMain.dependencies {
             implementation(libs.kotlinx.coroutines.android)
-            implementation(libs.ktor.client.okHttp)
+            implementation(libs.ktor.client.android)
         }
         // {platform.android.dependencies}
         // {platform.ios.dependencies}

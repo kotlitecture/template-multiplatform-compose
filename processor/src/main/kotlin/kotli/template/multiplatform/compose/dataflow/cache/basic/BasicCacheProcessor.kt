@@ -38,6 +38,10 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
+            Rules.CacheSourceDir,
+            RemoveFile()
+        )
+        state.onApplyRules(
             Rules.AppDiKt,
             RemoveMarkedLine("CacheSource")
         )

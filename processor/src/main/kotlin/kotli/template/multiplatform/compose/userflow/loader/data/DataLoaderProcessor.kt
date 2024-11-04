@@ -8,7 +8,6 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
-import kotli.template.multiplatform.compose.dataflow.config.facade.FacadeConfigProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.loader.data.DataLoaderShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
 
@@ -21,7 +20,6 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        FacadeConfigProcessor::class.java,
         DataLoaderShowcasesProcessor::class.java
     )
 
