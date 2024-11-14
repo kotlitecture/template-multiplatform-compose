@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.serialization.serializer
 import shared.design.icon.AppIconModel
 import shared.design.icon.AppIcons
-import shared.presentation.misc.singleInstance
+import shared.presentation.misc.clearHistory
 import shared.presentation.viewmodel.BaseViewModel
 
 class NavigationViewModel : BaseViewModel() {
@@ -27,7 +27,7 @@ class NavigationViewModel : BaseViewModel() {
     val state: NavigationState = _state
 
     suspend fun onBind(navController: NavHostController) {
-        val items = createItems(navController::singleInstance)
+        val items = createItems(navController::clearHistory)
         val itemsById = items.associateBy { item -> item.id }
 
         withState {
