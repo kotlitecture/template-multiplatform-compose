@@ -36,9 +36,9 @@ fun NavHostController.replacePrevious(route: Any) {
 
 fun NavHostController.clearHistory(route: Any) {
     navigate(route, navOptions {
-        graph.route?.let { graphRoute ->
+        graph.startDestinationRoute?.let { graphRoute ->
             popUpTo(graphRoute) {
-                inclusive = true
+                inclusive = false
             }
         }
     })
