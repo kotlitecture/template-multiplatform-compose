@@ -51,7 +51,7 @@ interface CacheEntry<T, K : CacheKey<T>> {
 
     /**
      * Emits the cached value whenever it changes.
-     * The flow updates an value in the cache based on the expiration of the key.
+     * The flow updates a value in the cache based on the expiration of the key.
      *
      * @return A flow representing the changes to the cached value.
      */
@@ -59,7 +59,7 @@ interface CacheEntry<T, K : CacheKey<T>> {
 
     companion object {
         /**
-         * Creates a CacheState instance representing a passed value.
+         * Creates a CacheEntry instance representing a passed value.
          *
          * @param key The cache key associated with the value.
          * @param value The cached value.

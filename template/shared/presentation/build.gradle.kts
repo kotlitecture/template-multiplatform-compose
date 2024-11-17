@@ -38,7 +38,6 @@ kotlin {
         }
         commonMain.dependencies {
             api(compose.foundation)
-            api(libs.androidx.lifecycle.viewmodel.compose)
             api(libs.androidx.navigation.compose)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.datetime)

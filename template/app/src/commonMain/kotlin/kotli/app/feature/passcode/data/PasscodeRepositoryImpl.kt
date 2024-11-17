@@ -6,14 +6,12 @@ import kotli.app.feature.passcode.domain.repository.PasscodeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.datetime.Clock
-import shared.data.serialization.ByteArrayStrategy
-import shared.data.serialization.SerializationStrategy
+import shared.data.source.encoding.EncodingStrategy
 import shared.data.source.encryption.EncryptionMethod
 import shared.data.source.encryption.EncryptionSource
-import shared.data.source.keyvalue.KeyValueSource
+import shared.data.source.settings.SettingsSource
 import kotlin.math.max
 import kotlin.random.Random
-import kotlin.time.Duration.Companion.seconds
 
 class PasscodeRepositoryImpl(
     private val passcodeLength: Int,
@@ -22,10 +20,10 @@ class PasscodeRepositoryImpl(
     private val unlockAttemptsCount: Int,
     private val encryptionMethod: (code: String) -> EncryptionMethod = EncryptionMethod::PBKDF2,
     private val encryptionSource: EncryptionSource,
-    private val keyValueSource: KeyValueSource,
+    private val settingsSource: SettingsSource,
 ) : PasscodeRepository {
 
-    private val passcodeStrategy = SerializationStrategy.json(Passcode.serializer())
+    private val passcodeStrategy = EncodingStrategy.json(Passcode.serializer())
     private val lockStateFlow = MutableStateFlow(LockState.UNDEFINED)
 
     override fun getPasscodeLength(): Int {
@@ -38,15 +36,15 @@ class PasscodeRepositoryImpl(
     }
 
     override suspend fun setPasscode(passcode: Passcode) {
-        keyValueSource.save(persistentKey, passcode, passcodeStrategy)
+        settingsSource.save(persistentKey, passcode, passcodeStrategy)
     }
 
     override suspend fun getPasscode(): Passcode? {
-        return keyValueSource.read(persistentKey, passcodeStrategy)
+        return settingsSource.read(persistentKey, passcodeStrategy)
     }
 
     override suspend fun reset() {
-        keyValueSource.remove(persistentKey, passcodeStrategy)
+        settingsSource.remove(persistentKey, passcodeStrategy)
         lockStateFlow.value = LockState.UNLOCKED
     }
 
@@ -68,7 +66,7 @@ class PasscodeRepositoryImpl(
     }
 
     override suspend fun lock(code: String) {
-        val salt = ByteArrayStrategy.toString(Random.nextBytes(16))
+        val salt = EncodingStrategy.default<ByteArray>().encode(Random.nextBytes(16))
         val encodedCode = encryptionSource.encrypt(code, encryptionMethod(salt))
 
         val passcode = Passcode(

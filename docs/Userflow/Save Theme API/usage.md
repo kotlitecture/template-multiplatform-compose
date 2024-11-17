@@ -11,7 +11,7 @@ The feature utilizes `app.feature.theme.provide.presentation.ThemeProvider` to c
 - Persist its state whenever it changes.
 - Restore the last state when the app is reopened.
 
-The logic is handled by `app.feature.theme.provide.presentation.ThemePersistenceViewModel`.
+The logic is handled by `app.feature.theme.provide.presentation.ThemeStatefulViewModel`.
 
 Thus, whenever you update the current active application theme, it is automatically saved across app restarts.
 

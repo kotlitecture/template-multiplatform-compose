@@ -3,10 +3,10 @@
 ## Overview
 
 The API can be accessed through:
-- `shared.data.source.keyvalue.KeyValueSource` - base class at the core module level.
-- `shared.data.source.keyvalue.SettingsKeyValueSource` - implementation of the base class.
+- `shared.data.source.settings.SettingsSource` - base class at the core module level.
+- `shared.data.source.settings.SettingsSettingsSource` - implementation of the base class.
 
-**KeyValueSource** provides the following methods:
+**SettingsSource** provides the following methods:
 
 - `read(key: String): T?` - Reads data of type [T] associated with the given [key].
 - `save(key: String, value: T)` - Saves the provided [value] of type [T] with the given [key].
@@ -17,18 +17,18 @@ The API can be accessed through:
 
 ## Example
 
-Class instance is pre-configured via dependency injection (DI) as a singleton in `app.di.common.KeyValueSourceModule`.
+Class instance is pre-configured via dependency injection (DI) as a singleton in `app.di.common.SettingsSourceModule`.
 
 To start using, just inject it to your DI managed class.
 
 ```kotlin
 class TemplateViewModel @Inject constructor(
-    private val keyValueSource: KeyValueSource
+    private val settingsSource: SettingsSource
 ) : BaseViewModel() {
     
     override fun doBind() = async("Init settings") {
         ...
-        val passcode: String? = keyValueSource.read("name")
+        val passcode: String? = settingsSource.read("name")
         ...
     }
 }

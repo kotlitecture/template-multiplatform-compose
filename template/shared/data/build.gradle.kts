@@ -44,6 +44,7 @@ kotlin {
             api(libs.kotlinx.serialization.json)
             implementation(libs.korlibs.crypto)
             implementation(libs.multiplatform.settings.no.arg)
+            implementation(libs.multiplatform.expressions.evaluator)
             implementation(libs.touchlab.stately.concurrent.collections) // {common.stately-collections}
         }
         commonTest.dependencies {
@@ -75,7 +76,7 @@ kotlin {
         val mobileAndDesktopMain by creating {
             dependsOn(commonMain.get())
             dependencies {
-                implementation(libs.androidx.datastore.preferences) // {dataflow.keyvalue.datastore}
+                implementation(libs.androidx.datastore.preferences) // {dataflow.settings.datastore}
             }
         }
         // {platform.mobile_and_desktop.dependencies}
