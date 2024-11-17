@@ -1,7 +1,7 @@
 package shared.data.source.config
 
 import shared.data.source.DataSource
-import shared.data.serialization.SerializationStrategy
+import shared.data.source.encoding.EncodingStrategy
 
 /**
  * Interface for accessing configuration data from various sources.
@@ -15,13 +15,13 @@ interface ConfigSource : DataSource {
      * If the key is not found, returns the default value provided by the defaultValue lambda function.
      *
      * @param key The key to retrieve the value for.
-     * @param serializationStrategy The strategy, used to serialize/deserialize the provided object.
+     * @param encodingStrategy The strategy, used to serialize/deserialize the provided object.
      * @param defaultValue A lambda function providing the default value to return if the key is not found.
      * @return The value associated with the key, or the default value if the key is not found.
      */
     fun <T : Any> get(
         key: String,
-        serializationStrategy: SerializationStrategy<T>,
+        encodingStrategy: EncodingStrategy<T>,
         defaultValue: () -> T
     ): T
 
@@ -34,7 +34,7 @@ interface ConfigSource : DataSource {
      * @return The string value associated with the key, or the default value if the key is not found.
      */
     fun getString(key: String, defaultValue: () -> String): String {
-        return get(key, SerializationStrategy.no(), defaultValue)
+        return get(key, EncodingStrategy.default(), defaultValue)
     }
 
     /**
@@ -46,7 +46,7 @@ interface ConfigSource : DataSource {
      * @return The boolean value associated with the key, or the default value if the key is not found.
      */
     fun getBoolean(key: String, defaultValue: () -> Boolean): Boolean {
-        return get(key, SerializationStrategy.no(), defaultValue)
+        return get(key, EncodingStrategy.default(), defaultValue)
     }
 
     /**
@@ -58,7 +58,7 @@ interface ConfigSource : DataSource {
      * @return The long value associated with the key, or the default value if the key is not found.
      */
     fun getLong(key: String, defaultValue: () -> Long): Long {
-        return get(key, SerializationStrategy.no(), defaultValue)
+        return get(key, EncodingStrategy.default(), defaultValue)
     }
 
     /**
@@ -70,7 +70,7 @@ interface ConfigSource : DataSource {
      * @return The integer value associated with the key, or the default value if the key is not found.
      */
     fun getInt(key: String, defaultValue: () -> Int): Int {
-        return get(key, SerializationStrategy.no(), defaultValue)
+        return get(key, EncodingStrategy.default(), defaultValue)
     }
 
     /**
@@ -82,7 +82,7 @@ interface ConfigSource : DataSource {
      * @return The double value associated with the key, or the default value if the key is not found.
      */
     fun getDouble(key: String, defaultValue: () -> Double): Double {
-        return get(key, SerializationStrategy.no(), defaultValue)
+        return get(key, EncodingStrategy.default(), defaultValue)
     }
 
     /**
@@ -94,7 +94,7 @@ interface ConfigSource : DataSource {
      * @return The float value associated with the key, or the default value if the key is not found.
      */
     fun getFloat(key: String, defaultValue: () -> Float): Float {
-        return get(key, SerializationStrategy.no(), defaultValue)
+        return get(key, EncodingStrategy.default(), defaultValue)
     }
 
 }

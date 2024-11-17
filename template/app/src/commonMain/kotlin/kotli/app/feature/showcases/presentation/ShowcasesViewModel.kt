@@ -8,8 +8,8 @@ import kotli.app.feature.showcases.presentation.dataflow.ai.gemini.GeminiRoute
 import kotli.app.feature.showcases.presentation.dataflow.cache.basic.BasicCacheRoute
 import kotli.app.feature.showcases.presentation.dataflow.encryption.BasicEncryptionRoute
 import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpRoute
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueRoute
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueRoute
+import kotli.app.feature.showcases.presentation.dataflow.settings.`object`.ObjectSettingsRoute
+import kotli.app.feature.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsRoute
 import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingRoute
 import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudRoute
 import kotli.app.feature.showcases.presentation.dataflow.sqldelight.crud.SqlDelightCrudRoute
@@ -34,9 +34,9 @@ class ShowcasesViewModel : BaseViewModel() {
         BasicEncryptionRoute.screen,
         Showcase.Header("Dataflow :: Http"),
         BasicHttpRoute.screen,
-        Showcase.Header("Dataflow :: KeyValue"),
-        PrimitiveKeyValueRoute.screen,
-        ObjectKeyValueRoute.screen,
+        Showcase.Header("Dataflow :: Settings"),
+        PrimitiveSettingsRoute.screen,
+        ObjectSettingsRoute.screen,
         Showcase.Header("Dataflow :: Paging"),
         BasicPagingRoute.screen,
         Showcase.Header("Dataflow :: Room"),

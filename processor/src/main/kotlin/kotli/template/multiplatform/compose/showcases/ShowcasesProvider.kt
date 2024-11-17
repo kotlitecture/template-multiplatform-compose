@@ -10,7 +10,7 @@ import kotli.template.multiplatform.compose.showcases.dataflow.database.room.Roo
 import kotli.template.multiplatform.compose.showcases.dataflow.database.sqldelight.SqlDelightShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.encryption.EncryptionShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.http.HttpShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.dataflow.keyvalue.KeyValueShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.dataflow.settings.SettingsShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.paging.PagingShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.component.ComponentShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.component.filepicker.FilePickerShowcasesProcessor
@@ -40,7 +40,7 @@ object ShowcasesProvider : BaseFeatureProvider() {
         PasscodeShowcasesProcessor,
         PagingShowcasesProcessor,
         HttpShowcasesProcessor,
-        KeyValueShowcasesProcessor,
+        SettingsShowcasesProcessor,
         DataLoaderShowcasesProcessor,
         CacheShowcasesProcessor,
         RoomShowcasesProcessor,

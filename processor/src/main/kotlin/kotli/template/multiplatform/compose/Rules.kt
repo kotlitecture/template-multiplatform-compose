@@ -80,8 +80,7 @@ object Rules {
 
     // design
     const val SharedDesignSrcDir = "${SharedDesignDir}/src"
-    const val SharedDesignComponentDir =
-        "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
+    const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
     const val AppIconsKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIcons.kt"
     const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
     const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"
@@ -111,14 +110,17 @@ object Rules {
     // dataflow -> http
     const val HttpSource = "*/*HttpSource*.kt"
 
-    // dataflow -> keyvalue
-    const val KeyValueSource = "*/*KeyValueSource*.kt"
-    const val SettingsKeyValueSource = "*/*SettingsKeyValueSource*.kt"
+    // dataflow -> settings
+    const val SettingsSource = "*/*SettingsSource*.kt"
+    const val BasicSettingsSource = "*/*BasicSettingsSource*.kt"
     const val DataStoreSource = "*/*DataStoreSource.kt"
 
     // dataflow -> encryption
     const val EncryptionSource = "*/*EncryptionSource*.kt"
     const val EncryptionDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/encryption"
+
+    // dataflow -> expression
+    const val ExpressionSource = "*/*ExpressionEvaluator*.kt"
 
     // dataflow -> AiSource
     const val AiSource = "*/*AiSource*.kt"

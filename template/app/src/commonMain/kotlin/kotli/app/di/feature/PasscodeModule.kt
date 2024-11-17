@@ -23,7 +23,7 @@ val passcodeModule = module {
             persistentKey = "passcode_config",
             resumeTimeout = 10.seconds.inWholeMilliseconds,
             encryptionSource = get(),
-            keyValueSource = get(),
+            settingsSource = get(),
         )
     }
     factory { ForgotPasscodeUseCase(get(), get()) }

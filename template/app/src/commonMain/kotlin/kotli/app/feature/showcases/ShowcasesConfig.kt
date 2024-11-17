@@ -23,12 +23,12 @@ import kotli.app.feature.showcases.presentation.dataflow.encryption.BasicEncrypt
 import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpRoute
 import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpScreen
 import kotli.app.feature.showcases.presentation.dataflow.http.basic.BasicHttpViewModel
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueRoute
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueScreen
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.`object`.ObjectKeyValueViewModel
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueRoute
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueScreen
-import kotli.app.feature.showcases.presentation.dataflow.keyvalue.primitive.PrimitiveKeyValueViewModel
+import kotli.app.feature.showcases.presentation.dataflow.settings.`object`.ObjectSettingsRoute
+import kotli.app.feature.showcases.presentation.dataflow.settings.`object`.ObjectSettingsScreen
+import kotli.app.feature.showcases.presentation.dataflow.settings.`object`.ObjectSettingsViewModel
+import kotli.app.feature.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsRoute
+import kotli.app.feature.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsScreen
+import kotli.app.feature.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsViewModel
 import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingRoute
 import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingScreen
 import kotli.app.feature.showcases.presentation.dataflow.paging.basic.BasicPagingViewModel
@@ -74,8 +74,8 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }
     composable<BasicEncryptionRoute> { BasicEncryptionScreen(navController::back) }
     composable<BasicHttpRoute> { BasicHttpScreen(navController::back) }
-    composable<ObjectKeyValueRoute> { ObjectKeyValueScreen(navController::back) }
-    composable<PrimitiveKeyValueRoute> { PrimitiveKeyValueScreen(navController::back) }
+    composable<ObjectSettingsRoute> { ObjectSettingsScreen(navController::back) }
+    composable<PrimitiveSettingsRoute> { PrimitiveSettingsScreen(navController::back) }
     composable<BasicPagingRoute> { BasicPagingScreen(navController::back) }
     composable<RoomCrudRoute> { RoomCrudScreen(navController::back) }
     composable<SqlDelightCrudRoute> { SqlDelightCrudScreen(navController::back) }
@@ -88,8 +88,8 @@ fun InitializerViewModelFactoryBuilder.showcases() {
     initializer { BasicHttpViewModel(inject()) }
     initializer { BasicLoaderViewModel() }
     initializer { AdvancedLoaderViewModel() }
-    initializer { PrimitiveKeyValueViewModel(inject()) }
-    initializer { ObjectKeyValueViewModel(inject()) }
+    initializer { PrimitiveSettingsViewModel(inject()) }
+    initializer { ObjectSettingsViewModel(inject()) }
     initializer { SqlDelightCrudViewModel(inject()) }
     initializer { SqlDelightPagingViewModel(inject(), inject(), inject()) }
     initializer { BasicCacheViewModel(inject()) }

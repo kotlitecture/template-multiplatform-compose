@@ -1,6 +1,6 @@
 package shared.data.source.config
 
-import shared.data.serialization.SerializationStrategy
+import shared.data.source.encoding.EncodingStrategy
 
 /**
  *
@@ -12,10 +12,10 @@ open class DelegateConfigSource(private val source: ConfigSource? = null) : Conf
 
     override fun <T : Any> get(
         key: String,
-        serializationStrategy: SerializationStrategy<T>,
+        encodingStrategy: EncodingStrategy<T>,
         defaultValue: () -> T
     ): T {
-        return source?.get(key, serializationStrategy, defaultValue) ?: defaultValue()
+        return source?.get(key, encodingStrategy, defaultValue) ?: defaultValue()
     }
 
 }
