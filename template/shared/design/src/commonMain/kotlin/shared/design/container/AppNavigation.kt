@@ -24,6 +24,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import shared.design.component.AppIcon
 import shared.design.component.AppSpacer8
 import shared.design.component.AppText
@@ -176,7 +177,7 @@ fun AppPermanentNavigation(
                     val isSelected = item.id == selected?.id
                     NavigationDrawerItem(
                         label = { AppText(text = item.label) },
-                        icon = { AppIcon(model = item.getIcon(isSelected)) },
+                        icon = { AppIcon(model = item.getIcon(isSelected), size = 24.dp) },
                         selected = isSelected,
                         onClick = item.onClick
                     )

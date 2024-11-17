@@ -8,6 +8,6 @@ class RestoreThemeUseCase(
 ) {
 
     suspend fun invoke(): ThemeConfigModel? {
-        return repository.restore()
+        return runCatching { repository.restore() }.getOrNull()
     }
 }
