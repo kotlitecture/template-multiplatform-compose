@@ -1,15 +1,15 @@
 package kotli.app.feature.passcode.domain.usecase
 
 import kotli.app.feature.passcode.domain.repository.PasscodeRepository
-import shared.data.source.keyvalue.KeyValueSource
+import shared.data.source.settings.SettingsSource
 
 class ForgotPasscodeUseCase(
     private val repository: PasscodeRepository,
-    private val keyValueSource: KeyValueSource,
+    private val settingsSource: SettingsSource,
 ) {
 
     suspend fun invoke() {
-        keyValueSource.clear()
+        settingsSource.clear()
         repository.reset()
     }
 

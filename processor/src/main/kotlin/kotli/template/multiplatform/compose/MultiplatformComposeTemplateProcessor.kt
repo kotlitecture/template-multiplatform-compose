@@ -18,8 +18,8 @@ import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
 import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
 import kotli.template.multiplatform.compose.dataflow.encryption.EncryptionProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
-import kotli.template.multiplatform.compose.dataflow.keyvalue.KeyValueProvider
-import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsKeyValueProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.SettingsProvider
+import kotli.template.multiplatform.compose.dataflow.settings.basic.BasicSettingsProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
 import kotli.template.multiplatform.compose.essentials.buildtool.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
@@ -57,7 +57,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             features = listOf(
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
-                Feature(SettingsKeyValueProcessor.ID),
+                Feature(BasicSettingsProcessor.ID),
                 Feature(DataLoaderProcessor.ID),
                 Feature(SaveThemeProcessor.ID),
                 Feature(ChangeThemeProcessor.ID),
@@ -84,7 +84,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
         // dataflow
         CommonDataFlowProvider,
-        KeyValueProvider,
+        SettingsProvider,
         EncryptionProvider,
         CacheProvider,
         ConfigProvider,

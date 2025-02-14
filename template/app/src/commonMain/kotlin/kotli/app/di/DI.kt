@@ -6,7 +6,7 @@ import kotli.app.di.common.cacheSourceModule
 import kotli.app.di.common.configSourceModule
 import kotli.app.di.common.encryptionSourceModule
 import kotli.app.di.common.httpSourceModule
-import kotli.app.di.common.keyValueSourceModule
+import kotli.app.di.common.settingsSourceModule
 import kotli.app.di.common.pagingSourceModule
 import kotli.app.di.common.sqlDelightSourceModule
 import kotli.app.di.feature.themeModule
@@ -24,7 +24,7 @@ val koinApp = startKoin {
         configSourceModule,
         encryptionSourceModule,
         httpSourceModule,
-        keyValueSourceModule,
+        settingsSourceModule,
         pagingSourceModule,
         sqlDelightSourceModule,
         passcodeModule,

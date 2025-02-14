@@ -7,10 +7,9 @@ import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.ReplaceMarkedText
-import kotli.engine.template.rule.ReplaceText
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
-import kotli.template.multiplatform.compose.dataflow.keyvalue.settings.SettingsKeyValueProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.basic.BasicSettingsProcessor
 import kotlin.time.Duration.Companion.hours
 
 object SaveThemeProcessor : BaseFeatureProcessor() {
@@ -21,7 +20,7 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        SettingsKeyValueProcessor::class.java
+        BasicSettingsProcessor::class.java
     )
 
     override fun doApply(state: TemplateState) {

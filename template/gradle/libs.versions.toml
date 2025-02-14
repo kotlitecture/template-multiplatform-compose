@@ -7,31 +7,31 @@ android-targetSdk = "34"
 androidx-activity = "1.10.0"
 androidx-appcompat = "1.7.0"
 androidx-datastore = "1.1.2"
-androidx-lifecycle = "2.8.4"
-androidx-navigation = "2.8.0-alpha11"
-androidx-room = "2.7.0-alpha12"
+androidx-navigation = "2.8.0-alpha13"
+androidx-room = "2.7.0-beta01"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
-coil = "3.0.4"
-compose-multiplatform = "1.7.3"
+coil = "3.1.0"
+compose-multiplatform = "1.8.0-alpha03"
 compose-placeholder = "1.0.9"
-filekit = "0.8.7"
-generativeai = "0.5.0-1.0.0"
-koin = "4.0.1"
+filekit = "0.8.8"
+generativeai = "0.9.0-1.0.1"
+koin = "4.0.2"
 korlibs = "6.0.0"
-kotlin = "2.1.0"
-kotlin-logging = "7.0.0"
+kotlin = "2.1.10"
+kotlin-logging = "7.0.3"
 kotlinx-coroutines = "1.10.1"
 kotlinx-datetime = "0.6.1"
 kotlinx-serialization-json = "1.8.0"
-ktor = "2.3.12"
-ksp = "2.1.0-1.0.29"
-logback = "1.5.15"
-markdown-renderer = "0.29.0"
-multiplatform-settings = "1.2.0"
+ktor = "2.3.13"
+ksp = "2.1.10-1.0.29"
+logback = "1.5.16"
+markdown-renderer = "0.30.0"
+multiplatform-settings = "1.3.0"
+multiplatform-expressions-evaluator = "1.1.1"
 napier = "2.7.1"
 sqldelight = "2.0.2"
-sqlite-bundled = "2.5.0-alpha12"
+sqlite-bundled = "2.5.0-beta01"
 touchlab-stately = "2.1.0"
 touchlab-kermit = "2.0.4"
 
@@ -39,7 +39,6 @@ touchlab-kermit = "2.0.4"
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
-androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
@@ -82,6 +81,7 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 markdown-renderer = { module = "com.mikepenz:multiplatform-markdown-renderer", version.ref = "markdown-renderer" }
 markdown-renderer-m3 = { module = "com.mikepenz:multiplatform-markdown-renderer-m3", version.ref = "markdown-renderer" }
 markdown-renderer-coil3 = { module = "com.mikepenz:multiplatform-markdown-renderer-coil3", version.ref = "markdown-renderer" }
+multiplatform-expressions-evaluator = { module = "io.github.murzagalin:multiplatform-expressions-evaluator", version.ref = "multiplatform-expressions-evaluator" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
