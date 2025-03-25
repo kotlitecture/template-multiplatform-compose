@@ -42,7 +42,7 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDiKt,
+            Rules.AppCommonConfigKt,
             RemoveMarkedLine("CacheSource")
         )
         state.onApplyRules(

@@ -34,7 +34,8 @@ object NavigationBarProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppConfigKt,
             RemoveMarkedLine("navigation("),
-            RemoveMarkedLine("feature.navigation"),
+            RemoveMarkedLine("navigation,"),
+            RemoveMarkedLine("app.navigation"),
         )
         state.onApplyRules(
             Rules.AppKt,

@@ -2,9 +2,6 @@
 
 The API can be accessed through:
 - `shared.data.source.encryption.EncryptionSource` - facade interface at the core module level.
-- `app.common.data.source.encryption.AppEncryptionSource` - decorator class at the app level.
-
-The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations.
 
 Facade **EncryptionSource** provides the following methods:
 
@@ -13,11 +10,11 @@ Facade **EncryptionSource** provides the following methods:
 
 ## Examples
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.common.EncryptionSourceModule`.
+The **facade** is pre-configured via dependency injection (DI) as singletons in `app.common.CommonConfig`.
 
 To start using, just inject it to your DI managed class.
 
-The functionality can be extended with time (or added on your own)
+The functionality can be extended with time (or added on your own).
 
 ### Encryption / Decryption
 

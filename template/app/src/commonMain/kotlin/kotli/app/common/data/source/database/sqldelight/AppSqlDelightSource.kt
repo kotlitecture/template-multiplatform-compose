@@ -1,7 +1,7 @@
 package kotli.app.common.data.source.database.sqldelight
 
-import kotli.app.common.data.source.database.sqldelight.AppDatabase
-import kotli.app.di.platform.createSqlDriver
+import app.cash.sqldelight.db.SqlDriver
+import kotli.app.get
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
@@ -21,7 +21,7 @@ class AppSqlDelightSource(
 ) : DataSource {
 
     private val db = flow {
-        val driver = createSqlDriver(databaseName)
+        val driver = get<SqlDriver>(databaseName)
         AppDatabase.Schema.create(driver).await()
         val database = AppDatabase.invoke(driver)
         emit(database)

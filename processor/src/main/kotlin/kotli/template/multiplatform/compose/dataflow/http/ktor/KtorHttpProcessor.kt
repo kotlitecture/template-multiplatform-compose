@@ -35,12 +35,8 @@ object KtorHttpProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDiKt,
+            Rules.AppCommonConfigKt,
             RemoveMarkedLine("HttpSource")
-        )
-        state.onApplyRules(
-            Rules.AppConfigSource,
-            RemoveMarkedLine("http_")
         )
         state.onApplyRules(
             Rules.BuildGradleSharedData,

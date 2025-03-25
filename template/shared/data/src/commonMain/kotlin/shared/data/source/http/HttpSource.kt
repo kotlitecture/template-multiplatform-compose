@@ -31,8 +31,8 @@ import shared.data.source.DataSource
  * @param retryInterval The interval between retry attempts, in milliseconds.
  */
 class HttpSource(
-    private val retries: Int = 0,
-    private val timeout: Long = 15_000L,
+    private val retries: Int = 3,
+    private val timeout: Long = 30_000L,
     private val retryInterval: Long = 3_000L,
     private val config: HttpClientConfig<*>.() -> Unit = {}
 ) : DataSource {

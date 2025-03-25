@@ -32,7 +32,7 @@ import kotlin.reflect.KClass
  * @param exceptionRetryCount The maximum number of retries for cache operations in case of exceptions.
  */
 @Suppress("UNCHECKED_CAST")
-open class BasicCacheSource(
+data class BasicCacheSource(
     private val changesRetryInterval: Long = 1000L,
     private val exceptionRetryInterval: Long = 1000L,
     private val exceptionRetryCount: Int = 10

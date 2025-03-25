@@ -11,7 +11,7 @@ import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.encryption.korlibs.KorlibsEncryptionProcessor
-import kotli.template.multiplatform.compose.dataflow.settings.basic.BasicSettingsProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.passcode.PasscodeShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
 import kotlin.time.Duration.Companion.hours
@@ -27,7 +27,7 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         DataLoaderProcessor::class.java,
         KorlibsEncryptionProcessor::class.java,
-        BasicSettingsProcessor::class.java,
+        MultiplatformSettingsProcessor::class.java,
         PasscodeShowcasesProcessor::class.java
     )
 
@@ -40,19 +40,11 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppDiKt,
-            RemoveMarkedLine("passcode")
-        )
-        state.onApplyRules(
             Rules.AppConfigKt,
             RemoveMarkedLine("passcode")
         )
         state.onApplyRules(
             Rules.AppPasscode,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppDIPasscodeModuleKt,
             RemoveFile()
         )
         state.onApplyRules(

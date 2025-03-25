@@ -55,6 +55,10 @@ object RoomProcessor : BaseFeatureProcessor() {
             CleanupMarkedBlock("{dataflow.database.room.config}"),
             CleanupMarkedLine("{dataflow.database.room}")
         )
+        state.onApplyRules(
+            Rules.AppPlatformConfigKt,
+            CleanupMarkedBlock("{dataflow.database.room}")
+        )
     }
 
     override fun doRemove(state: TemplateState) {
@@ -81,12 +85,13 @@ object RoomProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDiKt,
+            Rules.AppCommonConfigKt,
             RemoveMarkedLine("RoomSource")
         )
         state.onApplyRules(
-            Rules.AppConfigureKoinKt,
-            RemoveMarkedLine("RoomSource")
+            Rules.AppPlatformConfigKt,
+            RemoveMarkedLine("RoomSource"),
+            RemoveMarkedBlock("{dataflow.database.room}")
         )
     }
 

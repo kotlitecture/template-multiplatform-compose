@@ -2,7 +2,7 @@
 
 The API can be accessed through:
 - `shared.data.source.settings.SettingsSource` - base class at the core module level.
-- `shared.data.source.settings.DataStoreSource` - implementation of the base class.
+- `shared.data.source.settings.datastore.DataStoreSource` - implementation of the base class.
 
 **SettingsSource** provides the following methods:
 
@@ -15,15 +15,15 @@ The API can be accessed through:
 
 ## Example
 
-Class instance is pre-configured via dependency injection (DI) as a singleton in `app.di.platform.configureKoin`.
+Class instance is pre-configured via dependency injection (DI) as a singleton in `app.platform.PlatformConfig`.
 
 To start using, just inject it to your DI managed class.
 
 ```kotlin
-class TemplateViewModel @Inject constructor(
+class TemplateViewModel(
     private val settingsSource: SettingsSource
 ) : BaseViewModel() {
-    
+
     override fun doBind() = async("Init settings") {
         ...
         val passcode: String? = settingsSource.read("name")

@@ -2,14 +2,14 @@ package kotli.app.di.platform
 
 import kotli.app.common.data.source.database.room.AppRoomSource
 import kotli.app.common.data.source.database.room.entity.User
-import kotli.app.feature.showcases.presentation.dataflow.room.crud.RoomCrudViewModel
-import kotli.app.feature.showcases.presentation.dataflow.room.crud.UserData
-import kotli.app.di.inject
+import kotli.app.showcases.presentation.dataflow.room.crud.RoomCrudViewModel
+import kotli.app.showcases.presentation.dataflow.room.crud.UserData
+import kotli.app.get
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
 
 actual fun createRoomCrudViewModel(): RoomCrudViewModel = RoomCrudViewModelImpl(
-    roomSource = inject()
+    roomSource = get()
 )
 
 private class RoomCrudViewModelImpl(

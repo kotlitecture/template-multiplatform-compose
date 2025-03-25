@@ -37,10 +37,6 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
             Rules.AppConfigKt,
             RemoveMarkedLine("common")
         )
-        state.onApplyRules(
-            Rules.AppConfigSource,
-            RemoveMarkedLine("ui_loader_")
-        )
     }
 
 }

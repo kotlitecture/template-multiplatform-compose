@@ -15,7 +15,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyProcessor
 import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
-import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
+import kotli.template.multiplatform.compose.dataflow.paging.multiplatform.MultiplatformPagingProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.database.sqldelight.SqlDelightShowcasesProcessor
 import kotlin.time.Duration.Companion.hours
@@ -52,6 +52,10 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
                 state.layer.namespace
             )
         )
+        state.onApplyRules(
+            Rules.AppPlatformConfigKt,
+            CleanupMarkedBlock("{dataflow.database.sqldelight}")
+        )
         removePaging(state)
     }
 
@@ -82,17 +86,18 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDiKt,
+            Rules.AppCommonConfigKt,
             RemoveMarkedLine("SqlDelightSource")
         )
         state.onApplyRules(
-            "*/createSqlDriver.kt",
-            RemoveFile()
+            Rules.AppPlatformConfigKt,
+            RemoveMarkedBlock("{dataflow.database.sqldelight}"),
+            RemoveMarkedLine("sql"),
         )
     }
 
     private fun removePaging(state: TemplateState) {
-        if (state.getFeature(CashAppPagingProcessor.ID) != null) return
+        if (state.getFeature(MultiplatformPagingProcessor.ID) != null) return
 
         state.onApplyRules(
             Rules.AppBuildGradle,

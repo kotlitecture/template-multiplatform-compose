@@ -6,7 +6,7 @@ import kotli.app.Application
 import kotli.app.common.data.source.database.room.AppDatabase
 
 actual fun createRoomDatabaseBuilder(name: String): RoomDatabase.Builder<AppDatabase> {
-    val context = Application.instance
+    val context = Application.ref
     val dbFile = context.getDatabasePath(name)
     return Room.databaseBuilder<AppDatabase>(
         context = context,

@@ -52,6 +52,7 @@ kotlin {
         all {
             languageSettings {
                 optIn("kotlinx.coroutines.FlowPreview")
+                optIn("kotlinx.cinterop.ExperimentalForeignApi")
                 optIn("kotlinx.coroutines.DelicateCoroutinesApi")
                 optIn("androidx.compose.ui.ExperimentalComposeUiApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
@@ -67,7 +68,6 @@ kotlin {
             implementation(libs.sqldelight.coroutines) // {dataflow.database.sqldelight}
             implementation(libs.sqldelight.androidx.paging) // {dataflow.database.sqldelight}
             implementation(libs.touchlab.kermit)
-            implementation(libs.generativeai)
             implementation(projects.shared.data)
             implementation(projects.shared.domain)
             implementation(projects.shared.design)
