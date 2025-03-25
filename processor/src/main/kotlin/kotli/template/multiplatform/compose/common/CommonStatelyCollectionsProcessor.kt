@@ -19,14 +19,14 @@ object CommonStatelyCollectionsProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             CleanupMarkedLine("{common.stately-collections}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             RemoveMarkedLine("{common.stately-collections}")
         )
         state.onApplyRules(

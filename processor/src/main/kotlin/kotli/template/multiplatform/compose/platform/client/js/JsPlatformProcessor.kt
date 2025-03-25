@@ -19,7 +19,7 @@ object JsPlatformProcessor : PlatformProcessor() {
     override fun doApply(state: TemplateState) {
         super.doApply(state)
         state.onApplyRules(
-            Rules.BuildGradleBackend,
+            Rules.BackendBuildGradle,
             CleanupMarkedBlock(configBlock)
         )
     }
@@ -27,11 +27,11 @@ object JsPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcJsMainDir,
+            Rules.JsSrcDir,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.BuildGradleBackend,
+            Rules.BackendBuildGradle,
             RemoveMarkedBlock(configBlock)
         )
         state.onApplyRules(

@@ -32,19 +32,19 @@ object PlaceholderProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDesign,
+            Rules.PresentationBuildGradle,
             CleanupMarkedLine("{userflow.component.placeholder}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDesign,
+            Rules.PresentationBuildGradle,
             RemoveMarkedLine("{userflow.component.placeholder}")
         )
 
         state.onApplyRules(
-            Rules.AppPlaceholder,
+            Rules.PresentationComponentPlaceholder,
             RemoveFile()
         )
 

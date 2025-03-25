@@ -1,6 +1,6 @@
 package shared.data.source.encryption.korlibs
 
-import shared.data.source.encryption.BasicEncryptionSource
+import shared.data.source.encryption.BaseEncryptionSource
 import shared.data.source.encryption.EncryptionMethod
 import shared.data.source.encryption.EncryptionSource
 
@@ -10,9 +10,9 @@ import shared.data.source.encryption.EncryptionSource
  * This class uses a basic encryption source with an [AesResolver] to perform encryption
  * and decryption operations.
  */
-open class KorlibsEncryptionSource : EncryptionSource {
+class KorlibsEncryptionSource : EncryptionSource {
 
-    private val source = BasicEncryptionSource(
+    private val source = BaseEncryptionSource(
         AesResolver(),
         Pbkdf2Resolver()
     )

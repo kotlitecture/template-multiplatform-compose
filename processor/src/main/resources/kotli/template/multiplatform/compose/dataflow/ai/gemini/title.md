@@ -1,1 +1,1 @@
-Gemini
+Gemini AI

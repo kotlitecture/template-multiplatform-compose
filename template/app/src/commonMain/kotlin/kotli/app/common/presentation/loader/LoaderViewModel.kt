@@ -32,6 +32,7 @@ class LoaderViewModel : BaseViewModel() {
 }
 
 private class LoaderMutableState : LoaderState {
+
     override val delay: Long = 50
     override val timeout: Long = 30_000
     override var loading: Boolean by mutableStateOf(false)

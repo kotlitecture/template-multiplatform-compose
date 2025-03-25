@@ -31,15 +31,6 @@ object DataLoaderProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppCommonConfigKt,
             RemoveMarkedLine("Loader"),
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.AppConfigKt,
-            RemoveMarkedLine("common")
-        )
-        state.onApplyRules(
-            Rules.AppConfigSource,
-            RemoveMarkedLine("ui_loader_")
         )
     }
 

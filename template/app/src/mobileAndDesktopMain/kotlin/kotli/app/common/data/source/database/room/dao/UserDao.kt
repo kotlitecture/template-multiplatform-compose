@@ -31,10 +31,13 @@ interface UserDao {
     @Query("SELECT * FROM user WHERE id = :id LIMIT 1")
     suspend fun get(id: Long): User?
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM user ORDER BY id DESC")
     suspend fun getAll(): List<User>
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM user ORDER BY id DESC LIMIT :limit OFFSET :offset")
+    suspend fun getAll(limit:Int, offset:Int): List<User>
+
+    @Query("SELECT * FROM user ORDER BY id DESC")
     fun getAllAsFlow(): Flow<List<User>>
 
     @Query("SELECT COUNT(*) FROM user")

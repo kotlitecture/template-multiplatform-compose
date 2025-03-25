@@ -20,7 +20,7 @@ import kotli.template.multiplatform.compose.dataflow.encryption.EncryptionProvid
 import kotli.template.multiplatform.compose.dataflow.expression.ExpressionProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
 import kotli.template.multiplatform.compose.dataflow.settings.SettingsProvider
-import kotli.template.multiplatform.compose.dataflow.settings.basic.BasicSettingsProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
 import kotli.template.multiplatform.compose.essentials.buildtool.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
@@ -58,7 +58,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             features = listOf(
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
-                Feature(BasicSettingsProcessor.ID),
+                Feature(MultiplatformSettingsProcessor.ID),
                 Feature(DataLoaderProcessor.ID),
                 Feature(SaveThemeProcessor.ID),
                 Feature(ChangeThemeProcessor.ID),
@@ -152,7 +152,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.SettingsGradle,
+            Rules.RootSettingsGradle,
             ReplaceMarkedText(
                 text = "template",
                 marker = "rootProject.name",
@@ -181,7 +181,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.AppIconsKt,
+            Rules.PresentationIconsKt,
             ReplaceMarkedText(
                 text = "import template.",
                 marker = "import template.",

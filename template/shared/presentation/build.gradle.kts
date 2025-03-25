@@ -34,14 +34,28 @@ kotlin {
         all {
             languageSettings {
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                optIn("androidx.compose.material3.ExperimentalMaterial3Api")
+                optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
             }
         }
         commonMain.dependencies {
             api(compose.foundation)
-            api(libs.androidx.navigation.compose)
-            api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.datetime)
+            api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
+            api(libs.androidx.navigation.compose)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(compose.material3)
+            implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor2)
+            implementation(libs.filekit.compose)
+            implementation(libs.markdown.renderer) // {userflow.component.markdown}
+            implementation(libs.markdown.renderer.m3) // {userflow.component.markdown}
+            implementation(libs.markdown.renderer.coil3) // {userflow.component.markdown}
+            implementation(libs.cashapp.paging.compose.common)
+            implementation(projects.shared.data)
         }
         // {platform.android.dependencies}
         androidMain.dependencies {
@@ -55,6 +69,12 @@ kotlin {
             api(libs.kotlinx.coroutines.swing)
         }
         // {platform.jvm.dependencies}
+        val skikoMain by creating {
+            dependsOn(commonMain.get())
+        }
+        jsMain.get().dependsOn(skikoMain)
+        jvmMain.get().dependsOn(skikoMain)
+        nativeMain.get().dependsOn(skikoMain)
     }
 }
 

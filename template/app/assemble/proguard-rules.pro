@@ -1,4 +1,5 @@
 -dontoptimize
+-ignorewarnings
 
 -keep class kotli.app.** { *; }
 -keep class coil3.** { *; }

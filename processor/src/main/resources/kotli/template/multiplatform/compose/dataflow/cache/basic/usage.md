@@ -2,9 +2,6 @@
 
 The API can be accessed through:
 - `shared.data.source.cache.CacheSource` - facade interface at the core module level.
-- `app.common.data.source.cache.AppCacheSource` - decorator class at the app level.
-
-The difference is that the class serves as a **decorator** and can provide extra methods without impacting facade implementations.
 
 Facade **CacheSource** provides the following methods:
 
@@ -17,7 +14,7 @@ Facade **CacheSource** provides the following methods:
 
 ## Example
 
-Both the **facade** and **decorator** are pre-configured via dependency injection (DI) as singletons in `app.di.common.CacheSourceModule`.
+The **facade** is pre-configured via dependency injection (DI) as singletons in `app.common.CommonConfig`.
 
 To start using, just inject it to your DI managed class.
 

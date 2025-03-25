@@ -5,12 +5,11 @@ import android.app.Application as AndroidApplication
 class Application : AndroidApplication() {
 
     override fun onCreate() {
-        instance = this
+        ref = this
         super.onCreate()
     }
 
     companion object {
-        lateinit var instance: Application
+        lateinit var ref: Application
     }
-
 }

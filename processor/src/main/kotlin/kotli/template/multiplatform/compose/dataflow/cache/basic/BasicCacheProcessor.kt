@@ -27,7 +27,7 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             CleanupMarkedLine("{dataflow.cache.basic}")
         )
     }
@@ -42,11 +42,11 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDiKt,
+            Rules.AppCommonConfigKt,
             RemoveMarkedLine("CacheSource")
         )
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             RemoveMarkedLine("{dataflow.cache.basic}")
         )
     }

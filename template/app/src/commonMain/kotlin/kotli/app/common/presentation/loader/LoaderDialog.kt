@@ -8,10 +8,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.design.component.AppCard
-import shared.design.component.AppCircularProgressIndicator
-import shared.design.component.AppDialog
-import shared.design.component.AppErrorDialog
+import shared.presentation.ui.component.AppCard
+import shared.presentation.ui.component.AppCircularProgressIndicator
+import shared.presentation.ui.component.AppDialog
+import shared.presentation.ui.component.AppErrorDialog
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable

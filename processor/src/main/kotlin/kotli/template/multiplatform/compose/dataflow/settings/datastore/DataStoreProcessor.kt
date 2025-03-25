@@ -5,8 +5,10 @@ import kotli.engine.FeatureProcessor
 import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.VersionCatalogRules
+import kotli.engine.template.rule.CleanupMarkedBlock
 import kotli.engine.template.rule.CleanupMarkedLine
 import kotli.engine.template.rule.RemoveFile
+import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
@@ -46,8 +48,12 @@ object DataStoreProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             CleanupMarkedLine("{dataflow.settings.datastore}")
+        )
+        state.onApplyRules(
+            Rules.AppPlatformConfigKt,
+            CleanupMarkedBlock("{dataflow.settings.datastore}")
         )
     }
 
@@ -57,22 +63,19 @@ object DataStoreProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppConfigureKoinKt,
+            Rules.AppPlatformConfigKt,
+            RemoveMarkedBlock("{dataflow.settings.datastore}"),
             RemoveMarkedLine("DataStoreSource"),
-            RemoveMarkedLine("SettingsSource"),
+            RemoveMarkedLine("SettingsSource")
         )
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             RemoveMarkedLine("{dataflow.settings.datastore}")
         )
         state.onApplyRules(
             VersionCatalogRules(
                 RemoveMarkedLine("androidx-datastore")
             )
-        )
-        state.onApplyRules(
-            "*/createDataStorePath.kt",
-            RemoveFile()
         )
     }
 

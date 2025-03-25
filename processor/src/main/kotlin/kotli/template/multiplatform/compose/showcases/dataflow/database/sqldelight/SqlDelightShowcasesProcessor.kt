@@ -3,7 +3,7 @@ package kotli.template.multiplatform.compose.showcases.dataflow.database.sqldeli
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
 import kotli.template.multiplatform.compose.Rules
-import kotli.template.multiplatform.compose.dataflow.paging.cashapp.CashAppPagingProcessor
+import kotli.template.multiplatform.compose.dataflow.paging.multiplatform.MultiplatformPagingProcessor
 import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
 object SqlDelightShowcasesProcessor : BaseShowcasesProcessor() {
@@ -13,7 +13,7 @@ object SqlDelightShowcasesProcessor : BaseShowcasesProcessor() {
     override fun getId(): String = ID
 
     override fun doApply(state: TemplateState) {
-        if (state.getFeature(CashAppPagingProcessor.ID) != null) return
+        if (state.getFeature(MultiplatformPagingProcessor.ID) != null) return
 
         removeDir(state, "${Rules.AppShowcasesDataflow}/sqldelight/paging")
         removeFromConfig(state, "SqlDelightPaging")

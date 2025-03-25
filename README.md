@@ -48,7 +48,7 @@ Run your project to check what is included and how it works, and once everything
 
 ## Frontend
 
-The overall client architecture follows [the recommended guidelines](https://developer.android.com/modern-android-development) and is built on:
+The overall client architecture follows [the recommended guidelines](https://developer.android.com/topic/architecture/recommendations) and is built on:
 - [Compose Multiplatform UI Framework](https://www.jetbrains.com/lp/compose-multiplatform/)
 - [Compose Multiplatform Images and resources](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-images-resources.html)
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose)
@@ -62,20 +62,21 @@ Application logic is implemented in the `app` module and contains only app-speci
 
 All common logic is part of the shared group, which is split into three modules:
 
-- **presentation** - architectural solutions to integrate app components with each other.
-- **data** - data sources to use in the app.
-- **design** - the design system of the app (fonts, themes, UI components, etc.).
+- **presentation** - [Presentation Layer](https://developer.android.com/topic/architecture/ui-layer).
+- **data** - [Data Layer](https://developer.android.com/topic/architecture/data-layer).
+- **domain** - [Domain Layer](https://developer.android.com/topic/architecture/domain-layer).
 
 These modules are used only at the app level. This approach lets you develop all three components independently and create a more complex app structure. For example, app-specific features can be implemented as separate modules, having the same shared dependencies.
 
 ### Module - presentation
 
-Provides architectural solutions to implement user flows and integrate all components with each other in a lifecycle-aware manner.
+Provides architectural solutions and design system of the app to implement user flows and integrate all components with each other in a lifecycle-aware manner.
 
 It includes:
 
 - **MVVM pattern implementation** - based on the [Jetpack ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) and [Jetpack Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) components.
 - **Navigation integration** - based on the [Jetpack Navigation](https://developer.android.com/guide/navigation) component.
+- **UI Components** - [Design System](https://en.m.wikipedia.org/wiki/Design_system) of the entire app based on the [Google Material 3 Design](https://m3.material.io).
 
 The included solutions are not mandatory to follow, as all required dependencies are properly included to enable you to use your own patterns with Jetpack components.
 
@@ -85,23 +86,14 @@ Feel free to choose what fits your needs best.
 
 ### Module - data
 
-Provides a fundamental implementation of commonly used data sources in different apps. During project setup via [Kotli](https://kotli.xyz), only the required data sources will be included.
+Provides a fundamental implementation of commonly used data sources. During project setup via [Kotli](https://kotli.xyz), only the required data sources will be included.
 
 All data sources have been configured to access the necessary data layer in a flexible and convenient manner.
 
-### Module - design
+### Module - domain
 
-Provides pre-configured themes, fonts, and UI components to establish the initial [Design System](https://en.m.wikipedia.org/wiki/Design_system) of the entire app.
-
-The default module implementation is based on the [Google Material 3 Design](https://m3.material.io), which offers all fundamental UI components and guidelines out of the box, enabling the creation of your own Design System with ease.
-
-In addition to the Material 3 library, the module implements several components and containers used in different user flows.
-
-The main idea of this module is to create a **Design System** that can be used by any UI feature of the app without dependency on the underlying UI kit.
-
-```
-Existing composables in this module are examples and can be changed/removed based on your needs.
-```
+Encapsulates core business logic and shared data models (Use Cases) that are reusable across all feature-specific modules of the app.
+This layer serves as the backbone for handling business rules, decoupling feature modules from one another while maintaining consistency and scalability.
 
 ### Module - app
 
@@ -170,14 +162,14 @@ The generated project will include a similar table in its README.MD file, but wi
 | Dataflow | Multiplatform Settings | [Link](docs/Dataflow/Multiplatform%20Settings/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Settings/usage.md) |
 | Dataflow | DataStore | [Link](docs/Dataflow/DataStore/overview.md) | - | [Link](docs/Dataflow/DataStore/usage.md) |
 | Dataflow | Korlibs Crypto Library | [Link](docs/Dataflow/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Dataflow/Korlibs%20Crypto%20Library/usage.md) |
-| Dataflow | Basic In-Memory Cache API | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20In-Memory%20Cache%20API/usage.md) |
-| Dataflow | Facade Config API | [Link](docs/Dataflow/Facade%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Config%20API/usage.md) |
+| Dataflow | Basic Cache API | [Link](docs/Dataflow/Basic%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20Cache%20API/usage.md) |
+| Dataflow | Basic Config API | [Link](docs/Dataflow/Basic%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20Config%20API/usage.md) |
 | Dataflow | SQLDelight | [Link](docs/Dataflow/SQLDelight/overview.md) | - | [Link](docs/Dataflow/SQLDelight/usage.md) |
 | Dataflow | SQLite (Room) | [Link](docs/Dataflow/SQLite%20%28Room%29/overview.md) | - | [Link](docs/Dataflow/SQLite%20%28Room%29/usage.md) |
-| Dataflow | Ktor Client | [Link](docs/Dataflow/Ktor%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20Client/usage.md) |
-| Dataflow | Cash App Paging Library | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Cash%20App%20Paging%20Library/usage.md) |
-| Dataflow | Facade Analytics API | [Link](docs/Dataflow/Facade%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Facade%20Analytics%20API/usage.md) |
-| Dataflow | Gemini | [Link](docs/Dataflow/Gemini/overview.md) | - | [Link](docs/Dataflow/Gemini/usage.md) |
+| Dataflow | Ktor HTTP Client | [Link](docs/Dataflow/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20HTTP%20Client/usage.md) |
+| Dataflow | Multiplatform Paging Library | [Link](docs/Dataflow/Multiplatform%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Paging%20Library/usage.md) |
+| Dataflow | Basic Analytics API | [Link](docs/Dataflow/Basic%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20Analytics%20API/usage.md) |
+| Dataflow | Gemini AI | [Link](docs/Dataflow/Gemini%20AI/overview.md) | - | [Link](docs/Dataflow/Gemini%20AI/usage.md) |
 | Userflow | Coil Image Library | [Link](docs/Userflow/Coil%20Image%20Library/overview.md) | - | [Link](docs/Userflow/Coil%20Image%20Library/usage.md) |
 | Userflow | Markdown Text Renderer | [Link](docs/Userflow/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/Userflow/Markdown%20Text%20Renderer/usage.md) |
 | Userflow | Adaptive Navigation | [Link](docs/Userflow/Adaptive%20Navigation/overview.md) | - | [Link](docs/Userflow/Adaptive%20Navigation/usage.md) |

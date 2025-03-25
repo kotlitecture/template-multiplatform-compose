@@ -2,7 +2,7 @@
 
 ## Overview
 
-Component: `shared.design.component.AppPlaceholder`
+Component: `shared.presentation.ui.component.AppPlaceholder`
 
 The usage guide is best described in the official component [documentation](https://github.com/eygraber/compose-placeholder).
 

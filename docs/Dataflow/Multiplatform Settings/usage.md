@@ -4,7 +4,7 @@
 
 The API can be accessed through:
 - `shared.data.source.settings.SettingsSource` - base class at the core module level.
-- `shared.data.source.settings.SettingsSettingsSource` - implementation of the base class.
+- `shared.data.source.settings.multiplatform.MultiplatformSettingsSource` - implementation of the base class.
 
 **SettingsSource** provides the following methods:
 
@@ -17,12 +17,12 @@ The API can be accessed through:
 
 ## Example
 
-Class instance is pre-configured via dependency injection (DI) as a singleton in `app.di.common.SettingsSourceModule`.
+Class instance is pre-configured via dependency injection (DI) as a singleton in `app.common.CommonConfig`.
 
 To start using, just inject it to your DI managed class.
 
 ```kotlin
-class TemplateViewModel @Inject constructor(
+class TemplateViewModel(
     private val settingsSource: SettingsSource
 ) : BaseViewModel() {
     

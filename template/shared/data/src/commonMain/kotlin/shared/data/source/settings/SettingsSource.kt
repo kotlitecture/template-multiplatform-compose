@@ -84,5 +84,4 @@ abstract class SettingsSource : DataSource {
      * Clears all key-value pairs.
      */
     abstract suspend fun clear()
-
 }

@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
-import shared.design.container.AppAdaptiveLayout
-import shared.design.container.LayoutSize
+import shared.presentation.ui.container.AppAdaptiveLayout
+import shared.presentation.ui.container.LayoutSize
 
 @Composable
 @NonRestartableComposable

@@ -35,11 +35,11 @@ object KtorBackendProcessor : PlatformProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.BuildGradleRoot,
+            Rules.RootBuildGradle,
             RemoveMarkedLine("kotlin.jvm")
         )
         state.onApplyRules(
-            Rules.SettingsGradle,
+            Rules.RootSettingsGradle,
             RemoveMarkedLine("backend")
         )
         state.onApplyRules(

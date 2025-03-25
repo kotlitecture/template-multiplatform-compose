@@ -1,10 +1,10 @@
 ## Overview
 
-- Component package: `app.feature.navigation`
+- Component package: `app.navigation`
 
 ## Configuration
 
-Register all required destinations using `app.feature.navigation.NavigationConfig`.
+Register all required destinations using `app.navigation.NavigationConfig`.
 
 ```kotlin
 fun NavGraphBuilder.navigation(navController: NavHostController) {
@@ -21,7 +21,7 @@ fun InitializerViewModelFactoryBuilder.navigation() {
 }
 ```
 
-Configure your navigation items using `app.feature.navigation.provide.presentation.NavigationViewModel`.
+Configure your navigation items using `app.navigation.provide.presentation.NavigationViewModel`.
 
 ```kotlin
 class NavigationViewModel : BaseViewModel() {

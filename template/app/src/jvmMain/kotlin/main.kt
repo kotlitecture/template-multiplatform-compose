@@ -3,7 +3,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import kotli.app.App
+import kotli.app.app.App
 import org.jetbrains.compose.resources.stringResource
 import template.app.generated.resources.Res
 import template.app.generated.resources.app_name

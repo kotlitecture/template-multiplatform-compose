@@ -1,1 +1,1 @@
-Crypto library provided by KorGE (Multiplatform Kotlin Game Engine) 
+Crypto library provided by KorGE (Multiplatform Kotlin Game Engine).

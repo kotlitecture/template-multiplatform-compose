@@ -1,12 +1,12 @@
 ## Overview
 
 - Component package: `app.common.data.source.database.sqldelight`
-- DI integration: `app.di.common.SqlDelightSourceModule`
+- DI integration: `app.platform.PlatformConfig`
 
 The integration includes the following components:
 
 - **AppDatabase**: An SQLite database object generated based on the SQLDelight scripts included in the project.
-- **AppSqlDelightSource**: Serves as a holder of the `AppDatabase` instance and acts as a service locator for all DAO objects.
+- **SqlDelightSource**: Serves as a holder of the `AppDatabase` instance and acts as a service locator for all DAO objects.
 - **User.sq**: An example script that generates the `User` entity and the DAO layer to work with it. All **SQLDelight scripts** are located in the `app/src/commonMain/sqldelight` directory.
 
 ## Create new Entity and DAO
@@ -61,23 +61,25 @@ delete:
 DELETE FROM address WHERE id = ?;
 ```
 
-### 2. Start using it from your code :)
+### 2. Add methods into the `DatabaseSource` facade to expose the newly generated DAO.
+
+Follow the existing method patterns and use a **copy-paste** approach to add the required method to `app.common.data.source.database.sqldelight.SqlDelightSource`. 
+
+### 3. Start using it from your code :)
 
 Once the project is recompiled, you can access the generated entity and DAO layer from your code.
 
 ```kotlin
 class EditAddressViewModel(
-    private val databaseSource: AppSqlDelightSource
+    private val databaseSource: DatabaseSource
 ) : BaseViewModel() {
 
     fun onAdd() = async {
-        val database = databaseSource.getDatabase()
-        database.addressQueries.insert("Country", "City", "Street")
+        databaseSource.insertAddress("Country", "City", "Street")
     }
 
     fun onDelete(address: Address) = async {
-        val database = databaseSource.getDatabase()
-        database.addressQueries.delete(address.id)
+        databaseSource.deleteAddress(address.id)
     }
 }
 ```

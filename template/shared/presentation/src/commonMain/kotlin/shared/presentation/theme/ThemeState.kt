@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.font.FontFamily
+import shared.presentation.theme.m3.Themes
 
 @Stable
 interface ThemeState {
@@ -26,8 +27,12 @@ interface ThemeState {
     fun setAuto()
 }
 
-data class ThemeStateImpl(
-    override val defaultConfig: ThemeConfig,
+data class DefaultThemeState(
+    override val defaultConfig: ThemeConfig = ThemeConfig(
+        defaultTheme = Themes.Light,
+        lightTheme = Themes.Light,
+        darkTheme = Themes.Dark,
+    ),
     override val dynamicConfig: ThemeConfig? = null,
     override val availableThemes: List<Theme> = emptyList(),
 ) : ThemeState {

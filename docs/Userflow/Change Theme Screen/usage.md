@@ -2,8 +2,8 @@
 
 ## Overview
 
-- Component package: `app.feature.theme.change`
-- DI integration: `app.di.feature.ThemeModule`
+- Component package: `app.theme.change`
+- DI integration: `app.di.ThemeModule`
 
 ## Example
 
