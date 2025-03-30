@@ -11,6 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.settings.common.CommonSettingsProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStoreProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.settings.SettingsShowcasesProcessor
 import kotlin.time.Duration.Companion.minutes
 
@@ -27,10 +28,15 @@ object MultiplatformSettingsProcessor : BaseFeatureProcessor() {
         "https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#no-arg-module"
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
+
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         CommonSettingsProcessor::class.java,
         SettingsShowcasesProcessor::class.java
     )
+
+    override fun canApply(state: TemplateState): Boolean {
+        return state.getFeature(DataStoreProcessor.ID) == null
+    }
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
@@ -56,10 +62,6 @@ object MultiplatformSettingsProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.AppCommonConfigKt,
             RemoveMarkedLine("SettingsSource")
-        )
-        state.onApplyRules(
-            "*/SettingsSourceModule.kt",
-            RemoveFile()
         )
     }
 

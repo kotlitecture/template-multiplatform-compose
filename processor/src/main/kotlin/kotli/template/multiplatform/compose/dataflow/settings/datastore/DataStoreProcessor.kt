@@ -13,6 +13,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.settings.common.CommonSettingsProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
@@ -34,6 +35,9 @@ object DataStoreProcessor : BaseFeatureProcessor() {
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun canApply(state: TemplateState): Boolean {
+        if (state.getFeature(MultiplatformSettingsProcessor.ID) != null) {
+            return false
+        }
         return listOfNotNull(
             state.getFeature(AndroidPlatformProcessor.ID),
             state.getFeature(IOSPlatformProcessor.ID),

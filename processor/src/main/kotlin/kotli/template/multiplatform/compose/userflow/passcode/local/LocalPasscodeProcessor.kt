@@ -11,6 +11,7 @@ import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.encryption.korlibs.KorlibsEncryptionProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStoreProcessor
 import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.passcode.PasscodeShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
@@ -28,7 +29,8 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
         DataLoaderProcessor::class.java,
         KorlibsEncryptionProcessor::class.java,
         MultiplatformSettingsProcessor::class.java,
-        PasscodeShowcasesProcessor::class.java
+        PasscodeShowcasesProcessor::class.java,
+        DataStoreProcessor::class.java,
     )
 
     override fun doApply(state: TemplateState) {

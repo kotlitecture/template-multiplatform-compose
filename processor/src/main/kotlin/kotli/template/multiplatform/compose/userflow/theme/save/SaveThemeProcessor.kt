@@ -9,6 +9,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
+import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStoreProcessor
 import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotlin.time.Duration.Companion.hours
 
@@ -20,7 +21,8 @@ object SaveThemeProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MultiplatformSettingsProcessor::class.java
+        MultiplatformSettingsProcessor::class.java,
+        DataStoreProcessor::class.java,
     )
 
     override fun doApply(state: TemplateState) {
