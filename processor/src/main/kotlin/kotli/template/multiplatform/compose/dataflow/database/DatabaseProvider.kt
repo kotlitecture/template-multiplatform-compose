@@ -14,7 +14,8 @@ object DatabaseProvider : BaseDataFlowProvider() {
         SqlDelightProcessor,
         RoomProcessor,
         SqliteProcessor,
-        SqliteLinkerProcessor
+        SqliteLinkerProcessor,
+        DatabaseCommonProcessor
     )
 
 }

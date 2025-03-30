@@ -19,7 +19,9 @@ object GeminiProcessor : BaseFeatureProcessor() {
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getWebUrl(state: TemplateState): String = "https://github.com/PatilShreyas/generative-ai-kmp"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://github.com/PatilShreyas/generative-ai-kmp?tab=readme-ov-file#installation-and-usage"
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://github.com/PatilShreyas/generative-ai-kmp?tab=readme-ov-file#installation-and-usage"
+
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
@@ -32,7 +34,7 @@ object GeminiProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppBuildGradle,
+            Rules.DataBuildGradle,
             RemoveMarkedLine("generativeai")
         )
         state.onApplyRules(
@@ -41,8 +43,8 @@ object GeminiProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.AppDiKt,
-            RemoveMarkedLine("aiSource")
+            Rules.AppCommonConfigKt,
+            RemoveMarkedLine("ai")
         )
     }
 

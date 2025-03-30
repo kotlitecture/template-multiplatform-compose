@@ -32,19 +32,19 @@ object CoilProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.AppIcon,
+            Rules.PresentationComponentIcon,
             CleanupMarkedBlock("{userflow.coil}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDesign,
+            Rules.PresentationBuildGradle,
             RemoveMarkedLine("libs.coil")
         )
 
         state.onApplyRules(
-            Rules.AppIcon,
+            Rules.PresentationComponentIcon,
             RemoveMarkedBlock("{userflow.coil}"),
             RemoveMarkedLine("UrlModel"),
             RemoveMarkedLine("coil"),

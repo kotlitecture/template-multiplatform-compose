@@ -1,7 +1,7 @@
 package kotli.app.common.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import shared.design.container.AppModalNavigation
+import shared.presentation.ui.container.AppModalNavigation
 
 @Composable
 fun ModalProvider(

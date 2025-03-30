@@ -1,7 +1,6 @@
 package kotli.template.multiplatform.compose.showcases.userflow.component
 
 import kotli.engine.TemplateState
-import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 
 object ComponentShowcasesProcessor : BaseShowcasesProcessor() {

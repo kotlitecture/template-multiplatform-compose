@@ -1,7 +1,7 @@
 ## Overview
 
-**Component**: `shared.design.component.AppMarkdown`  
-**Showcases**: `app.feature.showcases.presentation.userflow.component.markdown`
+**Component**: `shared.presentation.ui.component.AppMarkdown`  
+**Showcases**: `app.showcases.presentation.userflow.component.markdown`
 
 The component provides a general facade to abstract the underlying framework, allowing for easier replacement or modification in the future.
 

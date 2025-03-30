@@ -34,19 +34,19 @@ object MarkdownProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDesign,
+            Rules.PresentationBuildGradle,
             CleanupMarkedLine("markdown")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDesign,
+            Rules.PresentationBuildGradle,
             RemoveMarkedLine("markdown")
         )
 
         state.onApplyRules(
-            Rules.AppMarkdown,
+            Rules.PresentationComponentMarkdown,
             RemoveFile()
         )
 

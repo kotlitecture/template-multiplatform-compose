@@ -4,7 +4,7 @@ import kotli.engine.FeatureProcessor
 import kotli.template.multiplatform.compose.dataflow.BaseDataFlowProvider
 import kotli.template.multiplatform.compose.dataflow.settings.common.CommonSettingsProcessor
 import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStoreProcessor
-import kotli.template.multiplatform.compose.dataflow.settings.basic.BasicSettingsProcessor
+import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 
 object SettingsProvider : BaseDataFlowProvider() {
 
@@ -12,7 +12,7 @@ object SettingsProvider : BaseDataFlowProvider() {
     override fun isMultiple(): Boolean = false
     override fun createProcessors(): List<FeatureProcessor> = listOf(
         CommonSettingsProcessor,
-        BasicSettingsProcessor,
+        MultiplatformSettingsProcessor,
         DataStoreProcessor
     )
 }

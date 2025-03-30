@@ -42,8 +42,10 @@ kotlin {
             api(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
+            implementation(libs.generativeai)
             implementation(libs.korlibs.crypto)
-            implementation(libs.multiplatform.settings.no.arg)
+            implementation(libs.cashapp.paging.common)
+            implementation(libs.multiplatform.settings.no.arg) // {dataflow.settings.multiplatform}
             implementation(libs.multiplatform.expressions.evaluator)
             implementation(libs.touchlab.stately.concurrent.collections) // {common.stately-collections}
         }

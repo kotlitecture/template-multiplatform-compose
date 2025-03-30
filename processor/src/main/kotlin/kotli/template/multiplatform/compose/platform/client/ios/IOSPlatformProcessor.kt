@@ -19,7 +19,7 @@ object IOSPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcIosMainDir,
+            Rules.IosSrcDir,
             RemoveFile()
         )
         state.onApplyRules(

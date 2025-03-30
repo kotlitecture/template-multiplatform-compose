@@ -16,11 +16,11 @@ object CommonDataFlowProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.SharedDataDir,
+            Rules.DataDir,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.SettingsGradle,
+            Rules.RootSettingsGradle,
             RemoveMarkedLine("shared:data")
         )
         state.onApplyRules(

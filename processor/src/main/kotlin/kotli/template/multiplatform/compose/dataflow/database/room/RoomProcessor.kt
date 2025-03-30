@@ -13,6 +13,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonKspProcessor
+import kotli.template.multiplatform.compose.dataflow.database.DatabaseCommonProcessor
 import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
@@ -44,6 +45,7 @@ object RoomProcessor : BaseFeatureProcessor() {
 
     override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
         MobileAndDesktopProcessor::class.java,
+        DatabaseCommonProcessor::class.java,
         RoomShowcasesProcessor::class.java,
         CommonKspProcessor::class.java,
         SqliteProcessor::class.java,
@@ -54,6 +56,10 @@ object RoomProcessor : BaseFeatureProcessor() {
             Rules.AppBuildGradle,
             CleanupMarkedBlock("{dataflow.database.room.config}"),
             CleanupMarkedLine("{dataflow.database.room}")
+        )
+        state.onApplyRules(
+            Rules.AppPlatformConfigKt,
+            CleanupMarkedBlock("{dataflow.database.room}")
         )
     }
 
@@ -81,12 +87,13 @@ object RoomProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppDiKt,
+            Rules.AppCommonConfigKt,
             RemoveMarkedLine("RoomSource")
         )
         state.onApplyRules(
-            Rules.AppConfigureKoinKt,
-            RemoveMarkedLine("RoomSource")
+            Rules.AppPlatformConfigKt,
+            RemoveMarkedBlock("{dataflow.database.room}"),
+            RemoveMarkedLine("room")
         )
     }
 

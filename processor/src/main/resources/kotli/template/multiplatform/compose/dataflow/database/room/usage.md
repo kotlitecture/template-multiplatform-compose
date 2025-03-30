@@ -1,12 +1,12 @@
 ## Overview
 
 - Component package: `app.common.data.source.database.room`
-- DI integration: `app.di.platform.configureKoin`
+- DI integration: `app.platform.PlatformConfig`
 
 The integration includes the following components:
 
 - **AppDatabase**: A pre-configured Room database designed to register all entities and DAO objects.
-- **AppRoomSource**: Serves as a holder of the AppDatabase instance and acts as a service locator for all DAO objects.
+- **RoomSource**: Serves as a holder of the AppDatabase instance and acts as a service locator for all DAO objects.
 - **User** and **UserDao**: An example entity and its associated DAO object. These classes serve as templates that can be used to create your own entities and DAOs.
 
 ## Create new Entity and DAO
@@ -71,42 +71,31 @@ abstract class AppDatabase : RoomDatabase() {
 }
 ```
 
-### 4. Register `AddressDao` in `AppRoomSource`
+### 4. Add methods into the `DatabaseSource` facade to expose the newly generated DAO.
 
-```kotlin
-class AppRoomSource(
-    private val databaseName: String = "db"
-) {
-    ...
-    val addressDao by lazy { db.getAddressDao() }
-    ...
-}
-```
+Follow the existing method patterns and use a **copy-paste** approach to add the required method to `app.common.data.source.database.room.RoomSource`.
 
 ## Usage of DAO in your code
 
-In this example, we will directly use `AppRoomSource` from the `ViewModel` to access `AddressDao`. However, it is recommended to create a separate `Repository` layer and call all data sources from there.
+In this example, we will directly use `DatabaseSource` from the `ViewModel` to access `AddressDao`. However, it is recommended to create a separate `Repository` layer and call all data sources from there.
 
 ```kotlin
 class AddressViewModel(
-    private val roomSource: AppRoomSource
+    private val databaseSource: DatabaseSource
 ) : BaseViewModel() {
 
     val addresses = mutableStateOf(emptyList<Address>())
 
     override fun doBind() = async("Get all addresses") {
-        val addressDao = roomSource.addressDao
-        addressDao.getAllAsFlow().collectLatest(addresses::value::set)
+        databaseSource.getAddressesLive().collectLatest(addresses::value::set)
     }
 
     fun onCreate(address: Address) = async("onCreate", appState) {
-        val addressDao = roomSource.addressDao
-        addressDao.create(address)
+        databaseSource.createAddress(address)
     }
 
     fun onDelete(address: Address) = async("onRemove", appState) {
-        val addressDao = roomSource.addressDao
-        addressDao.delete(address)
+        databaseSource.deleteAddress(address)
     }
 
 }

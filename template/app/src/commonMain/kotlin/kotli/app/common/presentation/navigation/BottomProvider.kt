@@ -2,7 +2,7 @@ package kotli.app.common.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import shared.design.container.AppBottomNavigation
+import shared.presentation.ui.container.AppBottomNavigation
 
 @Composable
 fun BottomProvider(

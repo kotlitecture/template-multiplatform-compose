@@ -30,7 +30,7 @@ object BasicExpressionProcessor : BaseFeatureProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.BuildGradleSharedData,
+            Rules.DataBuildGradle,
             RemoveMarkedLine("multiplatform.expressions.evaluator")
         )
         state.onApplyRules(

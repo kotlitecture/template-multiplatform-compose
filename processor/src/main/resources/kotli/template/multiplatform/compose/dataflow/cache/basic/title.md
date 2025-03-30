@@ -1,1 +1,1 @@
-Basic In-Memory Cache API
+Basic Cache API

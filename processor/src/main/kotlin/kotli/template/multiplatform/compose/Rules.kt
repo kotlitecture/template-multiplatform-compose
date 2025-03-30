@@ -2,29 +2,20 @@ package kotli.template.multiplatform.compose
 
 object Rules {
 
-    // resources
+    // common
+    const val BuildGradle = "*build.gradle.kts"
     const val StringsXml = "*/strings.xml"
     const val IndexHtml = "*/index.html"
     const val IosConfig = "*/Config.xcconfig"
-
+    const val AndroidSrcDir = "*/src/androidMain"
+    const val JvmSrcDir = "*/src/jvmMain"
+    const val JsSrcDir = "*/src/jsMain"
+    const val IosSrcDir = "*/src/ios*"
     const val IosAppDir = "iosApp"
-    const val BackendDir = "backend"
-    const val SrcAndroidMainDir = "*/src/androidMain"
-    const val SrcIosMainDir = "*/src/ios*"
-    const val SrcJsMainDir = "*/src/jsMain"
-    const val SrcJvmMainDir = "*/src/jvmMain"
-    const val SharedDataDir = "shared/data"
-    const val SharedDomainDir = "shared/domain"
-    const val SharedDesignDir = "shared/design"
 
-    // gradle
-    const val BuildGradle = "*build.gradle.kts"
-    const val SettingsGradle = "settings.gradle.kts"
-    const val BuildGradleRoot = "build.gradle.kts"
-    const val BuildGradleBackend = "${BackendDir}/build.gradle.kts"
-    const val BuildGradleSharedData = "${SharedDataDir}/build.gradle.kts"
-    const val BuildGradleSharedDesign = "${SharedDesignDir}/build.gradle.kts"
-    const val BuildGradleSharedDomain = "${SharedDomainDir}/build.gradle.kts"
+    // root
+    const val RootSettingsGradle = "settings.gradle.kts"
+    const val RootBuildGradle = "build.gradle.kts"
 
     // app
     const val App = "app"
@@ -32,101 +23,72 @@ object Rules {
     const val AppBuildGradle = "${App}/build.gradle.kts"
     const val AppCommonMain = "${AppSrc}/commonMain"
     const val AppCommonMainRoot = "${AppCommonMain}/kotlin/kotli/app"
+    const val AppKt = "${AppCommonMainRoot}/app/App.kt"
+    const val AppConfigKt = "${AppCommonMainRoot}/app/AppConfig.kt"
+    const val AppViewModelKt = "${AppCommonMainRoot}/app/AppViewModel.kt"
     const val AppCommon = "${AppCommonMainRoot}/common"
-    const val AppFeature = "${AppCommonMainRoot}/feature"
-    const val AppKt = "${AppCommonMainRoot}/App.kt"
-    const val AppConfigKt = "${AppCommonMainRoot}/AppConfig.kt"
-    const val AppViewModelKt = "${AppCommonMainRoot}/AppViewModel.kt"
     const val AppCommonPresentation = "${AppCommon}/presentation"
     const val AppCommonConfigKt = "${AppCommon}/CommonConfig.kt"
-    const val AppConfigureKoinKt = "*/configureKoin.kt"
-
-    // app -> di
-    const val AppDI = "${AppCommonMainRoot}/di"
-    const val AppDiKt = "${AppDI}/DI.kt"
-
-    // app -> misc
     const val AppProguardRulesPro = "${App}/assemble/proguard-rules.pro"
     const val AppWebPackConfigDir = "app/webpack.config.d"
     const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
-
-    // app -> common -> presentation -> loader
+    const val AppPlatformConfigKt = "*/PlatformConfig.*.kt"
     const val AppCommonLoader = "${AppCommonPresentation}/loader"
-
-    // app -> common -> presentation -> navigation
     const val AppCommonNavigation = "${AppCommonPresentation}/navigation"
-
-    // app -> feature -> passcode
-    const val AppPasscode = "${AppFeature}/passcode"
-    const val AppDIPasscodeModuleKt = "${AppDI}/feature/PasscodeModule.kt"
-
-    // app -> feature -> theme
-    const val AppTheme = "${AppFeature}/theme"
+    const val AppCommonDatabase = "${AppCommon}/data/source/database"
+    const val AppPasscode = "${AppCommonMainRoot}/passcode"
+    const val AppTheme = "${AppCommonMainRoot}/theme"
     const val AppThemeConfigKt = "${AppTheme}/ThemeConfig.kt"
-    const val AppDIThemeModuleKt = "${AppDI}/feature/ThemeModule.kt"
-
-    // app -> feature -> navigation
-    const val AppNavigation = "${AppFeature}/navigation"
+    const val AppNavigation = "${AppCommonMainRoot}/navigation"
     const val AppNavigationProvider = "${AppNavigation}/provide/presentation/NavigationProvider.kt"
     const val AppBottomNavigationProvider = "${AppNavigation}/provide/presentation/BottomNavigationProvider.kt"
     const val AppNavigationViewModel = "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
-
-    // app -> feature -> showcases
-    const val AppShowcases = "${AppFeature}/showcases"
+    const val AppShowcases = "${AppCommonMainRoot}/showcases"
     const val AppShowcasesDataflow = "${AppShowcases}/presentation/dataflow"
     const val AppShowcasesUserflow = "${AppShowcases}/presentation/userflow"
     const val AppShowcasesViewModelKt = "${AppShowcases}/presentation/ShowcasesViewModel.kt"
     const val AppShowcasesConfigKt = "${AppShowcases}/ShowcasesConfig.kt"
 
-    // design
-    const val SharedDesignSrcDir = "${SharedDesignDir}/src"
-    const val SharedDesignComponentDir = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/component"
-    const val AppIconsKt = "${SharedDesignSrcDir}/commonMain/kotlin/shared/design/icon/AppIcons.kt"
-    const val AppPlaceholder = "${SharedDesignComponentDir}/AppPlaceholder.kt"
-    const val AppMarkdown = "${SharedDesignComponentDir}/AppMarkdown.kt"
-    const val AppFilePicker = "${SharedDesignComponentDir}/AppFilePicker.kt"
-    const val AppIcon = "${SharedDesignComponentDir}/AppIcon.kt"
+    // backend
+    const val BackendDir = "backend"
+    const val BackendBuildGradle = "${BackendDir}/build.gradle.kts"
+    const val BackendSrc = "${BackendDir}/src"
 
-    // dataflow -> analytics
+    // domain
+    const val DomainDir = "shared/domain"
+    const val DomainBuildGradle = "${DomainDir}/build.gradle.kts"
+
+    // data
+    const val DataDir = "shared/data"
+    const val DataDataSourceDir = "${DataDir}/src/commonMain/kotlin/shared/data/source"
+    const val DataBuildGradle = "${DataDir}/build.gradle.kts"
     const val AnalyticsSource = "*/*AnalyticsSource*.kt"
-
-    // dataflow -> cache
     const val CacheSource = "*/*CacheSource*.kt"
-    const val CacheSourceDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/cache"
-
-    // dataflow -> database
+    const val CacheSourceDir = "${DataDataSourceDir}/cache"
     const val SqlDelightSource = "*/*SqlDelightSource*.kt"
     const val SqlDelightDir = "*/sqldelight/*"
     const val RoomSource = "*/*RoomSource*.kt"
     const val RoomDir = "*/database/room/*"
-
-    // dataflow -> config
-    const val ConfigSource = "*/*ConfigSource*.kt"
-    const val AppConfigSource = "${AppCommon}/data/source/config/AppConfigSource.kt"
-
-    // dataflow -> paging
+    const val ConfigSource = "*/*ConfigSource.kt"
     const val PagingSource = "*/*Paging*.kt"
-
-    // dataflow -> http
-    const val HttpSource = "*/*HttpSource*.kt"
-
-    // dataflow -> settings
-    const val SettingsSource = "*/*SettingsSource*.kt"
-    const val BasicSettingsSource = "*/*BasicSettingsSource*.kt"
-    const val DataStoreSource = "*/*DataStoreSource.kt"
-
-    // dataflow -> encryption
+    const val PagingSourceDir = "${DataDataSourceDir}/paging"
+    const val HttpSource = "*/*HttpSource.kt"
+    const val SettingsSource = "*/*SettingsSource.kt"
+    const val DataStoreSource = "*/DataStoreSource.kt"
+    const val MultiplatformSettingsSource = "*/MultiplatformSettingsSource.kt"
     const val EncryptionSource = "*/*EncryptionSource*.kt"
-    const val EncryptionDir = "${SharedDataDir}/src/commonMain/kotlin/shared/data/source/encryption"
-
-    // dataflow -> expression
+    const val EncryptionDir = "${DataDir}/src/commonMain/kotlin/shared/data/source/encryption"
     const val ExpressionSource = "*/*ExpressionEvaluator*.kt"
-
-    // dataflow -> AiSource
     const val AiSource = "*/*AiSource*.kt"
 
-    // backend
-    const val Backend = "backend"
-    const val BackendSrc = "${Backend}/src"
-
+    // presentation
+    const val PresentationDir = "shared/presentation"
+    const val PresentationBuildGradle = "${PresentationDir}/build.gradle.kts"
+    const val PresentationUiDir = "${PresentationDir}/src/commonMain/kotlin/shared/presentation/ui"
+    const val PresentationIconsKt = "${PresentationUiDir}/icon/AppIcons.kt"
+    const val PresentationComponentDir = "${PresentationUiDir}/component"
+    const val PresentationComponentPlaceholder = "${PresentationComponentDir}/AppPlaceholder.kt"
+    const val PresentationComponentFilePicker = "${PresentationComponentDir}/AppFilePicker.kt"
+    const val PresentationComponentMarkdown = "${PresentationComponentDir}/AppMarkdown.kt"
+    const val PresentationComponentIcon = "${PresentationComponentDir}/AppIcon.kt"
 }

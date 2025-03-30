@@ -16,14 +16,14 @@ object SharedDomainProcessor : BaseFeatureProcessor() {
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDomain,
+            Rules.DomainBuildGradle,
             CleanupMarkedBlock("{platform.shared.domain}")
         )
     }
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.SharedDomainDir,
+            Rules.DomainDir,
             RemoveFile()
         )
         state.onApplyRules(
@@ -31,7 +31,7 @@ object SharedDomainProcessor : BaseFeatureProcessor() {
             RemoveMarkedLine("shared.domain")
         )
         state.onApplyRules(
-            Rules.SettingsGradle,
+            Rules.RootSettingsGradle,
             RemoveMarkedLine("shared:domain")
         )
     }

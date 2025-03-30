@@ -29,12 +29,12 @@ object FileKitProcessor : BaseFeatureProcessor() {
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
-            Rules.BuildGradleSharedDesign,
+            Rules.PresentationBuildGradle,
             RemoveMarkedLine("filekit")
         )
 
         state.onApplyRules(
-            Rules.AppFilePicker,
+            Rules.PresentationComponentFilePicker,
             RemoveFile()
         )
 

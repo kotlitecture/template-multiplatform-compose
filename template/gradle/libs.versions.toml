@@ -6,32 +6,32 @@ android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.0"
-androidx-datastore = "1.1.3"
+androidx-datastore = "1.1.4"
 androidx-navigation = "2.8.0-alpha11"
-androidx-room = "2.7.0-rc02"
+androidx-room = "2.7.0-rc03"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
 coil = "3.1.0"
 compose-multiplatform = "1.7.3"
-compose-placeholder = "1.0.9"
+compose-placeholder = "1.0.10"
 filekit = "0.8.8"
 generativeai = "0.9.0-1.0.1"
 koin = "4.0.2"
 korlibs = "6.0.0"
 kotlin = "2.1.10"
-kotlin-logging = "7.0.3"
+kotlin-logging = "7.0.5"
 kotlinx-coroutines = "1.10.1"
 kotlinx-datetime = "0.6.1"
 kotlinx-serialization-json = "1.8.0"
 ktor = "2.3.13"
 ksp = "2.1.10-1.0.29"
-logback = "1.5.16"
-markdown-renderer = "0.30.0"
+logback = "1.5.18"
+markdown-renderer = "0.32.0"
 multiplatform-settings = "1.3.0"
 multiplatform-expressions-evaluator = "1.1.1"
 napier = "2.7.1"
 sqldelight = "2.0.2"
-sqlite-bundled = "2.5.0-rc02"
+sqlite-bundled = "2.5.0-rc03"
 touchlab-stately = "2.1.0"
 touchlab-kermit = "2.0.4"
 
@@ -45,6 +45,7 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
 cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "cashapp-paging" }
+cashapp-paging-common = { module = "app.cash.paging:paging-common", version.ref = "cashapp-paging" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-ktor2 = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil" }
 compose-placeholder-material3 = { module = "com.eygraber:compose-placeholder-material3", version.ref = "compose-placeholder" }
@@ -68,7 +69,6 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-client-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
-ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
@@ -83,9 +83,7 @@ markdown-renderer-m3 = { module = "com.mikepenz:multiplatform-markdown-renderer-
 markdown-renderer-coil3 = { module = "com.mikepenz:multiplatform-markdown-renderer-coil3", version.ref = "markdown-renderer" }
 multiplatform-expressions-evaluator = { module = "io.github.murzagalin:multiplatform-expressions-evaluator", version.ref = "multiplatform-expressions-evaluator" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
-multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
-sqldelight-androidx-paging = { module = "app.cash.sqldelight:androidx-paging3-extensions", version.ref = "sqldelight" }
 sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }

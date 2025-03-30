@@ -12,7 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotli.app.di.inject
+import kotli.app.app.App
+import kotli.app.app.AppState
 import shared.presentation.misc.extensions.findActivity
 import shared.presentation.theme.ThemeState
 
@@ -22,8 +23,8 @@ class AppActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             App()
-            EdgeToEdgeHandler(inject())
-            SplashBlock(splashScreen, inject())
+            EdgeToEdgeHandler(get())
+            SplashBlock(splashScreen, get())
         }
     }
 }

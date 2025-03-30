@@ -19,11 +19,11 @@ object AndroidPlatformProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.SrcAndroidMainDir,
+            Rules.AndroidSrcDir,
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.BuildGradleRoot,
+            Rules.RootBuildGradle,
             RemoveMarkedLine("android")
         )
         state.onApplyRules(
