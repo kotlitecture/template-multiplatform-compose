@@ -18,7 +18,7 @@ filekit = "0.8.8"
 generativeai = "0.9.0-1.0.1"
 koin = "4.0.2"
 korlibs = "6.0.0"
-kotlin = "2.1.10"
+kotlin = "2.1.20-RC"
 kotlin-logging = "7.0.5"
 kotlinx-coroutines = "1.10.1"
 kotlinx-datetime = "0.6.1"
@@ -112,4 +112,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 room = { id = "androidx.room", version.ref = "androidx-room" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+hot-reload = { id = "org.jetbrains.compose.hot-reload", version = "1.0.0-alpha03" }
 

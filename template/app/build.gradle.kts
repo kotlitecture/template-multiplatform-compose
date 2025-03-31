@@ -1,3 +1,7 @@
+// {platform.jvm.config}
+import org.jetbrains.compose.reload.ComposeHotRun
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
+// {platform.jvm.config}
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -7,8 +11,13 @@ plugins {
     alias(libs.plugins.sqldelight) // {dataflow.database.sqldelight}
     alias(libs.plugins.ksp) // {common.ksp}
     alias(libs.plugins.room) // {dataflow.database.room}
+    alias(libs.plugins.hot.reload) // {platform.jvm}
 }
-
+// {platform.jvm.config}
+composeCompiler {
+    featureFlags.add(ComposeFeatureFlag.OptimizeNonSkippingGroups)
+}
+// {platform.jvm.config}
 kotlin {
     // {platform.android.target}
     androidTarget {
@@ -186,6 +195,9 @@ compose.desktop {
             configurationFiles.from(project.file("assemble/proguard-rules.pro"))
         }
     }
+}
+tasks.register<ComposeHotRun>("runHot") {
+    mainClass.set("MainKt")
 }
 // {platform.jvm.config}
 // {common.ksp.config}
