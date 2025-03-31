@@ -17,8 +17,7 @@ import org.slf4j.LoggerFactory
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.nio.file.Path
-import java.util.Random
-import java.util.UUID
+import java.util.*
 import kotlin.io.path.ExperimentalPathApi
 import kotlin.io.path.deleteRecursively
 import kotlin.test.Test
@@ -50,6 +49,11 @@ class MultiplatformComposeTemplateProcessorTest {
         Assertions.assertNotNull(processor.getIcon())
         Assertions.assertNotNull(processor.getTitle())
         Assertions.assertNotNull(processor.getDescription())
+        processor.getFeatureProviders()
+            .filter { provider -> provider.getProcessors().any { !it.isInternal() } }
+            .forEach { provider ->
+                Assertions.assertNotNull(provider.getTitle(), "NULL title :: ${provider::class.java.simpleName}")
+            }
     }
 
     @Test
