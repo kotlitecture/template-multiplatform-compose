@@ -10,6 +10,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.userflow.component.filepicker.FilePickerShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.minutes
 
 object FileKitProcessor : BaseFeatureProcessor() {
@@ -23,8 +24,8 @@ object FileKitProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://github.com/vinceglb/FileKit?tab=readme-ov-file#-quick-start"
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        FilePickerShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        FilePickerShowcasesProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

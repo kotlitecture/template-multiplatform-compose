@@ -15,6 +15,7 @@ import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStor
 import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.passcode.PasscodeShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object LocalPasscodeProcessor : BaseFeatureProcessor() {
@@ -25,12 +26,12 @@ object LocalPasscodeProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 24.hours.inWholeMilliseconds
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        DataLoaderProcessor::class.java,
-        KorlibsEncryptionProcessor::class.java,
-        MultiplatformSettingsProcessor::class.java,
-        PasscodeShowcasesProcessor::class.java,
-        DataStoreProcessor::class.java,
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        DataLoaderProcessor::class,
+        KorlibsEncryptionProcessor::class,
+        MultiplatformSettingsProcessor::class,
+        PasscodeShowcasesProcessor::class,
+        DataStoreProcessor::class,
     )
 
     override fun doApply(state: TemplateState) {

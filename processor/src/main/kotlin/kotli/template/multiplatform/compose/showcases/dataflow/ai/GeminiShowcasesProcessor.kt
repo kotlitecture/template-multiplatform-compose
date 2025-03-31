@@ -5,6 +5,7 @@ import kotli.engine.TemplateState
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.component.markdown.MarkdownProcessor
+import kotlin.reflect.KClass
 
 object GeminiShowcasesProcessor : BaseShowcasesProcessor() {
 
@@ -12,8 +13,8 @@ object GeminiShowcasesProcessor : BaseShowcasesProcessor() {
 
     override fun getId(): String = ID
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MarkdownProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        MarkdownProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

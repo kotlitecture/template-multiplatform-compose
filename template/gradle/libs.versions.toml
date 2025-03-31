@@ -14,17 +14,18 @@ cashapp-paging = "3.3.0-alpha02-0.5.1"
 coil = "3.1.0"
 compose-multiplatform = "1.7.3"
 compose-placeholder = "1.0.10"
+compose-hot-reload = "1.0.0-alpha03"
 filekit = "0.8.8"
 generativeai = "0.9.0-1.0.1"
-koin = "4.0.2"
+koin = "4.0.4"
 korlibs = "6.0.0"
-kotlin = "2.1.20-RC"
+kotlin = "2.1.20"
 kotlin-logging = "7.0.5"
 kotlinx-coroutines = "1.10.1"
-kotlinx-datetime = "0.6.1"
+kotlinx-datetime = "0.6.2"
 kotlinx-serialization-json = "1.8.0"
 ktor = "2.3.13"
-ksp = "2.1.10-1.0.29"
+ksp = "2.1.20-1.0.32"
 logback = "1.5.18"
 markdown-renderer = "0.32.0"
 multiplatform-settings = "1.3.0"
@@ -112,5 +113,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 room = { id = "androidx.room", version.ref = "androidx-room" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
-hot-reload = { id = "org.jetbrains.compose.hot-reload", version = "1.0.0-alpha03" }
+hot-reload = { id = "org.jetbrains.compose.hot-reload", version.ref = "compose-hot-reload" }
 

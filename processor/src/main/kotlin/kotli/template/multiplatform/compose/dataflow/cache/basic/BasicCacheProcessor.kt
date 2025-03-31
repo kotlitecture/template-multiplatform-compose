@@ -11,6 +11,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyCollectionsProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.cache.CacheShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object BasicCacheProcessor : BaseFeatureProcessor() {
@@ -20,9 +21,9 @@ object BasicCacheProcessor : BaseFeatureProcessor() {
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 8.hours.inWholeMilliseconds
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonStatelyCollectionsProcessor::class.java,
-        CacheShowcasesProcessor::class.java,
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        CommonStatelyCollectionsProcessor::class,
+        CacheShowcasesProcessor::class,
     )
 
     override fun doApply(state: TemplateState) {

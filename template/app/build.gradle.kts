@@ -1,7 +1,5 @@
-// {platform.jvm.config}
-import org.jetbrains.compose.reload.ComposeHotRun
-import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
-// {platform.jvm.config}
+import org.jetbrains.compose.reload.ComposeHotRun // {platform.jvm}
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag // {platform.jvm}
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -13,11 +11,6 @@ plugins {
     alias(libs.plugins.room) // {dataflow.database.room}
     alias(libs.plugins.hot.reload) // {platform.jvm}
 }
-// {platform.jvm.config}
-composeCompiler {
-    featureFlags.add(ComposeFeatureFlag.OptimizeNonSkippingGroups)
-}
-// {platform.jvm.config}
 kotlin {
     // {platform.android.target}
     androidTarget {
@@ -197,7 +190,11 @@ compose.desktop {
     }
 }
 tasks.register<ComposeHotRun>("runHot") {
+    group = "compose desktop"
     mainClass.set("MainKt")
+}
+composeCompiler {
+    featureFlags.add(ComposeFeatureFlag.OptimizeNonSkippingGroups)
 }
 // {platform.jvm.config}
 // {common.ksp.config}

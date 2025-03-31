@@ -7,13 +7,14 @@ import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.CleanupMarkedLine
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotlin.reflect.KClass
 
 object SqliteProcessor : BaseFeatureProcessor() {
 
     const val ID = "dataflow.database.sqlite"
     override fun isInternal(): Boolean = true
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        SqliteLinkerProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        SqliteLinkerProcessor::class
     )
 
     override fun getId(): String = ID

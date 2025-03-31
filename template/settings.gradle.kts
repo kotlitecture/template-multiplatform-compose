@@ -19,9 +19,11 @@ dependencyResolutionManagement {
     }
 }
 
+// {platform.jvm.config}
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
 }
+// {platform.jvm.config}
 
 include(":app")
 include(":backend")

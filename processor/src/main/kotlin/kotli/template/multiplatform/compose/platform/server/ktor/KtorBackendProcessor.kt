@@ -11,6 +11,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.common.CommonKtorProcessor
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 import kotli.template.multiplatform.compose.platform.shared.SharedDomainProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object KtorBackendProcessor : PlatformProcessor() {
@@ -23,9 +24,9 @@ object KtorBackendProcessor : PlatformProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String = "https://ktor.io/docs/server-create-a-new-project.html"
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        SharedDomainProcessor::class.java,
-        CommonKtorProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        SharedDomainProcessor::class,
+        CommonKtorProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

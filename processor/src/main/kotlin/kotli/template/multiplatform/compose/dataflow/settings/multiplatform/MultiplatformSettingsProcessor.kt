@@ -13,6 +13,7 @@ import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.settings.common.CommonSettingsProcessor
 import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStoreProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.settings.SettingsShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.minutes
 
 object MultiplatformSettingsProcessor : BaseFeatureProcessor() {
@@ -29,9 +30,9 @@ object MultiplatformSettingsProcessor : BaseFeatureProcessor() {
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonSettingsProcessor::class.java,
-        SettingsShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        CommonSettingsProcessor::class,
+        SettingsShowcasesProcessor::class
     )
 
     override fun canApply(state: TemplateState): Boolean {

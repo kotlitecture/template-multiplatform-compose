@@ -18,6 +18,7 @@ import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProc
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object DataStoreProcessor : BaseFeatureProcessor() {
@@ -45,9 +46,9 @@ object DataStoreProcessor : BaseFeatureProcessor() {
         ).isNotEmpty()
     }
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MobileAndDesktopProcessor::class.java,
-        CommonSettingsProcessor::class.java,
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        MobileAndDesktopProcessor::class,
+        CommonSettingsProcessor::class,
     )
 
     override fun doApply(state: TemplateState) {

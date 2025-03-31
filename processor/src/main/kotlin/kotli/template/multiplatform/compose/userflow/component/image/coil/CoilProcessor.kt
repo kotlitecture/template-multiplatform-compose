@@ -12,6 +12,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.dataflow.http.ktor.KtorHttpProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.component.image.CoilShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object CoilProcessor : BaseFeatureProcessor() {
@@ -25,9 +26,9 @@ object CoilProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://coil-kt.github.io/coil/upgrading_to_coil3/#multiplatform"
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CoilShowcasesProcessor::class.java,
-        KtorHttpProcessor::class.java,
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        CoilShowcasesProcessor::class,
+        KtorHttpProcessor::class,
     )
 
     override fun doApply(state: TemplateState) {

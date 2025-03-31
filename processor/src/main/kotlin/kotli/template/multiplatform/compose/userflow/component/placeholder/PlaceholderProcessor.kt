@@ -11,6 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.userflow.component.placeholder.PlaceholderShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object PlaceholderProcessor : BaseFeatureProcessor() {
@@ -26,8 +27,8 @@ object PlaceholderProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://github.com/eygraber/compose-placeholder?tab=readme-ov-file#gradle"
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        PlaceholderShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        PlaceholderShowcasesProcessor::class
     )
 
     override fun doApply(state: TemplateState) {

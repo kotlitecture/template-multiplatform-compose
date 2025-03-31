@@ -19,6 +19,7 @@ import kotli.template.multiplatform.compose.dataflow.database.SqliteProcessor
 import kotli.template.multiplatform.compose.dataflow.paging.multiplatform.MultiplatformPagingProcessor
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.database.sqldelight.SqlDelightShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object SqlDelightProcessor : BaseFeatureProcessor() {
@@ -33,12 +34,12 @@ object SqlDelightProcessor : BaseFeatureProcessor() {
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        SqlDelightShowcasesProcessor::class.java,
-        MobileAndDesktopProcessor::class.java,
-        DatabaseCommonProcessor::class.java,
-        CommonStatelyProcessor::class.java,
-        SqliteProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        SqlDelightShowcasesProcessor::class,
+        MobileAndDesktopProcessor::class,
+        DatabaseCommonProcessor::class,
+        CommonStatelyProcessor::class,
+        SqliteProcessor::class
     )
 
     override fun doApply(state: TemplateState) {

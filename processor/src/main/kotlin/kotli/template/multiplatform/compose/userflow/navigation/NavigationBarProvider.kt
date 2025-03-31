@@ -10,6 +10,7 @@ import kotli.template.multiplatform.compose.userflow.navigation.dismissible.Dism
 import kotli.template.multiplatform.compose.userflow.navigation.modal.ModalNavigationProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.permanent.PermanentNavigationProcessor
 import kotli.template.multiplatform.compose.userflow.navigation.rail.RailNavigationProcessor
+import kotlin.reflect.KClass
 
 object NavigationBarProvider : BaseFeatureProvider() {
 
@@ -17,8 +18,8 @@ object NavigationBarProvider : BaseFeatureProvider() {
     override fun getType(): FeatureType = FeatureTypes.UserFlow
     override fun isMultiple(): Boolean = false
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        NavigationBarProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        NavigationBarProcessor::class
     )
 
     override fun createProcessors(): List<FeatureProcessor> = listOf(

@@ -8,5 +8,4 @@ object ChangeThemeShowcases {
 
     val dialog = Showcase.Screen("Change Theme Dialog", ChangeThemeDialogRoute)
     val screen = Showcase.Screen("Change Theme Screen", ChangeThemeRoute)
-
 }

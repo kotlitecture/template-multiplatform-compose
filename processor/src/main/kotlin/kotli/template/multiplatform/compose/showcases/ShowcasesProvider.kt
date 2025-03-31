@@ -22,14 +22,15 @@ import kotli.template.multiplatform.compose.showcases.userflow.passcode.Passcode
 import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.change.ChangeThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.toggle.ToggleThemeShowcasesProcessor
+import kotlin.reflect.KClass
 
 object ShowcasesProvider : BaseFeatureProvider() {
 
     override fun getId(): String = "showcases"
     override fun getType(): FeatureType = FeatureTypes.Examples
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        ShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        ShowcasesProcessor::class
     )
 
     override fun createProcessors(): List<FeatureProcessor> = listOf(

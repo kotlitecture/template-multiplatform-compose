@@ -5,6 +5,7 @@ import kotli.engine.TemplateState
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowcasesProcessor
+import kotlin.reflect.KClass
 
 object ChangeThemeShowcasesProcessor : BaseShowcasesProcessor() {
 
@@ -12,8 +13,8 @@ object ChangeThemeShowcasesProcessor : BaseShowcasesProcessor() {
 
     override fun getId(): String = ID
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        ThemeShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        ThemeShowcasesProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

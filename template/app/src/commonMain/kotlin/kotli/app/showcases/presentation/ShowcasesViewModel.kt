@@ -12,6 +12,7 @@ import kotli.app.showcases.presentation.dataflow.settings.`object`.ObjectSetting
 import kotli.app.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsRoute
 import kotli.app.showcases.presentation.dataflow.paging.basic.BasicPagingRoute
 import kotli.app.showcases.presentation.dataflow.room.crud.RoomCrudRoute
+import kotli.app.showcases.presentation.dataflow.room.paging.RoomPagingRoute
 import kotli.app.showcases.presentation.dataflow.sqldelight.crud.SqlDelightCrudRoute
 import kotli.app.showcases.presentation.dataflow.sqldelight.paging.SqlDelightPagingRoute
 import kotli.app.showcases.presentation.userflow.component.filepicker.FilePickerRoute
@@ -41,6 +42,7 @@ class ShowcasesViewModel : BaseViewModel() {
         BasicPagingRoute.screen,
         Showcase.Header("Dataflow :: Room"),
         RoomCrudRoute.screen,
+        RoomPagingRoute.screen,
         Showcase.Header("Dataflow :: SqlDelight"),
         SqlDelightCrudRoute.screen,
         SqlDelightPagingRoute.screen,
