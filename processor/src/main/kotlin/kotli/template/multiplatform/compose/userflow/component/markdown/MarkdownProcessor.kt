@@ -12,6 +12,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.userflow.component.markdown.MarkdownShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.component.image.coil.CoilProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object MarkdownProcessor : BaseFeatureProcessor() {
@@ -27,9 +28,9 @@ object MarkdownProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://github.com/mikepenz/multiplatform-markdown-renderer?tab=readme-ov-file#setup"
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MarkdownShowcasesProcessor::class.java,
-        CoilProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        MarkdownShowcasesProcessor::class,
+        CoilProcessor::class
     )
 
     override fun doApply(state: TemplateState) {

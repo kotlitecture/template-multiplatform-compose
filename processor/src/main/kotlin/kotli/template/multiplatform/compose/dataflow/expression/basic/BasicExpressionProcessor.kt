@@ -10,6 +10,7 @@ import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonStatelyCollectionsProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object BasicExpressionProcessor : BaseFeatureProcessor() {
@@ -20,8 +21,8 @@ object BasicExpressionProcessor : BaseFeatureProcessor() {
     override fun isInternal(): Boolean = true
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonStatelyCollectionsProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        CommonStatelyCollectionsProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

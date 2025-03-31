@@ -19,9 +19,9 @@ import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
 import kotli.template.multiplatform.compose.dataflow.encryption.EncryptionProvider
 import kotli.template.multiplatform.compose.dataflow.expression.ExpressionProvider
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
+import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
 import kotli.template.multiplatform.compose.dataflow.settings.SettingsProvider
 import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
-import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
 import kotli.template.multiplatform.compose.essentials.buildtool.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
@@ -34,6 +34,8 @@ import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvid
 import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
+import kotli.template.multiplatform.compose.testing.samples.SamplesProvider
+import kotli.template.multiplatform.compose.testing.samples.showcases.ShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.component.ComponentProvider
 import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
 import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
@@ -51,7 +53,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     override fun getId(): String = ID
     override fun getType(): LayerType = LayerTypes.Multiplatform
     override fun getWebUrl(): String =
-        "https://github.com/kotlitecture/template-multiplatform-compose"
+        "https://github.com/realAleksha/template-multiplatform-compose"
 
     override fun createPresets(): List<Layer> = listOf(
         createPreset(
@@ -62,7 +64,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 Feature(DataLoaderProcessor.ID),
                 Feature(SaveThemeProcessor.ID),
                 Feature(ChangeThemeProcessor.ID),
-                Feature(ToggleThemeProcessor.ID)
+                Feature(ToggleThemeProcessor.ID),
+                Feature(ShowcasesProcessor.ID),
             )
         )
     )
@@ -103,7 +106,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         LoaderProvider,
         ComponentProvider,
 
+        // testing
         LoggingProvider,
+        SamplesProvider,
 
         // showcases
         ShowcasesProvider,

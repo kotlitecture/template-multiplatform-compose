@@ -7,5 +7,4 @@ import kotlinx.serialization.Serializable
 object RoomCrudRoute {
 
     val screen = Showcase.Screen("Room CRUD", this)
-
 }

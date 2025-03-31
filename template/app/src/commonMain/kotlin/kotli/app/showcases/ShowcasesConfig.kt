@@ -28,6 +28,9 @@ import kotli.app.showcases.presentation.dataflow.paging.basic.BasicPagingViewMod
 import kotli.app.showcases.presentation.dataflow.room.crud.RoomCrudRoute
 import kotli.app.showcases.presentation.dataflow.room.crud.RoomCrudScreen
 import kotli.app.showcases.presentation.dataflow.room.crud.RoomCrudViewModel
+import kotli.app.showcases.presentation.dataflow.room.paging.RoomPagingRoute
+import kotli.app.showcases.presentation.dataflow.room.paging.RoomPagingScreen
+import kotli.app.showcases.presentation.dataflow.room.paging.RoomPagingViewModel
 import kotli.app.showcases.presentation.dataflow.settings.`object`.ObjectSettingsRoute
 import kotli.app.showcases.presentation.dataflow.settings.`object`.ObjectSettingsScreen
 import kotli.app.showcases.presentation.dataflow.settings.`object`.ObjectSettingsViewModel
@@ -70,7 +73,6 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<PlaceholderRoute> { PlaceholderScreen(navController::back) }
     composable<BasicLoaderRoute> { BasicLoaderScreen(navController::back) }
     composable<AdvancedLoaderRoute> { AdvancedLoaderScreen(navController::back) }
-    dialog<ToggleThemeRoute> { ToggleThemeScreen() }
     composable<GeminiRoute> { GeminiScreen(navController::back) }
     composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }
     composable<BasicEncryptionRoute> { BasicEncryptionScreen(navController::back) }
@@ -79,8 +81,10 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<PrimitiveSettingsRoute> { PrimitiveSettingsScreen(navController::back) }
     composable<BasicPagingRoute> { BasicPagingScreen(navController::back) }
     composable<RoomCrudRoute> { RoomCrudScreen(navController::back) }
+    composable<RoomPagingRoute> { RoomPagingScreen(navController::back) }
     composable<SqlDelightCrudRoute> { SqlDelightCrudScreen(navController::back) }
     composable<SqlDelightPagingRoute> { SqlDelightPagingScreen(navController::back) }
+    dialog<ToggleThemeRoute> { ToggleThemeScreen() }
 }
 
 fun InitializerViewModelFactoryBuilder.showcases() {
@@ -99,6 +103,7 @@ fun InitializerViewModelFactoryBuilder.showcases() {
     initializer { FilePickerViewModel() }
     initializer { GeminiViewModel(get()) }
     initializer { RoomCrudViewModel(get()) }
+    initializer { RoomPagingViewModel(get(), get(), get()) }
 }
 
 val showcases = module {}

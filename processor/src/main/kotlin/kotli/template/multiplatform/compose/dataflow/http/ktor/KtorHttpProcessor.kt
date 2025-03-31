@@ -11,6 +11,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.common.CommonKtorProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.http.HttpShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object KtorHttpProcessor : BaseFeatureProcessor() {
@@ -24,9 +25,9 @@ object KtorHttpProcessor : BaseFeatureProcessor() {
         "https://ktor.io/docs/client-create-new-application.html"
 
     override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonKtorProcessor::class.java,
-        HttpShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        CommonKtorProcessor::class,
+        HttpShowcasesProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

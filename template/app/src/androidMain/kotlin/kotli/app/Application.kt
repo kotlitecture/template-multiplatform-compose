@@ -11,5 +11,6 @@ class Application : AndroidApplication() {
 
     companion object {
         lateinit var ref: Application
+            private set
     }
 }

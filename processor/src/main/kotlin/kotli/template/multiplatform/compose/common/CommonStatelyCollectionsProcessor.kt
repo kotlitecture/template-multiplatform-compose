@@ -7,14 +7,15 @@ import kotli.engine.template.VersionCatalogRules
 import kotli.engine.template.rule.CleanupMarkedLine
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
+import kotlin.reflect.KClass
 
 object CommonStatelyCollectionsProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = "common.stately-collections"
     override fun isInternal(): Boolean = true
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        CommonStatelyProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        CommonStatelyProcessor::class
     )
 
     override fun doApply(state: TemplateState) {

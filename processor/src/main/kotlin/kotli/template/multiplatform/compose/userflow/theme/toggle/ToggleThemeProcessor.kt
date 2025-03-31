@@ -10,6 +10,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.userflow.theme.toggle.ToggleThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.userflow.theme.save.SaveThemeProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object ToggleThemeProcessor : BaseFeatureProcessor() {
@@ -20,9 +21,9 @@ object ToggleThemeProcessor : BaseFeatureProcessor() {
     override fun getTags(): List<FeatureTag> = Tags.AllClients
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        SaveThemeProcessor::class.java,
-        ToggleThemeShowcasesProcessor::class.java
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        SaveThemeProcessor::class,
+        ToggleThemeShowcasesProcessor::class
     )
 
     override fun doRemove(state: TemplateState) {

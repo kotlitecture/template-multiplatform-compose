@@ -20,6 +20,7 @@ import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatf
 import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.database.room.RoomShowcasesProcessor
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
 
 object RoomProcessor : BaseFeatureProcessor() {
@@ -43,12 +44,12 @@ object RoomProcessor : BaseFeatureProcessor() {
         ).isNotEmpty()
     }
 
-    override fun dependencies(): List<Class<out FeatureProcessor>> = listOf(
-        MobileAndDesktopProcessor::class.java,
-        DatabaseCommonProcessor::class.java,
-        RoomShowcasesProcessor::class.java,
-        CommonKspProcessor::class.java,
-        SqliteProcessor::class.java,
+    override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
+        MobileAndDesktopProcessor::class,
+        DatabaseCommonProcessor::class,
+        RoomShowcasesProcessor::class,
+        CommonKspProcessor::class,
+        SqliteProcessor::class,
     )
 
     override fun doApply(state: TemplateState) {

@@ -1,0 +1,1 @@
+Includes samples with all selected features in the project. These samples are displayed as the initial app screen and must be manually removed when they are no longer needed.

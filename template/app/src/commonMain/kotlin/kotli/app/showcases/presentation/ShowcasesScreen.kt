@@ -83,7 +83,7 @@ private fun HintBlock(
                 
                 Once everything is clear and you no longer require this screen, proceed with deletion:
 
-                1. Usage of `ShowcasesRoute` in `feature.navigation.provide.presentation.NavigationViewModel`.
+                1. Usage of `ShowcasesRoute` in `navigation.provide.presentation.NavigationViewModel`.
                 
                 2. Usage of `showcases()` in `AppConfig`.
                 
