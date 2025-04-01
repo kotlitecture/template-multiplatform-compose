@@ -3,7 +3,7 @@
 ## Overview
 
 - Component package: `app.theme.change`
-- DI integration: `app.di.ThemeModule`
+- DI integration: `app.theme.ThemeConfig`
 
 ## Example
 

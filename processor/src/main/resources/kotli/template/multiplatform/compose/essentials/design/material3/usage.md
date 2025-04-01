@@ -2,7 +2,7 @@
 
 - Component package: `app.theme`
 - State management: `shared.presentation.theme.ThemeState`
-- DI integration: `app.di.ThemeModule`
+- DI integration: `app.theme.ThemeConfig`
 
 This state instance is utilized by `app.theme.provide.presentation.ThemeProvider`, which is pre-defined at the app level to furnish themes for the entire application.
 

@@ -3,11 +3,11 @@
 ## Overview
 
 - Component package: `app.passcode`
-- DI integration: `app.di.PasscodeModule`
+- DI integration: `app.passcode.PasscodeConfig`
 
 The flow is pre-configured to effectively manage the app lifecycle through `app.passcode.presentation.provide.PasscodeProvider`.
 
-**Passcode settings** can be configured via `app.di.PasscodeModule` which is pre-configured at the DI level `PasscodeModule`.
+**Passcode settings** can be configured via `app.passcode.PasscodeConfig`.
 
 ```kotlin
 val passcodeModule = module {

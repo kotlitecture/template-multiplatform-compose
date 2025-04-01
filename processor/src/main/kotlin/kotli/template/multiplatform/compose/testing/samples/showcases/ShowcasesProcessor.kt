@@ -1,6 +1,7 @@
 package kotli.template.multiplatform.compose.testing.samples.showcases
 
 import kotli.engine.BaseFeatureProcessor
+import kotli.engine.FeatureTag
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.CleanupMarkedBlock
 import kotli.engine.template.rule.RemoveFile
@@ -8,12 +9,14 @@ import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.Rules
+import kotli.template.multiplatform.compose.Tags
 
 object ShowcasesProcessor : BaseFeatureProcessor() {
 
     const val ID = "testings.samples.showcases"
 
     override fun getId(): String = ID
+    override fun getTags(): List<FeatureTag> = Tags.AllClients
 
     override fun doApply(state: TemplateState) {
         state.onApplyRules(

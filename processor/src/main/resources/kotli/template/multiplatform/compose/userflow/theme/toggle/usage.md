@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.theme.toggle`
-- DI integration: `app.di.ThemeModule`
+- DI integration: `app.theme.ThemeConfig`
 
 ## Example
 
