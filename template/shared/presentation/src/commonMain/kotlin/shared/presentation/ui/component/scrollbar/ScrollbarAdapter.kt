@@ -53,7 +53,7 @@ expect interface ScrollbarAdapter {
 @Composable
 expect fun rememberScrollbarAdapter(
     scrollState: ScrollState
-): shared.presentation.ui.component.scrollbar.ScrollbarAdapter
+): ScrollbarAdapter
 
 /**
  * Create and [remember] [ScrollbarAdapter] for
@@ -62,7 +62,7 @@ expect fun rememberScrollbarAdapter(
 @Composable
 expect fun rememberScrollbarAdapter(
     scrollState: LazyListState,
-): shared.presentation.ui.component.scrollbar.ScrollbarAdapter
+): ScrollbarAdapter
 
 /**
  * Create and [remember] [ScrollbarAdapter] for lazy grid with
@@ -71,25 +71,25 @@ expect fun rememberScrollbarAdapter(
 @Composable
 expect fun rememberScrollbarAdapter(
     scrollState: LazyGridState,
-): shared.presentation.ui.component.scrollbar.ScrollbarAdapter
+): ScrollbarAdapter
 
 /**
  * ScrollbarAdapter for Modifier.verticalScroll and Modifier.horizontalScroll
  *
  * [scrollState] is instance of [ScrollState] which is used by scrollable component
  */
-expect fun ScrollbarAdapter(scrollState: ScrollState): shared.presentation.ui.component.scrollbar.ScrollbarAdapter
+expect fun ScrollbarAdapter(scrollState: ScrollState): ScrollbarAdapter
 
 /**
  * ScrollbarAdapter for lazy lists.
  *
  * [scrollState] is instance of [LazyListState] which is used by scrollable component
  */
-expect fun ScrollbarAdapter(scrollState: LazyListState): shared.presentation.ui.component.scrollbar.ScrollbarAdapter
+expect fun ScrollbarAdapter(scrollState: LazyListState): ScrollbarAdapter
 
 /**
  * ScrollbarAdapter for lazy grids.
  *
  * [scrollState] is instance of [LazyGridState] which is used by scrollable component
  */
-expect fun ScrollbarAdapter(scrollState: LazyGridState): shared.presentation.ui.component.scrollbar.ScrollbarAdapter
+expect fun ScrollbarAdapter(scrollState: LazyGridState): ScrollbarAdapter

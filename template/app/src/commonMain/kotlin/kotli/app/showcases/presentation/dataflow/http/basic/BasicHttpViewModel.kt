@@ -10,7 +10,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import shared.data.misc.isCancellationException
 import shared.data.source.http.HttpSource
-import shared.data.source.http.isHttpTimeoutException
 import shared.presentation.viewmodel.BaseViewModel
 
 class BasicHttpViewModel(
@@ -31,7 +30,7 @@ class BasicHttpViewModel(
             val ipData = httpSource.client.get(url).body<IpData>()
             _state.ip = ipData.ip
         } catch (e: Throwable) {
-            if (!e.isCancellationException() && !e.isHttpTimeoutException()) {
+            if (!e.isCancellationException()) {
                 _state.ip =
                     """
 Error (see system console):

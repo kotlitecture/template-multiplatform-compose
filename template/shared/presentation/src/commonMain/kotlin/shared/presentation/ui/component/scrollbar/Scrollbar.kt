@@ -33,7 +33,7 @@ import kotlin.math.roundToInt
  */
 @Composable
 internal fun Scrollbar(
-    adapter: shared.presentation.ui.component.scrollbar.ScrollbarAdapter,
+    adapter: ScrollbarAdapter,
     reverseLayout: Boolean,
     style: ScrollbarStyle,
     interactionSource: MutableInteractionSource,

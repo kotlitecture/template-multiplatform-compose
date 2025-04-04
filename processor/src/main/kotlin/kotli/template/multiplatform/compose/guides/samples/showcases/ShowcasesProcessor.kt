@@ -1,4 +1,4 @@
-package kotli.template.multiplatform.compose.testing.samples.showcases
+package kotli.template.multiplatform.compose.guides.samples.showcases
 
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.FeatureTag
@@ -13,7 +13,7 @@ import kotli.template.multiplatform.compose.Tags
 
 object ShowcasesProcessor : BaseFeatureProcessor() {
 
-    const val ID = "testings.samples.showcases"
+    const val ID = "guides.samples.showcases"
 
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients

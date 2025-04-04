@@ -29,12 +29,12 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
+import shared.presentation.theme.Theme
 import shared.presentation.ui.component.scrollbar.ScrollbarStyle
 import shared.presentation.ui.component.scrollbar.ThumbStyle
 import shared.presentation.ui.component.scrollbar.TrackStyle
 import shared.presentation.ui.component.scrollbar.VerticalScrollbar
 import shared.presentation.ui.component.scrollbar.rememberScrollbarAdapter
-import shared.presentation.theme.Theme
 
 @Composable
 @NonRestartableComposable
@@ -89,7 +89,7 @@ private fun AppVerticalScrollbar(
             .graphicsLayer {
                 alpha = scrollbarAlpha.value
             },
-        adapter = shared.presentation.ui.component.scrollbar.rememberScrollbarAdapter(scrollState = state),
+        adapter = rememberScrollbarAdapter(scrollState = state),
         style = defaultMaterialScrollbarStyle(),
         interactionSource = interactionSource,
         enablePressToScroll = false

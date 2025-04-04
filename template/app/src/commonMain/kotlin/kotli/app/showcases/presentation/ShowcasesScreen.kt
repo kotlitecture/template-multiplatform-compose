@@ -87,7 +87,7 @@ private fun HintBlock(
                 
                 2. Usage of `showcases()` in `AppConfig`.
                 
-                3. Package `feature.showcases`.
+                3. Package `showcases`.
             """.trimIndent(),
         confirmLabel = "Got it!",
         confirmAction = onHide
