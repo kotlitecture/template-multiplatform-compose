@@ -9,7 +9,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlin.math.roundToInt
 
 internal class SliderAdapter(
-    val adapter: shared.presentation.ui.component.scrollbar.ScrollbarAdapter,
+    val adapter: ScrollbarAdapter,
     private val trackSize: Int,
     private val minHeight: Float,
     private val reverseLayout: Boolean,
@@ -126,5 +126,5 @@ internal class SliderAdapter(
     }
 }
 
-internal val shared.presentation.ui.component.scrollbar.ScrollbarAdapter.maxScrollOffset: Double
+internal val ScrollbarAdapter.maxScrollOffset: Double
     get() = (contentSize - viewportSize).coerceAtLeast(0.0)

@@ -2,12 +2,9 @@ package shared.data.source.http
 
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
-import io.ktor.client.network.sockets.ConnectTimeoutException
-import io.ktor.client.network.sockets.SocketTimeoutException
 import io.ktor.client.plugins.BrowserUserAgent
 import io.ktor.client.plugins.HttpRedirect
 import io.ktor.client.plugins.HttpRequestRetry
-import io.ktor.client.plugins.HttpRequestTimeoutException
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -28,12 +25,10 @@ import shared.data.source.DataSource
  *
  * @param retries The number of retries to attempt in case of network errors.
  * @param timeout The timeout value for network operations, in milliseconds.
- * @param retryInterval The interval between retry attempts, in milliseconds.
  */
 class HttpSource(
-    private val retries: Int = 3,
+    private val retries: Int = 0,
     private val timeout: Long = 30_000L,
-    private val retryInterval: Long = 3_000L,
     private val config: HttpClientConfig<*>.() -> Unit = {}
 ) : DataSource {
 
@@ -73,12 +68,4 @@ class HttpSource(
             }
         }
     }
-
-}
-
-fun Throwable.isHttpTimeoutException(): Boolean {
-    val exception = this
-    return exception is HttpRequestTimeoutException ||
-            exception is ConnectTimeoutException ||
-            exception is SocketTimeoutException
 }

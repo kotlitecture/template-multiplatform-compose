@@ -28,7 +28,7 @@ object IOSPlatformProcessor : PlatformProcessor() {
         )
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("skie")
+                RemoveMarkedLine("client-darwin")
             )
         )
     }
