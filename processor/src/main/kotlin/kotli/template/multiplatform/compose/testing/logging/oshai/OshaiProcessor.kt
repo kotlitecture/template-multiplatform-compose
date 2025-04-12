@@ -27,7 +27,8 @@ object OshaiProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             VersionCatalogRules(
-                RemoveMarkedLine("kotlin-logging")
+                RemoveMarkedLine("kotlin-logging"),
+                RemoveMarkedLine("slf4j-simple"),
             )
         )
     }

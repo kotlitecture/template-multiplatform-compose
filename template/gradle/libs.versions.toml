@@ -8,7 +8,7 @@ androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.0"
 androidx-datastore = "1.1.4"
 androidx-navigation = "2.8.0-alpha11"
-androidx-room = "2.7.0-rc03"
+androidx-room = "2.7.0"
 androidx-splashscreen = "1.0.1"
 cashapp-paging = "3.3.0-alpha02-0.5.1"
 coil = "3.1.0"
@@ -31,8 +31,9 @@ markdown-renderer = "0.32.0"
 multiplatform-settings = "1.3.0"
 multiplatform-expressions-evaluator = "1.1.1"
 napier = "2.7.1"
+slf4j-simple = "2.0.17"
 sqldelight = "2.0.2"
-sqlite-bundled = "2.5.0-rc03"
+sqlite-bundled = "2.5.0"
 touchlab-stately = "2.1.0"
 touchlab-kermit = "2.0.4"
 
@@ -42,7 +43,6 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
 androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
-androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
 cashapp-paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "cashapp-paging" }
@@ -85,6 +85,7 @@ markdown-renderer-coil3 = { module = "com.mikepenz:multiplatform-markdown-render
 multiplatform-expressions-evaluator = { module = "io.github.murzagalin:multiplatform-expressions-evaluator", version.ref = "multiplatform-expressions-evaluator" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j-simple" }
 sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }

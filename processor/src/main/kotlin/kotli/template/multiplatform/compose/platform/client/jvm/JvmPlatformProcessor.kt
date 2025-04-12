@@ -45,7 +45,8 @@ object JvmPlatformProcessor : PlatformProcessor() {
             VersionCatalogRules(
                 RemoveMarkedLine("coroutines-swing"),
                 RemoveMarkedLine("compose-hot-reload"),
-                RemoveMarkedLine("client-java")
+                RemoveMarkedLine("client-java"),
+                RemoveMarkedLine("slf4j-simple")
             )
         )
     }
