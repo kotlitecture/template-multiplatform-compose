@@ -74,6 +74,7 @@ kotlin {
         }
         jsMain.get().dependsOn(skikoMain) // {platform.js}
         jvmMain.get().dependsOn(skikoMain) // {platform.jvm}
+        nativeMain.get().dependsOn(skikoMain) // {platform.ios}
     }
 }
 
