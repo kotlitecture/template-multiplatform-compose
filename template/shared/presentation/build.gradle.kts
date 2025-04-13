@@ -72,9 +72,8 @@ kotlin {
         val skikoMain by creating {
             dependsOn(commonMain.get())
         }
-        jsMain.get().dependsOn(skikoMain)
-        jvmMain.get().dependsOn(skikoMain)
-        nativeMain.get().dependsOn(skikoMain)
+        jsMain.get().dependsOn(skikoMain) // {platform.js}
+        jvmMain.get().dependsOn(skikoMain) // {platform.jvm}
     }
 }
 

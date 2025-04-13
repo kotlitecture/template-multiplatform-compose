@@ -98,6 +98,7 @@ kotlin {
         // {platform.js.dependencies}
         // {platform.jvm.dependencies}
         jvmMain.dependencies {
+            implementation(libs.slf4j.simple) // {kotlin.logging}
             implementation(compose.desktop.currentOs)
             implementation(libs.sqldelight.sqlite.driver) // {dataflow.database.sqldelight}
         }

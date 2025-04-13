@@ -1,4 +1,4 @@
 apply from: "${project.rootDir}/gradle/kotlin/processor.gradle"
 
 group = 'com.kotlitecture.kotli'
-version = '1.2.0'
+version = '1.2.1'
