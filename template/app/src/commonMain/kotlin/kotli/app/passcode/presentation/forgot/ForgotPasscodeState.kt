@@ -1,11 +1,11 @@
 package kotli.app.passcode.presentation.forgot
 
 import androidx.compose.runtime.Stable
+import shared.presentation.state.UiEvent
+import shared.presentation.state.ViewState
 
 @Stable
-interface ForgotPasscodeState {
+interface ForgotPasscodeState : ViewState {
 
-    val loading: Boolean
-    val event: ForgotPasscodeEvent?
-
+    object OnComplete : UiEvent
 }

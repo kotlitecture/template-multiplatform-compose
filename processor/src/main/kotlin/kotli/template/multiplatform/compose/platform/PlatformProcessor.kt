@@ -14,7 +14,9 @@ import kotlin.time.Duration.Companion.hours
 abstract class PlatformProcessor : BaseFeatureProcessor() {
 
     override fun getWebUrl(state: TemplateState): String = "https://www.jetbrains.com/lp/compose-multiplatform/"
-    override fun getIntegrationUrl(state: TemplateState): String = "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html"
+    override fun getIntegrationUrl(state: TemplateState): String =
+        "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html"
+
     override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
     override fun dependencies(): List<KClass<out FeatureProcessor>> = emptyList()
 
@@ -42,5 +44,4 @@ abstract class PlatformProcessor : BaseFeatureProcessor() {
             RemoveMarkedBlock(dependenciesBlock),
         )
     }
-
 }

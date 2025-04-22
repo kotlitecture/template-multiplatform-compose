@@ -1,1 +1,1 @@
-Based on KMP, Compose Multiplatform UI Framework and the latest recommended guidelines.
+Supercharged dev flow with KMP and Compose Multiplatform, following the latest best practices. Build fast, ship faster.

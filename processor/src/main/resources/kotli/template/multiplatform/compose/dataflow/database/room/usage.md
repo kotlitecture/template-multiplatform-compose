@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.common.data.source.database.room`
-- DI integration: `app.platform.PlatformConfig`
+- Integration config: `app.platform.PlatformConfig`
 
 The integration includes the following components:
 

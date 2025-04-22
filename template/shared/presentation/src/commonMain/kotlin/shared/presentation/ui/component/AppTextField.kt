@@ -5,8 +5,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.unit.dp
 import shared.presentation.ui.icon.AppIcons
 
@@ -18,7 +22,8 @@ fun AppTextField(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     singleLine: Boolean = false,
-    supportingText: String? = null
+    supportingText: String? = null,
+    autoFocus: Boolean = false
 ) {
     AppTextField(
         modifier = modifier,
@@ -28,7 +33,8 @@ fun AppTextField(
         enabled = enabled,
         readOnly = readOnly,
         singleLine = singleLine,
-        supportingText = supportingText
+        supportingText = supportingText,
+        autoFocus = autoFocus
     )
 }
 
@@ -41,11 +47,16 @@ fun AppTextField(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     singleLine: Boolean = false,
-    supportingText: String? = null
+    supportingText: String? = null,
+    autoFocus: Boolean = false
 ) {
     val value = getValue()
+    val focusRequester = remember { FocusRequester() }
+
     OutlinedTextField(
-        modifier = modifier,
+        modifier = modifier.then(
+            if (autoFocus) Modifier.focusRequester(focusRequester) else Modifier
+        ),
         enabled = enabled,
         readOnly = readOnly,
         singleLine = singleLine,
@@ -70,4 +81,10 @@ fun AppTextField(
                 }
             }
     )
+
+    if (autoFocus) {
+        LaunchedEffect(Unit) {
+            focusRequester.requestFocus()
+        }
+    }
 }

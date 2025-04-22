@@ -29,14 +29,6 @@ object MultiplatformPagingProcessor : BaseFeatureProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.PagingSource,
-            RemoveFile()
-        )
-        state.onApplyRules(
-            Rules.PagingSourceDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
             Rules.AppCommonConfigKt,
             RemoveMarkedLine("PagingSource")
         )
@@ -47,6 +39,10 @@ object MultiplatformPagingProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.DataBuildGradle,
             RemoveMarkedLine("cashapp.paging")
+        )
+        state.onApplyRules(
+            "*/paging/multiplatform/*",
+            RemoveFile()
         )
     }
 

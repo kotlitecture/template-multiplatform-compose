@@ -7,5 +7,4 @@ import kotlinx.serialization.Serializable
 object GeminiRoute {
 
     val screen = Showcase.Screen("Gemini AI", this)
-
 }

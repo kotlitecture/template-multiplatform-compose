@@ -1,6 +1,6 @@
 ## Overview
 
-- DI integration: `app.common.CommonConfig`
+- Integration config: `app.common.CommonConfig`
 - Data source: `shared.data.source.paging.PagingSource`
 - UI component: `shared.presentation.ui.component.AppPagingList`
 

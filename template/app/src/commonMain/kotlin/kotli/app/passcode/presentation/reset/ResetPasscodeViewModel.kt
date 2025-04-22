@@ -9,6 +9,10 @@ import kotli.app.passcode.domain.usecase.GetPasscodeLengthUseCase
 import kotli.app.passcode.domain.usecase.GetRemainingAttemptsUseCase
 import kotli.app.passcode.domain.usecase.ResetPasscodeUseCase
 import org.jetbrains.compose.resources.getString
+import shared.presentation.state.MutableViewState
+import shared.presentation.state.UiState
+import shared.presentation.state.notify
+import shared.presentation.state.tryCatch
 import shared.presentation.viewmodel.BaseViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_unlock_error
@@ -23,43 +27,43 @@ class ResetPasscodeViewModel(
     private val _state = ResetPasscodeMutableState(getPasscodeLength.invoke())
     val state: ResetPasscodeState = _state
 
-    fun onReset(enteredCode: String) {
+    fun onReset(code: String) {
         if (_state.passcodeLength == 0) return
 
         withState {
-            _state.enteredCode = enteredCode
+            _state.enteredCode = code
             _state.error = null
         }
 
-        if (enteredCode.length != _state.passcodeLength) return
+        if (code.length != _state.passcodeLength) return
 
-        async("Reset passcode", force = true) {
-            try {
-                _state.loading = true
-                if (checkPasscode.invoke(enteredCode) == LockState.UNLOCKED) {
-                    resetPasscode.invoke()
-                    _state.event = ResetPasscodeEvent.Complete
-                } else {
-                    val attempts = getAttempts.invoke()
-                    val error = getString(Res.string.passcode_unlock_error, attempts)
-                    withState {
-                        _state.enteredCode = ""
-                        _state.loading = false
-                        _state.error = error
+        async("onReset", force = true) {
+            _state.tryCatch(
+                title = "Reset passcode",
+                onTry = {
+                    withState { uiState = UiState.Blocking }
+                    if (checkPasscode.invoke(code) == LockState.UNLOCKED) {
+                        resetPasscode.invoke()
+                        _state.notify(ResetPasscodeState.OnComplete)
+                        withState { uiState = UiState.Ready }
+                    } else {
+                        val attempts = getAttempts.invoke()
+                        val unlockError = getString(Res.string.passcode_unlock_error, attempts)
+                        withState {
+                            enteredCode = ""
+                            error = unlockError
+                            uiState = UiState.Ready
+                        }
                     }
                 }
-            } finally {
-                _state.loading = false
-            }
+            )
         }
     }
 
     private class ResetPasscodeMutableState(
         override val passcodeLength: Int
-    ) : ResetPasscodeState {
+    ) : MutableViewState(), ResetPasscodeState {
         override var error: String? by mutableStateOf(null)
-        override var loading: Boolean by mutableStateOf(false)
         override var enteredCode: String by mutableStateOf("")
-        override var event: ResetPasscodeEvent? by mutableStateOf(null)
     }
 }

@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.theme.change`
-- DI integration: `app.theme.ThemeConfig`
+- Integration config: `app.theme.ThemeConfig`
 
 ## Example
 

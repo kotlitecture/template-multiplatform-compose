@@ -13,6 +13,13 @@ import kotlin.reflect.KClass
 data class DefaultEncodingStrategy<T : Any>(private val type: KClass<T>) :
     EncodingStrategy<T> {
 
+    /**
+     * Decodes a string representation into an object of type [T].
+     *
+     * @param from The string to decode.
+     * @return The decoded object of type [T].
+     * @throws IllegalStateException If the type is not supported by this strategy.
+     */
     override fun decode(from: String): T {
         val decoded: Any? = when (type) {
             String::class -> from
@@ -27,6 +34,13 @@ data class DefaultEncodingStrategy<T : Any>(private val type: KClass<T>) :
         return decoded as T
     }
 
+    /**
+     * Encodes an object of type [T] into its string representation.
+     *
+     * @param from The object to encode.
+     * @return The string representation of the object.
+     * @throws IllegalStateException If the type is not supported by this strategy.
+     */
     override fun encode(from: T): String {
         return when (type) {
             String::class -> from.toString()
@@ -40,6 +54,11 @@ data class DefaultEncodingStrategy<T : Any>(private val type: KClass<T>) :
         }
     }
 
+    /**
+     * Gets the type of the serialized object.
+     *
+     * @return The class representing the type [T].
+     */
     override fun getType(): KClass<T> {
         return type
     }

@@ -4,17 +4,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
-import io.github.vinceglb.filekit.compose.rememberFilePickerLauncher
-import io.github.vinceglb.filekit.core.PickerMode
-import io.github.vinceglb.filekit.core.PickerType
-import io.github.vinceglb.filekit.core.PlatformFile
-import io.github.vinceglb.filekit.core.PlatformFiles
+import io.github.vinceglb.filekit.PlatformFile
+import io.github.vinceglb.filekit.dialogs.FileKitMode
+import io.github.vinceglb.filekit.dialogs.FileKitType
+import io.github.vinceglb.filekit.dialogs.compose.rememberFilePickerLauncher
+import io.github.vinceglb.filekit.name
+import io.github.vinceglb.filekit.readBytes
+import io.github.vinceglb.filekit.size
 
 private const val MAX_FILES = 50
 
 data class AppFilePickerFile(
     val name: String,
-    val path: String?,
     val getSize: () -> Long?,
     val readBytes: suspend () -> ByteArray,
 )
@@ -29,11 +30,11 @@ fun interface AppFilePickerLauncher {
 fun getFileLauncher(
     maxFiles: Int = MAX_FILES,
     title: String? = null,
-    extensions: List<String>? = null,
+    extensions: Set<String>? = null,
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
     return getLauncher(
-        type = PickerType.File(extensions),
+        type = FileKitType.File(extensions),
         maxFiles = maxFiles,
         onResult = onResult,
         title = title,
@@ -48,7 +49,7 @@ fun getImageLauncher(
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
     return getLauncher(
-        type = PickerType.Image,
+        type = FileKitType.Image,
         maxFiles = maxFiles,
         onResult = onResult,
         title = title,
@@ -63,7 +64,7 @@ fun getVideoLauncher(
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
     return getLauncher(
-        type = PickerType.Video,
+        type = FileKitType.Video,
         maxFiles = maxFiles,
         onResult = onResult,
         title = title,
@@ -78,7 +79,7 @@ fun getMediaLauncher(
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
     return getLauncher(
-        type = PickerType.ImageAndVideo,
+        type = FileKitType.ImageAndVideo,
         maxFiles = maxFiles,
         onResult = onResult,
         title = title,
@@ -87,8 +88,7 @@ fun getMediaLauncher(
 
 private fun PlatformFile.toAppFile() = AppFilePickerFile(
     name = name,
-    path = path,
-    getSize = this::getSize,
+    getSize = this::size,
     readBytes = this::readBytes
 )
 
@@ -96,8 +96,8 @@ private fun PlatformFile.toAppFile() = AppFilePickerFile(
 private fun getLauncher(
     maxFiles: Int = MAX_FILES,
     title: String? = null,
-    type: PickerType = PickerType.File(),
-    mode: PickerMode<PlatformFiles> = PickerMode.Multiple(maxFiles),
+    type: FileKitType = FileKitType.File(),
+    mode: FileKitMode<List<PlatformFile>> = FileKitMode.Multiple(maxFiles),
     onResult: (files: List<AppFilePickerFile>) -> Unit
 ): AppFilePickerLauncher {
     val launcher = rememberFilePickerLauncher(title = title, mode = mode, type = type) { files ->

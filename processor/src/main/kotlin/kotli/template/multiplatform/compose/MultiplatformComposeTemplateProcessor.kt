@@ -23,30 +23,27 @@ import kotli.template.multiplatform.compose.dataflow.expression.ExpressionProvid
 import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
 import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
 import kotli.template.multiplatform.compose.dataflow.settings.SettingsProvider
-import kotli.template.multiplatform.compose.dataflow.settings.multiplatform.MultiplatformSettingsProcessor
 import kotli.template.multiplatform.compose.essentials.buildtool.BuildToolProvider
 import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
 import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
 import kotli.template.multiplatform.compose.essentials.navigation.NavigationProvider
 import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
 import kotli.template.multiplatform.compose.guides.samples.SamplesProvider
-import kotli.template.multiplatform.compose.guides.samples.showcases.ShowcasesProcessor
+import kotli.template.multiplatform.compose.guides.templates.TemplatesProvider
 import kotli.template.multiplatform.compose.platform.client.ClientPlatformProvider
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
+import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
 import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvider
 import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
-import kotli.template.multiplatform.compose.userflow.component.ComponentProvider
-import kotli.template.multiplatform.compose.userflow.loader.LoaderProvider
-import kotli.template.multiplatform.compose.userflow.loader.data.DataLoaderProcessor
+import kotli.template.multiplatform.compose.userflow.auth.AuthProvider
+import kotli.template.multiplatform.compose.userflow.common.component.ComponentProvider
 import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProvider
 import kotli.template.multiplatform.compose.userflow.passcode.PasscodeProvider
+import kotli.template.multiplatform.compose.userflow.profile.ProfileProvider
 import kotli.template.multiplatform.compose.userflow.theme.ThemeProvider
-import kotli.template.multiplatform.compose.userflow.theme.change.ChangeThemeProcessor
-import kotli.template.multiplatform.compose.userflow.theme.save.SaveThemeProcessor
-import kotli.template.multiplatform.compose.userflow.theme.toggle.ToggleThemeProcessor
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -62,13 +59,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             features = listOf(
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
-                Feature(MultiplatformSettingsProcessor.ID),
-                Feature(DataLoaderProcessor.ID),
-                Feature(SaveThemeProcessor.ID),
-                Feature(ChangeThemeProcessor.ID),
-                Feature(ToggleThemeProcessor.ID),
-                Feature(ReadmeProcessor.getId()),
-                Feature(ShowcasesProcessor.ID),
+                Feature(JvmPlatformProcessor.ID),
+                Feature(ReadmeProcessor.getId())
             )
         )
     )
@@ -105,8 +97,9 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         // userflow
         NavigationBarProvider,
         ThemeProvider,
+        AuthProvider,
         PasscodeProvider,
-        LoaderProvider,
+        ProfileProvider,
         ComponentProvider,
 
         // testing
@@ -115,6 +108,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         // guides
         DocumentationProvider,
         SamplesProvider,
+        TemplatesProvider,
 
         // showcases
         ShowcasesProvider,

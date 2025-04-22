@@ -1,1 +1,1 @@
-Ktor Server
+Ktor

@@ -49,7 +49,7 @@ kotlin {
             implementation(compose.material3)
             implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
             implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor2)
+            implementation(libs.coil.network.ktor3)
             implementation(libs.filekit.compose)
             implementation(libs.markdown.renderer) // {userflow.component.markdown}
             implementation(libs.markdown.renderer.m3) // {userflow.component.markdown}
@@ -69,6 +69,17 @@ kotlin {
             api(libs.kotlinx.coroutines.swing)
         }
         // {platform.jvm.dependencies}
+        // {platform.mobile_and_desktop.dependencies}
+        val mobileAndDesktopMain by creating {
+            dependsOn(commonMain.get())
+            dependencies {
+                implementation(libs.androidx.paging.compose)
+            }
+        }
+        androidMain.get().dependsOn(mobileAndDesktopMain) // {platform.android}
+//        iosMain.get().dependsOn(mobileAndDesktopMain) // {platform.ios}
+//        jvmMain.get().dependsOn(mobileAndDesktopMain) // {platform.jvm}
+        // {platform.mobile_and_desktop.dependencies}
         val skikoMain by creating {
             dependsOn(commonMain.get())
         }

@@ -17,7 +17,7 @@ dependencies {
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.server.serialization.json)
     implementation(projects.shared.domain)
-    testImplementation(libs.ktor.server.tests)
+    testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
 }
 

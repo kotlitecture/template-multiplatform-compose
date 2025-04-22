@@ -1,7 +1,7 @@
 ## Overview
 
 - Component package: `app.theme.provide`
-- DI integration: `app.theme.ThemeConfig`
+- Integration config: `app.theme.ThemeConfig`
 
 The current theme state is managed by an instance of `shared.presentation.theme.ThemeState`. This class provides a `currentState` property representing the currently selected theme configuration.
 

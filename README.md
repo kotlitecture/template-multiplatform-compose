@@ -6,7 +6,8 @@
 - iOS
 - Web (JS)
 - Desktop (Windows, MacOS, Linux)
-- Backend (Server)
+- Backend (Ktor Server)
+- Backend (Supabase)
 
 ```
 All target platforms are optional and will be included only if selected during configuration, along with any features.
@@ -106,11 +107,7 @@ Once you download and import the initial project structure into your IDE, the pr
 
 ## Backend
 
-The server architecture is based on either the [Ktor Framework](https://ktor.io) or [Spring Boot](https://spring.io/projects/spring-boot).
-
-Backend-specific logic is implemented in the `backend` module.
-
-To enable sharing some common models between the **backend** and **frontend**, the project also includes a `domain` module as part of the **shared** group.
+The server architecture is based on either the [Ktor Framework](https://ktor.io) or [Spring Boot](https://spring.io/projects/spring-boot) or any other possible solution.
 
 # Documentation
 
@@ -149,40 +146,44 @@ The generated project will include a similar table in its README.MD file, but wi
 
 | Group | Feature | Overview | Configuration | Usage |
 |-------|---------|----------|---------------|-------|
-| Platform | iOS | [Link](docs/Platform/iOS/overview.md) | - | [Link](docs/Platform/iOS/usage.md) |
-| Platform | Android | [Link](docs/Platform/Android/overview.md) | - | [Link](docs/Platform/Android/usage.md) |
-| Platform | Desktop | [Link](docs/Platform/Desktop/overview.md) | - | [Link](docs/Platform/Desktop/usage.md) |
-| Platform | Web (JS) | [Link](docs/Platform/Web%20%28JS%29/overview.md) | - | [Link](docs/Platform/Web%20%28JS%29/usage.md) |
-| Platform | Ktor Server | [Link](docs/Platform/Ktor%20Server/overview.md) | - | [Link](docs/Platform/Ktor%20Server/usage.md) |
-| Essentials | Compose Multiplatform | [Link](docs/Essentials/Compose%20Multiplatform/overview.md) | - | - |
-| Essentials | Jetpack Navigation | [Link](docs/Essentials/Jetpack%20Navigation/overview.md) | - | [Link](docs/Essentials/Jetpack%20Navigation/usage.md) |
-| Essentials | Material 3 | [Link](docs/Essentials/Material%203/overview.md) | - | [Link](docs/Essentials/Material%203/usage.md) |
-| Essentials | Koin | [Link](docs/Essentials/Koin/overview.md) | - | - |
-| Essentials | Gradle (Kotlin DSL) | [Link](docs/Essentials/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
-| Dataflow | Korlibs Crypto Library | [Link](docs/Dataflow/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Dataflow/Korlibs%20Crypto%20Library/usage.md) |
-| Dataflow | Basic Cache API | [Link](docs/Dataflow/Basic%20Cache%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20Cache%20API/usage.md) |
-| Dataflow | Basic Config API | [Link](docs/Dataflow/Basic%20Config%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20Config%20API/usage.md) |
-| Dataflow | SQLDelight | [Link](docs/Dataflow/SQLDelight/overview.md) | - | [Link](docs/Dataflow/SQLDelight/usage.md) |
-| Dataflow | SQLite (Room) | [Link](docs/Dataflow/SQLite%20%28Room%29/overview.md) | - | [Link](docs/Dataflow/SQLite%20%28Room%29/usage.md) |
-| Dataflow | Ktor HTTP Client | [Link](docs/Dataflow/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Dataflow/Ktor%20HTTP%20Client/usage.md) |
-| Dataflow | Multiplatform Paging Library | [Link](docs/Dataflow/Multiplatform%20Paging%20Library/overview.md) | - | [Link](docs/Dataflow/Multiplatform%20Paging%20Library/usage.md) |
-| Dataflow | Basic Analytics API | [Link](docs/Dataflow/Basic%20Analytics%20API/overview.md) | - | [Link](docs/Dataflow/Basic%20Analytics%20API/usage.md) |
-| Dataflow | Gemini AI | [Link](docs/Dataflow/Gemini%20AI/overview.md) | - | [Link](docs/Dataflow/Gemini%20AI/usage.md) |
-| Userflow | Coil Image Library | [Link](docs/Userflow/Coil%20Image%20Library/overview.md) | - | [Link](docs/Userflow/Coil%20Image%20Library/usage.md) |
-| Userflow | Markdown Text Renderer | [Link](docs/Userflow/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/Userflow/Markdown%20Text%20Renderer/usage.md) |
-| Userflow | Adaptive Navigation | [Link](docs/Userflow/Adaptive%20Navigation/overview.md) | - | [Link](docs/Userflow/Adaptive%20Navigation/usage.md) |
-| Userflow | Bottom Navigation | [Link](docs/Userflow/Bottom%20Navigation/overview.md) | - | [Link](docs/Userflow/Bottom%20Navigation/usage.md) |
-| Userflow | Dismissible Navigation | [Link](docs/Userflow/Dismissible%20Navigation/overview.md) | - | [Link](docs/Userflow/Dismissible%20Navigation/usage.md) |
-| Userflow | Modal Navigation | [Link](docs/Userflow/Modal%20Navigation/overview.md) | - | [Link](docs/Userflow/Modal%20Navigation/usage.md) |
-| Userflow | Permanent Navigation | [Link](docs/Userflow/Permanent%20Navigation/overview.md) | - | [Link](docs/Userflow/Permanent%20Navigation/usage.md) |
-| Userflow | Rail Navigation | [Link](docs/Userflow/Rail%20Navigation/overview.md) | - | [Link](docs/Userflow/Rail%20Navigation/usage.md) |
-| Userflow | Save Theme API | [Link](docs/Userflow/Save%20Theme%20API/overview.md) | - | [Link](docs/Userflow/Save%20Theme%20API/usage.md) |
-| Userflow | Change Theme Screen | [Link](docs/Userflow/Change%20Theme%20Screen/overview.md) | - | [Link](docs/Userflow/Change%20Theme%20Screen/usage.md) |
-| Userflow | Toggle Theme Button | [Link](docs/Userflow/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/Userflow/Toggle%20Theme%20Button/usage.md) |
-| Userflow | Data Loading Indicator | [Link](docs/Userflow/Data%20Loading%20Indicator/overview.md) | - | [Link](docs/Userflow/Data%20Loading%20Indicator/usage.md) |
-| Userflow | Passcode Flow | [Link](docs/Userflow/Passcode%20Flow/overview.md) | - | [Link](docs/Userflow/Passcode%20Flow/usage.md) |
-| Userflow | Placeholder UI | [Link](docs/Userflow/Placeholder%20UI/overview.md) | - | [Link](docs/Userflow/Placeholder%20UI/usage.md) |
-| Userflow | FileKit | [Link](docs/Userflow/FileKit/overview.md) | - | [Link](docs/Userflow/FileKit/usage.md) |
-| Testing | kotlin-logging | [Link](docs/Testing/kotlin-logging/overview.md) | - | [Link](docs/Testing/kotlin-logging/usage.md) |
-| Testing | Kermit | [Link](docs/Testing/Kermit/overview.md) | - | [Link](docs/Testing/Kermit/usage.md) |
-| Testing | Napier | [Link](docs/Testing/Napier/overview.md) | - | [Link](docs/Testing/Napier/usage.md) |
+| Platforms | iOS | [Link](docs/Platforms/iOS/overview.md) | - | [Link](docs/Platforms/iOS/usage.md) |
+| Platforms | Android | [Link](docs/Platforms/Android/overview.md) | - | [Link](docs/Platforms/Android/usage.md) |
+| Platforms | Desktop | [Link](docs/Platforms/Desktop/overview.md) | - | [Link](docs/Platforms/Desktop/usage.md) |
+| Platforms | Web (JS) | [Link](docs/Platforms/Web%20%28JS%29/overview.md) | - | [Link](docs/Platforms/Web%20%28JS%29/usage.md) |
+| Platforms | Ktor | [Link](docs/Platforms/Ktor/overview.md) | - | [Link](docs/Platforms/Ktor/usage.md) |
+| Platforms | Supabase | [Link](docs/Platforms/Supabase/overview.md) | - | [Link](docs/Platforms/Supabase/usage.md) |
+| Base Setup | Compose Multiplatform | [Link](docs/Base%20Setup/Compose%20Multiplatform/overview.md) | - | - |
+| Base Setup | Jetpack Navigation | [Link](docs/Base%20Setup/Jetpack%20Navigation/overview.md) | - | [Link](docs/Base%20Setup/Jetpack%20Navigation/usage.md) |
+| Base Setup | Material 3 | [Link](docs/Base%20Setup/Material%203/overview.md) | - | [Link](docs/Base%20Setup/Material%203/usage.md) |
+| Base Setup | Koin | [Link](docs/Base%20Setup/Koin/overview.md) | - | - |
+| Base Setup | Gradle (Kotlin DSL) | [Link](docs/Base%20Setup/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
+| Data Flows | Korlibs Crypto Library | [Link](docs/Data%20Flows/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Data%20Flows/Korlibs%20Crypto%20Library/usage.md) |
+| Data Flows | Basic Cache API | [Link](docs/Data%20Flows/Basic%20Cache%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Cache%20API/usage.md) |
+| Data Flows | Basic Config API | [Link](docs/Data%20Flows/Basic%20Config%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Config%20API/usage.md) |
+| Data Flows | SQLDelight | [Link](docs/Data%20Flows/SQLDelight/overview.md) | - | [Link](docs/Data%20Flows/SQLDelight/usage.md) |
+| Data Flows | SQLite (Jetpack Room) | [Link](docs/Data%20Flows/SQLite%20%28Jetpack%20Room%29/overview.md) | - | [Link](docs/Data%20Flows/SQLite%20%28Jetpack%20Room%29/usage.md) |
+| Data Flows | Ktor HTTP Client | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/usage.md) |
+| Data Flows | Multiplatform Paging Library | [Link](docs/Data%20Flows/Multiplatform%20Paging%20Library/overview.md) | - | [Link](docs/Data%20Flows/Multiplatform%20Paging%20Library/usage.md) |
+| Data Flows | Basic Analytics API | [Link](docs/Data%20Flows/Basic%20Analytics%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Analytics%20API/usage.md) |
+| Data Flows | Gemini AI | [Link](docs/Data%20Flows/Gemini%20AI/overview.md) | - | [Link](docs/Data%20Flows/Gemini%20AI/usage.md) |
+| User Flows | Coil Image Library | [Link](docs/User%20Flows/Coil%20Image%20Library/overview.md) | - | [Link](docs/User%20Flows/Coil%20Image%20Library/usage.md) |
+| User Flows | Markdown Text Renderer | [Link](docs/User%20Flows/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/User%20Flows/Markdown%20Text%20Renderer/usage.md) |
+| User Flows | Adaptive Navigation | [Link](docs/User%20Flows/Adaptive%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Adaptive%20Navigation/usage.md) |
+| User Flows | Bottom Navigation | [Link](docs/User%20Flows/Bottom%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Bottom%20Navigation/usage.md) |
+| User Flows | Dismissible Navigation | [Link](docs/User%20Flows/Dismissible%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Dismissible%20Navigation/usage.md) |
+| User Flows | Modal Navigation | [Link](docs/User%20Flows/Modal%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Modal%20Navigation/usage.md) |
+| User Flows | Permanent Navigation | [Link](docs/User%20Flows/Permanent%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Permanent%20Navigation/usage.md) |
+| User Flows | Rail Navigation | [Link](docs/User%20Flows/Rail%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Rail%20Navigation/usage.md) |
+| User Flows | Save Theme API | [Link](docs/User%20Flows/Save%20Theme%20API/overview.md) | - | [Link](docs/User%20Flows/Save%20Theme%20API/usage.md) |
+| User Flows | Change Theme Screen | [Link](docs/User%20Flows/Change%20Theme%20Screen/overview.md) | - | [Link](docs/User%20Flows/Change%20Theme%20Screen/usage.md) |
+| User Flows | Toggle Theme Button | [Link](docs/User%20Flows/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/User%20Flows/Toggle%20Theme%20Button/usage.md) |
+| User Flows | Auth Flow | [Link](docs/User%20Flows/Auth%20Flow/overview.md) | - | [Link](docs/User%20Flows/Auth%20Flow/usage.md) |
+| User Flows | Passcode Flow | [Link](docs/User%20Flows/Passcode%20Flow/overview.md) | - | [Link](docs/User%20Flows/Passcode%20Flow/usage.md) |
+| User Flows | Placeholder UI | [Link](docs/User%20Flows/Placeholder%20UI/overview.md) | - | [Link](docs/User%20Flows/Placeholder%20UI/usage.md) |
+| User Flows | FileKit | [Link](docs/User%20Flows/FileKit/overview.md) | - | [Link](docs/User%20Flows/FileKit/usage.md) |
+| Dev Tools | kotlin-logging | [Link](docs/Dev%20Tools/kotlin-logging/overview.md) | - | [Link](docs/Dev%20Tools/kotlin-logging/usage.md) |
+| Dev Tools | Kermit | [Link](docs/Dev%20Tools/Kermit/overview.md) | - | [Link](docs/Dev%20Tools/Kermit/usage.md) |
+| Dev Tools | Napier | [Link](docs/Dev%20Tools/Napier/overview.md) | - | [Link](docs/Dev%20Tools/Napier/usage.md) |
+| Guides | README.md | [Link](docs/Guides/README.md/overview.md) | - | - |
+| Guides | Feature Showcases | [Link](docs/Guides/Feature%20Showcases/overview.md) | - | - |
+| Guides | Feature Template | [Link](docs/Guides/Feature%20Template/overview.md) | - | [Link](docs/Guides/Feature%20Template/usage.md) |

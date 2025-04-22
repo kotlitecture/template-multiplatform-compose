@@ -21,7 +21,7 @@ class RoomPagingViewModel(
     private val _state = RoomPagingMutableState(pager)
     val state: RoomPagingState = _state
 
-    override fun doBind() = async("Init users") {
+    override fun doBind() = async("doBind") {
         val max = 100
         val count = databaseSource.getUsersCount()
         if (count < max) {

@@ -8,19 +8,18 @@ import kotli.app.showcases.presentation.dataflow.ai.gemini.GeminiRoute
 import kotli.app.showcases.presentation.dataflow.cache.basic.BasicCacheRoute
 import kotli.app.showcases.presentation.dataflow.encryption.BasicEncryptionRoute
 import kotli.app.showcases.presentation.dataflow.http.basic.BasicHttpRoute
-import kotli.app.showcases.presentation.dataflow.settings.`object`.ObjectSettingsRoute
-import kotli.app.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsRoute
 import kotli.app.showcases.presentation.dataflow.paging.basic.BasicPagingRoute
 import kotli.app.showcases.presentation.dataflow.room.crud.RoomCrudRoute
 import kotli.app.showcases.presentation.dataflow.room.paging.RoomPagingRoute
+import kotli.app.showcases.presentation.dataflow.settings.`object`.ObjectSettingsRoute
+import kotli.app.showcases.presentation.dataflow.settings.primitive.PrimitiveSettingsRoute
 import kotli.app.showcases.presentation.dataflow.sqldelight.crud.SqlDelightCrudRoute
 import kotli.app.showcases.presentation.dataflow.sqldelight.paging.SqlDelightPagingRoute
-import kotli.app.showcases.presentation.userflow.component.filepicker.FilePickerRoute
-import kotli.app.showcases.presentation.userflow.component.image.coil.CoilRoute
-import kotli.app.showcases.presentation.userflow.component.markdown.MarkdownRoute
-import kotli.app.showcases.presentation.userflow.component.placeholder.PlaceholderRoute
-import kotli.app.showcases.presentation.userflow.loader.advanced.AdvancedLoaderRoute
-import kotli.app.showcases.presentation.userflow.loader.basic.BasicLoaderRoute
+import kotli.app.showcases.presentation.userflow.auth.AuthShowcases
+import kotli.app.showcases.presentation.userflow.common.component.filepicker.FilePickerRoute
+import kotli.app.showcases.presentation.userflow.common.component.image.coil.CoilRoute
+import kotli.app.showcases.presentation.userflow.common.component.markdown.MarkdownRoute
+import kotli.app.showcases.presentation.userflow.common.component.placeholder.PlaceholderRoute
 import kotli.app.showcases.presentation.userflow.passcode.PasscodeShowcases
 import kotli.app.showcases.presentation.userflow.theme.change.ChangeThemeShowcases
 import kotli.app.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
@@ -29,36 +28,35 @@ import shared.presentation.viewmodel.BaseViewModel
 class ShowcasesViewModel : BaseViewModel() {
 
     private val showcases = listOf(
-        Showcase.Header("Dataflow :: Cache"),
+        Showcase.Header("Data Flow :: Cache"),
         BasicCacheRoute.screen,
-        Showcase.Header("Dataflow :: Encryption"),
+        Showcase.Header("Data Flow :: Encryption"),
         BasicEncryptionRoute.screen,
-        Showcase.Header("Dataflow :: Http"),
+        Showcase.Header("Data Flow :: Http"),
         BasicHttpRoute.screen,
-        Showcase.Header("Dataflow :: Settings"),
+        Showcase.Header("Data Flow :: Settings"),
         PrimitiveSettingsRoute.screen,
         ObjectSettingsRoute.screen,
-        Showcase.Header("Dataflow :: Paging"),
+        Showcase.Header("Data Flow :: Paging"),
         BasicPagingRoute.screen,
-        Showcase.Header("Dataflow :: Room"),
+        Showcase.Header("Data Flow :: Room"),
         RoomCrudRoute.screen,
         RoomPagingRoute.screen,
-        Showcase.Header("Dataflow :: SqlDelight"),
+        Showcase.Header("Data Flow :: SqlDelight"),
         SqlDelightCrudRoute.screen,
         SqlDelightPagingRoute.screen,
-        Showcase.Header("Dataflow :: AI"),
+        Showcase.Header("Data Flow :: AI"),
         GeminiRoute.screen,
-        Showcase.Header("Userflow :: Loader"),
-        BasicLoaderRoute.screen,
-        AdvancedLoaderRoute.screen,
-        Showcase.Header("Userflow :: Theme"),
+        Showcase.Header("User Flow :: Theme"),
         ChangeThemeShowcases.screen,
         ChangeThemeShowcases.dialog,
         ToggleThemeRoute.screen,
-        Showcase.Header("Userflow :: Passcode"),
+        Showcase.Header("User Flow :: Passcode"),
         PasscodeShowcases.set,
         PasscodeShowcases.reset,
-        Showcase.Header("Userflow :: Design Components"),
+        Showcase.Header("User Flow :: Auth"),
+        AuthShowcases.basic,
+        Showcase.Header("User Flow :: Components"),
         PlaceholderRoute.screen,
         FilePickerRoute.screen,
         MarkdownRoute.screen,

@@ -4,7 +4,7 @@ import kotli.engine.FeatureProcessor
 import kotli.engine.TemplateState
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.showcases.BaseShowcasesProcessor
-import kotli.template.multiplatform.compose.userflow.component.markdown.MarkdownProcessor
+import kotli.template.multiplatform.compose.userflow.common.component.markdown.MarkdownProcessor
 import kotlin.reflect.KClass
 
 object GeminiShowcasesProcessor : BaseShowcasesProcessor() {
@@ -20,7 +20,7 @@ object GeminiShowcasesProcessor : BaseShowcasesProcessor() {
     override fun doRemove(state: TemplateState) {
         removeDir(state, "${Rules.AppShowcasesDataflow}/ai/gemini")
         removeFromConfig(state, "Gemini")
-        removeFromViewModel(state, "Dataflow :: AI", "Gemini")
+        removeFromViewModel(state, "Data Flow :: AI", "Gemini")
     }
 
 }

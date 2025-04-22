@@ -12,12 +12,9 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlin.collections.set
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -31,6 +28,15 @@ abstract class BaseViewModel : ViewModel() {
 
     private val jobs = mutableMapOf<String, Job>()
     private var initialized = false
+
+    /**
+     * Take a MutableSnapshot and run block within it on the main thread.
+     */
+    fun withState(block: () -> Unit) {
+        viewModelScope.launch(Dispatchers.Main.immediate) {
+            Snapshot.withMutableSnapshot(block)
+        }
+    }
 
     /**
      * Launches a coroutine in the main thread context.
@@ -69,19 +75,6 @@ abstract class BaseViewModel : ViewModel() {
         )
     }
 
-    /**
-     * Take a MutableSnapshot and run block within it on the main thread.
-     */
-    protected fun withState(block: () -> Unit) {
-        viewModelScope.launch(Dispatchers.Main.immediate) {
-            Snapshot.withMutableSnapshot(block)
-        }
-    }
-
-    protected suspend fun <T> withAsync(block: suspend CoroutineScope.() -> T): Deferred<T> {
-        return viewModelScope.async(Dispatchers.Default) { block.invoke(this) }
-    }
-
     private fun launch(
         id: String,
         force: Boolean = false,
@@ -111,6 +104,12 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * Lifecycle-aware method called when binding the ViewModel to a view.
      */
+    @Composable
+    protected open fun DoBind() = Unit
+
+    /**
+     * Lifecycle-aware method called when binding the ViewModel to a view.
+     */
     protected open fun doBind() = Unit
 
     /**
@@ -133,6 +132,7 @@ abstract class BaseViewModel : ViewModel() {
      */
     @Composable
     fun bind() {
+        DoBind()
         val owner = LocalLifecycleOwner.current
         LaunchedEffect(owner) {
             if (!initialized) {

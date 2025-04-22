@@ -1,6 +1,6 @@
 ## Overview
 
-- DI integration: `app.common.CommonConfig`
+- Integration config: `app.common.CommonConfig`
 - Data source: `shared.data.source.http.HttpSource`
 
 The class provides the next functionality:

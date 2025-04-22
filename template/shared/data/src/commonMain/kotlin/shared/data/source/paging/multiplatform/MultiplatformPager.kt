@@ -16,16 +16,18 @@ internal class MultiplatformPager<V : Any>(
 
     private var currentLoader: MultiplatformPageLoader<V>? = null
 
-    private val pager = createPager(
-        config = createPagingConfig(
-            pageSize = pageSize,
-            enablePlaceholders = false
-        ),
-        pagingSourceFactory = {
-            MultiplatformPageLoader(loader)
-                .also(this::currentLoader::set)
-        }
-    )
+    private val pager by lazy {
+        createPager(
+            config = createPagingConfig(
+                pageSize = pageSize,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = {
+                MultiplatformPageLoader(loader)
+                    .also(this::currentLoader::set)
+            }
+        )
+    }
 
     override fun pages(): Flow<Any> {
         return pager.flow.cachedIn(scope)

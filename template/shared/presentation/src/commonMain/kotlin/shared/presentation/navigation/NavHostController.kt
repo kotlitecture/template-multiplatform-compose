@@ -3,16 +3,30 @@ package shared.presentation.navigation
 import androidx.navigation.NavHostController
 import androidx.navigation.navOptions
 
+/**
+ * Navigates back in the navigation stack if there is a previous back stack entry.
+ */
 fun NavHostController.back() {
     if (previousBackStackEntry != null) {
         popBackStack()
     }
 }
 
+/**
+ * Navigates to a new instance of the specified route.
+ *
+ * @param route The route to navigate to.
+ */
 fun NavHostController.newInstance(route: Any) {
     navigate(route)
 }
 
+/**
+ * Navigates to a single instance of the specified route.
+ * If the route already exists in the back stack, it will be popped up to and replaced.
+ *
+ * @param route The route to navigate to.
+ */
 fun NavHostController.singleInstance(route: Any) {
     navigate(route, navOptions {
         popUpTo(route) {
@@ -23,17 +37,33 @@ fun NavHostController.singleInstance(route: Any) {
     })
 }
 
+/**
+ * Replaces the previous destination with the specified route.
+ *
+ * @param route The route to navigate to.
+ */
 fun NavHostController.replacePrevious(route: Any) {
     val prev = currentDestination?.route ?: route
     navigate(route, navOptions {
-        popUpTo(prev) {
-            inclusive = true
+        if (prev is String) {
+            popUpTo(prev) {
+                inclusive = true
+            }
+        } else {
+            popUpTo(prev) {
+                inclusive = true
+            }
         }
         launchSingleTop = true
         restoreState = false
     })
 }
 
+/**
+ * Clears the navigation history and navigates to the specified route.
+ *
+ * @param route The route to navigate to.
+ */
 fun NavHostController.clearHistory(route: Any) {
     navigate(route, navOptions {
         graph.startDestinationRoute?.let { graphRoute ->

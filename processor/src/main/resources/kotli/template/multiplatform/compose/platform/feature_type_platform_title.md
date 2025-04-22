@@ -1,1 +1,1 @@
-Platform
+Platforms
