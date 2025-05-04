@@ -1,14 +1,15 @@
 package kotli.app.passcode.presentation.reset
 
 import androidx.compose.runtime.Stable
+import shared.presentation.state.UiEvent
+import shared.presentation.state.ViewState
 
 @Stable
-interface ResetPasscodeState {
+interface ResetPasscodeState : ViewState {
 
     val error: String?
-    val loading: Boolean
     val enteredCode: String
     val passcodeLength: Int
-    val event: ResetPasscodeEvent?
 
+    object OnComplete : UiEvent
 }

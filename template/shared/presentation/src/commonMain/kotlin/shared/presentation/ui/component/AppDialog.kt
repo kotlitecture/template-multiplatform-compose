@@ -36,7 +36,7 @@ fun AppErrorDialog(title: String, th: Throwable, onClose: () -> Unit) {
             Text(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState()),
-                text = th.stackTraceToString()
+                text = th.message ?: th.stackTraceToString()
             )
         },
         confirmButton = {

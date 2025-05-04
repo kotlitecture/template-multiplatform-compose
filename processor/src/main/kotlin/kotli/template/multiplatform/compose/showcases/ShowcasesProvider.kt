@@ -12,12 +12,12 @@ import kotli.template.multiplatform.compose.showcases.dataflow.encryption.Encryp
 import kotli.template.multiplatform.compose.showcases.dataflow.http.HttpShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.paging.PagingShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.settings.SettingsShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.component.ComponentShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.component.filepicker.FilePickerShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.component.image.CoilShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.component.markdown.MarkdownShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.component.placeholder.PlaceholderShowcasesProcessor
-import kotli.template.multiplatform.compose.showcases.userflow.loader.data.DataLoaderShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.auth.AuthShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.common.component.ComponentShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.common.component.filepicker.FilePickerShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.common.component.image.CoilShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.common.component.markdown.MarkdownShowcasesProcessor
+import kotli.template.multiplatform.compose.showcases.userflow.common.component.placeholder.PlaceholderShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.passcode.PasscodeShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.ThemeShowcasesProcessor
 import kotli.template.multiplatform.compose.showcases.userflow.theme.change.ChangeThemeShowcasesProcessor
@@ -39,10 +39,10 @@ object ShowcasesProvider : BaseFeatureProvider() {
         ChangeThemeShowcasesProcessor,
         ToggleThemeShowcasesProcessor,
         PasscodeShowcasesProcessor,
+        AuthShowcasesProcessor,
         PagingShowcasesProcessor,
         HttpShowcasesProcessor,
         SettingsShowcasesProcessor,
-        DataLoaderShowcasesProcessor,
         CacheShowcasesProcessor,
         RoomShowcasesProcessor,
         SqlDelightShowcasesProcessor,

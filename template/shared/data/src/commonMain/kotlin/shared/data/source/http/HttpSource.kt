@@ -32,7 +32,12 @@ class HttpSource(
     private val config: HttpClientConfig<*>.() -> Unit = {}
 ) : DataSource {
 
-    /** https://ktor.io/docs/client-create-multiplatform-application.html */
+    /**
+     * The HTTP client instance used for making network requests.
+     * Configured with content negotiation, logging, timeouts, and retry policies.
+     * 
+     * For more details, see: https://ktor.io/docs/client-create-multiplatform-application.html
+     */
     val client by lazy {
         HttpClient {
             config(this)

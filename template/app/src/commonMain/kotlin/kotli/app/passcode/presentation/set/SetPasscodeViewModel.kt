@@ -10,6 +10,8 @@ import kotli.app.passcode.domain.usecase.GetRemainingAttemptsUseCase
 import kotli.app.passcode.domain.usecase.IsPasscodeSetUseCase
 import kotli.app.passcode.domain.usecase.SetPasscodeUseCase
 import org.jetbrains.compose.resources.getString
+import shared.presentation.state.MutableViewState
+import shared.presentation.state.notify
 import shared.presentation.viewmodel.BaseViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_set_confirm_new_error
@@ -34,33 +36,27 @@ class SetPasscodeViewModel(
         }
         withState {
             _state.enteredCode = ""
-            _state.loading = false
             _state.error = null
             _state.step = step
         }
     }
 
-    fun onEnter(enteredCode: String) {
+    fun onEnter(code: String) {
         if (_state.passcodeLength == 0) return
 
         withState {
-            _state.enteredCode = enteredCode
+            _state.enteredCode = code
             _state.error = null
         }
 
-        if (enteredCode.length != _state.passcodeLength) return
+        if (code.length != _state.passcodeLength) return
 
         async("Check passcode", force = true) {
-            try {
-                _state.loading = true
-                when (val step = _state.step) {
-                    is SetPasscodeStep.ConfirmNew -> onConfirmNew(step.code, enteredCode)
-                    is SetPasscodeStep.UnlockExisting -> onUnlockExisting(enteredCode)
-                    is SetPasscodeStep.EnterNew -> onEnterNew(enteredCode)
-                    else -> Unit
-                }
-            } finally {
-                _state.loading = false
+            when (val step = _state.step) {
+                is SetPasscodeStep.ConfirmNew -> onConfirmNew(step.code, code)
+                is SetPasscodeStep.UnlockExisting -> onUnlockExisting(code)
+                is SetPasscodeStep.EnterNew -> onEnterNew(code)
+                else -> Unit
             }
         }
     }
@@ -71,14 +67,12 @@ class SetPasscodeViewModel(
             val error = getString(Res.string.passcode_unlock_error, attempts)
             withState {
                 _state.enteredCode = ""
-                _state.loading = false
                 _state.error = error
             }
         } else {
             withState {
                 _state.step = SetPasscodeStep.EnterNew()
                 _state.enteredCode = ""
-                _state.loading = false
             }
         }
     }
@@ -87,7 +81,6 @@ class SetPasscodeViewModel(
         withState {
             _state.step = SetPasscodeStep.ConfirmNew(code = enteredCode)
             _state.enteredCode = ""
-            _state.loading = false
         }
     }
 
@@ -101,21 +94,18 @@ class SetPasscodeViewModel(
                 _state.step = SetPasscodeStep.EnterNew()
                 _state.error = error
                 _state.enteredCode = ""
-                _state.loading = false
             }
         } else {
             setPasscode.invoke(enteredCode)
-            _state.event = SetPasscodeEvent.Complete
+            _state.notify(SetPasscodeState.OnComplete)
         }
     }
 
     private class SetPasscodeMutableState(
         override val passcodeLength: Int
-    ) : SetPasscodeState {
+    ) : MutableViewState(), SetPasscodeState {
         override var error: String? by mutableStateOf(null)
-        override var loading: Boolean by mutableStateOf(false)
         override var enteredCode: String by mutableStateOf("")
         override var step: SetPasscodeStep? by mutableStateOf(null)
-        override var event: SetPasscodeEvent? by mutableStateOf(null)
     }
 }

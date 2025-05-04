@@ -69,6 +69,15 @@ kotlin {
             implementation(libs.napier)
             implementation(libs.sqldelight.coroutines) // {dataflow.database.sqldelight}
             implementation(libs.touchlab.kermit)
+            implementation(libs.supabase)
+            implementation(libs.supabase.auth)
+            implementation(libs.supabase.postgrest)
+            implementation(libs.supabase.storage)
+            implementation(libs.supabase.realtime)
+            implementation(libs.supabase.functions)
+            implementation(libs.supabase.compose.auth)
+            implementation(libs.supabase.compose.auth.ui)
+            implementation(libs.supabase.coil3.integration)
             implementation(projects.shared.data)
             implementation(projects.shared.domain)
             implementation(projects.shared.presentation)
@@ -148,7 +157,19 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    signingConfigs {
+        named("debug") {
+            storeFile = file("assemble/android/debug.keystore")
+            keyAlias = "androiddebugkey"
+            storePassword = "android"
+            keyPassword = "android"
+        }
+    }
     buildTypes {
+        named("debug") {
+            applicationIdSuffix = ".debug"
+            signingConfig = signingConfigs.getByName("debug")
+        }
         named("release") {
             isDebuggable = false
             isMinifyEnabled = true

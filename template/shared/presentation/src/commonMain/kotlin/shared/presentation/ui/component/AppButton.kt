@@ -1,5 +1,6 @@
 package shared.presentation.ui.component
 
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
@@ -9,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import shared.presentation.ui.icon.AppIconModel
 
 @Composable
@@ -35,8 +37,8 @@ fun AppActionButton(
 @NonRestartableComposable
 fun AppTextButton(
     modifier: Modifier = Modifier,
+    text: String,
     onClick: () -> Unit,
-    text: String
 ) {
     TextButton(
         modifier = modifier,
@@ -50,13 +52,27 @@ fun AppTextButton(
 @NonRestartableComposable
 fun AppElevatedButton(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    text: String,
     onClick: () -> Unit,
-    text: String
+    icon: AppIconModel? = null,
+    iconTint: Color = LocalContentColor.current
 ) {
     ElevatedButton(
         modifier = modifier,
+        shape = RoundedCornerShape(8.dp),
+        enabled = enabled,
         onClick = onClick,
-        content = { AppText(text = text) }
+        content = {
+            if (icon != null) {
+                AppIcon(
+                    model = icon,
+                    tint = iconTint
+                )
+                AppSpacer8()
+            }
+            AppText(text = text)
+        }
     )
 }
 
@@ -64,12 +80,26 @@ fun AppElevatedButton(
 @NonRestartableComposable
 fun AppOutlinedButton(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    text: String,
     onClick: () -> Unit,
-    text: String
+    icon: AppIconModel? = null,
+    iconTint: Color = LocalContentColor.current
 ) {
     OutlinedButton(
+        shape = RoundedCornerShape(8.dp),
         modifier = modifier,
+        enabled = enabled,
         onClick = onClick,
-        content = { AppText(text = text) }
+        content = {
+            if (icon != null) {
+                AppIcon(
+                    model = icon,
+                    tint = iconTint
+                )
+                AppSpacer8()
+            }
+            AppText(text = text)
+        }
     )
 }

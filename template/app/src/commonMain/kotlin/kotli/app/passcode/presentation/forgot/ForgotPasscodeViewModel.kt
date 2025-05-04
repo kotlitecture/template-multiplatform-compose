@@ -1,9 +1,10 @@
 package kotli.app.passcode.presentation.forgot
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import kotli.app.passcode.domain.usecase.ForgotPasscodeUseCase
+import shared.presentation.state.MutableViewState
+import shared.presentation.state.UiState
+import shared.presentation.state.notify
+import shared.presentation.state.tryCatch
 import shared.presentation.viewmodel.BaseViewModel
 
 class ForgotPasscodeViewModel(
@@ -13,21 +14,21 @@ class ForgotPasscodeViewModel(
     private val _state = ForgotPasscodeMutableState()
     val state: ForgotPasscodeState = _state
 
-    fun onConfirm() = async("Reset passcode") {
-        try {
-            _state.loading = true
-            forgotPasscode.invoke()
-        } finally {
-            withState {
-                _state.event = ForgotPasscodeEvent.Complete
-                _state.loading = false
-            }
-        }
+    fun onConfirm() = async("onConfirm") {
+        _state.tryCatch(
+            title = "Reset passcode",
+            onTry = {
+                try {
+                    withState { uiState = UiState.Blocking }
+                    forgotPasscode.invoke()
+                } finally {
+                    withState { uiState = UiState.Ready }
+                    notify(ForgotPasscodeState.OnComplete)
+                }
+            },
+            onCatch = {}
+        )
     }
 
-    private class ForgotPasscodeMutableState : ForgotPasscodeState {
-        override var loading: Boolean by mutableStateOf(false)
-        override var event: ForgotPasscodeEvent? by mutableStateOf(null)
-    }
-
+    private class ForgotPasscodeMutableState : MutableViewState(), ForgotPasscodeState
 }

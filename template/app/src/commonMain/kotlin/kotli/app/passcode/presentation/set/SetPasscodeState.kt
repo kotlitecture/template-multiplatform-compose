@@ -1,15 +1,16 @@
 package kotli.app.passcode.presentation.set
 
 import androidx.compose.runtime.Stable
+import shared.presentation.state.UiEvent
+import shared.presentation.state.ViewState
 
 @Stable
-interface SetPasscodeState {
+interface SetPasscodeState : ViewState {
 
     val error: String?
-    val loading: Boolean
     val enteredCode: String
     val passcodeLength: Int
     val step: SetPasscodeStep?
-    val event: SetPasscodeEvent?
 
+    object OnComplete : UiEvent
 }

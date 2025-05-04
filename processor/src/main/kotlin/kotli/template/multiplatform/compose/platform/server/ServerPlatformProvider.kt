@@ -4,7 +4,8 @@ import kotli.engine.BaseFeatureProvider
 import kotli.engine.FeatureProcessor
 import kotli.engine.FeatureType
 import kotli.template.multiplatform.compose.platform.PlatformType
-import kotli.template.multiplatform.compose.platform.server.ktor.KtorBackendProcessor
+import kotli.template.multiplatform.compose.platform.server.ktor.KtorProcessor
+import kotli.template.multiplatform.compose.platform.server.supabase.SupabaseProcessor
 
 object ServerPlatformProvider : BaseFeatureProvider() {
 
@@ -14,7 +15,8 @@ object ServerPlatformProvider : BaseFeatureProvider() {
     override fun getType(): FeatureType = PlatformType
 
     override fun createProcessors(): List<FeatureProcessor> = listOf(
-        KtorBackendProcessor
+        KtorProcessor,
+        SupabaseProcessor
     )
 
 }

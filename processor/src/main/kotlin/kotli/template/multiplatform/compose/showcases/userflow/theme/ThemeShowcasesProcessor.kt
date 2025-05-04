@@ -10,7 +10,7 @@ object ThemeShowcasesProcessor : BaseShowcasesProcessor() {
     override fun getId(): String = ID
 
     override fun doRemove(state: TemplateState) {
-        removeFromViewModel(state, "Userflow :: Theme")
+        removeFromViewModel(state, "User Flow :: Theme")
     }
 
 }

@@ -45,6 +45,12 @@ fun AppSpacer16() {
 
 @Composable
 @NonRestartableComposable
+fun AppSpacer32() {
+    Spacer(modifier = Modifier.size(32.dp))
+}
+
+@Composable
+@NonRestartableComposable
 fun AppSpacerStatusBar(modifier: Modifier = Modifier) {
     Spacer(
         modifier = modifier

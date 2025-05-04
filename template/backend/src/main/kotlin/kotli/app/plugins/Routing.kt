@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 fun Application.configureRouting() {
     routing {
         get("/api/health") {
-            call.respond(Health("Hello World!"))
+            call.respond(Health("GMI"))
         }
     }
 }

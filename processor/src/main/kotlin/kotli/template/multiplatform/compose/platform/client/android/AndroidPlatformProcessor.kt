@@ -23,6 +23,10 @@ object AndroidPlatformProcessor : PlatformProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
+            "${Rules.AppAssembleDir}/android",
+            RemoveFile()
+        )
+        state.onApplyRules(
             Rules.RootBuildGradle,
             RemoveMarkedLine("android")
         )

@@ -12,8 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotli.app.app.App
-import kotli.app.app.AppState
+import kotli.app.app.presentation.App
+import kotli.app.app.presentation.AppState
 import shared.presentation.misc.extensions.findActivity
 import shared.presentation.theme.ThemeState
 

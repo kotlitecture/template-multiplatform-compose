@@ -78,13 +78,14 @@ kotlin {
         val mobileAndDesktopMain by creating {
             dependsOn(commonMain.get())
             dependencies {
+                implementation(libs.androidx.paging.common)
                 implementation(libs.androidx.datastore.preferences) // {dataflow.settings.datastore}
             }
         }
-        // {platform.mobile_and_desktop.dependencies}
         androidMain.get().dependsOn(mobileAndDesktopMain) // {platform.android}
         iosMain.get().dependsOn(mobileAndDesktopMain) // {platform.ios}
         jvmMain.get().dependsOn(mobileAndDesktopMain) // {platform.jvm}
+        // {platform.mobile_and_desktop.dependencies}
     }
 }
 
