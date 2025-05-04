@@ -10,6 +10,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.showcases.userflow.auth.AuthShowcasesProcessor
 import kotlin.reflect.KClass
+import kotlin.time.Duration.Companion.hours
 
 object BasicAuthProcessor : BaseFeatureProcessor() {
 
@@ -17,6 +18,7 @@ object BasicAuthProcessor : BaseFeatureProcessor() {
 
     override fun getId(): String = ID
     override fun getTags(): List<FeatureTag> = Tags.AllClients
+    override fun getIntegrationEstimate(state: TemplateState): Long = 8.hours.inWholeMilliseconds
 
     override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
         AuthShowcasesProcessor::class

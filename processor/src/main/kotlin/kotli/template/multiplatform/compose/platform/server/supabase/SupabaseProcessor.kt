@@ -11,6 +11,7 @@ import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProcessor
+import kotli.template.multiplatform.compose.dataflow.http.ktor.KtorHttpProcessor
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
@@ -27,7 +28,8 @@ object SupabaseProcessor : PlatformProcessor() {
     override fun getConfigurationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
     override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
-        CommonDataFlowProcessor::class
+        CommonDataFlowProcessor::class,
+        KtorHttpProcessor::class
     )
 
     override fun doApply(state: TemplateState) {
