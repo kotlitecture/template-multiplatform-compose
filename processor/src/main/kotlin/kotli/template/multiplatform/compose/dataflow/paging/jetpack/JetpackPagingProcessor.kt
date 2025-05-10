@@ -40,7 +40,7 @@ object JetpackPagingProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             Rules.AppCommonConfigKt,
-            RemoveMarkedLine("PagingSource")
+            RemoveMarkedLine("JetpackPagingSource")
         )
         state.onApplyRules(
             Rules.PresentationBuildGradle,

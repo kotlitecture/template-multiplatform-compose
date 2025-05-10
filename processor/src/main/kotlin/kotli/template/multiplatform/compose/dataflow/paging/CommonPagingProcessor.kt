@@ -3,6 +3,7 @@ package kotli.template.multiplatform.compose.dataflow.paging
 import kotli.engine.BaseFeatureProcessor
 import kotli.engine.TemplateState
 import kotli.engine.template.rule.RemoveFile
+import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 
 object CommonPagingProcessor : BaseFeatureProcessor() {
@@ -20,6 +21,10 @@ object CommonPagingProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.PagingSource,
             RemoveFile()
+        )
+        state.onApplyRules(
+            Rules.AppCommonConfigKt,
+            RemoveMarkedLine("PagingSource")
         )
     }
 

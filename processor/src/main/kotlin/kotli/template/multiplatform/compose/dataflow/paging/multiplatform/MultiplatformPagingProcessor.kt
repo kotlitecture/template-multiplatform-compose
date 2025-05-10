@@ -30,7 +30,7 @@ object MultiplatformPagingProcessor : BaseFeatureProcessor() {
         )
         state.onApplyRules(
             Rules.AppCommonConfigKt,
-            RemoveMarkedLine("PagingSource")
+            RemoveMarkedLine("MultiplatformPagingSource")
         )
         state.onApplyRules(
             Rules.PresentationBuildGradle,
