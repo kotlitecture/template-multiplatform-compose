@@ -10,10 +10,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.filterNotNull
-import shared.presentation.ui.component.AppCard
-import shared.presentation.ui.component.AppCircularProgressIndicator
-import shared.presentation.ui.component.AppDialog
-import shared.presentation.ui.component.AppErrorDialog
+import shared.presentation.ui.component.DsCard
+import shared.presentation.ui.component.DsCircularProgressIndicator
+import shared.presentation.ui.component.DsDialog
+import shared.presentation.ui.component.DsErrorDialog
 
 /**
  * A composable function that handles the UI state and events from a [ViewState].
@@ -89,13 +89,13 @@ fun LoadingIndicator(
  */
 @Composable
 fun ViewStateBlocking() {
-    AppDialog(onDismissRequest = {}) {
+    DsDialog(onDismissRequest = {}) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            AppCard {
-                AppCircularProgressIndicator(
+            DsCard {
+                DsCircularProgressIndicator(
                     modifier = Modifier.padding(16.dp)
                 )
             }
@@ -121,7 +121,7 @@ fun ViewStateLoading() {
  */
 @Composable
 fun ViewStateError(uiState: UiState.Error) {
-    AppErrorDialog(
+    DsErrorDialog(
         onClose = uiState.onExit,
         title = uiState.title,
         th = uiState.th

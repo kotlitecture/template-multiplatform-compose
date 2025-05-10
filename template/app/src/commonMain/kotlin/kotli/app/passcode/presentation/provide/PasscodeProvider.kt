@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import kotli.app.passcode.domain.model.LockState
 import kotli.app.passcode.presentation.unlock.UnlockPasscodeScreen
-import shared.presentation.theme.Theme
+import shared.presentation.ui.theme.DsTheme
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -31,6 +31,6 @@ private fun UndefinedState() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Theme.current.surface)
+            .background(DsTheme.current.surface)
     )
 }

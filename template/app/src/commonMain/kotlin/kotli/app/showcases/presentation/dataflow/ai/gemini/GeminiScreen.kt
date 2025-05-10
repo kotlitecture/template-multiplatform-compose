@@ -16,13 +16,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import shared.presentation.ui.component.AppCard
-import shared.presentation.ui.component.AppCircularProgressIndicator
-import shared.presentation.ui.component.AppElevatedButton
-import shared.presentation.ui.component.AppMarkdown
-import shared.presentation.ui.component.AppTextField
-import shared.presentation.ui.container.AppFixedTopBarLazyColumn
-import shared.presentation.theme.Theme
+import shared.presentation.ui.component.DsCard
+import shared.presentation.ui.component.DsCircularProgressIndicator
+import shared.presentation.ui.component.DsElevatedButton
+import shared.presentation.ui.component.DsMarkdown
+import shared.presentation.ui.component.DsTextField
+import shared.presentation.ui.container.DsFixedTopBarLazyColumn
+import shared.presentation.ui.theme.DsTheme
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -30,7 +30,7 @@ fun GeminiScreen(onBack: () -> Unit) {
     val viewModel: GeminiViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarLazyColumn(
+    DsFixedTopBarLazyColumn(
         title = GeminiRoute.screen.label,
         onBack = onBack,
         footer = {
@@ -57,7 +57,7 @@ private fun LoadingBlock() {
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
-        AppCircularProgressIndicator(size = 32.dp)
+        DsCircularProgressIndicator(size = 32.dp)
     }
 }
 
@@ -69,18 +69,18 @@ private fun ReplyBlock(geminiReply: GeminiReply) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        AppCard(
+        DsCard(
             modifier = Modifier
                 .align(Alignment.End)
                 .clip(RoundedCornerShape(8.dp))
-                .background(Theme.current.highlightSecondary)
+                .background(DsTheme.current.highlightSecondary)
         ) {
-            AppMarkdown(
+            DsMarkdown(
                 modifier = Modifier.padding(8.dp),
                 text = geminiReply.prompt
             )
         }
-        AppMarkdown(text = geminiReply.reply)
+        DsMarkdown(text = geminiReply.reply)
     }
 }
 
@@ -90,19 +90,19 @@ private fun PromptBlock(onPrompt: (prompt: String?) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Theme.current.bottomBlur)
+            .background(DsTheme.current.bottomBlur)
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        AppTextField(
+        DsTextField(
             modifier = Modifier
                 .weight(1f),
             valueState = promptState,
             placeholder = "Enter your prompt"
         )
 
-        AppElevatedButton(
+        DsElevatedButton(
             modifier = Modifier.wrapContentWidth(),
             onClick = {
                 onPrompt(promptState.value)

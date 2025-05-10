@@ -47,7 +47,7 @@ object CoilProcessor : BaseFeatureProcessor() {
         state.onApplyRules(
             Rules.PresentationComponentIcon,
             RemoveMarkedBlock("{userflow.coil}"),
-            RemoveMarkedLine("UrlModel"),
+            RemoveMarkedLine("DsIconModel.Url"),
             RemoveMarkedLine("coil"),
         )
 

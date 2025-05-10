@@ -5,11 +5,11 @@ import kotli.app.common.data.source.database.DatabaseSource
 import kotli.app.common.data.source.database.UserEntity
 import shared.data.source.paging.Pager
 import shared.data.source.paging.PagingSource
-import shared.presentation.ui.component.AppSnackbarState
+import shared.presentation.ui.component.DsSnackbarState
 import shared.presentation.viewmodel.BaseViewModel
 
 class SqlDelightPagingViewModel(
-    private val appSnackbarStore: AppSnackbarState,
+    private val appSnackbarStore: DsSnackbarState,
     private val databaseSource: DatabaseSource,
     pagingSource: PagingSource,
 ) : BaseViewModel() {

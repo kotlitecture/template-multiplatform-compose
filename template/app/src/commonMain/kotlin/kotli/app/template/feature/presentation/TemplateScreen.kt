@@ -1,14 +1,14 @@
 package kotli.app.template.feature.presentation
 
 import androidx.compose.runtime.Composable
-import shared.presentation.ui.container.AppFixedTopBarLayout
+import shared.presentation.ui.container.DsFixedTopBarLayout
 
 @Composable
 fun TemplateScreen(
     title: String,
     onBack: () -> Unit
 ) {
-    AppFixedTopBarLayout(
+    DsFixedTopBarLayout(
         title = title,
         onBack = onBack,
     ) {

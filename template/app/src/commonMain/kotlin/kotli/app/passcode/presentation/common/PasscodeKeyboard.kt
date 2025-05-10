@@ -28,11 +28,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import shared.presentation.ui.component.AppIcon
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.icon.AppIconModel
-import shared.presentation.ui.icon.AppIcons
-import shared.presentation.theme.Theme
+import shared.presentation.ui.component.DsIcon
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.icon.DsIconModel
+import shared.presentation.ui.icon.DsIcons
+import shared.presentation.ui.theme.DsTheme
 
 private val numberSize = 48.sp
 private val actionSize = 72.dp
@@ -97,12 +97,12 @@ fun PadTextButton(
     onClick: () -> Unit
 ) {
     PadButton(onClick = onClick) {
-        AppText(
+        DsText(
             text = text,
             maxLines = 1,
             fontSize = 16.sp,
             fontWeight = FontWeight.W500,
-            color = Theme.current.onSurface,
+            color = DsTheme.current.onSurface,
         )
     }
 }
@@ -115,15 +115,15 @@ fun PadNumberButton(
     onCodeChange: (code: String) -> Unit
 ) {
     PadButton(
-        backgroundColor = Theme.current.surface,
+        backgroundColor = DsTheme.current.surface,
         onClick = {
             (getCode().orEmpty() + number)
                 .takeIf { code -> code.length <= codeLength }
                 ?.let(onCodeChange)
         }
     ) {
-        AppText(
-            color = Theme.current.onSurface,
+        DsText(
+            color = DsTheme.current.onSurface,
             text = number.toString(),
             fontSize = numberSize,
         )
@@ -133,12 +133,12 @@ fun PadNumberButton(
 @Composable
 fun PadIconButton(
     modifier: Modifier = Modifier,
-    icon: AppIconModel,
+    icon: DsIconModel,
     onClick: () -> Unit
 ) {
     PadButton(onClick = onClick) {
-        AppIcon(
-            tint = Theme.current.onSurface,
+        DsIcon(
+            tint = DsTheme.current.onSurface,
             modifier = modifier.size(32.dp),
             model = icon
         )
@@ -186,7 +186,7 @@ fun EraseBlock(
             visible = !code.isNullOrEmpty()
         ) {
             PadIconButton(
-                icon = AppIcons.backspace,
+                icon = DsIcons.backspace,
                 onClick = {
                     code
                         ?.takeIf { code -> code.isNotEmpty() }

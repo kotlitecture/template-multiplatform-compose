@@ -5,13 +5,11 @@ import kotli.template.multiplatform.compose.userflow.BaseUserFlowProvider
 import kotli.template.multiplatform.compose.userflow.common.component.filekit.FileKitProcessor
 import kotli.template.multiplatform.compose.userflow.common.component.image.coil.CoilProcessor
 import kotli.template.multiplatform.compose.userflow.common.component.markdown.MarkdownProcessor
-import kotli.template.multiplatform.compose.userflow.common.component.placeholder.PlaceholderProcessor
 
 object ComponentProvider : BaseUserFlowProvider() {
 
     override fun getId(): String = "userflow.component"
     override fun createProcessors(): List<FeatureProcessor> = listOf(
-        PlaceholderProcessor,
         CoilProcessor,
         MarkdownProcessor,
         FileKitProcessor

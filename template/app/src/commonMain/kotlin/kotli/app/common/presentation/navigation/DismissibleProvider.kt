@@ -1,14 +1,14 @@
 package kotli.app.common.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import shared.presentation.ui.container.AppDismissibleNavigation
+import shared.presentation.ui.container.DsDismissibleNavigation
 
 @Composable
 fun DismissibleProvider(
     state: NavigationState,
     content: @Composable () -> Unit
 ) {
-    AppDismissibleNavigation(
+    DsDismissibleNavigation(
         state = state,
         content = content
     )

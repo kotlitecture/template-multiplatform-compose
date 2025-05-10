@@ -8,14 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.component.AppElevatedButton
-import shared.presentation.ui.component.AppOutlinedButton
-import shared.presentation.ui.component.AppSpacer16
-import shared.presentation.ui.component.AppSpacer32
-import shared.presentation.ui.component.AppSpacer4
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.component.AppTextButton
-import shared.presentation.ui.component.AppTextField
+import shared.presentation.ui.component.DsElevatedButton
+import shared.presentation.ui.component.DsSpacer16
+import shared.presentation.ui.component.DsSpacer32
+import shared.presentation.ui.component.DsSpacer4
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.component.DsTextButton
+import shared.presentation.ui.component.DsTextField
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.auth_otp_action_resend
@@ -46,20 +45,20 @@ fun OtpForm(
                 modifier = modifier,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                AppText(
+                DsText(
                     text = title
                 )
 
-                AppSpacer4()
+                DsSpacer4()
 
-                AppText(
+                DsText(
                     text = subTitle,
                     fontWeight = FontWeight.Bold,
                 )
 
-                AppSpacer32()
+                DsSpacer32()
 
-                AppTextField(
+                DsTextField(
                     modifier = Modifier.fillMaxWidth(),
                     getValue = state::otp::get,
                     onValueChange = viewModel::onChangeOtp,
@@ -67,18 +66,18 @@ fun OtpForm(
                     autoFocus = true
                 )
 
-                AppSpacer16()
+                DsSpacer16()
 
-                AppElevatedButton(
+                DsElevatedButton(
                     modifier = Modifier.fillMaxWidth(),
                     text = stringResource(Res.string.auth_otp_action_verify),
                     onClick = { viewModel.onVerify(onVerify) },
                     enabled = state.canVerify,
                 )
 
-                AppSpacer16()
+                DsSpacer16()
 
-                AppTextButton(
+                DsTextButton(
                     modifier = Modifier.fillMaxWidth(),
                     text = stringResource(Res.string.auth_otp_action_resend),
                     onClick = { viewModel.onResend(onResend) }

@@ -7,6 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import kotli.app.get
+import kotli.app.theme.change.presentation.ChangeThemeBottomSheet
+import kotli.app.theme.change.presentation.ChangeThemeBottomSheetRoute
 import kotli.app.theme.change.presentation.ChangeThemeDialog
 import kotli.app.theme.change.presentation.ChangeThemeDialogRoute
 import kotli.app.theme.change.presentation.ChangeThemeRoute
@@ -22,9 +24,12 @@ import kotli.app.theme.toggle.presentation.ToggleThemeViewModel
 import org.koin.dsl.module
 import shared.presentation.navigation.back
 import shared.presentation.theme.DefaultThemeState
+import shared.presentation.theme.ThemeConfig
 import shared.presentation.theme.ThemeState
+import shared.presentation.ui.theme.DsThemes
 
 fun NavGraphBuilder.theme(navController: NavHostController) {
+    dialog<ChangeThemeBottomSheetRoute> { ChangeThemeBottomSheet(navController::back) }
     composable<ChangeThemeRoute> { ChangeThemeScreen(navController::back) }
     dialog<ChangeThemeDialogRoute> { ChangeThemeDialog() }
 }
@@ -37,8 +42,16 @@ fun InitializerViewModelFactoryBuilder.theme() {
 }
 
 val theme = module {
-    single<ThemeState> { DefaultThemeState() }
+    single<ThemeState> {
+        DefaultThemeState(
+            defaultConfig = ThemeConfig(
+                defaultTheme = DsThemes.Light,
+                lightTheme = DsThemes.Light,
+                darkTheme = DsThemes.Dark,
+            )
+        )
+    }
     single<ThemeRepository> { ThemeRepositoryImpl(get()) }
-    single { StoreThemeUseCase(get()) }
-    single { RestoreThemeUseCase(get()) }
+    factory { StoreThemeUseCase(get()) }
+    factory { RestoreThemeUseCase(get()) }
 }

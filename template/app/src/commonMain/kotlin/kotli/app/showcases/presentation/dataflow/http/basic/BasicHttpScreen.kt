@@ -6,10 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.presentation.ShowcaseHintBlock
-import shared.presentation.ui.component.AppElevatedButton
-import shared.presentation.ui.component.AppSpacer16
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.component.DsElevatedButton
+import shared.presentation.ui.component.DsSpacer16
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -17,7 +17,7 @@ fun BasicHttpScreen(onBack: () -> Unit) {
     val viewModel: BasicHttpViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarColumn(
+    DsFixedTopBarColumn(
         title = BasicHttpRoute.screen.label,
         onBack = onBack,
         content = {
@@ -36,7 +36,7 @@ fun BasicHttpScreen(onBack: () -> Unit) {
                     In case of any issue, also check the system console for additional information.
                 """.trimIndent()
             )
-            AppElevatedButton(
+            DsElevatedButton(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
@@ -44,14 +44,14 @@ fun BasicHttpScreen(onBack: () -> Unit) {
                 text = "Fetch my ip"
             )
             IpBlock(state)
-            AppSpacer16()
+            DsSpacer16()
         }
     )
 }
 
 @Composable
 private fun IpBlock(state: BasicHttpState) {
-    AppText(
+    DsText(
         modifier = Modifier.padding(horizontal = 16.dp),
         text = state.ip
     )

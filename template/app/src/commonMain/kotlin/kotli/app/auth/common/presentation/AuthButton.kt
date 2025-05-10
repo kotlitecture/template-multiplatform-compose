@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import org.jetbrains.compose.resources.DrawableResource
-import shared.presentation.ui.component.AppOutlinedButton
-import shared.presentation.ui.icon.DrawableResourceModel
+import shared.presentation.ui.component.DsOutlinedButton
+import shared.presentation.ui.icon.DsIconModel
 
 @Composable
 fun AuthButton(
@@ -14,9 +14,9 @@ fun AuthButton(
     text: String,
     onClick: () -> Unit,
 ) {
-    AppOutlinedButton(
+    DsOutlinedButton(
         modifier = modifier,
-        icon = DrawableResourceModel(icon),
+        icon = DsIconModel.DrawableResource(icon),
         iconTint = Color.Unspecified,
         onClick = onClick,
         text = text

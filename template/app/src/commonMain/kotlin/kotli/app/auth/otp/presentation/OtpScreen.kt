@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.ui.container.AppFixedTopBarLayout
+import shared.presentation.ui.container.DsFixedTopBarLayout
 
 @Composable
 fun OtpScreen(
@@ -17,7 +17,7 @@ fun OtpScreen(
     onResend: suspend () -> Unit,
     onVerify: suspend (otp: String) -> Unit,
 ) {
-    AppFixedTopBarLayout(
+    DsFixedTopBarLayout(
         modifier = modifier,
         onBack = onBack,
         content = {

@@ -5,15 +5,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.presentation.ShowcaseHintBlock
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
 fun BasicCacheScreen(onBack: () -> Unit) {
     val viewModel: BasicCacheViewModel = provideViewModel()
 
-    AppFixedTopBarColumn(
+    DsFixedTopBarColumn(
         title = BasicCacheRoute.screen.label,
         onBack = onBack,
         content = {
@@ -33,7 +33,7 @@ fun BasicCacheScreen(onBack: () -> Unit) {
 
 @Composable
 private fun CacheBlock(state: BasicCacheState) {
-    AppText(
+    DsText(
         modifier = Modifier.padding(horizontal = 16.dp),
         text = "Current cache value : ${state.cache}"
     )

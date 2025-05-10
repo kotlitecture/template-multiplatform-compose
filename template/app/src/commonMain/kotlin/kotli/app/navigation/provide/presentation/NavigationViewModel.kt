@@ -16,8 +16,8 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.serialization.serializer
-import shared.presentation.ui.icon.AppIconModel
-import shared.presentation.ui.icon.AppIcons
+import shared.presentation.ui.icon.DsIconModel
+import shared.presentation.ui.icon.DsIcons
 import shared.presentation.navigation.clearHistory
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -48,37 +48,37 @@ class NavigationViewModel : BaseViewModel() {
             route = ShowcasesRoute,
             onRoute = onRoute,
             label = "Showcases",
-            activeIcon = AppIcons.school,
-            inactiveIcon = AppIcons.school,
+            activeIcon = DsIcons.school,
+            inactiveIcon = DsIcons.school,
         ),
         // end {showcases}
         createItem(
             route = ARoute,
             onRoute = onRoute,
             label = "Page A",
-            activeIcon = AppIcons.wineBar,
-            inactiveIcon = AppIcons.wineBar,
+            activeIcon = DsIcons.wineBar,
+            inactiveIcon = DsIcons.wineBar,
         ),
         createItem(
             route = BRoute,
             onRoute = onRoute,
             label = "Page B",
-            activeIcon = AppIcons.localDrink,
-            inactiveIcon = AppIcons.localDrink,
+            activeIcon = DsIcons.localDrink,
+            inactiveIcon = DsIcons.localDrink,
         ),
         createItem(
             route = CRoute,
             onRoute = onRoute,
             label = "Page C",
-            activeIcon = AppIcons.coffee,
-            inactiveIcon = AppIcons.coffee,
+            activeIcon = DsIcons.coffee,
+            inactiveIcon = DsIcons.coffee,
         )
     )
 
     private fun createItem(
         onRoute: (route: Any) -> Unit,
-        inactiveIcon: AppIconModel,
-        activeIcon: AppIconModel,
+        inactiveIcon: DsIconModel,
+        activeIcon: DsIconModel,
         label: String?,
         route: Any,
     ): NavigationItem {

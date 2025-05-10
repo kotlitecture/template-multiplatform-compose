@@ -4,7 +4,6 @@ object Rules {
 
     // common
     const val BuildGradle = "*build.gradle.kts"
-    const val DrawableResources = "*/drawable/*"
     const val StringsXml = "*/strings.xml"
     const val IndexHtml = "*/index.html"
     const val IosConfig = "*/Config.xcconfig"
@@ -13,6 +12,7 @@ object Rules {
     const val JsSrcDir = "*/src/jsMain"
     const val IosSrcDir = "*/src/ios*"
     const val IosAppDir = "iosApp"
+    const val GradleProperties = "gradle.properties"
 
     // root
     const val RootSettingsGradle = "settings.gradle.kts"
@@ -93,10 +93,9 @@ object Rules {
     const val PresentationDir = "shared/presentation"
     const val PresentationBuildGradle = "${PresentationDir}/build.gradle.kts"
     const val PresentationUiDir = "${PresentationDir}/src/commonMain/kotlin/shared/presentation/ui"
-    const val PresentationIconsKt = "${PresentationUiDir}/icon/AppIcons.kt"
+    const val PresentationIconsKt = "${PresentationUiDir}/icon/DsIcons.kt"
     const val PresentationComponentDir = "${PresentationUiDir}/component"
-    const val PresentationComponentPlaceholder = "${PresentationComponentDir}/AppPlaceholder.kt"
-    const val PresentationComponentFilePicker = "${PresentationComponentDir}/AppFilePicker.kt"
-    const val PresentationComponentMarkdown = "${PresentationComponentDir}/AppMarkdown.kt"
-    const val PresentationComponentIcon = "${PresentationComponentDir}/AppIcon.kt"
+    const val PresentationComponentFilePicker = "${PresentationComponentDir}/DsFilePicker.kt"
+    const val PresentationComponentMarkdown = "${PresentationComponentDir}/DsMarkdown.kt"
+    const val PresentationComponentIcon = "${PresentationComponentDir}/DsIcon.kt"
 }

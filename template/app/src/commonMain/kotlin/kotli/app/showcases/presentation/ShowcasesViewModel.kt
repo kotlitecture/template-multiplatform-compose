@@ -19,7 +19,6 @@ import kotli.app.showcases.presentation.userflow.auth.AuthShowcases
 import kotli.app.showcases.presentation.userflow.common.component.filepicker.FilePickerRoute
 import kotli.app.showcases.presentation.userflow.common.component.image.coil.CoilRoute
 import kotli.app.showcases.presentation.userflow.common.component.markdown.MarkdownRoute
-import kotli.app.showcases.presentation.userflow.common.component.placeholder.PlaceholderRoute
 import kotli.app.showcases.presentation.userflow.passcode.PasscodeShowcases
 import kotli.app.showcases.presentation.userflow.theme.change.ChangeThemeShowcases
 import kotli.app.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
@@ -50,6 +49,7 @@ class ShowcasesViewModel : BaseViewModel() {
         Showcase.Header("User Flow :: Theme"),
         ChangeThemeShowcases.screen,
         ChangeThemeShowcases.dialog,
+        ChangeThemeShowcases.bottomSheet,
         ToggleThemeRoute.screen,
         Showcase.Header("User Flow :: Passcode"),
         PasscodeShowcases.set,
@@ -57,7 +57,6 @@ class ShowcasesViewModel : BaseViewModel() {
         Showcase.Header("User Flow :: Auth"),
         AuthShowcases.basic,
         Showcase.Header("User Flow :: Components"),
-        PlaceholderRoute.screen,
         FilePickerRoute.screen,
         MarkdownRoute.screen,
         CoilRoute.screen,

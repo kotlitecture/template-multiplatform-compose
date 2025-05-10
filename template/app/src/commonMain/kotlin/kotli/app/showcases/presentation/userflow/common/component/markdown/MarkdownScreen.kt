@@ -5,16 +5,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.ui.component.AppMarkdown
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.component.DsMarkdown
+import shared.presentation.ui.container.DsFixedTopBarColumn
 
 @Composable
 fun MarkdownScreen(onBack: () -> Unit) {
-    AppFixedTopBarColumn(
+    DsFixedTopBarColumn(
         title = MarkdownRoute.screen.label,
         onBack = onBack,
         content = {
-            AppMarkdown(
+            DsMarkdown(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxSize(),

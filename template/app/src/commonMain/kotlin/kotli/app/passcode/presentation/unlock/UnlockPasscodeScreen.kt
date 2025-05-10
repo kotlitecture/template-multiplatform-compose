@@ -6,7 +6,7 @@ import kotli.app.passcode.presentation.common.PasscodeKeyboard
 import kotli.app.passcode.presentation.forgot.ForgotPasscodeDialog
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_unlock_forgot
@@ -18,7 +18,7 @@ fun UnlockPasscodeScreen() {
     val state = viewModel.state
 
     ViewStateHandler(state) {
-        AppFixedTopBarColumn {
+        DsFixedTopBarColumn {
             PasscodeKeyboard(
                 title = stringResource(Res.string.passcode_unlock_title),
                 onCodeChange = viewModel::onUnlock,

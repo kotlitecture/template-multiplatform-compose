@@ -1,11 +1,11 @@
 package kotli.app.showcases.presentation.userflow.common.component.filepicker
 
 import androidx.compose.runtime.Stable
-import shared.presentation.ui.component.AppFilePickerFile
+import shared.presentation.ui.component.DsFilePickerFile
 
 @Stable
 interface FilePickerState {
 
-    val files: List<AppFilePickerFile>
+    val files: List<DsFilePickerFile>
 
 }

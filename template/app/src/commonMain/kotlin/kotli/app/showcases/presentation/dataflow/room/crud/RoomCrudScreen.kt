@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotli.app.common.data.source.database.UserEntity
-import shared.presentation.theme.Theme
-import shared.presentation.ui.component.AppActionButton
-import shared.presentation.ui.component.AppHorizontalDivider
-import shared.presentation.ui.component.AppOutlinedButton
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.container.AppFixedTopBarLazyColumn
-import shared.presentation.ui.icon.AppIcons
+import shared.presentation.ui.theme.DsTheme
+import shared.presentation.ui.component.DsActionButton
+import shared.presentation.ui.component.DsHorizontalDivider
+import shared.presentation.ui.component.DsOutlinedButton
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.container.DsFixedTopBarLazyColumn
+import shared.presentation.ui.icon.DsIcons
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -26,7 +26,7 @@ fun RoomCrudScreen(onBack: () -> Unit) {
     val viewModel: RoomCrudViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarLazyColumn(
+    DsFixedTopBarLazyColumn(
         title = RoomCrudRoute.screen.label,
         onBack = onBack,
         actions = { ActionsBlock(viewModel) },
@@ -41,7 +41,7 @@ fun RoomCrudScreen(onBack: () -> Unit) {
 
             if (users.isEmpty()) {
                 item {
-                    AppText(
+                    DsText(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(16.dp),
@@ -56,7 +56,7 @@ fun RoomCrudScreen(onBack: () -> Unit) {
 
 @Composable
 private fun ActionsBlock(viewModel: RoomCrudViewModel) {
-    AppOutlinedButton(
+    DsOutlinedButton(
         modifier = Modifier.padding(horizontal = 16.dp),
         onClick = viewModel::onAdd,
         text = "Add user"
@@ -73,14 +73,14 @@ private fun UserBlock(user: UserEntity?, onDelete: (user: UserEntity) -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        AppText(text = user?.firstName.orEmpty())
-        AppText(text = user?.lastName.orEmpty())
+        DsText(text = user?.firstName.orEmpty())
+        DsText(text = user?.lastName.orEmpty())
         Spacer(Modifier.weight(1f))
-        AppActionButton(
+        DsActionButton(
             onClick = { user?.let(onDelete) },
-            tint = Theme.current.error,
-            icon = AppIcons.delete,
+            tint = DsTheme.current.error,
+            icon = DsIcons.delete,
         )
     }
-    AppHorizontalDivider()
+    DsHorizontalDivider()
 }

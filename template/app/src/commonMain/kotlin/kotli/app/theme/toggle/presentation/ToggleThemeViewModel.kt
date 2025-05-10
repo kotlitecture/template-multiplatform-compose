@@ -1,7 +1,7 @@
 package kotli.app.theme.toggle.presentation
 
-import shared.presentation.ui.icon.AppIconModel
-import shared.presentation.ui.icon.AppIcons
+import shared.presentation.ui.icon.DsIconModel
+import shared.presentation.ui.icon.DsIcons
 import shared.presentation.theme.ThemeState
 import shared.presentation.viewmodel.BaseViewModel
 
@@ -30,13 +30,13 @@ class ToggleThemeViewModel(
             return themeState.currentTheme?.dark
         }
 
-        override fun getIcon(): AppIconModel? {
+        override fun getIcon(): DsIconModel? {
             val theme = themeState.currentTheme
 
             return when {
                 theme == null -> null
-                theme.dark -> AppIcons.lightMode
-                else -> AppIcons.darkMode
+                theme.dark -> DsIcons.lightMode
+                else -> DsIcons.darkMode
             }
         }
     }

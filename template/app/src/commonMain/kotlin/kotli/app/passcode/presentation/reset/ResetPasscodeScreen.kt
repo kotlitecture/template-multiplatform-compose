@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import kotli.app.passcode.presentation.common.PasscodeKeyboard
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_reset_title
@@ -22,7 +22,7 @@ fun ResetPasscodeScreen(onBack: () -> Unit) {
             }
         },
         content = {
-            AppFixedTopBarColumn(onBack = onBack) {
+            DsFixedTopBarColumn(onBack = onBack) {
                 PasscodeKeyboard(
                     getError = state::error,
                     getCode = state::enteredCode,
