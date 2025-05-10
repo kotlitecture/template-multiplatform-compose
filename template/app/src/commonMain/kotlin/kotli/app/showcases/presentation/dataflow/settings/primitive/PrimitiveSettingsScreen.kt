@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.presentation.ShowcaseHintBlock
-import shared.presentation.ui.component.AppTextField
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.component.DsTextField
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -15,7 +15,7 @@ fun PrimitiveSettingsScreen(onBack: () -> Unit) {
     val viewModel: PrimitiveSettingsViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarColumn(
+    DsFixedTopBarColumn(
         title = PrimitiveSettingsRoute.screen.label,
         onBack = onBack,
         content = {
@@ -39,7 +39,7 @@ private fun InputBlock(
     state: PrimitiveSettingsState,
     onTextChanged: (text: String) -> Unit
 ) {
-    AppTextField(
+    DsTextField(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth(),

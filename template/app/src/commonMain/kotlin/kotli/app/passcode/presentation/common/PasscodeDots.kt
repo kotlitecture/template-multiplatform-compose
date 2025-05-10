@@ -20,8 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import shared.presentation.ui.component.AppText
-import shared.presentation.theme.Theme
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.theme.DsTheme
 
 @Composable
 fun PasscodeDots(
@@ -37,9 +37,9 @@ fun PasscodeDots(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         title?.let {
-            AppText(
+            DsText(
                 modifier = Modifier.fillMaxWidth(),
-                color = Theme.current.onSurface,
+                color = DsTheme.current.onSurface,
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.W600,
                 fontSize = 24.sp,
@@ -77,11 +77,11 @@ private fun ErrorBlock(
     getError: () -> String?
 ) {
     val error = getError() ?: return
-    AppText(
+    DsText(
         text = error,
         maxLines = 1,
         textAlign = TextAlign.Center,
-        color = Theme.current.error
+        color = DsTheme.current.error
     )
 }
 
@@ -93,7 +93,7 @@ private fun DotBlock(filled: Boolean) {
             .size(size)
             .clip(CircleShape)
             .composed {
-                val color = Theme.current.onSurface
+                val color = DsTheme.current.onSurface
                 if (filled) {
                     background(color)
                 } else {

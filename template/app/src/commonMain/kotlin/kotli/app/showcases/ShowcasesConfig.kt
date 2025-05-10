@@ -50,9 +50,6 @@ import kotli.app.showcases.presentation.userflow.common.component.image.coil.Coi
 import kotli.app.showcases.presentation.userflow.common.component.image.coil.CoilScreen
 import kotli.app.showcases.presentation.userflow.common.component.markdown.MarkdownRoute
 import kotli.app.showcases.presentation.userflow.common.component.markdown.MarkdownScreen
-import kotli.app.showcases.presentation.userflow.common.component.placeholder.PlaceholderRoute
-import kotli.app.showcases.presentation.userflow.common.component.placeholder.PlaceholderScreen
-import kotli.app.showcases.presentation.userflow.common.component.placeholder.PlaceholderViewModel
 import kotli.app.showcases.presentation.userflow.theme.toggle.ToggleThemeRoute
 import kotli.app.showcases.presentation.userflow.theme.toggle.ToggleThemeScreen
 import org.koin.dsl.module
@@ -64,7 +61,6 @@ fun NavGraphBuilder.showcases(navController: NavHostController) {
     composable<FilePickerRoute> { FilePickerScreen(navController::back) }
     composable<CoilRoute> { CoilScreen(navController::back) }
     composable<MarkdownRoute> { MarkdownScreen(navController::back) }
-    composable<PlaceholderRoute> { PlaceholderScreen(navController::back) }
     composable<GeminiRoute> { GeminiScreen(navController::back) }
     composable<BasicCacheRoute> { BasicCacheScreen(navController::back) }
     composable<BasicEncryptionRoute> { BasicEncryptionScreen(navController::back) }
@@ -88,7 +84,6 @@ fun InitializerViewModelFactoryBuilder.showcases() {
     initializer { SqlDelightCrudViewModel(get()) }
     initializer { SqlDelightPagingViewModel(get(), get(), get()) }
     initializer { BasicCacheViewModel(get()) }
-    initializer { PlaceholderViewModel() }
     initializer { BasicEncryptionViewModel(get()) }
     initializer { FilePickerViewModel() }
     initializer { GeminiViewModel(get()) }

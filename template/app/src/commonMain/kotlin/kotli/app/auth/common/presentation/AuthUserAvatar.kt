@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotli.app.auth.common.domain.model.AuthUser
-import shared.presentation.theme.Theme
-import shared.presentation.ui.component.AppText
+import shared.presentation.ui.theme.DsTheme
+import shared.presentation.ui.component.DsText
 
 @Composable
 fun AuthUserAvatar(
@@ -35,9 +35,9 @@ fun AuthUserAvatar(
         FirstLetterAvatar(model, size)
 
         if (showEmail && model.email != null) {
-            AppText(
+            DsText(
                 text = model.email,
-                color = Theme.current.onSurface,
+                color = DsTheme.current.onSurface,
                 fontSize = remember(size) { size.value.times(0.3).sp },
             )
         }
@@ -53,14 +53,14 @@ private fun FirstLetterAvatar(
         modifier = Modifier
             .size(size)
             .clip(CircleShape)
-            .background(Theme.current.highlightPrimary),
+            .background(DsTheme.current.highlightPrimary),
         contentAlignment = Alignment.Center
     ) {
-        AppText(
+        DsText(
             textAlign = TextAlign.Center,
             text = model.getFirstLetter(),
             fontWeight = FontWeight.Medium,
-            color = Theme.current.onSurface,
+            color = DsTheme.current.onSurface,
             fontSize = remember(size) { size.value.times(0.55).sp }
         )
     }

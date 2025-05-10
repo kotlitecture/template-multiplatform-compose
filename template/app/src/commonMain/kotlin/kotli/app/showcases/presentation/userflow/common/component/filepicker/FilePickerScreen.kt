@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotli.app.showcases.presentation.ShowcaseHintBlock
-import shared.presentation.ui.component.AppCard
-import shared.presentation.ui.component.AppElevatedButton
-import shared.presentation.ui.component.AppFilePickerFile
-import shared.presentation.ui.component.AppSpacer16
-import shared.presentation.ui.component.AppText
+import shared.presentation.ui.component.DsCard
+import shared.presentation.ui.component.DsElevatedButton
+import shared.presentation.ui.component.DsFilePickerFile
+import shared.presentation.ui.component.DsSpacer16
+import shared.presentation.ui.component.DsText
 import shared.presentation.ui.component.getFileLauncher
-import shared.presentation.ui.container.AppFixedTopBarLazyColumn
+import shared.presentation.ui.container.DsFixedTopBarLazyColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -26,7 +26,7 @@ fun FilePickerScreen(onBack: () -> Unit) {
     val viewModel: FilePickerViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarLazyColumn(
+    DsFixedTopBarLazyColumn(
         title = FilePickerRoute.screen.label,
         onBack = onBack,
         content = {
@@ -41,7 +41,7 @@ fun FilePickerScreen(onBack: () -> Unit) {
             item {
                 val filePicker = getFileLauncher(onResult = viewModel::onSelectFiles)
 
-                AppElevatedButton(
+                DsElevatedButton(
                     modifier = Modifier
                         .padding(16.dp)
                         .fillMaxWidth(),
@@ -54,14 +54,14 @@ fun FilePickerScreen(onBack: () -> Unit) {
                 item { FileBlock(file) }
             }
 
-            item { AppSpacer16() }
+            item { DsSpacer16() }
         }
     )
 }
 
 @Composable
-private fun FileBlock(file: AppFilePickerFile) {
-    AppCard(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+private fun FileBlock(file: DsFilePickerFile) {
+    DsCard(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -70,12 +70,12 @@ private fun FileBlock(file: AppFilePickerFile) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                AppText(
+                DsText(
                     text = file.name,
                     maxLines = 1,
                     fontSize = 16.sp,
                 )
-                AppText(
+                DsText(
                     text = file.getSize().toString() + " bytes",
                     maxLines = 1,
                     fontSize = 12.sp
@@ -83,7 +83,7 @@ private fun FileBlock(file: AppFilePickerFile) {
             }
 
             Column(modifier = Modifier.wrapContentWidth()) {
-                AppText(
+                DsText(
                     text = "${file.getSize()?.let { it / 1024 } ?: '?'} Kb",
                     maxLines = 1,
                     fontSize = 14.sp,

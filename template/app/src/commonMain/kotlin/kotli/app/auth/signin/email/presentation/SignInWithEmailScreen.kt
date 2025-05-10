@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
-import shared.presentation.ui.container.AppFixedTopBarLayout
+import shared.presentation.ui.container.DsFixedTopBarLayout
 import template.app.generated.resources.Res
 import template.app.generated.resources.auth_sign_in_email
 
@@ -16,7 +16,7 @@ fun SignInWithEmailScreen(
     onVerify: (email: String) -> Unit,
     onBack: () -> Unit,
 ) {
-    AppFixedTopBarLayout(
+    DsFixedTopBarLayout(
         modifier = modifier,
         title = stringResource(Res.string.auth_sign_in_email),
         onBack = onBack,

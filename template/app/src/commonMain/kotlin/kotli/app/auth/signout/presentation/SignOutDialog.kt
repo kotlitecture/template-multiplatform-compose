@@ -3,7 +3,7 @@ package kotli.app.auth.signout.presentation
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.component.AppAlertDialog
+import shared.presentation.ui.component.DsAlertDialog
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.auth_sign_out_cancel
@@ -28,7 +28,7 @@ fun SignOutDialog(
             }
         },
         content = {
-            AppAlertDialog(
+            DsAlertDialog(
                 dismissAction = onCancel,
                 onDismissRequest = onCancel,
                 confirmAction = viewModel::onConfirm,

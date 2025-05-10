@@ -37,6 +37,8 @@ import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProce
 import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvider
 import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
 import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
+import kotli.template.multiplatform.compose.testing.development.DevelopmentProvider
+import kotli.template.multiplatform.compose.testing.development.hotreload.HotReloadProcessor
 import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
 import kotli.template.multiplatform.compose.userflow.auth.AuthProvider
 import kotli.template.multiplatform.compose.userflow.common.component.ComponentProvider
@@ -60,6 +62,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
                 Feature(JvmPlatformProcessor.ID),
+                Feature(HotReloadProcessor.ID),
                 Feature(ReadmeProcessor.getId())
             )
         )
@@ -104,6 +107,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
         // testing
         LoggingProvider,
+        DevelopmentProvider,
 
         // guides
         DocumentationProvider,

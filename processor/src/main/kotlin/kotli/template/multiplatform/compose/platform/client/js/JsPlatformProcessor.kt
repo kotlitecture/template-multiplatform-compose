@@ -31,6 +31,10 @@ object JsPlatformProcessor : PlatformProcessor() {
                 RemoveMarkedLine("client-js")
             )
         )
+        state.onApplyRules(
+            Rules.GradleProperties,
+            RemoveMarkedLine("js")
+        )
     }
 
 }

@@ -3,7 +3,7 @@ package kotli.app.passcode.presentation.forgot
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.component.AppAlertDialog
+import shared.presentation.ui.component.DsAlertDialog
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.passcode_forgot_message
@@ -24,7 +24,7 @@ fun ForgotPasscodeDialog(onHide: () -> Unit) {
             }
         },
         content = {
-            AppAlertDialog(
+            DsAlertDialog(
                 dismissAction = onHide,
                 onDismissRequest = onHide,
                 confirmAction = viewModel::onConfirm,

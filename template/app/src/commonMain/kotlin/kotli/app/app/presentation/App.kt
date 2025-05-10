@@ -16,7 +16,7 @@ import kotli.app.navigation.provide.presentation.BottomNavigationProvider
 import kotli.app.navigation.provide.presentation.NavigationProvider
 import kotli.app.passcode.presentation.provide.PasscodeProvider
 import kotli.app.theme.provide.presentation.ThemeProvider
-import shared.presentation.ui.container.AppScaffold
+import shared.presentation.ui.container.DsScaffold
 import shared.presentation.viewmodel.ViewModelProvider
 import shared.presentation.viewmodel.provideViewModel
 
@@ -37,7 +37,7 @@ fun App() = ViewModelProvider({ app() }) {
 @Composable
 private fun AppScaffold(state: AppState, navController: NavHostController) {
     val startDestination = state.startDestination ?: return
-    AppScaffold(
+    DsScaffold(
         snackbarState = state.snackbarState,
         bottomBar = { BottomNavigationProvider(navController) }
     ) { paddings ->

@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import shared.presentation.ui.component.AppText
+import shared.presentation.ui.component.DsText
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -14,7 +14,7 @@ fun BScreen() {
     val state = viewModel.state
 
     Box(Modifier.fillMaxSize()) {
-        AppText(
+        DsText(
             modifier = Modifier.align(Alignment.Center),
             text = state.title
         )

@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.ui.component.AppTextField
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.component.DsTextField
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -16,7 +16,7 @@ fun BasicEncryptionScreen(onBack: () -> Unit) {
     val viewModel: BasicEncryptionViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarColumn(
+    DsFixedTopBarColumn(
         title = BasicEncryptionRoute.screen.label,
         onBack = onBack,
         content = {
@@ -26,7 +26,7 @@ fun BasicEncryptionScreen(onBack: () -> Unit) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                AppTextField(
+                DsTextField(
                     modifier = Modifier.weight(1f),
                     placeholder = "Enter password",
                     supportingText = "Password to encrypt the text",
@@ -34,7 +34,7 @@ fun BasicEncryptionScreen(onBack: () -> Unit) {
                     onValueChange = viewModel::onEncryptionPasswordChanged
                 )
 
-                AppTextField(
+                DsTextField(
                     modifier = Modifier.weight(1f),
                     placeholder = "Enter text",
                     supportingText = "Text",
@@ -42,7 +42,7 @@ fun BasicEncryptionScreen(onBack: () -> Unit) {
                     onValueChange = viewModel::onTextChanged
                 )
             }
-            AppTextField(
+            DsTextField(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
@@ -59,7 +59,7 @@ fun BasicEncryptionScreen(onBack: () -> Unit) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                AppTextField(
+                DsTextField(
                     modifier = Modifier.weight(1f),
                     placeholder = "Enter password",
                     supportingText = "Password to decrypt the text",
@@ -67,7 +67,7 @@ fun BasicEncryptionScreen(onBack: () -> Unit) {
                     onValueChange = viewModel::onDecryptionPasswordChanged
                 )
 
-                AppTextField(
+                DsTextField(
                     modifier = Modifier.weight(1f),
                     placeholder = "",
                     readOnly = true,

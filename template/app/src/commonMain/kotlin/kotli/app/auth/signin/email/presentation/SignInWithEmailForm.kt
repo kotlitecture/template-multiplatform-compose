@@ -9,9 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.component.AppElevatedButton
-import shared.presentation.ui.component.AppOutlinedButton
-import shared.presentation.ui.component.AppTextField
+import shared.presentation.ui.component.DsElevatedButton
+import shared.presentation.ui.component.DsTextField
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.auth_sign_in_email_action
@@ -38,7 +37,7 @@ fun SignInWithEmailForm(
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                AppTextField(
+                DsTextField(
                     modifier = Modifier.fillMaxWidth(),
                     getValue = state::email::get,
                     onValueChange = viewModel::onChangeEmail,
@@ -46,7 +45,7 @@ fun SignInWithEmailForm(
                     autoFocus = true
                 )
 
-                AppElevatedButton(
+                DsElevatedButton(
                     modifier = Modifier.fillMaxWidth(),
                     text = stringResource(Res.string.auth_sign_in_email_action),
                     onClick = viewModel::onVerify,

@@ -76,7 +76,6 @@ kotlin {
             implementation(libs.supabase.realtime)
             implementation(libs.supabase.functions)
             implementation(libs.supabase.compose.auth)
-            implementation(libs.supabase.compose.auth.ui)
             implementation(libs.supabase.coil3.integration)
             implementation(projects.shared.data)
             implementation(projects.shared.domain)

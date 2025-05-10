@@ -5,11 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.theme.toggle.presentation.ToggleThemeButton
-import shared.presentation.ui.component.AppDialogContent
+import shared.presentation.ui.component.DsDialogContent
 
 @Composable
 fun ToggleThemeScreen() {
-    AppDialogContent(
+    DsDialogContent(
         modifier = Modifier
             .sizeIn(
                 minWidth = 100.dp,

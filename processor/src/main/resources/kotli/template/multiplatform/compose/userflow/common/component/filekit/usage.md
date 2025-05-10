@@ -1,6 +1,6 @@
 ## Overview
 
-**Component**: `shared.presentation.ui.component.AppFilePicker`  
+**Component**: `shared.presentation.ui.component.DsFilePicker`  
 **Showcases**: `app.showcases.presentation.userflow.component.filepicker`
 
 The component provides a general facade to abstract the underlying framework, allowing for easier replacement or modification in the future.
@@ -9,25 +9,25 @@ The component provides a general facade to abstract the underlying framework, al
 
 ```kotlin
 @Composable
-fun AppFilePickerUsage() {
+fun DsFilePickerUsage() {
     val filePicker = getFileLauncher(onResult = { files ->
         // process the selected files
     })
-    AppElevatedButton(text = "Select files", onClick = filePicker::launch)
+    DsElevatedButton(text = "Select files", onClick = filePicker::launch)
 
     val imagesPicker = getImageLauncher(onResult = { images ->
         // process the selected images
     })
-    AppElevatedButton(text = "Select images", onClick = imagesPicker::launch)
+    DsElevatedButton(text = "Select images", onClick = imagesPicker::launch)
 
     val videoPicker = getVideoLauncher(onResult = { videos ->
         // process the selected videos
     })
-    AppElevatedButton(text = "Select videos", onClick = videoPicker::launch)
+    DsElevatedButton(text = "Select videos", onClick = videoPicker::launch)
 
     val mediaPicker = getMediaLauncher(onResult = { media ->
         // process the selected media
     })
-    AppElevatedButton(text = "Select media", onClick = mediaPicker::launch)
+    DsElevatedButton(text = "Select media", onClick = mediaPicker::launch)
 }
 ```

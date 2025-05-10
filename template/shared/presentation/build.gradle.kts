@@ -44,10 +44,10 @@ kotlin {
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.json)
             api(libs.androidx.navigation.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(compose.material3)
-            implementation(libs.compose.placeholder.material3) // {userflow.component.placeholder}
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor3)
             implementation(libs.filekit.compose)

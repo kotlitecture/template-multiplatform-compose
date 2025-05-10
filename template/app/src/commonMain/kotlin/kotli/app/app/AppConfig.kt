@@ -20,7 +20,7 @@ import kotli.app.template.feature.template
 import kotli.app.theme.theme
 import org.koin.dsl.bind
 import org.koin.dsl.module
-import shared.presentation.ui.component.AppSnackbarState
+import shared.presentation.ui.component.DsSnackbarState
 
 fun NavGraphBuilder.app(navController: NavHostController) {
     platform(navController)
@@ -50,7 +50,7 @@ fun InitializerViewModelFactoryBuilder.app() {
 }
 
 val app = module {
-    single { AppSnackbarState() }
+    single { DsSnackbarState() }
     single { AppMutableState(get()) }.bind(AppState::class)
     includes(
         platform,

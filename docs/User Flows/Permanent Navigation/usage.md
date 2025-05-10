@@ -33,22 +33,22 @@ class NavigationViewModel : BaseViewModel() {
             route = ARoute,
             onRoute = onRoute,
             label = "Page A",
-            activeIcon = AppIcons.wineBar,
-            inactiveIcon = AppIcons.wineBar,
+            activeIcon = DsIcons.wineBar,
+            inactiveIcon = DsIcons.wineBar,
         ),
         createItem(
             route = BRoute,
             onRoute = onRoute,
             label = "Page B",
-            activeIcon = AppIcons.localDrink,
-            inactiveIcon = AppIcons.localDrink,
+            activeIcon = DsIcons.localDrink,
+            inactiveIcon = DsIcons.localDrink,
         ),
         createItem(
             route = CRoute,
             onRoute = onRoute,
             label = "Page C",
-            activeIcon = AppIcons.coffee,
-            inactiveIcon = AppIcons.coffee,
+            activeIcon = DsIcons.coffee,
+            inactiveIcon = DsIcons.coffee,
         )
     )
     ...

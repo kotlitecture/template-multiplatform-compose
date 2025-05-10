@@ -157,12 +157,12 @@ The generated project will include a similar table in its README.MD file, but wi
 | Base Setup | Material 3 | [Link](docs/Base%20Setup/Material%203/overview.md) | - | [Link](docs/Base%20Setup/Material%203/usage.md) |
 | Base Setup | Koin | [Link](docs/Base%20Setup/Koin/overview.md) | - | - |
 | Base Setup | Gradle (Kotlin DSL) | [Link](docs/Base%20Setup/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
+| Data Flows | Ktor HTTP Client | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/usage.md) |
 | Data Flows | Korlibs Crypto Library | [Link](docs/Data%20Flows/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Data%20Flows/Korlibs%20Crypto%20Library/usage.md) |
 | Data Flows | Basic Cache API | [Link](docs/Data%20Flows/Basic%20Cache%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Cache%20API/usage.md) |
 | Data Flows | Basic Config API | [Link](docs/Data%20Flows/Basic%20Config%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Config%20API/usage.md) |
 | Data Flows | SQLDelight | [Link](docs/Data%20Flows/SQLDelight/overview.md) | - | [Link](docs/Data%20Flows/SQLDelight/usage.md) |
 | Data Flows | SQLite (Jetpack Room) | [Link](docs/Data%20Flows/SQLite%20%28Jetpack%20Room%29/overview.md) | - | [Link](docs/Data%20Flows/SQLite%20%28Jetpack%20Room%29/usage.md) |
-| Data Flows | Ktor HTTP Client | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/usage.md) |
 | Data Flows | Multiplatform Paging Library | [Link](docs/Data%20Flows/Multiplatform%20Paging%20Library/overview.md) | - | [Link](docs/Data%20Flows/Multiplatform%20Paging%20Library/usage.md) |
 | Data Flows | Basic Analytics API | [Link](docs/Data%20Flows/Basic%20Analytics%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Analytics%20API/usage.md) |
 | Data Flows | Gemini AI | [Link](docs/Data%20Flows/Gemini%20AI/overview.md) | - | [Link](docs/Data%20Flows/Gemini%20AI/usage.md) |
@@ -179,11 +179,11 @@ The generated project will include a similar table in its README.MD file, but wi
 | User Flows | Toggle Theme Button | [Link](docs/User%20Flows/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/User%20Flows/Toggle%20Theme%20Button/usage.md) |
 | User Flows | Auth Flow | [Link](docs/User%20Flows/Auth%20Flow/overview.md) | - | [Link](docs/User%20Flows/Auth%20Flow/usage.md) |
 | User Flows | Passcode Flow | [Link](docs/User%20Flows/Passcode%20Flow/overview.md) | - | [Link](docs/User%20Flows/Passcode%20Flow/usage.md) |
-| User Flows | Placeholder UI | [Link](docs/User%20Flows/Placeholder%20UI/overview.md) | - | [Link](docs/User%20Flows/Placeholder%20UI/usage.md) |
 | User Flows | FileKit | [Link](docs/User%20Flows/FileKit/overview.md) | - | [Link](docs/User%20Flows/FileKit/usage.md) |
 | Dev Tools | kotlin-logging | [Link](docs/Dev%20Tools/kotlin-logging/overview.md) | - | [Link](docs/Dev%20Tools/kotlin-logging/usage.md) |
 | Dev Tools | Kermit | [Link](docs/Dev%20Tools/Kermit/overview.md) | - | [Link](docs/Dev%20Tools/Kermit/usage.md) |
 | Dev Tools | Napier | [Link](docs/Dev%20Tools/Napier/overview.md) | - | [Link](docs/Dev%20Tools/Napier/usage.md) |
+| Dev Tools | Compose Hot Reload | [Link](docs/Dev%20Tools/Compose%20Hot%20Reload/overview.md) | - | [Link](docs/Dev%20Tools/Compose%20Hot%20Reload/usage.md) |
 | Guides | README.md | [Link](docs/Guides/README.md/overview.md) | - | - |
 | Guides | Feature Showcases | [Link](docs/Guides/Feature%20Showcases/overview.md) | - | - |
 | Guides | Feature Template | [Link](docs/Guides/Feature%20Template/overview.md) | - | [Link](docs/Guides/Feature%20Template/usage.md) |

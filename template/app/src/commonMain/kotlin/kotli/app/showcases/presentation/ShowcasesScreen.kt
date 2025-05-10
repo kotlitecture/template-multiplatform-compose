@@ -11,15 +11,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.domain.Showcase
-import shared.presentation.ui.component.AppActionButton
-import shared.presentation.ui.component.AppAlertDialog
-import shared.presentation.ui.component.AppIcon
-import shared.presentation.ui.component.AppOutlinedCard
-import shared.presentation.ui.component.AppSpacer16
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.component.AppTextPrimaryHeader
-import shared.presentation.ui.container.AppFixedTopBarLazyColumn
-import shared.presentation.ui.icon.AppIcons
+import shared.presentation.ui.component.DsActionButton
+import shared.presentation.ui.component.DsAlertDialog
+import shared.presentation.ui.component.DsIcon
+import shared.presentation.ui.component.DsOutlinedCard
+import shared.presentation.ui.component.DsSpacer16
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.component.DsTextPrimaryHeader
+import shared.presentation.ui.container.DsFixedTopBarLazyColumn
+import shared.presentation.ui.icon.DsIcons
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -29,25 +29,25 @@ fun ShowcasesScreen(
     val viewModel: ShowcasesViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarLazyColumn(
+    DsFixedTopBarLazyColumn(
         title = "Showcases",
         actions = {
-            AppActionButton(
+            DsActionButton(
                 modifier = Modifier
                     .padding(horizontal = 8.dp),
-                icon = AppIcons.info,
+                icon = DsIcons.info,
                 onClick = viewModel::onShowHint,
             )
         },
         content = {
-            item { AppSpacer16() }
+            item { DsSpacer16() }
             state.showcases.forEach { showcase ->
                 when (showcase) {
                     is Showcase.Screen -> showcaseScreen(showcase, onShow)
                     is Showcase.Header -> showcaseHeader(showcase)
                 }
             }
-            item { AppSpacer16() }
+            item { DsSpacer16() }
         }
     )
 
@@ -59,7 +59,7 @@ fun ShowcasesScreen(
 
 @Composable
 fun ShowcaseHintBlock(text: String, modifier: Modifier = Modifier) {
-    AppOutlinedCard(
+    DsOutlinedCard(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth()
@@ -75,7 +75,7 @@ private fun HintBlock(
 ) {
     if (!state.showHint) return
 
-    AppAlertDialog(
+    DsAlertDialog(
         onDismissRequest = onHide,
         title = "Showcases",
         text = """
@@ -99,7 +99,7 @@ private fun LazyListScope.showcaseScreen(
     onShow: (route: Any) -> Unit
 ) {
     item {
-        AppOutlinedCard(
+        DsOutlinedCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -112,8 +112,8 @@ private fun LazyListScope.showcaseScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                AppText(text = screen.label)
-                AppIcon(model = AppIcons.chevronRight)
+                DsText(text = screen.label)
+                DsIcon(model = DsIcons.chevronRight)
             }
         }
     }
@@ -123,7 +123,7 @@ private fun LazyListScope.showcaseHeader(
     header: Showcase.Header
 ) {
     item {
-        AppTextPrimaryHeader(
+        DsTextPrimaryHeader(
             modifier = Modifier.padding(16.dp),
             text = header.label
         )

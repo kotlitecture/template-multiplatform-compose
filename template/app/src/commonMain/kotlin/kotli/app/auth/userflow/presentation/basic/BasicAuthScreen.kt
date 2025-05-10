@@ -15,9 +15,9 @@ import kotli.app.auth.signin.email.presentation.SignInWithEmailButton
 import kotli.app.auth.signin.google.presentation.SignInWithGoogleButton
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.UiState
-import shared.presentation.ui.component.AppCircularProgressIndicator
-import shared.presentation.ui.component.AppTextButton
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.component.DsCircularProgressIndicator
+import shared.presentation.ui.component.DsTextButton
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 import template.app.generated.resources.Res
 import template.app.generated.resources.auth_sign_out
@@ -29,7 +29,7 @@ fun BasicAuthScreen(
     onSignInWithEmail: () -> Unit,
     onSignOut: () -> Unit,
 ) {
-    AppFixedTopBarColumn(
+    DsFixedTopBarColumn(
         title = title,
         onBack = onBack,
         content = {
@@ -70,7 +70,7 @@ fun BasicAuthContent(
 
 @Composable
 private fun LoadingContent() {
-    AppCircularProgressIndicator()
+    DsCircularProgressIndicator()
 }
 
 @Composable
@@ -81,7 +81,7 @@ private fun AuthorizedContent(
     AuthUserAvatar(
         model = user
     )
-    AppTextButton(
+    DsTextButton(
         text = stringResource(Res.string.auth_sign_out),
         onClick = onSignOut,
     )

@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import kotli.app.passcode.presentation.common.PasscodeKeyboard
 import org.jetbrains.compose.resources.stringResource
 import shared.presentation.state.ViewStateHandler
-import shared.presentation.ui.container.AppFixedTopBarColumn
+import shared.presentation.ui.container.DsFixedTopBarColumn
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -23,7 +23,7 @@ fun SetPasscodeScreen(
             }
         },
         content = {
-            AppFixedTopBarColumn(
+            DsFixedTopBarColumn(
                 onBack = onBack
             ) {
                 PasscodeKeyboard(

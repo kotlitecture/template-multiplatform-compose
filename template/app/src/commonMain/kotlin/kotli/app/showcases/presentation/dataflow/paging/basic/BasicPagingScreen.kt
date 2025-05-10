@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import shared.presentation.ui.component.AppHorizontalDivider
-import shared.presentation.ui.component.AppPagingList
-import shared.presentation.ui.component.AppText
-import shared.presentation.ui.container.AppFixedTopBarLayout
+import shared.presentation.ui.component.DsHorizontalDivider
+import shared.presentation.ui.component.DsPagingList
+import shared.presentation.ui.component.DsText
+import shared.presentation.ui.container.DsFixedTopBarLayout
 import shared.presentation.viewmodel.provideViewModel
 
 @Composable
@@ -19,11 +19,11 @@ fun BasicPagingScreen(onBack: () -> Unit) {
     val viewModel: BasicPagingViewModel = provideViewModel()
     val state = viewModel.state
 
-    AppFixedTopBarLayout(
+    DsFixedTopBarLayout(
         title = BasicPagingRoute.screen.label,
         onBack = onBack,
         content = {
-            AppPagingList(
+            DsPagingList(
                 pager = state.items,
                 itemContent = {
                     ItemBlock(item = it)
@@ -42,7 +42,7 @@ private fun ItemBlock(item: String?) {
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        AppText(text = item.orEmpty())
+        DsText(text = item.orEmpty())
     }
-    AppHorizontalDivider()
+    DsHorizontalDivider()
 }

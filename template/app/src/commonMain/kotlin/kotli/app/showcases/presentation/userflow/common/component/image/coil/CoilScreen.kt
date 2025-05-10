@@ -11,15 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import kotli.app.showcases.presentation.ShowcaseHintBlock
-import shared.presentation.ui.component.AppIcon
-import shared.presentation.ui.container.AppFixedTopBarLazyColumn
-import shared.presentation.ui.icon.UrlModel
-import shared.presentation.theme.Theme
+import shared.presentation.ui.component.DsIcon
+import shared.presentation.ui.container.DsFixedTopBarLazyColumn
+import shared.presentation.ui.icon.DsIconModel
+import shared.presentation.ui.theme.DsTheme
 import kotlin.random.Random
 
 @Composable
 fun CoilScreen(onBack: () -> Unit) {
-    AppFixedTopBarLazyColumn(
+    DsFixedTopBarLazyColumn(
         title = CoilRoute.screen.label,
         onBack = onBack,
         content = {
@@ -37,13 +37,13 @@ fun CoilScreen(onBack: () -> Unit) {
                         modifier = Modifier.fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ) {
-                        AppIcon(
+                        DsIcon(
                             size = (64 + Random.nextInt(340)).dp,
                             modifier = Modifier
                                 .padding(8.dp)
                                 .clip(RoundedCornerShape(Random.nextInt(50)))
-                                .background(Theme.current.highlightPrimary),
-                            model = UrlModel("https://picsum.photos/id/${idx + 1}/200/300")
+                                .background(DsTheme.current.highlightPrimary),
+                            model = DsIconModel.Url("https://picsum.photos/id/${idx + 1}/200/300")
                         )
                     }
                 }

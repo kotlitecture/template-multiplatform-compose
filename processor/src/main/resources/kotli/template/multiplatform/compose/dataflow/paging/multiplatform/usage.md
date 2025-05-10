@@ -23,7 +23,7 @@ class BasicPagingViewModel(pagingSource: PagingSource) : BaseViewModel() {
 @Composable
 fun BasicPagingScreen() {
     val viewModel: BasicPagingViewModel = provideViewModel()
-    AppPagingList(
+    DsPagingList(
         pager = viewModel.pager,
         itemContent = {
             ItemBlock(item = it)
@@ -33,6 +33,6 @@ fun BasicPagingScreen() {
 
 @Composable
 private fun ItemBlock(item: String?) {
-    AppText(text = item.orEmpty())
+    DsText(text = item.orEmpty())
 }
 ```

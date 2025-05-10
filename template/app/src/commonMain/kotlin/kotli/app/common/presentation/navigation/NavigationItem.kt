@@ -1,5 +1,5 @@
 package kotli.app.common.presentation.navigation
 
-import shared.presentation.ui.container.AppNavigationItem
+import shared.presentation.ui.container.DsNavigationItem
 
-typealias NavigationItem = AppNavigationItem
+typealias NavigationItem = DsNavigationItem
