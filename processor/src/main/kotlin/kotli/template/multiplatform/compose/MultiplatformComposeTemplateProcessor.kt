@@ -98,11 +98,11 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         AiProvider,
 
         // userflow
-        NavigationBarProvider,
         ThemeProvider,
         AuthProvider,
         PasscodeProvider,
         ProfileProvider,
+        NavigationBarProvider,
         ComponentProvider,
 
         // testing

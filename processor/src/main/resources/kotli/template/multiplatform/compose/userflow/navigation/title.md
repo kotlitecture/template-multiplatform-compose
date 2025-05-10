@@ -1,1 +1,1 @@
-Navigation Bar
+Navigation

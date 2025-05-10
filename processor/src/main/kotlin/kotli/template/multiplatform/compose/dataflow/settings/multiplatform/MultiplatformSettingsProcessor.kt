@@ -14,6 +14,7 @@ import kotli.template.multiplatform.compose.dataflow.settings.common.CommonSetti
 import kotli.template.multiplatform.compose.dataflow.settings.datastore.DataStoreProcessor
 import kotli.template.multiplatform.compose.showcases.dataflow.settings.SettingsShowcasesProcessor
 import kotlin.reflect.KClass
+import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
 
 object MultiplatformSettingsProcessor : BaseFeatureProcessor() {
@@ -28,7 +29,7 @@ object MultiplatformSettingsProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#no-arg-module"
 
-    override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
+    override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
         CommonSettingsProcessor::class,
